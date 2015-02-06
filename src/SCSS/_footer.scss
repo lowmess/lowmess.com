@@ -1,0 +1,39 @@
+.footer {
+  z-index: z(footer);
+  width: 100vw;
+  font-size: $h4-font-size;
+  text-align: center;
+  @include breakpoint(medium) { font-size: $md-h4-font-size; text-align: left; };
+  @include breakpoint(large) { font-size: $lg-h4-font-size; };
+  margin: 0;
+  padding-top: $gutter * 2;
+  overflow: hidden;
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  &__icon {
+    height: $h4-font-size * 5;
+    width: 75px;
+    //@include position(relative) { top: $base-line-height; };
+    margin: 0 auto;
+    display: block;
+    @include breakpoint(medium) {
+      height: 6.5rem;
+      width: 100px;
+      //@include position(relative) { top: $md-base-line-height; };
+    }
+    @include breakpoint(large) {
+      height: 8rem;
+      width: 125px;
+      //@include position(relative) { top: $lg-base-line-height; };
+    }
+  }
+  &__tagline {
+    text-align: center;
+    @include position(relative) { top: -0.5rem; };
+    //@include breakpoint(medium) { @include position(relative) { top: 0.5rem; }; };
+    //@include breakpoint(large) { @include position(relative) { top: 1rem; }; };
+  }
+}

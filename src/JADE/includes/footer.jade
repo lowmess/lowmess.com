@@ -1,0 +1,21 @@
+//- footer.jade
+footer.footer
+  .grid
+    .row.clearfix
+      .col.col--md-third
+        ul.footer__list
+          li.footer__item.footer__link.back-to-top Back to Top
+          - nav = {"pages": ["Home", "Work", "Contact", "About", "Colophon"], "links": ["//lowmess.com", "//lowmess.com/work", "//lowmess.com/contact", "//lowmess.com/about", "//lowmess.com/colophon"]};
+          each page, i in nav.pages
+            li.footer__item
+              a.footer__link(href="#{nav.links[i]}") #{page}
+      .col.col--md-third
+        ul.footer__list
+          - social = {"pages": ["Email", "Twitter", "Facebook", "Google+", "Codepen", "Dribbble"], "links": ["mailto:alec@lowmess.com?subject=let's grab coffee", "//twitter.com/lowmess", "//facebook.com/lowmess", "//plus.google.com/+Aleclomas", "//codepen.io/lowmess", "//dribbble.com/lowmess"]};
+          each page, i in social.pages
+            li.footer__item
+              a.footer__link(href="#{social.links[i]}") #{page}
+      .col.col--md-third
+        svg(role="img", title="lowmess icon").footer__icon
+          use(xlink:href="//lowmess.com/images/lowmess.svg#lowmess-icon")
+        a(href="//github.com/lowmess/lowmess").footer__tagline Handmade in PHX

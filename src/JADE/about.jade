@@ -1,0 +1,25 @@
+//- about.jade
+extends ./templates/page.jade
+block title
+  title About ~ lowmess
+block theme-color
+  +theme-color("#f39c12")
+block content
+  +page("about", "about me", "Things you probably don&rsquo;t need to know.")
+    .grid
+      .row.clearfix
+        .col
+          p My name is Alec. Well, actually, it&rsquo;s Mathew, but only my paychecks &amp; 8<sup>th</sup> grade history teacher have ever called me that.
+          p According to my parents, I was born in Virginia. This was in 1991. I don&rsquo;t know for sure, because we left before my earliest memories. Well, that and various government-issued documents corroborating their story. Either way we wound up in Phoenix not long after I turned one.
+          p Since 2006, I&rsquo;ve been a student of graphic design. This was in high school, and it wasn&rsquo;t until college that I became interested in web design or development. I took an intro to HTML/CSS course, and never stopped. I&rsquo;ve since taken courses in Javascript and PHP, as well as more advanced HTML/CSS &amp; web design courses. The time spent in these courses is dwarfed by the time I&rsquo;ve spent online reading, expirimenting, and <strike>arguing</strike> talking with like-minded individuals. I love to learn, so the fact that there is still a near-infinite amount of things I don&rsquo;t know about development is both intimidating &amp; exciting.
+          p I&rsquo;m now a student of Internet/Web Development at the Ira Fulton School of Engineering at ASU Polytechnic, and I hold an Associate&rsquo;s Degree in Digital Media Arts (Design) from Glendale Community College. I also work part-time and take freelance jobs on the side.
+          //- h4.themed-text Other Things About Me
+          //- ul
+            li My full name is Mathew Alexander Stueber Lomas, and I legitimately don&rsquo;t know if Stueber is part of my middle or last name
+            li When I was a kid, I told my parents I wanted to be an architect. I just liked playing with Legos
+            li I used to get in trouble at school for reading too much
+            li My Flappy Bird high score is 93
+            li I&rsquo;ve visited 21 states, including Alaska &amp; Hawaii
+            li I joined Twitter in 2008
+            li I could only think of 6 facts about myself
+  +contact

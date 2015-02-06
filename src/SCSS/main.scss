@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@import "depends", "grid", "type", "navbar", "landing", "content", "footer", "headers", "animation";
+//@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,700,400italic,700italic);
+
+/*
+ * BASE STYLES
+ */
+@-webkit-viewport { width: device-width; zoom: 1.0; }
+@-moz-viewport { width: device-width; zoom: 1.0; }
+@-ms-viewport { width: device-width; zoom: 1.0; }
+@-o-viewport { width: device-width; zoom: 1.0; }
+@viewport { width: device-width; zoom: 1.0; }
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  @include position(relative) { @extend %position_zero; };
+  background: $white;
+  color: $black;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+body, html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}

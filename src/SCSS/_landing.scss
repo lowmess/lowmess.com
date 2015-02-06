@@ -1,0 +1,31 @@
+.landing {
+  &__header {
+
+    &__headline {
+      text-transform: lowercase;
+    }
+    &__hero {
+      &:after {
+        content: "|";
+        @include position(relative) { @extend %position-zero; };
+        animation: caret 1s ease 0s infinite alternate;
+      }
+    }
+  }
+  &__skills {
+    text-align: center;
+    margin-top: $h2-margin-top;
+    margin-bottom: $h2-margin-bottom;
+    @include breakpoint(medium) {
+      margin-top: $md-h2-margin-top;
+      margin-bottom: $md-h2-margin-bottom;
+    }
+    @include breakpoint(large) {
+      margin-top: $lg-h2-margin-top;
+      margin-bottom: $lg-h2-margin-bottom;
+    }
+  }
+  &__skill {
+    color: $theme-color;
+  }
+}

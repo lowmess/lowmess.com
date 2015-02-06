@@ -1,0 +1,20 @@
+extends ../templates/project.jade
+block title
+  title January 2015 ~ lowmess
+block theme-color
+  +theme-color("#3f4d67")
+block content
+  +project("january-2015", "January 2015", 'Prepare to lose some icons. We start the year off with a chaotic mix of found imagery &amp; swiss-inspired design. <a href="//lowmess.com/work/2015/january/images/january.jpg" download> Download the wallpaper here</a>.')
+    .grid
+      .row.clearfix
+        .col.col--img
+          img(src="//lowmess.com/work/2015/january/images/january_article.jpg", srcset="//lowmess.com/work/2015/january/images/january_article@2x.jpg 1920w, //lowmess.com/work/2015/january/images/january_article.jpg 960w", sizes="(min-width: 40.1rem) 960px, 100vw")
+      .row.clearfix
+        .col.col--md-third.col--img
+          img(src="//lowmess.com/work/2015/january/images/details_1.jpg", srcset="//lowmess.com/work/2015/january/images/details_1@2x.jpg 580w, //lowmess.com/work/2015/january/images/details_1.jpg 290w", sizes="(min-width: 40.1rem) 290px, 100vw")
+        .col.col--md-third.col--img
+          img(src="//lowmess.com/work/2015/january/images/details_2.jpg", srcset="//lowmess.com/work/2015/january/images/details_2@2x.jpg 580w, //lowmess.com/work/2015/january/images/details_2.jpg 290w", sizes="(min-width: 40.1rem) 290px, 100vw")
+        .col.col--md-third.col--img
+          img(src="//lowmess.com/work/2015/january/images/details_3.jpg", srcset="//lowmess.com/work/2015/january/images/details_3@2x.jpg 580w, //lowmess.com/work/2015/january/images/details_3.jpg 290w", sizes="(min-width: 40.1rem) 290px, 100vw")
+  +next-project
+  +2015-february-preview

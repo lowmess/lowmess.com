@@ -1,0 +1,57 @@
+//- contact.jade
+extends ./templates/page.jade
+block title
+  title Contact ~ lowmess
+block theme-color
+  +theme-color("#2980b9")
+block content
+  +page("contact", "let&rsquo;s accomplish something", "Want to get in touch? Here&rsquo;s a million-and-a-half ways to do so.")
+    .grid
+      .row.clearfix
+        .col
+          h2 Email &amp; Phone
+          h3
+            a(href="mailto:alec@lowmess.com?subject=let's work together!") alec@lowmess.com
+          h3
+            a(href="tel:+16027269730") (602) 726-9730
+      .row.clearfix
+        .col
+          h2 Design &amp; Code
+          h3
+            a(href="//behance.net/lowmess") Behance
+          h3
+            a(href="//dribbble.com/lowmess") Dribbble
+          h3
+            a(href="//codepen.io/lowmess") CodePen
+          h3
+            a(href="//github.com/lowmess") Github
+          h3
+            a(href="//news.layervault.com/u/18735/alec-lomas") Designer News
+      .row.clearfix
+        .col
+          h2 Social
+          h3
+            a(href="//twitter.com/lowmess") Twitter
+          h3
+            a(href="//facebook.com/lowmess") Facebook
+          h3
+            a(href="//plus.google.com/+AlecLomas") Google+
+          h3
+            a(href="//lowmess.tumblr.com") Tumblr
+          h3
+            a(href="//reddit.com/u/lowmess") Reddit
+      .row.clearfix
+        .col
+          h2 Photography
+          h3
+            a(href="//lowmess.vsco.co") VSCO
+          h3
+            a(href="//instagram.com/lowmess") Instagram
+      .row.clearfix
+        .col
+          h2 Reading
+          h3
+            a(href="//instapaper.com/p/lowmess") Instapaper
+          h3
+            a(href="//medium.com/@lowmess") Medium
+  +view-work

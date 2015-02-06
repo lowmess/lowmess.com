@@ -1,0 +1,21 @@
+.dropdown {
+  transition: transform 0.3s ease-out, background-color 0.2s ease, box-shadow 0.3s ease;
+}
+.dropdown__logo__caret {
+  transition: transform 0.2s ease-out;
+}
+.container {
+  transition: transform 0.3s ease-out;
+}
+.block-links {
+  transition: background-color 0.2s ease;
+}
+
+@keyframes caret {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

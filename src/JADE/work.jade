@@ -1,0 +1,14 @@
+//- work.jade
+extends ./templates/page.jade
+block title
+  title Work ~ lowmess
+block theme-color
+  +theme-color("#f5f5f5")
+block content
+  +page("work", "my work", "These are some of the things I&rsquo;ve done. If you like what you see, <a href='//lowmess.com/contact'>let&rsquo;s talk</a> about adding something to this list.")
+    +lennys-burger-preview
+    +bells-brewery-preview
+    +2015-preview
+    +posters-preview
+    +illustration-preview
+  +contact

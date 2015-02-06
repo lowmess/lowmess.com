@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@import "dependencies", "grid", "type";
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,700,400italic,700italic);
+
+/*
+ * BASE STYLES
+ */
+@-webkit-viewport { width: device-width; zoom: 1.0; }
+@-moz-viewport { width: device-width; zoom: 1.0; }
+@-ms-viewport { width: device-width; zoom: 1.0; }
+@-o-viewport { width: device-width; zoom: 1.0; }
+@viewport { width: device-width; zoom: 1.0; }
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  @include position(relative) { @extend %position_zero; };
+  background: $black;
+  @include breakpoint(large) { background: $black url("//lowmess.com/images/landing@2x.png") repeat center center; };
+  color: $white;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+body, html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+header {
+  @include position(absolute) {top: 1rem; left: 0; right: 0; };
+  height: 60px;
+  width: 100vw;
+  margin: 0 auto;
+}
+article {
+  @include position(absolute) {@extend %position-zero;};
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  flex: 0 1 auto;
+  text-align: center;
+  padding: 1.5rem;
+}
+footer {
+  @include position(absolute) {bottom: 1rem; right: 1rem;};
+  height: 35px;
+  width: 100vw;
+  text-align: right;
+  font-size: $base-font-size * 0.75;
+  @include breakpoint(large) { font-size: $lg-base-font-size * 0.5; };
+  em {
+    padding-right: 1rem;
+  }
+}
+.logo {
+  width: 200px;
+  height: 35px;
+  fill: $white;
+  display: block;
+  margin: 0 auto;
+}
+.icon {
+  height: 30px;
+  width: 20px;
+  fill: $theme_color;
+  @include position(relative) { top: 13px;};
+}
+ul {
+  list-style-type: none;
+  display: block;
+  width: 100%;
+  max-width: $measure;
+  margin: 0 auto;
+  padding: 0;
+}
+li {
+  margin: 0 0.25rem;
+  display: inline;
+}
+h1 {
+  color: $theme_color;
+}
+hr {
+  width: 75%;
+  height: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  border: 0.1rem solid $theme_color;
+  background: transparent;
+}
+a {
+  text-decoration: none;
+  color: $white;
+  &:hover, &:active {
+    color: $theme_color;
+  }
+}
+footer a {
+  border-bottom: 0.1rem solid;
+  border-color: attr(color);
+}

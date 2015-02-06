@@ -1,0 +1,20 @@
+doctype html
+include depends.jade
+html
+  head
+    include ../includes/head.jade
+    //- blocks for pages to access title & theme options
+    block title
+      title lowmess ~ Alec Lomas
+    block theme-color
+      +theme-color("#f39c12")
+  body
+    include ../includes/navbar.jade
+    //-This is what templates fill in
+    .container.container--closed
+      block content
+        p Oops! There&rsquo;s nothing here!
+      //- Footer appended to every page
+      include ../includes/footer.jade
+    //- JS files
+    include ../includes/scripts.jade

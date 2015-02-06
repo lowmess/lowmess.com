@@ -1,0 +1,211 @@
+// PAGES --------------------------------------------------------------------------------
+.landing {
+  &__header {
+    background-color: $theme-color;
+    background-image: url("//lowmess.com/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.work {
+  &__header {
+    background-image: url("//lowmess.com/work/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.contact {
+  &__header {
+    background-image: url("//lowmess.com/contact/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/contact/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/contact/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.colophon {
+  &__header {
+    background-image: url("//lowmess.com/colophon/images/header.jpg");
+    @include breakpoint(large) { background-image: url("//lowmess.com/colophon/images/header@2x.jpg"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/colophon/images/header@2x.jpg"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.about {
+  &__header {
+    background-image: url("//lowmess.com/about/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/about/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/about/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.four04 {
+  &__header {
+    background-image: url("//lowmess.com/404/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/404/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/404/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+// PROJECTS -----------------------------------------------------------------------------
+.lennys-burger {
+  &__header {
+    background-image: url("//lowmess.com/work/lennys-burger/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/lennys-burger/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/lennys-burger/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.bells-brewery {
+  &__header {
+    background-image: url("//lowmess.com/work/bells-brewery/images/header.jpg");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/bells-brewery/images/header@2x.jpg"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/bells-brewery/images/header@2x.jpg"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.posters {
+  &__header {
+    background-image: url("//lowmess.com/work/posters/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/posters/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/posters/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.illustration {
+  &__header {
+    background-image: url("//lowmess.com/work/illustration/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/illustration/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/illustration/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.twok15 {
+  &__header {
+    background-image: url("//lowmess.com/work/2015/images/header.jpg");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/images/header@2x.jpg"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/images/header@2x.jpg"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.january-2015 {
+  &__header {
+    background-image: url("//lowmess.com/work/2015/january/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/january/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/january/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.february-2015 {
+  &__header {
+    background-image: url("//lowmess.com/work/2015/february/images/header.png");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/february/images/header@2x.png"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/february/images/header@2x.png"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+// PREVIEWS ----------------------------------------------------------------------------
+/*
+.lennys-burger-preview:hover {
+  background-image: url("//lowmess.com/work/lennys-burger/images/header.png");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/lennys-burger/images/header@2x.png"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/lennys-burger/images/header@2x.png"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.bells-brewery-preview:hover {
+  background-image: url("//lowmess.com/work/bells-brewery/images/header.jpg");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/bells-brewery/images/header@2x.jpg"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/bells-brewery/images/header@2x.jpg"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.posters-preview:hover {
+  background-image: url("//lowmess.com/work/posters/images/header.png");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/posters/images/header@2x.png"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/posters/images/header@2x.png"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.illustration-preview:hover {
+  background-image: url("//lowmess.com/work/illustration/images/header.png");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/illustration/images/header@2x.png"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/illustration/images/header@2x.png"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.twok15-preview:hover {
+  background-image: url("//lowmess.com/work/2015/images/header.jpg");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/images/header@2x.jpg"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/images/header@2x.jpg"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.january-2015-preview:hover {
+  background-image: url("//lowmess.com/work/2015/january/images/header.png");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/january/images/header@2x.png"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/january/images/header@2x.png"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.february-2015-preview:hover {
+  background-image: url("//lowmess.com/work/2015/february/images/header.png");
+  @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/february/images/header@2x.png"); };
+  @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/february/images/header@2x.png"); };
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+*/

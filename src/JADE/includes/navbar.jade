@@ -1,0 +1,28 @@
+//- navbar.jade
+nav#dropdown.dropdown.dropdown--closed.dropdown--trans(role="navigation")
+  //- Logo & Arrow
+  .dropdown__logo
+    svg.dropdown__logo__svg(role="img", title="lowmess logo")
+      use(xlink:href="//lowmess.com/images/lowmess.svg#lowmess-logo")
+    i#dropdown__logo__caret.dropdown__logo__caret.fa.fa-caret-down.fa-fw
+
+  .dropdown__close
+    i.fa.fa-2x.fa-times
+
+  //- Dropdown List
+  //-.dropdown__list__container -- Don't beleive this is needed
+  ul.dropdown__list
+    - nav = {"pages": ["Home", "Work", "Contact", "About"], "links": ["//lowmess.com", "//lowmess.com/work", "//lowmess.com/contact", "//lowmess.com/about"]};
+    each page, i in nav.pages
+      li.dropdown__item
+        a(href="#{nav.links[i]}") #{page}
+
+  //- Social/Contact Links
+  ul#social-icons.social-icons
+    - social = {"icons": ["envelope", "twitter", "facebook", "google-plus", "codepen", "dribbble"], "links": ["mailto:alec@lowmess.com?subject=I have a great idea!", "//twitter.com/lowmess", "//facebook.com/lowmess", "//plus.google.com/+AlecLomas", "//codepen.io/lowmess", "//dribbble.com/lowmess"]};
+    each icon, i in social.icons
+      li.social-icons__item
+        a.social-icons__link(href="#{social.links[i]}")
+          i(class="fa fa-#{icon}")
+
+  //- .dropdown__background -- Don't beleive this is needed

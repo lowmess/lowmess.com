@@ -1,0 +1,139 @@
+.dropdown {
+  @include position(fixed) { @extend %position_zero };
+  z-index: z(dropdown);
+
+  width: 100vw;
+  height: 22em;
+  max-height: 100vh;
+
+  background-color: $theme-color;
+  color: $white;
+  text-align: center;
+
+  box-shadow: -5px -10px 25px $black;
+
+  a {
+    text-decoration: none;
+  }
+
+  &--trans {
+    background-color: transparent !important; //EEEEEEWWWWWWWWWWWWWWWWWWW find a fix for this.
+    box-shadow: none;
+  }
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  &--closed {
+    transform: translateY(-12.75rem);
+    @include breakpoint(medium) { transform: translateY(-18.25rem); };
+    @include breakpoint(large) { transform: translateY(-23.75rem); };
+  }
+
+/*
+ * START LOGO
+ */
+
+  &__logo {
+    @include position(absolute) { bottom: 5px; left: 0; right: 0; };
+
+    @extend %container-width;
+
+    font-size: $lg-h2-font-size;
+    cursor: pointer;
+
+    transform: translateX(15px);
+
+    &__svg {
+      width: 200px;
+      height: 35px;
+    }
+
+    &__caret {
+      transform: rotateZ(0deg);
+
+      &--rotated {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  &__close {
+    @include position(absolute) { top: 20px; right: 30px; };
+    z-index: z(dropdown-close);
+    cursor: pointer;
+  }
+
+/*
+ * START NAV LIST
+ */
+
+  &__list {
+    @include position(absolute) { @extend %position-zero };
+
+    margin: auto;
+    width: 100%;
+    height: 15em;
+    max-height: 50vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    transform: translateY(-15px) translateX(-10px);
+
+    list-style-type: none;
+
+    & a {
+      color: $white;
+
+      &:hover {
+        color: $white-hover;
+      }
+    }
+
+  }
+
+  &__item {
+    flex: 1 0 auto;
+    font-size: $h3-font-size;
+    @include breakpoint(medium) { font-size: $md-h3-font-size; };
+    @include breakpoint(large) { font-size: $lg-h3-font-size; };
+  }
+}
+
+/*
+* START SOCIAL LIST
+*/
+
+.social-icons {
+  @include position(absolute) {bottom: 5px; right: 15px; }
+  @include breakpoint(large) { display: flex;}
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+
+  width: 250px;
+  height: 50px;
+  padding: 10px;
+  margin: 0;
+
+  list-style-type: none;
+
+  &__item {
+    //margin: 0 10px;
+
+    flex: 0 1 auto;
+    font-size: $lg-base-font-size * 0.75;
+
+    & a {
+      color: $white;
+
+      &:hover {
+        color: $white-hover;
+      }
+    }
+
+  }
+}

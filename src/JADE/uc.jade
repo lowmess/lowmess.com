@@ -1,0 +1,67 @@
+html
+  head
+    //- general meta & SEO stuff
+    meta(charset="UTF-8")
+    meta(content="width=device-width, initial-scale=1", name="viewport")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="description", content="'How's the redesign coming?' 'Don't worry sir, we put top men on it.' 'If I might ask, who exac-' 'TOP. MEN.'")
+    meta(name="keywords", content="web design, graphic design, design, designer, designers, alec lomas, lomas, alec, lowmess, html, css, javascript, jquery, photoshop, illustrator, indesign")
+    meta(name="theme-color", content="#ecf0f1")
+    title lowmess is freshening up.
+
+    //- favicon stuff
+    link(rel='apple-touch-icon-precomposed', sizes='57x57', href='http://www.lowmess.com/images/avicon-57.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='http://www.lowmess.com/images/avicon-114.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='http://www.lowmess.com/images/avicon-72.png')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='http://www.lowmess.com/images/avicon-144.png')
+    link(rel='apple-touch-icon-precomposed', sizes='60x60', href='http://www.lowmess.com/images/avicon-60.png')
+    link(rel='apple-touch-icon-precomposed', sizes='120x120', href='http://www.lowmess.com/images/avicon-120.png')
+    link(rel='apple-touch-icon-precomposed', sizes='76x76', href='http://www.lowmess.com/images/avicon-76.png')
+    link(rel='apple-touch-icon-precomposed', sizes='152x152', href='http://www.lowmess.com/images/avicon-152.png')
+    link(rel='icon', type='image/png', href='http://www.lowmess.com/images/avicon-196.png', sizes='196x196')
+    link(rel='icon', type='image/png', href='http://www.lowmess.com/images/avicon-96.png', sizes='96x96')
+    link(rel='icon', type='image/png', href='http://www.lowmess.com/images/avicon-32.png', sizes='32x32')
+    link(rel='icon', type='image/png', href='http://www.lowmess.com/images/avicon-16.png', sizes='16x16')
+    link(rel='icon', type='image/png', href='http://www.lowmess.com/images/avicon-128.png', sizes='128x128')
+    meta(name='application-name', content='lowmess')
+    meta(name='msapplication-TileColor', content='#ECF0F1')
+    meta(name='msapplication-TileImage', content='http://www.lowmess.com/images/avicon-144.png')
+    meta(name='msapplication-square70x70logo', content='http://www.lowmess.com/images/avicon-70.png')
+    meta(name='msapplication-square150x150logo', content='http://www.lowmess.com/images/avicon-150.png')
+    meta(name='msapplication-wide310x150logo', content='http://www.lowmess.com/images/avicon-310x150.png')
+    meta(name='msapplication-square310x310logo', content='http://www.lowmess.com/images/avicon-310.png')
+
+    //- CSS files
+    link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css")
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="//lowmess.com/uc.css")
+
+    //- JS files
+    script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
+    script(src="//lowmess.com/js/svg4everybody.min.js")
+    script(src="//lowmess.com/js/svg4everybody.ie8.min.js")
+
+  body
+    header
+      svg(role="img", title="lowmess logo").logo
+        use(xlink:href="//lowmess.com/images/lowmess.svg#lowmess-logo")
+    article
+      section
+        h1 pardon my dust
+        p Uh, that&rsquo;s a metaphor. This site is currently under construction. Dang it!&nbsp;
+          em That&rsquo;s&nbsp;
+          | a methaphor! What I&rsquo;m saying is, I&rsquo;m redesigning. And redeveloping. Re...devigning? Yeah, redevigning the site.
+        hr
+        p
+          em while the paint dries, you can find me at one of these fine establishments:
+        ul
+          - social = {"icons": ["twitter", "facebook", "google-plus", "instagram", "tumblr", "codepen", "dribbble", "behance", "newspaper-o", "reddit", "camera-retro"], "links": ["//twitter.com/lowmess", "//facebook.com/lowmess", "//plus.google.com/+AlecLomas", "//instagram.com/lowmess", "//lowmess.tumblr.com", "//codepen.io/lowmess", "//dribbble.com/lowmess", "//behance.net/lowmess", "//news.layervault.com/u/18735/alec-lomas", "//reddit.com/u/lowmess", "//lowmess.vsco.co"]};
+          each icon, i in social.icons
+            li
+              a(href="#{social.links[i]}")
+                i(class="fa fa-fw fa-#{icon}")
+    footer
+      em Need to get in touch? Contact me at&nbsp;
+        a(href="mailto:alec@lowmess.com") alec@lowmess.com
+      svg(role="img", title="lowmess-icon").icon
+        use(xlink:href="//lowmess.com/images/lowmess.svg#lowmess-icon")
