@@ -1,0 +1,18 @@
+extends ../templates/project.jade
+block title
+  title March 2015 ~ lowmess
+block theme-color
+  +theme-color("#336666")
+block content
+  +project("march-2015", "March 2015", 'Featuring strong geometric shapes, portraiture from a 1951 issue of <em>LIFE</em> magazine, and <a href="//www.cooperhewitt.org/colophon/cooper-hewitt-the-typeface-by-chester-jenkins/" target="_blank">Cooper Hewitt&rsquo;s eponymous typeface</a>, this calendar is both visually complex and devastatingly simple. You can <a href="//lowmess.com/work/2015/march/images/march.jpg" download>download the full-size version here</a>.')
+    .grid
+      .row.clearfix
+        .col.col--img
+          img(src="//lowmess.com/work/2015/march/images/calendar.jpg", srcset="//lowmess.com/work/2015/march/images/calendar@2x.jpg 1920w, //lowmess.com/work/2015/march/images/calendar.jpg 960w", sizes="(min-width: 40.1rem) 960px, 100vw")
+      .row.clearfix
+        .col.col--md-half.col--img
+          img(src="//lowmess.com/work/2015/march/images/detail-1.jpg", srcset="//lowmess.com/work/2015/march/images/detail-1@2x.jpg 900w, //lowmess.com/work/2015/march/images/detail-1.jpg 450w", sizes="(min-width: 40.1rem) 450px, 100vw")
+        .col.col--md-half.col--img
+          img(src="//lowmess.com/work/2015/march/images/detail-2.jpg", srcset="//lowmess.com/work/2015/march/images/detail-2@2x.jpg 900w, //lowmess.com/work/2015/march/images/detail-2.jpg 450w", sizes="(min-width: 40.1rem) 450px, 100vw")
+  +next-project
+  +2015-preview

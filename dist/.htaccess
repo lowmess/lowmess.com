@@ -1,9 +1,20 @@
 ErrorDocument 404 /404/
+ErrorDocument 403 /403/
+
+Options All -Indexes
+
+# Use UTF-8 encoding for anything served text/plain or text/html
+AddDefaultCharset utf-8
+
+# Force UTF-8 for a number of file formats
+AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+
 #Gzip
 <ifmodule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript image/svg+xml
 </ifmodule>
 #End Gzip
+
 # BEGIN Expire headers
 <ifModule mod_expires.c>
         ExpiresActive On
@@ -21,3 +32,9 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
         ExpiresByType application/xhtml+xml "access plus 600 seconds"
 </ifModule>
 # END Expire headers
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|otf|ttc|ttf|woff)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
