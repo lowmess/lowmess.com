@@ -14,14 +14,16 @@ $(function() {
       themeText     = ".themed-text, .dropdown, header, footer",
       themeLinks    = ".back-to-top, .dropdown a, header a, footer a",
       //bodyText      = ".landing, .page, .project, .404",
-      bodyLinks     = ".landing a, .page a, .project a, .404 a";
+      bodyLinks     = ".landing a, .page a, .project a, .four04 a, .four03 a";
 
   $(themeSelect + ", body").css("background-color", themeColor);
   $(bodyLinks + "," + themeText).css("color", themeColor);
-  $(bodyLinks).hover(
-    function() { $(this).css("color", myBlackHover); },
-    function() { $(this).css("color", themeColor);
-  });
+  $(bodyLinks)
+    .css("border-color", themeColor)
+    .hover(
+      function() { $(this).css({"color": myBlackHover, "border-color": myBlackHover}); },
+      function() { $(this).css({"color": myBlack, "border-color": themeColor});
+    });
 
   if ( themeColor == myWhite || themeColor == "#ffffff" ) { isWhite = true; }
   if ( themeColor == myOrange ) { isOrange = true; }

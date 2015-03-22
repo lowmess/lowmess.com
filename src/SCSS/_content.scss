@@ -5,15 +5,6 @@ header, footer {
   color: $white;
 }
 
-.dropdown a, .footer a, {
-  text-decoration: none;
-}
-header a, article a {
-  text-decoration: none;
-  border-bottom: 0.1em solid;
-  border-color: attr(color);
-}
-
 .container {
   @include position(relative) {  };
   width: 100vw;

@@ -131,3 +131,14 @@ sup, sub {
 sub {
   top: 0.4em;
 }
+
+/* Links */
+
+.dropdown a, .footer a, {
+  text-decoration: none;
+}
+header a, article a {
+  text-decoration: none;
+  border-bottom: 0.2em solid;
+  border-color: $theme-color;
+}
