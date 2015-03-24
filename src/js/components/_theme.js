@@ -17,12 +17,13 @@ $(function() {
       bodyLinks     = ".landing a, .page a, .project a, .four04 a, .four03 a";
 
   $(themeSelect + ", body").css("background-color", themeColor);
-  $(bodyLinks + "," + themeText).css("color", themeColor);
+  // $(bodyLinks + "," + themeText).css("color", themeColor);
+  $(themeText).css("color", themeColor);
   $(bodyLinks)
     .css("border-color", themeColor)
     .hover(
-      function() { $(this).css({"color": myBlackHover, "border-color": myBlackHover}); },
-      function() { $(this).css({"color": myBlack, "border-color": themeColor});
+      function() { $(this).css("background-color", themeColor); },
+      function() { $(this).css("background-color", "transparent");
     });
 
   if ( themeColor == myWhite || themeColor == "#ffffff" ) { isWhite = true; }
@@ -31,23 +32,26 @@ $(function() {
 
   if (isWhite) {
     $(themeSelect + "," + themeLinks).css("color", myOrange);
+    $("header a").css("border-color", myOrange);
     $(themeLinks).hover(
-      function() { $(this).css({"color": myOrangeHover, "fill": myOrangeHover}); },
-      function() { $(this).css({"color": myOrange, "fill": myOrange});
+      function() { $(this).css({"color": myOrangeHover, "fill": myOrangeHover, "border-color": myOrangeHover}); },
+      function() { $(this).css({"color": myOrange, "fill": myOrange, "border-color": myOrange});
     });
     $(".dropdown__logo, .footer__icon").css("fill", myOrange);
   } else if ( isBright && !isOrange ) {
     $(themeSelect + "," + themeLinks).css("color", myBlack);
+    $("header a").css("border-color", myBlack);
     $(themeLinks).hover(
-      function() { $(this).css({"color": myBlackHover, "fill": myBlackHover}); },
-      function() { $(this).css({"color": myBlack, "fill": myBlack});
+      function() { $(this).css({"color": myBlackHover, "fill": myBlackHover, "border-color": myBlackHover}); },
+      function() { $(this).css({"color": myBlack, "fill": myBlack, "border-color": myBlack});
     });
     $(".dropdown__logo, .footer__icon").css("fill", myBlack);
   } else if ( !isBright || isOrange ) {
     $(themeSelect + "," + themeLinks).css("color", myWhite);
+    $("header a").css("border-color", myWhite);
     $(themeLinks).hover(
-      function() { $(this).css({"color": myWhiteHover, "fill": myWhiteHover}); },
-      function() { $(this).css({"color": myWhite, "fill": myWhite});
+      function() { $(this).css({"color": myWhiteHover, "fill": myWhiteHover, "border-color": myWhiteHover}); },
+      function() { $(this).css({"color": myWhite, "fill": myWhite, "border-color": myWhite});
     });
     $(".dropdown__logo, .footer__icon").css("fill", myWhite);
   }
