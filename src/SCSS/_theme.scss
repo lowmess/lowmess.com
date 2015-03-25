@@ -1,0 +1,65 @@
+.header--is-white {
+  color: $haunter;
+  & a {
+    text-decoration: none;
+    border-bottom: 0.15em solid $dragonite;
+    box-shadow: 0 -0.15em 0 $dragonite inset;
+    color: $haunter;
+    &:hover {
+      background-color: $dragonite;
+    }
+  }
+}
+
+.header--is-bright {
+  color: $haunter;
+  & a {
+    text-decoration: none;
+    border-bottom: 0.15em solid $cubone;
+    box-shadow: 0 -0.15em 0 $cubone inset;
+    color: $haunter;
+    &:hover {
+      background-color: $cubone;
+    }
+  }
+}
+
+.header--is-dark {
+  color: $cubone;
+  & a {
+    text-decoration: none;
+    border-bottom: 0.15em solid $haunter;
+    box-shadow: 0 -0.15em 0 $haunter inset;
+    color: $cubone;
+    &:hover {
+      background-color: $haunter;
+    }
+  }
+}
+
+.pre--is-white {
+  color: $dragonite;
+  & a {
+    text-decoration: none;
+    border: none;
+    color: $dragonite;
+  }
+}
+
+.pre--is-bright {
+  color: $haunter;
+  & a {
+    text-decoration: none;
+    border: none;
+    color: $haunter;
+  }
+}
+
+.pre--is-dark {
+  color: $cubone;
+  & a {
+    text-decoration: none;
+    border: none;
+    color: $cubone;
+  }
+}

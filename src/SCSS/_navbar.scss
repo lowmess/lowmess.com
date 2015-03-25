@@ -6,11 +6,11 @@
   height: 22em;
   max-height: 100vh;
 
-  background-color: $theme-color;
-  color: $white;
+  background-color: $dragonite;
+  color: $cubone;
   text-align: center;
 
-  box-shadow: -5px -10px 25px $black;
+  box-shadow: -5px -10px 25px $haunter;
 
   a {
     text-decoration: none;
@@ -86,10 +86,10 @@
     list-style-type: none;
 
     & a {
-      color: $white;
+      color: $cubone;
 
       &:hover {
-        color: $white-hover;
+        color: $cubone-hover;
       }
     }
 
@@ -128,10 +128,10 @@
     font-size: $lg-base-font-size * 0.75;
 
     & a {
-      color: $white;
+      color: $cubone;
 
       &:hover {
-        color: $white-hover;
+        color: $cubone-hover;
       }
     }
 

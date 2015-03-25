@@ -1,3 +1,6 @@
+header a, article a {
+  transition: background-color 0.2s ease;
+}
 .dropdown {
   transition: transform 0.3s ease-out, background-color 0.2s ease, box-shadow 0.3s ease;
 }
@@ -9,6 +12,12 @@
 }
 .block-links {
   transition: background-color 0.2s ease;
+}
+.preview {
+  transition: color 0.2s ease;
+}
+.landing__header__hero:after {
+  animation: caret 1s ease 0s infinite alternate;
 }
 
 @keyframes caret {

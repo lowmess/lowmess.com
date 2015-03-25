@@ -8,7 +8,6 @@
       &:after {
         content: "|";
         @include position(relative) { @extend %position-zero; };
-        animation: caret 1s ease 0s infinite alternate;
       }
     }
   }
@@ -24,8 +23,5 @@
       margin-top: $lg-h2-margin-top;
       margin-bottom: $lg-h2-margin-bottom;
     }
-  }
-  &__skill {
-    color: $theme-color;
   }
 }

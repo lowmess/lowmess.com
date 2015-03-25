@@ -1,6 +1,8 @@
 ErrorDocument 404 /404/
 ErrorDocument 403 /403/
 
+redirect /pay http://cash.me/$lowmess
+
 Options All -Indexes
 
 # Use UTF-8 encoding for anything served text/plain or text/html

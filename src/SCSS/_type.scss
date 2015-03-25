@@ -38,7 +38,7 @@ p, ul, ol, pre, table, blockquote {
   margin-bottom: $base-line-height;
 }
 code, pre {
-  background-color: $grey;
+  background-color: $magnemite;
   padding: 0 5px;
   border-radius: 5px;
 }
@@ -137,9 +137,9 @@ sub {
 .dropdown a, .footer a, {
   text-decoration: none;
 }
-header a, article a {
+article a {
   text-decoration: none;
-  border-bottom: 0.2em solid;
-  border-color: $theme-color;
-  color: $black;
+  border-bottom: 0.15em solid $dragonite;
+  box-shadow: 0 -.25em 0 $dragonite inset;
+  color: $haunter;
 }

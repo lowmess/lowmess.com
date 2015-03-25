@@ -1,7 +1,7 @@
 // PAGES --------------------------------------------------------------------------------
 .landing {
   &__header {
-    background-color: $theme-color;
+    background-color: $dragonite;
     background-image: url("//lowmess.com/images/header.png");
     @include breakpoint(large) { background-image: url("//lowmess.com/images/header@2x.png"); };
     @include breakpoint(retina) { background-image: url("//lowmess.com/images/header@2x.png"); };

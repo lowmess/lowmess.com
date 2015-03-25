@@ -2,13 +2,13 @@ header {
   padding-top: 3rem;
 }
 header, footer {
-  color: $white;
+  color: $cubone;
 }
 
 .container {
   @include position(relative) {  };
   width: 100vw;
-  background: $white;
+  background: $cubone;
 
   &--open {
     transform: translateY(12.75rem);
