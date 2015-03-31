@@ -5,8 +5,10 @@
     border-bottom: 0.15em solid $dragonite;
     box-shadow: 0 -0.15em 0 $dragonite inset;
     color: $haunter;
+    fill: $haunter;
     &:hover {
       background-color: $dragonite;
+      fill: $dragonite;
     }
   }
 }
@@ -18,8 +20,10 @@
     border-bottom: 0.15em solid $cubone;
     box-shadow: 0 -0.15em 0 $cubone inset;
     color: $haunter;
+    fill: $haunter;
     &:hover {
       background-color: $cubone;
+      fill: $cubone;
     }
   }
 }
@@ -31,8 +35,10 @@
     border-bottom: 0.15em solid $haunter;
     box-shadow: 0 -0.15em 0 $haunter inset;
     color: $cubone;
+    fill: $cubone;
     &:hover {
       background-color: $haunter;
+      fill: $haunter;
     }
   }
 }

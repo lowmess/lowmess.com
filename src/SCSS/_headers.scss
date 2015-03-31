@@ -166,6 +166,17 @@
   }
 }
 
+.april-2015 {
+  &__header {
+    background-image: url("//lowmess.com/work/2015/april/images/header.jpg");
+    @include breakpoint(large) { background-image: url("//lowmess.com/work/2015/april/images/header@2x.jpg"); };
+    @include breakpoint(retina) { background-image: url("//lowmess.com/work/2015/april/images/header@2x.jpg"); };
+    //background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
 // PREVIEWS ----------------------------------------------------------------------------
 /*
 .lennys-burger-preview:hover {
