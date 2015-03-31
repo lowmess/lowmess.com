@@ -4,7 +4,8 @@ footer.footer
     .row.clearfix
       .col.col--md-third
         ul.footer__list
-          li.footer__item.footer__link.back-to-top Back to Top
+          li.footer__item
+            a.footer__link.back-to-top(href="#") Back to Top
           - nav = {"pages": ["Home", "Work", "Contact", "About", "Colophon"], "links": ["//lowmess.com", "//lowmess.com/work", "//lowmess.com/contact", "//lowmess.com/about", "//lowmess.com/colophon"]};
           each page, i in nav.pages
             li.footer__item
