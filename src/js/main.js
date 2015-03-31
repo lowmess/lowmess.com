@@ -17,7 +17,8 @@ $(function() {
 
   // Animate scroll to top link
   $(".back-to-top")
-    .click(function() {
+    .click(function(e) {
+      //e.preventDefault; - not necessary
       $("body, html").animate({ scrollTop: "0" });
     });
 });
