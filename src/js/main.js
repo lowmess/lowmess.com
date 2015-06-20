@@ -7,7 +7,7 @@ $(function() {
   $('[target="_blank"]').each(function() {
     $(this)
       .append("&nbsp;<i class='fa fa-fw fa-external-link'></i>")
-      .after("&nbsp;");
+      //.after("&nbsp;"); already putting a space there anyways
   });
   // Add download icon to any link that points to a download
   $("[download]").each(function() {
