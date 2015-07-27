@@ -1,0 +1,35 @@
+/*** VARIABLES & MIX-INS ***/
+	$white : #FFFFFF;
+	$black: #000000;
+	$grey : #666;
+	$dkgrey: #333;
+	$phone: "only screen and (max-width: 767px), only screen and (max-device-width: 100mm) and (orientation : portrait), only screen and (max-device-width: 150mm) and (orientation : landscape)";
+	$desk: "only screen and (min-device-width: 150mm) and (min-width: 768px)";
+	$desk-lg: "only screen and (min-width: 1024px) and (min-device-width: 200mm)";
+
+	%type {
+		font-family: Nexa, sans-serif;
+	}
+	%type-content {
+		font-family: Nexa-Book, sans-serif;
+	}
+	%type-xbold {
+		font-family: Nexa-XBold, sans-serif;
+	}
+	%type-black {
+		font-family: Nexa-Black, sans-serif;
+	}
+	@mixin ease-out ($time) {
+				transition: 		all $time ease-out;
+				-webkit-transition: all $time ease-out;
+				-moz-transition:    all $time ease-out;
+				-o-transition:      all $time ease-out;
+	}
+
+/*** IMPORTS ***/
+	@import 'fonts';
+	@import 'typography';
+	@import 'layout';
+	@import 'desk';
+	@import 'phone';
+	//@import 'phone-hd';

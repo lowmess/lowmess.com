@@ -1,0 +1,95 @@
+/*** TYPOGRAPHY ***/
+body {
+	color: $grey;
+	@extend %type;
+	//font-size: 16px;
+}
+/*
+h1 {
+	@extend %type-black;
+	font-size: 1.75em;
+}
+*/
+h3 {
+	@extend %type-black;
+	color: $grey;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	line-height: 18px;
+}
+h4 {
+	@extend %type-xbold;
+	color: $grey;
+	margin-top: 45px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+}
+hr {
+	width: 70%;
+	border: 0;
+	background: $grey;
+	margin: 0 7.5%;
+	height: 3px;
+}
+a {
+	color: $grey;
+	text-decoration: none;
+	&:hover {
+		color: $dkgrey;
+	}
+}
+/*#contents*/ p {
+	@extend %type-content;
+	a {
+		text-decoration: underline;
+		color: $grey;
+		&:hover {
+			color: $dkgrey;
+		}
+	}
+}
+ul {
+	list-style-type: none;
+	&#links {
+		@extend %type-black ;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		#nav-logo {
+			text-transform: none;
+			@extend %type-xbold;
+		}
+		#nav-triangle {
+			position: relative;
+			top: 5px;
+		}
+	}
+	&.work-list {
+		margin: 0;
+		margin-top: 5px;
+		padding: 0;
+		li {
+			@extend %type;
+			text-decoration: none;
+			list-style-type: none;
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+	&.contact-list {
+
+	}
+}
+#contents figcaption {
+	@extend %type-content;
+	color: $grey;
+	font-style: italic;
+	font-size: 16px;
+}
+#landing figcaption {
+	@extend %type-black;
+	color: $white;
+	text-transform: uppercase;
+	font-size: 1.5em;
+}

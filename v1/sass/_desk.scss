@@ -1,0 +1,89 @@
+///*** DESKTOP ***///
+@media #{$desk} {
+
+/*** LAYOUT ***/
+	header#pulldown {
+		height: 255px;
+		top: -180px;
+	}
+	#container {
+		height: calc(100% - 75px);
+		&.open {
+			top: 75px;
+		}
+	}
+	#contents {
+		top: 0; bottom: 0; left: 0; right: 0;
+		padding-top: 0px;
+		//height: -webkit-calc(100% - 100px);
+		//height: -moz-calc(100% - 100px);
+		//height: calc(100% - 100px);
+	}
+	#work-nav {
+		#close-button {
+			left: 93%;
+			&.open {
+				top: 100px; right: 0px;
+			}
+		}
+		#back-button {
+			right: 93%;
+			&.open {
+				top: 100px; left: 0;
+			}
+		}
+	}
+	#stupid-container {
+		height: calc(100% - 75px);
+		top: 75px;
+	}
+	#landing {
+		top: 0; bottom: 0; left: 0; right: 0;
+		//height: -webkit-calc(100% - 55px);
+			//height: -moz-calc(100% - 55px);
+			//height: calc(100% - 55px);
+		figure {
+			max-width: 33%;
+			min-width: 100px;
+		}
+	}
+
+/*** TYPE ***/
+	body {
+		font-size: 21px;
+	}
+	p {
+		line-height: 1.5em;
+	}
+	h3 {
+		font-size: 1.6em;
+		line-height: 1.3em;
+	}
+	h5 {
+		line-height: 0.5em;
+	}
+	ul {
+		&#links {
+			font-size: 1.2em;
+			line-height: 2em;
+			#nav-logo {
+				font-size: 2em;
+				line-height: 2em;
+			}
+		}
+		&.work-list {
+			li {
+				font-size: 1.2em;
+				line-height: 1.5em;
+			}
+		}
+		&.contact-list {
+			font-size: 1.2em;
+			line-height: 2em;
+		}
+		&#social {
+			font-size: 18px;
+		}
+	}
+
+}
