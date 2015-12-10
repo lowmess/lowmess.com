@@ -46,3 +46,7 @@ Temporary Items
 *.sublime-project
 *.sublime-workspace
 prepros.cfg
+
+# Uhh
+
+node_modules
