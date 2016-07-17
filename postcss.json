@@ -1,0 +1,21 @@
+{
+  "use": [
+    "postcss-import",
+    "postcss-nested",
+    "postcss-custom-properties",
+    "postcss-custom-media",
+    "postcss-clearfix",
+    "postcss-color-function",
+    "postcss-focus",
+    "postcss-uncss",
+    "autoprefixer",
+    "css-mqpacker",
+    "cssnano"
+  ],
+  "postcss-uncss": {
+    "html": ["_build/**/*.html"]
+  },
+  "autoprefixer": {
+    "browsers": ["last 2 versions", "> 5%"]
+  }
+}
