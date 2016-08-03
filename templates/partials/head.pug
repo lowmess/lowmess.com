@@ -1,0 +1,61 @@
+//- head.jade
+//- general meta & SEO stuff
+meta(charset="UTF-8")
+meta(content="width=device-width, initial-scale=1", name="viewport")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="theme-color", content="#f2930d")
+
+//- Title & Description
+block meta
+  if title != site.title
+    title= title + " • " + site.title
+  else
+    title= site.title
+
+  meta(name="description", content=description ? description : site.description)
+
+//- Open Graph / Twitter Card
+meta(name="twitter:site", content="@lowmess")
+meta(name="twitter:card", content="summary")
+meta(property="og:site_name", content=site.title)
+meta(property="og:title", name="twitter:title", content=title)
+meta(property="og:url", content=path)
+meta(property="og:image", content=image ? image : "/images/site.favicon-196.png")
+if description
+  meta(property="og:description", name="twitter:description", content=description)
+else if snippet
+  meta(property="og:description", name="twitter:description", content=snippet)
+else
+  meta(property="og:description", name="twitter:description", content=site.description)
+
+//- Pages
+link(rel="canonical", href=path)
+if next
+  link(rel="next", href="/" + next.path)
+if previous
+  link(rel="previous", href="/" + previous.path)
+
+//- favicon stuff
+link(rel="apple-touch-icon-precomposed", sizes="57x57", href="/images/favicon-57.png")
+link(rel="apple-touch-icon-precomposed", sizes="114x114", href="/images/favicon-114.png")
+link(rel="apple-touch-icon-precomposed", sizes="72x72", href="/images/favicon-72.png")
+link(rel="apple-touch-icon-precomposed", sizes="144x144", href="/images/favicon-144.png")
+link(rel="apple-touch-icon-precomposed", sizes="60x60", href="/images/favicon-60.png")
+link(rel="apple-touch-icon-precomposed", sizes="120x120", href="/images/favicon-120.png")
+link(rel="apple-touch-icon-precomposed", sizes="76x76", href="/images/favicon-76.png")
+link(rel="apple-touch-icon-precomposed", sizes="152x152", href="/images/favicon-152.png")
+link(rel="icon", type="image/png", href="/images/favicon-196.png", sizes="196x196")
+link(rel="icon", type="image/png", href="/images/favicon-96.png", sizes="96x96")
+link(rel="icon", type="image/png", href="/images/favicon-32.png", sizes="32x32")
+link(rel="icon", type="image/png", href="/images/favicon-16.png", sizes="16x16")
+link(rel="icon", type="image/png", href="/images/favicon-128.png", sizes="128x128")
+meta(name="application-name", content="lowmess")
+meta(name="msapplication-TileColor", content="#ECF0F1")
+meta(name="msapplication-TileImage", content="/images/favicon-144.png")
+meta(name="msapplication-square70x70logo", content="/images/favicon-70.png")
+meta(name="msapplication-square150x150logo", content="/images/favicon-150.png")
+meta(name="msapplication-wide310x150logo", content="/images/favicon-310x150.png")
+meta(name="msapplication-square310x310logo", content="/images/favicon-310.png")
+
+//- CSS files
+link(rel="stylesheet", href="/main.css")

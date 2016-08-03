@@ -1,0 +1,11 @@
+:root {
+  --orange: #f2930d;
+}
+
+.orange { color: var(--orange); }
+
+.bg-orange { background-color: var(--orange); }
+
+.hover-orange:hover { color: var(--orange); }
+
+.hover-bg-orange:hover { background-color: var(--orange); }
