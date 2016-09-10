@@ -101,7 +101,7 @@ var siteBuild = Metalsmith(__dirname)
   }))
   .use(tags({
     handle: 'categories',
-    path:'work/categories/:tag/index.html',
+    path: 'work/categories/:tag/index.html',
     layout: 'categories.pug'
   }))
   .use(layouts({
@@ -156,17 +156,11 @@ function stylesheets () {
 
   var plugins = [
     require('postcss-import'),
-    require('postcss-neat')({
-      neatMaxWidth: '64rem'
-    }),
     require('postcss-nested'),
     require('postcss-custom-properties'),
     require('postcss-custom-media'),
-    require('postcss-extend'),
-    require('postcss-clearfix'),
     require('postcss-color-function'),
-    require('postcss-fontpath'),
-    require('postcss-pseudo-class-enter'),
+    require('postcss-focus'),
     require('autoprefixer')({
       browsers: ['last 2 versions', '> 5%']
     })
