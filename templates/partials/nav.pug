@@ -1,6 +1,11 @@
-nav(role="navigation").h2.bg-white
-  +container
-    a(href="/")
-      svg
-        use(xlink:href="/images/site.logo.svg")
-    a(href="/") A link
+nav(role="navigation").bg-white.relative.shadow-2.flex.justify-between.items-center.h3
+  a(href="/").fixed.left-0.top-0.h3.mw3
+    svg.h-50.mt3.ml3.mw-100
+      use(xlink:href="/images/site.svg#logo")
+  a(href="/").h3.dn.db-ns.mw5
+    svg.h-50.ml3.mt3.mw-100
+      use(xlink:href="/images/site.svg#logotype")
+  ul.list.mv0.pr3.tr.flex-auto
+    li.di.mr3: a.link.dark-gray.hover-orange(href="/work") Work
+    li.di.mr3: a.link.dark-gray.hover-orange(href="/blog") Blog
+    li.di.mr3: a.link.dark-gray.hover-orange(href="/contact") Contact
