@@ -7,7 +7,9 @@ var backgrounds = [
   'flipped-diamonds',
   'houndstooth',
   'lines-in-motion',
+  'moroccan',
   'morphing-diamonds',
+  'rails',
   'rain',
   'squares-in-squares',
   'stripes',
@@ -19,12 +21,16 @@ var backgrounds = [
   'circuit-board',
   'diagonal-lines',
   'endless-clouds',
+  'eyes',
   'floor-tile',
   'intersecting-circles',
   'melt',
   'overlapping-diamonds',
   'parkay-floor',
-  'polka-dots'
+  'polka-dots',
+  'signal',
+  'slanted-stars',
+  'wallpaper'
 ]
 
 var landing = document.querySelector('.landing')
@@ -68,7 +74,7 @@ function throttle (fn, threshhold, scope) {
       deferTimer = setTimeout(function () {
         last = now
         fn.apply(context, args)
-      }, threshhold)
+      }, threshhold + last - now)
     } else {
       last = now
       fn.apply(context, args)
