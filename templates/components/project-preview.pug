@@ -1,0 +1,13 @@
+mixin project-preview(project)
+  .flex.flex-column.flex-row-ns.items-center-ns.justify-start-ns
+    img(src=prject.preview).mr4.mb3.mb0
+    div.mt3.mt0.measure
+      h4.mt0.mb0.f5.fw5: a(href="/" + project.path)= project.title
+      p.mt3!= project.description
+
+mixin project-preview-reverse(project)
+  .flex.flex-column.flex-row-ns.items-center-ns.justify-end-ns
+    img(src=prject.preview).mr4.mb3.mb0.order-1.order-2-ns
+    div.mt3.mt0.measure.order-2.order-1-ns
+      h4.mt0.mb0.f5.fw5: a(href="/" + project.path)= project.title
+      p.mt3!= project.description

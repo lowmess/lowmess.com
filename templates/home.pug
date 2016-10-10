@@ -1,7 +1,10 @@
 extends default
 
 block page
-  header.bank-note.bg-orange.pv4
+  +header
+    h1.dib.f3.fw6.bg-white.ph2.pv1.ma0 Hi, I&rsquo;m Alec Lomas.
+    h2.dib.f3.fw4.bg-white.ph2.pv1.ma0 I&rsquo;m a frontend developer &amp; designer, currently at #[a.link.dark-gray.hover-orange(href="https://meltmedia.com", target="_blank") meltmedia].
+  main(role="main")
     +container
-      h1.dib.f4.f3-ns.fw6.dark-gray.bg-white.ph2.pv1.ma0 Hi, I&rsquo;m Alec Lomas.
-      h2.dib.f4.f3-ns.fw4.dark-gray.bg-white.ph2.pv1.ma0 I&rsquo;m a frontend developer &amp; designer from Tempe, Arizona.
+      h3.f4.fw6.mt0.mb4 Recent Projects
+      section#work
