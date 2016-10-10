@@ -2,5 +2,5 @@
 permalink: false
 title: false
 layout: home.pug
-background: bank-note
+background: lines-in-motion
 ---
