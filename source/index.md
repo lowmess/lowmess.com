@@ -1,6 +1,6 @@
 ---
 permalink: false
-title: lowmess
+title: false
 layout: home.pug
 background: bank-note
 ---

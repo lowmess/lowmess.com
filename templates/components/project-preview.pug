@@ -1,13 +1,13 @@
 mixin project-preview(project)
-  .flex.flex-column.flex-row-ns.items-center-ns.justify-start-ns
+  .flex.flex-column.flex-row-ns.items-center-ns.justify-start-ns.mv3.mv4-ns
     img(src=prject.preview).mr4.mb3.mb0
     div.mt3.mt0.measure
-      h4.mt0.mb0.f5.fw5: a(href="/" + project.path)= project.title
+      h4.mt0.mb0.f5.fw6: +link(project.title, "/" + project.path)
       p.mt3!= project.description
 
 mixin project-preview-reverse(project)
-  .flex.flex-column.flex-row-ns.items-center-ns.justify-end-ns
+  .flex.flex-column.flex-row-ns.items-center-ns.justify-end-ns.mv3.mv4-ns
     img(src=prject.preview).mr4.mb3.mb0.order-1.order-2-ns
     div.mt3.mt0.measure.order-2.order-1-ns
-      h4.mt0.mb0.f5.fw5: a(href="/" + project.path)= project.title
+      h4.mt0.mb0.f5.fw6: +link(project.title, "/" + project.path)
       p.mt3!= project.description

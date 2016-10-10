@@ -6,6 +6,6 @@ nav(role="navigation").bg-white.relative.shadow-2.flex.justify-between.items-cen
     svg.h-50.ml3.mt3.mw-100
       use(xlink:href="/images/site.svg#logotype")
   ul.list.mv0.pr2.pr3-ns.tr.flex-auto
-    li.di.mr3: a.link.dark-gray.hover-orange(href="/work") Work
-    li.di.mr3: a.link.dark-gray.hover-orange(href="/blog") Blog
-    li.di.mr2.mr3-ns: a.link.dark-gray.hover-orange(href="/contact") Contact
+    li.di.mr3: +link("/work") Work
+    li.di.mr3: +link("/blog") Blog
+    li.di.mr2.mr3-ns: +link("/contact") Contact
