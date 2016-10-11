@@ -109,6 +109,7 @@
     "tachyons-white-space": "^3.0.2",
     "tachyons-widths": "^4.0.3",
     "tachyons-word-break": "^2.0.0",
+    "tachyons-z-index": "^1.0.4",
     "uglify-js": "^2.7.0",
     "uncss": "^0.14.0"
   }
