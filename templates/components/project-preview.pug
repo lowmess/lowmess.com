@@ -1,13 +1,7 @@
-mixin project-preview(project)
-  .flex.flex-column.flex-row-ns.items-center-ns.justify-start-ns.mv3.mv4-ns
-    img(src=prject.preview).mr4.mb3.mb0
-    div.mt3.mt0.measure
-      h4.mt0.mb0.f5.fw6: +link(project.title, "/" + project.path)
-      p.mt3!= project.description
-
-mixin project-preview-reverse(project)
-  .flex.flex-column.flex-row-ns.items-center-ns.justify-end-ns.mv3.mv4-ns
-    img(src=prject.preview).mr4.mb3.mb0.order-1.order-2-ns
-    div.mt3.mt0.measure.order-2.order-1-ns
-      h4.mt0.mb0.f5.fw6: +link(project.title, "/" + project.path)
-      p.mt3!= project.description
+mixin project-preview(project, reverse)
+  .flex.flex-column.flex-row-l.items-center.mv3.mv4-ns.mv5-l(class=reverse ? 'justify-end-l' : 'justify-start-l')
+    a.mb3.mb0-l.mw6.grow(href="/" + project.path.toLowerCase(), class=reverse ? 'ml5-l order-2-l' : 'mr5-l')
+      img(src=project.preview).w-100
+    div.mt3.mt0-l(class=reverse ? 'order-1-l tr-l' : '')
+      h4.mt0.mb3.f4.f3-ns.f2-l.fw6: +link("/" + project.path.toLowerCase())= project.title
+      p.f4-l.mt3.measure.lh-copy!= project.description

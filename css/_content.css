@@ -1,0 +1,110 @@
+.content {
+
+  /* Base */
+
+  @extend .lh-copy;
+  @extend .f5;
+
+  h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address {
+    @extend .mt3;
+    @extend .mb3;
+
+    &:first-child { @extend .mt0; }
+
+    &:last-child { @extend .mb0; }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @extend .measure-wide;
+    @extend .lh-title;
+  }
+
+  p, ul, ol, address {
+    @extend .measure;
+  }
+
+  /* Headers */
+
+  h1 {
+    @extend .f3;
+    @extend .f2-l;
+    @extend .fw6;
+  }
+
+  h2 {
+    @extend .f4;
+    @extend .f3-l;
+    @extend .fw5;
+  }
+
+  h3 {
+    @extend .f4;
+    @extend .fw4;
+  }
+
+  h4, h5, h6 {
+    @extend .f5;
+    @extend .fw6;
+  }
+
+  /* Type Elements */
+
+  hr {
+    @extend .w-100;
+    @extend .mw6;
+    @extend .mh0;
+    @extend .mv3;
+    @extend .ba;
+    @extend .bw1;
+    @extend .b--orange;
+  }
+
+  ul ul, ol ol, ul ol, ol ul {
+    @extend .mt0;
+    @extend .mb0;
+  }
+
+  b, strong, em, small, code {
+    line-height: 1;
+  }
+
+  sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+
+  sub {
+    top: 0.4em;
+  }
+
+  a {
+    @extend .link;
+    @extend .dark-gray;
+    @extend .hover-orange;
+  }
+
+  code {
+    @extend .ph1;
+    @extend .br2;
+    @extend .ba;
+    @extend .bw1;
+    @extend .b--light-gray;
+    @extend .bg-near-white;
+    @extend .code;
+  }
+
+  pre {
+    @extend .w-100;
+    @extend .br2;
+    @extend .ba;
+    @extend .bw1;
+    @extend .b--light-gray;
+
+    code {
+      @extend .w-100;
+      @extend .bn;
+      @extend .bg-transparent;
+    }
+  }
+}

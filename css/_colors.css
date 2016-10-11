@@ -9,3 +9,13 @@
 .hover-orange:hover { color: var(--orange); }
 
 .hover-bg-orange:hover { background-color: var(--orange); }
+
+.b--orange { border-color: var(--orange); }
+
+.fill-orange { fill: var(--orange); }
+
+.hover-fill-orange:hover { fill: var(--orange); }
+
+.stroke-orange { stroke: var(--orange); }
+
+.hover-stroke-orange:hover { stroke: var(--orange); }

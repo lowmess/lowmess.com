@@ -52,7 +52,7 @@ if (rotate) {
   window.setInterval(function () {
     removeBg(rotate)
     setBg(rotate)
-  }, 200)
+  }, 250)
 }
 
 function setBg (el) {

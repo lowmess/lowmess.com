@@ -7,11 +7,11 @@ html
     include partials/nav
 
     block page
+      +header
+        h1.dib.f3.fw6.bg-white.ph2.pv1.mv1= title
       main(role="main")
         +container
-          block content
-            h1= title
-            !=contents
+          !=contents
 
     include partials/footer
     include partials/scripts

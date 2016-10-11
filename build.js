@@ -53,7 +53,7 @@ var siteBuild = Metalsmith(__dirname)
     {
       pattern: 'work/**/*.md',
       defaults: {
-        layout: 'work.pug'
+        layout: 'project.pug'
       }
     },
     {
@@ -92,17 +92,10 @@ var siteBuild = Metalsmith(__dirname)
   }))
   .use(tags({
     handle: 'tags',
-    path: 'blog/tagged/:tag/index.html',
-    pathPage: 'blog/tagged/:tag/:num/index.html',
-    perPage: 10,
+    path: 'tagged/:tag/index.html',
     layout: 'tag.pug',
     sortBy: 'date',
     reverse: true
-  }))
-  .use(tags({
-    handle: 'categories',
-    path: 'work/categories/:tag/index.html',
-    layout: 'categories.pug'
   }))
   .use(layouts({
     engine: 'pug',
@@ -157,6 +150,7 @@ function stylesheets () {
   var plugins = [
     require('postcss-import'),
     require('postcss-nested'),
+    require('postcss-extend'),
     require('postcss-custom-properties'),
     require('postcss-custom-media'),
     require('postcss-color-function'),
