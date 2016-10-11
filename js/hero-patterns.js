@@ -33,25 +33,37 @@ var backgrounds = [
   'wallpaper'
 ]
 
-var landing = document.querySelector('.landing')
+var rollover = document.querySelector('.rollover')
+var rotate = document.querySelector('.rotate')
+var random = document.querySelector('.random')
 
-if (landing) {
-  setBg()
-  landing.addEventListener('mousemove', throttle(function () {
-    removeBg()
-    setBg()
+if (rollover || rotate || random) {
+  setBg(rollover || rotate || random)
+}
+
+if (rollover) {
+  rollover.addEventListener('mousemove', throttle(function () {
+    removeBg(rollover)
+    setBg(rollover)
   }, 250))
 }
 
-function setBg () {
-  var newBg = backgrounds[Math.floor(Math.random() * backgrounds.length)]
-  landing.classList.add(newBg)
+if (rotate) {
+  window.setInterval(function () {
+    removeBg(rotate)
+    setBg(rotate)
+  }, 200)
 }
 
-function removeBg () {
-  var currentBg = landing.className.split(' ').pop()
+function setBg (el) {
+  var newBg = backgrounds[Math.floor(Math.random() * backgrounds.length)]
+  el.classList.add(newBg)
+}
+
+function removeBg (el) {
+  var currentBg = el.className.split(' ').pop()
   var index = backgrounds.indexOf(currentBg)
-  landing.classList.remove(backgrounds[index])
+  el.classList.remove(backgrounds[index])
 }
 
 /* Thanks Remy! 👍
