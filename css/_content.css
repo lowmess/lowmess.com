@@ -5,9 +5,10 @@
   @extend .lh-copy;
   @extend .f5;
 
-  h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address {
-    @extend .mt3;
-    @extend .mb3;
+  h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
+    @extend .db;
+    @extend .mv2;
+    @extend .mv3-ns;
 
     &:first-child { @extend .mt0; }
 
@@ -80,6 +81,7 @@
 
   a {
     @extend .link;
+    @extend .underline;
     @extend .dark-gray;
     @extend .hover-orange;
   }
@@ -106,5 +108,9 @@
       @extend .bn;
       @extend .bg-transparent;
     }
+  }
+
+  img {
+    @extend .center;
   }
 }

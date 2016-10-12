@@ -8,10 +8,10 @@ html
 
     block page
       +header
-        h1.dib.f3.fw6.bg-white.ph2.pv1.mv1= title
+        +headline= title
       main(role="main")
         +container
-          !=contents
+          .content!=contents
 
     include partials/footer
     include partials/scripts

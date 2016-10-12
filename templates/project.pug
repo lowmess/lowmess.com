@@ -2,11 +2,11 @@ extends default
 
 block page
   +header
-    h1.dib.f3.f2-l.fw6.bg-white.ph2.pv1.ma1= title
-    h2.dib.f3.f2-l.fw4.bg-white.ph2.pv1.ma1: time(datetime=moment.utc(date))= moment.utc(date).format("YYYY")
+    +headline= title
+    +subheadline: time(datetime=moment.utc(date))= moment.utc(date).format("YYYY")
     if tags
       each tag in tags
-        span.dib.f3.f2-l.fw4.bg-white.ph2.pv1.ma1: +link("/tagged/" + tag.toLowerCase())= tag
+        +header-text: +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
   main(role="main")
     +container
       .content!=contents

@@ -2,13 +2,11 @@ extends default
 
 block page
   +header
-    span.dib.f3.f2-l.fw6.bg-white.ph2.pv1.ma1 Hi! 👋
-    h1.dib.f3.f2-l.fw6.bg-white.ph2.pv1.ma1 I&rsquo;m Alec Lomas.
-    h2.dib.f3.f2-l.fw4.bg-white.ph2.pv1.ma1 I&rsquo;m a frontend developer &amp; designer at&nbsp;#[+link("https://meltmedia.com", "_blank") meltmedia].
+    +header-text(class="fw6") Hi! 👋
+    +headline I&rsquo;m Alec Lomas.
+    +subheadline I&rsquo;m a frontend developer &amp; designer at&nbsp;#[+link("https://meltmedia.com", "_blank") meltmedia].
   main(role="main")
     +container
-      h3.f4.f3-l.fw5.mb0.mt1 Recent Projects
-      section#work
-        +project-preview(collections.work[0])
-        +project-preview(collections.work[0], true)
-        +project-preview(collections.work[0])
+      +section-title Latest Project
+      +project-preview(collections.work[0])
+      +section-title(class="mt5-l") From the Blog
