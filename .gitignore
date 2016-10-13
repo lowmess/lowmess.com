@@ -1,5 +1,4 @@
 node_modules
 _build
-assets
 **/.DS_Store
 **/npm-debug.log
