@@ -1,0 +1,8 @@
+extends page
+
+block content
+  each project, index in collections.projects
+    if index % 2 === 0
+      +project-preview(project)
+    else
+      +project-preview(project, true)

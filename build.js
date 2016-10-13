@@ -13,6 +13,7 @@ var permalinks = require('metalsmith-permalinks')
 var collections = require('metalsmith-collections')
 var pagination = require('metalsmith-pagination')
 var tags = require('metalsmith-tags')
+var minify = require('metalsmith-html-minifier')
 // Javascript
 var uglify = require('uglify-js')
 // PostCSS
@@ -39,9 +40,9 @@ var siteBuild = Metalsmith(__dirname)
       sortBy: 'date',
       reverse: true
     },
-    work: {
-      pattern: 'work/**/*.md',
-      sortBy: 'position',
+    projects: {
+      pattern: 'projects/**/*.md',
+      sortBy: 'date',
       reverse: true
     },
     pages: {
@@ -51,7 +52,7 @@ var siteBuild = Metalsmith(__dirname)
   // Set default values
   .use(defaultValues([
     {
-      pattern: 'work/**/*.md',
+      pattern: 'projects/**/*.md',
       defaults: {
         layout: 'project.pug'
       }
@@ -107,6 +108,10 @@ var siteBuild = Metalsmith(__dirname)
   }))
   .use(sitemap('https://lowmess.com'))
   .use(feed({collection: 'blog'}))
+
+if (process.env.NODE_ENV === 'production') {
+  siteBuild.use(minify())
+}
 
 siteBuild.build(function (err) {
   if (err) {

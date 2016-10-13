@@ -78,7 +78,7 @@
     , "selector-combinator-space-after": "always"
     , "selector-combinator-space-before": "always"
     , "selector-max-compound-selectors": 3
-    , "selector-max-specificity": "0,4,0"
+    , "selector-max-specificity": "0,3,0"
     , "selector-no-id": true
     , "selector-no-qualifying-type": true
     , "selector-no-vendor-prefix": true
@@ -119,7 +119,7 @@
     , "at-rule-semicolon-newline-after": "always"
     , "indentation": 2
     , "max-empty-lines": 1
-    , "max-nesting-depth": 4
+    , "max-nesting-depth": 3
     , "no-duplicate-selectors": true
     , "no-empty-source": true
     , "no-eol-whitespace": true
