@@ -93,6 +93,7 @@
     @extend .bw1;
     @extend .b--light-gray;
     @extend .bg-near-white;
+    @extend .f6;
     @extend .code;
   }
 
@@ -104,6 +105,7 @@
     @extend .b--near-black;
     @extend .pa3;
     @extend .bg-dark-gray;
+    @extend .f6;
     @extend .near-white;
     @extend .code;
 
@@ -115,6 +117,14 @@
   }
 
   img {
+    @extend .db;
+    @extend .w-auto;
+    @extend .mw-100;
     @extend .center;
+    @extend .br1;
+  }
+
+  a > img {
+    @extend .grow;
   }
 }
