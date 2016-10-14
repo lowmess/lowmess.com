@@ -111,6 +111,7 @@
 
     code {
       @extend .w-100;
+      @extend .pa0;
       @extend .bn;
       @extend .bg-transparent;
     }
