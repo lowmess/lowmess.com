@@ -4,7 +4,7 @@
   "description": "The website and portfolio of Alec Lomas",
   "main": "build.js",
   "engines": {
-    "node": "5.9.0"
+    "node": "6.8.0"
   },
   "scripts": {
     "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build && browser-sync reload'",
@@ -83,7 +83,7 @@
     "tachyons-font-weight": "^4.0.4",
     "tachyons-forms": "^3.0.1",
     "tachyons-heights": "^5.0.1",
-    "tachyons-hovers": "^2.3.2",
+    "tachyons-hovers": "^2.4.2",
     "tachyons-images": "^1.0.4",
     "tachyons-letter-spacing": "^2.1.3",
     "tachyons-line-height": "^2.0.5",

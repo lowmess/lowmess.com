@@ -88,7 +88,7 @@
 
   code {
     @extend .ph1;
-    @extend .br2;
+    @extend .br1;
     @extend .ba;
     @extend .bw1;
     @extend .b--light-gray;
@@ -98,10 +98,14 @@
 
   pre {
     @extend .w-100;
-    @extend .br2;
+    @extend .br1;
     @extend .ba;
     @extend .bw1;
-    @extend .b--light-gray;
+    @extend .b--near-black;
+    @extend .pa3;
+    @extend .bg-dark-gray;
+    @extend .near-white;
+    @extend .code;
 
     code {
       @extend .w-100;

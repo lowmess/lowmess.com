@@ -3,7 +3,7 @@ extends default
 block page
   +header
     +headline= title
-    +subheadline: time(datetime=moment.utc(date))= moment.utc(date).format("YYYY")
+    +subheadline: time(datetime=moment.utc(date))= moment.utc(date).format("MMM YYYY")
     if tags
       each tag in tags
         +header-text: +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
