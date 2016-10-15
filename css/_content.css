@@ -7,8 +7,7 @@
 
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
     @extend .db;
-    @extend .mv2;
-    @extend .mv3-ns;
+    @extend .mv3;
 
     &:first-child { @extend .mt0; }
 
@@ -21,7 +20,7 @@
   }
 
   p, ul, ol, address {
-    @extend .measure;
+    @extend .measure-wide;
   }
 
   /* Headers */
@@ -58,6 +57,10 @@
     @extend .ba;
     @extend .bw1;
     @extend .b--orange;
+  }
+
+  ul, ol {
+    @extend .pl4;
   }
 
   ul ul, ol ol, ul ol, ol ul {
@@ -111,7 +114,7 @@
 
     code {
       @extend .w-100;
-      @extend .pa0;
+      @extend .ph0;
       @extend .bn;
       @extend .bg-transparent;
     }

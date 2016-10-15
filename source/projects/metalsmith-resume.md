@@ -10,30 +10,45 @@ tags:
   - Tachyons
 ---
 
-this is some `inline code`, inside a paragraph. cool, huh?
+# Heading 1
+
+But where did the lighter fluid come from? They want to break his legs. It's a good thing he's already got that little scooter. Annyong.
+
+## Heading 2
+
+### Heading 3
+
+Buster's in what we like to call a light to no coma. In laymans terms, it might be considered a very heavy nap. Up yours, granny! You couldn't handle it! But anyhoo, can you believe that the only reason the club is going under is because it's in a terrifying neighborhood? They're not gonna strip, right? I told them not to, but I can't guarantee their instincts won't kick in.
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+***
+
+* List item
+* Another one
+* I think three's enough
+
+1. Numbers
+2. Are
+3. I don't know, kind of boring
+
+* Oh hey I forgot about
+  * Nested lists
+  * :D
+* ¯\\\_(ツ)\_/¯
+
+I'm an ideas man, Michael. I think I proved that with `Fuck Mountain`. I was once called the worst audience participant _Cirque du Soleil_ ever had. Speaking of settling, how's Ann? **Never once** touched my per diem. I'd go to Craft Service, get some raw veggies, bacon, Cup-A-Soup…baby, [I got a stew goin'](http://google.com). I'll sacrifice anything for my children.
 
 ```js
-var rollover = document.querySelector('.rollover')
-var rotate = document.querySelector('.rotate')
-var random = document.querySelector('.random')
-
-if (rollover || rotate || random) {
-  setBg(rollover || rotate || random)
-}
-
-if (rollover) {
-  rollover.addEventListener('mousemove', throttle(function () {
-    removeBg(rollover)
-    setBg(rollover)
-  }, 250))
-}
-
-if (rotate) {
-  window.setInterval(function () {
-    removeBg(rotate)
-    setBg(rotate)
-  }, 200)
-}
+var backgrounds = [
+  'background',
+  'class',
+  'names'
+]
 
 function setBg (el) {
   var newBg = backgrounds[Math.floor(Math.random() * backgrounds.length)]
@@ -47,12 +62,4 @@ function removeBg (el) {
 }
 ```
 
-```css
-.selector {
-  boo: yah;
-}
-```
-
-```html
-<p>hmmm</p>
-```
+And don't make the water too hot. The scabs come right off. No, Pop-pop does not get a treat, I just brought you a [bleep]ing pizza. The CIA should've just Googled for his hideout, evidently. It's a jetpack, Michael. What could go wrong? Well, they got the Asian right… "hotties" might be a stretch. I'm a complete failure. I can't even fake the death of a stripper. Up yours, granny! You couldn't handle it!
