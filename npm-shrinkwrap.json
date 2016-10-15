@@ -3903,6 +3903,12 @@
       "resolved": "https://registry.npmjs.org/markdown-it/-/markdown-it-7.0.1.tgz",
       "dev": true
     },
+    "markdown-it-block-image": {
+      "version": "0.0.3",
+      "from": "markdown-it-block-image@latest",
+      "resolved": "https://registry.npmjs.org/markdown-it-block-image/-/markdown-it-block-image-0.0.3.tgz",
+      "dev": true
+    },
     "math-expression-evaluator": {
       "version": "1.2.14",
       "from": "math-expression-evaluator@>=1.2.14 <2.0.0",

@@ -79,10 +79,11 @@ var siteBuild = Metalsmith(__dirname)
     }
   }))
   .use(markdown({
-    gfm: true,
-    smartypants: true,
-    tables: true
-  }))
+    typographer: true,
+    linkify: true
+  }).use(
+    require('markdown-it-block-image')
+  ))
   .use(permalinks({
     pattern: ':collection/:title',
     relative: false,

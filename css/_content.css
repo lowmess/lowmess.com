@@ -15,7 +15,6 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @extend .measure-wide;
     @extend .lh-title;
   }
 
@@ -51,11 +50,11 @@
 
   hr {
     @extend .w-100;
-    @extend .mw6;
+    @extend .mw4;
     @extend .mh0;
-    @extend .mv3;
+    @extend .mv4;
     @extend .ba;
-    @extend .bw1;
+    @extend .bw2;
     @extend .b--orange;
   }
 
@@ -124,11 +123,6 @@
     @extend .db;
     @extend .w-auto;
     @extend .mw-100;
-    @extend .center;
     @extend .br1;
-  }
-
-  a > img {
-    @extend .grow;
   }
 }
