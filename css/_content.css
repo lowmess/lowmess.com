@@ -106,9 +106,6 @@
   pre {
     @extend .w-100;
     @extend .br1;
-    @extend .ba;
-    @extend .bw1;
-    @extend .b--near-black;
     @extend .pa3;
     @extend .bg-dark-gray;
     @extend .f6;
