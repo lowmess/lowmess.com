@@ -4,6 +4,7 @@
 
   @extend .lh-copy;
   @extend .f5;
+  @extend .f4-l;
 
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
     @extend .db;
@@ -38,11 +39,13 @@
 
   h3 {
     @extend .f4;
+    @extend .f3-l;
     @extend .fw4;
   }
 
   h4, h5, h6 {
     @extend .f5;
+    @extend .f4-l;
     @extend .fw6;
   }
 
@@ -96,6 +99,7 @@
     @extend .b--light-gray;
     @extend .bg-near-white;
     @extend .f6;
+    @extend .f5-l;
     @extend .code;
   }
 
@@ -108,6 +112,7 @@
     @extend .pa3;
     @extend .bg-dark-gray;
     @extend .f6;
+    @extend .f5-l;
     @extend .near-white;
     @extend .code;
 
