@@ -9,6 +9,7 @@
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
     @extend .db;
     @extend .mv3;
+    @extend .mv4-l;
 
     &:first-child { @extend .mt0; }
 
@@ -89,6 +90,21 @@
     @extend .underline;
     @extend .dark-gray;
     @extend .hover-orange;
+  }
+
+  blockquote {
+    @extend .mh0;
+    @extend .bw3;
+    @extend .bl;
+    @extend .br1;
+    @extend .b--orange;
+    @extend .pv3;
+    @extend .ph4;
+    @extend .bg-near-white;
+
+    p {
+      @extend .measure;
+    }
   }
 
   code {
