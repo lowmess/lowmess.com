@@ -15,6 +15,7 @@ var pagination = require('metalsmith-pagination')
 var tags = require('metalsmith-tags')
 var minify = require('metalsmith-html-minifier')
 // Javascript
+var babel = require('babel-core')
 var uglify = require('uglify-js')
 // PostCSS
 var postcss = require('postcss')
@@ -133,11 +134,19 @@ function scripts () {
   var js = globcat('js/**/*.js')
 
   js.then(function (contents) {
+
+  })
+
+  js.then(function (contents) {
+    var result = babel.transform(contents, {
+      presets: ['es2015']
+    })
+
     if (process.env.NODE_ENV === 'production') {
-      var result = uglify.minify([contents], { fromString: true })
-      fs.writeFileSync('_build/js/main.js', result.code, 'utf-8')
+      var uglified = uglify.minify(result.code, { fromString: true })
+      fs.writeFileSync('_build/js/main.js', uglified.code, 'utf-8')
     } else {
-      fs.writeFileSync('_build/js/main.js', contents, 'utf-8')
+      fs.writeFileSync('_build/js/main.js', result.code, 'utf-8')
     }
     console.log('JavaScript complete!\n')
   })

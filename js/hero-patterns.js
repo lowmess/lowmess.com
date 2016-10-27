@@ -1,4 +1,4 @@
-var backgrounds = [
+const backgrounds = [
   'bubbles',
   'cage',
   'connections',
@@ -33,9 +33,9 @@ var backgrounds = [
   'wallpaper'
 ]
 
-var rollover = document.querySelector('.rollover')
-var rotate = document.querySelector('.rotate')
-var random = document.querySelector('.random')
+let rollover = document.querySelector('.rollover')
+let rotate = document.querySelector('.rotate')
+let random = document.querySelector('.random')
 
 if (rollover || rotate || random) {
   setBg(rollover || rotate || random)
@@ -56,13 +56,13 @@ if (rotate) {
 }
 
 function setBg (el) {
-  var newBg = backgrounds[Math.floor(Math.random() * backgrounds.length)]
+  let newBg = backgrounds[Math.floor(Math.random() * backgrounds.length)]
   el.classList.add(newBg)
 }
 
 function removeBg (el) {
-  var currentBg = el.className.split(' ').pop()
-  var index = backgrounds.indexOf(currentBg)
+  let currentBg = el.className.split(' ').pop()
+  let index = backgrounds.indexOf(currentBg)
   el.classList.remove(backgrounds[index])
 }
 
@@ -73,13 +73,13 @@ function removeBg (el) {
 
 function throttle (fn, threshhold, scope) {
   threshhold || (threshhold = 250)
-  var last
-  var deferTimer
+  let last
+  let deferTimer
   return function () {
-    var context = scope || this
+    let context = scope || this
 
-    var now = +new Date()
-    var args = arguments
+    let now = +new Date()
+    let args = arguments
     if (last && now < last + threshhold) {
       // hold on to it
       clearTimeout(deferTimer)

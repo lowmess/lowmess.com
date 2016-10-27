@@ -15,7 +15,7 @@ function addQueryString (el, queryString) {
   }
 }
 
-var links = document.querySelectorAll('a')
-var aQueryString = 'utm_source=lowmess'
+let links = document.querySelectorAll('a')
+let aQueryString = 'utm_source=lowmess'
 
-for (var i = 0; i < links.length; i++) addQueryString(links[i], aQueryString)
+for (let i = links.length; i--;) addQueryString(links[i], aQueryString)
