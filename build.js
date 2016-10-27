@@ -1,29 +1,29 @@
-var fs = require('fs')
-var globcat = require('globcat')
+const fs = require('fs')
 // Metalsmith
-var Metalsmith = require('metalsmith')
-var sitemap = require('metalsmith-mapsite')
-var feed = require('metalsmith-feed')
-var defaultValues = require('metalsmith-default-values')
+const Metalsmith = require('metalsmith')
+const sitemap = require('metalsmith-mapsite')
+const feed = require('metalsmith-feed')
+const defaultValues = require('metalsmith-default-values')
 // HTML
-var layouts = require('metalsmith-layouts')
-var drafts = require('metalsmith-drafts')
-var markdown = require('metalsmith-markdownit')
-var permalinks = require('metalsmith-permalinks')
-var collections = require('metalsmith-collections')
-var pagination = require('metalsmith-pagination')
-var tags = require('metalsmith-tags')
-var minify = require('metalsmith-html-minifier')
+const layouts = require('metalsmith-layouts')
+const drafts = require('metalsmith-drafts')
+const markdown = require('metalsmith-markdownit')
+const permalinks = require('metalsmith-permalinks')
+const collections = require('metalsmith-collections')
+const pagination = require('metalsmith-pagination')
+const tags = require('metalsmith-tags')
+const minify = require('metalsmith-html-minifier')
 // Javascript
-var babel = require('babel-core')
-var uglify = require('uglify-js')
+const rollup = require('rollup')
+const babel = require('rollup-plugin-babel')
+const uglify = require('rollup-plugin-uglify')
 // PostCSS
-var postcss = require('postcss')
+const postcss = require('postcss')
 
 /* Metalsmith
  ******************************************************************************/
 
-var siteBuild = Metalsmith(__dirname)
+let siteBuild = Metalsmith(__dirname)
   .source('source')
   .destination('_build')
   .metadata({
@@ -119,50 +119,47 @@ siteBuild.build(function (err) {
   if (err) {
     console.log(err)
   } else {
-    console.log('Site build complete!')
+    console.log('Metalsmith complete!\n')
     scripts()
     stylesheets()
   }
 })
 
-/* JavaScript
+/* Rollup
  ******************************************************************************/
 
 function scripts () {
-  fs.mkdirSync('_build/js')
+  let plugs = [
+    babel()
+  ]
 
-  var js = globcat('js/**/*.js')
+  if (process.env.NODE_ENV === 'production') {
+    plugs.push(
+      uglify()
+    )
+  }
 
-  js.then(function (contents) {
-
-  })
-
-  js.then(function (contents) {
-    var result = babel.transform(contents, {
-      presets: ['es2015']
+  rollup.rollup({
+    entry: 'js/main.js',
+    plugins: plugs
+  }).then(function (bundle) {
+    bundle.write({
+      format: 'es',
+      dest: '_build/js/main.js',
+      sourceMap: true
     })
-
-    if (process.env.NODE_ENV === 'production') {
-      var uglified = uglify.minify(result.code, { fromString: true })
-      fs.writeFileSync('_build/js/main.js', uglified.code, 'utf-8')
-    } else {
-      fs.writeFileSync('_build/js/main.js', result.code, 'utf-8')
-    }
-    console.log('JavaScript complete!\n')
   })
 
-  js.catch(function (err) {
-    console.log(err)
-  })
+  console.log('Rollup complete!\n')
 }
 
 /* PostCSS
  ******************************************************************************/
 
 function stylesheets () {
-  var css = fs.readFileSync('css/main.css', 'utf-8')
+  let css = fs.readFileSync('css/main.css', 'utf-8')
 
-  var plugins = [
+  let plugins = [
     require('postcss-import'),
     require('postcss-nested'),
     require('postcss-extend'),
@@ -204,6 +201,7 @@ function stylesheets () {
       fs.mkdirSync('_build/css')
       fs.writeFileSync('_build/css/main.css', result.css, 'utf-8')
       if (result.map) fs.writeFileSync('_build/css/main.css.map', result.map, 'utf-8')
+
       console.log('PostCSS complete!\n')
     })
 }

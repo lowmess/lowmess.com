@@ -1,4 +1,4 @@
-function addQueryString (el, queryString) {
+export function queryString (el, string) {
   // Check if el is a link
   if (!el.href || (el.protocol !== 'http:' && el.protocol !== 'https:')) {
     return
@@ -8,14 +8,9 @@ function addQueryString (el, queryString) {
   if (el.host !== window.location.host) {
     // If link already has a query string add to it, else create one
     if (el.search) {
-      el.search += '&' + queryString
+      el.search += '&' + string
     } else {
-      el.search = queryString
+      el.search = string
     }
   }
 }
-
-let links = document.querySelectorAll('a')
-let aQueryString = 'utm_source=lowmess'
-
-for (let i = links.length; i--;) addQueryString(links[i], aQueryString)
