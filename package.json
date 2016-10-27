@@ -7,9 +7,10 @@
     "node": "6.9.0"
   },
   "scripts": {
-    "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build && browser-sync reload'",
+    "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build:test && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
-    "build": "standard && node build.js",
+    "build": "node build.js",
+    "build:test": "standard && node build.js",
     "build:minify": "NODE_ENV=production npm run build"
   },
   "repository": {
