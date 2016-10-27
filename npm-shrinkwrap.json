@@ -6186,7 +6186,7 @@
     },
     "stylelint": {
       "version": "7.5.0",
-      "from": "stylelint@latest",
+      "from": "https://registry.npmjs.org/stylelint/-/stylelint-7.5.0.tgz",
       "resolved": "https://registry.npmjs.org/stylelint/-/stylelint-7.5.0.tgz",
       "dev": true,
       "dependencies": {

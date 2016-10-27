@@ -44,12 +44,28 @@ export function remove (el) {
   el.classList.remove(backgrounds[index])
 }
 
+export function marble (el, time) {
+  set(el)
+  el.addEventListener('mousemove', throttle(function () {
+    remove(el)
+    set(el)
+  }, time))
+}
+
+export function flash (el, time) {
+  set(el)
+  window.setInterval(function () {
+    remove(el)
+    set(el)
+  }, time)
+}
+
 /* Thanks Remy! 👍
  * author: @rem
  * link: https://remysharp.com/2010/07/21/throttling-function-calls
  */
 
-export function throttle (fn, threshhold, scope) {
+function throttle (fn, threshhold, scope) {
   threshhold || (threshhold = 250)
   let last
   let deferTimer

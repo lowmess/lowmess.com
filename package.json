@@ -65,7 +65,7 @@
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-uglify": "^1.0.1",
     "standard": "^7.1.2",
-    "stylelint": "^7.5.0",
+    "stylelint": "https://registry.npmjs.org/stylelint/-/stylelint-7.5.0.tgz",
     "tachyons-background-size": "^4.0.0",
     "tachyons-base": "^1.2.3",
     "tachyons-border-colors": "^4.1.0",
