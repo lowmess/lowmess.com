@@ -10,14 +10,8 @@ let rollover = document.querySelector('.rollover')
 let rotate = document.querySelector('.rotate')
 let random = document.querySelector('.random')
 
-if (random) {
-  patterns.set(random)
-}
+if (random) patterns.set(random)
 
-if (rollover) {
-  patterns.marble(rollover, 250)
-}
+if (rollover) patterns.marble(rollover, 250)
 
-if (rotate) {
-  patterns.flash(rotate, 250)
-}
+if (rotate) patterns.flash(rotate, 250)

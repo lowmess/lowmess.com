@@ -1,8 +1,6 @@
 export function queryString (el, string) {
   // Check if el is a link
-  if (!el.href || (el.protocol !== 'http:' && el.protocol !== 'https:')) {
-    return
-  }
+  if (!el.href || (el.protocol !== 'http:' && el.protocol !== 'https:')) return
 
   // Check if link host does not match current window host
   if (el.host !== window.location.host) {
