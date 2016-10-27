@@ -10,7 +10,7 @@
     "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build:test && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
     "build": "node build.js",
-    "build:test": "standard && node build.js",
+    "build:test": "standard && stylelint css/*.css && node build.js",
     "build:minify": "NODE_ENV=production npm run build"
   },
   "repository": {
@@ -65,6 +65,7 @@
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-uglify": "^1.0.1",
     "standard": "^7.1.2",
+    "stylelint": "^7.5.0",
     "tachyons-background-size": "^4.0.0",
     "tachyons-base": "^1.2.3",
     "tachyons-border-colors": "^4.1.0",
