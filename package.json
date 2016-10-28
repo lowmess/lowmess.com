@@ -4,7 +4,7 @@
   "description": "The website and portfolio of Alec Lomas",
   "main": "build.js",
   "engines": {
-    "node": "6.9.0"
+    "node": "6.7.0"
   },
   "scripts": {
     "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build:test && browser-sync reload'",
