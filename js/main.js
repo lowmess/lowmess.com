@@ -1,5 +1,5 @@
-import {queryString} from './links.js'
-import * as patterns from './hero-patterns.js'
+import {queryString} from './_links.js'
+import * as patterns from './_hero-patterns.js'
 
 let anchors = document.querySelectorAll('a')
 let aQueryString = 'utm_source=lowmess'
