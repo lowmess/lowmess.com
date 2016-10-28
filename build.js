@@ -176,15 +176,11 @@ function stylesheets () {
     plugins.push(
       require('postcss-uncss')({
         html: ['_build/**/*.html']
-      })
+      }),
+      require('css-mqpacker'),
+      require('cssnano')
     )
   }
-
-  // Make sure cssnano is ran after uncss
-  plugins.push(
-    require('css-mqpacker'),
-    require('cssnano')
-  )
 
   postcss(plugins)
     .process(css, {
