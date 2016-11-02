@@ -16,6 +16,7 @@ const minify = require('metalsmith-html-minifier')
 // Javascript
 const rollup = require('rollup')
 const babel = require('rollup-plugin-babel')
+const nodeResolve = require('rollup-plugin-node-resolve')
 const uglify = require('rollup-plugin-uglify')
 // PostCSS
 const postcss = require('postcss')
@@ -130,7 +131,8 @@ siteBuild.build(function (err) {
 
 function scripts () {
   let plugs = [
-    babel()
+    babel(),
+    nodeResolve()
   ]
 
   if (process.env.NODE_ENV === 'production') {

@@ -1,89 +1,60 @@
+import * as hero from 'hero-patterns'
+import rollover from './_rollover.js'
+
 const backgrounds = [
-  'bubbles',
-  'cage',
-  'connections',
-  'current',
-  'diagonal-stripes',
-  'flipped-diamonds',
-  'houndstooth',
-  'lines-in-motion',
-  'moroccan',
-  'morphing-diamonds',
-  'rails',
-  'rain',
-  'squares-in-squares',
-  'stripes',
-  'tic-tac-toe',
-  'zig-zag',
-  'bank-note',
-  'boxes',
-  'circles-squares',
-  'circuit-board',
-  'diagonal-lines',
-  'endless-clouds',
-  'eyes',
-  'floor-tile',
-  'intersecting-circles',
-  'melt',
-  'overlapping-diamonds',
-  'parkay-floor',
-  'polka-dots',
-  'signal',
-  'slanted-stars',
-  'wallpaper'
+  hero.bubbles,
+  hero.cage,
+  hero.connections,
+  hero.current,
+  hero.diagonalStripes,
+  hero.flippedDiamonds,
+  hero.houndstooth,
+  hero.linesInMotion,
+  hero.moroccan,
+  hero.morphingDiamonds,
+  hero.rails,
+  hero.rain,
+  hero.squaresInSquares,
+  hero.stripes,
+  hero.ticTacToe,
+  hero.zigZag,
+  hero.bankNote,
+  hero.boxes,
+  hero.circlesAndSquares,
+  hero.circuitBoard,
+  hero.diagonalLines,
+  hero.endlessClouds,
+  hero.eyes,
+  hero.floorTile,
+  hero.intersectingCircles,
+  hero.melt,
+  hero.overlappingDiamonds,
+  hero.parkayFloor,
+  hero.polkaDots,
+  hero.signal,
+  hero.slantedStars,
+  hero.wallpaper
 ]
 
-export function set (el) {
-  let newBg = backgrounds[Math.floor(Math.random() * backgrounds.length)]
-  el.classList.add(newBg)
-}
+hero.patterns.forEach(function (item, index, array) {
+  // get function name
+  // convert camelCase to dashes-case
+  // find elements with [data-hero-pattern] that matches the string
+  // set styles on those elements
+  let name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 
-export function remove (el) {
-  let currentBg = el.className.split(' ').pop()
-  let index = backgrounds.indexOf(currentBg)
-  el.classList.remove(backgrounds[index])
-}
-
-export function marble (el, time) {
-  set(el)
-  el.addEventListener('mousemove', throttle(function () {
-    remove(el)
-    set(el)
-  }, time))
-}
-
-export function flash (el, time) {
-  set(el)
-  window.setInterval(function () {
-    remove(el)
-    set(el)
-  }, time)
-}
-
-/* Thanks Remy! 👍
- * author: @rem
- * link: https://remysharp.com/2010/07/21/throttling-function-calls
- */
-
-function throttle (fn, threshhold, scope) {
-  threshhold || (threshhold = 250)
-  let last
-  let deferTimer
-  return function () {
-    let context = scope || this
-
-    let now = +new Date()
-    let args = arguments
-    if (last && now < last + threshhold) {
-      // hold on to it
-      clearTimeout(deferTimer)
-      deferTimer = setTimeout(function () {
-        last = now
-        fn.apply(context, args)
-      }, threshhold + last - now)
-    } else {
-      last = now
-      fn.apply(context, args)
-    }
+  let els = document.querySelectorAll('[data-hero-pattern=' + name + ']')
+  for (let i = els.length; i--;) {
+    hero.set(els[i], item, '333333', '0.7')
   }
+})
+
+let rand = document.querySelectorAll('[data-hero-pattern=random]')
+for (let i = rand.length; i--;) {
+  hero.setRandom(rand[i], '333333', '0.7')
+}
+
+let marbles = document.querySelectorAll('[data-hero-pattern=rollover]')
+for (let i = marbles.length; i--;) {
+  rollover(marbles[i], '333333', '0.7', 250, backgrounds)
 }
