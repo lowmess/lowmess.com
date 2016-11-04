@@ -1,6 +1,6 @@
 import * as hero from 'hero-patterns'
 import {set, setRandom} from './_hero-set.js'
-import rollover from './_hero-rollover.js'
+import {scroll} from './_hero-effects.js'
 
 let fill = '333333'
 let opacity = 0.7
@@ -58,7 +58,7 @@ for (let i = rand.length; i--;) {
   setRandom(rand[i], backgrounds)
 }
 
-let marbles = document.querySelectorAll('[data-hero-pattern=rollover]')
-for (let i = marbles.length; i--;) {
-  rollover(marbles[i], backgrounds, 250)
+let scrolls = document.querySelectorAll('[data-hero-pattern=scroll]')
+for (let i = scrolls.length; i--;) {
+  scroll(scrolls[i], backgrounds, 250)
 }
