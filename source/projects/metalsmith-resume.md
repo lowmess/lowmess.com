@@ -1,6 +1,6 @@
 ---
 title: Metalsmith Resume
-description: "Writing resumes is the <em>worst</em>. So, when it came time for me to create a new one, I used the best content editing &amp; layout engines I could find: Markdown &amp; CSS. Then I re-made it all over, just for you."
+description: "Writing résumés is the <em>worst</em>. Metalsmith Resume makes it a little better by moving your content into markdown files and letting you easily style your résumé with CSS."
 date: 2016-07-13
 preview: https://res.cloudinary.com/lowmess/image/upload/w_800,h_500,c_fill,g_north,dpr_auto/v1476154336/projects.metalsmith-resume.preview.png
 background: connections
