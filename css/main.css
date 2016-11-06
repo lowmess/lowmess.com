@@ -51,6 +51,7 @@
 @import 'tachyons-z-index/src/tachyons-z-index.css';
 @import 'tachyons-columns/src/tachyons-columns.css';
 @import 'tachyons-svg/src/tachyons-svg.css';
+@import 'tachyons-negative-margin/src/tachyons-negative-margin.css';
 
 /* Print styles */
 @import 'tachyons-print/src/tachyons-print.css';
@@ -59,6 +60,5 @@
 @import 'colors.css/src/colors.css';
 
 /* layout */
-@import '_negative-margins';
 @import '_colors';
 @import '_content';
