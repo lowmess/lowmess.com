@@ -6,3 +6,14 @@ block page
     +subheadline= tag
   main(role="main")
     +container
+      - var count = 0
+      each item in pagination.files
+        if item.collection == 'projects'
+          if count === 0
+            +section-title Projects
+          if count % 2 === 0
+            +project-preview(item)
+          else
+            +project-preview(item, true)
+          - count++
+      +section-title Posts
