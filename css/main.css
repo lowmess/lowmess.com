@@ -56,8 +56,8 @@
 /* Print styles */
 @import 'tachyons-print/src/tachyons-print.css';
 
-/* clrs.cc */
-@import 'colors.css/src/colors.css';
+/* Prism */
+@import 'lowmess-prism/lowmess-prism.css';
 
 /* layout */
 @import '_colors';

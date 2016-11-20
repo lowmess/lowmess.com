@@ -2,12 +2,23 @@ import {queryString} from './_links.js'
 import * as hero from 'hero-patterns'
 import {set, setRandom} from './_hero-set.js'
 import {scroll} from './_hero-effects.js'
+import lazy from './_images.js'
 
+// Initialize Layzr
+document.addEventListener('DOMContentLoaded', event => {
+  lazy
+    .update()
+    .check()
+    .handlers(true)
+})
+
+// Add analytics strings to outbound links
 let anchors = document.querySelectorAll('a')
 let aQueryString = 'utm_source=lowmess'
 
 for (let i = anchors.length; i--;) queryString(anchors[i], aQueryString)
 
+// Hero patterns
 let fill = '333333'
 let opacity = 0.7
 

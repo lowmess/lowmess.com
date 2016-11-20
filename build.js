@@ -85,6 +85,10 @@ let siteBuild = Metalsmith(__dirname)
     linkify: true
   }).use(
     require('markdown-it-block-image')
+  ).use(
+    require('markdown-it-prism')
+  ).use(
+    require('markdown-it-image-defer')
   ))
   .use(permalinks({
     pattern: ':collection/:title',
@@ -132,7 +136,9 @@ siteBuild.build(function (err) {
 function scripts () {
   let plugs = [
     babel(),
-    nodeResolve()
+    nodeResolve({
+      jsnext: true
+    })
   ]
 
   if (process.env.NODE_ENV === 'production') {
