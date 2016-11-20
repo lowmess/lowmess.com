@@ -4,7 +4,7 @@
   "description": "The website and portfolio of Alec Lomas",
   "main": "build.js",
   "engines": {
-    "node": "6.7.0"
+    "node": "6.9.0"
   },
   "scripts": {
     "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build:test && browser-sync reload'",
@@ -64,7 +64,7 @@
     "postcss-nested": "^1.0.0",
     "postcss-uncss": "^0.14.0",
     "pug": "^2.0.0-beta3",
-    "rollup": "https://registry.npmjs.org/rollup/-/rollup-0.36.3.tgz",
+    "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
@@ -125,6 +125,6 @@
     "browser-sync": "^2.17.5",
     "nodemon": "^1.9.2",
     "standard": "^7.1.2",
-    "stylelint": "https://registry.npmjs.org/stylelint/-/stylelint-7.5.0.tgz"
+    "stylelint": "^7.6.0"
   }
 }
