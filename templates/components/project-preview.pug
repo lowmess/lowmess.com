@@ -1,7 +1,7 @@
 mixin project-preview(project, reverse)
   .flex.flex-column.flex-row-l.items-center.mv4(class=reverse ? 'justify-end-l' : 'justify-start-l')
     a.db.mb2.mb3-ns.mb0-l.mw6.grow.br1(href="/" + project.path.toLowerCase(), class=reverse ? 'ml5-l order-2-l' : 'mr5-l')
-      img(src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=", data-src=project.preview).w-100.db.br1
+      img(src=project.preview).w-100.db.br1
     div.mt2.mt3-ns.mt0-l(class=reverse ? 'order-1-l tr-l' : '')
       h4.mt0.mb2.mb3-ns.f4.f3-ns.fw6: +link("/" + project.path.toLowerCase())= project.title
       p.f4-l.mt2.mt3-ns.mb0.measure.lh-copy!= project.description
