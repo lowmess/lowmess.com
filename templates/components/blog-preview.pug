@@ -1,0 +1,4 @@
+mixin blog-preview(post)
+  .cf.mv4
+    h4.mt0.mb3.f4.f3-ns.fw6: +link("/" + post.path.toLowerCase())= post.title
+    p.mt3.f5.f4-ns!= post.description

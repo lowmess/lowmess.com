@@ -1138,10 +1138,6 @@ component-inherit@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/component-inherit/-/component-inherit-0.0.3.tgz#645fc4adf58b72b649d5cae65135619db26ff143"
 
-component-props@*:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/component-props/-/component-props-1.1.1.tgz#f9b7df9b9927b6e6d97c9bd272aa867670f34944"
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -3380,13 +3376,6 @@ metalsmith-markdownit@^0.4.0:
   dependencies:
     debug "~2.2.0"
     markdown-it "^7.0.0"
-
-metalsmith-pagination@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/metalsmith-pagination/-/metalsmith-pagination-1.4.0.tgz#ec440281e93171509e7bccf8e838efb824fc1ed5"
-  dependencies:
-    to-function "^2.0.5"
-    xtend "^4.0.0"
 
 metalsmith-permalinks@^0.5.0:
   version "0.5.0"
@@ -5790,12 +5779,6 @@ to-array@0.1.4:
 to-fast-properties@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
-
-to-function@^2.0.5:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/to-function/-/to-function-2.0.6.tgz#7d56cd9c3b92fa8dbd7b22e83d51924de740ebc5"
-  dependencies:
-    component-props "*"
 
 token-stream@0.0.1:
   version "0.0.1"

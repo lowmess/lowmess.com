@@ -10,7 +10,6 @@ const drafts = require('metalsmith-drafts')
 const markdown = require('metalsmith-markdownit')
 const permalinks = require('metalsmith-permalinks')
 const collections = require('metalsmith-collections')
-const pagination = require('metalsmith-pagination')
 const tags = require('metalsmith-tags')
 const minify = require('metalsmith-html-minifier')
 // Javascript
@@ -66,20 +65,6 @@ let siteBuild = Metalsmith(__dirname)
       }
     }
   ]))
-  .use(pagination({
-    'collections.blog': {
-      perPage: 10,
-      layout: 'blog.pug',
-      first: 'blog/index.html',
-      noPageOne: true,
-      path: 'blog/page/:num/index.html',
-      pageMetadata: {
-        title: 'Blog',
-        headline: 'Adventures in Gardening',
-        description: 'The Phenotonic Blog'
-      }
-    }
-  }))
   .use(markdown({
     typographer: true,
     linkify: true

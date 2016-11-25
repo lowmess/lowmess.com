@@ -6,7 +6,7 @@ block page
     +subheadline= tag
   main(role="main")
     +container
-      - var count = 0
+      - let count = 0
       each item in pagination.files
         if item.collection == 'projects'
           if count === 0
@@ -16,4 +16,10 @@ block page
           else
             +project-preview(item, true)
           - count++
-      +section-title Posts
+      - count = 0
+      each item in pagination.files
+        if item.collection == 'blog'
+          if count === 0
+            +section-title Blog Posts
+          +blog-preview(item)
+          - count++
