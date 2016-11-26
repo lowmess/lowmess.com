@@ -4,54 +4,10 @@
 @import 'normalize.css';
 
 /* Tachyons */
-/* Variables */
-@import 'tachyons-colors/src/tachyons-colors.css';
 /* Modules */
-@import 'tachyons-base/src/tachyons-base.css';
-@import 'tachyons-box-sizing/src/tachyons-box-sizing.css';
-@import 'tachyons-background-size/src/tachyons-background-size.css';
-@import 'tachyons-borders/src/tachyons-borders.css';
-@import 'tachyons-border-colors/src/tachyons-border-colors.css';
-@import 'tachyons-border-radius/src/tachyons-border-radius.css';
-@import 'tachyons-border-style/src/tachyons-border-style.css';
-@import 'tachyons-border-widths/src/tachyons-border-widths.css';
-@import 'tachyons-box-shadow/src/tachyons-box-shadow.css';
-@import 'tachyons-coordinates/src/tachyons-coordinates.css';
-@import 'tachyons-clears/src/tachyons-clears.css';
-@import 'tachyons-display/src/tachyons-display.css';
-@import 'tachyons-flexbox/src/tachyons-flexbox.css';
-@import 'tachyons-floats/src/tachyons-floats.css';
-@import 'tachyons-font-family/src/tachyons-font-family.css';
-@import 'tachyons-font-style/src/tachyons-font-style.css';
-@import 'tachyons-font-weight/src/tachyons-font-weight.css';
-@import 'tachyons-forms/src/tachyons-forms.css';
-@import 'tachyons-heights/src/tachyons-heights.css';
-@import 'tachyons-letter-spacing/src/tachyons-letter-spacing.css';
-@import 'tachyons-line-height/src/tachyons-line-height.css';
-@import 'tachyons-links/src/tachyons-links.css';
-@import 'tachyons-lists/src/tachyons-lists.css';
-@import 'tachyons-max-widths/src/tachyons-max-widths.css';
-@import 'tachyons-widths/src/tachyons-widths.css';
-@import 'tachyons-overflow/src/tachyons-overflow.css';
-@import 'tachyons-position/src/tachyons-position.css';
-@import 'tachyons-opacity/src/tachyons-opacity.css';
-@import 'tachyons-skins/src/tachyons-skins.css';
-@import 'tachyons-spacing/src/tachyons-spacing.css';
-@import 'tachyons-tables/src/tachyons-tables.css';
-@import 'tachyons-text-decoration/src/tachyons-text-decoration.css';
-@import 'tachyons-text-align/src/tachyons-text-align.css';
-@import 'tachyons-text-transform/src/tachyons-text-transform.css';
-@import 'tachyons-type-scale/src/tachyons-type-scale.css';
-@import 'tachyons-typography/src/tachyons-typography.css';
-@import 'tachyons-utilities/src/tachyons-utilities.css';
-@import 'tachyons-visibility/src/tachyons-visibility.css';
-@import 'tachyons-white-space/src/tachyons-white-space.css';
-@import 'tachyons-vertical-align/src/tachyons-vertical-align.css';
-@import 'tachyons-hovers/src/tachyons-hovers.css';
-@import 'tachyons-z-index/src/tachyons-z-index.css';
+@import 'tachyons/src/tachyons.css';
 @import 'tachyons-columns/src/tachyons-columns.css';
 @import 'tachyons-svg/src/tachyons-svg.css';
-@import 'tachyons-negative-margin/src/tachyons-negative-margin.css';
 
 /* Print styles */
 @import 'tachyons-print/src/tachyons-print.css';

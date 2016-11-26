@@ -3,7 +3,10 @@ extends default
 block page
   +header
     .dib.db-l
-      +headline= title
+      if displayTitle
+        +headline= displayTitle
+      else
+        +headline= title
     +header-text: time(datetime=moment.utc(date))= moment.utc(date).format("MMMM YYYY")
     if tags
       each tag in tags

@@ -5434,10 +5434,6 @@ tachyons-background-size@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/tachyons-background-size/-/tachyons-background-size-4.0.3.tgz#dadaa62484dfc55aa3a3947843fa4681e23b1de7"
 
-tachyons-base@^1.2.3:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/tachyons-base/-/tachyons-base-1.2.6.tgz#1ed5ce2497ac414df0eb2a77a6324cad50ba90af"
-
 tachyons-border-colors@^4.1.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/tachyons-border-colors/-/tachyons-border-colors-4.2.3.tgz#d634d1f0a7f39a612f9b4f92053e98aa212f4bf6"
@@ -5518,10 +5514,6 @@ tachyons-heights@^5.0.1:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-heights/-/tachyons-heights-5.0.4.tgz#d4b79ca93aa78ce9ac10a8f68538489d48f7af03"
 
-tachyons-hovers@^2.4.2:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/tachyons-hovers/-/tachyons-hovers-2.4.5.tgz#0c6020cc9154418640eadefa6539b110132618c5"
-
 tachyons-images@^1.0.4:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/tachyons-images/-/tachyons-images-1.0.10.tgz#3786d516910ab5197a815774d8867e4b56ec32c7"
@@ -5545,10 +5537,6 @@ tachyons-lists@^2.0.5:
 tachyons-max-widths@^3.1.2:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/tachyons-max-widths/-/tachyons-max-widths-3.1.5.tgz#66112807e12d413b516b7fb038346b0c7c1d55a7"
-
-tachyons-negative-margin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tachyons-negative-margin/-/tachyons-negative-margin-1.0.0.tgz#81237cf806faea9697da0886bbff5eb227a1e212"
 
 tachyons-opacity@^1.1.0:
   version "1.1.7"
@@ -5675,13 +5663,9 @@ tachyons-word-break@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/tachyons-word-break/-/tachyons-word-break-2.0.0.tgz#816ccf74673887cdff4b2b8e71cf8ae5691c1ef7"
 
-tachyons-word-break@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/tachyons-word-break/-/tachyons-word-break-2.0.3.tgz#bf938fdf69a4a2d500d86b412e6cac4c694ad93a"
-
-tachyons-z-index@^1.0.4:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/tachyons-z-index/-/tachyons-z-index-1.0.6.tgz#ff04009ae7042fed5fcd29fc42008e952c2c221e"
+tachyons@^4.5.5:
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/tachyons/-/tachyons-4.5.5.tgz#8b1bde4a2659f4e17ff15ee5c313879a4236c818"
 
 tar-fs@^1.13.0:
   version "1.14.0"
