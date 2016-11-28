@@ -10,7 +10,10 @@
     "css/**/*.*",
     "js/**/*.*",
     "templates/**/*.*",
-    "build.js"
+    "metalsmith.config.js",
+    "rollup.config.js",
+    "postcss.dev.json",
+    "postcss.prod.json"
   ],
   "env": {
     "NODE_ENV": "development"

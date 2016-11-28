@@ -11,7 +11,8 @@
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
     "build": "node metalsmith.config.js && postcss -c postcss.prod.json && rollup -c",
     "build:dev": "node metalsmith.config.js && postcss -c postcss.dev.json && rollup -c",
-    "test": "standard && stylelint css/*.css"
+    "test": "standard && stylelint css/*.css",
+    "ms": "metalsmith"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "hero-patterns": "^0.1.3",
     "layzr.js": "^2.2.1",
     "lowmess-prism": "^0.0.2",
+    "markdown-it-anchor": "^2.5.1",
     "markdown-it-block-image": "0.0.3",
     "markdown-it-image-defer": "^0.0.1",
     "markdown-it-prism": "^1.0.1",
@@ -49,8 +51,9 @@
     "metalsmith-layouts": "^1.6.5",
     "metalsmith-mapsite": "^1.0.4",
     "metalsmith-markdownit": "^0.4.0",
+    "metalsmith-moment": "^1.0.0",
     "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-tags": "^1.2.1",
+    "metalsmith-tags": "^1.3.0",
     "moment": "^2.15.2",
     "normalize.css": "^4.2.0",
     "postcss": "^5.2.6",

@@ -9,6 +9,7 @@ const permalinks = require('metalsmith-permalinks')
 const collections = require('metalsmith-collections')
 const tags = require('metalsmith-tags')
 const minify = require('metalsmith-html-minifier')
+const moment = require('metalsmith-moment')
 
 Metalsmith(__dirname)
   .source('source')
@@ -36,6 +37,9 @@ Metalsmith(__dirname)
       pattern: '*.md'
     }
   }))
+  .use(moment([
+    'date'
+  ]))
   .use(defaultValues([
     {
       pattern: 'projects/**/*.md',
@@ -59,6 +63,8 @@ Metalsmith(__dirname)
     require('markdown-it-prism')
   ).use(
     require('markdown-it-image-defer')
+  ).use(
+    require('markdown-it-anchor')
   ))
   .use(permalinks({
     pattern: ':collection/:title',

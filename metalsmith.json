@@ -25,6 +25,9 @@
         "pattern": "*.md"
       }
     },
+    "metalsmith-moment": [
+      "date"
+    ],
     "metalsmith-default-values": [
       {
         "pattern": "projects/**/*.md",
@@ -44,7 +47,8 @@
       "linkify": true,
       "use": "markdown-it-block-image",
       "use": "markdown-it-prism",
-      "use": "markdown-it-image-defer"
+      "use": "markdown-it-image-defer",
+      "use": "markdown-it-anchor"
     },
     "metalsmith-permalinks": {
       "pattern": ":collection/:title",
@@ -64,7 +68,6 @@
     "metalsmith-layouts": {
       "engine": "pug",
       "pretty": true,
-      "moment": "require('moment')",
       "directory": "./templates",
       "default": "default.pug",
       "pattern": "**/*.html"

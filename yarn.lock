@@ -3268,6 +3268,12 @@ map-stream@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
 
+markdown-it-anchor@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-2.5.1.tgz#87e3bb2b5ad95aff26e3a05dcb84ff4cf255d0f3"
+  dependencies:
+    string "^3.0.1"
+
 markdown-it-block-image@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/markdown-it-block-image/-/markdown-it-block-image-0.0.3.tgz#d3fe650ebf2215ea2c7afb577b394e5f7ffc12ca"
@@ -3392,6 +3398,12 @@ metalsmith-markdownit@^0.4.0:
     debug "~2.2.0"
     markdown-it "^7.0.0"
 
+metalsmith-moment@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/metalsmith-moment/-/metalsmith-moment-1.0.0.tgz#5a869222c16640c5ac27979636fd489679226572"
+  dependencies:
+    moment "^2.11.0"
+
 metalsmith-permalinks@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/metalsmith-permalinks/-/metalsmith-permalinks-0.5.0.tgz#0fec5b1f0687828c198d33b5d479cc1cec4b1a1f"
@@ -3401,7 +3413,7 @@ metalsmith-permalinks@^0.5.0:
     slug-component "~1.1.0"
     substitute "https://github.com/segmentio/substitute/archive/0.0.1.tar.gz"
 
-metalsmith-tags@^1.2.1:
+metalsmith-tags@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/metalsmith-tags/-/metalsmith-tags-1.3.0.tgz#fe28f7e6c2171f5bae97f6d3c53b5b511b4b957e"
   dependencies:
@@ -3513,7 +3525,7 @@ modify-babel-preset@^2.1.1:
   dependencies:
     require-relative "^0.8.7"
 
-moment@2.x.x, moment@^2.15.2, moment@^2.5.1:
+moment@2.x.x, moment@^2.11.0, moment@^2.15.2, moment@^2.5.1:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.16.0.tgz#f38f2c97c9889b0ee18fc6cc392e1e443ad2da8e"
 
@@ -5291,7 +5303,7 @@ string-width@^2.0.0:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^3.0.0"
 
-string@^3.3.1:
+string@^3.0.1, string@^3.3.1:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
 
