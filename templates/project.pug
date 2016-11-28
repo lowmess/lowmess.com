@@ -14,3 +14,10 @@ block page
   main(role="main")
     +container
       article.content!=contents
+      +rule
+      if collections.projects[0].title === title
+        +section-title Next Project
+        +project-preview(collections.projects[1])
+      else
+        +section-title Latest Project
+        +project-preview(collections.projects[0])

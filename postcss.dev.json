@@ -1,0 +1,23 @@
+{
+  "use": [
+    "postcss-import",
+    "postcss-nested",
+    "postcss-extend",
+    "postcss-custom-properties",
+    "postcss-custom-media",
+    "postcss-color-function",
+    "postcss-focus",
+    "autoprefixer"
+  ],
+  "input": "./css/main.css",
+  "output": "./_build/css/main.css",
+  "map": {
+    "inline": false
+  },
+  "autoprefixer": {
+    "browsers": [
+      "last 2 versions",
+      "> 5%"
+    ]
+  }
+}

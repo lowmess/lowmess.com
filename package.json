@@ -7,11 +7,11 @@
     "node": "6.9.0"
   },
   "scripts": {
-    "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run build:test && browser-sync reload'",
+    "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run test && npm run build:dev && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
-    "build": "node build.js",
-    "build:test": "standard && stylelint css/*.css && node build.js",
-    "build:minify": "NODE_ENV=production npm run build"
+    "build": "node metalsmith.config.js && postcss -c postcss.prod.json && rollup -c",
+    "build:dev": "node metalsmith.config.js && postcss -c postcss.dev.json && rollup -c",
+    "test": "standard && stylelint css/*.css"
   },
   "repository": {
     "type": "git",
@@ -53,7 +53,8 @@
     "metalsmith-tags": "^1.2.1",
     "moment": "^2.15.2",
     "normalize.css": "^4.2.0",
-    "postcss": "^5.2.5",
+    "postcss": "^5.2.6",
+    "postcss-cli": "^2.6.0",
     "postcss-color-function": "^2.0.1",
     "postcss-custom-media": "^5.0.1",
     "postcss-custom-properties": "^5.0.1",

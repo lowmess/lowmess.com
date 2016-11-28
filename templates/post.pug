@@ -14,3 +14,8 @@ block page
   main(role="main")
     +container
       article.content!=contents
+      //- +rule
+      //- if collections.blog[0].title === title
+      //-   +section-title Next Blog Post: #[+link('/' + collections.blog[1].path)= collections.blog[1].title]
+      //- else
+      //-   +section-title Latest Blog Post: #[+link('/' + collections.blog[0].path)= collections.blog[0].title]

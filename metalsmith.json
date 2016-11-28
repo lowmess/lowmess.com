@@ -1,0 +1,80 @@
+{
+  "source": "./source",
+  "destination": "./_build",
+  "metadata": {
+    "site": {
+      "url": "https://www.lowmess.com/",
+      "title": "lowmess",
+      "description": "The web & graphic design portfolio of Alec Lomas. You can find him @lowmess"
+    }
+  },
+  "plugins": {
+    "metalsmith-drafts": {},
+    "metalsmith-collections": {
+      "blog": {
+        "pattern": "blog/**/*.md",
+        "sortBy": "date",
+        "reverse": true
+      },
+      "projects": {
+        "pattern": "projects/**/*.md",
+        "sortBy": "date",
+        "reverse": true
+      },
+      "pages": {
+        "pattern": "*.md"
+      }
+    },
+    "metalsmith-default-values": [
+      {
+        "pattern": "projects/**/*.md",
+        "defaults": {
+          "layout": "project.pug"
+        }
+      },
+      {
+        "pattern": "blog/**/*.md",
+        "defaults": {
+          "layout": "post.pug"
+        }
+      }
+    ],
+    "metalsmith-markdownit": {
+      "typographer": true,
+      "linkify": true,
+      "use": "markdown-it-block-image",
+      "use": "markdown-it-prism",
+      "use": "markdown-it-image-defer"
+    },
+    "metalsmith-permalinks": {
+      "pattern": ":collection/:title",
+      "relative": false,
+      "linksets": [{
+        "match": { "collection": "pages" },
+        "pattern": ":title"
+      }]
+    },
+    "metalsmith-tags": {
+      "handle": "tags",
+      "path": "tagged/:tag/index.html",
+      "layout": "tag.pug",
+      "sortBy": "date",
+      "reverse": true
+    },
+    "metalsmith-layouts": {
+      "engine": "pug",
+      "pretty": true,
+      "moment": "require('moment')",
+      "directory": "./templates",
+      "default": "default.pug",
+      "pattern": "**/*.html"
+    },
+    "metalsmith-mapsite": {
+      "hostname": "https://lowmess.com"
+    },
+    "metalsmith-feed": {
+      "collection": "blog"
+    },
+    "metalsmith-html-minifier": {}
+  }
+}
