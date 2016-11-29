@@ -3337,6 +3337,13 @@ metalsmith-collections@^0.7.0:
     read-metadata "0.0.2"
     uniq "0.0.2"
 
+metalsmith-debug@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/metalsmith-debug/-/metalsmith-debug-1.1.0.tgz#6490225703bf45df96cae485b41838022f696849"
+  dependencies:
+    debug "^2.2.0"
+    multimatch "^2.1.0"
+
 metalsmith-default-values@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/metalsmith-default-values/-/metalsmith-default-values-0.0.2.tgz#c8aae29f4f3814532fa5b147043544e21e89225c"
@@ -3525,7 +3532,7 @@ modify-babel-preset@^2.1.1:
   dependencies:
     require-relative "^0.8.7"
 
-moment@2.x.x, moment@^2.11.0, moment@^2.15.2, moment@^2.5.1:
+moment@2.x.x, moment@^2.11.0, moment@^2.5.1:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.16.0.tgz#f38f2c97c9889b0ee18fc6cc392e1e443ad2da8e"
 

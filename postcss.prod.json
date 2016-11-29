@@ -8,9 +8,9 @@
     "postcss-color-function",
     "postcss-focus",
     "autoprefixer",
-    "postcss-uncss",
     "cssnano",
-    "css-mqpacker"
+    "css-mqpacker",
+    "postcss-uncss"
   ],
   "input": "./css/main.css",
   "output": "./_build/css/main.css",
@@ -24,6 +24,6 @@
     ]
   },
   "postcss-uncss": {
-    "html": "./_build/**/*.html"
+    "html": ["./_build/**/*.html"]
   }
 }

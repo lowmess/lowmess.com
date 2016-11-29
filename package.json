@@ -7,12 +7,11 @@
     "node": "6.9.0"
   },
   "scripts": {
-    "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'npm run test && npm run build:dev && browser-sync reload'",
+    "start": "npm run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'npm run test && npm run build:dev && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
-    "build": "node metalsmith.config.js && postcss -c postcss.prod.json && rollup -c",
-    "build:dev": "node metalsmith.config.js && postcss -c postcss.dev.json && rollup -c",
-    "test": "standard && stylelint css/*.css",
-    "ms": "metalsmith"
+    "build": "node metalsmith && rollup -c && postcss -c postcss.prod.json",
+    "build:dev": "node metalsmith && rollup -c && postcss -c postcss.dev.json",
+    "test": "standard && stylelint css/*.css"
   },
   "repository": {
     "type": "git",
@@ -44,6 +43,7 @@
     "markdown-it-prism": "^1.0.1",
     "metalsmith": "^2.1.0",
     "metalsmith-collections": "^0.7.0",
+    "metalsmith-debug": "^1.1.0",
     "metalsmith-default-values": "0.0.2",
     "metalsmith-drafts": "0.0.1",
     "metalsmith-feed": "^0.2.0",
@@ -54,7 +54,6 @@
     "metalsmith-moment": "^1.0.0",
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-tags": "^1.3.0",
-    "moment": "^2.15.2",
     "normalize.css": "^4.2.0",
     "postcss": "^5.2.6",
     "postcss-cli": "^2.6.0",

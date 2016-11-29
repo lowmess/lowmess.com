@@ -7,7 +7,9 @@
     "postcss-custom-media",
     "postcss-color-function",
     "postcss-focus",
-    "autoprefixer"
+    "autoprefixer",
+    "cssnano",
+    "css-mqpacker"
   ],
   "input": "./css/main.css",
   "output": "./_build/css/main.css",

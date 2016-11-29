@@ -10,6 +10,7 @@ const collections = require('metalsmith-collections')
 const tags = require('metalsmith-tags')
 const minify = require('metalsmith-html-minifier')
 const moment = require('metalsmith-moment')
+const debug = require('metalsmith-debug')
 
 Metalsmith(__dirname)
   .source('source')
@@ -21,6 +22,9 @@ Metalsmith(__dirname)
       description: 'The web & graphic design portfolio of Alec Lomas. You can find him @lowmess'
     }
   })
+  .use(debug({
+    files: false
+  }))
   .use(drafts())
   .use(collections({
     blog: {
