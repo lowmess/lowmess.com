@@ -19,10 +19,17 @@ let aQueryString = 'utm_source=lowmess'
 for (let i = anchors.length; i--;) queryString(anchors[i], aQueryString)
 
 // Hero patterns
-let fill = '333333'
+let fill = '#333333'
 let opacity = 0.7
 
 let backgrounds = [
+  hero.fourPointStars(fill, opacity),
+  hero.bamboo(fill, opacity),
+  hero.bathroomFloor(fill, opacity),
+  hero.happyIntersection(fill, opacity),
+  hero.lips(fill, opacity),
+  hero.randomShapes(fill, opacity),
+  hero.tinyCheckers(fill, opacity),
   hero.fancyRectangles(fill, opacity),
   hero.overlappingCircles(fill, opacity),
   hero.plus(fill, opacity),
@@ -32,7 +39,6 @@ let backgrounds = [
   hero.cage(fill, opacity),
   hero.current(fill, opacity),
   hero.diagonalStripes(fill, opacity),
-  hero.flippedDiamonds(fill, opacity),
   hero.houndstooth(fill, opacity),
   hero.linesInMotion(fill, opacity),
   hero.morphingDiamonds(fill, opacity),
@@ -41,7 +47,6 @@ let backgrounds = [
   hero.ticTacToe(fill, opacity),
   hero.zigZag(fill, opacity),
   hero.bankNote(fill, opacity),
-  hero.boxes(fill, opacity),
   hero.circuitBoard(fill, opacity),
   hero.diagonalLines(fill, opacity),
   hero.floorTile(fill, opacity),
@@ -56,7 +61,7 @@ hero.patterns.forEach(function (item, index, array) {
   // convert camelCase to dashes-case
   // find elements with [data-hero-pattern] that matches the string
   // set styles on those elements
-  let name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+  let name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase().split('$').shift()
 
   let els = document.querySelectorAll('[data-hero-pattern=' + name + ']')
   for (let i = els.length; i--;) {
