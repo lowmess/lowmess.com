@@ -1,5 +1,6 @@
 import {queryString} from './_links.js'
 import * as hero from 'hero-patterns'
+import {patterns} from './_hero-patterns.js'
 import {set, setRandom} from './_hero-set.js'
 import {scroll} from './_hero-effects.js'
 import lazy from './_images.js'
@@ -56,11 +57,11 @@ let backgrounds = [
   hero.polkaDots(fill, opacity)
 ]
 
-hero.patterns.forEach(function (item, index, array) {
-  // get function name
-  // convert camelCase to dashes-case
-  // find elements with [data-hero-pattern] that matches the string
-  // set styles on those elements
+let randBackgrounds = []
+
+patterns.forEach(function (item, index, array) {
+  randBackgrounds.push(item(fill, opacity))
+
   let name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase().split('$').shift()
 
   let els = document.querySelectorAll('[data-hero-pattern=' + name + ']')
@@ -71,10 +72,15 @@ hero.patterns.forEach(function (item, index, array) {
 
 let rand = document.querySelectorAll('[data-hero-pattern=random]')
 for (let i = rand.length; i--;) {
-  setRandom(rand[i], backgrounds)
+  setRandom(rand[i], randBackgrounds)
 }
 
 let scrolls = document.querySelectorAll('[data-hero-pattern=scroll]')
 for (let i = scrolls.length; i--;) {
   scroll(scrolls[i], backgrounds, 200)
+}
+
+let errors = document.querySelectorAll('[data-hero-pattern=error]')
+for (let i = errors.length; i--;) {
+  set(errors[i], hero.floatingCogs(fill, opacity))
 }
