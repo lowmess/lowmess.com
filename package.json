@@ -78,8 +78,14 @@
   },
   "devDependencies": {
     "browser-sync": "^2.17.5",
+    "cz-conventional-changelog": "^1.2.0",
     "nodemon": "^1.9.2",
     "standard": "^7.1.2",
     "stylelint": "^7.6.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
