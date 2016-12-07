@@ -1,5 +1,5 @@
 import {queryString} from './_links.js'
-import * as hero from 'hero-patterns'
+import {floatingCogs} from 'hero-patterns'
 import {fill, opacity, patterns, backgrounds} from './_hero-patterns.js'
 import {set, setRandom} from './_hero-set.js'
 import {scroll} from './_hero-effects.js'
@@ -46,5 +46,5 @@ for (let i = scrolls.length; i--;) {
 
 let errors = document.querySelectorAll('[data-hero-pattern=error]')
 for (let i = errors.length; i--;) {
-  set(errors[i], hero.floatingCogs(fill, opacity))
+  set(errors[i], floatingCogs(fill, opacity))
 }
