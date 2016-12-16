@@ -3257,9 +3257,9 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lowmess-prism@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/lowmess-prism/-/lowmess-prism-0.0.2.tgz#d695a66469e7b2042827eb5c7dd89e01070949b7"
+lowmess-prism@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/lowmess-prism/-/lowmess-prism-0.0.3.tgz#0fe8dbc3f30a30c51596912db9f94c0809ba72f9"
 
 lru-cache@2:
   version "2.7.3"
@@ -4460,7 +4460,7 @@ pug-walk@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pug-walk/-/pug-walk-1.0.0.tgz#7f4ae1456a4f18feee40a0d708b75c1c51d2e4e4"
 
-pug@^2.0.0-beta3:
+pug@^2.0.0-beta6:
   version "2.0.0-beta6"
   resolved "https://registry.yarnpkg.com/pug/-/pug-2.0.0-beta6.tgz#9ead2e59e540a467efc3787ccb03e4574ba5fae9"
   dependencies:
@@ -5551,9 +5551,9 @@ tachyons-colors@^5.2.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/tachyons-colors/-/tachyons-colors-5.3.2.tgz#3da40bacae561e6f47fb0965b32841821cb19d25"
 
-tachyons-columns@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/tachyons-columns/-/tachyons-columns-1.0.3.tgz#4c1a834c42cca317009c50c15506a265b9487f89"
+tachyons-columns@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/tachyons-columns/-/tachyons-columns-1.0.4.tgz#24fd074b86a8c646abb2e8aebbdac398036d8034"
 
 tachyons-coordinates@^3.0.1:
   version "3.0.4"
@@ -5692,9 +5692,9 @@ tachyons-spacing@^5.0.11:
   version "5.0.14"
   resolved "https://registry.yarnpkg.com/tachyons-spacing/-/tachyons-spacing-5.0.14.tgz#f5ab1d1117ceafa23dac53b91efe141f2aa6e8ec"
 
-tachyons-svg@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tachyons-svg/-/tachyons-svg-1.0.0.tgz#894706d25586c04ed86d0351f2b1c1da2d773eb8"
+tachyons-svg@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/tachyons-svg/-/tachyons-svg-1.0.1.tgz#044d74549f529101e405c6a132cadd4858b45307"
 
 tachyons-tables@^1.0.0:
   version "1.0.6"

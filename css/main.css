@@ -5,15 +5,15 @@
 
 /* Tachyons */
 /* Modules */
-@import 'tachyons/src/tachyons.css';
-@import 'tachyons-columns/src/tachyons-columns.css';
-@import 'tachyons-svg/src/tachyons-svg.css';
+@import 'tachyons';
+/*@import 'tachyons-columns';*/
+@import 'tachyons-svg';
 
 /* Print styles */
-@import 'tachyons-print/src/tachyons-print.css';
+/*@import 'tachyons-print';*/
 
 /* Prism */
-@import 'lowmess-prism/lowmess-prism.css';
+@import 'lowmess-prism';
 
 /* layout */
 @import '_colors';
