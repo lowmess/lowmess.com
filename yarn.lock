@@ -5551,10 +5551,6 @@ tachyons-colors@^5.2.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/tachyons-colors/-/tachyons-colors-5.3.2.tgz#3da40bacae561e6f47fb0965b32841821cb19d25"
 
-tachyons-columns@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tachyons-columns/-/tachyons-columns-1.0.4.tgz#24fd074b86a8c646abb2e8aebbdac398036d8034"
-
 tachyons-coordinates@^3.0.1:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-coordinates/-/tachyons-coordinates-3.0.4.tgz#effd6fbdb61909429e030b6a7bcc91a6fde32fa5"

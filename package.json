@@ -71,7 +71,6 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "tachyons": "^4.5.5",
-    "tachyons-columns": "^1.0.4",
     "tachyons-print": "^4.0.4",
     "tachyons-svg": "^1.0.1",
     "uncss": "^0.14.0"
