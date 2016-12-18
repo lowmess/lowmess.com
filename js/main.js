@@ -17,7 +17,13 @@ document.addEventListener('DOMContentLoaded', event => {
 let anchors = document.querySelectorAll('a')
 let aQueryString = 'utm_source=lowmess'
 
-for (let i = anchors.length; i--;) queryString(anchors[i], aQueryString)
+for (let i = anchors.length; i--;) {
+  anchors[i].addEventListener('click', function (event) {
+    event.preventDefault()
+    queryString(anchors[i], aQueryString)
+    window.location = anchors[i].href
+  })
+}
 
 // Hero patterns
 

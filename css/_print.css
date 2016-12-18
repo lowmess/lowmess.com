@@ -1,0 +1,10 @@
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0;
+  }
+
+  .shadow-none-p {
+    box-shadow: unset;
+  }
+}

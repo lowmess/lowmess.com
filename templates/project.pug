@@ -10,14 +10,15 @@ block page
     +header-text: time(datetime=date.format())= date.format("MMMM YYYY")
     if tags
       each tag in tags
-        +header-text: +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
+        +header-text(class="dn-p"): +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
   main(role="main")
     +container
       article.content!=contents
-      +rule
-      if collections.projects[0].title === title
-        +section-title Next Project
-        +project-preview(collections.projects[1])
-      else
-        +section-title Latest Project
-        +project-preview(collections.projects[0])
+      .dn-p
+        +rule
+        if collections.projects[0].title === title
+          +section-title Next Project
+          +project-preview(collections.projects[1])
+        else
+          +section-title Latest Project
+          +project-preview(collections.projects[0])

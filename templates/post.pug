@@ -10,12 +10,13 @@ block page
     +header-text: time(datetime=date.format())= date.format("MMMM DD, YYYY")
     if tags
       each tag in tags
-        +header-text: +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
+        +header-text(class="dn-p"): +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
   main(role="main")
     +container
       article.content!=contents
-      //- +rule
-      //- if collections.blog[0].title === title
-      //-   +section-title Next Blog Post: #[+link('/' + collections.blog[1].path)= collections.blog[1].title]
-      //- else
-      //-   +section-title Latest Blog Post: #[+link('/' + collections.blog[0].path)= collections.blog[0].title]
+      //- .dn-p
+        +rule
+        if collections.blog[0].title === title
+          +section-title Next Blog Post: #[+link('/' + collections.blog[1].path)= collections.blog[1].title]
+        else
+          +section-title Latest Blog Post: #[+link('/' + collections.blog[0].path)= collections.blog[0].title]

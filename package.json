@@ -70,8 +70,8 @@
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
-    "tachyons": "^4.5.5",
-    "tachyons-print": "^4.0.4",
+    "tachyons": "^4.6.1",
+    "tachyons-print": "^4.6.1",
     "tachyons-svg": "^1.0.1",
     "uncss": "^0.14.0"
   },

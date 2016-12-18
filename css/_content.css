@@ -5,6 +5,7 @@
   @extend .lh-copy;
   @extend .f5;
   @extend .f4-l;
+  @extend .f4-p;
 
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
     @extend .db;
@@ -29,24 +30,28 @@
   h1 {
     @extend .f3;
     @extend .f2-l;
+    @extend .f2-p;
     @extend .fw6;
   }
 
   h2 {
     @extend .f4;
     @extend .f3-l;
+    @extend .f3-p;
     @extend .fw5;
   }
 
   h3 {
     @extend .f4;
     @extend .f3-l;
+    @extend .f3-p;
     @extend .fw4;
   }
 
   h4, h5, h6 {
     @extend .f5;
     @extend .f4-l;
+    @extend .f4-p;
     @extend .fw6;
   }
 
@@ -90,6 +95,17 @@
     @extend .underline;
     @extend .dark-gray;
     @extend .hover-orange;
+    @extend .no-underline-p;
+  }
+
+  @media print {
+    [href^='http']::after {
+      content: '(' attr(href) ')';
+
+      @extend .ml1;
+      @extend .f5;
+      @extend .underline;
+    }
   }
 
   blockquote {
@@ -145,5 +161,6 @@
     @extend .w-auto;
     @extend .mw-100;
     @extend .br1;
+    @extend .mw6-p;
   }
 }
