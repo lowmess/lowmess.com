@@ -5,7 +5,7 @@
 
 /* Tachyons */
 /* Modules */
-@import 'tachyons';
+@import 'tachyons/src/tachyons.css';
 @import 'tachyons-svg';
 
 /* Print styles */
@@ -18,3 +18,4 @@
 @import '_colors';
 @import '_content';
 @import '_print';
+@import '_media-queries'
