@@ -29,9 +29,10 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
-    "autoprefixer": "^6.5.1",
+    "autoprefixer": "^6.6.0",
     "babel-plugin-transform-object-rest-spread": "^6.19.0",
-    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.8.0",
     "hero-patterns": "^0.3.0",
@@ -82,6 +83,10 @@
     "standard": "^7.1.2",
     "stylelint": "^7.6.0"
   },
+  "browserlist": [
+    "last 2 versions",
+    "> 5%"
+  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

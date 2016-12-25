@@ -17,12 +17,6 @@
   "map": {
     "inline": false
   },
-  "autoprefixer": {
-    "browsers": [
-      "last 2 versions",
-      "> 5%"
-    ]
-  },
   "postcss-uncss": {
     "html": ["./_build/**/*.html"]
   }
