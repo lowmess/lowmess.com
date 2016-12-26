@@ -1,14 +1,15 @@
 # lowmess.com
 
-### Powered by
+#### This Machine Runs on Open Source
 
-* [Metalsmith](https://github.com/metalsmith)
-* [Pug](https://github.com/pugjs)
-* [Rollup](https://github.com/rollup)
-* [PostCSS](https://github.com/postcss)
-* [Tachyons](https://github.com/tachyons-css)
-* [stylelint](https://github.com/stylelint)
-* [PrismJS](https://github.com/prismjs)
+* [Metalsmith](https://metalsmith.io)
+* [Markdown-It](https://markdown-it.github.io/)
+* [Pug](https://pugjs.org)
+* [PostCSS](http://postcss.org/)
+* [Tachyons](http://tachyons.io/)
+* [Rollup](http://rollupjs.org/)
+* [Babel](https://babeljs.io)
+* [Yarn](https://yarnpkg.com)
 * [Browsersync](https://github.com/browsersync)
 * [nodemon](https://github.com/remy/nodemon)
 
