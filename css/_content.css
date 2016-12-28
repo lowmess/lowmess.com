@@ -5,7 +5,7 @@
   @extend .lh-copy;
   @extend .f5;
   @extend .f4-l;
-  @extend .f4-p;
+  @extend .f5-p;
 
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
     @extend .db;
