@@ -4,6 +4,7 @@ export const fill = '#333333'
 export const opacity = 0.7
 
 export const patterns = [
+  hero.temple,
   hero.fourPointStars,
   hero.bamboo,
   hero.bathroomFloor,

@@ -2493,9 +2493,9 @@ he@1.1.x:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.0.tgz#29319d49beec13a9b1f3c4f9b2a6dde4859bb2a7"
 
-hero-patterns@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/hero-patterns/-/hero-patterns-0.3.0.tgz#0afb5c501047ce8c05825dae74029c5e0ce30cf1"
+hero-patterns@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/hero-patterns/-/hero-patterns-0.5.0.tgz#08b33e91a004307171fd132beab3596a39fe2c1c"
 
 hoek@2.x.x:
   version "2.16.3"
@@ -5630,9 +5630,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-tachyons-print@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/tachyons-print/-/tachyons-print-4.6.1.tgz#69bb5063aaef6b499ecd90eebb1a07d7efaf10c6"
+tachyons-print@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/tachyons-print/-/tachyons-print-4.6.2.tgz#504b8e83a62c0a2cec3f4e7ce3a3962b49aa78cb"
 
 tachyons-svg@^1.0.1:
   version "1.0.1"
