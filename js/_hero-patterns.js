@@ -62,6 +62,7 @@ export const patterns = [
 ]
 
 export const backgrounds = [
+  hero.temple(fill, opacity),
   hero.fourPointStars(fill, opacity),
   hero.bamboo(fill, opacity),
   hero.bathroomFloor(fill, opacity),
