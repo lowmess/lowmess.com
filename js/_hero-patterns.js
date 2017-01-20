@@ -4,6 +4,7 @@ export const fill = '#333333'
 export const opacity = 0.7
 
 export const patterns = [
+  hero.autumn,
   hero.temple,
   hero.fourPointStars,
   hero.bamboo,
@@ -62,6 +63,7 @@ export const patterns = [
 ]
 
 export const backgrounds = [
+  hero.autumn(fill, opacity),
   hero.temple(fill, opacity),
   hero.fourPointStars(fill, opacity),
   hero.bamboo(fill, opacity),
