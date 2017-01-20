@@ -135,6 +135,7 @@
   }
 
   pre {
+    @extend .pre;
     @extend .w-100;
     @extend .bw3;
     @extend .bl;
