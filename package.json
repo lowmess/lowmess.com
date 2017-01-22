@@ -87,6 +87,9 @@
     "last 2 versions",
     "> 5%"
   ],
+  "stylelint": {
+    "extends": "stylelint-config-lowmess"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
