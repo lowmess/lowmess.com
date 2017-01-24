@@ -8,7 +8,6 @@
   @extend .f5-p;
 
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
-    @extend .db;
     @extend .mv3;
     @extend .mv4-l;
 
@@ -65,6 +64,7 @@
     @extend .ba;
     @extend .bw2;
     @extend .b--orange;
+    @extend .b--black-20-p;
   }
 
   ul, ol {
@@ -114,9 +114,13 @@
     @extend .bl;
     @extend .br1;
     @extend .b--orange;
+    @extend .b--black-20-p;
     @extend .pv3;
+    @extend .pv1-p;
     @extend .ph4;
+    @extend .ph3-p;
     @extend .bg-near-white;
+    @extend .bg-transparent-p;
 
     p {
       @extend .measure;
@@ -129,6 +133,7 @@
     @extend .ba;
     @extend .b--black-20;
     @extend .bg-near-white;
+    @extend .bg-transparent-p;
     @extend .f6;
     @extend .f5-l;
     @extend .code;
@@ -141,13 +146,23 @@
     @extend .bl;
     @extend .br1;
     @extend .b--orange;
+    @extend .b--black-20-p;
     @extend .pv3;
+    @extend .pv1-p;
     @extend .ph4;
+    @extend .ph3-p;
     @extend .bg-dark-gray;
+    @extend .bg-transparent-p;
     @extend .f6;
     @extend .f5-l;
     @extend .near-white;
+    @extend .dark-gray-p;
     @extend .code;
+
+    @media print {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
 
     code {
       @extend .w-100;

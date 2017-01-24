@@ -37,7 +37,7 @@
     "cssnano": "^3.8.0",
     "hero-patterns": "^0.5.1",
     "layzr.js": "^2.2.1",
-    "lowmess-prism": "^0.0.3",
+    "lowmess-prism": "^0.0.4",
     "markdown-it-anchor": "^2.5.1",
     "markdown-it-block-image": "0.0.3",
     "markdown-it-image-defer": "^0.0.1",

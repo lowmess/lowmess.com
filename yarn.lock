@@ -3382,9 +3382,9 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lowmess-prism@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/lowmess-prism/-/lowmess-prism-0.0.3.tgz#0fe8dbc3f30a30c51596912db9f94c0809ba72f9"
+lowmess-prism@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/lowmess-prism/-/lowmess-prism-0.0.4.tgz#b07083526de0e8d472254a48b7560b09370f0229"
 
 lru-cache@2:
   version "2.7.3"

@@ -1,10 +1,21 @@
 @media print {
   @page {
     size: letter portrait;
-    margin: 0;
+    margin: 0.25in 1in;
+  }
+
+  * {
+    widows: 3;
+    orphans: 3;
   }
 
   .shadow-none-p {
     box-shadow: unset;
+  }
+
+  [data-hero-pattern] {
+    /* stylelint-disable declaration-no-important */
+    background-image: none !important;
+    /* stylelint-enable declaration-no-important */
   }
 }
