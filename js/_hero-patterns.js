@@ -4,7 +4,6 @@ export const fill = '#333333'
 export const opacity = 0.7
 
 export const patterns = [
-  hero.autumn,
   hero.iLikeFood,
   hero.wiggle,
   hero.bubbles,
@@ -13,7 +12,8 @@ export const patterns = [
   hero.leaf,
   hero.linesInMotion,
   hero.bankNote,
-  hero.circuitBoard
+  hero.circuitBoard,
+  hero.endlessClouds
 ]
 
 export const backgrounds = [
