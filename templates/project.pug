@@ -4,9 +4,9 @@ block page
   +header
     .dib.db-l.db-p
       if displayTitle
-        +headline= displayTitle
+        +headline!= displayTitle
       else
-        +headline= title
+        +headline!= title
     +header-text: time(datetime=date.format())= date.format("MMMM YYYY")
     if tags
       each tag in tags

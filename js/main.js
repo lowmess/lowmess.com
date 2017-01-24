@@ -27,11 +27,7 @@ for (let i = anchors.length; i--;) {
 
 // Hero patterns
 
-let randBackgrounds = []
-
 patterns.forEach(function (item, index, array) {
-  randBackgrounds.push(item(fill, opacity))
-
   let name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase().split('$').shift()
 
   let els = document.querySelectorAll('[data-hero-pattern=' + name + ']')
@@ -42,7 +38,7 @@ patterns.forEach(function (item, index, array) {
 
 let rand = document.querySelectorAll('[data-hero-pattern=random]')
 for (let i = rand.length; i--;) {
-  setRandom(rand[i], randBackgrounds)
+  setRandom(rand[i], backgrounds)
 }
 
 let scrolls = document.querySelectorAll('[data-hero-pattern=scroll]')
