@@ -5,7 +5,9 @@ date: 2016-02-15
 preview: https://unsplash.it/800/500
 background: leaf
 tags:
-  - Metalsmith
+  - Branding
+  - Development
+  - Web Design
 ---
 
 # Heading 1

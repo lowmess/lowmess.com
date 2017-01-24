@@ -1,7 +1,7 @@
 @media print {
   @page {
     size: letter portrait;
-    margin: 0.25in 1in;
+    margin: 0.25in 1.25in;
   }
 
   * {
