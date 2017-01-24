@@ -19,9 +19,11 @@ let aQueryString = 'utm_source=lowmess'
 
 for (let i = anchors.length; i--;) {
   anchors[i].addEventListener('click', function (event) {
-    event.preventDefault()
+    var href = anchors[i].href
     queryString(anchors[i], aQueryString)
-    window.location = anchors[i].href
+    window.setTimeout(function () {
+      anchors[i].href = href
+    }, 300)
   })
 }
 
