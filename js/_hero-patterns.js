@@ -4,6 +4,7 @@ export const fill = '#333333'
 export const opacity = 0.7
 
 export const patterns = [
+  hero.autumn,
   hero.iLikeFood,
   hero.wiggle,
   hero.bubbles,
