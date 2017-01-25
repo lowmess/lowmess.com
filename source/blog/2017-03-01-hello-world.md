@@ -1,7 +1,7 @@
 ---
 title: Hello World
 displayTitle: 👋 🌎
-date: 2016-11-25
+date: 2017-03-01
 description: My new site (the one you're on right now), and how it came to be.
 background: circuit-board
 tags:
