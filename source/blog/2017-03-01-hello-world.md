@@ -25,3 +25,4 @@ This website would have been much harder to create if not for the maintainers, c
 * [Rollup](http://rollupjs.org/)
 * [Babel](https://babeljs.io)
 * [Yarn](https://yarnpkg.com)
+* [Hero Patterns](http://heropatterns.com)

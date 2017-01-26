@@ -35,7 +35,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.8.0",
-    "hero-patterns": "^0.5.2",
+    "hero-patterns": "^0.5.3",
     "layzr.js": "^2.2.1",
     "lowmess-prism": "^0.0.4",
     "markdown-it-anchor": "^2.5.1",

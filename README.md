@@ -10,6 +10,7 @@
 * [Rollup](http://rollupjs.org/)
 * [Babel](https://babeljs.io)
 * [Yarn](https://yarnpkg.com)
+* [Hero Patterns](http://heropatterns.com)
 * [Browsersync](https://github.com/browsersync)
 * [nodemon](https://github.com/remy/nodemon)
 
