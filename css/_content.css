@@ -159,11 +159,6 @@
     @extend .dark-gray-p;
     @extend .code;
 
-    @media print {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-
     code {
       @extend .w-100;
       @extend .ph0;

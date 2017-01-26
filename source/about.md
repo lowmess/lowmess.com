@@ -5,7 +5,7 @@ layout: about.pug
 background: bank-note
 ---
 
-I'm a frontend developer & designer, with a passion for legibility, performance, and the open web. A quick learner with a thirst for knowledge. Enthusiastic and hard-working, I pride myself on my attention to detail.
+"I'm a frontend developer & designer, with a passion for legibility, performance, and the open web. A quick learner with a thirst for knowledge. Enthusiastic and hard-working, I pride myself on my attention to detail."
 
 That's what the intro on [my résumé](https://resume.lowmess.com) says. Kind of boring, huh? Well, it's a résumé. They're supposed to be boring. (Don't be such a nitpicker.)
 

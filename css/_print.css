@@ -13,6 +13,11 @@
     box-shadow: unset;
   }
 
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
   [data-hero-pattern] {
     /* stylelint-disable declaration-no-important */
     background-image: none !important;
