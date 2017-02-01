@@ -7,7 +7,7 @@ block page
         +headline= displayTitle
       else
         +headline= title
-    +header-text: time(datetime=date.format())= date.format("MMMM DD, YYYY")
+    +header-text: time(datetime=date.utc())= date.utc().format("MMMM DD, YYYY")
     if tags
       each tag in tags
         +header-text(class="dn-p"): +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag

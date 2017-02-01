@@ -1,7 +1,7 @@
 ---
 title: Sea of Green
 description: "Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet."
-date: 2014-12-15
+date: 2014-12-01
 preview: https://unsplash.it/800/500
 background: endless-clouds
 tags:
