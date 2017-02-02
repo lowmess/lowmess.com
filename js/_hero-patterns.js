@@ -17,19 +17,16 @@ export const patterns = [
 ]
 
 export const backgrounds = [
+  hero.yyy(fill, opacity),
   hero.fallingTriangles(fill, opacity),
-  hero.hexagons(fill, opacity),
   hero.charlieBrown(fill, opacity),
-  hero.temple(fill, opacity),
   hero.fourPointStars(fill, opacity),
   hero.bamboo(fill, opacity),
   hero.bathroomFloor(fill, opacity),
-  hero.lips(fill, opacity),
   hero.tinyCheckers(fill, opacity),
   hero.fancyRectangles(fill, opacity),
   hero.overlappingCircles(fill, opacity),
   hero.plus(fill, opacity),
-  hero.volcanoLamp(fill, opacity),
   hero.wiggle(fill, opacity),
   hero.bubbles(fill, opacity),
   hero.diagonalStripes(fill, opacity),
@@ -38,7 +35,6 @@ export const backgrounds = [
   hero.morphingDiamonds(fill, opacity),
   hero.rain(fill, opacity),
   hero.stripes(fill, opacity),
-  hero.ticTacToe(fill, opacity),
   hero.zigZag(fill, opacity),
   hero.bankNote(fill, opacity),
   hero.diagonalLines(fill, opacity),

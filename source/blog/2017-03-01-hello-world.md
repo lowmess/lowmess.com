@@ -11,7 +11,7 @@ tags:
 
 Almost as soon as I finished [the previous version of this site](http://576f15a6d6865d23c5338933--lowmess.netlify.com/), I wanted to rebuild. Part of it was aesthetics; part of it was increasing performance, accessibility, and development experience; part of it was the undying itch of designers & developers everywhere to immediately refactor.
 
-And, umm... this is it. I did it.
+And, umm... I did it. This is it. You're on it literally right now.
 
 ## This Machine Runs on Open Source
 
