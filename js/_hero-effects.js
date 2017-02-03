@@ -1,4 +1,4 @@
-import {setRandom} from './_hero-set.js'
+import { setRandom } from './_hero-set.js'
 import throttle from './_throttle.js'
 
 export function scroll (el, arr, time = 250) {
