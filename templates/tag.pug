@@ -16,6 +16,7 @@ block page
           else
             +project-preview(item, true)
           - count++
+      +rule
       - count = 0
       each item in pagination.files
         if item.collection == 'blog'
