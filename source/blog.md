@@ -1,6 +1,6 @@
 ---
 title: Blog
-subtitle: Writing &amp; Stuff
+subtitle: Eloquent writings and&hellip; stuff
 layout: blog.pug
 background: wiggle
 ---

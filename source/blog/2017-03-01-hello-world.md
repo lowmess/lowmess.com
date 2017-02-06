@@ -2,7 +2,7 @@
 title: Hello World
 displayTitle: 👋 🌎
 date: 2017-03-01
-description: Hi there, world. Welcome to my Web Blog™.
+description: Hello there, world. Welcome to my Web Log™.
 background: circuit-board
 tags:
   - Open Source
