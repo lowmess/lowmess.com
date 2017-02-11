@@ -7,7 +7,7 @@
     "node": "6.9.0"
   },
   "scripts": {
-    "start": "npm run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'npm run test && npm run build:dev && browser-sync reload'",
+    "start": "yarn run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'yarn run test && yarn run build:dev && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
     "build": "node metalsmith && rollup -c && postcss -c postcss.prod.json",
     "build:dev": "node metalsmith && rollup -c && postcss -c postcss.dev.json",
