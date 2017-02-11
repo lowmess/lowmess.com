@@ -1,5 +1,15 @@
-import { setRandom } from './_hero-set.js'
 import throttle from './_throttle.js'
+
+export function set (el, pattern) {
+  el.style.backgroundImage = pattern
+  el.style.backgroundPosition = 'center'
+}
+
+export function setRandom (el, arr) {
+  let rand = Math.floor(Math.random() * arr.length)
+  let background = arr[rand]
+  set(el, background)
+}
 
 export function scroll (el, arr, time = 250) {
   setRandom(el, arr)

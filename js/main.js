@@ -1,10 +1,12 @@
 import { queryString } from './_links.js'
 import { fill, opacity, patterns, backgrounds } from './_hero-patterns.js'
-import { set, setRandom } from './_hero-set.js'
-import { scroll } from './_hero-effects.js'
-import lazy from './_images.js'
+import { set, setRandom, scroll } from './_pattern-set.js'
+import Layzr from 'layzr.js/src/layzr.js'
 
 // Initialize Layzr
+const lazy = Layzr({
+  normal: 'data-src'
+})
 document.addEventListener('DOMContentLoaded', event => {
   lazy
     .update()
