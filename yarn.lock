@@ -3347,7 +3347,7 @@ lodash@^4.0.0, lodash@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.0.1.tgz#cd8c902c9e03f2e69ce3e0e456d505ab89eb98f4"
 
-lodash@^4.1.0, lodash@^4.14.0, lodash@^4.2.0, lodash@^4.3.0:
+lodash@^4.1.0, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
 
@@ -5512,11 +5512,21 @@ stylehacks@^2.3.0:
     text-table "^0.2.0"
     write-file-stdout "0.0.2"
 
-stylelint-config-lowmess@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/stylelint-config-lowmess/-/stylelint-config-lowmess-0.0.1.tgz#4e57d6486ec9d4dc6814e9feea0f948f6342d442"
+stylelint-config-lowmess@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-lowmess/-/stylelint-config-lowmess-0.1.0.tgz#187772c96dbac53fd0f524f91407a68f66c579c1"
+  dependencies:
+    stylelint-order "^0.2.2"
 
-stylelint@^7.6.0:
+stylelint-order@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-0.2.2.tgz#c1fd77cf3565bd223c233b9e7bb98728c0abe8bd"
+  dependencies:
+    lodash "^4.16.6"
+    postcss "^5.2.5"
+    stylelint "^7.5.0"
+
+stylelint@^7.5.0, stylelint@^7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-7.6.0.tgz#ddeb06ccc95f72c119fcde5e85439fb7e9cde4df"
   dependencies:

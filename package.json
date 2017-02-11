@@ -81,7 +81,7 @@
     "nodemon": "^1.9.2",
     "standard": "^7.1.2",
     "stylelint": "^7.6.0",
-    "stylelint-config-lowmess": "^0.0.1"
+    "stylelint-config-lowmess": "^0.1.0"
   },
   "browserlist": [
     "last 2 versions",
