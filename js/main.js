@@ -1,7 +1,7 @@
-import { queryString } from './_links.js'
-import { fill, opacity, patterns, backgrounds } from './_hero-patterns.js'
-import { set, setRandom, scroll } from './_pattern-set.js'
-import Layzr from 'layzr.js/src/layzr.js'
+import { queryString } from './_links'
+import { fill, opacity, patterns, backgrounds } from './_hero-patterns'
+import { set, setRandom, scroll } from './_pattern-set'
+import Layzr from 'layzr.js/src/layzr'
 
 // Initialize Layzr
 const lazy = Layzr({

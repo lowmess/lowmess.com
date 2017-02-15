@@ -23,4 +23,12 @@
     background-image: none !important;
     /* stylelint-enable declaration-no-important */
   }
+
+  [href^='http']::after {
+    content: '(' attr(href) ')';
+
+    @extend .ml1;
+    @extend .f5;
+    @extend .underline;
+  }
 }

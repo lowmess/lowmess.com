@@ -1,8 +1,8 @@
 @charset 'UTF-8';
 
 /* Tachyons */
-@import 'tachyons/src/tachyons.css';
-@import 'tachyons-svg';
+@import 'tachyons/src/tachyons';
+@import 'tachyons-svg/src/tachyons-svg';
 
 /* Prism */
 @import 'lowmess-prism';
@@ -14,4 +14,4 @@
 @import '_media-queries';
 
 /* Print styles */
-@import 'tachyons-print';
+@import 'tachyons-print/src/tachyons-print';

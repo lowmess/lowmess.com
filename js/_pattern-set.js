@@ -1,4 +1,4 @@
-import throttle from './_throttle.js'
+import throttle from './_throttle'
 
 export function set (el, pattern) {
   el.style.backgroundImage = pattern
