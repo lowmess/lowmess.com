@@ -2,7 +2,7 @@
 title: Sea of Green
 description: "Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet."
 date: 2014-12-01
-preview: https://unsplash.it/800/500
+preview: https://unsplash.it/500/325
 background: endless-clouds
 tags:
   - Branding

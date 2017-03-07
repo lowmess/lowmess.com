@@ -160,7 +160,7 @@
   img {
     @extend .db;
     @extend .w-auto;
-    @extend .mw-100;
+    @extend .mw7;
     @extend .br1;
     @extend .mw6-p;
   }

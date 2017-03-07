@@ -3,7 +3,7 @@ title: Bells Brewery
 displayTitle: Bell&rsquo;s Brewery
 description: "Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet."
 date: 2013-09-01
-preview: https://unsplash.it/800/500
+preview: https://unsplash.it/500/325
 background: bubbles
 tags:
   - Student
