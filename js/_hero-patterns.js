@@ -12,7 +12,6 @@ export const patterns = [
   hero.linesInMotion,
   hero.bankNote,
   hero.circuitBoard,
-  hero.endlessClouds,
   hero.polkaDots
 ]
 
