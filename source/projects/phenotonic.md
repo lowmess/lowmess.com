@@ -2,7 +2,7 @@
 title: Phenotonic
 description: "Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet."
 date: 2016-02-01
-preview: http://res.cloudinary.com/lowmess/image/upload/w_500,h_325,c_fill,dpr_auto/v1489036301/projects.phenotonic.preview_mgpzt4.png
+preview: http://res.cloudinary.com/lowmess/image/upload/w_500,h_325,c_fill,dpr_auto/v1489036772/projects.phenotonic.preview_z7zqnv.jpg
 background: leaf
 tags:
   - Branding
