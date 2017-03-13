@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'yarn run test && yarn run build && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
-    "build": "node metalsmith && rollup -c && postcss css/main.css -o _build/css/main.css -c",
+    "build": "node metalsmith && rollup -c -m && postcss css/main.css -o _build/css/main.css -c",
     "build:prod": "cross-env NODE_ENV=production yarn run build",
     "test": "standard && stylelint css/*.css"
   },
