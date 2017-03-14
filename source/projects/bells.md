@@ -1,7 +1,7 @@
 ---
 title: Bells Brewery
 displayTitle: Bell&rsquo;s Brewery
-description: "Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet."
+description: When I got the opportunity to redesign one of my favorite breweries, I jumped at the chance. To match the climate of western Michigan, I created a warm brand with a touch of modernity.
 date: 2013-09-01
 preview: http://res.cloudinary.com/lowmess/image/upload/w_500,h_325,c_fill,dpr_auto/v1489036772/projects.bells.preview_w9kuag.jpg
 background: bubbles
