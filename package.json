@@ -11,7 +11,7 @@
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
     "build": "node metalsmith && rollup -c -m && postcss css/main.css -o _build/css/main.css -c",
     "build:prod": "cross-env NODE_ENV=production yarn run build",
-    "test": "standard && stylelint css/*.css"
+    "test": "eslint --ignore-path .gitignore . && stylelint css/*.css"
   },
   "repository": {
     "type": "git",
@@ -77,8 +77,13 @@
   "devDependencies": {
     "browser-sync": "^2.17.5",
     "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "nodemon": "^1.9.2",
-    "standard": "^7.1.2",
     "stylelint": "^7.8.0",
     "stylelint-config-lowmess": "^0.1.0"
   },
@@ -88,6 +93,9 @@
   ],
   "stylelint": {
     "extends": "stylelint-config-lowmess"
+  },
+  "eslintConfig": {
+    "extends": "standard"
   },
   "config": {
     "commitizen": {
