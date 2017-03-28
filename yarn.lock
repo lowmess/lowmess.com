@@ -2772,9 +2772,9 @@ he@1.1.x:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.0.tgz#29319d49beec13a9b1f3c4f9b2a6dde4859bb2a7"
 
-hero-patterns@^0.6.5:
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/hero-patterns/-/hero-patterns-0.6.5.tgz#57ed35e4c5c7332d270a7a7709c23e9867eee34c"
+hero-patterns@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hero-patterns/-/hero-patterns-1.0.2.tgz#9ac718ac4fa9c84d92158265802a8176e4c43f2a"
 
 hoek@2.x.x:
   version "2.16.3"

@@ -16,6 +16,7 @@ export const patterns = [
 ]
 
 export const backgrounds = [
+  hero.topography(fill, opacity),
   hero.hideout(fill, opacity),
   hero.yyy(fill, opacity),
   hero.fallingTriangles(fill, opacity),
