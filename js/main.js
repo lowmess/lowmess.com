@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', event => {
 let anchors = document.querySelectorAll('a')
 let aQueryString = 'utm_source=lowmess'
 
-for (let i = anchors.length; i--;) {
-  anchors[i].addEventListener('click', function (event) {
-    var href = anchors[i].href
-    queryString(anchors[i], aQueryString)
-    window.setTimeout(function () {
-      anchors[i].href = href
-    }, 300)
+for (let anchor of anchors) {
+  anchor.addEventListener('click', event => {
+    let href = anchor.href
+    queryString(anchor, aQueryString)
+    setTimeout(() => {
+      anchor.href = href
+    }, 0)
   })
 }
 
@@ -34,17 +34,17 @@ patterns.forEach(function (item, index, array) {
   let name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase().split('$').shift()
 
   let els = document.querySelectorAll('[data-hero-pattern=' + name + ']')
-  for (let i = els.length; i--;) {
-    set(els[i], item(fill, opacity))
+  for (let el of els) {
+    set(el, item(fill, opacity))
   }
 })
 
 let rand = document.querySelectorAll('[data-hero-pattern=random]')
-for (let i = rand.length; i--;) {
-  setRandom(rand[i], backgrounds)
+for (let r of rand) {
+  setRandom(r, backgrounds)
 }
 
 let scrolls = document.querySelectorAll('[data-hero-pattern=scroll]')
-for (let i = scrolls.length; i--;) {
-  scroll(scrolls[i], backgrounds, 200)
+for (let s of scrolls) {
+  scroll(s, backgrounds, 200)
 }
