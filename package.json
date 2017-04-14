@@ -11,7 +11,8 @@
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
     "build": "node metalsmith && rollup -c -m && postcss css/main.css -o _build/css/main.css -c",
     "build:prod": "cross-env NODE_ENV=production yarn run build",
-    "test": "eslint --ignore-path .gitignore . && stylelint css/*.css"
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,9 @@
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.8.0",
     "hero-patterns": "^1.0.2",
+    "husky": "^0.13.3",
     "layzr.js": "^2.2.2",
+    "lint-staged": "^3.4.0",
     "lodash-es": "^4.17.4",
     "lowmess-prism": "^0.0.4",
     "markdown-it-anchor": "^2.5.1",
@@ -65,6 +68,7 @@
     "postcss-import": "^8.1.2",
     "postcss-nested": "^1.0.0",
     "postcss-uncss": "^0.14.0",
+    "prettier-standard": "^3.0.1",
     "pug": "^2.0.0-beta6",
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
@@ -78,12 +82,6 @@
   "devDependencies": {
     "browser-sync": "^2.17.5",
     "cz-conventional-changelog": "^1.2.0",
-    "eslint": "^3.18.0",
-    "eslint-config-standard": "^7.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^2.1.1",
     "nodemon": "^1.9.2",
     "stylelint": "^7.8.0",
     "stylelint-config-lowmess": "^0.1.0"
@@ -95,8 +93,12 @@
   "stylelint": {
     "extends": "stylelint-config-lowmess"
   },
-  "eslintConfig": {
-    "extends": "standard"
+  "lint-staged": {
+    "*.js": [
+      "prettier-standard",
+      "git add"
+    ],
+    "*.css": "stylelint"
   },
   "config": {
     "commitizen": {

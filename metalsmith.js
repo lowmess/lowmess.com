@@ -22,76 +22,86 @@ Metalsmith(__dirname)
       description: 'The web & graphic design portfolio of Alec Lomas. You can find him @lowmess'
     }
   })
-  .use(debug({
-    files: false
-  }))
+  .use(
+    debug({
+      files: false
+    })
+  )
   .use(drafts())
-  .use(collections({
-    blog: {
-      pattern: 'blog/**/*.md',
+  .use(
+    collections({
+      blog: {
+        pattern: 'blog/**/*.md',
+        sortBy: 'date',
+        reverse: true
+      },
+      projects: {
+        pattern: 'projects/**/*.md',
+        sortBy: 'date',
+        reverse: true
+      },
+      pages: {
+        pattern: '*.md'
+      }
+    })
+  )
+  .use(moment(['date']))
+  .use(
+    defaultValues([
+      {
+        pattern: 'projects/**/*.md',
+        defaults: {
+          layout: 'project.pug'
+        }
+      },
+      {
+        pattern: 'blog/**/*.md',
+        defaults: {
+          layout: 'post.pug'
+        }
+      }
+    ])
+  )
+  .use(
+    markdown({
+      typographer: true,
+      linkify: true
+    })
+      .use(require('markdown-it-block-image'))
+      .use(require('markdown-it-prism'))
+      .use(require('markdown-it-image-defer'))
+      .use(require('markdown-it-anchor'))
+  )
+  .use(
+    permalinks({
+      pattern: ':collection/:title',
+      relative: false,
+      linksets: [
+        {
+          match: {collection: 'pages'},
+          pattern: ':title'
+        }
+      ]
+    })
+  )
+  .use(
+    tags({
+      handle: 'tags',
+      path: 'tagged/:tag/index.html',
+      layout: 'tag.pug',
       sortBy: 'date',
       reverse: true
-    },
-    projects: {
-      pattern: 'projects/**/*.md',
-      sortBy: 'date',
-      reverse: true
-    },
-    pages: {
-      pattern: '*.md'
-    }
-  }))
-  .use(moment([
-    'date'
-  ]))
-  .use(defaultValues([
-    {
-      pattern: 'projects/**/*.md',
-      defaults: {
-        layout: 'project.pug'
-      }
-    },
-    {
-      pattern: 'blog/**/*.md',
-      defaults: {
-        layout: 'post.pug'
-      }
-    }
-  ]))
-  .use(markdown({
-    typographer: true,
-    linkify: true
-  }).use(
-    require('markdown-it-block-image')
-  ).use(
-    require('markdown-it-prism')
-  ).use(
-    require('markdown-it-image-defer')
-  ).use(
-    require('markdown-it-anchor')
-  ))
-  .use(permalinks({
-    pattern: ':collection/:title',
-    relative: false,
-    linksets: [{
-      match: { collection: 'pages' },
-      pattern: ':title'
-    }]
-  }))
-  .use(tags({
-    handle: 'tags',
-    path: 'tagged/:tag/index.html',
-    layout: 'tag.pug',
-    sortBy: 'date',
-    reverse: true
-  }))
-  .use(layouts({
-    engine: 'pug',
-    moment: require('moment'),
-    directory: 'templates',
-    default: 'default.pug',
-    pattern: '**/*.html'
-  }))
+    })
+  )
+  .use(
+    layouts({
+      engine: 'pug',
+      moment: require('moment'),
+      directory: 'templates',
+      default: 'default.pug',
+      pattern: '**/*.html'
+    })
+  )
   .use(sitemap('https://lowmess.com'))
   .use(feed({collection: 'blog'}))
   .use(minify())
