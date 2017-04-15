@@ -36,9 +36,7 @@
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.8.0",
     "hero-patterns": "^1.0.2",
-    "husky": "^0.13.3",
     "layzr.js": "^2.2.2",
-    "lint-staged": "^3.4.0",
     "lodash-es": "^4.17.4",
     "lowmess-prism": "^0.0.4",
     "markdown-it-anchor": "^2.5.1",
@@ -81,6 +79,8 @@
   "devDependencies": {
     "browser-sync": "^2.17.5",
     "cz-conventional-changelog": "^1.2.0",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
     "nodemon": "^1.9.2",
     "prettier": "^1.1.0",
     "stylelint": "^7.8.0",
