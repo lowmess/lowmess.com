@@ -78,7 +78,7 @@ Metalsmith(__dirname)
       relative: false,
       linksets: [
         {
-          match: {collection: 'pages'},
+          match: { collection: 'pages' },
           pattern: ':title'
         }
       ]
@@ -103,9 +103,9 @@ Metalsmith(__dirname)
     })
   )
   .use(sitemap('https://lowmess.com'))
-  .use(feed({collection: 'blog'}))
+  .use(feed({ collection: 'blog' }))
   .use(minify())
-  .build(function (err) {
+  .build(function(err) {
     if (err) {
       console.log(err)
     }

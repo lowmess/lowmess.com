@@ -68,7 +68,6 @@
     "postcss-import": "^8.1.2",
     "postcss-nested": "^1.0.0",
     "postcss-uncss": "^0.14.0",
-    "prettier-standard": "^3.0.1",
     "pug": "^2.0.0-beta6",
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
@@ -83,6 +82,7 @@
     "browser-sync": "^2.17.5",
     "cz-conventional-changelog": "^1.2.0",
     "nodemon": "^1.9.2",
+    "prettier": "^1.1.0",
     "stylelint": "^7.8.0",
     "stylelint-config-lowmess": "^0.1.0"
   },
@@ -95,7 +95,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier-standard",
+      "prettier --single-quote --semi false --write",
       "git add"
     ],
     "*.css": "stylelint"

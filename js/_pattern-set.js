@@ -15,12 +15,9 @@ export const scroll = (el, arr, time = 250) => {
   setRandom(el, arr)
   window.addEventListener(
     'scroll',
-    throttle(
-      () => {
-        setRandom(el, arr)
-      },
-      time
-    )
+    throttle(() => {
+      setRandom(el, arr)
+    }, time)
   )
 }
 
@@ -28,21 +25,15 @@ export const rollover = (el, arr, time = 250) => {
   setRandom(el, arr)
   el.addEventListener(
     'mousemove',
-    throttle(
-      () => {
-        setRandom(el, arr)
-      },
-      time
-    )
+    throttle(() => {
+      setRandom(el, arr)
+    }, time)
   )
 }
 
 export const rotate = (el, arr, time = 250) => {
   setRandom(el, arr)
-  window.setInterval(
-    function () {
-      setRandom(el, arr)
-    },
-    time
-  )
+  window.setInterval(function() {
+    setRandom(el, arr)
+  }, time)
 }

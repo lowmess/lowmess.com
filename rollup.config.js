@@ -10,7 +10,7 @@ let plugs = [
 ]
 
 if (process.env.NODE_ENV === 'production') {
-  plugs.push(babili({comments: false}))
+  plugs.push(babili({ comments: false }))
 }
 
 export default {

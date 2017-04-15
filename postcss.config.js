@@ -12,7 +12,7 @@ let plugs = [
 ]
 
 if (process.env.NODE_ENV === 'production') {
-  plugs.push(require('postcss-uncss')({html: ['./_build/**/*.html']}))
+  plugs.push(require('postcss-uncss')({ html: ['./_build/**/*.html'] }))
 }
 
 module.exports = {
