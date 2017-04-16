@@ -98,7 +98,6 @@
     @extend .underline;
     @extend .dark-gray;
     @extend .hover-orange;
-    @extend .no-underline-p;
   }
 
   blockquote {
