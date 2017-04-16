@@ -1,5 +1,5 @@
 @media print {
-  @page {
+  @page  { /* stylelint-disable-line */
     size: letter portrait;
     margin: 0.25in 1.25in;
   }
@@ -26,7 +26,6 @@
 
   [href^='http']::after {
     content: '(' attr(href) ')';
-
     @extend .ml1;
     @extend .f5;
     @extend .underline;

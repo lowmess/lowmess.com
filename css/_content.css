@@ -1,7 +1,6 @@
 .content {
 
   /* Base */
-
   @extend .lh-copy;
   @extend .f5;
   @extend .f4-l;
@@ -11,9 +10,13 @@
     @extend .mv3;
     @extend .mv4-l;
 
-    &:first-child { @extend .mt0; }
+    &:first-child {
+      @extend .mt0;
+    }
 
-    &:last-child { @extend .mb0; }
+    &:last-child {
+      @extend .mb0;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {

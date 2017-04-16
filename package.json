@@ -7,7 +7,7 @@
     "node": "6.9.0"
   },
   "scripts": {
-    "start": "yarn run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'yarn run test && yarn run build && browser-sync reload'",
+    "start": "yarn run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'yarn run build && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
     "build": "node metalsmith && rollup -c -m && postcss css/main.css -o _build/css/main.css -c",
     "build:prod": "cross-env NODE_ENV=production yarn run build",
@@ -83,6 +83,7 @@
     "lint-staged": "^3.4.0",
     "nodemon": "^1.9.2",
     "prettier": "^1.1.0",
+    "stylefmt": "^5.3.2",
     "stylelint": "^7.8.0",
     "stylelint-config-lowmess": "^0.1.0"
   },
@@ -98,7 +99,11 @@
       "prettier --single-quote --semi false --write",
       "git add"
     ],
-    "*.css": "stylelint"
+    "*.css": [
+      "stylefmt",
+      "stylelint",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
