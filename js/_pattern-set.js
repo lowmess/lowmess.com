@@ -33,7 +33,7 @@ export const rollover = (el, arr, time = 250) => {
 
 export const rotate = (el, arr, time = 250) => {
   setRandom(el, arr)
-  window.setInterval(function() {
+  setInterval(() => {
     setRandom(el, arr)
   }, time)
 }

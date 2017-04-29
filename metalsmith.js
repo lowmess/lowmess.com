@@ -105,8 +105,6 @@ Metalsmith(__dirname)
   .use(sitemap('https://lowmess.com'))
   .use(feed({ collection: 'blog' }))
   .use(minify())
-  .build(function(err) {
-    if (err) {
-      console.log(err)
-    }
+  .build(err => {
+    if (err) console.log(err)
   })
