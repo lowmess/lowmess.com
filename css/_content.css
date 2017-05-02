@@ -1,86 +1,105 @@
 .content {
-
   /* Base */
-  @extend .lh-copy;
-  @extend .f5;
-  @extend .f4-l;
-  @extend .f5-p;
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-copy);
 
-  h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, address, img {
-    @extend .mv3;
-    @extend .mv4-l;
+  @media (--breakpoint-large) {
+    font-size: var(--font-size-4);
+  }
 
-    &:first-child {
-      @extend .mt0;
+  /* Vertical Rhythm */
+  & > * {
+    /* reset all margins */
+    margin: 0;
+
+    /* margin top to all child elements */
+    & + * {
+      margin-top: var(--spacing-small);
+
+      @media (--breakpoint-large) {
+        margin-top: var(--spacing-medium);
+      }
     }
 
-    &:last-child {
-      @extend .mb0;
+    /* bigger margin top on headers
+     * kind of gross they don't fit perfectly into spacing scale,
+     * but they look better like this
+     */
+    & + h1, & + h2, & + h3 {
+      margin-top: calc(var(--spacing-small) + var(--spacing-medium));
+
+      @media (--breakpoint-large) {
+        margin-top: calc(var(--spacing-medium) + var(--spacing-large));
+      }
     }
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @extend .lh-title;
+    line-height: var(--line-height-title);
   }
 
   p, ul, ol, address {
-    @extend .measure-wide;
+    /* unfortunately no variable for measures in custom yet */
+    max-width: 34em;
   }
 
   /* Headers */
-
   h1 {
-    @extend .f3;
-    @extend .f2-l;
-    @extend .f2-p;
-    @extend .fw6;
+    font-size: var(--font-size-3);
+    font-weight: 600;
+
+    @media (--breakpoint-large) {
+      font-size: var(--font-size-2);
+    }
   }
 
   h2 {
-    @extend .f4;
-    @extend .f3-l;
-    @extend .f3-p;
-    @extend .fw6;
+    font-size: var(--font-size-4);
+    font-weight: 600;
+
+    @media (--breakpoint-large) {
+      font-size: var(--font-size-3);
+    }
   }
 
   h3 {
-    @extend .f5;
-    @extend .f4-l;
-    @extend .f4-p;
-    @extend .fw6;
+    font-size: var(--font-size-5);
+    font-weight: 600;
+
+    @media (--breakpoint-large) {
+      font-size: var(--font-size-4);
+    }
   }
 
   h4, h5, h6 {
-    @extend .f5;
-    @extend .f4-l;
-    @extend .f4-p;
-    @extend .fw5;
+    font-size: var(--font-size-5);
+    font-weight: 500;
+
+    @media (--breakpoint-large) {
+      font-size: var(--font-size-4);
+    }
   }
 
   /* Type Elements */
 
   hr {
-    @extend .w-100;
-    @extend .mw4;
-    @extend .mh0;
-    @extend .mv4;
-    @extend .ba;
-    @extend .bw2;
-    @extend .b--orange;
-    @extend .b--black-20-p;
+    width: 100%;
+    max-width: var(--max-width-4);
+    margin: var(--spacing-large) 0;
+    border: var(--border-width-2) solid var(--orange);
   }
 
   ul, ol {
-    @extend .pl4;
+    padding-left: var(--spacing-large);
   }
 
   ul ul, ol ol, ul ol, ol ul {
-    @extend .mt0;
-    @extend .mb0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   b, strong, em, small, code {
-    line-height: 1;
+    line-height: var(--line-height-solid);
   }
 
   sup, sub {
@@ -94,76 +113,74 @@
   }
 
   a {
-    @extend .link;
-    @extend .underline;
-    @extend .dark-gray;
-    @extend .hover-orange;
+    color: var(--dark-gray);
+    transition: color 0.15s ease-in;
+
+    &:hover {
+      color: var(--orange);
+    }
+
+    &:focus {
+      outline: 1px dotted currentColor;
+    }
   }
 
   blockquote {
-    @extend .mh0;
-    @extend .bw3;
-    @extend .bl;
-    @extend .br1;
-    @extend .b--orange;
-    @extend .b--black-20-p;
-    @extend .pv3;
-    @extend .pv1-p;
-    @extend .ph4;
-    @extend .ph3-p;
-    @extend .bg-near-white;
-    @extend .bg-transparent-p;
+    margin-left: 0;
+    margin-right: 0;
+    border-left: var(--border-width-3) solid var(--orange);
+    border-radius: var(--border-radius-1);
+    padding: var(--spacing-medium) var(--spacing-large);
+    background-color: var(--near-white);
 
     p {
-      @extend .measure;
+      /* unfortunately no variable for measures in custom yet */
+      max-width: 30em;
     }
   }
 
   code {
-    @extend .ph1;
-    @extend .br1;
-    @extend .ba;
-    @extend .b--black-20;
-    @extend .bg-near-white;
-    @extend .bg-transparent-p;
-    @extend .f6;
-    @extend .f5-l;
-    @extend .code;
+    border: 1px solid var(--black-20);
+    border-radius: var(--border-radius-1);
+    padding-left: var(--spacing-extra-small);
+    padding-right: var(--spacing-extra-small);
+    background-color: var(--near-white);
+    font-size: var(--font-size-6);
+    font-family: var(--code);
+
+    @media (--breakpoint-large) {
+      font-size: var(--font-size-5);
+    }
   }
 
   pre {
-    @extend .pre;
-    @extend .w-100;
-    @extend .bw3;
-    @extend .bl;
-    @extend .br1;
-    @extend .b--orange;
-    @extend .b--black-20-p;
-    @extend .pv3;
-    @extend .pv1-p;
-    @extend .ph4;
-    @extend .ph3-p;
-    @extend .bg-dark-gray;
-    @extend .bg-transparent-p;
-    @extend .f6;
-    @extend .f5-l;
-    @extend .near-white;
-    @extend .dark-gray-p;
-    @extend .code;
+    width: 100%;
+    border-left: var(--border-width-3) solid var(--orange);
+    border-radius: var(--border-radius-1);
+    padding: var(--spacing-medium) var(--spacing-large);
+    background-color: var(--dark-gray);
+    color: var(--near-white);
+    font-size: var(--font-size-6);
+    font-family: var(--code);
+    white-space: pre;
+
+    @media (--breakpoint-large) {
+      font-size: var(--font-size-5);
+    }
 
     code {
-      @extend .w-100;
-      @extend .ph0;
-      @extend .bn;
-      @extend .bg-transparent;
+      width: 100%;
+      border: none;
+      padding-left: 0;
+      padding-right: 0;
+      background-color: transparent;
     }
   }
 
   img {
-    @extend .db;
-    @extend .w-100;
-    @extend .mw7;
-    @extend .br1;
-    @extend .mw6-p;
+    display: block;
+    width: 100%;
+    max-width: var(--max-width-7);
+    border-radius: var(--border-radius-1);
   }
 }

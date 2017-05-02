@@ -26,8 +26,37 @@
 
   [href^='http']::after {
     content: '(' attr(href) ')';
-    @extend .ml1;
-    @extend .f5;
-    @extend .no-underline;
+    margin-left: var(--spacing-extra-small);
+    font-size: var(--font-size-5);
+    text-decoration: none;
+  }
+
+  .content {
+    font-size: var(--font-size-5);
+
+    h1 { font-size: var(--font-size-2); }
+
+    h2 { font-size: var(--font-size-3); }
+
+    h3, h3, h4, h5, h6 { font-size: var(--font-size-4); }
+
+    hr { border-color: var(--black-20); }
+
+    blockquote {
+      border-color: var(--black-20);
+      padding: var(--spacing-extra-small) var(--spacing-medium);
+      background-color: transparent;
+    }
+
+    code { background-color: transparent; }
+
+    pre {
+      border-color: var(--black-20);
+      padding: var(--spacing-extra-small) var(--spacing-medium);
+      background-color: transparent;
+      color: var(--dark-gray);
+    }
+
+    img { max-width: var(--max-width-6); }
   }
 }
