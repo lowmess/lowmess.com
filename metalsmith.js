@@ -25,7 +25,7 @@ Metalsmith(__dirname)
   .use(
     debug({
       files: false,
-    }),
+    })
   )
   .use(drafts())
   .use(
@@ -43,7 +43,7 @@ Metalsmith(__dirname)
       pages: {
         pattern: '*.md',
       },
-    }),
+    })
   )
   .use(moment(['date']))
   .use(
@@ -60,7 +60,7 @@ Metalsmith(__dirname)
           layout: 'post.pug',
         },
       },
-    ]),
+    ])
   )
   .use(
     markdown({
@@ -70,7 +70,7 @@ Metalsmith(__dirname)
       .use(require('markdown-it-block-image'))
       .use(require('markdown-it-prism'))
       .use(require('markdown-it-image-defer'))
-      .use(require('markdown-it-anchor')),
+      .use(require('markdown-it-anchor'))
   )
   .use(
     permalinks({
@@ -82,7 +82,7 @@ Metalsmith(__dirname)
           pattern: ':title',
         },
       ],
-    }),
+    })
   )
   .use(
     tags({
@@ -91,7 +91,7 @@ Metalsmith(__dirname)
       layout: 'tag.pug',
       sortBy: 'date',
       reverse: true,
-    }),
+    })
   )
   .use(
     layouts({
@@ -99,7 +99,7 @@ Metalsmith(__dirname)
       directory: 'templates',
       default: 'default.pug',
       pattern: '**/*.html',
-    }),
+    })
   )
   .use(sitemap('https://lowmess.com'))
   .use(feed({ collection: 'blog' }))

@@ -12,7 +12,7 @@ export const patterns = [
   hero.linesInMotion,
   hero.bankNote,
   hero.circuitBoard,
-  hero.polkaDots
+  hero.polkaDots,
 ]
 
 export const backgrounds = [
@@ -43,5 +43,5 @@ export const backgrounds = [
   hero.melt(fill, opacity),
   hero.overlappingDiamonds(fill, opacity),
   hero.parkayFloor(fill, opacity),
-  hero.polkaDots(fill, opacity)
+  hero.polkaDots(fill, opacity),
 ]

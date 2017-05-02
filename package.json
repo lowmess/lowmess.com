@@ -108,7 +108,7 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier --single-quote --trailing-comma all --semi false --write",
+      "prettier --single-quote --trailing-comma es5 --semi false --write",
       "git add"
     ],
     "*.css": [
