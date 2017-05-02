@@ -1,14 +1,12 @@
 let plugs = [
   require('postcss-import'),
   require('postcss-nested'),
-  require('postcss-extend'),
   require('postcss-custom-properties'),
   require('postcss-custom-media'),
-  require('postcss-color-function'),
   require('postcss-focus'),
   require('autoprefixer'),
   require('cssnano'),
-  require('css-mqpacker')
+  require('css-mqpacker'),
 ]
 
 if (process.env.NODE_ENV === 'production') {
@@ -18,6 +16,6 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   plugins: plugs,
   map: {
-    inline: false
-  }
+    inline: false,
+  },
 }

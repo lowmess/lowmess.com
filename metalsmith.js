@@ -19,13 +19,13 @@ Metalsmith(__dirname)
     site: {
       url: 'https://www.lowmess.com/',
       title: 'lowmess',
-      description: 'The web & graphic design portfolio of Alec Lomas. You can find him @lowmess'
-    }
+      description: 'The web & graphic design portfolio of Alec Lomas. You can find him @lowmess',
+    },
   })
   .use(
     debug({
-      files: false
-    })
+      files: false,
+    }),
   )
   .use(drafts())
   .use(
@@ -33,17 +33,17 @@ Metalsmith(__dirname)
       blog: {
         pattern: 'blog/**/*.md',
         sortBy: 'date',
-        reverse: true
+        reverse: true,
       },
       projects: {
         pattern: 'projects/**/*.md',
         sortBy: 'date',
-        reverse: true
+        reverse: true,
       },
       pages: {
-        pattern: '*.md'
-      }
-    })
+        pattern: '*.md',
+      },
+    }),
   )
   .use(moment(['date']))
   .use(
@@ -51,26 +51,26 @@ Metalsmith(__dirname)
       {
         pattern: 'projects/**/*.md',
         defaults: {
-          layout: 'project.pug'
-        }
+          layout: 'project.pug',
+        },
       },
       {
         pattern: 'blog/**/*.md',
         defaults: {
-          layout: 'post.pug'
-        }
-      }
-    ])
+          layout: 'post.pug',
+        },
+      },
+    ]),
   )
   .use(
     markdown({
       typographer: true,
-      linkify: true
+      linkify: true,
     })
       .use(require('markdown-it-block-image'))
       .use(require('markdown-it-prism'))
       .use(require('markdown-it-image-defer'))
-      .use(require('markdown-it-anchor'))
+      .use(require('markdown-it-anchor')),
   )
   .use(
     permalinks({
@@ -79,10 +79,10 @@ Metalsmith(__dirname)
       linksets: [
         {
           match: { collection: 'pages' },
-          pattern: ':title'
-        }
-      ]
-    })
+          pattern: ':title',
+        },
+      ],
+    }),
   )
   .use(
     tags({
@@ -90,17 +90,16 @@ Metalsmith(__dirname)
       path: 'tagged/:tag/index.html',
       layout: 'tag.pug',
       sortBy: 'date',
-      reverse: true
-    })
+      reverse: true,
+    }),
   )
   .use(
     layouts({
       engine: 'pug',
-      moment: require('moment'),
       directory: 'templates',
       default: 'default.pug',
-      pattern: '**/*.html'
-    })
+      pattern: '**/*.html',
+    }),
   )
   .use(sitemap('https://lowmess.com'))
   .use(feed({ collection: 'blog' }))
