@@ -100,12 +100,15 @@
     "extends": "stylelint-config-lowmess"
   },
   "eslintConfig": {
-    "extends": "standard"
+    "extends": "standard",
+    "rules": {
+      "comma-dangle": ["warn", "always-multiline"]
+    }
   },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier --single-quote --semi false --write",
+      "prettier --single-quote --trailing-comma all --semi false --write",
       "git add"
     ],
     "*.css": [
