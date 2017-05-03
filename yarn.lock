@@ -6427,9 +6427,9 @@ table@^4.0.1:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-tachyons-custom-print@^4.5.6:
-  version "4.5.6"
-  resolved "https://registry.yarnpkg.com/tachyons-custom-print/-/tachyons-custom-print-4.5.6.tgz#089965bb5893250ef9fd185ccfb12258fc1a60bb"
+tachyons-custom-print@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/tachyons-custom-print/-/tachyons-custom-print-4.6.1.tgz#67378d99cddb80b3b75d370d903a71a6c2273556"
 
 tachyons-custom@^4.5.5:
   version "4.5.5"
