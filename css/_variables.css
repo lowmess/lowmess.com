@@ -1,20 +1,23 @@
-@charset 'utf-8';
+/*
 
-/* Tachyons */
-@import 'tachyons-custom/src/tachyons';
-@import 'tachyons-custom-print/src/tachyons-print';
+    VARIABLES
 
-/* Prism */
-@import 'lowmess-prism';
+*/
 
-/* Variable definitions */
-@import '_variables';
+@custom-media --breakpoint-not-small screen and (min-width: 48em);
 
-/* Layout */
-@import '_content';
-@import '_print';
+@custom-media --breakpoint-medium screen and (min-width: 48em) and (max-width: 64em);
 
-/* Don't feel like I need to add a new file for this */
-svg {
-  fill: currentColor;
+@custom-media --breakpoint-large screen and (min-width: 64em);
+
+:root {
+  /* Measure Widths */
+  --measure: 30em;
+  --measure-narrow: 20em;
+  --measure-wide: 34em;
+  /* Line Height */
+  --line-height-title: 1.3;
+  --line-height-copy: 1.6;
+  /* Colors */
+  --orange: #f2930d; /* my brand orange */
 }
