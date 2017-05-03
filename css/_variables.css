@@ -15,9 +15,6 @@
   --measure: 30em;
   --measure-narrow: 20em;
   --measure-wide: 34em;
-  /* Line Height */
-  --line-height-title: 1.3;
-  --line-height-copy: 1.6;
   /* Colors */
   --orange: #f2930d; /* my brand orange */
 }
