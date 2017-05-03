@@ -2,13 +2,10 @@
 
 /* Tachyons */
 @import 'tachyons-custom/src/tachyons';
-@import 'tachyons-svg/src/tachyons-svg';
+@import 'tachyons-custom-print/src/tachyons-print';
 
 /* Prism */
 @import 'lowmess-prism';
-
-/* Print styles */
-@import 'tachyons-print/src/tachyons-print';
 
 /* Variable definitions */
 @import '_variables';
@@ -16,3 +13,6 @@
 /* Layout */
 @import '_content';
 @import '_print';
+
+/* Don't feel like I need to add a new file for this */
+svg { fill: currentColor; }

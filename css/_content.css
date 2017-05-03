@@ -34,14 +34,9 @@
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    line-height: var(--line-height-title);
-  }
+  h1, h2, h3, h4, h5, h6 { line-height: var(--line-height-title); }
 
-  p, ul, ol, address {
-    /* unfortunately no variable for measures in custom yet */
-    max-width: 34em;
-  }
+  p, ul, ol, address { max-width: var(--measure-wide); }
 
   /* Headers */
   h1 {
@@ -134,8 +129,7 @@
     background-color: var(--near-white);
 
     p {
-      /* unfortunately no variable for measures in custom yet */
-      max-width: 30em;
+      max-width: var(--measure);
     }
   }
 

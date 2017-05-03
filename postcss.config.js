@@ -1,7 +1,6 @@
 let plugs = [
   require('postcss-import'),
   require('postcss-nested'),
-  require('postcss-custom-properties'),
   require('postcss-custom-media'),
   require('postcss-focus'),
   require('autoprefixer'),

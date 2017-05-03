@@ -6434,17 +6434,13 @@ table@^4.0.1:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
+tachyons-custom-print@^4.5.6:
+  version "4.5.6"
+  resolved "https://registry.yarnpkg.com/tachyons-custom-print/-/tachyons-custom-print-4.5.6.tgz#089965bb5893250ef9fd185ccfb12258fc1a60bb"
+
 tachyons-custom@^4.5.5:
   version "4.5.5"
   resolved "https://registry.yarnpkg.com/tachyons-custom/-/tachyons-custom-4.5.5.tgz#d943ac77cc4f8d9d4b6765009225330b21c6fcfd"
-
-tachyons-print@^4.6.2:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/tachyons-print/-/tachyons-print-4.6.2.tgz#504b8e83a62c0a2cec3f4e7ce3a3962b49aa78cb"
-
-tachyons-svg@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/tachyons-svg/-/tachyons-svg-1.0.1.tgz#044d74549f529101e405c6a132cadd4858b45307"
 
 tar-fs@^1.13.0:
   version "1.14.0"

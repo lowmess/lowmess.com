@@ -70,8 +70,7 @@
     "rollup-plugin-babili": "^1.1.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "tachyons-custom": "^4.5.5",
-    "tachyons-print": "^4.6.2",
-    "tachyons-svg": "^1.0.1",
+    "tachyons-custom-print": "^4.5.6",
     "uncss": "^0.14.0"
   },
   "devDependencies": {
@@ -102,7 +101,10 @@
   "eslintConfig": {
     "extends": "standard",
     "rules": {
-      "comma-dangle": ["warn", "always-multiline"]
+      "comma-dangle": [
+        "warn",
+        "always-multiline"
+      ]
     }
   },
   "lint-staged": {
