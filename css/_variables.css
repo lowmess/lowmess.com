@@ -11,10 +11,6 @@
 @custom-media --breakpoint-large screen and (min-width: 64em);
 
 :root {
-  /* Measure Widths */
-  --measure: 30em;
-  --measure-narrow: 20em;
-  --measure-wide: 34em;
   /* Colors */
   --orange: #f2930d; /* my brand orange */
 }
