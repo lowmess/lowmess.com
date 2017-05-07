@@ -10,33 +10,27 @@
   /* Vertical Rhythm */
   & > * {
     /* reset all margins */
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 
     /* margin top to all child elements */
     & + * {
-      margin-top: var(--spacing-small);
-
-      @media (--breakpoint-large) {
-        margin-top: var(--spacing-medium);
-      }
+      margin-top: var(--spacing-medium);
     }
 
-    /* bigger margin top on headers
-     * kind of gross they don't fit perfectly into spacing scale,
-     * but they look better like this
-     */
+    /* bigger margin top on headers */
     & + h1, & + h2, & + h3 {
-      margin-top: calc(var(--spacing-small) + var(--spacing-medium));
-
-      @media (--breakpoint-large) {
-        margin-top: calc(var(--spacing-medium) + var(--spacing-large));
-      }
+      margin-top: var(--spacing-large);
     }
   }
 
-  h1, h2, h3, h4, h5, h6 { line-height: var(--line-height-title); }
+  h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height-title);
+  }
 
-  p, ul, ol, address { max-width: var(--measure-wide); }
+  p, ul, ol, address {
+    max-width: var(--measure-wide);
+  }
 
   /* Headers */
   h1 {
