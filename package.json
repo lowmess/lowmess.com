@@ -76,13 +76,8 @@
     "browser-sync": "^2.17.5",
     "cross-env": "^4.0.0",
     "cz-conventional-changelog": "^1.2.0",
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.13.3",
+    "jshint": "^2.9.4",
     "lint-staged": "^3.4.0",
     "nodemon": "^1.9.2",
     "prettier": "^1.1.0",
@@ -97,18 +92,15 @@
   "stylelint": {
     "extends": "stylelint-config-lowmess"
   },
-  "eslintConfig": {
-    "extends": "standard",
-    "rules": {
-      "comma-dangle": [
-        "warn",
-        "always-multiline"
-      ]
-    }
+  "jshintConfig": {
+    "esversion": 6,
+    "asi": true,
+    "unused": "vars",
+    "loopfunc": true
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
+      "jshint --verbose",
       "prettier --single-quote --trailing-comma es5 --semi false --write",
       "git add"
     ],

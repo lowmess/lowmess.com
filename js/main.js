@@ -26,7 +26,6 @@ for (let anchor of anchors) {
 }
 
 // Hero patterns
-
 patterns.forEach((item, index, array) => {
   let name = item.name
     .replace(/([a-z])([A-Z])/g, '$1-$2')
