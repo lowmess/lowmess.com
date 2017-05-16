@@ -2,7 +2,6 @@ import throttle from 'lodash-es/throttle'
 
 export const set = (el, pattern) => {
   el.style.backgroundImage = pattern
-  el.style.backgroundPosition = 'center'
 }
 
 export const setRandom = (el, arr) => {

@@ -14,5 +14,12 @@
 @import '_content';
 @import '_print';
 
-/* Don't feel like I need to add a new file for this */
-svg { fill: currentColor; }
+/* Don't feel like I need to add new files for these */
+svg {
+  fill: currentColor;
+}
+
+[data-hero-pattern] {
+  background-position: center center;
+  background-attachment: fixed;
+}
