@@ -12,13 +12,12 @@ document.addEventListener('DOMContentLoaded', event => {
 })
 
 // Add analytics strings to outbound links
-let anchors = document.querySelectorAll('a')
-let aQueryString = 'utm_source=lowmess'
+const query = 'utm_source=lowmess'
 
-for (let anchor of anchors) {
+for (const anchor of document.querySelectorAll('a')) {
   anchor.addEventListener('click', event => {
-    let href = anchor.href
-    queryString(anchor, aQueryString)
+    const href = anchor.href
+    queryString(anchor, query)
     setTimeout(() => {
       anchor.href = href
     }, 0)
@@ -27,24 +26,25 @@ for (let anchor of anchors) {
 
 // Hero patterns
 patterns.forEach((item, index, array) => {
-  let name = item.name
+  const name = item.name
     .replace(/([a-z])([A-Z])/g, '$1-$2')
     .toLowerCase()
     .split('$')
     .shift()
 
-  let els = document.querySelectorAll('[data-hero-pattern=' + name + ']')
-  for (let el of els) {
-    set(el, item(fill, opacity))
+  for (const named of document.querySelectorAll(
+    `[data-hero-pattern=${name}]`
+  )) {
+    set(named, item(fill, opacity))
   }
 })
 
-let rand = document.querySelectorAll('[data-hero-pattern=random]')
-for (let r of rand) {
-  setRandom(r, backgrounds)
+for (const rando of document.querySelectorAll('[data-hero-pattern=random]')) {
+  setRandom(rando, backgrounds)
 }
 
-let scrolls = document.querySelectorAll('[data-hero-pattern=scroll]')
-for (let s of scrolls) {
-  scroll(s, backgrounds, 200)
+for (const scroller of document.querySelectorAll(
+  '[data-hero-pattern=scroll]'
+)) {
+  scroll(scroller, backgrounds, 200)
 }

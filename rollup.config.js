@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import babili from 'rollup-plugin-babili'
 
-let plugs = [
+const plugs = [
   babel(),
   resolve({
     jsnext: true,

@@ -105,5 +105,5 @@ Metalsmith(__dirname)
   .use(feed({ collection: 'blog' }))
   .use(minify())
   .build(err => {
-    if (err) console.log(err)
+    if (err) console.log(err) // eslint-disable-line
   })

@@ -5,8 +5,8 @@ export const set = (el, pattern) => {
 }
 
 export const setRandom = (el, arr) => {
-  let rand = Math.floor(Math.random() * arr.length)
-  let background = arr[rand]
+  const rand = Math.floor(Math.random() * arr.length)
+  const background = arr[rand]
   set(el, background)
 }
 

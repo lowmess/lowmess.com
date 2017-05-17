@@ -1,4 +1,4 @@
-let plugs = [
+const plugs = [
   require('postcss-import'),
   require('postcss-nested'),
   require('postcss-custom-media'),
