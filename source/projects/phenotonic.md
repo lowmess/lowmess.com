@@ -14,6 +14,10 @@ While working at a local gardening store, my brother and I noticed a gap in the 
 
 While my brother focused on sales, product, and service strategy, I created the branding, collateral, and website. We wanted to create something that was like nothing else on the store shelves. Many other brands use ornate, detailed illustrations and winking hints at the type of plants the gardener might be growing. So where these brands zigged, we zagged: our branding was simple, modern, and had a focus on education.
 
+## An Organic Generator
+
 Our first product was a mycelium mushroom-based CO2 generator. I created a packaging system that fit within our branding and presented educational information about the product.
+
+## Digital Bazaar
 
 The final step of the process was, of course, to create a marketplace to sell our wares. We toyed around with the idea of using a traditional eCommerce CMS or a platform like Shopify, but ultimately we (I) decided to create a fully static site with [Metalsmith](http://www.metalsmith.io/), [Snipcart](https://snipcart.com/), [Prose](http://prose.io/), & [Netlify](https://www.netlify.com/) ([JAMStack](https://jamstack.org/), baby!). This left us with a modern, performant, and, most importantly, secure site that was still easy enough for a non-technical user like my co-founder to create and update articles and product listings.
