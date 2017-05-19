@@ -169,6 +169,8 @@
     display: block;
     width: 100%;
     max-width: var(--max-width-7);
+    margin-top: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
     border-radius: var(--border-radius-1);
   }
 }

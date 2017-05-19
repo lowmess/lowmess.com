@@ -6,6 +6,7 @@ import Layzr from 'layzr.js'
 // Initialize Layzr
 const lazy = Layzr({
   normal: 'data-src',
+  threshold: 50,
 })
 document.addEventListener('DOMContentLoaded', event => {
   lazy.update().check().handlers(true)

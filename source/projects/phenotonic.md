@@ -18,6 +18,6 @@ While my brother focused on sales, product, and service strategy, I created the 
 
 Our first product was a mycelium mushroom-based CO2 generator. I created a packaging system that fit within our branding and presented educational information about the product.
 
-## Digital Bazaar
+## Digital Roots
 
 The final step of the process was, of course, to create a marketplace to sell our wares. We toyed around with the idea of using a traditional eCommerce CMS or a platform like Shopify, but ultimately we (I) decided to create a fully static site with [Metalsmith](http://www.metalsmith.io/), [Snipcart](https://snipcart.com/), [Prose](http://prose.io/), & [Netlify](https://www.netlify.com/) ([JAMStack](https://jamstack.org/), baby!). This left us with a modern, performant, and, most importantly, secure site that was still easy enough for a non-technical user like my co-founder to create and update articles and product listings.
