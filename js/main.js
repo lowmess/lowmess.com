@@ -27,15 +27,9 @@ for (const anchor of document.querySelectorAll('a')) {
 
 // Hero patterns
 patterns.forEach((item, index, array) => {
-  const name = item.name
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .toLowerCase()
-    .split('$')
-    .shift()
+  const name = item.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase().split('$').shift()
 
-  for (const named of document.querySelectorAll(
-    `[data-hero-pattern=${name}]`
-  )) {
+  for (const named of document.querySelectorAll(`[data-hero-pattern=${name}]`)) {
     set(named, item(fill, opacity))
   }
 })
@@ -44,8 +38,6 @@ for (const rando of document.querySelectorAll('[data-hero-pattern=random]')) {
   setRandom(rando, backgrounds)
 }
 
-for (const scroller of document.querySelectorAll(
-  '[data-hero-pattern=scroll]'
-)) {
+for (const scroller of document.querySelectorAll('[data-hero-pattern=scroll]')) {
   scroll(scroller, backgrounds, 200)
 }

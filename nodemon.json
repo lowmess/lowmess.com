@@ -11,7 +11,7 @@
     "js/**/*.*",
     "templates/**/*.*",
     "metalsmith.js",
-    "rollup.config.js",
+    "webpack.config.js",
     "postcss.config.js"
   ],
   "env": {

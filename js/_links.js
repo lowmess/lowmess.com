@@ -1,5 +1,4 @@
-const isLink = el =>
-  el.href || (el.protocol === 'http:' || el.protocol === 'https:')
+const isLink = el => el.href || (el.protocol === 'http:' || el.protocol === 'https:')
 
 export const queryString = (el, string) => {
   // Check if el is a link
