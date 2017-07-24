@@ -1,7 +1,7 @@
 ---
 title: Hello World
 displayTitle: 👋 🌎
-date: 2017-05-01
+date: 2017-07-28
 description: Hello there, world. Welcome to my Web Log™.
 background: circuit-board
 tags:
