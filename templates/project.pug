@@ -13,7 +13,7 @@ block page
         +header-text(class="dn-p"): +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
   main(role="main")
     +container
-      article.content!=contents
+      article.content: a(href=link): p!=description
       .dn-p
         +rule
         if collections.projects[0].title === title

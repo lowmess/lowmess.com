@@ -1,4 +1,10 @@
 mixin blog-preview(post)
   .cf.mv4.mv3-p
-    h4.mt0.mb3.f4.f3-ns.fw6: +link("/" + post.path.toLowerCase())= post.displayTitle ? post.displayTitle : post.title
+    h4.mt0.mb1.f4.f3-ns.fw6: +link("/" + post.path.toLowerCase())= post.displayTitle ? post.displayTitle : post.title
+    if post.tags
+      .mt1.mb2.mb3-ns
+        each tag, index in post.tags
+          a.f6.light-silver.hover-orange.link(href="/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
+          if index + 1 !== post.tags.length
+            span.dib.mr1.light-silver ,
     p.mt3.f5.f4-ns!= post.description
