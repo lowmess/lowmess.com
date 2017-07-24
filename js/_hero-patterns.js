@@ -3,21 +3,10 @@ import * as hero from 'hero-patterns'
 export const fill = '#333333'
 export const opacity = 0.7
 
-export const patterns = [
-  hero.iLikeFood,
-  hero.wiggle,
-  hero.bubbles,
-  hero.floatingCogs,
-  hero.leaf,
-  hero.linesInMotion,
-  hero.bankNote,
-  hero.circuitBoard,
-  hero.polkaDots,
-]
+export const patterns = [hero.wiggle, hero.floatingCogs, hero.linesInMotion, hero.bankNote, hero.circuitBoard]
 
 export const backgrounds = [
   hero.formalInvitation(fill, opacity),
-  hero.topography(fill, opacity),
   hero.hideout(fill, opacity),
   hero.yyy(fill, opacity),
   hero.fallingTriangles(fill, opacity),
