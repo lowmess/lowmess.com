@@ -1,8 +1,8 @@
 ---
 title: Hello World
 displayTitle: 👋 🌎
-date: 2017-07-28
-description: Hello there, world. Welcome to my Web Log™.
+date: 2017-07-26
+description: Continuing a long tradition of naming blog introductions 'Hello World'. But with more emoji.
 background: circuit-board
 tags:
   - Open Source

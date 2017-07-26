@@ -7,4 +7,4 @@ mixin blog-preview(post)
           a.f6.light-silver.hover-orange.link(href="/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
           if index + 1 !== post.tags.length
             span.dib.mr1.light-silver ,
-    p.mt3.f5.f4-ns!= post.description
+    p.mt3.f5.f4-ns.measure!= post.description
