@@ -1,0 +1,13 @@
+mixin project-preview(project, reverse)
+  .flex.flex-column.flex-row-ns.items-center.items-start-p.justify-start-p.mv4.mv3-p(class=reverse ? 'justify-end-ns' : 'justify-start-ns')
+    a.db.dn-p.mb2.mb0-ns.mw6.grow.br1(href=project.link, class=reverse ? 'ml4-ns ml5-l mr0 order-2-ns' : 'mr4-ns mr5-l ml0')
+      img(src=project.preview).w-100.mw6.db.br1
+    div.mt2.mt0-l(class=reverse ? 'order-1-ns tr-ns' : '')
+      h4.mt0.mb1.f4.f3-ns.fw6: +link(project.link)!= project.displayTitle ? project.displayTitle : project.title
+      if project.tags
+        .mt1.mb2.mb3-ns
+          each tag, index in project.tags
+            a.f6.light-silver.hover-orange.link(href="/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
+            if index + 1 !== project.tags.length
+              span.dib.mr1.light-silver ,
+      p.f4-l.mv2.mv3-ns.mb0.measure.lh-copy!= project.description

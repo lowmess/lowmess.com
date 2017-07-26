@@ -1,0 +1,20 @@
+{
+  "verbose": true,
+  "ignore": [
+    ".git",
+    "node_modules",
+    "_build"
+  ],
+  "watch": [
+    "source/**/*.*",
+    "css/**/*.*",
+    "js/**/*.*",
+    "templates/**/*.*",
+    "metalsmith.js",
+    "rollup.config.js",
+    "postcss.config.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

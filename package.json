@@ -1,0 +1,124 @@
+{
+  "name": "lowmess",
+  "version": "3.0.0",
+  "description": "The website and portfolio of Alec Lomas",
+  "main": "build.js",
+  "engines": {
+    "node": "6.9.0"
+  },
+  "scripts": {
+    "start": "yarn run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'yarn run build && browser-sync reload'",
+    "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
+    "build": "node metalsmith && rollup -c -m && postcss css/main.css -o _build/css/main.css -c",
+    "build:prod": "cross-env NODE_ENV=production yarn run build",
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lowmess/lowmess.git"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "design"
+  ],
+  "author": "Alec Lomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lowmess/lowmess/issues"
+  },
+  "homepage": "https://lowmess.com",
+  "dependencies": {
+    "autoprefixer": "^6.6.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.8.0",
+    "hero-patterns": "^1.3.2",
+    "layzr.js": "^2.2.2",
+    "lodash-es": "^4.17.4",
+    "lowmess-prism": "^0.0.4",
+    "markdown-it-anchor": "^2.5.1",
+    "markdown-it-block-image": "0.0.3",
+    "markdown-it-image-defer": "^0.0.1",
+    "markdown-it-prism": "^1.0.1",
+    "metalsmith": "^2.1.0",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-debug": "^1.1.0",
+    "metalsmith-default-values": "0.0.2",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-feed": "^0.2.0",
+    "metalsmith-html-minifier": "^2.2.0",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-mapsite": "^1.0.4",
+    "metalsmith-markdownit": "^0.4.0",
+    "metalsmith-moment": "^1.0.0",
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-tags": "^1.3.0",
+    "postcss": "^5.2.6",
+    "postcss-cli": "^3.0.0",
+    "postcss-custom-media": "^5.0.1",
+    "postcss-focus": "^1.0.0",
+    "postcss-import": "^8.1.2",
+    "postcss-nested": "^1.0.0",
+    "postcss-uncss": "^0.14.0",
+    "pug": "^2.0.0-beta6",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-babili": "^1.1.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "tachyons-custom": "^4.6.0",
+    "tachyons-custom-print": "^4.6.2",
+    "uncss": "^0.14.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "cross-env": "^4.0.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.19.0",
+    "eslint-config-lowmess": "^1.0.1",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
+    "nodemon": "^1.9.2",
+    "prettier": "^1.1.0",
+    "stylefmt": "^5.3.2",
+    "stylelint": "^7.8.0",
+    "stylelint-config-lowmess": "^0.1.0"
+  },
+  "browserlist": [
+    "last 2 versions",
+    "> 5%"
+  ],
+  "stylelint": {
+    "extends": "stylelint-config-lowmess"
+  },
+  "eslintConfig": {
+    "extends": "lowmess",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --single-quote --trailing-comma=es5 --semi=false --print-width=120 --write",
+      "git add"
+    ],
+    "*.css": [
+      "stylefmt",
+      "stylelint",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

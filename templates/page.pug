@@ -1,0 +1,15 @@
+extends default
+
+block page
+  +header
+    if title
+      +headline!= title
+    if subtitle
+      +subheadline!= subtitle
+    if headertext
+      each field in headertext
+        +header-text!= field
+  main(role="main")
+    +container
+      block content
+        .content!= contents

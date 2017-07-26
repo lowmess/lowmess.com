@@ -1,0 +1,20 @@
+extends page
+
+block content
+
+  .cf
+    .w-two-thirds-ns.w-75-l.w-100-p.fl-ns.pr4-ns.pr0-p
+      +section-title(class="dn-p") Info
+      +rule(class="dn-p")
+      .content.mb4.mb0-ns.mb0-p
+        != contents
+    .w-third-ns.w-25-l.fl-ns.dn-p
+      +section-title Connect
+      +rule
+      ul.list.lh-copy.f5.f4-l.f5-p.pl0
+        li: +link('mailto:alec@lowmess.com') Email
+        li: +link('https://twitter.com/lowmess') Twitter
+        li: +link('https://github.com/lowmess') GitHub
+        li: +link('https://dribbble.com/lowmess') Dribbble
+        li: +link('https://instagram.com/lowmess') Instagram
+        li: +link('https://linkedin.com/in/lowmess') LinkedIn

@@ -1,0 +1,13 @@
+extends page
+
+block content
+  - let year = 0000
+  each post in collections.blog
+    - let thisYear = post.date.utc().format("YYYY")
+    .cf
+      .w-20.fl.pt4
+        if thisYear !== year
+          +section-title= thisYear
+          - year = thisYear
+      .w-80.fl
+        +blog-preview(post)

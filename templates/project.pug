@@ -1,0 +1,24 @@
+extends default
+
+block page
+  +header
+    .dib.db-l.db-p
+      if displayTitle
+        +headline!= displayTitle
+      else
+        +headline!= title
+    +header-text: time(datetime=date.utc())= date.utc().format("MMMM YYYY")
+    if tags
+      each tag in tags
+        +header-text(class="dn-p"): +link("/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
+  main(role="main")
+    +container
+      article.content: a(href=link): p!=description
+      .dn-p
+        +rule
+        if collections.projects[0].title === title
+          +section-title Next Project
+          +project-preview(collections.projects[1])
+        else
+          +section-title Latest Project
+          +project-preview(collections.projects[0])

@@ -1,5 +1,35 @@
 # lowmess.com
 
-This is my personal portfolio website. I built it with Jade, Scss & jQuery. For more about the tools & resources I used to make it, [visit the colophon](http://lowmess.com/colophon).
+#### This Machine Runs on Open Source
 
-Any and all [comments, critiques or suggestions are welcome](http://lowmess.com/contact).
+* [Metalsmith](https://metalsmith.io)
+* [Markdown-It](https://markdown-it.github.io/)
+* [Pug](https://pugjs.org)
+* [PostCSS](http://postcss.org/)
+* [Tachyons](http://tachyons.io/)
+* [Rollup](http://rollupjs.org/)
+* [Babel](https://babeljs.io)
+* [Yarn](https://yarnpkg.com)
+* [Hero Patterns](http://heropatterns.com)
+* [Browsersync](https://github.com/browsersync)
+* [nodemon](https://github.com/remy/nodemon)
+
+## Installing
+
+```bash
+git clone https://github.com/lowmess/lowmess.git
+cd lowmess
+yarn
+```
+
+## Building
+
+```bash
+yarn run build
+```
+
+## Developing
+
+```bash
+yarn run start
+```

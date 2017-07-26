@@ -1,0 +1,17 @@
+doctype html
+include components/components
+html
+  head
+    include partials/head
+  body.sans-serif.dark-gray
+    include partials/nav
+
+    block page
+      +header
+        +headline= title
+      main(role="main")
+        +container
+          .content!=contents
+
+    include partials/footer
+    include partials/scripts
