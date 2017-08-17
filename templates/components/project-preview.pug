@@ -5,9 +5,5 @@ mixin project-preview(project, reverse)
     div.mt2.mt0-l(class=reverse ? 'order-1-ns tr-ns' : '')
       h4.mt0.mb1.f4.f3-ns.fw6: +link(project.link)!= project.displayTitle ? project.displayTitle : project.title
       if project.tags
-        .mt1.mb2.mb3-ns
-          each tag, index in project.tags
-            a.f6.light-silver.hover-orange.link(href="/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
-            if index + 1 !== project.tags.length
-              span.dib.mr1.light-silver ,
+        +tag-list(project.tags).mt1.mb2.mb3-ns
       p.f4-l.mv2.mv3-ns.mb0.measure.lh-copy!= project.description
