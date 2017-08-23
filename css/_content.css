@@ -19,7 +19,11 @@
     }
 
     /* bigger margin top on headers */
-    & + h1, & + h2, & + h3 {
+    & + h1, & + h2 {
+      margin-top: var(--spacing-extra-large);
+    }
+
+    & + h3, & + h4 {
       margin-top: var(--spacing-large);
     }
   }
@@ -128,13 +132,16 @@
   }
 
   code {
+    font-family: var(--code);
+  }
+
+  p code {
     border: 1px solid var(--black-20);
     border-radius: var(--border-radius-1);
     padding-left: var(--spacing-extra-small);
     padding-right: var(--spacing-extra-small);
     background-color: var(--near-white);
     font-size: var(--font-size-6);
-    font-family: var(--code);
 
     @media (--breakpoint-large) {
       font-size: var(--font-size-5);
@@ -154,14 +161,6 @@
 
     @media (--breakpoint-large) {
       font-size: var(--font-size-5);
-    }
-
-    code {
-      width: 100%;
-      border: none;
-      padding-left: 0;
-      padding-right: 0;
-      background-color: transparent;
     }
   }
 

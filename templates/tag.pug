@@ -32,6 +32,6 @@ block page
       each item in pagination.files
         if item.collection == 'blog'
           if count === 0
-            +section-title Blog Posts
+            +section-title.pb4 Blog Posts
           +blog-preview(item)
           - count++

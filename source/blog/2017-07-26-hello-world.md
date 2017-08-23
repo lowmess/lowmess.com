@@ -2,7 +2,7 @@
 title: Hello World
 displayTitle: 👋 🌎
 date: 2017-07-26
-description: Continuing a long tradition of naming blog introductions 'Hello World'. But with more emoji.
+description: Continuing a long tradition of naming blog introductions &ldquo;Hello World&rdquo;. But with more emoji.
 background: circuit-board
 tags:
   - Open Source
