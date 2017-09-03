@@ -10,18 +10,43 @@ tags:
 draft: true
 ---
 
-As a designer, I was scared of the terminal for a long time. But as I became frustrated with the limitations of GUI options, and became more comfortable with programming in general, I began to familiarize myself with it. The first time I saw someone with their `git` status in their prompt, I immediately began to search for how I have it in mine. The answer was, resoundingly and repeatedly, `oh-my-zsh`.
+I was scared of the terminal for a long time. But as I grew frustrated with my limitations, I took the time to familiarize myself. And, as with any other tool, I've gone through [several obsessive rounds](https://twitter.com/lowmess/status/903714807022469120) of tweaking and updating and form-fitting the terminal to my liking. The first round was switching to `zsh` and [`oh-my-zsh`](http://ohmyz.sh/) (mostly for the `git` prompt, if I'm being honest); the second was switching to [`prezto`](https://github.com/sorin-ionescu/prezto) (for, largely, no reason at all); and the third was to ditch the framework altogether and roll my own solution.
 
-Soon enough, though, I came to be dissatisfied with the solution. Unlike many other tools I have been dissatisfied with, my issues with `oh-my-zsh` were not related to its limitations. The problem--which, really, says much more about me than the framework--was that it was simply too... _big_. There were too many functions and aliases and configuration options for me to easily wrap my mind around. So, rather than do the logical thing (read some docs and root around in the repo), I decided to uninstall `oh-my-zsh` and roll my own, much more minimal, system.
+Unlike many other tools I have been dissatisfied with, my issues with `oh-my-zsh` & `prezto`  were not related to limitations. The problem--which, really, says much more about me than the frameworks--was that they're simply too... _big_. There are too many functions and aliases and configuration options for me to easily wrap my mind around. So, rather than do the logical thing (read some docs and root around in the repo), I decided to, well, do the thing we're talking about.
 
 ## Disclaimer
 
 If you're happy with `oh-my-zsh` or `prezto` or `your-zsh-framework-here`, use it! Just because you (probably) don't _need_ the framework, doesn't mean you need to spend a few hours replicating the feature set you _do_ use.
 
-## Don't Reinvent the Wheel
+## The Result
 
-Just because I'm not using a `zsh` framework, does not mean I am not using any existing tools. I just want a more simple toolset that I know all the pieces of. If the problem is solved, why solve it again?
+Here's what, after going through all of this, my terminal looks like.
 
-### The `git` Prompt
+![My Hyper terminal, showing some configuration](/images/blog.zsh-frameworks.result.png)
 
-The first thing I wanted to recreate was the first thing that made me want something like `oh-my-zsh` in the first place. I wanted to see my `git` status in my prompt. Luckily, there's an aptly-named project that accomplishes exactly that: [`zsh-git-prompt`](https://github.com/olivierverdier/zsh-git-prompt).
+I prefer a minimal setup, but there's a lot of features hidden underneath the simple exterior. But first, let's get everything looking right.
+
+## Let's Paint This Bikeshed
+
+[`zsh-git-prompt`](https://github.com/olivierverdier/zsh-git-prompt).
+
+```bash
+# source the library
+source /usr/local/opt/zsh-git-prompt/zshrc.sh
+# configure the git prompt
+ZSH_THEME_GIT_PROMPT_PREFIX="$reset_color at "
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="("
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[white]%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✖%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[white]%}%{✚%G%}"
+ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[white]%}%{✔%G%}"
+# style the directory listing
+local dir="%{$fg_bold[white]%}%1~$resetColor"
+# export the combined prompt
+export PS1='$dir$(git_super_status) ► '
+```
