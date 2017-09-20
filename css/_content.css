@@ -19,20 +19,30 @@
     }
 
     /* bigger margin top on headers */
-    & + h1, & + h2 {
+    & + h1,
+    & + h2 {
       margin-top: var(--spacing-extra-large);
     }
 
-    & + h3, & + h4 {
+    & + h3,
+    & + h4 {
       margin-top: var(--spacing-large);
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     line-height: var(--line-height-title);
   }
 
-  p, ul, ol, address {
+  p,
+  ul,
+  ol,
+  address {
     max-width: var(--measure-wide);
   }
 
@@ -64,7 +74,9 @@
     }
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-size: var(--font-size-5);
     font-weight: 500;
 
@@ -82,20 +94,29 @@
     border: var(--border-width-2) solid var(--orange);
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: var(--spacing-large);
   }
 
-  ul ul, ol ol, ul ol, ol ul {
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  b, strong, em, small, code {
+  b,
+  strong,
+  em,
+  small,
+  code {
     line-height: var(--line-height-solid);
   }
 
-  sup, sub {
+  sup,
+  sub {
     vertical-align: baseline;
     position: relative;
     top: -0.4em;
@@ -135,13 +156,15 @@
     font-family: var(--code);
   }
 
-  p code {
+  p code,
+  li code {
     border: 1px solid var(--black-20);
     border-radius: var(--border-radius-1);
     padding-left: var(--spacing-extra-small);
     padding-right: var(--spacing-extra-small);
     background-color: var(--near-white);
     font-size: var(--font-size-6);
+    white-space: nowrap;
 
     @media (--breakpoint-large) {
       font-size: var(--font-size-5);

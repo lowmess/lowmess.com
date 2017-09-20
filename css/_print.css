@@ -1,5 +1,5 @@
 @media print {
-  @page  { /* stylelint-disable-line */
+  @page {
     size: letter portrait;
     margin: 0.25in 1.25in;
   }
@@ -24,8 +24,8 @@
     /* stylelint-enable declaration-no-important */
   }
 
-  [href^='http']::after {
-    content: '(' attr(href) ')';
+  [href^="http"]::after {
+    content: "(" attr(href) ")";
     margin-left: var(--spacing-extra-small);
     font-size: var(--font-size-5);
     text-decoration: none;
@@ -34,13 +34,25 @@
   .content {
     font-size: var(--font-size-5);
 
-    h1 { font-size: var(--font-size-2); }
+    h1 {
+      font-size: var(--font-size-2);
+    }
 
-    h2 { font-size: var(--font-size-3); }
+    h2 {
+      font-size: var(--font-size-3);
+    }
 
-    h3, h3, h4, h5, h6 { font-size: var(--font-size-4); }
+    h3,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: var(--font-size-4);
+    }
 
-    hr { border-color: var(--black-20); }
+    hr {
+      border-color: var(--black-20);
+    }
 
     blockquote {
       border-color: var(--black-20);
@@ -48,7 +60,9 @@
       background-color: transparent;
     }
 
-    code { background-color: transparent; }
+    code {
+      background-color: transparent;
+    }
 
     pre {
       border-color: var(--black-20);
@@ -57,6 +71,8 @@
       color: var(--dark-gray);
     }
 
-    img { max-width: var(--max-width-6); }
+    img {
+      max-width: var(--max-width-6);
+    }
   }
 }

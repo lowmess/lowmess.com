@@ -3,9 +3,6 @@
   "version": "3.0.0",
   "description": "The website and portfolio of Alec Lomas",
   "main": "build.js",
-  "engines": {
-    "node": "6.9.0"
-  },
   "scripts": {
     "start": "yarn run browser_sync & NODE_ENV=development DEBUG=metalsmith:* nodemon --exec 'yarn run build && browser-sync reload'",
     "browser_sync": "browser-sync start --server _build --no-ui --no-notify",
@@ -81,10 +78,9 @@
     "husky": "^0.13.3",
     "lint-staged": "^3.4.0",
     "nodemon": "^1.9.2",
-    "prettier": "^1.1.0",
-    "stylefmt": "^5.3.2",
-    "stylelint": "^7.8.0",
-    "stylelint-config-lowmess": "^0.1.0"
+    "prettier": "^1.7.0",
+    "stylelint": "^8.1.1",
+    "stylelint-config-lowmess": "^0.2.0"
   },
   "browserlist": [
     "last 2 versions",
@@ -111,8 +107,8 @@
       "git add"
     ],
     "*.css": [
-      "stylefmt",
-      "stylelint",
+      "stylelint --fix",
+      "prettier --print-width=120 --write",
       "git add"
     ]
   },
