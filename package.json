@@ -74,7 +74,7 @@
     "cross-env": "^4.0.0",
     "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.19.0",
-    "eslint-config-lowmess": "^1.0.1",
+    "eslint-config-lowmess": "^1.1.0",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.0",
     "nodemon": "^1.9.2",
@@ -86,29 +86,15 @@
     "last 2 versions",
     "> 5%"
   ],
-  "stylelint": {
-    "extends": "stylelint-config-lowmess"
-  },
-  "eslintConfig": {
-    "extends": "lowmess",
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier --single-quote --trailing-comma=es5 --semi=false --print-width=120 --write",
+      "prettier --write",
       "git add"
     ],
     "*.css": [
       "stylelint --fix",
-      "prettier --print-width=120 --write",
+      "prettier --write",
       "git add"
     ]
   },
