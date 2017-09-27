@@ -61,11 +61,11 @@ function weather () {
 }
 ```
 
-But the most important factor is that they're _mine_ (or, in your case, _yours_).
+But the most important factor is that they're mine (or, in your case, yours).
 
 ## The Real Terminal Is the Friends We Made Along the Way
 
-I am still the absolute furthest thing from an expert in this realm. But this process _has_ made me a lot more comfortable on the command line. I don't really have a great way to wrap this up, so I'll leave you with this:
+I am still the absolute furthest thing from an expert in this realm. But this process has made me a lot more comfortable on the command line. I don't really have a great way to wrap this up, so I'll leave you with this:
 
 1. If you _are_ an expert in this realm, come make fun of [my bad dotfiles repo](https://github.com/lowmess/dotfiles). If you're not an expert you can look at in awe or whatever.
 1. Again, this entire process could have been avoided by just reading some docs. This was way more fun.
