@@ -173,6 +173,7 @@
 
   pre {
     width: 100%;
+    overflow-x: scroll;
     border-left: var(--border-width-3) solid var(--orange);
     border-radius: var(--border-radius-1);
     padding: var(--spacing-medium) var(--spacing-large);
