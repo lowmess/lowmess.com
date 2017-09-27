@@ -1,5 +1,5 @@
 ---
-title: A Form-fitted zsheel
+title: A Form-fitted zshell
 displayTitle: A Form-fitted <code>zshell</code>
 date: 2017-09-27
 description: I made my <code>zshell</code> work for me, and managed to hurt absolutely no one else in the process.
