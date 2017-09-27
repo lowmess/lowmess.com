@@ -1,6 +1,6 @@
 mixin blog-preview(post)
-  .cf.mv4.mv3-p
-    h4.mt0.mb1.f4.f3-ns.fw6: +link("/" + post.path.toLowerCase())= post.displayTitle ? post.displayTitle : post.title
+  .cf.mv3
+    h4.mt0.mb1.f4.f3-ns.fw6: +link("/" + post.path.toLowerCase())!= post.displayTitle ? post.displayTitle : post.title
     if post.tags
-      +tag-list(post.tags).mt1.mb2.mb3-ns
-    p.mt3.f5.f4-ns.measure!= post.description
+      +tag-list(post.tags).mt1.mb2
+    p.mt2.f5.f4-ns.measure.lh-copy!= post.description

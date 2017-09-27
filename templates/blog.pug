@@ -5,7 +5,7 @@ block content
   each post in collections.blog
     - let thisYear = post.date.utc().format("YYYY")
     .cf
-      .w-20.fl.pt4
+      .w-20.fl.pt3
         if thisYear !== year
           +section-title= thisYear
           - year = thisYear

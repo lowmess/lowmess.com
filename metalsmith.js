@@ -52,6 +52,7 @@ Metalsmith(__dirname)
         pattern: 'projects/**/*.md',
         defaults: {
           layout: 'project.pug',
+          draft: true,
         },
       },
       {
@@ -104,6 +105,7 @@ Metalsmith(__dirname)
   .use(sitemap('https://lowmess.com'))
   .use(feed({ collection: 'blog' }))
   .use(minify())
+  .use(drafts())
   .build(err => {
     if (err) console.log(err) // eslint-disable-line
   })
