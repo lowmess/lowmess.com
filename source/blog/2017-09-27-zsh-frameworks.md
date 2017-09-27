@@ -5,7 +5,6 @@ date: 2017-09-27
 description: I made my <code>zshell</code> work for me, and managed to hurt absolutely no one else in the process.
 background: zig-zag
 tags:
-  - Open Source
   - Tooling
 ---
 
