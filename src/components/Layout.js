@@ -82,6 +82,7 @@ const Text = styled.span`
   ${focus};
   ${active};
   ${fontFamily};
+  ${lineHeight};
   ${textDecoration};
 `
 
