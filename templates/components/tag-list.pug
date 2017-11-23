@@ -1,7 +1,0 @@
-mixin tag-list(tags)
-  ul.list.pl0&attributes(attributes)
-    each tag, index in tags
-      li.di
-        a.f6.light-silver.hover-orange.link(href="/tagged/" + tag.replace(' ', '-').toLowerCase())= tag
-        if index + 1 !== tags.length
-          span.dib.mr1.light-silver ,
