@@ -1,9 +1,0 @@
-footer.dn-p
-  +container.flex.justify-center.justify-between-l
-    - let lastPost = collections.blog[0]
-    .dn.db-l
-      p.mv0.fw4.f5 From the Blog: #[+link("/" + lastPost.path).fw6!= lastPost.displayTitle ? lastPost.displayTitle : lastPost.title]
-    ul.mv0.pl0.list
-      li.f5.di.ml0.mr3: +link("https://twitter.com/lowmess") Twitter
-      li.f5.di.ml0.mr3: +link("https://github.com/lowmess") GitHub
-      li.f5.di.ml0: +link("https://dribbble.com/lowmess") Dribbble
