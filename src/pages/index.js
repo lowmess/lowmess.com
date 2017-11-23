@@ -38,8 +38,8 @@ const indexPage = ({ data }) => {
           Latest Projects
         </SectionTitle>
         {projects.map(({ node }, index) => {
-          const WebsiteComponent = node.website ? <ArrowLink href={node.website} text="Website" /> : ''
-          const RepoComponent = node.repo ? <ArrowLink href={node.repo} text="Repository" /> : ''
+          const WebsiteComponent = node.website ? <ArrowLink dest={node.website} text="Website" /> : ''
+          const RepoComponent = node.repo ? <ArrowLink dest={node.repo} text="Repository" /> : ''
           return (
             <Box key={node.title} {...(index + 1 === projects.length ? {} : { mb: [4, 5] })}>
               <a href={node.website ? node.website : node.repo}>
