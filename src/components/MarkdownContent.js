@@ -88,11 +88,11 @@ const MarkdownContent = styled(Box)`
 
   hr {
     width: 100%;
-    max-width: 8rem;
+    max-width: 4rem;
     margin-left: 0;
     margin-right: 0;
     border-style: solid;
-    border-width: ${props => props.theme.borderWidths[2]};
+    border-width: ${props => props.theme.borderWidths[1]};
     border-color: ${props => props.theme.colors.orange};
     margin: ${props => props.theme.space[4]} 0;
   }
