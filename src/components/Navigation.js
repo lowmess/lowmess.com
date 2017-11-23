@@ -25,7 +25,7 @@ const NavIcon = styled(Icon)`
   height: 100%;
 `
 
-const Navigation = props => (
+const Navigation = ({ location }) => (
   <Nav align="center" justify="space-between" mt={[0, 2, 3]} mb={[5, 6]}>
     <LogoContainer align="center">
       <LogoLink to="/" color="orange" display="inline-block">
