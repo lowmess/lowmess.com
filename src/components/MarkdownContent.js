@@ -47,29 +47,29 @@ const MarkdownContent = styled(Box)`
 
   /* Headers */
   h1 {
-    font-size: ${props => props.theme.fontSizes[4]};
-    font-weight: 600;
-
-    @media (${props => props.theme.breakpoints[0]}) {
-      font-size: ${props => props.theme.fontSizes[5]};
-    }
-  }
-
-  h2 {
     font-size: ${props => props.theme.fontSizes[3]};
     font-weight: 600;
 
-    @media (${props => props.theme.breakpoints[0]}) {
+    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
       font-size: ${props => props.theme.fontSizes[4]};
     }
   }
 
-  h3 {
+  h2 {
     font-size: ${props => props.theme.fontSizes[2]};
     font-weight: 600;
 
-    @media (${props => props.theme.breakpoints[0]}) {
+    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
       font-size: ${props => props.theme.fontSizes[3]};
+    }
+  }
+
+  h3 {
+    font-size: ${props => props.theme.fontSizes[1]};
+    font-weight: 600;
+
+    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
+      font-size: ${props => props.theme.fontSizes[2]};
     }
   }
 
@@ -79,7 +79,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${props => props.theme.fontSizes[1]};
     font-weight: 500;
 
-    @media (${props => props.theme.breakpoints[0]}) {
+    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
       font-size: ${props => props.theme.fontSizes[2]};
     }
   }
@@ -169,7 +169,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${props => props.theme.fontSizes[0]};
     white-space: nowrap;
 
-    @media (${props => props.theme.breakpoints[0]}) {
+    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
       font-size: ${props => props.theme.fontSizes[1]};
     }
   }
@@ -186,7 +186,7 @@ const MarkdownContent = styled(Box)`
     font-family: ${props => props.theme.typeface.monospace};
     white-space: pre;
 
-    @media (${props => props.theme.breakpoints[0]}) {
+    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
       font-size: ${props => props.theme.fontSizes[1]};
     }
   }
