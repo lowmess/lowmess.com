@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { withComponent } from 'react-emotion'
-import { format } from 'date-fns'
+import format from 'date-fns/format'
+import addDays from 'date-fns/add_days'
 import { Title, Subtitle, Rule } from '../components/Typography'
 import MarkdownContent from '../components/MarkdownContent'
 
@@ -11,7 +12,8 @@ const Content = MarkdownContent.withComponent('main')
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  const date = new Date(post.frontmatter.date)
+  // have to add a day because of timezone wonkiness
+  const date = addDays(new Date(post.frontmatter.date), 1)
 
   return (
     <article>

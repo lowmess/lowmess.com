@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { withComponent } from 'react-emotion'
-import { format } from 'date-fns'
+import format from 'date-fns/format'
+import addDays from 'date-fns/add_days'
 import { Box, Flex, Text } from '../components/Layout'
 import { Title, Paragraph, Rule } from '../components/Typography'
 import Icon from '../components/Icon'
@@ -18,10 +19,10 @@ const Year = Text.withComponent('h2')
 const PostTitle = Text.withComponent('h3')
 
 const YearTitle = ({ date }) => {
-  const cleanDate = new Date(date)
+  const cleanDate = addDays(new Date(date), 1)
   return (
     <Year fontSize={[2, 3]} fontWeight="5" mt={0}>
-      <time dateTime={cleanDate}>{format(cleanDate, 'YYYY')}</time>
+      {format(cleanDate, 'YYYY')}
     </Year>
   )
 }
@@ -40,7 +41,7 @@ const BlogPage = ({ data }) => {
       <main>
         {posts.map(({ node }, index) => {
           const { fields, frontmatter } = node
-          const thisYear = format(new Date(frontmatter.date), 'YYYY')
+          const thisYear = format(addDays(new Date(frontmatter.date), 1), 'YYYY')
           let YearComponent
           if (thisYear !== year) {
             YearComponent = <YearTitle date={frontmatter.date} />
