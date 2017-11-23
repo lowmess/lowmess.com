@@ -5,7 +5,7 @@ description: Tachyons is an insanely powerful atomic CSS library with sane defau
 ---
 
 [Tachyons](http://tachyons.io/), if you haven't heard, is incredible. It's often called an atomic (or functional) CSS
-framework, but if you spend enough time with it, you come to realize it's something else entirely: a powerful and
+library, but if you spend enough time with it, you come to realize it's something else entirely: a powerful and
 expressive framework for defining and consuming design system primitives.
 
 While Tachyons has some great default settings to help you achieve just about any design you please, you often need to
