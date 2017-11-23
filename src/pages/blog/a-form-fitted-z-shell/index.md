@@ -1,7 +1,7 @@
 ---
 title: A Form-Fitted Z Shell
 date: 2017-09-27
-description: I made my Z shell work for me, and managed to hurt absolutely no one else in the process.
+description: I made my Z shell work for me, and only me. Buy hey, it might work for you too.
 ---
 
 I was scared of the terminal for a long time. For a while, I got by: there are plenty of apps to compile Sass files. But

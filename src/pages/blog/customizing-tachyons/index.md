@@ -1,7 +1,7 @@
 ---
 title: Customizing Tachyons
 date: 2017-11-27
-description: Tachyons is an insanely powerful atomic CSS library with sane defaults. But "sane" isn't perfect for every project.
+description: Tachyons is an insanely powerful atomic CSS library with sane defaults. But “sane” isn’t perfect for every project.
 ---
 
 [Tachyons](http://tachyons.io/), if you haven't heard, is incredible. It's often called an atomic (or functional) CSS
