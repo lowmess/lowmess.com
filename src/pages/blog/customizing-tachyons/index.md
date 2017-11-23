@@ -8,9 +8,10 @@ description: Tachyons is an insanely powerful atomic CSS library with sane defau
 library, but if you spend enough time with it, you come to realize it's something else entirely: a powerful and
 expressive framework for defining and consuming design system primitives.
 
-While Tachyons has some great default settings to help you achieve just about any design you please, you often need to
-tweak some of those properties: a different color palette, or type scale, or you have sizing needs outside of the scope
-of the defaults. How should you go about customizing this CSS file that has nearly every property:value pair in CSS?
+The problem, then, is that not every design system will use the same primitives. While Tachyons has some great default
+settings to help you achieve just about any design you please, you often need to tweak some of those properties: a
+different color palette, or type scale, or you have sizing needs outside of the scope of the defaults. How should you go
+about customizing this CSS file that has nearly every property:value pair in CSS?
 
 ## K.I.S.S., Stupid
 
