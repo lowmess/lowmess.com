@@ -1,0 +1,51 @@
+---
+title: Customizing Tachyons
+date: 2017-12-01
+description: Tachyons is an insanely powerful atomic CSS library with sane defaults. But "sane" isn't perfect for every project.
+---
+
+[Tachyons](http://tachyons.io/), if you haven't heard, is incredible. It's often called an atomic (or functional, if you
+prefer) CSS framework, but if you spend enough time with it, you come to realize it's something else entirely: a
+powerful and expressive framework for defining and consuming design system primitives.
+
+While Tachyons has some great default settings to help you achieve just about any design you please, you often need to
+tweak some of those settings: a different color palette, or type scale, or you have sizing needs outside of the scope of
+the defaults. How should you go about customizing this CSS file that has nearly every property:value pair in CSS? Here
+are a few ways.
+
+## K.I.S.S., Stupid
+
+The simplest solution is the most oft-overlooked: just frickin' copy the files into your project and start hacking away.
+The good folks over at Tachyons HQ even cooked up a [CLI](https://develop--lowmess.netlify.com/) so you don't have to
+goof around with a build process.
+
+## Get Sassy
+
+[Sass](http://sass-lang.com/) has come to be the defacto CSS Preprocessor. It brings a bunch of goodies to CSS: nesting,
+functions, and of course, variables. This makes it a great way to consume and customize libraries. And wouldn't you know
+it, there's an [official Sass fork](https://github.com/tachyons-css/tachyons-sass) of Tachyons ready to be brought into
+the fold of your Sass projects.
+
+## Deliver Some Packages
+
+Did you know that nearly every Tachyons module is
+[available independently on npm](https://www.npmjs.com/browse/keyword/tachyons)? If you only need to customize a few of
+them (like, say, the typography scale), you can simply replace the default modules for your custom ones. The downside to
+this is that you have to import every single module in your project, but the folks over at
+[Egghead don't seem to mind](https://github.com/eggheadio/tachyons-egghead).
+
+## It's Your Property, Do What You Want With It
+
+Much like Sass before it, CSS itself is getting variable functionality (and
+[browser support is pretty good](https://caniuse.com/#feat=css-variables) too). Wouldn't it be great if Tachyons used
+this new syntax to define all of the properties we'd like to update? Meet
+[`tachyons-custom`](https://github.com/tachyons-css/tachyons-custom), who I'm sure you saw standing just off stage-right
+over there. Simply include it in your project, and because CSS Custom Properties follow the cascade, any of your
+variables will overwrite the Tachyons defaults.
+
+## Generate the Future, Today
+
+Tachyons HQ is hard at work developing a [Tachyons Generator](https://github.com/tachyons-css/tachyons-generator). This
+tool allows you to describe your Tachyons variables in JSON and have a full-on version of Tachyons spit back out at you.
+This is the tool I am most excited about, because it has the potential to completely automate all of the other
+customization options we just went over, and that's a beautiful thing.
