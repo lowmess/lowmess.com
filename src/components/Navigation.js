@@ -7,34 +7,22 @@ import { Flex, Text } from './Layout'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
 
-// I'm sure there's a cleaner way to do this, but
-const NavElement = Flex.withComponent('nav')
-const Nav = styled(NavElement)`
-  height: 2rem;
-`
-// logo stuff
-const LogoContainer = styled(Flex)`
-  height: 100%;
-`
-const LogoLink = styled(Link)`
-  height: 100%;
-  ${display};
-  ${color};
-`
-const NavIcon = styled(Icon)`
-  height: 100%;
-`
+const Nav = Flex.withComponent('nav')
 
 const Navigation = ({ location }) => (
   <Nav align="center" justify="space-between" mt={[0, 2, 3]} mb={[5, 6]}>
-    <LogoContainer align="center">
-      <LogoLink to="/" color="orange" display="inline-block">
-        <NavIcon height="100%" glyph="logo" />
-      </LogoLink>
-      <LogoLink to="/" color="black" display={['none', 'inline-block']}>
-        <NavIcon height="100%" glyph="wordmark" />
-      </LogoLink>
-    </LogoContainer>
+    <Flex align="center">
+      <Link to="/">
+        <Text color="orange">
+          <Icon glyph="logo" />
+        </Text>
+      </Link>
+      <Link to="/">
+        <Text color="black" display={['none', 'inline']}>
+          <Icon glyph="wordmark" />
+        </Text>
+      </Link>
+    </Flex>
     <List fontFamily="monospace">
       <ListItem display="inline-block">
         <Link to="/">
