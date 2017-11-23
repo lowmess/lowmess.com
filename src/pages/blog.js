@@ -53,7 +53,7 @@ const BlogPage = ({ data }) => {
               <Box display={['none', 'block']} width={1 / 5}>
                 {YearComponent}
               </Box>
-              <Box width={4 / 5}>
+              <Box width={[1, 4 / 5]}>
                 <Link to={fields.slug}>
                   <PostTitle
                     display="inline-block"

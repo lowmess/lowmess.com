@@ -72,7 +72,7 @@ const Layout = ({ children, location, data }) => (
       <Content color="black" bg="white" py={3} px={[3, 4]} borderRadius={2} fontFamily="sansSerif">
         <Constraint flexDirection="column">
           <Navigation location={location} />
-          <Main mb={6}>{children()}</Main>
+          <Main mb={[5, 6]}>{children()}</Main>
           <Footer post={data.allMarkdownRemark.edges[0].node} />
         </Constraint>
       </Content>
