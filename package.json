@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/lowmess/lowmess.git"
   },
-  "keywords": ["portfolio", "frontend", "design"],
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "design"
+  ],
   "author": "Alec Lomas",
   "license": "MIT",
   "bugs": {
