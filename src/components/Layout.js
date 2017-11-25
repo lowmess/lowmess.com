@@ -5,23 +5,19 @@ import {
   width,
   fontSize,
   color,
-  textAlign,
   fontWeight,
   alignItems,
   justifyContent,
   flexWrap,
   flexDirection,
-  flex,
-  alignSelf,
   borderRadius,
   borderColor,
   borderWidth,
-  boxShadow,
   hover,
   focus,
   active,
 } from 'styled-system'
-import { display, fontFamily, lineHeight, textDecoration } from '../utils/styled-system-extras'
+import { display, fontFamily, lineHeight } from '../utils/styled-system-extras'
 
 const Box = styled.div`
   ${display};
@@ -30,13 +26,9 @@ const Box = styled.div`
   ${fontSize};
   ${color};
   ${fontWeight};
-  ${textAlign};
-  ${flex};
-  ${alignSelf};
   ${borderRadius};
   ${borderColor};
   ${borderWidth};
-  ${boxShadow};
   ${hover};
   ${fontFamily};
   ${lineHeight};
@@ -54,12 +46,9 @@ const Flex = styled.div`
   ${justifyContent};
   ${flexWrap};
   ${flexDirection};
-  ${flex};
-  ${alignSelf};
   ${borderRadius};
   ${borderColor};
   ${borderWidth};
-  ${boxShadow};
   ${hover};
   ${fontFamily};
   ${lineHeight};
@@ -71,10 +60,7 @@ const Text = styled.span`
   ${width};
   ${fontSize};
   ${color};
-  ${textAlign};
   ${fontWeight};
-  ${flex};
-  ${alignSelf};
   ${borderRadius};
   ${borderColor};
   ${borderWidth};
@@ -83,7 +69,6 @@ const Text = styled.span`
   ${active};
   ${fontFamily};
   ${lineHeight};
-  ${textDecoration};
 `
 
 export { Box, Flex, Text }

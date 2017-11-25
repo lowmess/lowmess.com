@@ -16,8 +16,3 @@ export const lineHeight = style({
   key: 'lineHeights',
   cssProperty: 'lineHeight',
 })
-
-export const textDecoration = style({
-  prop: 'textDecoration',
-  cssProperty: 'textDecoration',
-})

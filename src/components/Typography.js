@@ -7,21 +7,14 @@ import {
   color,
   textAlign,
   fontWeight,
-  alignItems,
-  justifyContent,
-  flexWrap,
-  flexDirection,
-  flex,
-  alignSelf,
   borderRadius,
   borderColor,
   borderWidth,
-  boxShadow,
   hover,
   focus,
   active,
 } from 'styled-system'
-import { fontFamily, lineHeight } from '../utils/styled-system-extras'
+import { display, fontFamily, lineHeight } from '../utils/styled-system-extras'
 import { Text } from './Layout'
 
 const Title = Text.withComponent('h1')
@@ -35,8 +28,6 @@ const Paragraph = styled.p`
   ${color};
   ${textAlign};
   ${fontWeight};
-  ${flex};
-  ${alignSelf};
   ${borderRadius};
   ${borderColor};
   ${borderWidth};
@@ -67,20 +58,16 @@ const List = styled.ul`
   ${color};
   ${fontWeight};
   ${textAlign};
-  ${flex};
-  ${alignSelf};
   ${fontFamily};
   ${lineHeight};
 `
 const ListItem = styled.li`
-  display: ${props => props.display};
+  ${display};
   ${space};
   ${fontSize};
   ${color};
   ${textAlign};
   ${fontWeight};
-  ${flex};
-  ${alignSelf};
   ${borderRadius};
   ${borderColor};
   ${borderWidth};
