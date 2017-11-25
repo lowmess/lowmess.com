@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled, { withComponent } from 'react-emotion'
 import { Box, Flex, Text } from './Layout'
 import { List, ListItem } from './Typography'
-import Icon from './Icon'
+import ArrowLink from './ArrowLink'
 
 const Foot = Flex.withComponent('footer')
 
@@ -11,11 +11,7 @@ const Footer = ({ post }) => (
   <Foot mt="auto" mb={[3, 3, 4]} align="center" justify={['center', 'center', 'space-between']} fontFamily="monospace">
     <Box display={['none', 'none', 'block']}>
       <Text mr={2}>From the blog:</Text>
-      <Link to={post.fields.slug}>
-        <Text color="black" hover={{ color: 'orange' }} fontWeight="7" display="inline-flex">
-          {post.frontmatter.title} <Icon glyph="arrow" />
-        </Text>
-      </Link>
+      <ArrowLink fontWeight={7} dest={post.fields.slug} text={post.frontmatter.title} />
     </Box>
     <List>
       <ListItem display="inline-block" mr={3}>

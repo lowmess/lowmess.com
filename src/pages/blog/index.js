@@ -5,15 +5,7 @@ import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
 import { Box, Flex, Text } from '../../components/Layout'
 import { Title, Paragraph, Rule } from '../../components/Typography'
-import Icon from '../../components/Icon'
-
-const ArrowLink = ({ dest, text }) => (
-  <Link to={dest}>
-    <Text fontFamily="monospace" display="inline-flex" color="black" hover={{ color: 'orange' }}>
-      {text} <Icon glyph="arrow" />
-    </Text>
-  </Link>
-)
+import ArrowLink from '../../components/ArrowLink'
 
 const Year = Text.withComponent('h2')
 const PostTitle = Text.withComponent('h3')
@@ -70,17 +62,7 @@ const BlogPage = ({ data }) => {
                 <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                   {frontmatter.description}
                 </Paragraph>
-                <Link to={fields.slug}>
-                  <Text
-                    display="inline-flex"
-                    fontSize={[0, 1]}
-                    fontFamily="monospace"
-                    color="black"
-                    hover={{ color: 'orange' }}
-                  >
-                    Read More <Icon glyph="arrow" />
-                  </Text>
-                </Link>
+                <ArrowLink dest={fields.slug} text="Read More" />
               </Box>
             </Flex>
           )

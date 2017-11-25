@@ -3,18 +3,10 @@ import styled, { withComponent } from 'react-emotion'
 import { space } from 'styled-system'
 import { Box, Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
-import Icon from '../components/Icon'
+import ArrowLink from '../components/ArrowLink'
 
 const SectionTitle = Text.withComponent('h3')
 const ProjectTitle = Text.withComponent('h4')
-
-const ArrowLink = ({ dest, text }) => (
-  <a href={dest}>
-    <Text display="inline-flex" fontSize={[0, 1]} fontFamily="monospace" color="black" hover={{ color: 'orange' }}>
-      {text} <Icon glyph="arrow" />
-    </Text>
-  </a>
-)
 
 const indexPage = ({ data }) => {
   const projects = data.allProjectsJson.edges
@@ -38,8 +30,8 @@ const indexPage = ({ data }) => {
           Latest Projects
         </SectionTitle>
         {projects.map(({ node }, index) => {
-          const WebsiteComponent = node.website ? <ArrowLink dest={node.website} text="Website" /> : ''
-          const RepoComponent = node.repo ? <ArrowLink dest={node.repo} text="Repository" /> : ''
+          const WebsiteComponent = node.website ? <ArrowLink dest={node.website} text="Website" external={true} /> : ''
+          const RepoComponent = node.repo ? <ArrowLink dest={node.repo} text="Repository" external={true} /> : ''
           return (
             <Box key={node.title} {...(index + 1 === projects.length ? {} : { mb: [4, 5] })}>
               <a href={node.website ? node.website : node.repo}>
