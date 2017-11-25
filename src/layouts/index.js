@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import styled, { injectGlobal, withComponent } from 'react-emotion'
 import { ThemeProvider } from 'emotion-theming'
-import { topography, floatingCogs } from 'hero-patterns'
-import { space, color, borderRadius } from 'styled-system'
-import { fontFamily } from '../utils/styled-system-extras'
+import { topography } from 'hero-patterns'
 import theme from '../utils/theme'
 import { Box, Flex, Text } from '../components/Layout'
 import Navigation from '../components/Navigation'
@@ -38,9 +36,9 @@ injectGlobal`
 `
 
 const Backdrop = styled(Box)`
-  background-image: ${props =>
-    props.location.pathname === '/404' ? floatingCogs(props.theme.colors.white) : topography(props.theme.colors.white)};
+  background-image: ${props => topography(props.theme.colors.white)};
   background-position: center top;
+  background-size: 1200px;
 `
 // the min-height stuff here is kind of gross,
 // but I'm not sure of a way of accessing these values inside styled-system like this
@@ -68,7 +66,7 @@ const Main = Box.withComponent('main')
 
 const Layout = ({ children, location, data }) => (
   <ThemeProvider theme={theme}>
-    <Backdrop p={[2, 3]} bg="orange" location={location}>
+    <Backdrop p={[2, 3]} bg="orange">
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="description" content={data.site.siteMetadata.description} />
