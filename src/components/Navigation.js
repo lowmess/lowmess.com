@@ -24,10 +24,11 @@ const Navigation = ({ location }) => (
       </Link>
     </Flex>
     <List fontFamily="monospace">
-      <ListItem display={['none', 'inline-block']}>
+      <ListItem display="inline-block">
         <Link to="/">
           <Text
             {...(location.pathname.length === 1 ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' } : {})}
+            fontSize={[0, 1]}
             color="black"
             hover={{ color: 'orange' }}
             px={1}
@@ -44,6 +45,7 @@ const Navigation = ({ location }) => (
             {...(location.pathname.indexOf('/projects') === 0
               ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' }
               : {})}
+            fontSize={[0, 1]}
             color="black"
             hover={{ color: 'orange' }}
             px={1}
@@ -60,6 +62,7 @@ const Navigation = ({ location }) => (
             {...(location.pathname.indexOf('/blog') === 0
               ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' }
               : {})}
+            fontSize={[0, 1]}
             color="black"
             hover={{ color: 'orange' }}
             px={1}
@@ -76,6 +79,7 @@ const Navigation = ({ location }) => (
             {...(location.pathname.indexOf('/about') === 0
               ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' }
               : {})}
+            fontSize={[0, 1]}
             color="black"
             hover={{ color: 'orange' }}
             px={1}
