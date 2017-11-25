@@ -3,9 +3,9 @@ import Link from 'gatsby-link'
 import { withComponent } from 'react-emotion'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
-import { Box, Flex, Text } from '../components/Layout'
-import { Title, Paragraph, Rule } from '../components/Typography'
-import Icon from '../components/Icon'
+import { Box, Flex, Text } from '../../components/Layout'
+import { Title, Paragraph, Rule } from '../../components/Typography'
+import Icon from '../../components/Icon'
 
 const ArrowLink = ({ dest, text }) => (
   <Link to={dest}>
@@ -67,7 +67,7 @@ const BlogPage = ({ data }) => {
                     {frontmatter.title}
                   </PostTitle>
                 </Link>
-                <Paragraph fontSize={[1, 2]} lineHeight="copy" my={3}>
+                <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                   {frontmatter.description}
                 </Paragraph>
                 <Link to={fields.slug}>

@@ -55,10 +55,10 @@ const indexPage = ({ data }) => {
                   {node.title}
                 </ProjectTitle>
               </a>
-              <Paragraph fontSize={[1, 2]} lineHeight="copy" my={3}>
+              <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                 {node.description}
               </Paragraph>
-              <Box mr={4} mb={[2, 0]} display="inline-block">
+              <Box mr={4} display="inline-block">
                 {WebsiteComponent}
               </Box>
               <Box display="inline-block">{RepoComponent}</Box>
