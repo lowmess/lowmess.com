@@ -25,6 +25,16 @@ injectGlobal`
   a {
     text-decoration: none;
   }
+
+  @media print {
+    nav, footer {
+      display: none !important;
+    }
+    article > main a:after {
+      content: " (" attr(href) ")";
+      font-size: 0.875em;
+    }
+  }
 `
 
 const Backdrop = styled(Box)`
