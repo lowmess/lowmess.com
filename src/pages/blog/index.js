@@ -41,11 +41,15 @@ const BlogPage = ({ data }) => {
           let YearComponent
           if (thisYear !== year) {
             YearComponent = <YearTitle date={frontmatter.date} />
-            console.log(year, thisYear)
             year = thisYear
           }
           return (
-            <Flex flexDirection="row" align="start" {...(index + 1 === posts.length ? {} : { mb: [4, 5] })}>
+            <Flex
+              key={node.fields.slug}
+              flexDirection="row"
+              align="start"
+              {...(index + 1 === posts.length ? {} : { mb: [4, 5] })}
+            >
               <Box display={['none', 'block']} width={1 / 5}>
                 {YearComponent}
               </Box>
