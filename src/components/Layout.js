@@ -17,7 +17,7 @@ import {
   focus,
   active,
 } from 'styled-system'
-import { display, fontFamily, lineHeight } from '../utils/styled-system-extras'
+import { display, fontFamily, lineHeight, textDecoration } from '../utils/styled-system-extras'
 
 const Box = styled.div`
   ${display};
@@ -69,6 +69,7 @@ const Text = styled.span`
   ${active};
   ${fontFamily};
   ${lineHeight};
+  ${textDecoration};
 `
 
 export { Box, Flex, Text }
