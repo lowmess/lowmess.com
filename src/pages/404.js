@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import { withComponent } from 'react-emotion'
 import { Text } from '../components/Layout'
@@ -8,6 +9,9 @@ const Haiku = Text.withComponent('pre')
 
 const errorPage = () => (
   <article>
+    <Helmet>
+      <title>I goofed it.</title>
+    </Helmet>
     <header>
       <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
         Error 404
