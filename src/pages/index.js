@@ -8,7 +8,6 @@ import ProjectPreview from '../components/ProjectPreview'
 const SectionTitle = Text.withComponent('h3')
 
 const indexPage = ({ data }) => {
-  const projects = data.allProjectsJson.edges
   return (
     <article>
       <header>
@@ -26,18 +25,9 @@ const indexPage = ({ data }) => {
       </header>
       <main>
         <SectionTitle fontSize={[3, 4]} fontWeight="7" lineHeight="title" mt={5} mb={4}>
-          Latest Projects
+          Latest Project
         </SectionTitle>
-        {projects.map(({ node }, index) => {
-          return (
-            <ProjectPreview
-              project={node}
-              level="h4"
-              key={node.title}
-              {...(index + 1 === projects.length ? {} : { mb: [4, 5] })}
-            />
-          )
-        })}
+        <ProjectPreview project={data.allProjectsJson.edges[0].node} level="h4" />
       </main>
     </article>
   )
@@ -45,7 +35,7 @@ const indexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allProjectsJson(limit: 3) {
+    allProjectsJson(limit: 1) {
       edges {
         node {
           title
