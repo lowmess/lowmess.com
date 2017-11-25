@@ -33,6 +33,7 @@
     "gatsby-plugin-offline": "^1.0.10",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-sharp": "^1.6.21",
+    "gatsby-plugin-sitemap": "^1.2.5",
     "gatsby-remark-copy-linked-files": "^1.5.21",
     "gatsby-remark-images": "^1.5.32",
     "gatsby-remark-prismjs": "^1.2.9",

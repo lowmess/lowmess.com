@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { Title, Rule } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
 
@@ -6,6 +7,9 @@ const ProjectsPage = ({ data }) => {
   const projects = data.allProjectsJson.edges
   return (
     <article>
+      <Helmet>
+        <title>Projects • {data.site.siteMetadata.title}</title>
+      </Helmet>
       <header>
         <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
           First-World Problem Solvers
@@ -30,6 +34,11 @@ const ProjectsPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query ProjectsQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allProjectsJson {
       edges {
         node {

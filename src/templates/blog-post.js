@@ -21,11 +21,12 @@ const BlogPostTemplate = ({ data }) => {
         <title>
           {post.frontmatter.title} • {data.site.siteMetadata.title}
         </title>
+        <meta name="description" content={post.frontmatter.description} />
         <meta name="twitter:site" content="@lowmess" />
         <meta name="twitter:card" content="summary" />
         <meta property="og:site_name" content={data.site.siteMetadata.title} />
         <meta property="og:title" name="twitter:title" content={post.frontmatter.title} />
-        <meta property="og:url" content={`https://lowmess.com${post.fields.slug}`} />
+        <meta property="og:url" content={`${data.site.siteMetadata.siteUrl}${post.fields.slug}`} />
         <meta property="og:description" name="twitter:description" content={post.frontmatter.description} />
       </Helmet>
       <header>
@@ -47,6 +48,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

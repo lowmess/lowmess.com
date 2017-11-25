@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import { withComponent } from 'react-emotion'
 import format from 'date-fns/format'
@@ -24,6 +25,9 @@ const BlogPage = ({ data }) => {
   let year = '0'
   return (
     <article>
+      <Helmet>
+        <title>Blog • {data.site.siteMetadata.title}</title>
+      </Helmet>
       <header>
         <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
           Eloquent Writings About Stuff
@@ -74,6 +78,11 @@ const BlogPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {

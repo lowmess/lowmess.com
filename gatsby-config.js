@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'lowmess',
     description: 'oh, this ole thing? just my portfolio-slash-blog nbd',
+    siteUrl: 'https://www.lowmess.com',
   },
   plugins: [
     // Adding various source folders to the GraphQL layer.
@@ -42,5 +43,6 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-emotion',
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 }

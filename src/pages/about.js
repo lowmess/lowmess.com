@@ -1,12 +1,16 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { withComponent } from 'react-emotion'
 import { Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
 
 const SectionTitle = Text.withComponent('h3')
 
-const aboutPage = () => (
+const aboutPage = ({ data }) => (
   <article>
+    <Helmet>
+      <title>About • {data.site.siteMetadata.title}</title>
+    </Helmet>
     <header>
       <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
         Self-doxxing
@@ -42,5 +46,15 @@ const aboutPage = () => (
     </main>
   </article>
 )
+
+export const pageQuery = graphql`
+  query AboutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
 
 export default aboutPage
