@@ -3,10 +3,9 @@ import styled, { withComponent } from 'react-emotion'
 import { space } from 'styled-system'
 import { Box, Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
-import ArrowLink from '../components/ArrowLink'
+import ProjectPreview from '../components/ProjectPreview'
 
 const SectionTitle = Text.withComponent('h3')
-const ProjectTitle = Text.withComponent('h4')
 
 const indexPage = ({ data }) => {
   const projects = data.allProjectsJson.edges
@@ -30,39 +29,19 @@ const indexPage = ({ data }) => {
           Latest Projects
         </SectionTitle>
         {projects.map(({ node }, index) => {
-          const WebsiteComponent = node.website ? <ArrowLink dest={node.website} text="Website" external={true} /> : ''
-          const RepoComponent = node.repo ? <ArrowLink dest={node.repo} text="Repository" external={true} /> : ''
           return (
-            <Box key={node.title} {...(index + 1 === projects.length ? {} : { mb: [4, 5] })}>
-              <a href={node.website ? node.website : node.repo}>
-                <ProjectTitle
-                  display="inline-block"
-                  fontSize={[2, 3]}
-                  fontWeight={7}
-                  lineHeight="title"
-                  my={0}
-                  color="black"
-                  hover={{ color: 'orange' }}
-                >
-                  {node.title}
-                </ProjectTitle>
-              </a>
-              <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
-                {node.description}
-              </Paragraph>
-              <Box mr={4} display="inline-block">
-                {WebsiteComponent}
-              </Box>
-              <Box display="inline-block">{RepoComponent}</Box>
-            </Box>
+            <ProjectPreview
+              project={node}
+              level="h4"
+              key={node.title}
+              {...(index + 1 === projects.length ? {} : { mb: [4, 5] })}
+            />
           )
         })}
       </main>
     </article>
   )
 }
-
-export default indexPage
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -78,3 +57,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default indexPage
