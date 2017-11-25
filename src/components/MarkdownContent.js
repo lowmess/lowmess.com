@@ -137,8 +137,11 @@ const MarkdownContent = styled(Box)`
       color: ${props => props.theme.colors.orange};
     }
 
-    &:focus {
-      outline: 1px dotted currentColor;
+    @media print {
+      &:after {
+        content: ' (' attr(href) ')';
+        font-size: 0.875em;
+      }
     }
   }
 

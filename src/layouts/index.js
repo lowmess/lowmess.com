@@ -28,10 +28,6 @@ injectGlobal`
     nav, footer {
       display: none !important;
     }
-    article > main a:after {
-      content: " (" attr(href) ")";
-      font-size: 0.875em;
-    }
   }
 `
 
