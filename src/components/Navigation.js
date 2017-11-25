@@ -30,7 +30,6 @@ const Navigation = ({ location }) => (
             {...(location.pathname.length === 1 ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' } : {})}
             color="black"
             hover={{ color: 'orange' }}
-            textDecoration="none"
             px={1}
             pb={1}
             mr={2}
@@ -47,7 +46,6 @@ const Navigation = ({ location }) => (
               : {})}
             color="black"
             hover={{ color: 'orange' }}
-            textDecoration="none"
             px={1}
             pb={1}
             mr={2}
@@ -64,7 +62,6 @@ const Navigation = ({ location }) => (
               : {})}
             color="black"
             hover={{ color: 'orange' }}
-            textDecoration="none"
             px={1}
             pb={1}
             mr={2}
@@ -81,7 +78,6 @@ const Navigation = ({ location }) => (
               : {})}
             color="black"
             hover={{ color: 'orange' }}
-            textDecoration="none"
             px={1}
             pb={1}
           >
