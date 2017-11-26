@@ -34,7 +34,9 @@ injectGlobal`
 const Backdrop = styled(Box)`
   background-image: ${props => topography(props.theme.colors.white)};
   background-position: center top;
-  background-size: 1200px;
+  @media (min-width: ${props => props.theme.breakpoints[0]}em) {
+    background-size: 1200px;
+  }
 `
 // the min-height stuff here is kind of gross,
 // but I'm not sure of a way of accessing these values inside styled-system like this
