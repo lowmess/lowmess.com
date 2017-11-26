@@ -13,7 +13,7 @@ const aboutPage = ({ data }) => (
     </Helmet>
     <header>
       <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
-        Self-doxxing
+        Self-Doxxing
       </Title>
       <Rule mt={4} mb={5} />
     </header>
