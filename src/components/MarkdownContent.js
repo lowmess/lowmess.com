@@ -14,18 +14,18 @@ const MarkdownContent = styled(Box)`
 
     /* margin top to all child elements */
     & + * {
-      margin-top: ${props => props.theme.space[3]};
+      margin-top: ${({ theme }) => theme.space[3]};
     }
 
     /* bigger margin top on headers */
     & + h1,
     & + h2 {
-      margin-top: ${props => props.theme.space[5]};
+      margin-top: ${({ theme }) => theme.space[5]};
     }
 
     & + h3,
     & + h4 {
-      margin-top: ${props => props.theme.space[4]};
+      margin-top: ${({ theme }) => theme.space[4]};
     }
   }
 
@@ -35,7 +35,7 @@ const MarkdownContent = styled(Box)`
   h4,
   h5,
   h6 {
-    line-height: ${props => props.theme.lineHeights.title};
+    line-height: ${({ theme }) => theme.lineHeights.title};
   }
 
   p,
@@ -47,40 +47,40 @@ const MarkdownContent = styled(Box)`
 
   /* Headers */
   h1 {
-    font-size: ${props => props.theme.fontSizes[3]};
+    font-size: ${({ theme }) => theme.fontSizes[3]};
     font-weight: 600;
 
-    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-      font-size: ${props => props.theme.fontSizes[4]};
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+      font-size: ${({ theme }) => theme.fontSizes[4]};
     }
   }
 
   h2 {
-    font-size: ${props => props.theme.fontSizes[2]};
+    font-size: ${({ theme }) => theme.fontSizes[2]};
     font-weight: 600;
 
-    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-      font-size: ${props => props.theme.fontSizes[3]};
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+      font-size: ${({ theme }) => theme.fontSizes[3]};
     }
   }
 
   h3 {
-    font-size: ${props => props.theme.fontSizes[1]};
+    font-size: ${({ theme }) => theme.fontSizes[1]};
     font-weight: 600;
 
-    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-      font-size: ${props => props.theme.fontSizes[2]};
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+      font-size: ${({ theme }) => theme.fontSizes[2]};
     }
   }
 
   h4,
   h5,
   h6 {
-    font-size: ${props => props.theme.fontSizes[1]};
+    font-size: ${({ theme }) => theme.fontSizes[1]};
     font-weight: 500;
 
-    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-      font-size: ${props => props.theme.fontSizes[2]};
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+      font-size: ${({ theme }) => theme.fontSizes[2]};
     }
   }
 
@@ -92,14 +92,14 @@ const MarkdownContent = styled(Box)`
     margin-left: 0;
     margin-right: 0;
     border-style: solid;
-    border-width: ${props => props.theme.borderWidths[1]};
-    border-color: ${props => props.theme.colors.orange};
-    margin: ${props => props.theme.space[4]} 0;
+    border-width: ${({ theme }) => theme.borderWidths[1]};
+    border-color: ${({ theme }) => theme.colors.orange};
+    margin: ${({ theme }) => theme.space[4]} 0;
   }
 
   ul,
   ol {
-    padding-left: ${props => props.theme.space[4]};
+    padding-left: ${({ theme }) => theme.space[4]};
   }
 
   ul ul,
@@ -130,11 +130,11 @@ const MarkdownContent = styled(Box)`
   }
 
   a {
-    color: ${props => props.theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     text-decoration: underline;
 
     &:hover {
-      color: ${props => props.theme.colors.orange};
+      color: ${({ theme }) => theme.colors.orange};
     }
 
     @media print {
@@ -148,10 +148,10 @@ const MarkdownContent = styled(Box)`
   blockquote {
     margin-left: 0;
     margin-right: 0;
-    border-left: ${props => props.theme.borderWidths[3]} solid ${props => props.theme.colors.orange};
-    border-radius: ${props => props.theme.radii[1]};
-    padding: ${props => props.theme.space[3]} ${props => props.theme.space[4]};
-    background-color: ${props => props.theme.colors.nearWhite};
+    border-left: ${({ theme }) => theme.borderWidths[3]} solid ${({ theme }) => theme.colors.orange};
+    border-radius: ${({ theme }) => theme.radii[1]};
+    padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
+    background-color: ${({ theme }) => theme.colors.nearWhite};
 
     p {
       max-width: 30em;
@@ -159,38 +159,38 @@ const MarkdownContent = styled(Box)`
   }
 
   code {
-    font-family: ${props => props.theme.typeface.monospace};
+    font-family: ${({ theme }) => theme.typeface.monospace};
   }
 
   p code,
   li code {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: ${props => props.theme.radii[1]};
-    padding-left: ${props => props.theme.space[1]};
-    padding-right: ${props => props.theme.space[1]};
-    background-color: ${props => props.theme.colors.nearWhite};
-    font-size: ${props => props.theme.fontSizes[0]};
+    border-radius: ${({ theme }) => theme.radii[1]};
+    padding-left: ${({ theme }) => theme.space[1]};
+    padding-right: ${({ theme }) => theme.space[1]};
+    background-color: ${({ theme }) => theme.colors.nearWhite};
+    font-size: ${({ theme }) => theme.fontSizes[0]};
     white-space: nowrap;
 
-    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-      font-size: ${props => props.theme.fontSizes[1]};
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+      font-size: ${({ theme }) => theme.fontSizes[1]};
     }
   }
 
   pre {
     width: 100%;
     overflow-x: scroll;
-    border-left: ${props => props.theme.borderWidths[3]} solid ${props => props.theme.colors.orange};
-    border-radius: ${props => props.theme.radii[1]};
-    padding: ${props => props.theme.space[3]} ${props => props.theme.space[4]};
-    background-color: ${props => props.theme.colors.black};
-    color: ${props => props.theme.colors.nearWhite};
-    font-size: ${props => props.theme.fontSizes[0]};
-    font-family: ${props => props.theme.typeface.monospace};
+    border-left: ${({ theme }) => theme.borderWidths[3]} solid ${({ theme }) => theme.colors.orange};
+    border-radius: ${({ theme }) => theme.radii[1]};
+    padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
+    background-color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.nearWhite};
+    font-size: ${({ theme }) => theme.fontSizes[0]};
+    font-family: ${({ theme }) => theme.typeface.monospace};
     white-space: pre;
 
-    @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-      font-size: ${props => props.theme.fontSizes[1]};
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+      font-size: ${({ theme }) => theme.fontSizes[1]};
     }
   }
 
@@ -198,9 +198,9 @@ const MarkdownContent = styled(Box)`
     display: block;
     width: 100%;
     max-width: 48rem;
-    margin-top: ${props => props.theme.space[4]};
-    margin-bottom: ${props => props.theme.space[4]};
-    border-radius: ${props => props.theme.radii[1]};
+    margin-top: ${({ theme }) => theme.space[4]};
+    margin-bottom: ${({ theme }) => theme.space[4]};
+    border-radius: ${({ theme }) => theme.radii[1]};
   }
 `
 

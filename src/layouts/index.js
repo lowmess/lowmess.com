@@ -32,9 +32,9 @@ injectGlobal`
 `
 
 const Backdrop = styled(Box)`
-  background-image: ${props => topography(props.theme.colors.white)};
+  background-image: ${({ theme }) => topography(theme.colors.white)};
   background-position: center top;
-  @media (min-width: ${props => props.theme.breakpoints[0]}em) {
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
     background-size: 1200px;
   }
 `
@@ -42,9 +42,9 @@ const Backdrop = styled(Box)`
 // but I'm not sure of a way of accessing these values inside styled-system like this
 // just gotta update the step on the scale here if it's updated in <Layout />
 const Content = styled(Box)`
-  min-height: calc(100vh - ${props => props.theme.space[2]} * 2);
-  @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-    min-height: calc(100vh - ${props => props.theme.space[3]} * 2);
+  min-height: calc(100vh - ${({ theme }) => theme.space[2]} * 2);
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    min-height: calc(100vh - ${({ theme }) => theme.space[3]} * 2);
   }
 `
 // have to set min-height here too
@@ -54,9 +54,9 @@ const Constraint = styled(Flex)`
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
-  min-height: calc(100vh - ${props => props.theme.space[2]} * 4);
-  @media (min-width: ${props => props.theme.breakpoints[0]}em) {
-    min-height: calc(100vh - ${props => props.theme.space[3]} * 4);
+  min-height: calc(100vh - ${({ theme }) => theme.space[2]} * 4);
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    min-height: calc(100vh - ${({ theme }) => theme.space[3]} * 4);
   }
 `
 

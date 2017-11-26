@@ -44,8 +44,8 @@ const Rule = styled.hr`
   margin-left: 0;
   margin-right: 0;
   border-style: solid;
-  border-width: ${props => props.theme.borderWidths[2]};
-  border-color: ${props => props.theme.colors.orange};
+  border-width: ${({ theme }) => theme.borderWidths[2]};
+  border-color: ${({ theme }) => theme.colors.orange};
   ${space};
 `
 
