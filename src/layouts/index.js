@@ -34,6 +34,7 @@ injectGlobal`
 const Backdrop = styled(Box)`
   background-image: ${({ theme }) => topography(theme.colors.white)};
   background-position: center top;
+  background-size: 900px;
   @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
     background-size: 1200px;
   }
