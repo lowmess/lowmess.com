@@ -16,8 +16,8 @@ about customizing this CSS file that has nearly every property:value pair in CSS
 ## K.I.S.S., Stupid
 
 The simplest solution is the most oft-overlooked: just frickin' copy the files into your project and start hacking away.
-The good folks over at Tachyons HQ even cooked up a [CLI](https://develop--lowmess.netlify.com/) so you don't have to
-goof around with a build process.
+The good folks over at Tachyons HQ even cooked up a [CLI](https://github.com/tachyons-css/tachyons-cli) so you don't
+have to goof around with a build process.
 
 ## Get Sassy
 
