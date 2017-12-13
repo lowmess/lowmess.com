@@ -24,11 +24,13 @@ const errorPage = () => (
     <main>
       {/* have to ugily do this because somewhere whitespace gets removed */}
       <Haiku fontSize={[2, 3]}>
+        "
         <Link to="/">
           <Text color="black" hover={{ color: 'orange' }}>
-            "Click here to go home"
+            Click here to go home
           </Text>
         </Link>
+        "
         <br />
         &nbsp;Is over-used and boring,<br />
         &nbsp;But at least it's clear.<br />
