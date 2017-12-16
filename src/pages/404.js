@@ -23,7 +23,7 @@ const errorPage = () => (
     </header>
     <main>
       {/* have to ugily do this because somewhere whitespace gets removed */}
-      <Haiku fontSize={[2, 3]}>
+      <Haiku fontSize={[2, 3]} fontFamily="monospace">
         "
         <Link to="/">
           <Text color="black" hover={{ color: 'orange' }}>
