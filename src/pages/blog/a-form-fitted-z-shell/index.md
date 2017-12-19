@@ -86,7 +86,7 @@ These can be fun:
 
 ```bash
 # yes, dude, the weather is fun
-function weather () {
+function weather() {
   curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Tempe}"?0q
 }
 ```

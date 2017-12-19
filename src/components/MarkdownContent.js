@@ -132,7 +132,6 @@ const MarkdownContent = styled(Box)`
   a {
     color: ${({ theme }) => theme.colors.black};
     text-decoration: underline;
-    text-decoration-skip: ink;
 
     &:hover {
       color: ${({ theme }) => theme.colors.orange};
@@ -151,11 +150,18 @@ const MarkdownContent = styled(Box)`
     margin-right: 0;
     border-left: ${({ theme }) => theme.borderWidths[3]} solid ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
-    padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
+    padding: ${({ theme }) => theme.space[3]};
     background-color: ${({ theme }) => theme.colors.nearWhite};
 
     p {
       max-width: 30em;
+    }
+
+    > :first-child {
+      margin-top: 0;
+    }
+    > :last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -183,7 +189,7 @@ const MarkdownContent = styled(Box)`
     overflow-x: scroll;
     border-left: ${({ theme }) => theme.borderWidths[3]} solid ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
-    padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
+    padding: ${({ theme }) => theme.space[3]};
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.nearWhite};
     font-size: ${({ theme }) => theme.fontSizes[0]};

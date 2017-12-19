@@ -25,6 +25,7 @@ injectGlobal`
   }
   a {
     text-decoration: none;
+    text-decoration-skip: ink;
   }
 
   @media print {
