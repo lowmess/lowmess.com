@@ -26,7 +26,7 @@ const aboutPage = ({ data }) => (
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
         That&rsquo;s what the intro on{' '}
         <a href="https://resume.lowmess.com">
-          <Text color="black" textDecoration="underline" hover={{ color: 'orange' }}>
+          <Text color="black" textDecoration="underline" textDecorationColor="orange" hover={{ color: 'orange' }}>
             my résumé
           </Text>
         </a>{' '}
@@ -38,7 +38,7 @@ const aboutPage = ({ data }) => (
         is all of them, and I&rsquo;m a staunch believer in the Oxford comma. If you have any questions, I&rsquo;m happy
         to send you a non sequitur and/or fully-serious response if you{' '}
         <a href="mailto:alec@lowmess.com">
-          <Text color="black" textDecoration="underline" hover={{ color: 'orange' }}>
+          <Text color="black" textDecoration="underline" textDecorationColor="orange" hover={{ color: 'orange' }}>
             email me
           </Text>
         </a>.

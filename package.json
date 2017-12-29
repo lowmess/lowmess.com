@@ -51,7 +51,7 @@
   "devDependencies": {
     "husky": "^0.14.3",
     "lint-staged": "^5.0.0",
-    "prettier": "^1.8.2"
+    "prettier": "^1.9.2"
   },
   "browserslist": [
     "last 2 versions",
