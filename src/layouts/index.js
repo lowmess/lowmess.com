@@ -26,6 +26,7 @@ injectGlobal`
   a {
     text-decoration: none;
     text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
   }
 
   @media print {
@@ -73,14 +74,39 @@ const Layout = ({ children, location, data }) => (
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="description" content={data.site.siteMetadata.description} />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-16x16.png"
+          sizes="16x16"
+        />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color={theme.colors.orange} />
+        <link
+          rel="mask-icon"
+          href="/safari-pinned-tab.svg"
+          color={theme.colors.orange}
+        />
         <meta name="theme-color" content={theme.colors.orange} />
       </Helmet>
-      <Content color="black" bg="white" py={3} px={[3, 4]} borderRadius={2} fontFamily="sansSerif">
+      <Content
+        color="black"
+        bg="white"
+        py={3}
+        px={[3, 4]}
+        borderRadius={2}
+        fontFamily="sansSerif"
+      >
         <Constraint flexDirection="column">
           <Navigation location={location} />
           <Main mb={[5, 6]}>{children()}</Main>
@@ -100,7 +126,10 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 1
+    ) {
       edges {
         node {
           frontmatter {
