@@ -6,16 +6,18 @@ import Stat from './Stat'
 const Stats = ({ data }) => (
   <div>
     <Stat mb={3} title="GitHub Commits">
-      {data.loading ? '—' : data.commits.toLocaleString()}
+      {data.loading || !data.commits ? '—' : data.commits.toLocaleString()}
     </Stat>
     <Stat mb={3} title="Steps Taken">
-      {data.loading ? '—' : data.steps.toLocaleString()}
+      {data.loading || !data.steps ? '—' : data.steps.toLocaleString()}
     </Stat>
     <Stat mb={3} title="Songs Played">
-      {data.loading ? '—' : data.songs.toLocaleString()}
+      {data.loading || !data.songs ? '—' : data.songs.toLocaleString()}
     </Stat>
     <Stat mb={3} title="Top Album">
-      {data.loading ? (
+      {data.loading ||
+      !data.album.hasOwnProperty('name') ||
+      !data.album.hasOwnProperty('artist') ? (
         '—'
       ) : (
         <span>
@@ -24,7 +26,9 @@ const Stats = ({ data }) => (
       )}
     </Stat>
     <Stat title="Currently Reading">
-      {data.loading ? (
+      {data.loading ||
+      !data.book.hasOwnProperty('name') ||
+      !data.book.hasOwnProperty('author') ? (
         '—'
       ) : (
         <span>
