@@ -5,6 +5,12 @@ import { Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
 import Stats from '../components/Stats'
 
+const canUseDOM = !!(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+)
+
 const SectionTitle = Text.withComponent('h2')
 
 const AboutPage = ({ data }) => (
@@ -60,7 +66,7 @@ const AboutPage = ({ data }) => (
       <SectionTitle mt={5} fontSize={[3, 4]}>
         In the Last 30 Days
       </SectionTitle>
-      <Stats />
+      {canUseDOM && <Stats />}
     </main>
   </article>
 )
