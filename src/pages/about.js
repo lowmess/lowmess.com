@@ -3,10 +3,11 @@ import Helmet from 'react-helmet'
 import { withComponent } from 'react-emotion'
 import { Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
+import Stats from '../components/Stats'
 
-const SectionTitle = Text.withComponent('h3')
+const SectionTitle = Text.withComponent('h2')
 
-const aboutPage = ({ data }) => (
+const AboutPage = ({ data }) => (
   <article>
     <Helmet>
       <title>About • {data.site.siteMetadata.title}</title>
@@ -19,30 +20,47 @@ const aboutPage = ({ data }) => (
     </header>
     <main>
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={5} mb={3}>
-        &ldquo;I&rsquo;m a frontend developer &amp; designer, with a passion for legibility, performance, and the open
-        web. A quick learner with a thirst for knowledge. Enthusiastic and hard-working, I pride myself on my attention
-        to detail.&rdquo;
+        &ldquo;I&rsquo;m a frontend developer &amp; designer, with a passion for
+        legibility, performance, and the open web. A quick learner with a thirst
+        for knowledge. Enthusiastic and hard-working, I pride myself on my
+        attention to detail.&rdquo;
       </Paragraph>
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
         That&rsquo;s what the intro on{' '}
         <a href="https://resume.lowmess.com">
-          <Text color="black" textDecoration="underline" textDecorationColor="orange" hover={{ color: 'orange' }}>
+          <Text
+            color="black"
+            textDecoration="underline"
+            textDecorationColor="orange"
+            hover={{ color: 'orange' }}
+          >
             my résumé
           </Text>
         </a>{' '}
-        says. Kind of boring, huh? Well, it&rsquo;s a résumé. They&rsquo;re supposed to be boring. (Don&rsquo;t be such
-        a nitpicker.)
+        says. Kind of boring, huh? Well, it&rsquo;s a résumé. They&rsquo;re
+        supposed to be boring. (Don&rsquo;t be such a nitpicker.)
       </Paragraph>
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={0}>
-        Here&rsquo;s the fun stuff: my name technically isn&rsquo;t Alec (don&rsquo;t worry about it), my favorite beer
-        is all of them, and I&rsquo;m a staunch believer in the Oxford comma. If you have any questions, I&rsquo;m happy
-        to send you a non sequitur and/or fully-serious response if you{' '}
+        Here&rsquo;s the fun stuff: my name technically isn&rsquo;t Alec
+        (don&rsquo;t worry about it), my favorite beer is all of them, and
+        I&rsquo;m a staunch believer in the Oxford comma. If you have any
+        questions, I&rsquo;m happy to send you a non sequitur and/or
+        fully-serious response if you{' '}
         <a href="mailto:alec@lowmess.com">
-          <Text color="black" textDecoration="underline" textDecorationColor="orange" hover={{ color: 'orange' }}>
+          <Text
+            color="black"
+            textDecoration="underline"
+            textDecorationColor="orange"
+            hover={{ color: 'orange' }}
+          >
             email me
           </Text>
         </a>.
       </Paragraph>
+      <SectionTitle mt={5} fontSize={[3, 4]}>
+        In the Last 30 Days
+      </SectionTitle>
+      <Stats />
     </main>
   </article>
 )
@@ -57,4 +75,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default aboutPage
+export default AboutPage
