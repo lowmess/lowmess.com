@@ -39,16 +39,16 @@ const Stats = ({ data }) => {
 
   return (
     <div>
-      <Stat mb={3} title="GitHub Commits">
+      <Stat mb={2} title="GitHub Commits">
         {Commits}
       </Stat>
-      <Stat mb={3} title="Steps Taken">
+      <Stat mb={2} title="Steps Taken">
         {Steps}
       </Stat>
-      <Stat mb={3} title="Songs Played">
+      <Stat mb={2} title="Songs Played">
         {Songs}
       </Stat>
-      <Stat mb={3} title="Top Album">
+      <Stat mb={2} title="Top Album">
         {Album}
       </Stat>
       <Stat title="Currently Reading">{Book}</Stat>
