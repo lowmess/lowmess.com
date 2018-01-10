@@ -5,7 +5,9 @@ import Stat from './Stat'
 
 const Stats = ({ data }) => {
   let Commits = '—'
+  let Places = '—'
   let Steps = '—'
+  let Sleep = '—'
   let Songs = '—'
   let Album = '—'
   let Book = '—'
@@ -13,8 +15,12 @@ const Stats = ({ data }) => {
   if (!data.loading) {
     // Update commits if exists
     if (data.commits) Commits = data.commits.toLocaleString()
+    // Update places if exists
+    if (data.places) Places = data.places.toLocaleString()
     // Update steps if exists
     if (data.steps) Steps = data.steps.toLocaleString()
+    // Update sleep if exists
+    if (data.sleep) Sleep = parseFloat(data.sleep.toFixed(2)).toLocaleString()
     // Update songs if exists
     if (data.songs) Songs = data.songs.toLocaleString()
     // Update album if exists
@@ -42,8 +48,14 @@ const Stats = ({ data }) => {
       <Stat mb={2} title="GitHub Commits">
         {Commits}
       </Stat>
+      <Stat mb={2} title="Places Visited">
+        {Places}
+      </Stat>
       <Stat mb={2} title="Steps Taken">
         {Steps}
+      </Stat>
+      <Stat mb={2} title="Hours Slept">
+        {Sleep}
       </Stat>
       <Stat mb={2} title="Songs Played">
         {Songs}
@@ -59,7 +71,9 @@ const Stats = ({ data }) => {
 export default graphql(gql`
   query Stats {
     commits
+    places
     steps
+    sleep
     songs
     album {
       name
