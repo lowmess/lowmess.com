@@ -11,8 +11,6 @@ const canUseDOM = !!(
   window.document.createElement
 )
 
-const SectionTitle = Text.withComponent('h2')
-
 const AboutPage = ({ data }) => (
   <article>
     <Helmet>
@@ -63,10 +61,7 @@ const AboutPage = ({ data }) => (
           </Text>
         </a>.
       </Paragraph>
-      <SectionTitle mt={5} fontSize={[3, 4]}>
-        In the Last 30 Days
-      </SectionTitle>
-      {canUseDOM && <Stats />}
+      {canUseDOM && <Stats mt={5} />}
     </main>
   </article>
 )
