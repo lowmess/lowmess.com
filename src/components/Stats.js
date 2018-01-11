@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { withComponent } from 'react-emotion'
+import { Box, Text } from './Layout'
 import Stat from './Stat'
 
-const Stats = ({ data }) => {
+const SectionTitle = Text.withComponent('h2')
+
+const Stats = ({ data, ...props }) => {
   let Commits = '—'
   let Places = '—'
   let Steps = '—'
@@ -44,7 +48,8 @@ const Stats = ({ data }) => {
   }
 
   return (
-    <div>
+    <Box {...props}>
+      <SectionTitle fontSize={[3, 4]}>In the Last 30 Days</SectionTitle>
       <Stat mb={2} title="GitHub Commits">
         {Commits}
       </Stat>
@@ -64,7 +69,7 @@ const Stats = ({ data }) => {
         {Album}
       </Stat>
       <Stat title="Currently Reading">{Book}</Stat>
-    </div>
+    </Box>
   )
 }
 
