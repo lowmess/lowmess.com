@@ -1,9 +1,19 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { withComponent } from 'react-emotion'
 import { Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
 import Stats from '../components/Stats'
+
+const LinkStyle = ({ children }) => (
+  <Text
+    color="black"
+    textDecoration="underline"
+    textDecorationColor="orange"
+    hover={{ color: 'orange' }}
+  >
+    {children}
+  </Text>
+)
 
 const canUseDOM = !!(
   typeof window !== 'undefined' &&
@@ -32,14 +42,7 @@ const AboutPage = ({ data }) => (
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
         That&rsquo;s what the intro on{' '}
         <a href="https://resume.lowmess.com">
-          <Text
-            color="black"
-            textDecoration="underline"
-            textDecorationColor="orange"
-            hover={{ color: 'orange' }}
-          >
-            my résumé
-          </Text>
+          <LinkStyle>my résumé</LinkStyle>
         </a>{' '}
         says. Kind of boring, huh? Well, it&rsquo;s a résumé. They&rsquo;re
         supposed to be boring. (Don&rsquo;t be such a nitpicker.)
@@ -51,14 +54,7 @@ const AboutPage = ({ data }) => (
         questions, I&rsquo;m happy to send you a non sequitur and/or
         fully-serious response if you{' '}
         <a href="mailto:alec@lowmess.com">
-          <Text
-            color="black"
-            textDecoration="underline"
-            textDecorationColor="orange"
-            hover={{ color: 'orange' }}
-          >
-            email me
-          </Text>
+          <LinkStyle>email me</LinkStyle>
         </a>.
       </Paragraph>
       {canUseDOM && <Stats mt={5} />}
