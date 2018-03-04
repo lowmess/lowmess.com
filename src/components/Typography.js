@@ -1,20 +1,26 @@
 import React from 'react'
 import styled, { withComponent } from 'react-emotion'
 import {
+  display,
   space,
   width,
   fontSize,
   color,
   textAlign,
   fontWeight,
-  borderRadius,
+  fontFamily,
+  lineHeight,
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
   borderColor,
-  borderWidth,
+  borderRadius,
   hover,
   focus,
   active,
 } from 'styled-system'
-import { display, fontFamily, lineHeight } from '../utils/styled-system-extras'
 import { Text } from './Layout'
 
 const Title = Text.withComponent('h1')
@@ -28,9 +34,13 @@ const Paragraph = styled.p`
   ${color};
   ${textAlign};
   ${fontWeight};
-  ${borderRadius};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
   ${borderColor};
-  ${borderWidth};
+  ${borderRadius};
   ${hover};
   ${focus};
   ${active};
@@ -43,8 +53,7 @@ const Rule = styled.hr`
   max-width: 8rem;
   margin-left: 0;
   margin-right: 0;
-  border-style: solid;
-  border-width: ${({ theme }) => theme.borderWidths[2]};
+  border: ${({ theme }) => theme.borders[2]};
   border-color: ${({ theme }) => theme.colors.orange};
   ${space};
 `
@@ -68,9 +77,13 @@ const ListItem = styled.li`
   ${color};
   ${textAlign};
   ${fontWeight};
-  ${borderRadius};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
   ${borderColor};
-  ${borderWidth};
+  ${borderRadius};
   ${fontFamily};
 `
 

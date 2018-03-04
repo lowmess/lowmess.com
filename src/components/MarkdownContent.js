@@ -1,11 +1,17 @@
 import React from 'react'
 import styled from 'react-emotion'
-import { Box } from './Layout'
+import { space, fontSize, color, fontFamily, lineHeight } from 'styled-system'
 
 // this component basically exists as a giant stylesheet that inherits from the theme
 // it's for markdown content (hence the name)
 // it's kind of a b
-const MarkdownContent = styled(Box)`
+const MarkdownContent = styled('div')`
+  ${space};
+  ${fontSize};
+  ${color};
+  ${fontFamily};
+  ${lineHeight};
+
   /* Vertical Rhythm */
   & > * {
     /* reset all margins */
@@ -50,7 +56,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${({ theme }) => theme.fontSizes[3]};
     font-weight: 600;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[4]};
     }
   }
@@ -59,7 +65,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${({ theme }) => theme.fontSizes[2]};
     font-weight: 600;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[3]};
     }
   }
@@ -68,7 +74,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${({ theme }) => theme.fontSizes[1]};
     font-weight: 600;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[2]};
     }
   }
@@ -79,7 +85,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${({ theme }) => theme.fontSizes[1]};
     font-weight: 500;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[2]};
     }
   }
@@ -91,9 +97,8 @@ const MarkdownContent = styled(Box)`
     max-width: 4rem;
     margin-left: 0;
     margin-right: 0;
-    border-style: solid;
-    border-width: ${({ theme }) => theme.borderWidths[1]};
-    border-color: ${({ theme }) => theme.colors.orange};
+    border: ${({ theme }) => theme.borders[1]}
+      ${({ theme }) => theme.colors.orange};
     margin: ${({ theme }) => theme.space[4]} 0;
   }
 
@@ -149,7 +154,8 @@ const MarkdownContent = styled(Box)`
   blockquote {
     margin-left: 0;
     margin-right: 0;
-    border-left: ${({ theme }) => theme.borderWidths[3]} solid ${({ theme }) => theme.colors.orange};
+    border-left: ${({ theme }) => theme.borders[3]}
+      ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
     background-color: ${({ theme }) => theme.colors.nearWhite};
@@ -167,12 +173,12 @@ const MarkdownContent = styled(Box)`
   }
 
   code {
-    font-family: ${({ theme }) => theme.typeface.monospace};
+    font-family: ${({ theme }) => theme.fonts.monospace};
   }
 
   p code,
   li code {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: ${({ theme }) => theme.radii[1]};
     padding-left: ${({ theme }) => theme.space[1]};
     padding-right: ${({ theme }) => theme.space[1]};
@@ -180,7 +186,7 @@ const MarkdownContent = styled(Box)`
     font-size: ${({ theme }) => theme.fontSizes[0]};
     white-space: nowrap;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[1]};
     }
   }
@@ -188,16 +194,17 @@ const MarkdownContent = styled(Box)`
   pre {
     width: 100%;
     overflow-x: scroll;
-    border-left: ${({ theme }) => theme.borderWidths[3]} solid ${({ theme }) => theme.colors.orange};
+    border-left: ${({ theme }) => theme.borders[3]}
+      ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.nearWhite};
     font-size: ${({ theme }) => theme.fontSizes[0]};
-    font-family: ${({ theme }) => theme.typeface.monospace};
+    font-family: ${({ theme }) => theme.fonts.monospace};
     white-space: pre;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[1]};
     }
   }

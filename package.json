@@ -45,7 +45,7 @@
     "gatsby-transformer-sharp": "^1.6.22",
     "graphql-tag": "^2.6.1",
     "hero-patterns": "^2.0.0",
-    "lowmess-prism": "^0.0.4",
+    "lowmess-prism": "^0.1.0",
     "normalize.css": "^7.0.0",
     "react-apollo": "^2.0.4",
     "react-emotion": "^9.0.2",

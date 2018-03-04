@@ -1,23 +1,33 @@
 import React from 'react'
 import styled from 'react-emotion'
 import {
+  display,
   space,
   width,
   fontSize,
   color,
   fontWeight,
+  fontFamily,
+  lineHeight,
   alignItems,
   justifyContent,
   flexWrap,
   flexDirection,
-  borderRadius,
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
   borderColor,
-  borderWidth,
+  borderRadius,
   hover,
   focus,
   active,
 } from 'styled-system'
-import { display, fontFamily, lineHeight, textDecoration, textDecorationColor } from '../utils/styled-system-extras'
+import {
+  textDecoration,
+  textDecorationColor,
+} from '../utils/styled-system-extras'
 
 const Box = styled.div`
   ${display};
@@ -26,32 +36,40 @@ const Box = styled.div`
   ${fontSize};
   ${color};
   ${fontWeight};
-  ${borderRadius};
-  ${borderColor};
-  ${borderWidth};
-  ${hover};
   ${fontFamily};
   ${lineHeight};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
+  ${borderColor};
+  ${borderRadius};
+  ${hover};
 `
 
 const Flex = styled.div`
   display: flex;
   ${display};
+  ${alignItems};
+  ${justifyContent};
+  ${flexWrap};
+  ${flexDirection};
   ${space};
   ${width};
   ${fontSize};
   ${color};
   ${fontWeight};
-  ${alignItems};
-  ${justifyContent};
-  ${flexWrap};
-  ${flexDirection};
-  ${borderRadius};
-  ${borderColor};
-  ${borderWidth};
-  ${hover};
   ${fontFamily};
   ${lineHeight};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
+  ${borderColor};
+  ${borderRadius};
+  ${hover};
 `
 
 const Text = styled.span`
@@ -61,16 +79,20 @@ const Text = styled.span`
   ${fontSize};
   ${color};
   ${fontWeight};
-  ${borderRadius};
-  ${borderColor};
-  ${borderWidth};
-  ${hover};
-  ${focus};
-  ${active};
   ${fontFamily};
   ${lineHeight};
   ${textDecoration};
   ${textDecorationColor};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
+  ${borderColor};
+  ${borderRadius};
+  ${hover};
+  ${focus};
+  ${active};
 `
 
 export { Box, Flex, Text }

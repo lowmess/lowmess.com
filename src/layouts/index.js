@@ -105,7 +105,7 @@ const Layout = ({ children, location, data }) => (
         py={3}
         px={[3, 4]}
         borderRadius={2}
-        fontFamily="sansSerif"
+        fontFamily="sans-serif"
       >
         <Constraint flexDirection="column">
           <Navigation location={location} />

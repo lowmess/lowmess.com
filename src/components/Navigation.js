@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import styled, { withComponent } from 'react-emotion'
-import { color } from 'styled-system'
-import { display } from '../utils/styled-system-extras'
+import { withComponent } from 'react-emotion'
 import { Flex, Text } from './Layout'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
@@ -27,7 +25,9 @@ const Navigation = ({ location }) => (
       <ListItem display="inline-block">
         <Link to="/">
           <Text
-            {...(location.pathname.length === 1 ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' } : {})}
+            {...(location.pathname.length === 1
+              ? { borderBottom: 2, borderColor: 'orange' }
+              : {})}
             fontSize={[0, 1]}
             color="black"
             hover={{ color: 'orange' }}
@@ -43,7 +43,7 @@ const Navigation = ({ location }) => (
         <Link to="/projects">
           <Text
             {...(location.pathname.indexOf('/projects') === 0
-              ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' }
+              ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
             color="black"
@@ -60,7 +60,7 @@ const Navigation = ({ location }) => (
         <Link to="/blog">
           <Text
             {...(location.pathname.indexOf('/blog') === 0
-              ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' }
+              ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
             color="black"
@@ -77,7 +77,7 @@ const Navigation = ({ location }) => (
         <Link to="/about">
           <Text
             {...(location.pathname.indexOf('/about') === 0
-              ? { borderBottom: 'true', borderWidth: 2, borderColor: 'orange' }
+              ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
             color="black"

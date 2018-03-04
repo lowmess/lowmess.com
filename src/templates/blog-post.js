@@ -25,20 +25,47 @@ const BlogPostTemplate = ({ data }) => {
         <meta name="twitter:site" content="@lowmess" />
         <meta name="twitter:card" content="summary" />
         <meta property="og:site_name" content={data.site.siteMetadata.title} />
-        <meta property="og:title" name="twitter:title" content={post.frontmatter.title} />
-        <meta property="og:url" content={`${data.site.siteMetadata.siteUrl}${post.fields.slug}`} />
-        <meta property="og:description" name="twitter:description" content={post.frontmatter.description} />
+        <meta
+          property="og:title"
+          name="twitter:title"
+          content={post.frontmatter.title}
+        />
+        <meta
+          property="og:url"
+          content={`${data.site.siteMetadata.siteUrl}${post.fields.slug}`}
+        />
+        <meta
+          property="og:description"
+          name="twitter:description"
+          content={post.frontmatter.description}
+        />
       </Helmet>
       <header>
-        <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
+        <Title
+          fontSize={[4, 5]}
+          fontWeight="7"
+          lineHeight="title"
+          mt={0}
+          mb={3}
+        >
           {post.frontmatter.title}
         </Title>
-        <Subtitle fontSize={[3, 4]} fontWeight="5" lineHeight="title" mt={3} mb={4}>
+        <Subtitle
+          fontSize={[3, 4]}
+          fontWeight="5"
+          lineHeight="title"
+          mt={3}
+          mb={4}
+        >
           <time dateTime={date}>{format(date, 'MMMM DD, YYYY')}</time>
         </Subtitle>
         <Rule mt={4} mb={5} />
       </header>
-      <Content lineHeight="copy" fontSize={[1, 2]} dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Content
+        lineHeight="copy"
+        fontSize={[1, 2]}
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
     </article>
   )
 }
