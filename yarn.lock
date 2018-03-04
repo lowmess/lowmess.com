@@ -7110,9 +7110,9 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lowmess-prism@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/lowmess-prism/-/lowmess-prism-0.1.0.tgz#9e10a5df34e49cc8fc2bb0082a66cef9de40bbbd"
+lowmess-prism@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/lowmess-prism/-/lowmess-prism-0.2.0.tgz#d05c1e303e028bfd0c4bdf68cb48d84b73ee6435"
 
 lpad-align@^1.0.1:
   version "1.1.2"
