@@ -43,7 +43,7 @@
     "gatsby-transformer-remark": "^1.7.34",
     "gatsby-transformer-sharp": "^1.6.22",
     "hero-patterns": "^2.0.1",
-    "lowmess-prism": "^0.2.0",
+    "lowmess-prism": "^0.2.1",
     "normalize.css": "^7.0.0",
     "react-emotion": "^9.0.2",
     "react-helmet": "^5.2.0",
