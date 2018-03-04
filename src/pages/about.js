@@ -15,12 +15,6 @@ const LinkStyle = ({ children }) => (
   </Text>
 )
 
-const canUseDOM = !!(
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.createElement
-)
-
 const AboutPage = ({ data }) => (
   <article>
     <Helmet>
@@ -57,7 +51,7 @@ const AboutPage = ({ data }) => (
           <LinkStyle>email me</LinkStyle>
         </a>.
       </Paragraph>
-      {canUseDOM && <Stats mt={5} />}
+      <Stats mt={5} />
     </main>
   </article>
 )
