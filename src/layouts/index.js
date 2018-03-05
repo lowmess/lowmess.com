@@ -74,17 +74,10 @@ const Layout = ({ children, location, data }) => (
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="description" content={data.site.siteMetadata.description} />
-        <meta name="theme-color" content={theme.colors.nearWhite} />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/android-chrome-192x192.png"
-          sizes="192x192"
         />
         <link
           rel="icon"
@@ -98,11 +91,13 @@ const Layout = ({ children, location, data }) => (
           href="/favicon-16x16.png"
           sizes="16x16"
         />
+        <link rel="manifest" href="/manifest.json" />
         <link
           rel="mask-icon"
           href="/safari-pinned-tab.svg"
           color={theme.colors.orange}
         />
+        <meta name="theme-color" content={theme.colors.orange} />
       </Helmet>
       <Content
         color="black"
