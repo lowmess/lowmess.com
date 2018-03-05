@@ -74,6 +74,7 @@ const Layout = ({ children, location, data }) => (
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="description" content={data.site.siteMetadata.description} />
+        <meta name="theme-color" content={theme.colors.nearWhite} />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -97,7 +98,6 @@ const Layout = ({ children, location, data }) => (
           href="/safari-pinned-tab.svg"
           color={theme.colors.orange}
         />
-        <meta name="theme-color" content={theme.colors.orange} />
       </Helmet>
       <Content
         color="black"
