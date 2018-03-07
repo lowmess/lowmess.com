@@ -5,7 +5,7 @@ import { Box, Text } from '../components/Layout'
 import { Title, Subtitle, Paragraph, Rule } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
 
-const SectionTitle = Text.withComponent('h3')
+const SectionTitle = Text.withComponent('h2')
 
 const indexPage = ({ data }) => {
   return (
@@ -48,7 +48,7 @@ const indexPage = ({ data }) => {
         </SectionTitle>
         <ProjectPreview
           project={data.allProjectsJson.edges[0].node}
-          level="h4"
+          level="h3"
         />
       </main>
     </article>
