@@ -9,6 +9,7 @@ import MarkdownContent from '../components/MarkdownContent'
 import 'lowmess-prism'
 
 const Content = MarkdownContent.withComponent('main')
+const PostDate = Subtitle.withComponent('p')
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
@@ -50,7 +51,7 @@ const BlogPostTemplate = ({ data }) => {
         >
           {post.frontmatter.title}
         </Title>
-        <Subtitle
+        <PostDate
           fontSize={[3, 4]}
           fontWeight="5"
           lineHeight="title"
@@ -58,7 +59,7 @@ const BlogPostTemplate = ({ data }) => {
           mb={4}
         >
           <time dateTime={date}>{format(date, 'MMMM DD, YYYY')}</time>
-        </Subtitle>
+        </PostDate>
         <Rule mt={4} mb={5} />
       </header>
       <Content

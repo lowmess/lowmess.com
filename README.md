@@ -5,17 +5,17 @@
 ```bash
 git clone https://github.com/lowmess/lowmess.git
 cd lowmess
-yarn
+npm i
 ```
 
 ## Building
 
 ```bash
-yarn run build
+npm run build
 ```
 
 ## Developing
 
 ```bash
-yarn run start
+npm run start
 ```
