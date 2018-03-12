@@ -7,25 +7,25 @@ module.exports = {
   plugins: [
     // Adding various source folders to the GraphQL layer.
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `pages`,
+        name: 'pages',
         path: `${__dirname}/src/pages/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `data`,
+        name: 'data',
         path: `${__dirname}/src/data/`,
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 768,
               linkImagesToOriginal: false,
@@ -43,7 +43,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-offline',
     'gatsby-plugin-emotion',
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
   ],
 }
