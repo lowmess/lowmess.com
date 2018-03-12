@@ -40,6 +40,7 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-offline',
     'gatsby-plugin-emotion',
     `gatsby-plugin-react-helmet`,
