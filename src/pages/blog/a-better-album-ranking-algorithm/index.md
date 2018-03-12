@@ -65,6 +65,6 @@ Given all the information we need, the algorithm works. But we still have to get
 * Once we find an album, track listings are missing or incomplete about 20% of the time. This happens more often with newer albums.
 * Neither the top albums nor album info endpoints give us the album's release year. This doesn't impact the algorithm, I just thought it was odd.
 
-All told, to implement this algorithm on our own means we would have to make an insane amount of requests just to get incomplete or missing data. If you think that doesn't sound like it's worth it, you're right. And that's why I didn't use it, though [you can see an implementation here](https://gist.github.com/lowmess/f3c03b1a6fe50ee04622706047f8a654).
+All told, to implement this algorithm on our own means we would have to make an insane amount of requests just to get incomplete or missing data. If you think that doesn't sound like it's worth it, you're right. And while I didn't use it, [you can see an implementation here](https://gist.github.com/lowmess/f3c03b1a6fe50ee04622706047f8a654).
 
 Last.fm still ranks albums wrong, though.
