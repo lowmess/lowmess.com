@@ -10,19 +10,19 @@ Fair warning: things are about to take a turn for the opinionated, pedantic, and
 
 ## The Scrobble Killed the Record Star
 
-Last.fm is built upon an atomic unit: the scrobble. From it, all other units are derived. A scrobble represents one play of one song; Last.fm sets your top album by how many scrobbles it has. The problem with this is that it's the complete wrong way to count album plays.
+Last.fm is built upon an atomic unit: the scrobble. From it, all other units are derived. A scrobble represents one play of one song, and Last.fm sets your top album by how many scrobbles it has. The problem with this is that it's the complete wrong way to count album plays.
 
-Album counts are slightly different than song counts. They should start from basically the same place (one playthrough is one playthrough) but from there they branch in subtle but important ways. For example, it is much more common to only partially listen to an album than it is to partially listen to a song. Albums are also, generally, between 10 and 12 times longer than songs, and broken into as many parts.
+Album play counts are slightly different than song play counts. They should start from basically the same place -- one playthrough is one playthrough -- but from there they branch in subtle but important ways. For example, it is much more common to only partially listen to an album than it is to partially listen to a song. Albums are also, generally, between 10 and 12 times longer than songs, and broken into as many parts.
 
-Thus, the ideal album ranking algorithm would account for total playthroughs, with a weight given to longer albums. Maybe even something as simple as this:
+If the length of an album is what makes a complete playthrough of an album rarer than a playthrough of a song, a playthrough of a longer album should count for more than that of a shorter album. (There's an argument to be made that the same is true of songs, but we'll leave that for another day.) Thus, the ideal album ranking algorithm would account for total playthroughs, with a weight given to longer albums. Maybe even something as simple as this:
 
 ```js
 albumPlaythroughs * (1 + albumDuration / 2700)
 ```
 
-Here, we weight the duration in 45 minute increments, the length of a single LP (`albumDuration` here is in seconds). Adding 1 to the duration calculation helps to ensure we're not simply normalizing for record length.
+Here, we weight the duration in 45 minute increments, the length of a single LP (`albumDuration` being in seconds). Adding 1 to the duration calculation helps to ensure we're not simply normalizing for record length -- while that is also a valid way to rank album plays, it is not the one I prefer.
 
-## Ok, You Got Me. It's Exactly That Simple
+## Ok, You Got Me. Something Exactly As Simple As That
 
 Let's take two albums of varying lengths and see how they handle this algorithm. Our albums:
 
@@ -60,9 +60,11 @@ Now we're getting somewhere. Even though _Cardinal_ has the most playthroughs, _
 
 Given all the information we need, the algorithm works. But we still have to get the information, and unfortunately, Last.fm doesn't make it too easy on us:
 
-* We can easily get a user's top albums, but the response doesn't include information on the amount of tracks or the duration of the albums.
-* Last.fm doesn't use IDs to track albums, so we have to use an endpoint that searches by album name and artist to get detailed album information. This often fails, even when the album name and artist are provided by Last.fm (like from the previously discussed endpoint).
-* Once we find the album, track listings are sometimes missing or incomplete, especially for newer albums.
+* We can easily get a user's top albums, but the response doesn't include information on the amount of tracks on, or duration of, each album.
+* Last.fm doesn't use unique IDs to track albums, so we have to use an endpoint that searches by album name and artist to get detailed album information. This often fails or retrieves the wrong album, even when the album name and artist are provided by Last.fm (like from the previously discussed endpoint).
+* Once we find an album, track listings are missing or incomplete about 20% of the time. This happens more often with newer albums.
 * Neither the top albums nor album info endpoints give us the album's release year. This doesn't impact the algorithm, I just thought it was odd.
 
-All told, to implement this algorithm on our own means we would have to make an insane amount of requests just to get incomplete or missing data. If you think that doesn't sound like it's worth it, you're right. Last.fm still ranks albums wrong though.
+All told, to implement this algorithm on our own means we would have to make an insane amount of requests just to get incomplete or missing data. If you think that doesn't sound like it's worth it, you're right. And that's why I didn't use it, though [you can see an implementation here](https://gist.github.com/lowmess/f3c03b1a6fe50ee04622706047f8a654).
+
+Last.fm still ranks albums wrong, though.
