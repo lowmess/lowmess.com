@@ -148,12 +148,17 @@ const MarkdownContent = styled('div')`
         content: ' (' attr(href) ')';
         font-size: 0.875em;
       }
+      &[href^='/']:after {
+        content: ' (https://lowmess.com' attr(href) ')';
+      }
     }
   }
 
   blockquote {
-    margin-left: 0;
+    margin-top: ${({ theme }) => theme.space[4]};
     margin-right: 0;
+    margin-bottom: ${({ theme }) => theme.space[4]};
+    margin-left: 0;
     border-left: ${({ theme }) => theme.borders[3]}
       ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
@@ -194,6 +199,8 @@ const MarkdownContent = styled('div')`
   pre {
     width: 100%;
     overflow-x: scroll;
+    margin-top: ${({ theme }) => theme.space[4]};
+    margin-bottom: ${({ theme }) => theme.space[4]};
     border-left: ${({ theme }) => theme.borders[3]}
       ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
@@ -206,6 +213,11 @@ const MarkdownContent = styled('div')`
 
     @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       font-size: ${({ theme }) => theme.fontSizes[1]};
+    }
+
+    @media print {
+      background-color: transparent;
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 

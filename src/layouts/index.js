@@ -13,6 +13,10 @@ injectGlobal`
   html {
     box-sizing: border-box;
     background-color: ${theme.colors.orange};
+
+    @media print {
+      background-color: transparent;
+    }
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -43,6 +47,10 @@ const Backdrop = styled(Box)`
   @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
     background-size: 1200px;
   }
+  @media print {
+    background: transparent;
+    padding: 0;
+  }
 `
 // the min-height stuff here is kind of gross,
 // but I'm not sure of a way of accessing these values inside styled-system like this
@@ -51,6 +59,9 @@ const Content = styled(Box)`
   min-height: calc(100vh - ${({ theme }) => theme.space[2]} * 2);
   @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
     min-height: calc(100vh - ${({ theme }) => theme.space[3]} * 2);
+  }
+  @media print {
+    min-height: 0;
   }
 `
 // have to set min-height here too

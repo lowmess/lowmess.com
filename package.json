@@ -29,6 +29,7 @@
     "emotion-theming": "^9.0.0",
     "gatsby": "^1.9.222",
     "gatsby-link": "^1.6.38",
+    "gatsby-plugin-catch-links": "^1.0.19",
     "gatsby-plugin-emotion": "^1.1.15",
     "gatsby-plugin-offline": "^1.0.10",
     "gatsby-plugin-react-helmet": "^2.0.6",
