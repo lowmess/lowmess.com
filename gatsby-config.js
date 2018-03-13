@@ -55,6 +55,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-gauges',
+      options: {
+        siteId: '5799ae32c88d90025302e917',
+      },
+    },
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
