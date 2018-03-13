@@ -37,6 +37,30 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'lowmess',
+        short_name: 'lowmess',
+        start_url: '/',
+        background_color: '#f2930d',
+        theme_color: '#f9f9f8',
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-gauges',
+      options: {
+        siteId: '5799ae32c88d90025302e917',
+      },
+    },
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
