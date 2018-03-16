@@ -102,7 +102,9 @@ class Stats extends Component {
   render() {
     return (
       <Box {...this.props}>
-        <SectionTitle fontSize={[3, 4]}>In the Last 30 Days</SectionTitle>
+        <SectionTitle fontSize={[3, 4]} mt={0} mb={4}>
+          In the Last 30 Days
+        </SectionTitle>
         <Stat mb={2} title="GitHub Commits">
           {this.state.commits}
         </Stat>
