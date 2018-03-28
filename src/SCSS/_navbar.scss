@@ -1,5 +1,5 @@
 .dropdown {
-  @include position(fixed) { @extend %position_zero };
+  @include position(fixed) { @extend %position-zero };
   z-index: z(dropdown);
 
   width: 100vw;

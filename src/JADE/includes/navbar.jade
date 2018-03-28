@@ -3,7 +3,7 @@ nav#dropdown.dropdown.dropdown--closed.dropdown--trans(role="navigation")
   //- Logo & Arrow
   .dropdown__logo
     svg.dropdown__logo__svg(role="img", title="lowmess logo")
-      use(xlink:href="//lowmess.com/images/lowmess.svg#lowmess-logo")
+      use(xlink:href="/images/lowmess.svg#lowmess-logo")
     i#dropdown__logo__caret.dropdown__logo__caret.fa.fa-caret-down.fa-fw
 
   .dropdown__close
@@ -12,10 +12,10 @@ nav#dropdown.dropdown.dropdown--closed.dropdown--trans(role="navigation")
   //- Dropdown List
   //-.dropdown__list__container -- Don't beleive this is needed
   ul.dropdown__list
-    - nav = {"pages": ["Home", "Work", "Contact", "About"], "links": ["//lowmess.com", "//lowmess.com/work", "//lowmess.com/contact", "//lowmess.com/about"]};
+    - nav = {"pages": ["Home", "Work", "Contact", "About"], "links": ["/", "/work", "/contact", "/about"]};
     each page, i in nav.pages
       li.dropdown__item
-        a(href="#{nav.links[i]}") #{page}
+        a(href=nav.links[i]) #{page}
 
   //- Social/Contact Links
   ul#social-icons.social-icons

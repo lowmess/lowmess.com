@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  @include position(relative) { @extend %position_zero; };
+  @include position(relative) { @extend %position-zero; };
   background: $cubone;
   color: $haunter;
   overflow-y: auto;

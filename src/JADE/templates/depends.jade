@@ -65,28 +65,28 @@ mixin page(id, title, desc)
               p.page__header__description!= desc
       section.page__main-content
         if block
-            block
-          else
-            .grid
-              .row.clearfix
-                .col
-                  p There should be things here, but there aren&rsquo;t things here.
+          block
+        else
+          .grid
+            .row.clearfix
+              .col
+                p There should be things here, but there aren&rsquo;t things here.
 
 //- Project Previews ------------------------------------------------------------------------------------------------------------------
 mixin 2015-preview
-  +project-preview("twok15-preview", "#c0392b", "//lowmess.com/work/2015", "2015", "desktop wallpaper calendars for the year 2015")
+  +project-preview("twok15-preview", "#c0392b", "/work/2015", "2015", "desktop wallpaper calendars for the year 2015")
 
 //-mixin 2015-january-preview
-  +project-preview("january-2015-preview", "#2c3e50", "//lowmess.com/work/2015/january", "January", "start the year off with chaos &amp; swiss-inspired design")
+  +project-preview("january-2015-preview", "#2c3e50", "/work/2015/january", "January", "start the year off with chaos &amp; swiss-inspired design")
 
 //-mixin 2015-february-preview
-  +project-preview("february-2015-preview", "#3498db", "//lowmess.com/work/2015/february", "February", "a typographic calendar-a-day")
+  +project-preview("february-2015-preview", "#3498db", "/work/2015/february", "February", "a typographic calendar-a-day")
 
 //-mixin 2015-march-preview
-  +project-preview("march-2015-preview", "#336666", "//lowmess.com/work/2015/march", "March", "geometry &amp; 1950&rsquo;s portraiture")
+  +project-preview("march-2015-preview", "#336666", "/work/2015/march", "March", "geometry &amp; 1950&rsquo;s portraiture")
 
 //-mixin 2015-april-preview
-  +project-preview("april-2015-preview", "#cc3333", "//lowmess.com/work/2015/april", "April", "an excersize in minimalism")
+  +project-preview("april-2015-preview", "#cc3333", "/work/2015/april", "April", "an excersize in minimalism")
 
 //-mixin 2015-may-preview
 //-mixin 2015-june-preview
@@ -98,23 +98,23 @@ mixin 2015-preview
 //-mixin 2015-december-preview
 
 mixin bells-brewery-preview
-  +project-preview("bells-brewery-preview", "#ac9732", "//lowmess.com/work/bells-brewery", "Bell&rsquo;s Brewery", "redesigning Michigan&rsquo;s favorite brewery")
+  +project-preview("bells-brewery-preview", "#ac9732", "/work/bells-brewery", "Bell&rsquo;s Brewery", "redesigning Michigan&rsquo;s favorite brewery")
 
 mixin illustration-preview
-  +project-preview("illustration-preview", "#2c3e50", "//lowmess.com/work/illustration", "Illustration", "t-shirt graphics, abstract imagery, &amp; photo collages")
+  +project-preview("illustration-preview", "#2c3e50", "/work/illustration", "Illustration", "t-shirt graphics, abstract imagery, &amp; photo collages")
 
 mixin lennys-burger-preview
-  +project-preview("lennys-burger-preview", "#ffcc22", "//lowmess.com/work/lennys-burger", "Lenny&rsquo;s Burger", "diner-inspired rebranding &amp; web design")
+  +project-preview("lennys-burger-preview", "#ffcc22", "/work/lennys-burger", "Lenny&rsquo;s Burger", "diner-inspired rebranding &amp; web design")
 
 mixin posters-preview
-  +project-preview("posters-preview", "#bdc3c7", "//lowmess.com/work/posters", "Posters", "an exploration of design&rsquo;s most economical form")
+  +project-preview("posters-preview", "#bdc3c7", "/work/posters", "Posters", "an exploration of design&rsquo;s most economical form")
 
 //- Page Previews ------------------------------------------------------------------------------------------------------------------
 mixin contact
-  +page-preview("contact-preview", "#2980b9", "//lowmess.com/contact", "get in touch")
+  +page-preview("contact-preview", "#2980b9", "/contact", "get in touch")
 
 mixin view-work
-  +page-preview("view-work", "#f5f5f5", "//lowmess.com/work", "view all work")
+  +page-preview("view-work", "#f5f5f5", "/work", "view all work")
 
 mixin head-home
-  +page-preview("head-home", "#f39c12", "//lowmess.com", "head home")
+  +page-preview("head-home", "#f39c12", "/", "head home")

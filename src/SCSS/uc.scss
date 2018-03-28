@@ -19,9 +19,9 @@ html {
 }
 
 body {
-  @include position(relative) { @extend %position_zero; };
+  @include position(relative) { @extend %position-zero; };
   background: $black;
-  @include breakpoint(large) { background: $black url("//lowmess.com/images/landing@2x.png") repeat center center; };
+  @include breakpoint(large) { background: $black url("/images/landing@2x.png") repeat center center; };
   color: $white;
   width: 100vw;
   height: 100vh;
