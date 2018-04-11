@@ -1,35 +1,52 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { Text } from './Layout'
+import styled from 'react-emotion'
+import {
+  space,
+  width,
+  fontSize,
+  color,
+  fontWeight,
+  fontFamily,
+  hover,
+} from 'styled-system'
 import Icon from './Icon'
 
-const ArrowLink = ({ dest, text, external, ...props }) => {
+const Text = styled.span`
+  display: inline-flex;
+  align-items: center;
+  ${space};
+  ${width};
+  ${fontSize};
+  ${color};
+  ${fontWeight};
+  ${fontFamily};
+  ${hover};
+`
+
+const ArrowLink = ({ dest, children, external, ...props }) => {
   return external ? (
     <a href={dest}>
       <Text
         fontFamily="monospace"
-        display="inline-flex"
-        align="center"
         color="black"
         hover={{ color: 'orange' }}
         fontSize={[0, 1]}
         {...props}
       >
-        {text} <Icon glyph="arrow" />
+        {children} <Icon glyph="arrow" />
       </Text>
     </a>
   ) : (
     <Link to={dest}>
       <Text
         fontFamily="monospace"
-        display="inline-flex"
-        align="center"
         color="black"
         hover={{ color: 'orange' }}
         fontSize={[0, 1]}
         {...props}
       >
-        {text} <Icon glyph="arrow" />
+        {children} <Icon glyph="arrow" />
       </Text>
     </Link>
   )
