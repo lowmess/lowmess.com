@@ -22,6 +22,7 @@ const ArrowLink = ({ dest, text, external, ...props }) => {
       <Text
         fontFamily="monospace"
         display="inline-flex"
+        align="center"
         color="black"
         hover={{ color: 'orange' }}
         fontSize={[0, 1]}
