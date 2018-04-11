@@ -6,8 +6,20 @@ import ArrowLink from './ArrowLink'
 
 const ProjectPreview = ({ project, level, ...props }) => {
   const ProjectTitle = Text.withComponent(level)
-  const WebsiteComponent = project.website ? <ArrowLink dest={project.website} text="Website" external={true} /> : ''
-  const RepoComponent = project.repo ? <ArrowLink dest={project.repo} text="Repository" external={true} /> : ''
+  const WebsiteComponent = project.website ? (
+    <ArrowLink dest={project.website} external={true}>
+      Website
+    </ArrowLink>
+  ) : (
+    ''
+  )
+  const RepoComponent = project.repo ? (
+    <ArrowLink dest={project.repo} external={true}>
+      Repository
+    </ArrowLink>
+  ) : (
+    ''
+  )
   return (
     <Box {...props}>
       <a href={project.website ? project.website : project.repo}>
@@ -26,7 +38,10 @@ const ProjectPreview = ({ project, level, ...props }) => {
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
         {project.description}
       </Paragraph>
-      <Box {...(WebsiteComponent && RepoComponent ? { mr: 4 } : {})} display="inline-block">
+      <Box
+        {...(WebsiteComponent && RepoComponent ? { mr: 4 } : {})}
+        display="inline-block"
+      >
         {WebsiteComponent}
       </Box>
       <Box display="inline-block">{RepoComponent}</Box>

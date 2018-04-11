@@ -29,7 +29,13 @@ const BlogPage = ({ data }) => {
         <title>Blog • {data.site.siteMetadata.title}</title>
       </Helmet>
       <header>
-        <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
+        <Title
+          fontSize={[4, 5]}
+          fontWeight="7"
+          lineHeight="title"
+          mt={0}
+          mb={3}
+        >
           Eloquent Writings About Stuff
         </Title>
         <Rule mt={4} mb={5} />
@@ -37,7 +43,10 @@ const BlogPage = ({ data }) => {
       <main>
         {posts.map(({ node }, index) => {
           const { fields, frontmatter } = node
-          const thisYear = format(addDays(new Date(frontmatter.date), 1), 'YYYY')
+          const thisYear = format(
+            addDays(new Date(frontmatter.date), 1),
+            'YYYY'
+          )
           let YearComponent
           if (thisYear !== year) {
             YearComponent = <YearTitle date={frontmatter.date} />
@@ -70,7 +79,7 @@ const BlogPage = ({ data }) => {
                 <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                   {frontmatter.description}
                 </Paragraph>
-                <ArrowLink dest={fields.slug} text="Read More" />
+                <ArrowLink dest={fields.slug}>Read More</ArrowLink>
               </Box>
             </Flex>
           )

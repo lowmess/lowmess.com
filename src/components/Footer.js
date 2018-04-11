@@ -8,10 +8,18 @@ import ArrowLink from './ArrowLink'
 const Foot = Flex.withComponent('footer')
 
 const Footer = ({ post }) => (
-  <Foot mt="auto" mb={[3, 3, 4]} align="center" justify={['center', 'center', 'space-between']} fontFamily="monospace">
+  <Foot
+    mt="auto"
+    mb={[3, 3, 4]}
+    align="center"
+    justify={['center', 'center', 'space-between']}
+    fontFamily="monospace"
+  >
     <Box display={['none', 'none', 'block']}>
       <Text mr={2}>From the blog:</Text>
-      <ArrowLink fontWeight={7} dest={post.fields.slug} text={post.frontmatter.title} />
+      <ArrowLink fontWeight={7} dest={post.fields.slug}>
+        {post.frontmatter.title}
+      </ArrowLink>
     </Box>
     <List>
       <ListItem display="inline-block" mr={3}>

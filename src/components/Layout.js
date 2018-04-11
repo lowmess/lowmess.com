@@ -74,6 +74,7 @@ const Flex = styled.div`
 
 const Text = styled.span`
   ${display};
+  ${alignItems};
   ${space};
   ${width};
   ${fontSize};
