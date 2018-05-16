@@ -69,7 +69,7 @@ const BlogPage = ({ data }) => {
                     fontSize={[2, 3]}
                     fontWeight="7"
                     lineHeight="title"
-                    color="black"
+                    color="darkGrey"
                     hover={{ color: 'orange}}' }}
                     my={0}
                   >

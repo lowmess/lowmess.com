@@ -29,7 +29,7 @@ const ProjectPreview = ({ project, level, ...props }) => {
           fontWeight={7}
           lineHeight="title"
           my={0}
-          color="black"
+          color="darkGrey"
           hover={{ color: 'orange' }}
         >
           {project.title}

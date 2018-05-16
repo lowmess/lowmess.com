@@ -16,7 +16,7 @@ const Navigation = ({ location }) => (
         </Text>
       </Link>
       <Link to="/">
-        <Text color="black" display={['none', 'inline']}>
+        <Text color="darkGrey" display={['none', 'inline']}>
           <Icon glyph="wordmark" />
         </Text>
       </Link>
@@ -29,7 +29,7 @@ const Navigation = ({ location }) => (
               ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
-            color="black"
+            color="darkGrey"
             hover={{ color: 'orange' }}
             px={1}
             pb={1}
@@ -46,7 +46,7 @@ const Navigation = ({ location }) => (
               ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
-            color="black"
+            color="darkGrey"
             hover={{ color: 'orange' }}
             px={1}
             pb={1}
@@ -63,7 +63,7 @@ const Navigation = ({ location }) => (
               ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
-            color="black"
+            color="darkGrey"
             hover={{ color: 'orange' }}
             px={1}
             pb={1}
@@ -80,7 +80,7 @@ const Navigation = ({ location }) => (
               ? { borderBottom: 2, borderColor: 'orange' }
               : {})}
             fontSize={[0, 1]}
-            color="black"
+            color="darkGrey"
             hover={{ color: 'orange' }}
             px={1}
             pb={1}

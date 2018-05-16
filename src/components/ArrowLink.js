@@ -29,7 +29,7 @@ const ArrowLink = ({ dest, children, external, ...props }) => {
     <a href={dest}>
       <Text
         fontFamily="monospace"
-        color="black"
+        color="darkGrey"
         hover={{ color: 'orange' }}
         fontSize={[0, 1]}
         {...props}
@@ -41,7 +41,7 @@ const ArrowLink = ({ dest, children, external, ...props }) => {
     <Link to={dest}>
       <Text
         fontFamily="monospace"
-        color="black"
+        color="darkGrey"
         hover={{ color: 'orange' }}
         fontSize={[0, 1]}
         {...props}

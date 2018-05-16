@@ -13,7 +13,7 @@ const SectionTitle = Text.withComponent('h2')
 const Dep = Flex.withComponent('p')
 const DepLink = ({ children, ...props }) => (
   <Text
-    color="black"
+    color="darkGrey"
     hover={{ color: 'orange' }}
     fontSize={[2, 3]}
     fontWeight={6}

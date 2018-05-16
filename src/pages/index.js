@@ -23,7 +23,7 @@ const indexPage = ({ data }) => {
         <Subtitle fontSize={[3, 4]} fontWeight="5" lineHeight="title" my={3}>
           I&rsquo;m a frontend developer &amp; designer at{' '}
           <a href="https://fuelmade.com">
-            <Text color="black" hover={{ color: 'orange' }}>
+            <Text color="darkGrey" hover={{ color: 'orange' }}>
               Fuel&nbsp;Made
             </Text>.
           </a>
