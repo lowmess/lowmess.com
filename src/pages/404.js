@@ -16,7 +16,13 @@ const errorPage = () => (
       <Title fontSize={[4, 5]} fontWeight="7" lineHeight="title" mt={0} mb={3}>
         Error 404
       </Title>
-      <Subtitle fontSize={[3, 4]} fontWeight="5" lineHeight="title" mt={3} mb={4}>
+      <Subtitle
+        fontSize={[3, 4]}
+        fontWeight="5"
+        lineHeight="title"
+        mt={3}
+        mb={4}
+      >
         Requested Page Not Found
       </Subtitle>
       <Rule mt={4} mb={5} />
@@ -26,7 +32,7 @@ const errorPage = () => (
       <Haiku fontSize={[2, 3]} fontFamily="monospace" lineHeight="title">
         "
         <Link to="/">
-          <Text color="black" hover={{ color: 'orange' }}>
+          <Text color="darkGrey" hover={{ color: 'orange' }}>
             Click here to go home
           </Text>
         </Link>

@@ -135,7 +135,7 @@ const MarkdownContent = styled('div')`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.darkGrey};
     text-decoration: underline;
     text-decoration-color: ${({ theme }) => theme.colors.orange};
 
@@ -205,7 +205,7 @@ const MarkdownContent = styled('div')`
       ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
-    background-color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.nearBlack};
     color: ${({ theme }) => theme.colors.nearWhite};
     font-size: ${({ theme }) => theme.fontSizes[0]};
     font-family: ${({ theme }) => theme.fonts.monospace};
@@ -217,7 +217,7 @@ const MarkdownContent = styled('div')`
 
     @media print {
       background-color: transparent;
-      color: ${({ theme }) => theme.colors.black};
+      color: ${({ theme }) => theme.colors.darkGrey};
     }
   }
 

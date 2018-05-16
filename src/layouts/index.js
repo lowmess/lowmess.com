@@ -111,7 +111,7 @@ const Layout = ({ children, location, data }) => (
         />
       </Helmet>
       <Content
-        color="black"
+        color="darkGrey"
         bg="white"
         py={3}
         px={[3, 4]}

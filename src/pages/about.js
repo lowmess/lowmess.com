@@ -6,7 +6,7 @@ import Stats from '../components/Stats'
 
 const LinkStyle = ({ children }) => (
   <Text
-    color="black"
+    color="darkGrey"
     textDecoration="underline"
     textDecorationColor="orange"
     hover={{ color: 'orange' }}

@@ -24,21 +24,21 @@ const Footer = ({ post }) => (
     <List>
       <ListItem display="inline-block" mr={3}>
         <a href="https://twitter.com/lowmess">
-          <Text color="black" hover={{ color: 'orange' }} fontSize={[0, 1]}>
+          <Text color="darkGrey" hover={{ color: 'orange' }} fontSize={[0, 1]}>
             Twitter
           </Text>
         </a>
       </ListItem>
       <ListItem display="inline-block" mr={3}>
         <a href="https://github.com/lowmess">
-          <Text color="black" hover={{ color: 'orange' }} fontSize={[0, 1]}>
+          <Text color="darkGrey" hover={{ color: 'orange' }} fontSize={[0, 1]}>
             GitHub
           </Text>
         </a>
       </ListItem>
       <ListItem display="inline-block">
         <a href="https://dribbble.com/lowmess">
-          <Text color="black" hover={{ color: 'orange' }} fontSize={[0, 1]}>
+          <Text color="darkGrey" hover={{ color: 'orange' }} fontSize={[0, 1]}>
             Dribbble
           </Text>
         </a>
