@@ -58,7 +58,7 @@ const BlogPostTemplate = ({ data }) => {
           mt={3}
           mb={4}
         >
-          <time dateTime={date}>{format(date, 'MMMM DD, YYYY')}</time>
+          <time dateTime={date}>{format(date, 'MMMM D, YYYY')}</time>
         </PostDate>
         <Rule mt={4} mb={5} />
       </header>
