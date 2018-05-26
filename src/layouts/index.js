@@ -44,7 +44,7 @@ const Backdrop = styled(Box)`
   background-image: ${({ theme }) => topography(theme.colors.white)};
   background-position: center top;
   background-size: 900px;
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     background-size: 1200px;
   }
   @media print {
@@ -57,7 +57,7 @@ const Backdrop = styled(Box)`
 // just gotta update the step on the scale here if it's updated in <Layout />
 const Content = styled(Box)`
   min-height: calc(100vh - ${({ theme }) => theme.space[4]});
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     min-height: calc(100vh - ${({ theme }) => theme.space[5]});
   }
   @media print {
@@ -72,7 +72,7 @@ const Constraint = styled(Flex)`
   margin-left: auto;
   margin-right: auto;
   min-height: calc(100vh - ${({ theme }) => theme.space[5]});
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}em) {
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     min-height: calc(100vh - ${({ theme }) => theme.space[6]});
   }
 `
