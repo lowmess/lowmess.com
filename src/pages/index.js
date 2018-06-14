@@ -25,8 +25,9 @@ const indexPage = ({ data }) => {
           <a href="https://fuelmade.com">
             <Text color="darkGrey" hover={{ color: 'orange' }}>
               Fuel&nbsp;Made
-            </Text>.
+            </Text>
           </a>
+          .
         </Subtitle>
         <Paragraph fontSize={[2, 3]} lineHeight="copy" mt={3} mb={4}>
           My goal is to combine the principles of classic graphic design with
