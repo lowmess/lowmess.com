@@ -151,6 +151,13 @@ const MarkdownContent = styled('div')`
       &[href^='/']:after {
         content: ' (https://lowmess.com' attr(href) ')';
       }
+      &[href^='#'] {
+        text-decoration: none;
+
+        &:after {
+          content: '';
+        }
+      }
     }
   }
 
