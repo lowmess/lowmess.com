@@ -52,7 +52,8 @@ const fontWeights = {
 const fonts = {
   'sans-serif':
     '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-  monospace: 'sfmono, "roboto mono", consolas, monaco, monospace',
+  monospace:
+    '"SF Mono", SFMono-Regular, "Roboto Mono", consolas, monaco, courier, "Courier New", monospace',
 }
 
 const theme = {
