@@ -34,7 +34,7 @@ const ColophonPage = ({ location, data }) => {
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
     'date-fns': { version: dateFns },
-    'normalize.css': { version: normalize },
+    'sanitize.css': { version: sanitize },
     emotion: { version: emotion },
     'styled-system': { version: styledSystem },
     'hero-patterns': { version: heroPatterns },
@@ -91,10 +91,10 @@ const ColophonPage = ({ location, data }) => {
             </Dep>
 
             <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://necolas.github.io/normalize.css/">
-                <DepLink>Normalize.css</DepLink>
+              <a href="https://csstools.github.io/sanitize.css/">
+                <DepLink>sanitize.css</DepLink>
               </a>{' '}
-              <DepVer ml={3}>{normalize}</DepVer>
+              <DepVer ml={3}>{sanitize}</DepVer>
             </Dep>
 
             <Dep alignItems="center" mt={3} mb={0}>
