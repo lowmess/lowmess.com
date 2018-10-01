@@ -5,10 +5,13 @@ import {
   width,
   fontSize,
   color,
-  textAlign,
   fontWeight,
   fontFamily,
   lineHeight,
+  alignItems,
+  justifyContent,
+  flexWrap,
+  flexDirection,
   border,
   borderTop,
   borderRight,
@@ -20,19 +23,66 @@ import {
   focus,
   active,
 } from 'styled-system'
-import { Text } from './Primitives'
+import {
+  textDecoration,
+  textDecorationColor,
+} from '../utils/styled-system-extras'
 
-const Title = Text.withComponent('h1')
-const Subtitle = Text.withComponent('h2')
-
-const Paragraph = styled.p`
-  max-width: 33em;
+const Box = styled.div`
+  ${display};
   ${space};
   ${width};
   ${fontSize};
   ${color};
-  ${textAlign};
   ${fontWeight};
+  ${fontFamily};
+  ${lineHeight};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
+  ${borderColor};
+  ${borderRadius};
+  ${hover};
+`
+
+const Flex = styled.div`
+  display: flex;
+  ${display};
+  ${alignItems};
+  ${justifyContent};
+  ${flexWrap};
+  ${flexDirection};
+  ${space};
+  ${width};
+  ${fontSize};
+  ${color};
+  ${fontWeight};
+  ${fontFamily};
+  ${lineHeight};
+  ${border};
+  ${borderTop};
+  ${borderRight};
+  ${borderBottom};
+  ${borderLeft};
+  ${borderColor};
+  ${borderRadius};
+  ${hover};
+`
+
+const Text = styled.span`
+  ${display};
+  ${alignItems};
+  ${space};
+  ${width};
+  ${fontSize};
+  ${color};
+  ${fontWeight};
+  ${fontFamily};
+  ${lineHeight};
+  ${textDecoration};
+  ${textDecorationColor};
   ${border};
   ${borderTop};
   ${borderRight};
@@ -43,47 +93,6 @@ const Paragraph = styled.p`
   ${hover};
   ${focus};
   ${active};
-  ${fontFamily};
-  ${lineHeight};
 `
 
-const Rule = styled.hr`
-  width: 100%;
-  max-width: 8rem;
-  margin-left: 0;
-  margin-right: 0;
-  border: ${({ theme }) => theme.borders[2]};
-  border-color: ${({ theme }) => theme.colors.orange};
-  ${space};
-`
-
-const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  ${space};
-  ${fontSize};
-  ${color};
-  ${fontWeight};
-  ${textAlign};
-  ${fontFamily};
-  ${lineHeight};
-`
-const ListItem = styled.li`
-  ${display};
-  ${space};
-  ${fontSize};
-  ${color};
-  ${textAlign};
-  ${fontWeight};
-  ${border};
-  ${borderTop};
-  ${borderRight};
-  ${borderBottom};
-  ${borderLeft};
-  ${borderColor};
-  ${borderRadius};
-  ${fontFamily};
-`
-
-export { Title, Subtitle, Paragraph, Rule, List, ListItem }
+export { Box, Flex, Text }

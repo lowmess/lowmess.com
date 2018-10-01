@@ -1,6 +1,5 @@
 import React from 'react'
-import { withComponent } from 'react-emotion'
-import { Box, Text } from './Layout'
+import { Box, Text } from './Primitives'
 import { Paragraph } from './Typography'
 import ArrowLink from './ArrowLink'
 
