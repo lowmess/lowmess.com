@@ -49,11 +49,11 @@
     "gatsby-transformer-sharp": "^2.1.3",
     "hero-patterns": "^2.0.1",
     "lowmess-prism": "^0.2.3",
-    "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.12",
     "react-helmet": "^5.2.0",
+    "sanitize.css": "^7.0.3",
     "styled-system": "^3.1.6",
     "unfetch": "^4.0.1"
   },

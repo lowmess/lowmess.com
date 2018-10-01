@@ -8,7 +8,7 @@ import { Box, Flex, Text } from '../components/Layout'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 
-import normalize from 'normalize.css'
+import 'sanitize.css'
 injectGlobal`
   html {
     box-sizing: border-box;
