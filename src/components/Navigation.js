@@ -14,7 +14,7 @@ const Navigation = ({ location }) => (
           <Icon glyph="logo" />
         </Text>
       </Link>
-      <Link to="/">
+      <Link to="/" tabIndex="-1">
         <Text color="darkGrey" display={['none', 'inline']}>
           <Icon glyph="wordmark" />
         </Text>
