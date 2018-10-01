@@ -10,18 +10,28 @@ import Navigation from './Navigation'
 import Footer from './Footer'
 
 import 'sanitize.css'
+
 injectGlobal`
   html {
-    box-sizing: border-box;
     background-color: ${theme.colors.orange};
+    background-image: ${topography(theme.colors.white)};
+    background-position: center top;
+    background-size: 900px;
+    background-repeat: repeat;
+
+    @media (min-width: ${theme.breakpoints[0]}) {
+      background-size: 1200px;
+    }
 
     @media print {
-      background-color: transparent;
+      background: none;
     }
   }
+
   ::selection {
-    background-color: ${theme.colors.orange};
+    background-color: ${theme.colors.orange} !important;
   }
+
   a {
     text-decoration: none;
     text-decoration-skip: ink;
@@ -35,7 +45,7 @@ injectGlobal`
   }
 `
 
-const Backdrop = styled(Box)`
+const Border = styled(Box)`
   display: grid;
   grid-template-areas:
     'border-top border-top border-top'
@@ -50,10 +60,7 @@ const Backdrop = styled(Box)`
     1fr
     ${({ theme }) => theme.space[2]};
   min-height: 100vh;
-  background-image: ${({ theme }) => topography(theme.colors.white)};
-  background-position: center top;
-  background-size: 900px;
-  background-repeat: repeat;
+
   @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     grid-template-rows:
       ${({ theme }) => theme.space[3]}
@@ -65,12 +72,11 @@ const Backdrop = styled(Box)`
       ${({ theme }) => theme.space[3]};
     background-size: 1200px;
   }
+
   @media print {
-    grid-template-rows: 0 1fr 0;
-    grid-template-columns: 0 1fr 0;
+    display: block;
     min-height: 0;
     background: transparent;
-    padding: 0;
   }
 `
 
@@ -83,6 +89,7 @@ const Backdrop = styled(Box)`
 const Content = styled(Box)`
   grid-area: content;
   max-width: calc(100vw - (${({ theme }) => theme.space[2]} * 2));
+  background-color: ${({ theme }) => theme.colors.white};
 `
 
 const Constraint = styled(Flex)`
@@ -113,11 +120,14 @@ const Layout = ({ children, location }) => (
         <>
           <Helmet>
             <title>{data.site.siteMetadata.title}</title>
+
             <meta
               name="description"
               content={data.site.siteMetadata.description}
             />
+
             <meta name="theme-color" content={theme.colors.nearWhite} />
+
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -135,6 +145,7 @@ const Layout = ({ children, location }) => (
               href="/favicon-16x16.png"
               sizes="16x16"
             />
+
             <link rel="manifest" href="/manifest.json" />
             <link
               rel="mask-icon"
@@ -142,10 +153,10 @@ const Layout = ({ children, location }) => (
               color={theme.colors.orange}
             />
           </Helmet>
-          <Backdrop bg="orange">
+
+          <Border>
             <Content
               color="darkGrey"
-              bg="white"
               py={3}
               px={[3, 4]}
               borderRadius={2}
@@ -153,11 +164,13 @@ const Layout = ({ children, location }) => (
             >
               <Constraint>
                 <Navigation location={location} />
+
                 <Main mb={[5, 6]}>{children}</Main>
+
                 <Footer />
               </Constraint>
             </Content>
-          </Backdrop>
+          </Border>
         </>
       </ThemeProvider>
     )}
