@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'react-emotion'
 import { space, fontSize, color, fontFamily, lineHeight } from 'styled-system'
 
@@ -195,6 +194,7 @@ const MarkdownContent = styled('div')`
     padding-left: ${({ theme }) => theme.space[1]};
     padding-right: ${({ theme }) => theme.space[1]};
     background-color: ${({ theme }) => theme.colors.nearWhite};
+    color: ${({ theme }) => theme.colors.darkGrey};
     font-size: ${({ theme }) => theme.fontSizes[0]};
     white-space: nowrap;
 

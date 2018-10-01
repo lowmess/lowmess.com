@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import fetch from 'unfetch'
-import { withComponent } from 'react-emotion'
-import { Box, Text } from './Layout'
+import { Box, Text } from './Primitives'
 import Stat from './Stat'
 
 const SectionTitle = Text.withComponent('h2')

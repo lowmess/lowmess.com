@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Text } from './Layout'
+import { Box, Flex, Text } from './Primitives'
 
 const Stat = ({ title, children, ...props }) => (
   <Flex align="baseline" flexDirection={['column', 'row']} {...props}>

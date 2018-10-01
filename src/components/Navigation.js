@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { withComponent } from 'react-emotion'
-import { Flex, Text } from './Layout'
+import { Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
 
