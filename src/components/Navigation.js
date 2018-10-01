@@ -1,7 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import { withComponent } from 'react-emotion'
-import { Flex, Text } from './Layout'
+import { Link } from 'gatsby'
+import { Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
 
@@ -15,7 +14,7 @@ const Navigation = ({ location }) => (
           <Icon glyph="logo" />
         </Text>
       </Link>
-      <Link to="/">
+      <Link to="/" tabIndex="-1">
         <Text color="darkGrey" display={['none', 'inline']}>
           <Icon glyph="wordmark" />
         </Text>
