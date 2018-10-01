@@ -1,6 +1,6 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import Layout from '../components/Layout'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle, Rule } from '../components/Typography'

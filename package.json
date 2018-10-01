@@ -28,7 +28,6 @@
     "emotion-server": "^9.2.12",
     "emotion-theming": "^9.2.9",
     "gatsby": "^2.0.12",
-    "gatsby-link": "^2.0.2",
     "gatsby-plugin-catch-links": "^2.0.3",
     "gatsby-plugin-emotion": "^2.0.5",
     "gatsby-plugin-gauges": "0.0.3",

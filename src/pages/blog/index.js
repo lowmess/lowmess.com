@@ -1,7 +1,6 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
 import Layout from '../../components/Layout'
