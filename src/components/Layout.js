@@ -74,8 +74,15 @@ const Backdrop = styled(Box)`
   }
 `
 
+// Not entirely sure why, but on pages with markdown code blocks, this container
+// will break out of the viewport (causing the page to have horizontal
+// scrollbars). It's not an issue with the code block styling nor the grid
+// container (`<Backdrop />`) as far as I can tell. Setting this `max-width`
+// appears to be the only fix. It is not the cleanest, but still better than
+// the `calc()` nightmare that was here before.
 const Content = styled(Box)`
   grid-area: content;
+  max-width: calc(100vw - (${({ theme }) => theme.space[2]} * 2));
 `
 
 const Constraint = styled(Flex)`
