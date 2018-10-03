@@ -35,7 +35,7 @@ const ColophonPage = ({ location, data }) => {
     'react-helmet': { version: helmet },
     'date-fns': { version: dateFns },
     'sanitize.css': { version: sanitize },
-    emotion: { version: emotion },
+    'styled-components': { version: styledComponents },
     'styled-system': { version: styledSystem },
     'hero-patterns': { version: heroPatterns },
     prettier: { version: prettier },
@@ -98,10 +98,10 @@ const ColophonPage = ({ location, data }) => {
             </Dep>
 
             <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://emotion.sh/">
-                <DepLink>emotion</DepLink>
+              <a href="https://styled-components.com/">
+                <DepLink>styled-components</DepLink>
               </a>{' '}
-              <DepVer ml={3}>{emotion}</DepVer>
+              <DepVer ml={3}>{styledComponents}</DepVer>
             </Dep>
 
             <Dep alignItems="center" mt={3} mb={0}>

@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import { space, fontSize, color, fontFamily, lineHeight } from 'styled-system'
 
 // this component basically exists as a giant stylesheet that inherits from the theme

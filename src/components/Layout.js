@@ -1,8 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled, { injectGlobal } from 'react-emotion'
-import { ThemeProvider } from 'emotion-theming'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { topography } from 'hero-patterns'
 import theme from '../utils/theme'
 import { Box, Flex } from './Primitives'
@@ -11,7 +10,7 @@ import Footer from './Footer'
 
 import 'sanitize.css'
 
-injectGlobal`
+const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${theme.colors.orange};
     background-image: ${topography(theme.colors.white)};
@@ -146,6 +145,8 @@ const Layout = ({ children, location }) => (
               color={theme.colors.orange}
             />
           </Helmet>
+
+          <GlobalStyles />
 
           <Border>
             <Content
