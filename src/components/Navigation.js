@@ -1,14 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { css } from 'styled-components'
 import system from 'system-components'
 import { Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
 import { textHover } from '../utils/styles'
 
-const NavLink = system(
+const activeBorder = css`
+  .active & {
+    border-bottom: ${({ theme }) => theme.borders[2]};
+    border-color: ${({ theme }) => theme.colors.orange};
+  }
+`
+
+const LinkText = system(
   {
-    is: Link,
+    is: 'span',
     px: 1,
     pb: 1,
     fontSize: [0, 1],
@@ -17,7 +25,14 @@ const NavLink = system(
   'space',
   'borders',
   'borderColor',
-  textHover
+  textHover,
+  activeBorder
+)
+
+const NavLink = ({ children, to, ...props }) => (
+  <Link to={to} activeClassName="active">
+    <LinkText {...props}>{children}</LinkText>
+  </Link>
 )
 
 const Navigation = ({ location }) => (
@@ -28,7 +43,7 @@ const Navigation = ({ location }) => (
     mt={[0, 2, 3]}
     mb={[5, 6]}
   >
-    <Flex alignItems="center">
+    <Flex align="center">
       <Link to="/">
         <Text color="orange">
           <Icon glyph="logo" />
@@ -44,50 +59,25 @@ const Navigation = ({ location }) => (
 
     <List fontFamily="monospace">
       <ListItem display="inline-block">
-        <NavLink
-          to="/"
-          mr={2}
-          {...(location.pathname === '/'
-            ? { borderBottom: 2, borderColor: 'orange' }
-            : {})}
-        >
+        <NavLink to="/" mr={2}>
           Home
         </NavLink>
       </ListItem>
 
       <ListItem display="inline-block">
-        <NavLink
-          to="/projects/"
-          mr={2}
-          {...(location.pathname.indexOf('/projects') === 0
-            ? { borderBottom: 2, borderColor: 'orange' }
-            : {})}
-        >
+        <NavLink to="/projects/" mr={2}>
           Projects
         </NavLink>
       </ListItem>
 
       <ListItem display="inline-block">
-        <NavLink
-          to="/blog/"
-          mr={2}
-          {...(location.pathname.indexOf('/blog') === 0
-            ? { borderBottom: 2, borderColor: 'orange' }
-            : {})}
-        >
+        <NavLink to="/blog/" mr={2}>
           Blog
         </NavLink>
       </ListItem>
 
       <ListItem display="inline-block">
-        <NavLink
-          to="/about/"
-          {...(location.pathname.indexOf('/about') === 0
-            ? { borderBottom: 2, borderColor: 'orange' }
-            : {})}
-        >
-          About
-        </NavLink>
+        <NavLink to="/about/">About</NavLink>
       </ListItem>
     </List>
   </Flex>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import system from 'system-components'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -8,7 +8,9 @@ import { Text } from '../components/Primitives'
 import { Title, Subtitle } from '../components/Typography'
 import { textHover } from '../utils/styles'
 
-const HaikuLink = system({ is: Link }, textHover)
+const HaikuLink = styled(Link)`
+  ${textHover};
+`
 
 const errorPage = ({ location }) => (
   <Layout location={location}>
