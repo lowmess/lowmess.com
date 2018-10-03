@@ -20,10 +20,6 @@ import {
   focus,
   active,
 } from 'styled-system'
-import { Text } from './Primitives'
-
-const Title = Text.withComponent('h1')
-const Subtitle = Text.withComponent('h2')
 
 const Paragraph = styled.p`
   max-width: 33em;
@@ -86,4 +82,4 @@ const ListItem = styled.li`
   ${fontFamily};
 `
 
-export { Title, Subtitle, Paragraph, Rule, List, ListItem }
+export { Paragraph, Rule, List, ListItem }

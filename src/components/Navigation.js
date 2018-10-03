@@ -4,10 +4,14 @@ import { Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
 
-const Nav = Flex.withComponent('nav')
-
 const Navigation = ({ location }) => (
-  <Nav align="center" justify="space-between" mt={[0, 2, 3]} mb={[5, 6]}>
+  <Flex
+    as="nav"
+    align="center"
+    justify="space-between"
+    mt={[0, 2, 3]}
+    mb={[5, 6]}
+  >
     <Flex align="center">
       <Link to="/">
         <Text color="orange">
@@ -89,7 +93,7 @@ const Navigation = ({ location }) => (
         </Link>
       </ListItem>
     </List>
-  </Nav>
+  </Flex>
 )
 
 export default Navigation

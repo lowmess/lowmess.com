@@ -3,9 +3,7 @@ import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import { Text } from '../components/Primitives'
-import { Title, Subtitle, Rule } from '../components/Typography'
-
-const Haiku = Text.withComponent('pre')
+import { Rule } from '../components/Typography'
 
 const errorPage = ({ location }) => (
   <Layout location={location}>
@@ -15,7 +13,8 @@ const errorPage = ({ location }) => (
 
     <article>
       <header>
-        <Title
+        <Text
+          as="h1"
           fontSize={[4, 5]}
           fontWeight="7"
           lineHeight="title"
@@ -23,9 +22,10 @@ const errorPage = ({ location }) => (
           mb={3}
         >
           Error 404
-        </Title>
+        </Text>
 
-        <Subtitle
+        <Text
+          as="h2"
           fontSize={[3, 4]}
           fontWeight="5"
           lineHeight="title"
@@ -33,14 +33,19 @@ const errorPage = ({ location }) => (
           mb={4}
         >
           Requested Page Not Found
-        </Subtitle>
+        </Text>
 
         <Rule mt={4} mb={5} />
       </header>
 
       <main>
         {/* have to ugily do this because somewhere whitespace gets removed */}
-        <Haiku fontSize={[2, 3]} fontFamily="monospace" lineHeight="title">
+        <Text
+          as="pre"
+          fontSize={[2, 3]}
+          fontFamily="monospace"
+          lineHeight="title"
+        >
           "
           <Link to="/">
             <Text color="darkGrey" hover={{ color: 'orange' }}>
@@ -52,7 +57,7 @@ const errorPage = ({ location }) => (
           <br />
           &nbsp;But at least it's clear.
           <br />
-        </Haiku>
+        </Text>
       </main>
     </article>
   </Layout>

@@ -4,13 +4,11 @@ import Helmet from 'react-helmet'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
 import Layout from '../components/Layout'
-import { Title, Subtitle, Rule } from '../components/Typography'
+import { Text } from '../components/Primitives'
+import { Rule } from '../components/Typography'
 import MarkdownContent from '../components/MarkdownContent'
 
 import 'lowmess-prism'
-
-const Content = MarkdownContent.withComponent('main')
-const PostDate = Subtitle.withComponent('p')
 
 const BlogPostTemplate = ({ location, data }) => {
   const post = data.markdownRemark
@@ -44,7 +42,8 @@ const BlogPostTemplate = ({ location, data }) => {
       </Helmet>
       <article>
         <header>
-          <Title
+          <Text
+            as="h1"
             fontSize={[4, 5]}
             fontWeight="7"
             lineHeight="title"
@@ -52,8 +51,10 @@ const BlogPostTemplate = ({ location, data }) => {
             mb={3}
           >
             {post.frontmatter.title}
-          </Title>
-          <PostDate
+          </Text>
+
+          <Text
+            as="p"
             fontSize={[3, 4]}
             fontWeight="5"
             lineHeight="title"
@@ -61,10 +62,12 @@ const BlogPostTemplate = ({ location, data }) => {
             mb={4}
           >
             <time dateTime={date}>{format(date, 'MMMM D, YYYY')}</time>
-          </PostDate>
+          </Text>
+
           <Rule mt={4} mb={5} />
         </header>
-        <Content
+        <MarkdownContent
+          as="main"
           lineHeight="copy"
           fontSize={[1, 2]}
           dangerouslySetInnerHTML={{ __html: post.html }}

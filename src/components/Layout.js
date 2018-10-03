@@ -92,8 +92,6 @@ const Constraint = styled(Flex)`
   margin-left: auto;
 `
 
-const Main = Box.withComponent('main')
-
 const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
@@ -159,7 +157,9 @@ const Layout = ({ children, location }) => (
               <Constraint>
                 <Navigation location={location} />
 
-                <Main mb={[5, 6]}>{children}</Main>
+                <Box as="main" mb={[5, 6]}>
+                  {children}
+                </Box>
 
                 <Footer />
               </Constraint>

@@ -5,18 +5,15 @@ import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
 import Layout from '../../components/Layout'
 import { Box, Flex, Text } from '../../components/Primitives'
-import { Title, Paragraph, Rule } from '../../components/Typography'
+import { Paragraph, Rule } from '../../components/Typography'
 import ArrowLink from '../../components/ArrowLink'
-
-const Year = Text.withComponent('h2')
-const PostTitle = Text.withComponent('h3')
 
 const YearTitle = ({ date }) => {
   const cleanDate = addDays(new Date(date), 1)
   return (
-    <Year fontSize={[2, 3]} fontWeight="5" mt={0}>
+    <Text as="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
       {format(cleanDate, 'YYYY')}
-    </Year>
+    </Text>
   )
 }
 
@@ -31,7 +28,8 @@ const BlogPage = ({ location, data }) => {
 
       <article>
         <header>
-          <Title
+          <Text
+            as="h1"
             fontSize={[4, 5]}
             fontWeight="7"
             lineHeight="title"
@@ -39,7 +37,7 @@ const BlogPage = ({ location, data }) => {
             mb={3}
           >
             Eloquent Writings About Stuff
-          </Title>
+          </Text>
 
           <Rule mt={4} mb={5} />
         </header>
@@ -69,7 +67,8 @@ const BlogPage = ({ location, data }) => {
 
                 <Box width={[1, 4 / 5]}>
                   <Link to={fields.slug}>
-                    <PostTitle
+                    <Text
+                      as="h3"
                       display="inline-block"
                       fontSize={[2, 3]}
                       fontWeight="7"
@@ -79,7 +78,7 @@ const BlogPage = ({ location, data }) => {
                       my={0}
                     >
                       {frontmatter.title}
-                    </PostTitle>
+                    </Text>
                   </Link>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>

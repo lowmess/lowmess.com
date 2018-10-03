@@ -4,8 +4,6 @@ import { Box, Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import ArrowLink from './ArrowLink'
 
-const Foot = Flex.withComponent('footer')
-
 const Footer = () => (
   <StaticQuery
     query={graphql`
@@ -30,7 +28,8 @@ const Footer = () => (
     render={data => {
       const post = data.allMarkdownRemark.edges[0].node
       return (
-        <Foot
+        <Flex
+          as="footer"
           mt="auto"
           mb={[3, 3, 4]}
           align="center"
@@ -78,7 +77,7 @@ const Footer = () => (
               </a>
             </ListItem>
           </List>
-        </Foot>
+        </Flex>
       )
     }}
   />

@@ -4,7 +4,6 @@ import { Paragraph } from './Typography'
 import ArrowLink from './ArrowLink'
 
 const ProjectPreview = ({ project, level, ...props }) => {
-  const ProjectTitle = Text.withComponent(level)
   const WebsiteComponent = project.website ? (
     <ArrowLink dest={project.website} external={true}>
       Website
@@ -22,7 +21,8 @@ const ProjectPreview = ({ project, level, ...props }) => {
   return (
     <Box {...props}>
       <a href={project.website ? project.website : project.repo}>
-        <ProjectTitle
+        <Text
+          as={level}
           display="inline-block"
           fontSize={[2, 3]}
           fontWeight={7}
@@ -32,7 +32,7 @@ const ProjectPreview = ({ project, level, ...props }) => {
           hover={{ color: 'orange' }}
         >
           {project.title}
-        </ProjectTitle>
+        </Text>
       </a>
       <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
         {project.description}

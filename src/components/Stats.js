@@ -3,8 +3,6 @@ import fetch from 'unfetch'
 import { Box, Text } from './Primitives'
 import Stat from './Stat'
 
-const SectionTitle = Text.withComponent('h2')
-
 class Stats extends Component {
   constructor() {
     super()
@@ -101,9 +99,9 @@ class Stats extends Component {
   render() {
     return (
       <Box {...this.props}>
-        <SectionTitle fontSize={[3, 4]} mt={0} mb={4}>
+        <Text as="h2" fontSize={[3, 4]} mt={0} mb={4}>
           In the Last 30 Days
-        </SectionTitle>
+        </Text>
         <Stat mb={2} title="GitHub Commits">
           {this.state.commits}
         </Stat>

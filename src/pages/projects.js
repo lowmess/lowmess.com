@@ -2,7 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
-import { Title, Rule } from '../components/Typography'
+import { Text } from '../components/Primitives'
+import { Rule } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
 
 const ProjectsPage = ({ location, data }) => {
@@ -15,7 +16,8 @@ const ProjectsPage = ({ location, data }) => {
 
       <article>
         <header>
-          <Title
+          <Text
+            as="h1"
             fontSize={[4, 5]}
             fontWeight="7"
             lineHeight="title"
@@ -23,7 +25,7 @@ const ProjectsPage = ({ location, data }) => {
             mb={3}
           >
             First-World Problem Solvers
-          </Title>
+          </Text>
 
           <Rule mt={4} mb={5} />
         </header>

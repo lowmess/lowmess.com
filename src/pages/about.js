@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import { Text } from '../components/Primitives'
-import { Title, Paragraph, Rule } from '../components/Typography'
+import { Paragraph, Rule } from '../components/Typography'
 import Stats from '../components/Stats'
 
 const LinkStyle = ({ children }) => (
@@ -25,7 +25,8 @@ const AboutPage = ({ location, data }) => (
 
     <article>
       <header>
-        <Title
+        <Text
+          as="h1"
           fontSize={[4, 5]}
           fontWeight="7"
           lineHeight="title"
@@ -33,7 +34,7 @@ const AboutPage = ({ location, data }) => (
           mb={3}
         >
           Self-Doxxing
-        </Title>
+        </Text>
 
         <Rule mt={4} mb={5} />
       </header>
