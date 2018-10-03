@@ -1,33 +1,57 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import system from 'system-components'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
-import { Flex, Box, Text } from '../components/Primitives'
-import { Title, Rule } from '../components/Typography'
+import Header from '../components/Header'
+import { Flex } from '../components/Primitives'
+import { Title } from '../components/Typography'
+import { textHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
 
-const Columns = Flex.withComponent('main')
-const Column = Box.withComponent('section')
-
-const SectionTitle = Text.withComponent('h2')
-
-const Dep = Flex.withComponent('p')
-const DepLink = ({ children, ...props }) => (
-  <Text
-    color="darkGrey"
-    hover={{ color: 'orange' }}
-    fontSize={[2, 3]}
-    fontWeight={6}
-    {...props}
-  >
-    {children}
-  </Text>
+const Section = system(
+  {
+    is: 'section',
+  },
+  'space'
 )
-const DepVer = ({ children, ...props }) => (
-  <Text font="monospace" {...props}>
-    v{children}
-  </Text>
+
+const SectionTitle = system({
+  is: 'h2',
+  fontSize: [3, 4],
+  my: 0,
+})
+
+const Dep = system({
+  is: 'p',
+  display: 'flex',
+  alignItems: 'center',
+  mt: 3,
+  mb: 0,
+})
+
+const DepLink = system(
+  {
+    is: 'a',
+    fontSize: [2, 3],
+    fontWeight: 6,
+  },
+  textHover
 )
+
+const DepVer = system({
+  is: 'span',
+  fontFamily: 'monospace',
+  ml: 3,
+})
+
+const SanityCheck = system({
+  is: 'p',
+  mt: 3,
+  mb: 0,
+  fontSize: [2, 3],
+  fontWeight: 6,
+})
 
 const ColophonPage = ({ location, data }) => {
   const {
@@ -35,13 +59,14 @@ const ColophonPage = ({ location, data }) => {
     'react-helmet': { version: helmet },
     'date-fns': { version: dateFns },
     'sanitize.css': { version: sanitize },
-    emotion: { version: emotion },
-    'styled-system': { version: styledSystem },
+    'styled-components': { version: styledComponents },
+    'system-components': { version: systemComponents },
     'hero-patterns': { version: heroPatterns },
     prettier: { version: prettier },
     husky: { version: husky },
     'lint-staged': { version: lintStaged },
   } = dependencies
+
   return (
     <Layout location={location}>
       <Helmet>
@@ -49,169 +74,111 @@ const ColophonPage = ({ location, data }) => {
       </Helmet>
 
       <article>
-        <header>
-          <Title
-            fontSize={[4, 5]}
-            fontWeight="7"
-            lineHeight="title"
-            mt={0}
-            mb={3}
-          >
-            Building Blocks
-          </Title>
+        <Header>
+          <Title>Building Blocks</Title>
+        </Header>
 
-          <Rule mt={4} mb={5} />
-        </header>
+        <Flex is="main" flexDirection={['column', 'column', 'row']}>
+          <Section mr={[0, 0, 6]}>
+            <SectionTitle>Functionality</SectionTitle>
 
-        <Columns flexDirection={['column', 'column', 'row']}>
-          <Column mr={[0, 0, 6]} mb={[3, 3, 0]}>
-            <SectionTitle fontSize={[3, 4]} mt={0} mb={0}>
-              Functionality
-            </SectionTitle>
-
-            <Dep alignItems="center" mt={4} mb={0}>
-              <a href="https://gatsbyjs.org">
-                <DepLink>GatsbyJS</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{gatsby}</DepVer>
+            <Dep mt={4}>
+              <DepLink href="https://gatsbyjs.org">GatsbyJS</DepLink>{' '}
+              <DepVer>{gatsby}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://github.com/nfl/react-helmet">
-                <DepLink>React Helmet</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{helmet}</DepVer>
+            <Dep>
+              <DepLink href="https://github.com/nfl/react-helmet">
+                React Helmet
+              </DepLink>{' '}
+              <DepVer>{helmet}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://date-fns.org/">
-                <DepLink>date-fns</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{dateFns}</DepVer>
+            <Dep>
+              <DepLink href="https://date-fns.org/">date-fns</DepLink>{' '}
+              <DepVer>{dateFns}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://csstools.github.io/sanitize.css/">
-                <DepLink>sanitize.css</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{sanitize}</DepVer>
+            <Dep>
+              <DepLink href="https://csstools.github.io/sanitize.css/">
+                sanitize.css
+              </DepLink>{' '}
+              <DepVer>{sanitize}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://emotion.sh/">
-                <DepLink>emotion</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{emotion}</DepVer>
+            <Dep>
+              <DepLink href="https://styled-components.com/">
+                styled-components
+              </DepLink>{' '}
+              <DepVer>{styledComponents}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="http://jxnblk.com/styled-system/">
-                <DepLink>styled-system</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{styledSystem}</DepVer>
+            <Dep>
+              <DepLink href="https://github.com/jxnblk/styled-system/tree/master/system-components">
+                system-components
+              </DepLink>{' '}
+              <DepVer>{systemComponents}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://hero-patterns.lowmess.com">
-                <DepLink>hero-patterns.js</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{heroPatterns}</DepVer>
+            <Dep>
+              <DepLink href="https://hero-patterns.lowmess.com">
+                hero-patterns.js
+              </DepLink>{' '}
+              <DepVer>{heroPatterns}</DepVer>
             </Dep>
-          </Column>
+          </Section>
 
-          <Column mt={[5, 5, 0]} mr={[0, 0, 6]}>
-            <SectionTitle fontSize={[3, 4]} mt={0} mb={0}>
-              Infrastructure
-            </SectionTitle>
+          <Section mt={[5, 5, 0]} mr={[0, 0, 6]}>
+            <SectionTitle>Infrastructure</SectionTitle>
 
-            <Dep alignItems="center" mt={4} mb={0}>
-              <a href="https://netlify.com">
-                <DepLink>Netlify</DepLink>
-              </a>
+            <Dep mt={4}>
+              <DepLink href="https://netlify.com">Netlify</DepLink>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://github.com">
-                <DepLink>GitHub</DepLink>
-              </a>
+            <Dep>
+              <DepLink href="https://github.com">GitHub</DepLink>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://get.gaug.es">
-                <DepLink>Gauges</DepLink>
-              </a>
+            <Dep>
+              <DepLink href="https://get.gaug.es">Gauges</DepLink>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://prettier.io/">
-                <DepLink>Prettier</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{prettier}</DepVer>
+            <Dep>
+              <DepLink href="https://prettier.io/">Prettier</DepLink>{' '}
+              <DepVer>{prettier}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://github.com/typicode/husky">
-                <DepLink>husky</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{husky}</DepVer>
+            <Dep>
+              <DepLink href="https://github.com/typicode/husky">husky</DepLink>{' '}
+              <DepVer>{husky}</DepVer>
             </Dep>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <a href="https://github.com/okonet/lint-staged">
-                <DepLink>lint-staged</DepLink>
-              </a>{' '}
-              <DepVer ml={3}>{lintStaged}</DepVer>
+            <Dep>
+              <DepLink href="https://github.com/okonet/lint-staged">
+                lint-staged
+              </DepLink>{' '}
+              <DepVer>{lintStaged}</DepVer>
             </Dep>
-          </Column>
+          </Section>
 
-          <Column mt={[5, 5, 0]}>
-            <SectionTitle fontSize={[3, 4]} mt={0} mb={0}>
-              Sanity
-            </SectionTitle>
+          <Section mt={[5, 5, 0]}>
+            <SectionTitle>Sanity</SectionTitle>
 
-            <Dep alignItems="center" mt={4} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Music
-              </Text>
-            </Dep>
+            <SanityCheck mt={4}>Music</SanityCheck>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Podcasts
-              </Text>
-            </Dep>
+            <SanityCheck>Podcasts</SanityCheck>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Coffee
-              </Text>
-            </Dep>
+            <SanityCheck>Coffee</SanityCheck>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Beer
-              </Text>
-            </Dep>
+            <SanityCheck>Beer</SanityCheck>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Burritos
-              </Text>
-            </Dep>
+            <SanityCheck>Burritos</SanityCheck>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Air Conditioning
-              </Text>
-            </Dep>
+            <SanityCheck>Air Conditioning</SanityCheck>
 
-            <Dep alignItems="center" mt={3} mb={0}>
-              <Text fontSize={[2, 3]} fontWeight={6}>
-                Skateboarding
-              </Text>
-            </Dep>
-          </Column>
-        </Columns>
+            <SanityCheck>Skateboarding</SanityCheck>
+          </Section>
+        </Flex>
       </article>
     </Layout>
   )

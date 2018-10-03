@@ -70,11 +70,11 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-emotion',
     'gatsby-plugin-netlify',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-styled-components',
   ],
 }

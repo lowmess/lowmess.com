@@ -1,16 +1,10 @@
-import styled from 'react-emotion'
-import { space, fontSize, color, fontFamily, lineHeight } from 'styled-system'
+import styled from 'styled-components'
+import { Box } from './Primitives'
 
 // this component basically exists as a giant stylesheet that inherits from the theme
 // it's for markdown content (hence the name)
 // it's kind of a b
-const MarkdownContent = styled('div')`
-  ${space};
-  ${fontSize};
-  ${color};
-  ${fontFamily};
-  ${lineHeight};
-
+const MarkdownContent = styled(Box)`
   /* Vertical Rhythm */
   & > * {
     /* reset all margins */

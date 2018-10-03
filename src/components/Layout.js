@@ -1,8 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled, { injectGlobal } from 'react-emotion'
-import { ThemeProvider } from 'emotion-theming'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { topography } from 'hero-patterns'
 import theme from '../utils/theme'
 import { Box, Flex } from './Primitives'
@@ -10,18 +9,28 @@ import Navigation from './Navigation'
 import Footer from './Footer'
 
 import 'sanitize.css'
-injectGlobal`
+
+const GlobalStyles = createGlobalStyle`
   html {
-    box-sizing: border-box;
-    background-color: ${theme.colors.orange};
+    background-color: ${({ theme }) => theme.colors.orange};
+    background-image: ${({ theme }) => topography(theme.colors.white)};
+    background-position: center top;
+    background-size: 900px;
+    background-repeat: repeat;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+      background-size: 1200px;
+    }
 
     @media print {
-      background-color: transparent;
+      background: none;
     }
   }
+
   ::selection {
-    background-color: ${theme.colors.orange};
+    background-color: ${({ theme }) => theme.colors.orange} !important;
   }
+
   a {
     text-decoration: none;
     text-decoration-skip: ink;
@@ -35,7 +44,7 @@ injectGlobal`
   }
 `
 
-const Backdrop = styled(Box)`
+const Border = styled(Box)`
   display: grid;
   grid-template-areas:
     'border-top border-top border-top'
@@ -47,13 +56,10 @@ const Backdrop = styled(Box)`
     ${({ theme }) => theme.space[2]};
   grid-template-columns:
     ${({ theme }) => theme.space[2]}
-    1fr
+    minmax(0, 1fr)
     ${({ theme }) => theme.space[2]};
   min-height: 100vh;
-  background-image: ${({ theme }) => topography(theme.colors.white)};
-  background-position: center top;
-  background-size: 900px;
-  background-repeat: repeat;
+
   @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     grid-template-rows:
       ${({ theme }) => theme.space[3]}
@@ -61,28 +67,21 @@ const Backdrop = styled(Box)`
       ${({ theme }) => theme.space[3]};
     grid-template-columns:
       ${({ theme }) => theme.space[3]}
-      1fr
+      minmax(0, 1fr)
       ${({ theme }) => theme.space[3]};
     background-size: 1200px;
   }
+
   @media print {
-    grid-template-rows: 0 1fr 0;
-    grid-template-columns: 0 1fr 0;
+    display: block;
     min-height: 0;
     background: transparent;
-    padding: 0;
   }
 `
 
-// Not entirely sure why, but on pages with markdown code blocks, this container
-// will break out of the viewport (causing the page to have horizontal
-// scrollbars). It's not an issue with the code block styling nor the grid
-// container (`<Backdrop />`) as far as I can tell. Setting this `max-width`
-// appears to be the only fix. It is not the cleanest, but still better than
-// the `calc()` nightmare that was here before.
 const Content = styled(Box)`
   grid-area: content;
-  max-width: calc(100vw - (${({ theme }) => theme.space[2]} * 2));
+  background-color: ${({ theme }) => theme.colors.white};
 `
 
 const Constraint = styled(Flex)`
@@ -92,8 +91,6 @@ const Constraint = styled(Flex)`
   margin-right: auto;
   margin-left: auto;
 `
-
-const Main = Box.withComponent('main')
 
 const Layout = ({ children, location }) => (
   <StaticQuery
@@ -113,11 +110,14 @@ const Layout = ({ children, location }) => (
         <>
           <Helmet>
             <title>{data.site.siteMetadata.title}</title>
+
             <meta
               name="description"
               content={data.site.siteMetadata.description}
             />
+
             <meta name="theme-color" content={theme.colors.nearWhite} />
+
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -135,6 +135,7 @@ const Layout = ({ children, location }) => (
               href="/favicon-16x16.png"
               sizes="16x16"
             />
+
             <link rel="manifest" href="/manifest.json" />
             <link
               rel="mask-icon"
@@ -142,10 +143,12 @@ const Layout = ({ children, location }) => (
               color={theme.colors.orange}
             />
           </Helmet>
-          <Backdrop bg="orange">
+
+          <GlobalStyles />
+
+          <Border>
             <Content
               color="darkGrey"
-              bg="white"
               py={3}
               px={[3, 4]}
               borderRadius={2}
@@ -153,11 +156,15 @@ const Layout = ({ children, location }) => (
             >
               <Constraint>
                 <Navigation location={location} />
-                <Main mb={[5, 6]}>{children}</Main>
+
+                <Box as="main" mb={[5, 6]}>
+                  {children}
+                </Box>
+
                 <Footer />
               </Constraint>
             </Content>
-          </Backdrop>
+          </Border>
         </>
       </ThemeProvider>
     )}
