@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import fetch from 'unfetch'
 import { Box, Text } from './Primitives'
-import Stat from './Stat'
+import { Stat, StatTitle, StatValue } from './Stat'
 
 class Stats extends Component {
   constructor() {
@@ -102,25 +102,41 @@ class Stats extends Component {
         <Text as="h2" fontSize={[3, 4]} mt={0} mb={4}>
           In the Last 30 Days
         </Text>
-        <Stat mb={2} title="GitHub Commits">
-          {this.state.commits}
+
+        <Stat mb={2}>
+          <StatTitle>GitHub Commits</StatTitle>
+          <StatValue>{this.state.commits}</StatValue>
         </Stat>
-        <Stat mb={2} title="Places Visited">
-          {this.state.places}
+
+        <Stat mb={2}>
+          <StatTitle>Places Visited</StatTitle>
+          <StatValue>{this.state.places}</StatValue>
         </Stat>
-        <Stat mb={2} title="Steps Taken">
-          {this.state.steps}
+
+        <Stat mb={2}>
+          <StatTitle>Steps Taken</StatTitle>
+          <StatValue>{this.state.steps}</StatValue>
         </Stat>
-        <Stat mb={2} title="Hours Slept">
-          {this.state.sleep}
+
+        <Stat mb={2}>
+          <StatTitle>Hours Slept</StatTitle>
+          <StatValue>{this.state.sleep}</StatValue>
         </Stat>
-        <Stat mb={2} title="Songs Played">
-          {this.state.songs}
+
+        <Stat mb={2}>
+          <StatTitle>Songs Played</StatTitle>
+          <StatValue>{this.state.songs}</StatValue>
         </Stat>
-        <Stat mb={2} title="Top Album">
-          {this.state.album}
+
+        <Stat mb={2}>
+          <StatTitle>Top Album</StatTitle>
+          <StatValue>{this.state.album}</StatValue>
         </Stat>
-        <Stat title="Currently Reading">{this.state.book}</Stat>
+
+        <Stat>
+          <StatTitle>Currently Reading</StatTitle>
+          <StatValue>{this.state.book}</StatValue>
+        </Stat>
       </Box>
     )
   }
