@@ -23,14 +23,22 @@ const LinkText = system(
     fontFamily: 'monospace',
   },
   'space',
-  'borders',
-  'borderColor',
   textHover,
   activeBorder
 )
 
+const isActive = ({ location, href, isPartiallyCurrent }) => {
+  if (location.pathname === '/' && href === '/') {
+    return { className: 'active' }
+  } else if (isPartiallyCurrent && href !== '/') {
+    return { className: 'active' }
+  }
+
+  return null
+}
+
 const NavLink = ({ children, to, ...props }) => (
-  <Link to={to} activeClassName="active">
+  <Link to={to} getProps={isActive}>
     <LinkText {...props}>{children}</LinkText>
   </Link>
 )
