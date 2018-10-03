@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 import system from 'system-components'
 import Helmet from 'react-helmet'
 import format from 'date-fns/format'
@@ -29,7 +30,9 @@ const PostTitle = system({
   my: 0,
 })
 
-const PostLink = system({ is: Link }, textHover)
+const PostLink = styled(Link)`
+  ${textHover};
+`
 
 const BlogPage = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges
