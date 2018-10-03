@@ -12,13 +12,13 @@ import 'sanitize.css'
 
 const GlobalStyles = createGlobalStyle`
   html {
-    background-color: ${theme.colors.orange};
-    background-image: ${topography(theme.colors.white)};
+    background-color: ${({ theme }) => theme.colors.orange};
+    background-image: ${({ theme }) => topography(theme.colors.white)};
     background-position: center top;
     background-size: 900px;
     background-repeat: repeat;
 
-    @media (min-width: ${theme.breakpoints[0]}) {
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       background-size: 1200px;
     }
 
@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${theme.colors.orange} !important;
+    background-color: ${({ theme }) => theme.colors.orange} !important;
   }
 
   a {
