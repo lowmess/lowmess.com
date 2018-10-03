@@ -157,7 +157,7 @@ const Layout = ({ children, location }) => (
               <Constraint>
                 <Navigation location={location} />
 
-                <Box as="main" mb={[5, 6]}>
+                <Box is="main" mb={[5, 6]}>
                   {children}
                 </Box>
 
