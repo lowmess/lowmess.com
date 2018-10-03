@@ -43,7 +43,7 @@ const Navigation = ({ location }) => (
     mt={[0, 2, 3]}
     mb={[5, 6]}
   >
-    <Flex align="center">
+    <Flex alignItems="center">
       <Link to="/">
         <Text color="orange">
           <Icon glyph="logo" />
