@@ -1,21 +1,35 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import system from 'system-components'
 import Helmet from 'react-helmet'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
 import Layout from '../../components/Layout'
+import Header from '../../components/Header'
 import { Box, Flex, Text } from '../../components/Primitives'
-import { Paragraph, Rule } from '../../components/Typography'
+import { Title, Paragraph } from '../../components/Typography'
 import ArrowLink from '../../components/ArrowLink'
+import { textHover } from '../../utils/styles'
 
 const YearTitle = ({ date }) => {
   const cleanDate = addDays(new Date(date), 1)
   return (
-    <Text as="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
+    <Text is="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
       {format(cleanDate, 'YYYY')}
     </Text>
   )
 }
+
+const PostTitle = system({
+  is: 'h3',
+  display: 'inline-block',
+  fontSize: [2, 3],
+  fontWeight: 7,
+  lineHeight: 'title',
+  my: 0,
+})
+
+const PostLink = system({ is: Link }, textHover)
 
 const BlogPage = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -27,20 +41,9 @@ const BlogPage = ({ location, data }) => {
       </Helmet>
 
       <article>
-        <header>
-          <Text
-            as="h1"
-            fontSize={[4, 5]}
-            fontWeight="7"
-            lineHeight="title"
-            mt={0}
-            mb={3}
-          >
-            Eloquent Writings About Stuff
-          </Text>
-
-          <Rule mt={4} mb={5} />
-        </header>
+        <Header>
+          <Title>Eloquent Writings About Stuff</Title>
+        </Header>
 
         <main>
           {posts.map(({ node }, index) => {
@@ -58,7 +61,7 @@ const BlogPage = ({ location, data }) => {
               <Flex
                 key={node.fields.slug}
                 flexDirection="row"
-                align="start"
+                alignItems="flex-start"
                 {...(index + 1 === posts.length ? {} : { mb: [4, 5] })}
               >
                 <Box display={['none', 'block']} width={1 / 5}>
@@ -66,20 +69,9 @@ const BlogPage = ({ location, data }) => {
                 </Box>
 
                 <Box width={[1, 4 / 5]}>
-                  <Link to={fields.slug}>
-                    <Text
-                      as="h3"
-                      display="inline-block"
-                      fontSize={[2, 3]}
-                      fontWeight="7"
-                      lineHeight="title"
-                      color="darkGrey"
-                      hover={{ color: 'orange}}' }}
-                      my={0}
-                    >
-                      {frontmatter.title}
-                    </Text>
-                  </Link>
+                  <PostTitle>
+                    <PostLink to={fields.slug}>{frontmatter.title}</PostLink>
+                  </PostTitle>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                     {frontmatter.description}

@@ -4,8 +4,8 @@ import Helmet from 'react-helmet'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
 import Layout from '../components/Layout'
-import { Text } from '../components/Primitives'
-import { Rule } from '../components/Typography'
+import Header from '../components/Header'
+import { Title, Subtitle } from '../components/Typography'
 import MarkdownContent from '../components/MarkdownContent'
 
 import 'lowmess-prism'
@@ -21,7 +21,9 @@ const BlogPostTemplate = ({ location, data }) => {
         <title>
           {post.frontmatter.title} • {data.site.siteMetadata.title}
         </title>
+
         <meta name="description" content={post.frontmatter.description} />
+
         <meta name="twitter:site" content="@lowmess" />
         <meta name="twitter:card" content="summary" />
         <meta property="og:site_name" content={data.site.siteMetadata.title} />
@@ -40,34 +42,18 @@ const BlogPostTemplate = ({ location, data }) => {
           content={post.frontmatter.description}
         />
       </Helmet>
+
       <article>
-        <header>
-          <Text
-            as="h1"
-            fontSize={[4, 5]}
-            fontWeight="7"
-            lineHeight="title"
-            mt={0}
-            mb={3}
-          >
-            {post.frontmatter.title}
-          </Text>
+        <Header>
+          <Title>{post.frontmatter.title}</Title>
 
-          <Text
-            as="p"
-            fontSize={[3, 4]}
-            fontWeight="5"
-            lineHeight="title"
-            mt={3}
-            mb={4}
-          >
+          <Subtitle is="p">
             <time dateTime={date}>{format(date, 'MMMM D, YYYY')}</time>
-          </Text>
+          </Subtitle>
+        </Header>
 
-          <Rule mt={4} mb={5} />
-        </header>
         <MarkdownContent
-          as="main"
+          is="main"
           lineHeight="copy"
           fontSize={[1, 2]}
           dangerouslySetInnerHTML={{ __html: post.html }}

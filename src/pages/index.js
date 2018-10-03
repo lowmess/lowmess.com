@@ -1,55 +1,38 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import system from 'system-components'
 import Layout from '../components/Layout'
+import Header from '../components/Header'
 import { Text } from '../components/Primitives'
-import { Paragraph, Rule } from '../components/Typography'
+import { Title, Subtitle, Paragraph } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
+import { textHover } from '../utils/styles'
+
+const HeaderLink = system({ is: 'a' }, textHover)
 
 const indexPage = ({ location, data }) => {
   return (
     <Layout location={location}>
       <article>
-        <header>
-          <Text
-            as="h1"
-            fontSize={[4, 5]}
-            fontWeight="7"
-            lineHeight="title"
-            mt={0}
-            mb={3}
-          >
-            Hi! I&rsquo;m Alec&nbsp;Lomas.
-          </Text>
+        <Header>
+          <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
 
-          <Text
-            as="h2"
-            fontSize={[3, 4]}
-            fontWeight="5"
-            lineHeight="title"
-            my={3}
-          >
+          <Subtitle my={3}>
             I&rsquo;m a frontend developer &amp; designer at{' '}
-            <a href="https://fuelmade.com">
-              <Text color="darkGrey" hover={{ color: 'orange' }}>
-                Fuel&nbsp;Made
-              </Text>
-            </a>
-            .
-          </Text>
+            <HeaderLink href="https://fuelmade.com">Fuel&nbsp;Made</HeaderLink>.
+          </Subtitle>
 
-          <Paragraph fontSize={[2, 3]} lineHeight="copy" mt={3} mb={4}>
+          <Paragraph fontSize={[2, 3]} mt={3} mb={4}>
             My goal is to combine the principles of classic graphic design with
             the flexible and forward-thinking tenets of the internet. I care
             deeply about legibility, performance, and the open web.
             And&nbsp;burritos.
           </Paragraph>
-
-          <Rule mt={4} mb={5} />
-        </header>
+        </Header>
 
         <main>
           <Text
-            as="h2"
+            is="h2"
             fontSize={[3, 4]}
             fontWeight="7"
             lineHeight="title"

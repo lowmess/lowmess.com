@@ -1,8 +1,18 @@
 import React from 'react'
+import system from 'system-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { Box, Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import ArrowLink from './ArrowLink'
+import { textHover } from '../utils/styles'
+
+const SocialLink = system(
+  {
+    is: 'a',
+    fontSize: [0, 1],
+  },
+  textHover
+)
 
 const Footer = () => (
   <StaticQuery
@@ -29,52 +39,36 @@ const Footer = () => (
       const post = data.allMarkdownRemark.edges[0].node
       return (
         <Flex
-          as="footer"
+          is="footer"
+          alignItems="center"
+          justifyContent={['center', 'center', 'space-between']}
           mt="auto"
           mb={[3, 3, 4]}
-          align="center"
-          justify={['center', 'center', 'space-between']}
           fontFamily="monospace"
         >
           <Box display={['none', 'none', 'block']}>
             <Text mr={2}>From the blog:</Text>
+
             <ArrowLink fontWeight={7} dest={post.fields.slug}>
               {post.frontmatter.title}
             </ArrowLink>
           </Box>
+
           <List>
             <ListItem display="inline-block" mr={3}>
-              <a href="https://twitter.com/lowmess">
-                <Text
-                  color="darkGrey"
-                  hover={{ color: 'orange' }}
-                  fontSize={[0, 1]}
-                >
-                  Twitter
-                </Text>
-              </a>
+              <SocialLink href="https://twitter.com/lowmess">
+                Twitter
+              </SocialLink>
             </ListItem>
+
             <ListItem display="inline-block" mr={3}>
-              <a href="https://github.com/lowmess">
-                <Text
-                  color="darkGrey"
-                  hover={{ color: 'orange' }}
-                  fontSize={[0, 1]}
-                >
-                  GitHub
-                </Text>
-              </a>
+              <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
             </ListItem>
+
             <ListItem display="inline-block">
-              <a href="https://dribbble.com/lowmess">
-                <Text
-                  color="darkGrey"
-                  hover={{ color: 'orange' }}
-                  fontSize={[0, 1]}
-                >
-                  Dribbble
-                </Text>
-              </a>
+              <SocialLink href="https://dribbble.com/lowmess">
+                Dribbble
+              </SocialLink>
             </ListItem>
           </List>
         </Flex>

@@ -99,7 +99,7 @@ class Stats extends Component {
   render() {
     return (
       <Box {...this.props}>
-        <Text as="h2" fontSize={[3, 4]} mt={0} mb={4}>
+        <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
           In the Last 30 Days
         </Text>
 

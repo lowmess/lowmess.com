@@ -1,21 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import system from 'system-components'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
-import { Text } from '../components/Primitives'
-import { Paragraph, Rule } from '../components/Typography'
+import Header from '../components/Header'
+import { Title, Paragraph } from '../components/Typography'
 import Stats from '../components/Stats'
+import { textHover, themeUnderline } from '../utils/styles'
 
-const LinkStyle = ({ children }) => (
-  <Text
-    color="darkGrey"
-    textDecoration="underline"
-    textDecorationColor="orange"
-    hover={{ color: 'orange' }}
-  >
-    {children}
-  </Text>
-)
+const AboutLink = system({ is: 'a' }, textHover, themeUnderline)
 
 const AboutPage = ({ location, data }) => (
   <Layout location={location}>
@@ -24,20 +17,9 @@ const AboutPage = ({ location, data }) => (
     </Helmet>
 
     <article>
-      <header>
-        <Text
-          as="h1"
-          fontSize={[4, 5]}
-          fontWeight="7"
-          lineHeight="title"
-          mt={0}
-          mb={3}
-        >
-          Self-Doxxing
-        </Text>
-
-        <Rule mt={4} mb={5} />
-      </header>
+      <Header>
+        <Title>Self-Doxxing</Title>
+      </Header>
 
       <main>
         <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={5} mb={3}>
@@ -49,9 +31,7 @@ const AboutPage = ({ location, data }) => (
 
         <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
           That&rsquo;s what the intro on{' '}
-          <a href="https://resume.lowmess.com">
-            <LinkStyle>my résumé</LinkStyle>
-          </a>{' '}
+          <AboutLink href="https://resume.lowmess.com">my résumé</AboutLink>{' '}
           says. Kind of boring, huh? Well, it&rsquo;s a résumé. They&rsquo;re
           supposed to be boring. (Don&rsquo;t be such a nitpicker.)
         </Paragraph>
@@ -62,10 +42,7 @@ const AboutPage = ({ location, data }) => (
           I&rsquo;m a staunch believer in the Oxford comma. If you have any
           questions, I&rsquo;m happy to send you a non sequitur and/or
           fully-serious response if you{' '}
-          <a href="mailto:alec@lowmess.com">
-            <LinkStyle>email me</LinkStyle>
-          </a>
-          .
+          <AboutLink href="mailto:alec@lowmess.com">email me</AboutLink>.
         </Paragraph>
 
         <Stats mt={5} />
