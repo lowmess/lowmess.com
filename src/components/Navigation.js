@@ -73,19 +73,19 @@ const Navigation = ({ location }) => (
       </ListItem>
 
       <ListItem display="inline-block">
-        <NavLink to="/projects/" mr={2}>
+        <NavLink to="/projects" mr={2}>
           Projects
         </NavLink>
       </ListItem>
 
       <ListItem display="inline-block">
-        <NavLink to="/blog/" mr={2}>
+        <NavLink to="/blog" mr={2}>
           Blog
         </NavLink>
       </ListItem>
 
       <ListItem display="inline-block">
-        <NavLink to="/about/">About</NavLink>
+        <NavLink to="/about">About</NavLink>
       </ListItem>
     </List>
   </Flex>

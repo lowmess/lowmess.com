@@ -51,6 +51,7 @@ const BlogPage = ({ location, data }) => {
         <main>
           {posts.map(({ node }, index) => {
             const { fields, frontmatter } = node
+            const slug = fields.slug.slice(0, -1)
             const thisYear = format(
               addDays(new Date(frontmatter.date), 1),
               'YYYY'
@@ -73,14 +74,14 @@ const BlogPage = ({ location, data }) => {
 
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
-                    <PostLink to={fields.slug}>{frontmatter.title}</PostLink>
+                    <PostLink to={slug}>{frontmatter.title}</PostLink>
                   </PostTitle>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                     {frontmatter.description}
                   </Paragraph>
 
-                  <ArrowLink dest={fields.slug}>Read More</ArrowLink>
+                  <ArrowLink dest={slug}>Read More</ArrowLink>
                 </Box>
               </Flex>
             )
