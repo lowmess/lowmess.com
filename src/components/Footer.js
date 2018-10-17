@@ -4,14 +4,14 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Box, Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import ArrowLink from './ArrowLink'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 
 const SocialLink = system(
   {
     is: 'a',
     fontSize: [0, 1],
   },
-  textHover
+  themeHover
 )
 
 const Footer = () => (

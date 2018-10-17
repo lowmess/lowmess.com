@@ -6,9 +6,9 @@ import Header from '../components/Header'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle, Paragraph } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 
-const HeaderLink = system({ is: 'a' }, textHover)
+const HeaderLink = system({ is: 'a' }, themeHover)
 
 const indexPage = ({ location, data }) => {
   return (

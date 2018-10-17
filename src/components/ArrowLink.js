@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import system from 'system-components'
 import Icon from './Icon'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 
 const ArrowText = system(
   {
@@ -13,7 +13,7 @@ const ArrowText = system(
     fontSize: [0, 1],
     fontWeight: 4,
   },
-  textHover
+  themeHover
 )
 
 const ArrowLink = ({ dest, children, external, ...props }) => {

@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
+    color: inherit;
     text-decoration: none;
     text-decoration-skip: ink;
     text-decoration-skip-ink: auto;

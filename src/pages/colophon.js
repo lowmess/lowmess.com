@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Flex } from '../components/Primitives'
 import { Title } from '../components/Typography'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
 
 const Section = system(
@@ -36,7 +36,7 @@ const DepLink = system(
     fontSize: [2, 3],
     fontWeight: 6,
   },
-  textHover
+  themeHover
 )
 
 const DepVer = system({
