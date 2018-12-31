@@ -83,6 +83,16 @@ const MarkdownContent = styled(Box)`
     }
   }
 
+  h1 code,
+  h2 code,
+  h3 code,
+  h4 code,
+  h5 code,
+  h6 code {
+    background-color: transparent;
+    color: inherit;
+  }
+
   /* Type Elements */
 
   hr {
@@ -154,7 +164,8 @@ const MarkdownContent = styled(Box)`
     }
   }
 
-  blockquote {
+  blockquote,
+  details {
     margin-top: ${({ theme }) => theme.space[4]};
     margin-right: 0;
     margin-bottom: ${({ theme }) => theme.space[4]};
@@ -229,6 +240,12 @@ const MarkdownContent = styled(Box)`
     margin-top: ${({ theme }) => theme.space[4]};
     margin-bottom: ${({ theme }) => theme.space[4]};
     border-radius: ${({ theme }) => theme.radii[1]};
+  }
+
+  iframe {
+    margin-top: ${({ theme }) => theme.space[4]};
+    margin-bottom: ${({ theme }) => theme.space[4]};
+    border: 1px solid ${({ theme }) => theme.colors.grey};
   }
 `
 
