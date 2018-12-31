@@ -6,9 +6,9 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Title, Paragraph } from '../components/Typography'
 import Stats from '../components/Stats'
-import { textHover, themeUnderline } from '../utils/styles'
+import { themeHover, themeUnderline } from '../utils/styles'
 
-const AboutLink = system({ is: 'a' }, textHover, themeUnderline)
+const AboutLink = system({ is: 'a' }, themeHover, themeUnderline)
 
 const AboutPage = ({ location, data }) => (
   <Layout location={location}>

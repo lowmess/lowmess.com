@@ -10,7 +10,7 @@ import Header from '../../components/Header'
 import { Box, Flex, Text } from '../../components/Primitives'
 import { Title, Paragraph } from '../../components/Typography'
 import ArrowLink from '../../components/ArrowLink'
-import { textHover } from '../../utils/styles'
+import { themeHover } from '../../utils/styles'
 
 const YearTitle = ({ date }) => {
   const cleanDate = addDays(new Date(date), 1)
@@ -31,7 +31,7 @@ const PostTitle = system({
 })
 
 const PostLink = styled(Link)`
-  ${textHover};
+  ${themeHover};
 `
 
 const BlogPage = ({ location, data }) => {

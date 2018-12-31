@@ -6,10 +6,10 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle } from '../components/Typography'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 
 const HaikuLink = styled(Link)`
-  ${textHover};
+  ${themeHover};
 `
 
 const errorPage = ({ location }) => (

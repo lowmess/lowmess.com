@@ -1,6 +1,6 @@
 import React from 'react'
 import system from 'system-components'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 import { Box, Text } from './Primitives'
 import { Paragraph } from './Typography'
 import ArrowLink from './ArrowLink'
@@ -14,7 +14,7 @@ const ProjectTitle = system(
     fontWeight: 7,
     lineHeight: 'title',
   },
-  textHover
+  themeHover
 )
 
 const ProjectPreview = ({ project, level, ...props }) => {

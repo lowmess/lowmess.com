@@ -5,7 +5,7 @@ import system from 'system-components'
 import { Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
 import Icon from './Icon'
-import { textHover } from '../utils/styles'
+import { themeHover } from '../utils/styles'
 
 const activeBorder = css`
   .active & {
@@ -23,7 +23,7 @@ const LinkText = system(
     fontFamily: 'monospace',
   },
   'space',
-  textHover,
+  themeHover,
   activeBorder
 )
 
