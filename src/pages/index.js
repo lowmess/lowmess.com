@@ -18,8 +18,11 @@ const indexPage = ({ location, data }) => {
           <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
 
           <Subtitle my={3}>
-            I&rsquo;m a frontend developer &amp; designer at{' '}
-            <HeaderLink href="https://fuelmade.com">Fuel&nbsp;Made</HeaderLink>.
+            I&rsquo;m a frontend developer &amp; designer{' '}
+            <HeaderLink href="mailto:alec@lowmess.com?subject=Let's%20Work%20Together">
+              looking for new&nbsp;opportunities
+            </HeaderLink>
+            .
           </Subtitle>
 
           <Paragraph fontSize={[2, 3]} mt={3} mb={4}>
