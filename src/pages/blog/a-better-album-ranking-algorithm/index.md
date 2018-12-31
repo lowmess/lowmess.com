@@ -24,7 +24,7 @@ Here, we weight the duration in 45 minute increments, the length of a single LP 
 
 ## Ok, You Got Me. Something Exactly As Simple As That
 
-Let's take two albums of varying lengths and see how they handle this algorithm. Our albums:
+Let's take three albums of varying lengths and see how they handle this algorithm. Our albums:
 
 ```json
 [
@@ -60,10 +60,10 @@ Now we're getting somewhere. Even though _Cardinal_ has the most playthroughs, _
 
 Given all the information we need, the algorithm works. But we still have to get the information, and unfortunately, Last.fm doesn't make it too easy on us:
 
-* We can easily get a user's top albums, but the response doesn't include information on the amount of tracks on, or duration of, each album.
-* Last.fm doesn't use unique IDs to track albums, so we have to use an endpoint that searches by album name and artist to get detailed album information. This often fails or retrieves the wrong album, even when the album name and artist are provided by Last.fm (like from the previously discussed endpoint).
-* Once we find an album, track listings are missing or incomplete about 20% of the time. This happens more often with newer albums.
-* Neither the top albums nor album info endpoints give us the album's release year. This doesn't impact the algorithm, I just thought it was odd.
+- We can easily get a user's top albums, but the response doesn't include information on the amount of tracks on, or duration of, each album.
+- Last.fm doesn't use unique IDs to track albums, so we have to use an endpoint that searches by album name and artist to get detailed album information. This often fails or retrieves the wrong album, even when the album name and artist are provided by Last.fm (like from the previously discussed endpoint).
+- Once we find an album, track listings are missing or incomplete about 20% of the time. This happens more often with newer albums.
+- Neither the top albums nor album info endpoints give us the album's release year. This doesn't impact the algorithm, I just thought it was odd.
 
 All told, to implement this algorithm on our own means we would have to make an insane amount of requests just to get incomplete or missing data. If you think that doesn't sound like it's worth it, you're right. And while I didn't use it, [you can see an implementation here](https://gist.github.com/lowmess/f3c03b1a6fe50ee04622706047f8a654).
 
