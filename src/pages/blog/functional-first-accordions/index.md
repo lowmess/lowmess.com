@@ -1,6 +1,6 @@
 ---
 title: Functional-First Accordions
-date: 2018-12-28
+date: 2018-12-30
 description: Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do.
 ---
 
