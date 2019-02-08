@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
-import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle } from '../components/Typography'
@@ -12,8 +11,8 @@ const HaikuLink = styled(Link)`
   ${themeHover};
 `
 
-const errorPage = ({ location }) => (
-  <Layout location={location}>
+const errorPage = () => (
+  <>
     <Helmet>
       <title>I goofed it.</title>
     </Helmet>
@@ -41,7 +40,7 @@ const errorPage = ({ location }) => (
         </Text>
       </main>
     </article>
-  </Layout>
+  </>
 )
 
 export default errorPage

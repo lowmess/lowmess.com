@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import system from 'system-components'
-import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle, Paragraph } from '../components/Typography'
@@ -10,9 +9,9 @@ import { themeHover } from '../utils/styles'
 
 const HeaderLink = system({ is: 'a' }, themeHover)
 
-const indexPage = ({ location, data }) => {
+const indexPage = ({ data }) => {
   return (
-    <Layout location={location}>
+    <>
       <article>
         <Header>
           <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
@@ -51,7 +50,7 @@ const indexPage = ({ location, data }) => {
           />
         </main>
       </article>
-    </Layout>
+    </>
   )
 }
 
