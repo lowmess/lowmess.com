@@ -5,7 +5,6 @@ import system from 'system-components'
 import Helmet from 'react-helmet'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
-import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import { Box, Flex, Text } from '../../components/Primitives'
 import { Title, Paragraph } from '../../components/Typography'
@@ -34,11 +33,11 @@ const PostLink = styled(Link)`
   ${themeHover};
 `
 
-const BlogPage = ({ location, data }) => {
+const BlogPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   let year = '0'
   return (
-    <Layout location={location}>
+    <>
       <Helmet>
         <title>Blog • {data.site.siteMetadata.title}</title>
       </Helmet>
@@ -88,7 +87,7 @@ const BlogPage = ({ location, data }) => {
           }, this)}
         </main>
       </article>
-    </Layout>
+    </>
   )
 }
 
