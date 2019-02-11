@@ -1,4 +1,7 @@
 const React = require('react')
+const themeProvider = require('./lib/theme-provider')
+
+exports.wrapRootElement = themeProvider
 
 exports.onRenderBody = ({ setPostBodyComponents }) => {
   const logger =

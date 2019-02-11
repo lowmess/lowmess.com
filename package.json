@@ -5,6 +5,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -24,14 +25,15 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "date-fns": "^1.29.0",
     "gatsby": "^2.0.12",
     "gatsby-plugin-catch-links": "^2.0.3",
+    "gatsby-plugin-feed": "^2.0.13",
     "gatsby-plugin-gauges": "0.0.3",
+    "gatsby-plugin-layout": "^1.0.12",
     "gatsby-plugin-manifest": "^2.0.4",
     "gatsby-plugin-netlify": "^2.0.0",
-    "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^2.0.5",
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-plugin-styled-components": "^3.0.0",

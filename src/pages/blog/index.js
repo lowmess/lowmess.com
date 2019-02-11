@@ -3,23 +3,17 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import system from 'system-components'
 import Helmet from 'react-helmet'
-import format from 'date-fns/format'
-import addDays from 'date-fns/add_days'
-import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import { Box, Flex, Text } from '../../components/Primitives'
 import { Title, Paragraph } from '../../components/Typography'
 import ArrowLink from '../../components/ArrowLink'
 import { themeHover } from '../../utils/styles'
 
-const YearTitle = ({ date }) => {
-  const cleanDate = addDays(new Date(date), 1)
-  return (
-    <Text is="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
-      {format(cleanDate, 'YYYY')}
-    </Text>
-  )
-}
+const YearTitle = ({ year }) => (
+  <Text is="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
+    {year}
+  </Text>
+)
 
 const PostTitle = system({
   is: 'h3',
@@ -34,11 +28,11 @@ const PostLink = styled(Link)`
   ${themeHover};
 `
 
-const BlogPage = ({ location, data }) => {
+const BlogPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   let year = '0'
   return (
-    <Layout location={location}>
+    <>
       <Helmet>
         <title>Blog • {data.site.siteMetadata.title}</title>
       </Helmet>
@@ -52,13 +46,11 @@ const BlogPage = ({ location, data }) => {
           {posts.map(({ node }, index) => {
             const { fields, frontmatter } = node
             const slug = fields.slug.slice(0, -1)
-            const thisYear = format(
-              addDays(new Date(frontmatter.date), 1),
-              'YYYY'
-            )
+            const thisYear = frontmatter.year
+            console.log(year, thisYear, year === thisYear)
             let YearComponent
             if (thisYear !== year) {
-              YearComponent = <YearTitle date={frontmatter.date} />
+              YearComponent = <YearTitle year={frontmatter.year} />
               year = thisYear
             }
             return (
@@ -88,7 +80,7 @@ const BlogPage = ({ location, data }) => {
           }, this)}
         </main>
       </article>
-    </Layout>
+    </>
   )
 }
 
@@ -105,7 +97,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             description
-            date
+            year: date(formatString: "YYYY")
           }
           fields {
             slug
