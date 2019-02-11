@@ -5,6 +5,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "date-fns": "^1.29.0",
     "gatsby": "^2.0.12",
     "gatsby-plugin-catch-links": "^2.0.3",
+    "gatsby-plugin-feed": "^2.0.13",
     "gatsby-plugin-gauges": "0.0.3",
     "gatsby-plugin-layout": "^1.0.12",
     "gatsby-plugin-manifest": "^2.0.4",
