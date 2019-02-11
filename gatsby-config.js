@@ -124,7 +124,6 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-layout',
     'gatsby-plugin-netlify',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',

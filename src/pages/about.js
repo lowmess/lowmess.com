@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import system from 'system-components'
 import Helmet from 'react-helmet'
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Title, Paragraph } from '../components/Typography'
 import Stats from '../components/Stats'
@@ -9,8 +10,8 @@ import { themeHover, themeUnderline } from '../utils/styles'
 
 const AboutLink = system({ is: 'a' }, themeHover, themeUnderline)
 
-const AboutPage = ({ data }) => (
-  <>
+const AboutPage = ({ location, data }) => (
+  <Layout location={location}>
     <Helmet>
       <title>About • {data.site.siteMetadata.title}</title>
     </Helmet>
@@ -47,7 +48,7 @@ const AboutPage = ({ data }) => (
         <Stats mt={5} />
       </main>
     </article>
-  </>
+  </Layout>
 )
 
 export const pageQuery = graphql`

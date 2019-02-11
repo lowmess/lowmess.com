@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import system from 'system-components'
 import Helmet from 'react-helmet'
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Flex } from '../components/Primitives'
 import { Title } from '../components/Typography'
@@ -52,7 +53,7 @@ const SanityCheck = system({
   fontWeight: 6,
 })
 
-const ColophonPage = ({ data }) => {
+const ColophonPage = ({ location, data }) => {
   const {
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
@@ -67,7 +68,7 @@ const ColophonPage = ({ data }) => {
   } = dependencies
 
   return (
-    <>
+    <Layout location={location}>
       <Helmet>
         <title>Colophon • {data.site.siteMetadata.title}</title>
       </Helmet>
@@ -179,7 +180,7 @@ const ColophonPage = ({ data }) => {
           </Section>
         </Flex>
       </article>
-    </>
+    </Layout>
   )
 }
 

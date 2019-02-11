@@ -3,19 +3,20 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import format from 'date-fns/format'
 import addDays from 'date-fns/add_days'
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Title, Subtitle } from '../components/Typography'
 import MarkdownContent from '../components/MarkdownContent'
 
 import 'lowmess-prism'
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ location, data }) => {
   const post = data.markdownRemark
   // have to add a day because of timezone wonkiness
   const date = addDays(new Date(post.frontmatter.date), 1)
 
   return (
-    <>
+    <Layout location={location}>
       <Helmet>
         <title>
           {post.frontmatter.title} • {data.site.siteMetadata.title}
@@ -58,7 +59,7 @@ const BlogPostTemplate = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>
-    </>
+    </Layout>
   )
 }
 

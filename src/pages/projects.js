@@ -1,14 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { Title } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
 
-const ProjectsPage = ({ data }) => {
+const ProjectsPage = ({ location, data }) => {
   const projects = data.allProjectsJson.edges
   return (
-    <>
+    <Layout location={location}>
       <Helmet>
         <title>Projects • {data.site.siteMetadata.title}</title>
       </Helmet>
@@ -31,7 +32,7 @@ const ProjectsPage = ({ data }) => {
           })}
         </main>
       </article>
-    </>
+    </Layout>
   )
 }
 

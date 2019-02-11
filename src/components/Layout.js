@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
 import { topography } from 'hero-patterns'
 import theme from '../../lib/theme'
-import { Box, Flex } from '../components/Primitives'
-import Navigation from '../components/Navigation'
-import Footer from '../components/Footer'
+import { Box, Flex } from './Primitives'
+import Navigation from './Navigation'
+import Footer from './Footer'
 
 import 'sanitize.css'
 
