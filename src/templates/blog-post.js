@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import format from 'date-fns/format'
-import addDays from 'date-fns/add_days'
 import Header from '../components/Header'
 import { Title, Subtitle } from '../components/Typography'
 import MarkdownContent from '../components/MarkdownContent'
@@ -11,8 +9,6 @@ import 'lowmess-prism'
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  // have to add a day because of timezone wonkiness
-  const date = addDays(new Date(post.frontmatter.date), 1)
 
   return (
     <>
@@ -47,7 +43,9 @@ const BlogPostTemplate = ({ data }) => {
           <Title>{post.frontmatter.title}</Title>
 
           <Subtitle is="p">
-            <time dateTime={date}>{format(date, 'MMMM D, YYYY')}</time>
+            <time dateTime={post.frontmatter.datetime}>
+              {post.frontmatter.date}
+            </time>
           </Subtitle>
         </Header>
 
@@ -75,7 +73,8 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
-        date
+        date(formatString: "MMMM D, YYYY")
+        datetime: date(formatString: "YYYY-MM-DD")
         description
       }
       fields {

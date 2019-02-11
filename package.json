@@ -25,7 +25,6 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "date-fns": "^1.29.0",
     "gatsby": "^2.0.12",
     "gatsby-plugin-catch-links": "^2.0.3",
     "gatsby-plugin-feed": "^2.0.13",
