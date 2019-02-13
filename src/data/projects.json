@@ -1,32 +1,35 @@
 [
   {
+    "title": "music",
+    "date": "2019-02-14",
+    "description": "A collection of UI experiments with data from Discogs & Last.fm.",
+    "website": "https://music.lowmess.com",
+    "repo": "https://github.com/lowmess/music"
+  },
+  {
     "title": "herohero",
     "date": "2017-11-25",
-    "description":
-      "Generate social media hero images from HTML files. Because sometimes designing in the browser is just easier than opening Sketch.",
+    "description": "Generate social media hero images from HTML files. Because sometimes designing in the browser is just easier than opening Sketch.",
     "repo": "https://github.com/lowmess/herohero"
   },
   {
     "title": "hero-patterns.js",
     "date": "2016-10-28",
-    "description":
-      "Easily use patterns from heropatterns.com, right in your JavaScript. Perfect for CSS-in-JS solutions and randomization.",
+    "description": "Easily use patterns from heropatterns.com, right in your JavaScript. Perfect for CSS-in-JS solutions and randomization.",
     "website": "https://hero-patterns.lowmess.com",
     "repo": "https://github.com/lowmess/hero-patterns"
   },
   {
     "title": "Metalsmith Resume",
     "date": "2016-07-13",
-    "description":
-      "Make writing your résumé suck less bad. Generate a simple static site & PDF résumé from Markdown with a few keystrokes.",
+    "description": "Make writing your résumé suck less bad. Generate a simple static site & PDF résumé from Markdown with a few keystrokes.",
     "website": "https://metalsmith-resume.lowmess.com",
     "repo": "https://github.com/lowmess/metalsmith-resume"
   },
   {
     "title": "Phenotonic",
     "date": "2016-02-01",
-    "description":
-      "After noticing a lack of products geared towards home gardening, my brother & I founded a business to fill that gap. I was responsible for all creative work on the brand.",
+    "description": "After noticing a lack of products geared towards home gardening, my brother & I founded a business to fill that gap. I was responsible for all creative work on the brand.",
     "website": "https://archive--phenotonic.netlify.com"
   }
 ]
