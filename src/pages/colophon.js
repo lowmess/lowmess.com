@@ -56,7 +56,6 @@ const ColophonPage = ({ data }) => {
   const {
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
-    'date-fns': { version: dateFns },
     'sanitize.css': { version: sanitize },
     'styled-components': { version: styledComponents },
     'system-components': { version: systemComponents },
@@ -91,11 +90,6 @@ const ColophonPage = ({ data }) => {
                 React Helmet
               </DepLink>{' '}
               <DepVer>{helmet}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://date-fns.org/">date-fns</DepLink>{' '}
-              <DepVer>{dateFns}</DepVer>
             </Dep>
 
             <Dep>
@@ -172,8 +166,6 @@ const ColophonPage = ({ data }) => {
             <SanityCheck>Beer</SanityCheck>
 
             <SanityCheck>Burritos</SanityCheck>
-
-            <SanityCheck>Air Conditioning</SanityCheck>
 
             <SanityCheck>Skateboarding</SanityCheck>
           </Section>
