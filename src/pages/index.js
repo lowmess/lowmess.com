@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import system from 'system-components'
 import Header from '../components/Header'
 import { Text } from '../components/Primitives'
@@ -9,7 +9,22 @@ import { themeHover } from '../utils/styles'
 
 const HeaderLink = system({ is: 'a' }, themeHover)
 
-const indexPage = ({ data }) => {
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query IndexQuery {
+      allProjectsJson(limit: 1) {
+        edges {
+          node {
+            title
+            description
+            website
+            repo
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <>
       <article>
@@ -54,19 +69,4 @@ const indexPage = ({ data }) => {
   )
 }
 
-export const pageQuery = graphql`
-  query IndexQuery {
-    allProjectsJson(limit: 1) {
-      edges {
-        node {
-          title
-          description
-          website
-          repo
-        }
-      }
-    }
-  }
-`
-
-export default indexPage
+export default IndexPage

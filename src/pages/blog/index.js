@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import system from 'system-components'
 import Helmet from 'react-helmet'
@@ -15,6 +16,10 @@ const YearTitle = ({ year }) => (
   </Text>
 )
 
+YearTitle.propTypes = {
+  year: PropTypes.string.isRequired,
+}
+
 const PostTitle = system({
   is: 'h3',
   display: 'inline-block',
@@ -28,9 +33,34 @@ const PostLink = styled(Link)`
   ${themeHover};
 `
 
-const BlogPage = ({ data }) => {
+const BlogPage = () => {
+  const data = useStaticQuery(graphql`
+    query BlogQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            frontmatter {
+              title
+              description
+              year: date(formatString: "YYYY")
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
   const posts = data.allMarkdownRemark.edges
   let year = '0'
+
   return (
     <>
       <Helmet>
@@ -47,7 +77,6 @@ const BlogPage = ({ data }) => {
             const { fields, frontmatter } = node
             const slug = fields.slug.slice(0, -1)
             const thisYear = frontmatter.year
-            console.log(year, thisYear, year === thisYear)
             let YearComponent
             if (thisYear !== year) {
               YearComponent = <YearTitle year={frontmatter.year} />
@@ -77,35 +106,11 @@ const BlogPage = ({ data }) => {
                 </Box>
               </Flex>
             )
-          }, this)}
+          })}
         </main>
       </article>
     </>
   )
 }
-
-export const pageQuery = graphql`
-  query BlogQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description
-            year: date(formatString: "YYYY")
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
 
 export default BlogPage

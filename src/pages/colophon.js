@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import system from 'system-components'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
@@ -52,14 +52,26 @@ const SanityCheck = system({
   fontWeight: 6,
 })
 
-const ColophonPage = ({ data }) => {
+const ColophonPage = () => {
+  const data = useStaticQuery(graphql`
+    query ColophonQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   const {
+    react: { version: react },
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
     'sanitize.css': { version: sanitize },
     'styled-components': { version: styledComponents },
     'system-components': { version: systemComponents },
     'hero-patterns': { version: heroPatterns },
+    eslint: { version: eslint },
     prettier: { version: prettier },
     husky: { version: husky },
     'lint-staged': { version: lintStaged },
@@ -81,7 +93,12 @@ const ColophonPage = ({ data }) => {
             <SectionTitle>Functionality</SectionTitle>
 
             <Dep mt={4}>
-              <DepLink href="https://gatsbyjs.org">GatsbyJS</DepLink>{' '}
+              <DepLink href="https://reactjs.org">React</DepLink>{' '}
+              <DepVer>{react}</DepVer>
+            </Dep>
+
+            <Dep>
+              <DepLink href="https://gatsbyjs.org">Gatsby</DepLink>{' '}
               <DepVer>{gatsby}</DepVer>
             </Dep>
 
@@ -137,6 +154,11 @@ const ColophonPage = ({ data }) => {
             </Dep>
 
             <Dep>
+              <DepLink href="https://eslint.org/">ESLint</DepLink>{' '}
+              <DepVer>{eslint}</DepVer>
+            </Dep>
+
+            <Dep>
               <DepLink href="https://prettier.io/">Prettier</DepLink>{' '}
               <DepVer>{prettier}</DepVer>
             </Dep>
@@ -168,21 +190,13 @@ const ColophonPage = ({ data }) => {
             <SanityCheck>Burritos</SanityCheck>
 
             <SanityCheck>Skateboarding</SanityCheck>
+
+            <SanityCheck>Basketball</SanityCheck>
           </Section>
         </Flex>
       </article>
     </>
   )
 }
-
-export const pageQuery = graphql`
-  query ColophonQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default ColophonPage

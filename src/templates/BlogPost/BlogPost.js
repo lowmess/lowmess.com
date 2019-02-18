@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Header from '../components/Header'
-import { Title, Subtitle } from '../components/Typography'
-import MarkdownContent from '../components/MarkdownContent'
+import Header from '../../components/Header'
+import { Title, Subtitle } from '../../components/Typography'
+import MarkdownContent from './MarkdownContent'
 
 import 'lowmess-prism'
 
@@ -58,6 +59,32 @@ const BlogPostTemplate = ({ data }) => {
       </article>
     </>
   )
+}
+
+// All the other page components get to useStaticQuery,
+// but not this one cause the query takes variables 🙄
+BlogPostTemplate.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        siteUrl: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        datetime: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+      }).isRequired,
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export const pageQuery = graphql`

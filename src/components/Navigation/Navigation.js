@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { css } from 'styled-components'
 import system from 'system-components'
-import { Flex, Text } from './Primitives'
-import { List, ListItem } from './Typography'
-import Icon from './Icon'
-import { themeHover } from '../utils/styles'
+import { Flex } from '../Primitives'
+import { List, ListItem } from '../Typography'
+import Logo from './Logo'
+import { themeHover } from '../../utils/styles'
 
 const activeBorder = css`
   .active & {
@@ -43,6 +44,11 @@ const NavLink = ({ children, to, ...props }) => (
   </Link>
 )
 
+NavLink.propTypes = {
+  children: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+}
+
 const Navigation = ({ location }) => (
   <Flex
     is="nav"
@@ -52,17 +58,7 @@ const Navigation = ({ location }) => (
     mb={[5, 6]}
   >
     <Flex alignItems="center">
-      <Link to="/">
-        <Text color="orange">
-          <Icon glyph="logo" />
-        </Text>
-      </Link>
-
-      <Link to="/" tabIndex="-1">
-        <Text color="darkGrey" display={['none', 'inline']}>
-          <Icon glyph="wordmark" />
-        </Text>
-      </Link>
+      <Logo />
     </Flex>
 
     <List fontFamily="monospace">
@@ -90,5 +86,9 @@ const Navigation = ({ location }) => (
     </List>
   </Flex>
 )
+
+Navigation.propTypes = {
+  location: PropTypes.object.isRequired,
+}
 
 export default Navigation
