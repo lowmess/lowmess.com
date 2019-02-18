@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
 
   ::selection {
     background-color: ${({ theme }) => theme.colors.orange} !important;
+    color: ${({ theme }) => theme.colors.darkGrey} !important;
   }
 
   a {
