@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import fetch from 'unfetch'
 import { Box, Text } from '../Primitives'
 import { Stat, StatTitle, StatValue } from './Stat'
+import getStats from './getStats'
 
 class Stats extends Component {
   constructor() {
@@ -17,83 +17,64 @@ class Stats extends Component {
     }
   }
 
-  componentDidMount() {
-    const query = `
-      query Stats {
-        commits
-        places
-        steps
-        sleep
-        songs
-        album {
-          name
-          artist
-        }
-        book {
-          name
-          author
-        }
-      }
-  `
-    fetch('https://lowmess-stats.now.sh/graphql', {
-      method: 'POST',
-      body: JSON.stringify({ query }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.json())
-      .then(json => {
-        if (json.data) {
-          // Update commits if exists
-          if (json.data.commits)
-            this.setState({
-              commits: json.data.commits.toLocaleString(),
-            })
-          // Update places if exists
-          if (json.data.places)
-            this.setState({
-              places: json.data.places.toLocaleString(),
-            })
-          // Update steps if exists
-          if (json.data.steps)
-            this.setState({
-              steps: json.data.steps.toLocaleString(),
-            })
-          // Update sleep if exists
-          if (json.data.sleep)
-            this.setState({
-              sleep: parseFloat(json.data.sleep.toFixed(2)).toLocaleString(),
-            })
-          // Update songs if exists
-          if (json.data.songs)
-            this.setState({
-              songs: json.data.songs.toLocaleString(),
-            })
-          // Update album if exists
-          if (json.data.album) {
-            if (json.data.album.name && json.data.album.artist) {
-              const album = (
-                <span>
-                  <em>{json.data.album.name}</em>, {json.data.album.artist}
-                </span>
-              )
-              this.setState({ album: album })
-            }
-          }
-          // Update book if exists
-          if (json.data.book) {
-            if (json.data.book.name && json.data.book.author) {
-              const book = (
-                <span>
-                  <em>{json.data.book.name}</em>, {json.data.book.author}
-                </span>
-              )
-              this.setState({ book: book })
-            }
-          }
-        }
+  async componentDidMount() {
+    const {
+      commits,
+      places,
+      steps,
+      sleep,
+      songs,
+      album,
+      book,
+    } = await getStats()
+
+    if (commits) {
+      this.setState({
+        commits: commits.toLocaleString(),
       })
+    }
+
+    if (places) {
+      this.setState({
+        places: places.toLocaleString(),
+      })
+    }
+
+    if (steps) {
+      this.setState({
+        steps: steps.toLocaleString(),
+      })
+    }
+
+    if (sleep) {
+      this.setState({
+        sleep: parseFloat(sleep.toFixed(2)).toLocaleString(),
+      })
+    }
+
+    if (songs) {
+      this.setState({
+        songs: songs.toLocaleString(),
+      })
+    }
+
+    if (album.name && album.artist) {
+      const albumComponent = (
+        <span>
+          <em>{album.name}</em>, {album.artist}
+        </span>
+      )
+      this.setState({ album: albumComponent })
+    }
+
+    if (book.name && book.author) {
+      const bookComponent = (
+        <span>
+          <em>{book.name}</em>, {book.author}
+        </span>
+      )
+      this.setState({ book: bookComponent })
+    }
   }
 
   render() {
