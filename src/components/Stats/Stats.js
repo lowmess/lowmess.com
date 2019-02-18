@@ -1,126 +1,103 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box, Text } from '../Primitives'
 import { Stat, StatTitle, StatValue } from './Stat'
 import getStats from './getStats'
 
-class Stats extends Component {
-  constructor() {
-    super()
-    this.state = {
-      commits: '—',
-      places: '—',
-      steps: '—',
-      sleep: '—',
-      songs: '—',
-      album: '—',
-      book: '—',
-    }
-  }
+const Stats = ({ ...props }) => {
+  const [commits, setCommits] = useState(null)
+  const [places, setPlaces] = useState(null)
+  const [steps, setSteps] = useState(null)
+  const [sleep, setSleep] = useState(null)
+  const [songs, setSongs] = useState(null)
+  const [album, setAlbum] = useState(null)
+  const [book, setBook] = useState(null)
 
-  async componentDidMount() {
+  async function fillStats() {
     const {
-      commits,
-      places,
-      steps,
-      sleep,
-      songs,
-      album,
-      book,
+      commits: commitStat,
+      places: placesStat,
+      steps: stepsStat,
+      sleep: sleepStat,
+      songs: songsStat,
+      album: albumStat,
+      book: bookStat,
     } = await getStats()
 
-    if (commits) {
-      this.setState({
-        commits: commits.toLocaleString(),
-      })
-    }
+    if (commitStat) setCommits(commitStat.toLocaleString())
 
-    if (places) {
-      this.setState({
-        places: places.toLocaleString(),
-      })
-    }
+    if (placesStat) setPlaces(placesStat.toLocaleString())
 
-    if (steps) {
-      this.setState({
-        steps: steps.toLocaleString(),
-      })
-    }
+    if (stepsStat) setSteps(stepsStat.toLocaleString())
 
-    if (sleep) {
-      this.setState({
-        sleep: parseFloat(sleep.toFixed(2)).toLocaleString(),
-      })
-    }
+    if (sleepStat) setSleep(parseFloat(sleepStat.toFixed(2)).toLocaleString())
 
-    if (songs) {
-      this.setState({
-        songs: songs.toLocaleString(),
-      })
-    }
+    if (songsStat) setSongs(songsStat.toLocaleString())
 
-    if (album.name && album.artist) {
+    if (albumStat.name && albumStat.artist) {
       const albumComponent = (
         <span>
-          <em>{album.name}</em>, {album.artist}
+          <em>{albumStat.name}</em>, {albumStat.artist}
         </span>
       )
-      this.setState({ album: albumComponent })
+      setAlbum(albumComponent)
     }
 
-    if (book.name && book.author) {
+    if (bookStat.name && bookStat.author) {
       const bookComponent = (
         <span>
-          <em>{book.name}</em>, {book.author}
+          <em>{bookStat.name}</em>, {bookStat.author}
         </span>
       )
-      this.setState({ book: bookComponent })
+      setBook(bookComponent)
     }
   }
 
-  render() {
-    return (
-      <Box {...this.props}>
-        <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
-          In the Last 30 Days
-        </Text>
+  useEffect(() => {
+    fillStats()
+  }, [])
 
-        <Stat mb={2}>
-          <StatTitle>GitHub Commits</StatTitle>
-          <StatValue>{this.state.commits}</StatValue>
-        </Stat>
+  return (
+    <Box {...props}>
+      <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
+        In the Last 30 Days
+      </Text>
 
-        <Stat mb={2}>
-          <StatTitle>Places Visited</StatTitle>
-          <StatValue>{this.state.places}</StatValue>
-        </Stat>
+      <Stat mb={2}>
+        <StatTitle>GitHub Commits</StatTitle>
+        <StatValue>{commits || '\u2014'}</StatValue>
+      </Stat>
 
-        <Stat mb={2}>
-          <StatTitle>Steps Taken</StatTitle>
-          <StatValue>{this.state.steps}</StatValue>
-        </Stat>
+      <Stat mb={2}>
+        <StatTitle>Places Visited</StatTitle>
+        <StatValue>{places || '\u2014'}</StatValue>
+      </Stat>
 
-        <Stat mb={2}>
-          <StatTitle>Hours Slept</StatTitle>
-          <StatValue>{this.state.sleep}</StatValue>
-        </Stat>
+      <Stat mb={2}>
+        <StatTitle>Steps Taken</StatTitle>
+        <StatValue>{steps || '\u2014'}</StatValue>
+      </Stat>
 
-        <Stat mb={2}>
-          <StatTitle>Songs Played</StatTitle>
-          <StatValue>{this.state.songs}</StatValue>
-        </Stat>
+      <Stat mb={2}>
+        <StatTitle>Hours Slept</StatTitle>
+        <StatValue>{sleep || '\u2014'}</StatValue>
+      </Stat>
 
-        <Stat mb={2}>
-          <StatTitle>Top Album</StatTitle>
-          <StatValue>{this.state.album}</StatValue>
-        </Stat>
+      <Stat mb={2}>
+        <StatTitle>Songs Played</StatTitle>
+        <StatValue>{songs || '\u2014'}</StatValue>
+      </Stat>
 
-        <Stat>
-          <StatTitle>Currently Reading</StatTitle>
-          <StatValue>{this.state.book}</StatValue>
-        </Stat>
-      </Box>
-    )
-  }
+      <Stat mb={2}>
+        <StatTitle>Top Album</StatTitle>
+        <StatValue>{album || '\u2014'}</StatValue>
+      </Stat>
+
+      <Stat>
+        <StatTitle>Currently Reading</StatTitle>
+        <StatValue>{book || '\u2014'}</StatValue>
+      </Stat>
+    </Box>
+  )
 }
 
 export default Stats

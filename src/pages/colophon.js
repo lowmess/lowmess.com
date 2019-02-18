@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import system from 'system-components'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
@@ -53,7 +52,17 @@ const SanityCheck = system({
   fontWeight: 6,
 })
 
-const ColophonPage = ({ data }) => {
+const ColophonPage = () => {
+  const data = useStaticQuery(graphql`
+    query ColophonQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   const {
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
@@ -175,25 +184,5 @@ const ColophonPage = ({ data }) => {
     </>
   )
 }
-
-ColophonPage.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
-}
-
-export const pageQuery = graphql`
-  query ColophonQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default ColophonPage

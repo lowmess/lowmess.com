@@ -61,6 +61,8 @@ const BlogPostTemplate = ({ data }) => {
   )
 }
 
+// All the other page components get to useStaticQuery,
+// but not this one cause the query takes variables 🙄
 BlogPostTemplate.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({

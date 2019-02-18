@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, withTheme } from 'styled-components'
 import { topography } from 'hero-patterns'
@@ -93,82 +93,78 @@ const Constraint = styled(Flex)`
   margin-left: auto;
 `
 
-const Layout = ({ children, location, theme }) => (
-  <StaticQuery
-    query={graphql`
-      query LayoutQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            siteUrl
-          }
+const Layout = ({ children, location, theme }) => {
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
         }
       }
-    `}
-    render={data => (
-      <>
-        <Helmet htmlAttributes={{ lang: 'en' }}>
-          <title>{data.site.siteMetadata.title}</title>
+    }
+  `)
 
-          <meta
-            name="description"
-            content={data.site.siteMetadata.description}
-          />
+  return (
+    <>
+      <Helmet htmlAttributes={{ lang: 'en' }}>
+        <title>{data.site.siteMetadata.title}</title>
 
-          <meta name="theme-color" content={theme.colors.nearWhite} />
+        <meta name="description" content={data.site.siteMetadata.description} />
 
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/favicon-32x32.png"
-            sizes="32x32"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/favicon-16x16.png"
-            sizes="16x16"
-          />
+        <meta name="theme-color" content={theme.colors.nearWhite} />
 
-          <link rel="manifest" href="/manifest.json" />
-          <link
-            rel="mask-icon"
-            href="/safari-pinned-tab.svg"
-            color={theme.colors.orange}
-          />
-        </Helmet>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-16x16.png"
+          sizes="16x16"
+        />
 
-        <GlobalStyles />
+        <link rel="manifest" href="/manifest.json" />
+        <link
+          rel="mask-icon"
+          href="/safari-pinned-tab.svg"
+          color={theme.colors.orange}
+        />
+      </Helmet>
 
-        <Border>
-          <Content
-            color="darkGrey"
-            py={3}
-            px={[3, 4]}
-            borderRadius={2}
-            fontFamily="sans-serif"
-          >
-            <Constraint>
-              <Navigation location={location} />
+      <GlobalStyles />
 
-              <Box is="main" mb={[5, 6]}>
-                {children}
-              </Box>
+      <Border>
+        <Content
+          color="darkGrey"
+          py={3}
+          px={[3, 4]}
+          borderRadius={2}
+          fontFamily="sans-serif"
+        >
+          <Constraint>
+            <Navigation location={location} />
 
-              <Footer />
-            </Constraint>
-          </Content>
-        </Border>
-      </>
-    )}
-  />
-)
+            <Box is="main" mb={[5, 6]}>
+              {children}
+            </Box>
+
+            <Footer />
+          </Constraint>
+        </Content>
+      </Border>
+    </>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.object.isRequired,

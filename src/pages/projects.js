@@ -1,13 +1,33 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import { Title } from '../components/Typography'
-import ProjectPreview, { projectPropType } from '../components/ProjectPreview'
+import ProjectPreview from '../components/ProjectPreview'
 
-const ProjectsPage = ({ data }) => {
+const ProjectsPage = () => {
+  const data = useStaticQuery(graphql`
+    query ProjectsQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allProjectsJson {
+        edges {
+          node {
+            title
+            description
+            website
+            repo
+          }
+        }
+      }
+    }
+  `)
+
   const projects = data.allProjectsJson.edges
+
   return (
     <>
       <Helmet>
@@ -35,42 +55,5 @@ const ProjectsPage = ({ data }) => {
     </>
   )
 }
-
-ProjectsPage.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-    allProjectsJson: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: projectPropType,
-        }).isRequired
-      ),
-    }).isRequired,
-  }).isRequired,
-}
-
-export const pageQuery = graphql`
-  query ProjectsQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allProjectsJson {
-      edges {
-        node {
-          title
-          description
-          website
-          repo
-        }
-      }
-    }
-  }
-`
 
 export default ProjectsPage

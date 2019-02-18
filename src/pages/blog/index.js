@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import system from 'system-components'
 import Helmet from 'react-helmet'
@@ -33,9 +33,34 @@ const PostLink = styled(Link)`
   ${themeHover};
 `
 
-const BlogPage = ({ data }) => {
+const BlogPage = () => {
+  const data = useStaticQuery(graphql`
+    query BlogQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            frontmatter {
+              title
+              description
+              year: date(formatString: "YYYY")
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
   const posts = data.allMarkdownRemark.edges
   let year = '0'
+
   return (
     <>
       <Helmet>
@@ -87,55 +112,5 @@ const BlogPage = ({ data }) => {
     </>
   )
 }
-
-BlogPage.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              description: PropTypes.string.isRequired,
-              year: PropTypes.string.isRequired,
-            }).isRequired,
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequires,
-            }).isRequired,
-          }).isRequired,
-        })
-      ).isRequired,
-    }).isRequired,
-  }).isRequired,
-}
-
-export const pageQuery = graphql`
-  query BlogQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description
-            year: date(formatString: "YYYY")
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
 
 export default BlogPage
