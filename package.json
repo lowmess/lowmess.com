@@ -49,6 +49,7 @@
     "hero-patterns": "^2.0.1",
     "lowmess-prism": "^0.2.3",
     "prismjs": "^1.15.0",
+    "prop-types": "^15.7.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
