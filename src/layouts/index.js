@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     background-position: center top;
     background-size: 900px;
     background-repeat: repeat;
+    scroll-behavior: smooth;
 
     @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       background-size: 1200px;
