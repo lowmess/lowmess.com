@@ -64,12 +64,14 @@ const ColophonPage = () => {
   `)
 
   const {
+    react: { version: react },
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
     'sanitize.css': { version: sanitize },
     'styled-components': { version: styledComponents },
     'system-components': { version: systemComponents },
     'hero-patterns': { version: heroPatterns },
+    eslint: { version: eslint },
     prettier: { version: prettier },
     husky: { version: husky },
     'lint-staged': { version: lintStaged },
@@ -91,7 +93,12 @@ const ColophonPage = () => {
             <SectionTitle>Functionality</SectionTitle>
 
             <Dep mt={4}>
-              <DepLink href="https://gatsbyjs.org">GatsbyJS</DepLink>{' '}
+              <DepLink href="https://reactjs.org">React</DepLink>{' '}
+              <DepVer>{react}</DepVer>
+            </Dep>
+
+            <Dep>
+              <DepLink href="https://gatsbyjs.org">Gatsby</DepLink>{' '}
               <DepVer>{gatsby}</DepVer>
             </Dep>
 
@@ -147,6 +154,11 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
+              <DepLink href="https://eslint.org/">ESLint</DepLink>{' '}
+              <DepVer>{eslint}</DepVer>
+            </Dep>
+
+            <Dep>
               <DepLink href="https://prettier.io/">Prettier</DepLink>{' '}
               <DepVer>{prettier}</DepVer>
             </Dep>
@@ -178,6 +190,8 @@ const ColophonPage = () => {
             <SanityCheck>Burritos</SanityCheck>
 
             <SanityCheck>Skateboarding</SanityCheck>
+
+            <SanityCheck>Basketball</SanityCheck>
           </Section>
         </Flex>
       </article>
