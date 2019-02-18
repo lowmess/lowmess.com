@@ -108,7 +108,7 @@ const Layout = ({ children, location, theme }) => (
     `}
     render={data => (
       <>
-        <Helmet>
+        <Helmet htmlAttributes={{ lang: 'en' }}>
           <title>{data.site.siteMetadata.title}</title>
 
           <meta
