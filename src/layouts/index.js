@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     background-position: center top;
     background-size: 900px;
     background-repeat: repeat;
+    scroll-behavior: smooth;
 
     @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       background-size: 1200px;
@@ -155,7 +156,7 @@ const Layout = ({ children, location, theme }) => {
           <Constraint>
             <Navigation location={location} />
 
-            <Box is="main" mb={[5, 6]}>
+            <Box is="main" id="main-content" mb={[5, 6]}>
               {children}
             </Box>
 
