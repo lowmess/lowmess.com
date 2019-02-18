@@ -1,9 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, withTheme } from 'styled-components'
 import { topography } from 'hero-patterns'
-import theme from '../../lib/theme'
 import { Box, Flex } from '../components/Primitives'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
@@ -93,7 +93,7 @@ const Constraint = styled(Flex)`
   margin-left: auto;
 `
 
-const Layout = ({ children, location }) => (
+const Layout = ({ children, location, theme }) => (
   <StaticQuery
     query={graphql`
       query LayoutQuery {
@@ -170,4 +170,10 @@ const Layout = ({ children, location }) => (
   />
 )
 
-export default Layout
+Layout.propTypes = {
+  children: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+}
+
+export default withTheme(Layout)

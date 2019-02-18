@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { css } from 'styled-components'
 import system from 'system-components'
@@ -42,6 +43,11 @@ const NavLink = ({ children, to, ...props }) => (
     <LinkText {...props}>{children}</LinkText>
   </Link>
 )
+
+NavLink.propTypes = {
+  children: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+}
 
 const Navigation = ({ location }) => (
   <Flex
@@ -90,5 +96,9 @@ const Navigation = ({ location }) => (
     </List>
   </Flex>
 )
+
+Navigation.propTypes = {
+  location: PropTypes.object.isRequired,
+}
 
 export default Navigation

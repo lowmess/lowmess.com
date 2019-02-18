@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
@@ -58,6 +59,30 @@ const BlogPostTemplate = ({ data }) => {
       </article>
     </>
   )
+}
+
+BlogPostTemplate.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        siteUrl: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        datetime: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+      }).isRequired,
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export const pageQuery = graphql`

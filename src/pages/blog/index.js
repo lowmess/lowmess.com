@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import system from 'system-components'
@@ -14,6 +15,10 @@ const YearTitle = ({ year }) => (
     {year}
   </Text>
 )
+
+YearTitle.propTypes = {
+  year: PropTypes.string.isRequired,
+}
 
 const PostTitle = system({
   is: 'h3',
@@ -47,7 +52,6 @@ const BlogPage = ({ data }) => {
             const { fields, frontmatter } = node
             const slug = fields.slug.slice(0, -1)
             const thisYear = frontmatter.year
-            console.log(year, thisYear, year === thisYear)
             let YearComponent
             if (thisYear !== year) {
               YearComponent = <YearTitle year={frontmatter.year} />
@@ -77,11 +81,37 @@ const BlogPage = ({ data }) => {
                 </Box>
               </Flex>
             )
-          }, this)}
+          })}
         </main>
       </article>
     </>
   )
+}
+
+BlogPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              description: PropTypes.string.isRequired,
+              year: PropTypes.string.isRequired,
+            }).isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequires,
+            }).isRequired,
+          }).isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export const pageQuery = graphql`

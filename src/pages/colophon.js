@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import system from 'system-components'
 import Helmet from 'react-helmet'
@@ -173,6 +174,16 @@ const ColophonPage = ({ data }) => {
       </article>
     </>
   )
+}
+
+ColophonPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export const pageQuery = graphql`

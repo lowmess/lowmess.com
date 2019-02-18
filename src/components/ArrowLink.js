@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import system from 'system-components'
 import Icon from './Icon'
@@ -30,6 +31,12 @@ const ArrowLink = ({ dest, children, external, ...props }) => {
       </ArrowText>
     </Link>
   )
+}
+
+ArrowLink.propTypes = {
+  dest: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  external: PropTypes.bool,
 }
 
 export default ArrowLink

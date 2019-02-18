@@ -1,15 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import system from 'system-components'
 import Header from '../components/Header'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle, Paragraph } from '../components/Typography'
-import ProjectPreview from '../components/ProjectPreview'
+import ProjectPreview, { projectPropType } from '../components/ProjectPreview'
 import { themeHover } from '../utils/styles'
 
 const HeaderLink = system({ is: 'a' }, themeHover)
 
-const indexPage = ({ data }) => {
+const IndexPage = ({ data }) => {
   return (
     <>
       <article>
@@ -54,6 +55,18 @@ const indexPage = ({ data }) => {
   )
 }
 
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    allProjectsJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: projectPropType.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
+}
+
 export const pageQuery = graphql`
   query IndexQuery {
     allProjectsJson(limit: 1) {
@@ -69,4 +82,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default indexPage
+export default IndexPage

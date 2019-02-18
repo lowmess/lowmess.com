@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import system from 'system-components'
 import { themeHover } from '../utils/styles'
 import { Box, Text } from './Primitives'
@@ -54,6 +55,18 @@ const ProjectPreview = ({ project, level, ...props }) => {
       <Box display="inline-block">{RepoComponent}</Box>
     </Box>
   )
+}
+
+export const projectPropType = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  repo: PropTypes.string,
+  website: PropTypes.string,
+})
+
+ProjectPreview.propTypes = {
+  project: projectPropType.isRequired,
+  level: PropTypes.string.isRequired,
 }
 
 export default ProjectPreview

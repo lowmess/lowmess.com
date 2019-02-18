@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Icon = ({ glyph, ...props }) => {
   switch (glyph) {
@@ -44,6 +45,10 @@ const Icon = ({ glyph, ...props }) => {
     default:
       return <span>oops! {glyph} not found</span>
   }
+}
+
+Icon.propTypes = {
+  glyph: PropTypes.string.isRequired,
 }
 
 export default Icon
