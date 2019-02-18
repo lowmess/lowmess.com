@@ -1,3 +1,3 @@
-const themeProvider = require('./src/layouts/theme-provider')
+const themeProvider = require('./src/layouts/themeProvider')
 
 exports.wrapRootElement = themeProvider
