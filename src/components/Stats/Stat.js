@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Flex, Text } from './Primitives'
+import { Box, Flex, Text } from '../Primitives'
 
 const Stat = ({ children, ...props }) => (
   <Flex alignItems="baseline" flexDirection={['column', 'row']} {...props}>

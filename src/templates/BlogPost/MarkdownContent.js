@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box } from './Primitives'
+import { Box } from '../../components/Primitives'
 
 // this component basically exists as a giant stylesheet that inherits from the theme
 // it's for markdown content (hence the name)

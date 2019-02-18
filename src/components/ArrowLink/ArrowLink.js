@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import system from 'system-components'
-import Icon from './Icon'
-import { themeHover } from '../utils/styles'
+import ArrowIcon from './ArrowIcon'
+import { themeHover } from '../../utils/styles'
 
 const ArrowText = system(
   {
@@ -21,13 +21,13 @@ const ArrowLink = ({ dest, children, external, ...props }) => {
   return external ? (
     <a href={dest}>
       <ArrowText {...props}>
-        {children} <Icon glyph="arrow" />
+        {children} <ArrowIcon />
       </ArrowText>
     </a>
   ) : (
     <Link to={dest}>
       <ArrowText {...props}>
-        {children} <Icon glyph="arrow" />
+        {children} <ArrowIcon />
       </ArrowText>
     </Link>
   )

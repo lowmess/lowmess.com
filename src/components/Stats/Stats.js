@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import fetch from 'unfetch'
-import { Box, Text } from './Primitives'
+import { Box, Text } from '../Primitives'
 import { Stat, StatTitle, StatValue } from './Stat'
 
 class Stats extends Component {
