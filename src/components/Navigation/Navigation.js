@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { css } from 'styled-components'
 import system from 'system-components'
+import SkipNavLink from './SkipNavLink'
 import { Flex } from '../Primitives'
 import { List, ListItem } from '../Typography'
 import Logo from './Logo'
@@ -56,7 +57,10 @@ const Navigation = ({ location }) => (
     justifyContent="space-between"
     mt={[0, 2, 3]}
     mb={[5, 6]}
+    css="position: relative"
   >
+    <SkipNavLink />
+
     <Flex alignItems="center">
       <Logo />
     </Flex>
