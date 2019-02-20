@@ -48,6 +48,10 @@ const GlobalStyles = createGlobalStyle`
     nav, footer {
       display: none !important;
     }
+
+    #main-content {
+      margin-bottom: 0 !important;
+    }
   }
 `
 
