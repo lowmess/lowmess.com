@@ -1,10 +1,10 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import system from 'system-components'
 import Helmet from 'react-helmet'
+import system from 'system-components'
 import Header from '../components/Header'
-import { Title, Paragraph } from '../components/Typography'
 import Stats from '../components/Stats'
+import { Title, Paragraph } from '../components/Typography'
 import { themeHover, themeUnderline } from '../utils/styles'
 
 const AboutLink = system({ is: 'a' }, themeHover, themeUnderline)

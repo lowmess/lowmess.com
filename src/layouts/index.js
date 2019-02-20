@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, withTheme } from 'styled-components'
-import { topography } from 'hero-patterns'
+import { circuitBoard } from 'hero-patterns'
 import { Box, Flex } from '../components/Primitives'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
@@ -13,14 +13,18 @@ import 'sanitize.css'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
-    background-image: ${({ theme }) => topography(theme.colors.white)};
+    background-image: ${({ theme }) => circuitBoard(theme.colors.white)};
     background-position: center top;
-    background-size: 900px;
+    background-size: 456px;
     background-repeat: repeat;
     scroll-behavior: smooth;
 
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
+
     @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-      background-size: 1200px;
+      background-size: 604px;
     }
 
     @media print {
@@ -43,6 +47,10 @@ const GlobalStyles = createGlobalStyle`
   @media print {
     nav, footer {
       display: none !important;
+    }
+
+    #main-content {
+      margin-bottom: 0 !important;
     }
   }
 `
@@ -72,7 +80,6 @@ const Border = styled(Box)`
       ${({ theme }) => theme.space[3]}
       minmax(0, 1fr)
       ${({ theme }) => theme.space[3]};
-    background-size: 1200px;
   }
 
   @media print {

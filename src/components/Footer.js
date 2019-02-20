@@ -1,9 +1,9 @@
 import React from 'react'
-import system from 'system-components'
 import { useStaticQuery, graphql } from 'gatsby'
+import system from 'system-components'
+import ArrowLink from './ArrowLink'
 import { Box, Flex, Text } from './Primitives'
 import { List, ListItem } from './Typography'
-import ArrowLink from './ArrowLink'
 import { themeHover } from '../utils/styles'
 
 const SocialLink = system(

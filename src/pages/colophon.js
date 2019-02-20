@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import system from 'system-components'
 import Helmet from 'react-helmet'
+import system from 'system-components'
 import Header from '../components/Header'
 import { Flex } from '../components/Primitives'
 import { Title } from '../components/Typography'

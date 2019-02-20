@@ -4,9 +4,9 @@ import { Link } from 'gatsby'
 import { css } from 'styled-components'
 import system from 'system-components'
 import SkipNavLink from './SkipNavLink'
+import Logo from './Logo'
 import { Flex } from '../Primitives'
 import { List, ListItem } from '../Typography'
-import Logo from './Logo'
 import { themeHover } from '../../utils/styles'
 
 const activeBorder = css`
