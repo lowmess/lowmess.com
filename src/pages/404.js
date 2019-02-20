@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 import Header from '../components/Header'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle } from '../components/Typography'

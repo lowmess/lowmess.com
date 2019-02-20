@@ -2,9 +2,9 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import system from 'system-components'
 import Header from '../components/Header'
+import ProjectPreview from '../components/ProjectPreview'
 import { Text } from '../components/Primitives'
 import { Title, Subtitle, Paragraph } from '../components/Typography'
-import ProjectPreview from '../components/ProjectPreview'
 import { themeHover } from '../utils/styles'
 
 const HeaderLink = system({ is: 'a' }, themeHover)

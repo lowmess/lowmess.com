@@ -2,8 +2,8 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
-import { Title } from '../components/Typography'
 import ProjectPreview from '../components/ProjectPreview'
+import { Title } from '../components/Typography'
 
 const ProjectsPage = () => {
   const data = useStaticQuery(graphql`

@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import system from 'system-components'
-import Helmet from 'react-helmet'
 import Header from '../../components/Header'
+import ArrowLink from '../../components/ArrowLink'
 import { Box, Flex, Text } from '../../components/Primitives'
 import { Title, Paragraph } from '../../components/Typography'
-import ArrowLink from '../../components/ArrowLink'
 import { themeHover } from '../../utils/styles'
 
 const YearTitle = ({ year }) => (

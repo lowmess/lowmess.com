@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import system from 'system-components'
-import { themeHover } from '../utils/styles'
+import ArrowLink from './ArrowLink'
 import { Box, Text } from './Primitives'
 import { Paragraph } from './Typography'
-import ArrowLink from './ArrowLink'
+import { themeHover } from '../utils/styles'
 
 const ProjectTitle = system(
   {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Text } from '../Primitives'
-import { Stat, StatTitle, StatValue } from './Stat'
 import getStats from './getStats'
+import { Stat, StatTitle, StatValue } from './Stat'
+import { Box, Text } from '../Primitives'
 
 const Stats = ({ ...props }) => {
   const [commits, setCommits] = useState(null)

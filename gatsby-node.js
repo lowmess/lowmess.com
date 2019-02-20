@@ -1,6 +1,6 @@
-const _ = require('lodash')
-const Promise = require('bluebird')
 const path = require('path')
+const Promise = require('bluebird')
+const _ = require('lodash')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ graphql, actions }) => {
