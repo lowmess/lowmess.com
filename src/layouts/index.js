@@ -19,6 +19,10 @@ const GlobalStyles = createGlobalStyle`
     background-repeat: repeat;
     scroll-behavior: smooth;
 
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
+
     @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
       background-size: 1200px;
     }
