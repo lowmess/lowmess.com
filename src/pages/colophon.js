@@ -70,11 +70,8 @@ const ColophonPage = () => {
     'sanitize.css': { version: sanitize },
     'styled-components': { version: styledComponents },
     'system-components': { version: systemComponents },
-    'hero-patterns': { version: heroPatterns },
     eslint: { version: eslint },
     prettier: { version: prettier },
-    husky: { version: husky },
-    'lint-staged': { version: lintStaged },
   } = dependencies
 
   return (
@@ -129,13 +126,6 @@ const ColophonPage = () => {
               </DepLink>{' '}
               <DepVer>{systemComponents}</DepVer>
             </Dep>
-
-            <Dep>
-              <DepLink href="https://hero-patterns.lowmess.com">
-                hero-patterns.js
-              </DepLink>{' '}
-              <DepVer>{heroPatterns}</DepVer>
-            </Dep>
           </Section>
 
           <Section mt={[5, 5, 0]} mr={[0, 0, 6]}>
@@ -162,26 +152,12 @@ const ColophonPage = () => {
               <DepLink href="https://prettier.io/">Prettier</DepLink>{' '}
               <DepVer>{prettier}</DepVer>
             </Dep>
-
-            <Dep>
-              <DepLink href="https://github.com/typicode/husky">husky</DepLink>{' '}
-              <DepVer>{husky}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://github.com/okonet/lint-staged">
-                lint-staged
-              </DepLink>{' '}
-              <DepVer>{lintStaged}</DepVer>
-            </Dep>
           </Section>
 
           <Section mt={[5, 5, 0]}>
             <SectionTitle>Sanity</SectionTitle>
 
             <SanityCheck mt={4}>Music</SanityCheck>
-
-            <SanityCheck>Podcasts</SanityCheck>
 
             <SanityCheck>Coffee</SanityCheck>
 
