@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, withTheme } from 'styled-components'
-import { circuitBoard } from 'hero-patterns'
 import { Box, Flex } from '../components/Primitives'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
@@ -13,18 +12,10 @@ import 'sanitize.css'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
-    background-image: ${({ theme }) => circuitBoard(theme.colors.white)};
-    background-position: center top;
-    background-size: 456px;
-    background-repeat: repeat;
     scroll-behavior: smooth;
 
     @media (prefers-reduced-motion: reduce) {
       scroll-behavior: auto;
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-      background-size: 604px;
     }
 
     @media print {
@@ -55,32 +46,8 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const Border = styled(Box)`
-  display: grid;
-  grid-template-areas:
-    'border-top border-top border-top'
-    'border-left content border-right'
-    'border-bottom border-bottom border-bottom';
-  grid-template-rows:
-    ${({ theme }) => theme.space[2]}
-    1fr
-    ${({ theme }) => theme.space[2]};
-  grid-template-columns:
-    ${({ theme }) => theme.space[2]}
-    minmax(0, 1fr)
-    ${({ theme }) => theme.space[2]};
+const Border = styled(Flex)`
   min-height: 100vh;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    grid-template-rows:
-      ${({ theme }) => theme.space[3]}
-      1fr
-      ${({ theme }) => theme.space[3]};
-    grid-template-columns:
-      ${({ theme }) => theme.space[3]}
-      minmax(0, 1fr)
-      ${({ theme }) => theme.space[3]};
-  }
 
   @media print {
     display: block;
@@ -90,7 +57,7 @@ const Border = styled(Box)`
 `
 
 const Content = styled(Box)`
-  grid-area: content;
+  flex: 1;
   background-color: ${({ theme }) => theme.colors.white};
 `
 
@@ -152,13 +119,13 @@ const Layout = ({ children, location, theme }) => {
 
       <GlobalStyles />
 
-      <Border>
+      <Border border={3} borderColor="transparent">
         <Content
-          color="darkGrey"
+          borderRadius={2}
           py={3}
           px={[3, 4]}
-          borderRadius={2}
           fontFamily="sans-serif"
+          color="darkGrey"
         >
           <Constraint>
             <Navigation location={location} />
