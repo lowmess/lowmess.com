@@ -72,8 +72,6 @@ const ColophonPage = () => {
     'system-components': { version: systemComponents },
     eslint: { version: eslint },
     prettier: { version: prettier },
-    husky: { version: husky },
-    'lint-staged': { version: lintStaged },
   } = dependencies
 
   return (
