@@ -58,6 +58,7 @@ const Border = styled(Flex)`
 
 const Content = styled(Box)`
   flex: 1;
+  max-width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
 `
 
