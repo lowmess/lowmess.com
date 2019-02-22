@@ -24,7 +24,7 @@ const SectionTitle = system({
 const Dep = system({
   is: 'p',
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'baseline',
   mt: 3,
   mb: 0,
 })
