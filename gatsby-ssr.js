@@ -10,7 +10,7 @@ exports.onRenderBody = ({ setPostBodyComponents }) => {
         type="text/javascript"
         dangerouslySetInnerHTML={{
           __html:
-            "console.log('Wondering how this site was made? Check out the colophon. https://lowmess.com/colophon')",
+            "console.log('Wondering how this site was made? Check out the colophon: https://lowmess.com/colophon/')",
         }}
       />
     ) : (

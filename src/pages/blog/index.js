@@ -75,16 +75,17 @@ const BlogPage = () => {
         <main>
           {posts.map(({ node }, index) => {
             const { fields, frontmatter } = node
-            const slug = fields.slug.slice(0, -1)
             const thisYear = frontmatter.year
             let YearComponent
+
             if (thisYear !== year) {
               YearComponent = <YearTitle year={frontmatter.year} />
               year = thisYear
             }
+
             return (
               <Flex
-                key={node.fields.slug}
+                key={fields.slug}
                 flexDirection="row"
                 alignItems="flex-start"
                 {...(index + 1 === posts.length ? {} : { mb: [4, 5] })}
@@ -95,14 +96,14 @@ const BlogPage = () => {
 
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
-                    <PostLink to={slug}>{frontmatter.title}</PostLink>
+                    <PostLink to={fields.slug}>{frontmatter.title}</PostLink>
                   </PostTitle>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
                     {frontmatter.description}
                   </Paragraph>
 
-                  <ArrowLink dest={slug}>Read More</ArrowLink>
+                  <ArrowLink dest={fields.slug}>Read More</ArrowLink>
                 </Box>
               </Flex>
             )
