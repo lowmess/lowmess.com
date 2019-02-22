@@ -121,7 +121,7 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://github.com/jxnblk/styled-system/tree/master/system-components">
+              <DepLink href="https://github.com/jxnblk/styled-system/tree/d48e6dab7d70bd579546582209d4485b6207ad42/packages/system-components">
                 system-components
               </DepLink>{' '}
               <DepVer>{systemComponents}</DepVer>
