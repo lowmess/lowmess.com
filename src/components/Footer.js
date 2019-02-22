@@ -49,7 +49,7 @@ const Footer = () => {
       <Box display={['none', 'none', 'block']}>
         <Text mr={2}>From the blog:</Text>
 
-        <ArrowLink fontWeight={7} dest={post.fields.slug.slice(0, -1)}>
+        <ArrowLink fontWeight={7} dest={post.fields.slug}>
           {post.frontmatter.title}
         </ArrowLink>
       </Box>
