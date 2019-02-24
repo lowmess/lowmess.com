@@ -37,7 +37,7 @@ const PostLink = styled(Link)`
 const BlogPage = () => {
   const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
-    query BlogQuery {
+    query {
       allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {

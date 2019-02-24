@@ -16,7 +16,7 @@ const SocialLink = system(
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query FooterQuery {
+    query {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1

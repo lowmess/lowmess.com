@@ -9,7 +9,7 @@ import { useSiteMetadata } from '../utils/hooks'
 const ProjectsPage = () => {
   const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
-    query ProjectsQuery {
+    query {
       allProjectsJson {
         edges {
           node {
