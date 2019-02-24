@@ -4,15 +4,12 @@ import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
 import { Title } from '../components/Typography'
+import { useSiteMetadata } from '../utils/hooks'
 
 const ProjectsPage = () => {
+  const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
     query ProjectsQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
       allProjectsJson {
         edges {
           node {
@@ -31,7 +28,7 @@ const ProjectsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Projects • {data.site.siteMetadata.title}</title>
+        <title>Projects • {title}</title>
       </Helmet>
 
       <article>

@@ -1,29 +1,21 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import system from 'system-components'
 import Header from '../components/Header'
 import Stats from '../components/Stats'
 import { Title, Paragraph } from '../components/Typography'
+import { useSiteMetadata } from '../utils/hooks'
 import { themeHover, themeUnderline } from '../utils/styles'
 
 const AboutLink = system({ is: 'a' }, themeHover, themeUnderline)
 
 const AboutPage = () => {
-  const data = useStaticQuery(graphql`
-    query AboutQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const { title } = useSiteMetadata()
 
   return (
     <>
       <Helmet>
-        <title>About • {data.site.siteMetadata.title}</title>
+        <title>About • {title}</title>
       </Helmet>
 
       <article>

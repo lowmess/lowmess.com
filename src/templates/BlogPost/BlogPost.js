@@ -5,33 +5,33 @@ import Helmet from 'react-helmet'
 import Header from '../../components/Header'
 import { Title, Subtitle } from '../../components/Typography'
 import MarkdownContent from './MarkdownContent'
+import { useSiteMetadata } from '../../utils/hooks'
 
 import 'lowmess-prism'
 
 const BlogPostTemplate = ({ data }) => {
+  const { title, siteUrl } = useSiteMetadata()
+
   const post = data.markdownRemark
 
   return (
     <>
       <Helmet>
         <title>
-          {post.frontmatter.title} • {data.site.siteMetadata.title}
+          {post.frontmatter.title} • {title}
         </title>
 
         <meta name="description" content={post.frontmatter.description} />
 
         <meta name="twitter:site" content="@lowmess" />
         <meta name="twitter:card" content="summary" />
-        <meta property="og:site_name" content={data.site.siteMetadata.title} />
+        <meta property="og:site_name" content={title} />
         <meta
           property="og:title"
           name="twitter:title"
           content={post.frontmatter.title}
         />
-        <meta
-          property="og:url"
-          content={`${data.site.siteMetadata.siteUrl}${post.fields.slug}`}
-        />
+        <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
         <meta
           property="og:description"
           name="twitter:description"
@@ -65,12 +65,6 @@ const BlogPostTemplate = ({ data }) => {
 // but not this one cause the query takes variables 🙄
 BlogPostTemplate.propTypes = {
   data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        siteUrl: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
     markdownRemark: PropTypes.shape({
       html: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
@@ -89,12 +83,6 @@ BlogPostTemplate.propTypes = {
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        siteUrl
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       id

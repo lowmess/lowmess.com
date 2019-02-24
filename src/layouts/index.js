@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, withTheme } from 'styled-components'
 import { Box, Flex } from '../components/Primitives'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useSiteMetadata } from '../utils/hooks'
 
 import 'sanitize.css'
 
@@ -71,24 +71,14 @@ const Constraint = styled(Flex)`
 `
 
 const Layout = ({ children, location, theme }) => {
-  const data = useStaticQuery(graphql`
-    query LayoutQuery {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-    }
-  `)
+  const { title, description } = useSiteMetadata()
 
   return (
     <>
       <Helmet htmlAttributes={{ lang: 'en' }}>
-        <title>{data.site.siteMetadata.title}</title>
+        <title>{title}</title>
 
-        <meta name="description" content={data.site.siteMetadata.description} />
+        <meta name="description" content={description} />
 
         <meta name="theme-color" content={theme.colors.nearWhite} />
 

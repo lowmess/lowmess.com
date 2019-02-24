@@ -8,6 +8,7 @@ import Header from '../../components/Header'
 import ArrowLink from '../../components/ArrowLink'
 import { Box, Flex, Text } from '../../components/Primitives'
 import { Title, Paragraph } from '../../components/Typography'
+import { useSiteMetadata } from '../../utils/hooks'
 import { themeHover } from '../../utils/styles'
 
 const YearTitle = ({ year }) => (
@@ -34,13 +35,9 @@ const PostLink = styled(Link)`
 `
 
 const BlogPage = () => {
+  const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
     query BlogQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
       allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
@@ -64,7 +61,7 @@ const BlogPage = () => {
   return (
     <>
       <Helmet>
-        <title>Blog • {data.site.siteMetadata.title}</title>
+        <title>Blog • {title}</title>
       </Helmet>
 
       <article>
