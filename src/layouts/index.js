@@ -12,7 +12,15 @@ import 'sanitize.css'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
+    background-image: url(/topography.svg);
+    background-repeat: repeat;
+    background-position: top center;
+    background-size: 900px;
     scroll-behavior: smooth;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+      background-size: 1200px;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       scroll-behavior: auto;
@@ -48,6 +56,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Border = styled(Flex)`
   min-height: 100vh;
+  border-color: transparent !important;
 
   @media print {
     display: block;
@@ -110,7 +119,7 @@ const Layout = ({ children, location, theme }) => {
 
       <GlobalStyles />
 
-      <Border border={3} borderColor="transparent">
+      <Border border={[3, 4]}>
         <Content
           borderRadius={2}
           py={3}
