@@ -40,6 +40,7 @@ const MarkdownContent = styled(Box)`
   p,
   ul,
   ol,
+  dl,
   address {
     max-width: 33em;
   }
@@ -106,7 +107,8 @@ const MarkdownContent = styled(Box)`
   }
 
   ul,
-  ol {
+  ol,
+  dl {
     padding-left: ${({ theme }) => theme.space[4]};
   }
 
