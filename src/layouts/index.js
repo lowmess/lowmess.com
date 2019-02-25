@@ -12,15 +12,7 @@ import 'sanitize.css'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
-    background-image: url(/topography.svg);
-    background-repeat: repeat;
-    background-position: top center;
-    background-size: 900px;
     scroll-behavior: smooth;
-
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-      background-size: 1200px;
-    }
 
     @media (prefers-reduced-motion: reduce) {
       scroll-behavior: auto;
@@ -28,6 +20,18 @@ const GlobalStyles = createGlobalStyle`
 
     @media print {
       background: none;
+    }
+  }
+
+  body {
+    background-color: transparent;
+    background-image: url(/topography.svg);
+    background-repeat: repeat;
+    background-position: top center;
+    background-size: 900px;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+      background-size: 1200px;
     }
   }
 
