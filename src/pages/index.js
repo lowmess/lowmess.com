@@ -11,7 +11,7 @@ const HeaderLink = system({ is: 'a' }, themeHover)
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
-    query IndexQuery {
+    query {
       allProjectsJson(limit: 1) {
         edges {
           node {

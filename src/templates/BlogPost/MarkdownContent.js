@@ -107,7 +107,8 @@ const MarkdownContent = styled(Box)`
   }
 
   ul,
-  ol {
+  ol,
+  dl {
     padding-left: ${({ theme }) => theme.space[4]};
   }
 
@@ -171,6 +172,8 @@ const MarkdownContent = styled(Box)`
     margin-right: 0;
     margin-bottom: ${({ theme }) => theme.space[4]};
     margin-left: 0;
+    border-left: ${({ theme }) => theme.borders[3]}
+      ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
     background-color: ${({ theme }) => theme.colors.nearWhite};
@@ -212,6 +215,8 @@ const MarkdownContent = styled(Box)`
     overflow-x: scroll;
     margin-top: ${({ theme }) => theme.space[4]};
     margin-bottom: ${({ theme }) => theme.space[4]};
+    border-left: ${({ theme }) => theme.borders[3]}
+      ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
     background-color: ${({ theme }) => theme.colors.nearBlack};

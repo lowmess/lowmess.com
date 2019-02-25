@@ -1,18 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, withTheme } from 'styled-components'
 import { Box, Flex } from '../components/Primitives'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useSiteMetadata } from '../utils/hooks'
 
 import 'sanitize.css'
 
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
+    background-image: url(/topography.svg);
+    background-repeat: repeat;
+    background-position: top center;
+    background-size: 900px;
     scroll-behavior: smooth;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+      background-size: 1200px;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       scroll-behavior: auto;
@@ -48,6 +56,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Border = styled(Flex)`
   min-height: 100vh;
+  border-color: transparent !important;
 
   @media print {
     display: block;
@@ -71,24 +80,14 @@ const Constraint = styled(Flex)`
 `
 
 const Layout = ({ children, location, theme }) => {
-  const data = useStaticQuery(graphql`
-    query LayoutQuery {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-    }
-  `)
+  const { title, description } = useSiteMetadata()
 
   return (
     <>
       <Helmet htmlAttributes={{ lang: 'en' }}>
-        <title>{data.site.siteMetadata.title}</title>
+        <title>{title}</title>
 
-        <meta name="description" content={data.site.siteMetadata.description} />
+        <meta name="description" content={description} />
 
         <meta name="theme-color" content={theme.colors.nearWhite} />
 
@@ -120,7 +119,7 @@ const Layout = ({ children, location, theme }) => {
 
       <GlobalStyles />
 
-      <Border border={3} borderColor="transparent">
+      <Border border={[3, 4]}>
         <Content
           borderRadius={2}
           py={3}

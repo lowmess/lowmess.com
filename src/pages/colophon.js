@@ -1,10 +1,10 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import system from 'system-components'
 import Header from '../components/Header'
 import { Flex } from '../components/Primitives'
 import { Title } from '../components/Typography'
+import { useSiteMetadata } from '../utils/hooks'
 import { themeHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
 
@@ -53,15 +53,7 @@ const SanityCheck = system({
 })
 
 const ColophonPage = () => {
-  const data = useStaticQuery(graphql`
-    query ColophonQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const { title } = useSiteMetadata()
 
   const {
     react: { version: react },
@@ -77,7 +69,7 @@ const ColophonPage = () => {
   return (
     <>
       <Helmet>
-        <title>Colophon • {data.site.siteMetadata.title}</title>
+        <title>Colophon • {title}</title>
       </Helmet>
 
       <article>
