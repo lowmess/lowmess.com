@@ -92,9 +92,12 @@ const Layout = ({ children, location, theme }) => {
         <title>{title}</title>
 
         <meta name="description" content={description} />
-
+        {/* theming */}
         <meta name="theme-color" content={theme.colors.nearWhite} />
-
+        <meta name="apple-mobile-web-app-title" content="lowmess" />
+        <meta name="application-name" content="lowmess" />
+        <meta name="msapplication-TileColor" content="{theme.colors.orange}" />
+        {/* icons */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -112,8 +115,6 @@ const Layout = ({ children, location, theme }) => {
           href="/favicon-16x16.png"
           sizes="16x16"
         />
-
-        <link rel="manifest" href="/manifest.json" />
         <link
           rel="mask-icon"
           href="/safari-pinned-tab.svg"
