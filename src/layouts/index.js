@@ -25,13 +25,24 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: transparent;
-    background-image: url(/topography.svg);
+    background-image: url(/topography_900x900.png);
     background-repeat: repeat;
     background-position: top center;
     background-size: 900px;
 
+    @media (min-resolution: 192dpi) {
+      background-image: url(/topography_1800x1800.png)
+    }
+
     @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+      background-image: url(/topography_1200x1200.png);
       background-size: 1200px;
+    }
+
+    @media
+    (min-width: ${({ theme }) => theme.breakpoints[0]})
+    and (min-resolution: 192dpi) {
+      background-image: url(/topography_2400x2400.png)
     }
   }
 
