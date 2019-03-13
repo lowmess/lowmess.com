@@ -47,7 +47,7 @@ const AboutPage = () => {
             <AboutLink href="mailto:alec@lowmess.com">email me</AboutLink>.
           </Paragraph>
 
-          <Stats mt={5} />
+          <Stats mt={[4, 5]} />
         </main>
       </article>
     </>

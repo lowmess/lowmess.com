@@ -23,29 +23,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  body {
-    background-color: transparent;
-    background-image: url(/topography_900x900.png);
-    background-repeat: repeat;
-    background-position: top center;
-    background-size: 900px;
-
-    @media (min-resolution: 192dpi) {
-      background-image: url(/topography_1800x1800.png)
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-      background-image: url(/topography_1200x1200.png);
-      background-size: 1200px;
-    }
-
-    @media
-    (min-width: ${({ theme }) => theme.breakpoints[0]})
-    and (min-resolution: 192dpi) {
-      background-image: url(/topography_2400x2400.png)
-    }
-  }
-
   ::selection {
     background-color: ${({ theme }) => theme.colors.orange} !important;
     color: ${({ theme }) => theme.colors.darkGrey} !important;
@@ -71,12 +48,33 @@ const GlobalStyles = createGlobalStyle`
 
 const Border = styled(Flex)`
   min-height: 100vh;
+  border: ${({ theme }) => theme.borders[3]};
   border-color: transparent !important;
+  background-color: transparent;
+  background-image: url(/topography_900x900.png);
+  background-repeat: repeat;
+  background-position: top center;
+  background-size: 900px;
+
+  @media (min-resolution: 192dpi) {
+    background-image: url(/topography_1800x1800.png);
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    border: ${({ theme }) => theme.borders[4]};
+    background-image: url(/topography_1200x1200.png);
+    background-size: 1200px;
+  }
+
+  @media (min-width: ${({ theme }) =>
+      theme.breakpoints[0]}) and (min-resolution: 192dpi) {
+    background-image: url(/topography_2400x2400.png);
+  }
 
   @media print {
     display: block;
     min-height: 0;
-    background: transparent;
+    background: none;
   }
 `
 
@@ -135,7 +133,7 @@ const Layout = ({ children, location, theme }) => {
 
       <GlobalStyles />
 
-      <Border border={[3, 4]}>
+      <Border>
         <Content
           borderRadius={2}
           py={3}

@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import system from 'system-components'
 import getStats from './getStats'
 import { Stat, StatTitle, StatValue } from './Stat'
-import { Box, Text } from '../Primitives'
+import { Box } from '../Primitives'
+
+const SectionTitle = system({
+  is: 'h2',
+  fontSize: [3, 4],
+  mt: 0,
+  mb: 4,
+})
 
 const Stats = ({ ...props }) => {
   const [commits, setCommits] = useState(null)
@@ -10,7 +18,7 @@ const Stats = ({ ...props }) => {
   const [sleep, setSleep] = useState(null)
   const [songs, setSongs] = useState(null)
   const [album, setAlbum] = useState(null)
-  const [book, setBook] = useState(null)
+  const [books, setBooks] = useState([])
 
   async function fillStats() {
     const {
@@ -20,7 +28,7 @@ const Stats = ({ ...props }) => {
       sleep: sleepStat,
       songs: songsStat,
       album: albumStat,
-      book: bookStat,
+      books: booksStat,
     } = await getStats()
 
     if (commitStat) setCommits(commitStat.toLocaleString())
@@ -42,14 +50,7 @@ const Stats = ({ ...props }) => {
       setAlbum(albumComponent)
     }
 
-    if (bookStat.name && bookStat.author) {
-      const bookComponent = (
-        <span>
-          <em>{bookStat.name}</em>, {bookStat.author}
-        </span>
-      )
-      setBook(bookComponent)
-    }
+    if (booksStat.length) setBooks(booksStat)
   }
 
   useEffect(() => {
@@ -57,46 +58,60 @@ const Stats = ({ ...props }) => {
   }, [])
 
   return (
-    <Box {...props}>
-      <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
-        In the Last 30 Days
-      </Text>
+    <>
+      <Box {...props}>
+        <SectionTitle>In the Last 30 Days</SectionTitle>
 
-      <Stat mb={2}>
-        <StatTitle>GitHub Commits</StatTitle>
-        <StatValue>{commits || '\u2014'}</StatValue>
-      </Stat>
+        <Stat mb={2}>
+          <StatTitle>GitHub Commits</StatTitle>
+          <StatValue>{commits || '\u2014'}</StatValue>
+        </Stat>
 
-      <Stat mb={2}>
-        <StatTitle>Places Visited</StatTitle>
-        <StatValue>{places || '\u2014'}</StatValue>
-      </Stat>
+        <Stat mb={2}>
+          <StatTitle>Places Visited</StatTitle>
+          <StatValue>{places || '\u2014'}</StatValue>
+        </Stat>
 
-      <Stat mb={2}>
-        <StatTitle>Steps Taken</StatTitle>
-        <StatValue>{steps || '\u2014'}</StatValue>
-      </Stat>
+        <Stat mb={2}>
+          <StatTitle>Steps Taken</StatTitle>
+          <StatValue>{steps || '\u2014'}</StatValue>
+        </Stat>
 
-      <Stat mb={2}>
-        <StatTitle>Hours Slept</StatTitle>
-        <StatValue>{sleep || '\u2014'}</StatValue>
-      </Stat>
+        <Stat mb={2}>
+          <StatTitle>Hours Slept</StatTitle>
+          <StatValue>{sleep || '\u2014'}</StatValue>
+        </Stat>
 
-      <Stat mb={2}>
-        <StatTitle>Songs Played</StatTitle>
-        <StatValue>{songs || '\u2014'}</StatValue>
-      </Stat>
+        <Stat mb={2}>
+          <StatTitle>Songs Played</StatTitle>
+          <StatValue>{songs || '\u2014'}</StatValue>
+        </Stat>
 
-      <Stat mb={2}>
-        <StatTitle>Top Album</StatTitle>
-        <StatValue>{album || '\u2014'}</StatValue>
-      </Stat>
+        <Stat mb={2}>
+          <StatTitle>Top Album</StatTitle>
+          <StatValue>{album || '\u2014'}</StatValue>
+        </Stat>
+      </Box>
 
-      <Stat>
-        <StatTitle>Currently Reading</StatTitle>
-        <StatValue>{book || '\u2014'}</StatValue>
-      </Stat>
-    </Box>
+      <Box {...props}>
+        <SectionTitle>Currently Reading</SectionTitle>
+
+        {!books.length && (
+          <Stat>
+            <StatValue width={1}>{'\u2014'}</StatValue>
+          </Stat>
+        )}
+
+        {!!books.length &&
+          books.map(book => (
+            <Stat mt={2} key={book.name}>
+              <StatValue width={1}>
+                <em>{book.name}</em>, {book.author}
+              </StatValue>
+            </Stat>
+          ))}
+      </Box>
+    </>
   )
 }
 

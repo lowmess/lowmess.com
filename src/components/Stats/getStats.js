@@ -12,22 +12,23 @@ const getStats = () => {
           name
           artist
         }
-        book {
+        books {
           name
           author
         }
       }
   `
 
-  return fetch('https://lowmess-stats.now.sh/graphql', {
+  return fetch('https://stats.lowmess.com/graphql', {
     method: 'POST',
     body: JSON.stringify({ query }),
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 's-maxage=3600',
     },
   })
     .then(response => {
-      if (response.status !== 200) {
+      if (!response.ok) {
         throw new Error(`${response.status}: ${response.statusText}`)
       }
 
