@@ -24,8 +24,8 @@ StatTitle.propTypes = {
   children: PropTypes.string.isRequired,
 }
 
-const StatValue = ({ children }) => (
-  <Box width={[1, 2 / 3, 3 / 4]}>
+const StatValue = ({ children, ...props }) => (
+  <Box width={[1, 2 / 3, 3 / 4]} {...props}>
     <Text fontFamily="monospace" fontSize={[1, 2]} lineHeight="copy">
       {children}
     </Text>
@@ -33,8 +33,7 @@ const StatValue = ({ children }) => (
 )
 
 StatValue.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
-    .isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export { Stat, StatTitle, StatValue }

@@ -10,7 +10,7 @@ const Stats = ({ ...props }) => {
   const [sleep, setSleep] = useState(null)
   const [songs, setSongs] = useState(null)
   const [album, setAlbum] = useState(null)
-  const [book, setBook] = useState(null)
+  const [books, setBooks] = useState([])
 
   async function fillStats() {
     const {
@@ -20,7 +20,7 @@ const Stats = ({ ...props }) => {
       sleep: sleepStat,
       songs: songsStat,
       album: albumStat,
-      book: bookStat,
+      books: booksStat,
     } = await getStats()
 
     if (commitStat) setCommits(commitStat.toLocaleString())
@@ -42,14 +42,7 @@ const Stats = ({ ...props }) => {
       setAlbum(albumComponent)
     }
 
-    if (bookStat.name && bookStat.author) {
-      const bookComponent = (
-        <span>
-          <em>{bookStat.name}</em>, {bookStat.author}
-        </span>
-      )
-      setBook(bookComponent)
-    }
+    if (booksStat.length) setBooks(booksStat)
   }
 
   useEffect(() => {
@@ -92,10 +85,24 @@ const Stats = ({ ...props }) => {
         <StatValue>{album || '\u2014'}</StatValue>
       </Stat>
 
-      <Stat>
-        <StatTitle>Currently Reading</StatTitle>
-        <StatValue>{book || '\u2014'}</StatValue>
-      </Stat>
+      <Text is="h2" fontSize={[3, 4]} mt={5} mb={4}>
+        Currently Reading
+      </Text>
+
+      {!books.length && (
+        <Stat>
+          <StatValue width={1}>{'\u2014'}</StatValue>
+        </Stat>
+      )}
+
+      {!!books.length &&
+        books.map(book => (
+          <Stat mt={2} key={book.name}>
+            <StatValue width={1}>
+              <em>{book.name}</em>, {book.author}
+            </StatValue>
+          </Stat>
+        ))}
     </Box>
   )
 }
