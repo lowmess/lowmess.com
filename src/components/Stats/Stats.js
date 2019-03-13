@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import system from 'system-components'
 import getStats from './getStats'
 import { Stat, StatTitle, StatValue } from './Stat'
-import { Box, Text } from '../Primitives'
+import { Box } from '../Primitives'
+
+const SectionTitle = system({
+  is: 'h2',
+  fontSize: [3, 4],
+  mt: 0,
+  mb: 4,
+})
 
 const Stats = ({ ...props }) => {
   const [commits, setCommits] = useState(null)
@@ -52,9 +60,7 @@ const Stats = ({ ...props }) => {
   return (
     <>
       <Box {...props}>
-        <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
-          In the Last 30 Days
-        </Text>
+        <SectionTitle>In the Last 30 Days</SectionTitle>
 
         <Stat mb={2}>
           <StatTitle>GitHub Commits</StatTitle>
@@ -88,9 +94,7 @@ const Stats = ({ ...props }) => {
       </Box>
 
       <Box {...props}>
-        <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
-          Currently Reading
-        </Text>
+        <SectionTitle>Currently Reading</SectionTitle>
 
         {!books.length && (
           <Stat>
