@@ -50,60 +50,64 @@ const Stats = ({ ...props }) => {
   }, [])
 
   return (
-    <Box {...props}>
-      <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
-        In the Last 30 Days
-      </Text>
+    <>
+      <Box {...props}>
+        <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
+          In the Last 30 Days
+        </Text>
 
-      <Stat mb={2}>
-        <StatTitle>GitHub Commits</StatTitle>
-        <StatValue>{commits || '\u2014'}</StatValue>
-      </Stat>
-
-      <Stat mb={2}>
-        <StatTitle>Places Visited</StatTitle>
-        <StatValue>{places || '\u2014'}</StatValue>
-      </Stat>
-
-      <Stat mb={2}>
-        <StatTitle>Steps Taken</StatTitle>
-        <StatValue>{steps || '\u2014'}</StatValue>
-      </Stat>
-
-      <Stat mb={2}>
-        <StatTitle>Hours Slept</StatTitle>
-        <StatValue>{sleep || '\u2014'}</StatValue>
-      </Stat>
-
-      <Stat mb={2}>
-        <StatTitle>Songs Played</StatTitle>
-        <StatValue>{songs || '\u2014'}</StatValue>
-      </Stat>
-
-      <Stat mb={2}>
-        <StatTitle>Top Album</StatTitle>
-        <StatValue>{album || '\u2014'}</StatValue>
-      </Stat>
-
-      <Text is="h2" fontSize={[3, 4]} mt={5} mb={4}>
-        Currently Reading
-      </Text>
-
-      {!books.length && (
-        <Stat>
-          <StatValue width={1}>{'\u2014'}</StatValue>
+        <Stat mb={2}>
+          <StatTitle>GitHub Commits</StatTitle>
+          <StatValue>{commits || '\u2014'}</StatValue>
         </Stat>
-      )}
 
-      {!!books.length &&
-        books.map(book => (
-          <Stat mt={2} key={book.name}>
-            <StatValue width={1}>
-              <em>{book.name}</em>, {book.author}
-            </StatValue>
+        <Stat mb={2}>
+          <StatTitle>Places Visited</StatTitle>
+          <StatValue>{places || '\u2014'}</StatValue>
+        </Stat>
+
+        <Stat mb={2}>
+          <StatTitle>Steps Taken</StatTitle>
+          <StatValue>{steps || '\u2014'}</StatValue>
+        </Stat>
+
+        <Stat mb={2}>
+          <StatTitle>Hours Slept</StatTitle>
+          <StatValue>{sleep || '\u2014'}</StatValue>
+        </Stat>
+
+        <Stat mb={2}>
+          <StatTitle>Songs Played</StatTitle>
+          <StatValue>{songs || '\u2014'}</StatValue>
+        </Stat>
+
+        <Stat mb={2}>
+          <StatTitle>Top Album</StatTitle>
+          <StatValue>{album || '\u2014'}</StatValue>
+        </Stat>
+      </Box>
+
+      <Box {...props}>
+        <Text is="h2" fontSize={[3, 4]} mt={0} mb={4}>
+          Currently Reading
+        </Text>
+
+        {!books.length && (
+          <Stat>
+            <StatValue width={1}>{'\u2014'}</StatValue>
           </Stat>
-        ))}
-    </Box>
+        )}
+
+        {!!books.length &&
+          books.map(book => (
+            <Stat mt={2} key={book.name}>
+              <StatValue width={1}>
+                <em>{book.name}</em>, {book.author}
+              </StatValue>
+            </Stat>
+          ))}
+      </Box>
+    </>
   )
 }
 
