@@ -40,11 +40,10 @@ const AboutPage = () => {
 
           <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={0}>
             Here&rsquo;s the fun stuff: my name technically isn&rsquo;t Alec
-            (don&rsquo;t worry about it), my favorite beer is all of them, and
-            I&rsquo;m a staunch believer in the Oxford comma. If you have any
-            questions, I&rsquo;m happy to send you a non sequitur and/or
-            fully-serious response if you{' '}
-            <AboutLink href="mailto:alec@lowmess.com">email me</AboutLink>.
+            (don&rsquo;t worry about it), my favorite beer is all of them, and I
+            like to list things in threes. If you have any questions, I&rsquo;m
+            happy to send you a non sequitur and/or fully-serious response if
+            you <AboutLink href="mailto:alec@lowmess.com">email me</AboutLink>.
           </Paragraph>
 
           <Stats mt={[4, 5]} />
