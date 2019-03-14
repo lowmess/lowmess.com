@@ -24,7 +24,6 @@ const getStats = () => {
     body: JSON.stringify({ query }),
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 's-maxage=3600',
     },
   })
     .then(response => {
