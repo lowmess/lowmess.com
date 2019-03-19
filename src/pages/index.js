@@ -31,18 +31,17 @@ const IndexPage = () => {
         <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
 
         <Subtitle my={3}>
-          I&rsquo;m a frontend developer &amp; designer{' '}
+          I&rsquo;m a frontend developer currently{' '}
           <HeaderLink href="mailto:alec@lowmess.com?subject=Let's%20Work%20Together">
-            looking for new&nbsp;opportunities
+            seeking new&nbsp;opportunities
           </HeaderLink>
           .
         </Subtitle>
 
         <Paragraph fontSize={[2, 3]} mt={3} mb={4}>
-          My goal is to combine the principles of classic graphic design with
-          the flexible and forward-thinking tenets of the internet. I care
-          deeply about legibility, performance, and the open web.
-          And&nbsp;burritos.
+          My goal is to create beautiful websites and rich interactions without
+          sacrificing usability. I care deeply about legibility, performance,
+          and the open web. And&nbsp;burritos.
         </Paragraph>
       </Header>
 

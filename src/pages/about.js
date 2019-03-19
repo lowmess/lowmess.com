@@ -25,10 +25,10 @@ const AboutPage = () => {
 
         <main>
           <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={5} mb={3}>
-            &ldquo;I&rsquo;m a frontend developer &amp; designer, with a passion
-            for legibility, performance, and the open web. A quick learner with
-            a thirst for knowledge. Enthusiastic and hard-working, I pride
-            myself on my attention to detail.&rdquo;
+            &ldquo;I&rsquo;m a frontend developer, with a passion for
+            legibility, performance, and the open web. A quick learner with a
+            thirst for knowledge. Enthusiastic and hard-working, I pride myself
+            on my attention to detail.&rdquo;
           </Paragraph>
 
           <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
