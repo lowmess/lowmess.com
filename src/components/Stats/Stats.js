@@ -13,6 +13,7 @@ const SectionTitle = system({
 
 const Stats = ({ ...props }) => {
   const [commits, setCommits] = useState(null)
+  const [tweets, setTweets] = useState(null)
   const [places, setPlaces] = useState(null)
   const [steps, setSteps] = useState(null)
   const [sleep, setSleep] = useState(null)
@@ -23,6 +24,7 @@ const Stats = ({ ...props }) => {
   async function fillStats() {
     const {
       commits: commitStat,
+      tweets: tweetsStat,
       places: placesStat,
       steps: stepsStat,
       sleep: sleepStat,
@@ -32,6 +34,8 @@ const Stats = ({ ...props }) => {
     } = await getStats()
 
     if (commitStat) setCommits(commitStat.toLocaleString())
+
+    if (tweetsStat) setTweets(tweetsStat.toLocaleString())
 
     if (placesStat) setPlaces(placesStat.toLocaleString())
 
@@ -65,6 +69,11 @@ const Stats = ({ ...props }) => {
         <Stat mb={2}>
           <StatTitle>GitHub Commits</StatTitle>
           <StatValue>{commits || '\u2014'}</StatValue>
+        </Stat>
+
+        <Stat mb={2}>
+          <StatTitle>Tweets Sent</StatTitle>
+          <StatValue>{tweets || '\u2014'}</StatValue>
         </Stat>
 
         <Stat mb={2}>
