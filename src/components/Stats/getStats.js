@@ -4,6 +4,7 @@ const getStats = () => {
   const query = `
       query Stats {
         commits
+        tweets
         places
         steps
         sleep
