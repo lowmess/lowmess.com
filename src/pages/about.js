@@ -33,9 +33,12 @@ const AboutPage = () => {
 
           <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
             That&rsquo;s what the intro on{' '}
-            <AboutLink href="https://resume.lowmess.com">my résumé</AboutLink>{' '}
-            says. Kind of boring, huh? Well, it&rsquo;s a résumé. They&rsquo;re
-            supposed to be boring. (Don&rsquo;t be such a nitpicker.)
+            <AboutLink href="https://resume.lowmess.com">
+              my r&eacute;sum&eacute;
+            </AboutLink>{' '}
+            says. Kind of boring, huh? Well, it&rsquo;s a r&eacute;sum&eacute;.
+            They&rsquo;re supposed to be boring. (Don&rsquo;t be such a
+            nitpicker.)
           </Paragraph>
 
           <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={0}>

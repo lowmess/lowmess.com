@@ -64,7 +64,9 @@ const Footer = () => {
         </ListItem>
 
         <ListItem display="inline-block">
-          <SocialLink href="https://resume.lowmess.com">CV</SocialLink>
+          <SocialLink href="https://resume.lowmess.com">
+            R&eacute;sum&eacute;
+          </SocialLink>
         </ListItem>
       </List>
     </Flex>
