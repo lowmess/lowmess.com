@@ -45,7 +45,7 @@ const Stats = ({ ...props }) => {
 
     if (songsStat) setSongs(songsStat.toLocaleString())
 
-    if (albumStat.name && albumStat.artist) {
+    if (albumStat && albumStat.name && albumStat.artist) {
       const albumComponent = (
         <span>
           <em>{albumStat.name}</em>, {albumStat.artist}
@@ -54,7 +54,7 @@ const Stats = ({ ...props }) => {
       setAlbum(albumComponent)
     }
 
-    if (booksStat.length) setBooks(booksStat)
+    if (booksStat && booksStat.length) setBooks(booksStat)
   }
 
   useEffect(() => {
