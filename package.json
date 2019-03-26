@@ -58,9 +58,8 @@
     "unfetch": "^4.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
     "eslint": "^5.14.0",
-    "eslint-config-lowmess": "^2.2.1",
+    "eslint-config-lowmess": "^2.3.0",
     "husky": "^1.3.1",
     "lint-staged": "^7.3.0",
     "prettier": "^1.16.4"
