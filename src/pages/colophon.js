@@ -132,7 +132,7 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://get.gaug.es">Gauges</DepLink>
+              <DepLink href="https://usefathom.com">Fathom</DepLink>
             </Dep>
 
             <Dep>
