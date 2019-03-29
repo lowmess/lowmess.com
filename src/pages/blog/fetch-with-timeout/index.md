@@ -1,5 +1,5 @@
 ---
-title: Request Timeouts with the Fetch API
+title: Request Timeouts With the Fetch API
 date: 2019-03-29
 description: The Fetch API is great, but didn't ship with the ability to timeout requests. There's a new API to help with that.
 ---
