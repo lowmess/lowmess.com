@@ -23,7 +23,7 @@ First, because we're basically writing a shim around `fetch`, I'm going to add a
 Anyways, here is my generic `fetchWithTimeout` function. It should work in any environment that supports `fetch` and `AbortController`.
 
 ```js
-const fetchWithTimeout = (uri, options, callback, time = 5000) => {
+const fetchWithTimeout = (uri, options = {}, callback, time = 5000) => {
   // Lets set up our `AbortController`, and create a request options object
   // that includes the controller's `signal` to pass to `fetch`.
   const controller = new AbortController()
