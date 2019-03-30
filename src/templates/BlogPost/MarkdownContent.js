@@ -144,7 +144,8 @@ const MarkdownContent = styled(Box)`
     text-decoration: underline;
     text-decoration-color: ${({ theme }) => theme.colors.orange};
 
-    &:hover {
+    &:hover,
+    &:hover code {
       color: ${({ theme }) => theme.colors.orange};
     }
 
