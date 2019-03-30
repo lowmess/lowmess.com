@@ -18,9 +18,9 @@ With `AbortController`, it becomes trivial to cancel a request if it doesn't res
 
 ## Putting It All Together
 
-First, a disclaimer: there may very well be a more ergonomic way of accomplishing this. Callbacks, generally speaking, aren't much fun to work with. However, since we're catching request timeouts, we need a way to stick our data-handling logic between the `Promise` chains. A callback is the best way I could think of handling this.
+First, because we're basically writing a shim around `fetch`, I'm going to add an extra little perk. If the response doesn't return in the `200` range (that is, if `response.ok` evaluates to `false`), we're going to throw an error. We absolutely do not need to do this -- we could just catch our timeout and the function would work the same (we actually don't even _need_ to do that). However, I always perform this check anyways, so this removes a lot of boilerplate code for me.
 
-With that out of the way, here is my generic `fetchWithTimeout` function. It should work in any environment that supports `fetch` and `AbortController`.
+Anyways, here is my generic `fetchWithTimeout` function. It should work in any environment that supports `fetch` and `AbortController`.
 
 ```js
 const fetchWithTimeout = (uri, options, callback, time = 5000) => {
@@ -44,8 +44,7 @@ const fetchWithTimeout = (uri, options, callback, time = 5000) => {
         throw new Error(`${response.status}: ${response.statusText}`)
       }
 
-      // Hey, look! It's our callback!
-      return callback(response)
+      return response
     })
     .catch(error => {
       // When we abort our `fetch`, the controller conveniently throws a named
@@ -62,22 +61,21 @@ const fetchWithTimeout = (uri, options, callback, time = 5000) => {
 Using the function is fairly straightforward. Because the callbacks can be slightly unweildy, I tend to define them outside of the function parameters, but you could absolutely define them inline if desired.
 
 ```js
-const doStuffWithResponse = response =>
-  // Since we're returning the response, you can do anything you want to the
-  // response object. For the purposes of this example, we'll pretend it's JSON.
-  response.json().then(json => {
-    // Do stuff with JSON
-  })
-
-// In reality we'd want to append a `.catch` or wrap this in a `try...catch`
-// and properly handle any errors that might spit out at us.
-// I trust you to be more responsible than I am in this example.
+// This example _always_ logs the error, because I'm telling httpstat.us to wait
+// at least 1s before responding, but setting the timeout threshold to 500ms.
+// Also, this could definitely be written in async/await if you preferred.
 fetchWithTimeout(
-  'https://example.com',
+  'https://httpstat.us/200?sleep=1000',
   { headers: { Accept: 'application/json' } },
-  doStuffWithResponse,
-  2500
+  500
 )
+  .then(response => response.json())
+  .then(json => {
+    console.log(`This will never log out: ${json}`)
+  })
+  .catch(error => {
+    console.error(error.message)
+  })
 ```
 
 ---
