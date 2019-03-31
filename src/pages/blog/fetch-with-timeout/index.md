@@ -58,7 +58,7 @@ const fetchWithTimeout = (uri, options = {}, time = 5000) => {
 }
 ```
 
-Using the function is fairly straightforward. Because the callbacks can be slightly unweildy, I tend to define them outside of the function parameters, but you could absolutely define them inline if desired.
+Using the function is fairly straightforward. Because we return `fetch` directly, we can use it in much the same way; the only change should be the addition of a third paramater (our `time` argument) and the extra error handling we discussed above.
 
 ```js
 // This example _always_ logs the error, because I'm telling httpstat.us to wait
