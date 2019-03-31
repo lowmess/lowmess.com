@@ -118,7 +118,6 @@ const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-catch-links',
   'gatsby-plugin-layout',
-  'gatsby-plugin-netlify',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-remove-serviceworker',
   'gatsby-plugin-sharp',
@@ -128,7 +127,11 @@ const plugins = [
 
 // The Fathom variables are set in Netlify's deploy settings.
 // Seems better than storing them in plain text, as I was before.
-if (process.env.FATHOM_URL && process.env.FATHOM_ID) {
+if (
+  process.env.FATHOM_URL &&
+  process.env.FATHOM_ID &&
+  process.env.USE_ANALYTICS
+) {
   plugins.push({
     resolve: 'gatsby-plugin-fathom',
     options: {
@@ -137,6 +140,9 @@ if (process.env.FATHOM_URL && process.env.FATHOM_ID) {
     },
   })
 }
+
+// Needs to be last plugin loaded
+plugins.push('gatsby-plugin-netlify')
 
 module.exports = {
   siteMetadata: {
