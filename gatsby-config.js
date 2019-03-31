@@ -123,8 +123,6 @@ const plugins = [
   'gatsby-plugin-sharp',
   'gatsby-plugin-sitemap',
   'gatsby-plugin-styled-components',
-  // Needs to be last
-  'gatsby-plugin-netlify',
 ]
 
 // The Fathom variables are set in Netlify's deploy settings.
@@ -142,6 +140,9 @@ if (
     },
   })
 }
+
+// Needs to be last plugin loaded
+plugins.push('gatsby-plugin-netlify')
 
 module.exports = {
   siteMetadata: {
