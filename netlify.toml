@@ -1,2 +1,2 @@
 [context.production.environment]
-  USE_ANALYTICS = true
+  USE_ANALYTICS = 'true'
