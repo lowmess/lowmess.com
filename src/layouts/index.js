@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import styled, { createGlobalStyle, withTheme } from 'styled-components'
-import { Box, Flex } from 'rebass'
+import { css, createGlobalStyle, withTheme } from 'styled-components'
+import { Box, Flex, Card } from 'rebass'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { useSiteMetadata } from '../utils/hooks'
@@ -46,57 +46,46 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const Border = styled(Flex)`
-  min-height: 100vh;
-  border: ${({ theme }) => theme.borders[3]};
-  border-color: transparent !important;
-  background-color: transparent;
-  background-image: url(/topography_900x900.png);
-  background-repeat: repeat;
-  background-position: top center;
-  background-size: 900px;
-
-  @media (min-resolution: 192dpi) {
-    background-image: url(/topography_1800x1800.png);
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    border: ${({ theme }) => theme.borders[4]};
-    background-image: url(/topography_1200x1200.png);
-    background-size: 1200px;
-  }
-
-  @media (min-width: ${({ theme }) =>
-      theme.breakpoints[0]}) and (min-resolution: 192dpi) {
-    background-image: url(/topography_2400x2400.png);
-  }
-
-  @media print {
-    display: block;
-    min-height: 0;
-    background: none;
-  }
-`
-
-const Content = styled(Box)`
-  flex: 1;
-  max-width: 100%;
-  background-color: ${({ theme }) => theme.colors.white};
-`
-
-const Constraint = styled(Flex)`
-  flex-flow: column nowrap;
-  max-width: 64rem;
-  height: 100%;
-  margin-right: auto;
-  margin-left: auto;
-`
-
 const Layout = ({ children, location, theme }) => {
   const { title, description } = useSiteMetadata()
 
+  // some of these could be moved into the component's props, but in order to
+  // support retina media queries they need to be outside of rebass. it just
+  // feels weird to separate related styles.
+  const borderStyles = css`
+    display: flex;
+    min-height: 100vh;
+    border-color: transparent !important;
+    background-image: url(/topography_900x900.png);
+    background-repeat: repeat;
+    background-position: top center;
+    background-size: 900px;
+
+    @media (min-resolution: 192dpi) {
+      background-image: url(/topography_1800x1800.png);
+    }
+
+    @media (min-width: ${theme.breakpoints[0]}) {
+      background-image: url(/topography_1200x1200.png);
+      background-size: 1200px;
+    }
+
+    @media (min-width: ${theme.breakpoints[0]}) and (min-resolution: 192dpi) {
+      background-image: url(/topography_2400x2400.png);
+    }
+
+    @media print {
+      display: block;
+      min-height: 0;
+      border: 0;
+      background: none;
+    }
+  `
+
   return (
     <>
+      <GlobalStyles />
+
       <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>{title}</title>
 
@@ -131,17 +120,22 @@ const Layout = ({ children, location, theme }) => {
         />
       </Helmet>
 
-      <GlobalStyles />
-
-      <Border>
-        <Content
+      <Card border={[3, 4]} bg="transparent" css={borderStyles}>
+        <Card
+          flex="1"
           borderRadius={2}
           py={3}
           px={[3, 4]}
           fontFamily="sans-serif"
           color="darkGrey"
+          bg="white"
+          css="max-width: 100%"
         >
-          <Constraint>
+          <Flex
+            flexDirection="column"
+            mx="auto"
+            css="max-width: 64rem; height: 100%"
+          >
             <Navigation location={location} />
 
             <Box as="main" id="main-content" mb={[5, 6]}>
@@ -149,9 +143,9 @@ const Layout = ({ children, location, theme }) => {
             </Box>
 
             <Footer />
-          </Constraint>
-        </Content>
-      </Border>
+          </Flex>
+        </Card>
+      </Card>
     </>
   )
 }
