@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { Box } from '../../components/Primitives'
+import { Text } from 'rebass'
+import { themeHover, themeUnderline } from '../../utils/styles'
 
-// this component basically exists as a giant stylesheet that inherits from the theme
-// it's for markdown content (hence the name)
-// it's kind of a b
-const MarkdownContent = styled(Box)`
+// this component basically exists as a giant stylesheet that inherits from the
+// theme. it's for markdown content (hence the name). it's kind of a b
+const MarkdownContent = styled(Text)`
   /* Vertical Rhythm */
   & > * {
     /* reset all margins */
@@ -99,11 +99,9 @@ const MarkdownContent = styled(Box)`
   hr {
     width: 100%;
     max-width: 4rem;
-    margin-left: 0;
-    margin-right: 0;
+    margin: ${({ theme }) => theme.space[4]} 0;
     border: ${({ theme }) => theme.borders[1]}
       ${({ theme }) => theme.colors.orange};
-    margin: ${({ theme }) => theme.space[4]} 0;
   }
 
   ul,
@@ -140,11 +138,9 @@ const MarkdownContent = styled(Box)`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.darkGrey};
-    text-decoration: underline;
-    text-decoration-color: ${({ theme }) => theme.colors.orange};
+    ${themeHover};
+    ${themeUnderline};
 
-    &:hover,
     &:hover code {
       color: ${({ theme }) => theme.colors.orange};
     }

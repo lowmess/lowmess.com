@@ -2,32 +2,39 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { css } from 'styled-components'
-import system from 'system-components'
+import { Flex, Text } from 'rebass'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
-import { Flex } from '../Primitives'
 import { List, ListItem } from '../Typography'
 import { themeHover } from '../../utils/styles'
 
-const activeBorder = css`
-  .active & {
-    border-bottom: ${({ theme }) => theme.borders[2]};
-    border-color: ${({ theme }) => theme.colors.orange};
-  }
-`
+const LinkText = ({ children, ...props }) => {
+  const styles = css`
+    .active & {
+      border-bottom: ${({ theme }) => theme.borders[2]};
+      border-color: ${({ theme }) => theme.colors.orange};
+    }
 
-const LinkText = system(
-  {
-    is: 'span',
-    px: 1,
-    pb: 1,
-    fontSize: [0, 1],
-    fontFamily: 'monospace',
-  },
-  'space',
-  themeHover,
-  activeBorder
-)
+    ${themeHover};
+  `
+  return (
+    <Text
+      as="span"
+      px={1}
+      pb={1}
+      fontSize={[0, 1]}
+      fontFamily="monospace"
+      css={styles}
+      {...props}
+    >
+      {children}
+    </Text>
+  )
+}
+
+LinkText.propTypes = {
+  children: PropTypes.string.isRequired,
+}
 
 const isActive = ({ location, href, isPartiallyCurrent }) => {
   if (location.pathname === '/' && href === '/') {
@@ -52,7 +59,7 @@ NavLink.propTypes = {
 
 const Navigation = ({ location }) => (
   <Flex
-    is="nav"
+    as="nav"
     alignItems="center"
     justifyContent="space-between"
     mt={[0, 2, 3]}
@@ -66,25 +73,25 @@ const Navigation = ({ location }) => (
     </Flex>
 
     <List fontFamily="monospace">
-      <ListItem display="inline-block">
+      <ListItem css="display: inline-block">
         <NavLink to="/" mr={2}>
           Home
         </NavLink>
       </ListItem>
 
-      <ListItem display="inline-block">
+      <ListItem css="display: inline-block">
         <NavLink to="/projects/" mr={2}>
           Projects
         </NavLink>
       </ListItem>
 
-      <ListItem display="inline-block">
+      <ListItem css="display: inline-block">
         <NavLink to="/blog/" mr={2}>
           Blog
         </NavLink>
       </ListItem>
 
-      <ListItem display="inline-block">
+      <ListItem css="display: inline-block">
         <NavLink to="/about/">About</NavLink>
       </ListItem>
     </List>

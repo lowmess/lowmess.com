@@ -1,56 +1,62 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import system from 'system-components'
+import { Box, Flex, Text } from 'rebass'
 import Header from '../components/Header'
-import { Flex } from '../components/Primitives'
 import { Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import { themeHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
 
-const Section = system(
-  {
-    is: 'section',
-  },
-  'space'
+const SectionTitle = ({ children, ...props }) => (
+  <Text as="h2" my={0} fontSize={[3, 4]} {...props}>
+    {children}
+  </Text>
 )
 
-const SectionTitle = system({
-  is: 'h2',
-  fontSize: [3, 4],
-  my: 0,
-})
+SectionTitle.propTypes = {
+  children: PropTypes.string.isRequired,
+}
 
-const Dep = system({
-  is: 'p',
-  display: 'flex',
-  alignItems: 'baseline',
-  mt: 3,
-  mb: 0,
-})
-
-const DepLink = system(
-  {
-    is: 'a',
-    fontSize: [2, 3],
-    fontWeight: 6,
-  },
-  themeHover
+const Dep = ({ children, ...props }) => (
+  <Flex as="p" alignItems="baseline" mt={3} mb={0} {...props}>
+    {children}
+  </Flex>
 )
 
-const DepVer = system({
-  is: 'span',
-  fontFamily: 'monospace',
-  ml: 3,
-})
+Dep.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
-const SanityCheck = system({
-  is: 'p',
-  mt: 3,
-  mb: 0,
-  fontSize: [2, 3],
-  fontWeight: 6,
-})
+const DepLink = ({ children, ...props }) => (
+  <Text as="a" fontSize={[2, 3]} fontWeight={6} css={themeHover} {...props}>
+    {children}
+  </Text>
+)
+
+DepLink.propTypes = {
+  children: PropTypes.string.isRequired,
+}
+
+const DepVer = ({ children, ...props }) => (
+  <Text as="span" ml={3} fontFamily="monospace" {...props}>
+    {children}
+  </Text>
+)
+
+DepVer.propTypes = {
+  children: PropTypes.string.isRequired,
+}
+
+const SanityCheck = ({ children, ...props }) => (
+  <Text as="p" mt={3} mb={0} fontSize={[2, 3]} fontWeight={6} {...props}>
+    {children}
+  </Text>
+)
+
+SanityCheck.propTypes = {
+  children: PropTypes.string.isRequired,
+}
 
 const ColophonPage = () => {
   const { title } = useSiteMetadata()
@@ -61,7 +67,7 @@ const ColophonPage = () => {
     'react-helmet': { version: helmet },
     'sanitize.css': { version: sanitize },
     'styled-components': { version: styledComponents },
-    'system-components': { version: systemComponents },
+    rebass: { version: rebass },
     eslint: { version: eslint },
     prettier: { version: prettier },
   } = dependencies
@@ -77,8 +83,8 @@ const ColophonPage = () => {
           <Title>Building Blocks</Title>
         </Header>
 
-        <Flex is="main" flexDirection={['column', 'column', 'row']}>
-          <Section mr={[0, 0, 6]}>
+        <Flex as="main" flexDirection={['column', 'column', 'row']}>
+          <Box as="section" mr={[0, 0, 6]}>
             <SectionTitle>Functionality</SectionTitle>
 
             <Dep mt={4}>
@@ -113,14 +119,12 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://github.com/jxnblk/styled-system/tree/d48e6dab7d70bd579546582209d4485b6207ad42/packages/system-components">
-                system-components
-              </DepLink>{' '}
-              <DepVer>{systemComponents}</DepVer>
+              <DepLink href="https://rebassjs.org/">Rebass</DepLink>{' '}
+              <DepVer>{rebass}</DepVer>
             </Dep>
-          </Section>
+          </Box>
 
-          <Section mt={[5, 5, 0]} mr={[0, 0, 6]}>
+          <Box as="section" mt={[5, 5, 0]} mr={[0, 0, 6]}>
             <SectionTitle>Infrastructure</SectionTitle>
 
             <Dep mt={4}>
@@ -144,9 +148,9 @@ const ColophonPage = () => {
               <DepLink href="https://prettier.io/">Prettier</DepLink>{' '}
               <DepVer>{prettier}</DepVer>
             </Dep>
-          </Section>
+          </Box>
 
-          <Section mt={[5, 5, 0]}>
+          <Box as="section" mt={[5, 5, 0]}>
             <SectionTitle>Sanity</SectionTitle>
 
             <SanityCheck mt={4}>Music</SanityCheck>
@@ -160,7 +164,7 @@ const ColophonPage = () => {
             <SanityCheck>Skateboarding</SanityCheck>
 
             <SanityCheck>Basketball</SanityCheck>
-          </Section>
+          </Box>
         </Flex>
       </article>
     </>

@@ -1,74 +1,89 @@
-import system from 'system-components'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Text, Card } from 'rebass'
 
-const Title = system(
-  {
-    is: 'h1',
-    mt: 0,
-    mb: 3,
-    fontSize: [4, 5],
-    fontWeight: 7,
-    lineHeight: 'title',
-  },
-  'space'
+const Title = ({ children, ...props }) => (
+  <Text
+    as="h1"
+    mt={0}
+    mb={3}
+    fontSize={[4, 5]}
+    fontWeight={7}
+    lineHeight="title"
+    {...props}
+  >
+    {children}
+  </Text>
 )
 
-const Subtitle = system(
-  {
-    is: 'h2',
-    mt: 3,
-    mb: 4,
-    fontSize: [3, 4],
-    fontWeight: 5,
-    lineHeight: 'title',
-  },
-  'space'
+Title.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+const Subtitle = ({ children, ...props }) => (
+  <Text
+    as="h2"
+    mt={3}
+    mb={4}
+    fontSize={[3, 4]}
+    fontWeight={5}
+    lineHeight="title"
+    {...props}
+  >
+    {children}
+  </Text>
 )
 
-const Paragraph = system(
-  {
-    is: 'p',
-    fontSize: [1, 2],
-    lineHeight: 'copy',
-  },
-  'space',
-  'color',
-  'max-width: 33em'
+Subtitle.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+const Paragraph = ({ children, ...props }) => (
+  <Text
+    as="p"
+    fontSize={[1, 2]}
+    lineHeight="copy"
+    css="max-width: 33em"
+    {...props}
+  >
+    {children}
+  </Text>
 )
 
-const Rule = system(
-  {
-    is: 'hr',
-    border: 2,
-    borderColor: 'orange',
-  },
-  `width: 100%;
-  max-width: 8rem;
-  margin-left: 0;
-  margin-right: 0;`,
-  'space'
+Paragraph.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+const Rule = props => (
+  <Card
+    as="hr"
+    width={1}
+    mx={0}
+    border={2}
+    borderColor="orange"
+    css="max-width: 8rem"
+    {...props}
+  />
 )
 
-const List = system(
-  {
-    is: 'ul',
-    m: 0,
-    p: 0,
-  },
-  `list-style-type: none`,
-  'display',
-  'space',
-  'fontSize',
-  'fontFamily',
-  'textAlign',
-  'lineHeight'
+const List = ({ children, ...props }) => (
+  <Text as="ul" m={0} p={0} css="list-style-type: none" {...props}>
+    {children}
+  </Text>
 )
 
-const ListItem = system(
-  {
-    is: 'li',
-  },
-  'display',
-  'space'
+List.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+const ListItem = ({ children, ...props }) => (
+  <Text as="li" {...props}>
+    {children}
+  </Text>
 )
+
+ListItem.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export { Title, Subtitle, Paragraph, Rule, List, ListItem }

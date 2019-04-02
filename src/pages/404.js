@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { Text } from 'rebass'
 import Header from '../components/Header'
-import { Text } from '../components/Primitives'
 import { Title, Subtitle } from '../components/Typography'
 import { themeHover } from '../utils/styles'
 
@@ -27,7 +27,7 @@ const errorPage = () => (
       <main>
         {/* have to ugily do this because somewhere whitespace gets removed */}
         <Text
-          is="pre"
+          as="pre"
           fontSize={[2, 3]}
           fontFamily="monospace"
           lineHeight="title"

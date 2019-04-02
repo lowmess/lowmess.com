@@ -43,7 +43,7 @@ const BlogPostTemplate = ({ data }) => {
         <Header>
           <Title>{post.frontmatter.title}</Title>
 
-          <Subtitle is="p">
+          <Subtitle as="p">
             <time dateTime={post.frontmatter.datetime}>
               {post.frontmatter.date}
             </time>
@@ -51,7 +51,7 @@ const BlogPostTemplate = ({ data }) => {
         </Header>
 
         <MarkdownContent
-          is="main"
+          as="main"
           lineHeight="copy"
           fontSize={[1, 2]}
           dangerouslySetInnerHTML={{ __html: post.html }}
