@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, withTheme } from 'styled-components'
-import { Box, Flex } from '../components/Primitives'
+import { Box, Flex } from 'rebass'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { useSiteMetadata } from '../utils/hooks'
@@ -144,7 +144,7 @@ const Layout = ({ children, location, theme }) => {
           <Constraint>
             <Navigation location={location} />
 
-            <Box is="main" id="main-content" mb={[5, 6]}>
+            <Box as="main" id="main-content" mb={[5, 6]}>
               {children}
             </Box>
 

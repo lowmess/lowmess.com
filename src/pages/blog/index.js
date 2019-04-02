@@ -3,36 +3,47 @@ import PropTypes from 'prop-types'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import system from 'system-components'
+import { Box, Flex, Text } from 'rebass'
 import Header from '../../components/Header'
 import ArrowLink from '../../components/ArrowLink'
-import { Box, Flex, Text } from '../../components/Primitives'
 import { Title, Paragraph } from '../../components/Typography'
 import { useSiteMetadata } from '../../utils/hooks'
 import { themeHover } from '../../utils/styles'
 
-const YearTitle = ({ year }) => (
-  <Text is="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
-    {year}
+const YearContainer = styled(Box)`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    display: block;
+  }
+`
+
+const YearTitle = ({ children }) => (
+  <Text as="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
+    {children}
   </Text>
 )
 
 YearTitle.propTypes = {
-  year: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 }
 
-const PostTitle = system({
-  is: 'h3',
-  display: 'inline-block',
-  fontSize: [2, 3],
-  fontWeight: 7,
-  lineHeight: 'title',
-  my: 0,
-})
+const PostTitle = ({ children }) => (
+  <Text
+    as="h3"
+    my={0}
+    fontSize={[2, 3]}
+    fontWeight={7}
+    lineHeight="title"
+    css="display: inline-block"
+  >
+    {children}
+  </Text>
+)
 
-const PostLink = styled(Link)`
-  ${themeHover};
-`
+PostTitle.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 const BlogPage = () => {
   const { title } = useSiteMetadata()
@@ -76,7 +87,7 @@ const BlogPage = () => {
             let YearComponent
 
             if (thisYear !== year) {
-              YearComponent = <YearTitle year={frontmatter.year} />
+              YearComponent = <YearTitle>{frontmatter.year}</YearTitle>
               year = thisYear
             }
 
@@ -87,13 +98,13 @@ const BlogPage = () => {
                 alignItems="flex-start"
                 {...(index + 1 === posts.length ? {} : { mb: [4, 5] })}
               >
-                <Box display={['none', 'block']} width={1 / 5}>
-                  {YearComponent}
-                </Box>
+                <YearContainer width={1 / 5}>{YearComponent}</YearContainer>
 
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
-                    <PostLink to={fields.slug}>{frontmatter.title}</PostLink>
+                    <Link to={fields.slug} css={themeHover}>
+                      {frontmatter.title}
+                    </Link>
                   </PostTitle>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>

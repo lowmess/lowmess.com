@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import system from 'system-components'
+import PropTypes from 'prop-types'
+import { Box, Text } from 'rebass'
 import getStats from './getStats'
 import { Stat, StatTitle, StatValue } from './Stat'
-import { Box } from '../Primitives'
 
-const SectionTitle = system({
-  is: 'h2',
-  fontSize: [3, 4],
-  mt: 0,
-  mb: 4,
-})
+const SectionTitle = ({ children, ...props }) => (
+  <Text as="h2" mt={0} mb={4} fontSize={[3, 4]} {...props}>
+    {children}
+  </Text>
+)
+
+SectionTitle.propTypes = {
+  children: PropTypes.string.isRequired,
+}
 
 const Stats = ({ ...props }) => {
   const [commits, setCommits] = useState(null)

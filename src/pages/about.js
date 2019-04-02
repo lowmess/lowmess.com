@@ -1,13 +1,27 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import system from 'system-components'
+import { css } from 'styled-components'
 import Header from '../components/Header'
 import Stats from '../components/Stats'
 import { Title, Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import { themeHover, themeUnderline } from '../utils/styles'
 
-const AboutLink = system({ is: 'a' }, themeHover, themeUnderline)
+const AboutLink = ({ children, ...props }) => {
+  const styles = css`
+    ${themeHover};
+    ${themeUnderline};
+  `
+
+  return (
+    <a css={styles} {...props}>
+      {children}
+    </a>
+  )
+}
+
+AboutLink.propTypes = { children: PropTypes.node.isRequired }
 
 const AboutPage = () => {
   const { title } = useSiteMetadata()

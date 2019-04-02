@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { Box } from '../../components/Primitives'
+import { Text } from 'rebass'
 
 // this component basically exists as a giant stylesheet that inherits from the theme
 // it's for markdown content (hence the name)
 // it's kind of a b
-const MarkdownContent = styled(Box)`
+const MarkdownContent = styled(Text)`
   /* Vertical Rhythm */
   & > * {
     /* reset all margins */

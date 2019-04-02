@@ -1,13 +1,10 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import system from 'system-components'
+import { Text } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Text } from '../components/Primitives'
 import { Title, Subtitle, Paragraph } from '../components/Typography'
 import { themeHover } from '../utils/styles'
-
-const HeaderLink = system({ is: 'a' }, themeHover)
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,9 +29,13 @@ const IndexPage = () => {
 
         <Subtitle my={3}>
           I&rsquo;m a frontend developer currently{' '}
-          <HeaderLink href="mailto:alec@lowmess.com?subject=Let's%20Work%20Together">
+          <Text
+            as="a"
+            href="mailto:alec@lowmess.com?subject=Let's%20Work%20Together"
+            css={themeHover}
+          >
             seeking new&nbsp;opportunities
-          </HeaderLink>
+          </Text>
           .
         </Subtitle>
 
@@ -47,7 +48,7 @@ const IndexPage = () => {
 
       <main>
         <Text
-          is="h2"
+          as="h2"
           fontSize={[3, 4]}
           fontWeight="7"
           lineHeight="title"
