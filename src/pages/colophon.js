@@ -119,9 +119,7 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://github.com/jxnblk/styled-system/tree/d48e6dab7d70bd579546582209d4485b6207ad42/packages/system-components">
-                Rebass
-              </DepLink>{' '}
+              <DepLink href="https://rebassjs.org/">Rebass</DepLink>{' '}
               <DepVer>{rebass}</DepVer>
             </Dep>
           </Box>
