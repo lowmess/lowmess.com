@@ -67,7 +67,7 @@ const ColophonPage = () => {
     'react-helmet': { version: helmet },
     'sanitize.css': { version: sanitize },
     'styled-components': { version: styledComponents },
-    'system-components': { version: systemComponents },
+    rebass: { version: rebass },
     eslint: { version: eslint },
     prettier: { version: prettier },
   } = dependencies
@@ -120,9 +120,9 @@ const ColophonPage = () => {
 
             <Dep>
               <DepLink href="https://github.com/jxnblk/styled-system/tree/d48e6dab7d70bd579546582209d4485b6207ad42/packages/system-components">
-                system-components
+                Rebass
               </DepLink>{' '}
-              <DepVer>{systemComponents}</DepVer>
+              <DepVer>{rebass}</DepVer>
             </Dep>
           </Box>
 
