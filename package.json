@@ -24,6 +24,7 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
+    "@styled-system/css": "^1.0.3",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.0",
     "gatsby-plugin-catch-links": "^2.0.11",
