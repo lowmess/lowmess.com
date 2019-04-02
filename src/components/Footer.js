@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { Box, Flex, Text } from 'rebass'
-import css from '@styled-system/css'
 import ArrowLink from './ArrowLink'
 import { List, ListItem } from './Typography'
 import { themeHover } from '../utils/styles'
@@ -50,40 +49,38 @@ const Footer = () => {
   const post = data.allMarkdownRemark.edges[0].node
 
   return (
-    <Flex
-      as="footer"
-      alignItems="center"
-      justifyContent={['center', 'center', 'space-between']}
-      mt="auto"
-      mb={[3, 3, 4]}
-      css={css({ fontFamily: 'monospace' })}
-    >
-      <BlogPost>
-        <Text as="span" mr={2}>
-          From the blog:
-        </Text>
+    <Text as="footer" fontFamily="monospace" mt="auto" mb={[3, 3, 4]}>
+      <Flex
+        alignItems="center"
+        justifyContent={['center', 'center', 'space-between']}
+      >
+        <BlogPost>
+          <Text as="span" mr={2}>
+            From the blog:
+          </Text>
 
-        <ArrowLink fontWeight={7} dest={post.fields.slug}>
-          {post.frontmatter.title}
-        </ArrowLink>
-      </BlogPost>
+          <ArrowLink fontWeight={7} dest={post.fields.slug}>
+            {post.frontmatter.title}
+          </ArrowLink>
+        </BlogPost>
 
-      <List>
-        <ListItem css="display: inline-block" mr={3}>
-          <SocialLink href="https://twitter.com/lowmess">Twitter</SocialLink>
-        </ListItem>
+        <List>
+          <ListItem css="display: inline-block" mr={3}>
+            <SocialLink href="https://twitter.com/lowmess">Twitter</SocialLink>
+          </ListItem>
 
-        <ListItem css="display: inline-block" mr={3}>
-          <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
-        </ListItem>
+          <ListItem css="display: inline-block" mr={3}>
+            <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
+          </ListItem>
 
-        <ListItem css="display: inline-block">
-          <SocialLink href="https://resume.lowmess.com">
-            R&eacute;sum&eacute;
-          </SocialLink>
-        </ListItem>
-      </List>
-    </Flex>
+          <ListItem css="display: inline-block">
+            <SocialLink href="https://resume.lowmess.com">
+              R&eacute;sum&eacute;
+            </SocialLink>
+          </ListItem>
+        </List>
+      </Flex>
+    </Text>
   )
 }
 
