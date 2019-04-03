@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Text, Card } from 'rebass'
+import { css } from 'styled-components'
+import { Box, Text } from 'rebass'
 
 const Title = ({ children, ...props }) => (
   <Text
@@ -54,17 +55,15 @@ Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const Rule = props => (
-  <Card
-    as="hr"
-    width={1}
-    mx={0}
-    border={2}
-    borderColor="orange"
-    css="max-width: 8rem"
-    {...props}
-  />
-)
+const Rule = props => {
+  const styles = css`
+    max-width: 8rem;
+    height: ${({ theme }) => theme.space[2]};
+    border: 0;
+  `
+
+  return <Box as="hr" mx={0} bg="orange" css={styles} {...props} />
+}
 
 const List = ({ children, ...props }) => (
   <Text as="ul" m={0} p={0} css="list-style-type: none" {...props}>
