@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'styled-components'
-import { Box, Text } from 'rebass'
+import { Box, Heading } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { Paragraph } from './Typography'
 import { themeHover } from '../utils/styles'
@@ -14,7 +14,7 @@ const ProjectTitle = ({ children, ...props }) => {
   `
 
   return (
-    <Text
+    <Heading
       my={0}
       fontSize={[2, 3]}
       fontWeight={7}
@@ -23,7 +23,7 @@ const ProjectTitle = ({ children, ...props }) => {
       {...props}
     >
       {children}
-    </Text>
+    </Heading>
   )
 }
 

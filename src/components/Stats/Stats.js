@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Box, Text } from 'rebass'
+import { Box, Heading } from 'rebass'
 import getStats from './getStats'
 import { Stat, StatTitle, StatValue } from './Stat'
 
 const SectionTitle = ({ children, ...props }) => (
-  <Text as="h2" mt={0} mb={4} fontSize={[3, 4]} {...props}>
+  <Heading mb={4} fontSize={[3, 4]} {...props}>
     {children}
-  </Text>
+  </Heading>
 )
 
 SectionTitle.propTypes = {

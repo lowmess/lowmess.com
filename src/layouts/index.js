@@ -12,6 +12,7 @@ import 'sanitize.css'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
+    line-height: ${({ theme }) => theme.lineHeights.copy};
     scroll-behavior: smooth;
 
     @media (prefers-reduced-motion: reduce) {
@@ -126,7 +127,6 @@ const Layout = ({ children, location, theme }) => {
           borderRadius={2}
           py={3}
           px={[3, 4]}
-          fontFamily="sans-serif"
           color="black"
           bg="white"
           css="max-width: 100%"

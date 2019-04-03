@@ -1,20 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'styled-components'
-import { Box, Text } from 'rebass'
+import { Box, Text, Heading } from 'rebass'
 
 const Title = ({ children, ...props }) => (
-  <Text
-    as="h1"
-    mt={0}
-    mb={3}
-    fontSize={[4, 5]}
-    fontWeight={7}
-    lineHeight="title"
-    {...props}
-  >
+  <Heading as="h1" mb={3} fontSize={[4, 5]} lineHeight="title" {...props}>
     {children}
-  </Text>
+  </Heading>
 )
 
 Title.propTypes = {
@@ -22,8 +14,7 @@ Title.propTypes = {
 }
 
 const Subtitle = ({ children, ...props }) => (
-  <Text
-    as="h2"
+  <Heading
     mt={3}
     mb={4}
     fontSize={[3, 4]}
@@ -32,7 +23,7 @@ const Subtitle = ({ children, ...props }) => (
     {...props}
   >
     {children}
-  </Text>
+  </Heading>
 )
 
 Subtitle.propTypes = {

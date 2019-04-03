@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Box, Flex, Text } from 'rebass'
+import { Box, Flex, Text, Heading } from 'rebass'
 import Header from '../components/Header'
 import { Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
@@ -9,9 +9,9 @@ import { themeHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
 
 const SectionTitle = ({ children, ...props }) => (
-  <Text as="h2" my={0} fontSize={[3, 4]} {...props}>
+  <Heading fontSize={[3, 4]} {...props}>
     {children}
-  </Text>
+  </Heading>
 )
 
 SectionTitle.propTypes = {

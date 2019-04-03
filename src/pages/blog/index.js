@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { Box, Flex, Text } from 'rebass'
+import { Box, Flex, Heading } from 'rebass'
 import Header from '../../components/Header'
 import ArrowLink from '../../components/ArrowLink'
 import { Title, Paragraph } from '../../components/Typography'
@@ -19,9 +19,9 @@ const YearContainer = styled(Box)`
 `
 
 const YearTitle = ({ children }) => (
-  <Text as="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
+  <Heading fontSize={[2, 3]} fontWeight="5">
     {children}
-  </Text>
+  </Heading>
 )
 
 YearTitle.propTypes = {
@@ -29,16 +29,14 @@ YearTitle.propTypes = {
 }
 
 const PostTitle = ({ children }) => (
-  <Text
+  <Heading
     as="h3"
-    my={0}
     fontSize={[2, 3]}
-    fontWeight={7}
     lineHeight="title"
     css="display: inline-block"
   >
     {children}
-  </Text>
+  </Heading>
 )
 
 PostTitle.propTypes = {

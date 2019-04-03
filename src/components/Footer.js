@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import { Box, Flex, Text } from 'rebass'
+import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { List, ListItem } from './Typography'
 import { themeHover } from '../utils/styles'
 
 const SocialLink = ({ children, ...props }) => (
-  <Text as="a" fontSize={[0, 1]} css={themeHover} {...props}>
+  <Link fontSize={[0, 1]} css={themeHover} {...props}>
     {children}
-  </Text>
+  </Link>
 )
 
 SocialLink.propTypes = {
