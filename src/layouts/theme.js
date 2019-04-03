@@ -82,14 +82,14 @@ const fonts = {
 
 const theme = {
   breakpoints,
+  colors,
   space,
-  fontSizes,
   borders,
   radii,
   fonts,
-  lineHeights,
+  fontSizes,
   fontWeights,
-  colors,
+  lineHeights,
 }
 
 module.exports = theme
