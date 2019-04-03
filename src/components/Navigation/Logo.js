@@ -29,7 +29,7 @@ const Logo = () => (
     </Link>
 
     <Link to="/" tabIndex="-1" aria-hidden="true">
-      <Wordmark as="span" color="darkGrey">
+      <Wordmark as="span" color="black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1260 241"

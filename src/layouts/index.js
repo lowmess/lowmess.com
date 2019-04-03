@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
   ::selection {
     background-color: ${({ theme }) => theme.colors.orange} !important;
-    color: ${({ theme }) => theme.colors.darkGrey} !important;
+    color: ${({ theme }) => theme.colors.black} !important;
   }
 
   a {
@@ -91,7 +91,7 @@ const Layout = ({ children, location, theme }) => {
 
         <meta name="description" content={description} />
         {/* theming */}
-        <meta name="theme-color" content={theme.colors.nearWhite} />
+        <meta name="theme-color" content={theme.colors.grays[1]} />
         <meta name="apple-mobile-web-app-title" content="lowmess" />
         <meta name="application-name" content="lowmess" />
         <meta name="msapplication-TileColor" content="{theme.colors.orange}" />
@@ -127,7 +127,7 @@ const Layout = ({ children, location, theme }) => {
           py={3}
           px={[3, 4]}
           fontFamily="sans-serif"
-          color="darkGrey"
+          color="black"
           bg="white"
           css="max-width: 100%"
         >
