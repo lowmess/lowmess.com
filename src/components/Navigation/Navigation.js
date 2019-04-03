@@ -8,7 +8,17 @@ import Logo from './Logo'
 import { List, ListItem } from '../Typography'
 import { themeHover } from '../../utils/styles'
 
-const LinkText = ({ children, ...props }) => {
+const NavLink = ({ children, to, ...props }) => {
+  const isActive = ({ location, href, isPartiallyCurrent }) => {
+    if (location.pathname === '/' && href === '/') {
+      return { className: 'active' }
+    } else if (isPartiallyCurrent && href !== '/') {
+      return { className: 'active' }
+    }
+
+    return null
+  }
+
   const styles = css`
     .active & {
       border-bottom: ${({ theme }) => theme.borders[2]};
@@ -17,40 +27,29 @@ const LinkText = ({ children, ...props }) => {
 
     ${themeHover};
   `
+
+  // adding the className to the link with `getProps` overrides the className
+  // that styled-components generates. this is massively annoying and i haven't
+  // found a good workaround. not for lack of trying. here's what i've tried:
+  //
+  // 1. still set the class, adjust the css to be `&.active`. this overrides the
+  //    css, as mentioned
+  // 2. use `getProps` to set an arbitrary `active` prop, and use that to
+  //    conditionally set the styles. the first part of this works. but the
+  //    styles are never generated.
+  // 3. various riffs on the above
+  //
+  // point is, this is the most i've been able to reduce the markup so far.
   return (
-    <Text
-      as="span"
-      px={1}
-      pb={1}
-      fontSize={[0, 1]}
-      fontFamily="monospace"
-      css={styles}
-      {...props}
-    >
-      {children}
-    </Text>
+    <ListItem css="display: inline-block" {...props}>
+      <Text as={Link} to={to} getProps={isActive}>
+        <Text as="span" px={1} pb={1} css={styles}>
+          {children}
+        </Text>
+      </Text>
+    </ListItem>
   )
 }
-
-LinkText.propTypes = {
-  children: PropTypes.string.isRequired,
-}
-
-const isActive = ({ location, href, isPartiallyCurrent }) => {
-  if (location.pathname === '/' && href === '/') {
-    return { className: 'active' }
-  } else if (isPartiallyCurrent && href !== '/') {
-    return { className: 'active' }
-  }
-
-  return null
-}
-
-const NavLink = ({ children, to, ...props }) => (
-  <Link to={to} getProps={isActive}>
-    <LinkText {...props}>{children}</LinkText>
-  </Link>
-)
 
 NavLink.propTypes = {
   children: PropTypes.string.isRequired,
@@ -72,28 +71,20 @@ const Navigation = ({ location }) => (
       <Logo />
     </Flex>
 
-    <List fontFamily="monospace">
-      <ListItem css="display: inline-block">
-        <NavLink to="/" mr={2}>
-          Home
-        </NavLink>
-      </ListItem>
+    <List fontSize={[0, 1]} fontFamily="monospace">
+      <NavLink to="/" mr={2}>
+        Home
+      </NavLink>
 
-      <ListItem css="display: inline-block">
-        <NavLink to="/projects/" mr={2}>
-          Projects
-        </NavLink>
-      </ListItem>
+      <NavLink to="/projects/" mr={2}>
+        Projects
+      </NavLink>
 
-      <ListItem css="display: inline-block">
-        <NavLink to="/blog/" mr={2}>
-          Blog
-        </NavLink>
-      </ListItem>
+      <NavLink to="/blog/" mr={2}>
+        Blog
+      </NavLink>
 
-      <ListItem css="display: inline-block">
-        <NavLink to="/about/">About</NavLink>
-      </ListItem>
+      <NavLink to="/about/">About</NavLink>
     </List>
   </Flex>
 )
