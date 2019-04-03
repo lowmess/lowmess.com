@@ -97,11 +97,11 @@ const MarkdownContent = styled(Text)`
   /* Type Elements */
 
   hr {
-    width: 100%;
     max-width: 4rem;
+    height: ${({ theme }) => theme.space[1]};
     margin: ${({ theme }) => theme.space[4]} 0;
-    border: ${({ theme }) => theme.borders[1]}
-      ${({ theme }) => theme.colors.orange};
+    border: 0;
+    background-color: ${({ theme }) => theme.colors.orange};
   }
 
   ul,
