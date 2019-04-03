@@ -17,7 +17,7 @@ const ProjectTitle = ({ children, ...props }) => {
     <Heading
       my={0}
       fontSize={[2, 3]}
-      fontWeight={7}
+      fontWeight="bold"
       lineHeight="title"
       css={styles}
       {...props}

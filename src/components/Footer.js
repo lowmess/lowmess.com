@@ -59,7 +59,7 @@ const Footer = () => {
             From the blog:
           </Text>
 
-          <ArrowLink fontWeight={7} dest={post.fields.slug}>
+          <ArrowLink fontWeight="bold" dest={post.fields.slug}>
             {post.frontmatter.title}
           </ArrowLink>
         </BlogPost>

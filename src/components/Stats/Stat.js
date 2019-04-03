@@ -18,7 +18,7 @@ const StatTitle = ({ children }) => (
     width={[1, 1 / 3, 1 / 4]}
     mb={[1, 0]}
     fontSize={[2, 3]}
-    fontWeight={5}
+    fontWeight="medium"
     lineHeight="copy"
   >
     {children}

@@ -18,7 +18,7 @@ const Subtitle = ({ children, ...props }) => (
     mt={3}
     mb={4}
     fontSize={[3, 4]}
-    fontWeight={5}
+    fontWeight="medium"
     lineHeight="title"
     {...props}
   >

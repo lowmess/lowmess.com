@@ -63,15 +63,15 @@ const lineHeights = {
   copy: 1.5,
 }
 const fontWeights = {
-  1: '100',
-  2: '200',
-  3: '300',
-  4: '400',
-  5: '500',
-  6: '600',
-  7: '700',
+  thin: 100,
+  'extra-light': 200,
+  light: 300,
   normal: '400',
+  medium: 500,
+  'semi-bold': 800,
   bold: '700',
+  'extra-bold': 800,
+  black: 900,
 }
 const fonts = {
   'sans-serif':

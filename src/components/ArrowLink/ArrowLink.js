@@ -18,7 +18,7 @@ const ArrowText = ({ children, ...props }) => (
     alignItems="center"
     fontFamily="monospace"
     fontSize={[0, 1]}
-    fontWeight={4}
+    fontWeight="normal"
     {...props}
   >
     {children}

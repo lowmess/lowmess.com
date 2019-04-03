@@ -19,7 +19,7 @@ const YearContainer = styled(Box)`
 `
 
 const YearTitle = ({ children }) => (
-  <Heading fontSize={[2, 3]} fontWeight="5">
+  <Heading fontSize={[2, 3]} fontWeight="medium">
     {children}
   </Heading>
 )

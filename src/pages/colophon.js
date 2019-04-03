@@ -29,7 +29,13 @@ Dep.propTypes = {
 }
 
 const DepLink = ({ children, ...props }) => (
-  <Text as="a" fontSize={[2, 3]} fontWeight={6} css={themeHover} {...props}>
+  <Text
+    as="a"
+    fontSize={[2, 3]}
+    fontWeight="semi-bold"
+    css={themeHover}
+    {...props}
+  >
     {children}
   </Text>
 )
@@ -49,7 +55,14 @@ DepVer.propTypes = {
 }
 
 const SanityCheck = ({ children, ...props }) => (
-  <Text as="p" mt={3} mb={0} fontSize={[2, 3]} fontWeight={6} {...props}>
+  <Text
+    as="p"
+    mt={3}
+    mb={0}
+    fontSize={[2, 3]}
+    fontWeight="semi-bold"
+    {...props}
+  >
     {children}
   </Text>
 )
