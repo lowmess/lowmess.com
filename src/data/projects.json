@@ -1,10 +1,10 @@
 [
   {
-    "title": "music",
+    "title": "Most Wanted",
     "date": "2019-02-14",
-    "description": "A collection of UI experiments with data from Discogs & Last.fm.",
-    "website": "https://music.lowmess.com",
-    "repo": "https://github.com/lowmess/music"
+    "description": "Get a list of your top 25 most-played albums that you don't own on physical media yet. A good way to figure out how to spend $500.",
+    "website": "https://most-wanted.lowmess.com",
+    "repo": "https://github.com/lowmess/music/tree/master/src/most-wanted"
   },
   {
     "title": "herohero",
