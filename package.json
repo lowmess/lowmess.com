@@ -42,6 +42,7 @@
     "gatsby-remark-images": "^2.0.6",
     "gatsby-remark-prismjs": "^3.2.6",
     "gatsby-remark-smartypants": "^2.0.9",
+    "gatsby-remark-widows": "^1.0.0",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-json": "^2.1.11",
     "gatsby-transformer-remark": "^2.3.8",
