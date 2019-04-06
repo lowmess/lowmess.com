@@ -9,6 +9,7 @@ import ArrowLink from '../../components/ArrowLink'
 import { Title, Paragraph } from '../../components/Typography'
 import { useSiteMetadata } from '../../utils/hooks'
 import { themeHover } from '../../utils/styles'
+import unwidow from '../../utils/unwidow'
 
 const YearContainer = styled(Box)`
   display: none;
@@ -75,7 +76,7 @@ const BlogPage = () => {
 
       <article>
         <Header>
-          <Title>Eloquent Writings About Stuff</Title>
+          <Title>Eloquent Writings About&nbsp;Stuff</Title>
         </Header>
 
         <main>
@@ -101,12 +102,12 @@ const BlogPage = () => {
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
                     <Link to={fields.slug} css={themeHover}>
-                      {frontmatter.title}
+                      {unwidow(frontmatter.title)}
                     </Link>
                   </PostTitle>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
-                    {frontmatter.description}
+                    {unwidow(frontmatter.description)}
                   </Paragraph>
 
                   <ArrowLink dest={fields.slug}>Read More</ArrowLink>

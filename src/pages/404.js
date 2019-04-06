@@ -21,7 +21,7 @@ const errorPage = () => (
       <Header>
         <Title>Error 404</Title>
 
-        <Subtitle>Requested Page Not Found</Subtitle>
+        <Subtitle>Requested Page Not&nbsp;Found</Subtitle>
       </Header>
 
       <main>
