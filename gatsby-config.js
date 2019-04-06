@@ -27,13 +27,14 @@ const plugins = [
         {
           resolve: 'gatsby-remark-images',
           options: {
-            maxWidth: 768,
+            maxWidth: 1536,
             linkImagesToOriginal: false,
           },
         },
         'gatsby-remark-copy-linked-files',
         'gatsby-remark-prismjs',
         'gatsby-remark-smartypants',
+        'gatsby-remark-widows',
       ],
     },
   },

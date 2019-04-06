@@ -173,7 +173,7 @@ const MarkdownContent = styled(Text)`
       ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
-    background-color: ${({ theme }) => theme.colors.nearWhite};
+    background-color: ${({ theme }) => theme.colors.grays[1]};
 
     p {
       max-width: 30em;
@@ -197,8 +197,8 @@ const MarkdownContent = styled(Text)`
     border-radius: ${({ theme }) => theme.radii[1]};
     padding-left: ${({ theme }) => theme.space[1]};
     padding-right: ${({ theme }) => theme.space[1]};
-    background-color: ${({ theme }) => theme.colors.nearWhite};
-    color: ${({ theme }) => theme.colors.darkGrey};
+    background-color: ${({ theme }) => theme.colors.grays[1]};
+    color: ${({ theme }) => theme.colors.black};
     font-size: ${({ theme }) => theme.fontSizes[0]};
     white-space: nowrap;
 
@@ -216,8 +216,8 @@ const MarkdownContent = styled(Text)`
       ${({ theme }) => theme.colors.orange};
     border-radius: ${({ theme }) => theme.radii[1]};
     padding: ${({ theme }) => theme.space[3]};
-    background-color: ${({ theme }) => theme.colors.nearBlack};
-    color: ${({ theme }) => theme.colors.nearWhite};
+    background-color: ${({ theme }) => theme.colors.grays[10]};
+    color: ${({ theme }) => theme.colors.grays[1]};
     font-size: ${({ theme }) => theme.fontSizes[0]};
     font-family: ${({ theme }) => theme.fonts.monospace};
     white-space: pre;
@@ -228,7 +228,7 @@ const MarkdownContent = styled(Text)`
 
     @media print {
       background-color: transparent;
-      color: ${({ theme }) => theme.colors.darkGrey};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 
@@ -244,7 +244,7 @@ const MarkdownContent = styled(Text)`
   iframe {
     margin-top: ${({ theme }) => theme.space[4]};
     margin-bottom: ${({ theme }) => theme.space[4]};
-    border: 1px solid ${({ theme }) => theme.colors.grey};
+    border: 1px solid ${({ theme }) => theme.colors.grays[2]};
   }
 `
 

@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { Box, Flex, Text } from 'rebass'
+import { Box, Flex, Heading } from 'rebass'
 import Header from '../../components/Header'
 import ArrowLink from '../../components/ArrowLink'
 import { Title, Paragraph } from '../../components/Typography'
 import { useSiteMetadata } from '../../utils/hooks'
 import { themeHover } from '../../utils/styles'
+import unwidow from '../../utils/unwidow'
 
 const YearContainer = styled(Box)`
   display: none;
@@ -19,9 +20,9 @@ const YearContainer = styled(Box)`
 `
 
 const YearTitle = ({ children }) => (
-  <Text as="h2" fontSize={[2, 3]} fontWeight="5" mt={0}>
+  <Heading fontSize={[2, 3]} fontWeight="medium">
     {children}
-  </Text>
+  </Heading>
 )
 
 YearTitle.propTypes = {
@@ -29,16 +30,14 @@ YearTitle.propTypes = {
 }
 
 const PostTitle = ({ children }) => (
-  <Text
+  <Heading
     as="h3"
-    my={0}
     fontSize={[2, 3]}
-    fontWeight={7}
     lineHeight="title"
     css="display: inline-block"
   >
     {children}
-  </Text>
+  </Heading>
 )
 
 PostTitle.propTypes = {
@@ -77,7 +76,7 @@ const BlogPage = () => {
 
       <article>
         <Header>
-          <Title>Eloquent Writings About Stuff</Title>
+          <Title>Eloquent Writings About&nbsp;Stuff</Title>
         </Header>
 
         <main>
@@ -103,12 +102,12 @@ const BlogPage = () => {
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
                     <Link to={fields.slug} css={themeHover}>
-                      {frontmatter.title}
+                      {unwidow(frontmatter.title)}
                     </Link>
                   </PostTitle>
 
                   <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
-                    {frontmatter.description}
+                    {unwidow(frontmatter.description)}
                   </Paragraph>
 
                   <ArrowLink dest={fields.slug}>Read More</ArrowLink>

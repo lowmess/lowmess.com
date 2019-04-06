@@ -8,17 +8,17 @@ import { themeHover } from '../../utils/styles'
 
 const arrowStyles = css`
   display: inline-flex;
+  align-items: center;
   ${themeHover};
 `
 
 const ArrowText = ({ children, ...props }) => (
   <Text
     as="span"
-    css={arrowStyles}
-    alignItems="center"
-    fontFamily="monospace"
     fontSize={[0, 1]}
-    fontWeight={4}
+    fontFamily="monospace"
+    fontWeight="normal"
+    css={arrowStyles}
     {...props}
   >
     {children}

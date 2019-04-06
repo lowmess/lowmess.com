@@ -12,6 +12,7 @@ import 'sanitize.css'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
+    line-height: ${({ theme }) => theme.lineHeights.copy};
     scroll-behavior: smooth;
 
     @media (prefers-reduced-motion: reduce) {
@@ -25,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
 
   ::selection {
     background-color: ${({ theme }) => theme.colors.orange} !important;
-    color: ${({ theme }) => theme.colors.darkGrey} !important;
+    color: ${({ theme }) => theme.colors.black} !important;
   }
 
   a {
@@ -91,7 +92,7 @@ const Layout = ({ children, location, theme }) => {
 
         <meta name="description" content={description} />
         {/* theming */}
-        <meta name="theme-color" content={theme.colors.nearWhite} />
+        <meta name="theme-color" content={theme.colors.grays[1]} />
         <meta name="apple-mobile-web-app-title" content="lowmess" />
         <meta name="application-name" content="lowmess" />
         <meta name="msapplication-TileColor" content="{theme.colors.orange}" />
@@ -126,8 +127,7 @@ const Layout = ({ children, location, theme }) => {
           borderRadius={2}
           py={3}
           px={[3, 4]}
-          fontFamily="sans-serif"
-          color="darkGrey"
+          color="black"
           bg="white"
           css="max-width: 100%"
         >

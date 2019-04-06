@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Flex, Text } from 'rebass'
+import { Flex, Text, Heading } from 'rebass'
 
 const Stat = ({ children, ...props }) => (
   <Flex alignItems="baseline" flexDirection={['column', 'row']} {...props}>
@@ -13,11 +13,16 @@ Stat.propTypes = {
 }
 
 const StatTitle = ({ children }) => (
-  <Box width={[1, 1 / 3, 1 / 4]} mb={[1, 0]}>
-    <Text fontSize={[2, 3]} fontWeight={5} lineHeight="copy">
-      {children}
-    </Text>
-  </Box>
+  <Heading
+    as="span"
+    width={[1, 1 / 3, 1 / 4]}
+    mb={[1, 0]}
+    fontSize={[2, 3]}
+    fontWeight="medium"
+    lineHeight="copy"
+  >
+    {children}
+  </Heading>
 )
 
 StatTitle.propTypes = {
@@ -25,11 +30,16 @@ StatTitle.propTypes = {
 }
 
 const StatValue = ({ children, ...props }) => (
-  <Box width={[1, 2 / 3, 3 / 4]} {...props}>
-    <Text fontFamily="monospace" fontSize={[1, 2]} lineHeight="copy">
-      {children}
-    </Text>
-  </Box>
+  <Text
+    as="span"
+    width={[1, 2 / 3, 3 / 4]}
+    fontFamily="monospace"
+    fontSize={[1, 2]}
+    lineHeight="copy"
+    {...props}
+  >
+    {children}
+  </Text>
 )
 
 StatValue.propTypes = {

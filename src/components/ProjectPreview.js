@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'styled-components'
-import { Box, Text } from 'rebass'
+import { Box, Heading } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { Paragraph } from './Typography'
 import { themeHover } from '../utils/styles'
+import unwidow from '../utils/unwidow'
 
 const ProjectTitle = ({ children, ...props }) => {
   const styles = css`
@@ -14,16 +15,16 @@ const ProjectTitle = ({ children, ...props }) => {
   `
 
   return (
-    <Text
+    <Heading
       my={0}
       fontSize={[2, 3]}
-      fontWeight={7}
+      fontWeight="bold"
       lineHeight="title"
       css={styles}
       {...props}
     >
       {children}
-    </Text>
+    </Heading>
   )
 }
 
@@ -34,11 +35,11 @@ ProjectTitle.propTypes = {
 const ProjectPreview = ({ project, level, ...props }) => (
   <Box {...props}>
     <a href={project.website ? project.website : project.repo}>
-      <ProjectTitle as={level}>{project.title}</ProjectTitle>
+      <ProjectTitle as={level}>{unwidow(project.title)}</ProjectTitle>
     </a>
 
     <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
-      {project.description}
+      {unwidow(project.description)}
     </Paragraph>
 
     {project.website && (

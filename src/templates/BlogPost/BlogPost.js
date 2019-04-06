@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import { Title, Subtitle } from '../../components/Typography'
 import MarkdownContent from './MarkdownContent'
 import { useSiteMetadata } from '../../utils/hooks'
+import unwidow from '../../utils/unwidow'
 
 import 'lowmess-prism'
 
@@ -41,7 +42,7 @@ const BlogPostTemplate = ({ data }) => {
 
       <article>
         <Header>
-          <Title>{post.frontmatter.title}</Title>
+          <Title>{unwidow(post.frontmatter.title)}</Title>
 
           <Subtitle as="p">
             <time dateTime={post.frontmatter.datetime}>

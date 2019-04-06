@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Text } from 'rebass'
+import { Text, Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
 import { Title, Subtitle, Paragraph } from '../components/Typography'
@@ -29,13 +29,12 @@ const IndexPage = () => {
 
         <Subtitle my={3}>
           I&rsquo;m a frontend developer currently{' '}
-          <Text
-            as="a"
+          <Link
             href="mailto:alec@lowmess.com?subject=Let's%20Work%20Together"
             css={themeHover}
           >
             seeking new&nbsp;opportunities
-          </Text>
+          </Link>
           .
         </Subtitle>
 
@@ -47,16 +46,9 @@ const IndexPage = () => {
       </Header>
 
       <main>
-        <Text
-          as="h2"
-          fontSize={[3, 4]}
-          fontWeight="7"
-          lineHeight="title"
-          mt={5}
-          mb={4}
-        >
+        <Heading fontSize={[3, 4]} lineHeight="title" mt={5} mb={4}>
           Latest Project
-        </Text>
+        </Heading>
 
         <ProjectPreview
           project={data.allProjectsJson.edges[0].node}
