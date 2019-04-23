@@ -1,42 +1,36 @@
 const path = require('path')
-const Promise = require('bluebird')
-const _ = require('lodash')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const blogPost = path.resolve('./src/templates/BlogPost/BlogPost.js')
 
-  return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/BlogPost/BlogPost.js')
-    resolve(
-      graphql(`
-        {
-          allMarkdownRemark(limit: 1000) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-              }
+  const result = await graphql(`
+    {
+      allMarkdownRemark(limit: 1000) {
+        edges {
+          node {
+            fields {
+              slug
             }
           }
         }
-      `).then(result => {
-        if (result.errors) {
-          console.error(result.errors)
-          reject(result.errors)
-        }
+      }
+    }
+  `)
 
-        // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, edge => {
-          createPage({
-            path: edge.node.fields.slug,
-            component: blogPost,
-            context: { slug: edge.node.fields.slug },
-          })
-        })
-      })
-    )
+  if (result.errors) {
+    console.error(result.errors)
+    return false
+  }
+
+  // Create blog posts pages
+  result.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+      path: edge.node.fields.slug,
+      component: blogPost,
+      context: { slug: edge.node.fields.slug },
+    })
   })
 }
 

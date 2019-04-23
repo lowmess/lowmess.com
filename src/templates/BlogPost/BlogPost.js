@@ -62,24 +62,8 @@ const BlogPostTemplate = ({ data }) => {
   )
 }
 
-// All the other page components get to useStaticQuery,
-// but not this one cause the query takes variables 🙄
 BlogPostTemplate.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      html: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-        datetime: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-      }).isRequired,
-      fields: PropTypes.shape({
-        slug: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
+  data: PropTypes.object.isRequired,
 }
 
 export const pageQuery = graphql`
