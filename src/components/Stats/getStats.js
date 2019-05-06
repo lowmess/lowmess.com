@@ -1,6 +1,6 @@
 import fetch from 'unfetch'
 
-const getStats = () => {
+const getStats = async () => {
   const query = `
       query Stats {
         commits
@@ -20,24 +20,22 @@ const getStats = () => {
       }
   `
 
-  return fetch('https://stats.lowmess.com/graphql', {
+  const response = await fetch('https://stats.lowmess.com/graphql', {
     method: 'POST',
     body: JSON.stringify({ query }),
     headers: {
       'Content-Type': 'application/json',
     },
   })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`${response.status}: ${response.statusText}`)
-      }
 
-      return response.json()
-    })
-    .then(json => json.data)
-    .catch(error => {
-      console.error(error)
-    })
+  if (!response.ok) {
+    console.error(`${response.status}: ${response.statusText}`)
+    return false
+  }
+
+  const { data } = await response.json()
+
+  return data
 }
 
 export default getStats
