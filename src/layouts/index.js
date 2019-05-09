@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const Layout = ({ children, location, theme }) => {
+const Layout = ({ children, theme }) => {
   const { title, description } = useSiteMetadata()
 
   // some of these could be moved into the component's props, but in order to
@@ -136,7 +136,7 @@ const Layout = ({ children, location, theme }) => {
             mx="auto"
             css="max-width: 64rem; height: 100%"
           >
-            <Navigation location={location} />
+            <Navigation />
 
             <Box as="main" id="main-content" mb={[5, 6]}>
               {children}
@@ -152,7 +152,6 @@ const Layout = ({ children, location, theme }) => {
 
 Layout.propTypes = {
   children: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 }
 
