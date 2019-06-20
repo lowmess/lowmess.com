@@ -1,51 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { css, createGlobalStyle, withTheme } from 'styled-components'
+import { css, withTheme } from 'styled-components'
 import { Box, Flex, Card } from 'rebass'
+import GlobalStyles from '../components/GlobalStyles'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { useSiteMetadata } from '../utils/hooks'
 
 import 'sanitize.css'
-
-const GlobalStyles = createGlobalStyle`
-  html {
-    background-color: ${({ theme }) => theme.colors.orange};
-    line-height: ${({ theme }) => theme.lineHeights.copy};
-    scroll-behavior: smooth;
-
-    @media (prefers-reduced-motion: reduce) {
-      scroll-behavior: auto;
-    }
-
-    @media print {
-      background: none;
-    }
-  }
-
-  ::selection {
-    background-color: ${({ theme }) => theme.colors.orange} !important;
-    color: ${({ theme }) => theme.colors.black} !important;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    text-decoration-skip: ink;
-    text-decoration-skip-ink: auto;
-  }
-
-  @media print {
-    nav, footer {
-      display: none !important;
-    }
-
-    #main-content {
-      margin-bottom: 0 !important;
-    }
-  }
-`
 
 const Layout = ({ children, theme }) => {
   const { title, description } = useSiteMetadata()
@@ -154,5 +117,7 @@ Layout.propTypes = {
   children: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 }
+
+export { GlobalStyles }
 
 export default withTheme(Layout)
