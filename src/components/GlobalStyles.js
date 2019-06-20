@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.colors.orange};
+    color: ${({ theme }) => theme.colors.black};
     line-height: ${({ theme }) => theme.lineHeights.copy};
     scroll-behavior: smooth;
 

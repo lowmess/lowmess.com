@@ -15,9 +15,9 @@ addDecorator(storyFn => (
 
       <div
         style={{
-          width: '100vw',
-          height: '100vh',
-          padding: '1rem',
+          minWidth: '100vw',
+          minHeight: '100vh',
+          padding: '2rem',
           backgroundColor: '#ffffff',
         }}
       >
@@ -26,12 +26,6 @@ addDecorator(storyFn => (
     </>
   </ThemeProvider>
 ))
-
-addDecorator(
-  withKnobs({
-    escapeHTML: false,
-  })
-)
 
 addDecorator(withA11y)
 

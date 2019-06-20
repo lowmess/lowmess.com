@@ -90,7 +90,6 @@ const Layout = ({ children, theme }) => {
           borderRadius={2}
           py={3}
           px={[3, 4]}
-          color="black"
           bg="white"
           css="max-width: 100%"
         >
