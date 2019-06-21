@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { Box, Flex, Text, Link } from 'rebass'
-import ArrowLink from '../ArrowLink'
-import { List, ListItem } from '../Typography'
-import { themeHover } from '../../utils/styles'
+import ArrowLink from './ArrowLink'
+import { List, ListItem } from './Typography'
+import { themeHover } from '../utils/styles'
 
 const SocialLink = ({ children, ...props }) => (
   <Link fontSize={[0, 1]} css={themeHover} {...props}>
