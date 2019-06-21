@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Rule } from './Typography.js'
+import { Rule } from '../Typography.js'
 
 const Header = ({ children }) => (
   <header>
