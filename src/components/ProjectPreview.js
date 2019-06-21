@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'styled-components'
 import { Box, Heading } from 'rebass'
-import ArrowLink from '../ArrowLink'
-import { Paragraph } from '../Typography'
-import { themeHover } from '../../utils/styles'
-import unwidow from '../../utils/unwidow'
+import ArrowLink from './ArrowLink'
+import { Paragraph } from './Typography'
+import { themeHover } from '../utils/styles'
+import unwidow from '../utils/unwidow'
 
 const ProjectTitle = ({ children, ...props }) => {
   const styles = css`
