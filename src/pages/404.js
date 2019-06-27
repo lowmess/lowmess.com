@@ -36,9 +36,9 @@ const errorPage = () => (
           <HaikuLink to="/">Click here to go home</HaikuLink>
           &rdquo;
           <br />
-          &nbsp;Is over-used and boring,
+          &nbsp;is over-used and boring,
           <br />
-          &nbsp;But at least it&rsquo;s clear.
+          &nbsp;but at least it&rsquo;s clear.
           <br />
         </Text>
       </main>
