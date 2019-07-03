@@ -4,33 +4,31 @@ date: 2019-07-10
 description: By limiting the amount of CSS we <em>can</em> write, we improve the quality of the CSS we <em>do</em> write.
 ---
 
-There is a problem at the heart of CSS. It's not the cascade, or specificity, or inconsistencies between rendering engines, though these things can be annoying. No, it's much simpler than that: the problem is that we can write too much of it.
+There is a problem at the heart of CSS. It's not the cascade, or specificity, or inconsistencies between rendering engines -- though these things can be annoying. No, it's much simpler than that: the problem is that we can write too much of it.
 
-I am not talking about [append-only stylesheets](https://css-tricks.com/oh-no-stylesheet-grows-grows-grows-append-stylesheet-problem/), though that too causes problems. Even if we're extremely disciplined about refactoring our CSS, and we only add new rules when absolutely needed, there is still a problem. The problem is the flexibility of the language itself. That there are nearly unlimited values that can be used for a `padding` declaration is extremely freeing, but also introduces surface area for inconsistencies in our designs. And consistency is key to good design! Not only does it reduce the end user's cognitive load, it (generally) looks better and it can drastically reduce the workload for designers & developers.
+I am not talking about [append-only stylesheets](https://css-tricks.com/oh-no-stylesheet-grows-grows-grows-append-stylesheet-problem/) (though these too cause problems). Even if we're extremely disciplined about refactoring our CSS, and we only add new rules when absolutely needed, there is still a problem. The problem is the flexibility of the language itself. There are nearly unlimited valid values that a `padding` declaration can take. While extremely freeing, this also introduces surface area for inconsistencies in our designs. And consistency is key to good design! It reduces the end user's cognitive load, it (generally) looks better, and it minimizes the workload for designers & developers.
 
-The key to avoiding this type of inconsistency is to artificially limit the number of values that we can use in those declarations that aren't already limited by the language. We want a declaration like `padding` to act a little more like `float`, in that we should only be able to set a value that's been predetermined by our governing system. There are a number of techniques and technologies that can help us accomplish this (or at least get us close). I call the overarching concept that these tools encompass "declarative styling".
+Artificially limiting the number of values that we can use in declarations is key to avoiding these inconsistencies. We want a declaration like `padding` to act a little more like `float`; we should only be able to set a value that we've defined in our governing system. There are many techniques and technologies that can help us accomplish this (or at least get us close). I call the overarching concept that these tools encompass "declarative styling".
 
-## What Do You Mean, _Declarative_?
+## Defining "Declarative"
 
-This term -- declarative styling -- is related to the computer science concept [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming); it means we want to tell the computer the rules for drawing our interface, and let it follow those rules for us. In essence, we want to do for `padding` what the CSS engine does for `float`: limit the number of possible values that we can use in our CSS to a predefined set of options. We no longer want to write `padding: 1rem`, we want to write something like `padding: 3` and have the computer replace the `3` with the 3rd value in our spacing scale.
+This term -- declarative styling -- is derived from the computer science concept [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming). It means we want to tell the computer the rules for drawing our interface, and let it follow those rules for us. We no longer want to write `padding: 1rem`, we want to write something like `padding: 3` and have the computer replace the `3` with the 3rd value in our spacing scale.
 
-This accomplishes several things for us. Firstly, it ensures consistency across our design by allowing us to use a reference rather than a specific value. It also reduces the cognitive load for stakeholders by providing a common language to communicate in. These factors can make designing and iterating faster, and all but eliminate the inherent friction in designer-developer handoff.
+This accomplishes several things for us. It ensures consistency across our design by allowing us to use a reference rather than a specific value. It also reduces the cognitive load for stakeholders by providing a common language to communicate in. These factors can make designing and iterating faster, and all but eliminate the inherent friction in designer-developer handoff.
 
 ## Design Tokens
 
 Those familiar with the concept of [design tokens](https://css-tricks.com/what-are-design-tokens/) may find a lot of conceptual overlap here. Design tokens are an essential part of declarative styling: they are how we define our custom subset of styling options. If a rule in our stylesheet declares a `background-color`, that swatch should be found in our tokens.
 
-There are many teqniques for storing and parsing design tokens. I'm partial to the JSON-based [System UI Theme Specification](https://system-ui.com/theme), which organizes our tokens into a variety of scales. Several of the tools discussed below rely on this or a similar technique, but the concept remains the same: there should be a source of truth for these values, and it should not be the CSS rule itself.
+There are many techniques for storing and parsing design tokens. I'm partial to the JSON-based [System UI Theme Specification](https://system-ui.com/theme), which organizes our tokens into a variety of scales. Several of the tools discussed below rely on this or a similar technique, but the concept remains the same: there should be a source of truth for these values, and it should not be the CSS rule itself.
 
 ## Techniques
 
 Much like there are a multitude of ways to store our tokens, there are many, many ways to apply them to our styles.
 
-### Variables. Variables Everywhere.
+### CSS Variables
 
-This is probably the most common solution, and the one you're likely to be most familiar with. The idea is simple: when you write, for example, a `padding` declaration, you use a variable for the value. In Sass and LESS (or with custom PostCSS plugins), it's even possible to create helper functions that provide more semantics around using these values.
-
-The downside to this approach is the same as it's biggest draw: the low barrier to entry. There are no guardrails to stop you from writing `padding: 24px` instead of using your variable.
+The most commonly-used solution, and one you're likely familiar with, is to use variables whenever possible. Although Sass and LESS have had variables since their inception, CSS now has native variable support [with the custom properties specification](http://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ```css
 .box {
@@ -38,69 +36,84 @@ The downside to this approach is the same as it's biggest draw: the low barrier 
 }
 ```
 
-```scss
-.box {
-  padding: space(3);
+Unlike the variables of preprocessors like Sass and LESS, custom properties can take full advantage of the cascade. This means we can create fully themeable component styles natively.
+
+```css
+.btn {
+  /* First we define our variables in the base component style */
+  --button-padding-y: var(--spacing-2);
+  --button-padding-x: var(--spacing-3);
+  /* Then we apply our variables to our declarations */
+  padding: var(--button-padding-y) var(--button-padding-x);
+}
+
+/* By updating our variables, the styles will change automatically */
+.btn--large {
+  --button-padding-y: var(--spacing-3);
+  --button-padding-x: var(--spacing-4);
 }
 ```
 
-- custom properties, the cascade, and what this means for theming
-- how to introduce guardrails (conceptually)
+To take full advantage of this system, we need to convert our tokens to custom properties in the `:root` selector. The easiest way to do this is to copy and paste the values by hand, though there are [tools to automate the process](https://github.com/salesforce-ux/theo).
+
+Of course, no method is without a downside. In this case, the biggest flaw is the same as its biggest draw: the low barrier to entry. There are no guardrails to stop you from writing `padding: 24px` instead of using your variable. It takes a lot of discipline to not deviate from the system, and any time you're writing new CSS is an opportunity to create a discrepancy. But combined with a strict code review process, this can be a powerful way of enforcing consistency while creating a themeable system.
 
 ### Atomic CSS
 
 Atomic CSS (aka Functional CSS, aka Utility-first CSS) libraries like BassCSS, Tachyons, and Tailwind CSS are declarative by definition. Classes like `p3` automatically follow our `padding` rule from above: we're telling the engine to apply equal padding to all sides (the `p`) using the third step from our spacing scale (the `3`).
 
-The downside to this approach is the relatively steep learning curve, and the repitition of class names. The latter can be managed with a component-based architecture through a tool like React or a templating language like Handlebars, but the former can only be solved through time.
-
 ```html
 <div class="p3">Hi</div>
 ```
 
-- customizing libraries can be tough
-- tailwind lets us customize tokens by default
+Customizing BassCSS and Tachyons can be tough, [but it is possible](/blog/customizing-tachyons/). Tailwind, on the other hand, is [fully customizable by default](https://tailwindcss.com/docs/configuration). The Tailwind configuration system is a plain JS object exported from a Node script. A major benefit to this approach is that we can read our tokens from a JSON or YAML file, and apply them to our custom config with a few lines of code.
 
-### React & CSS-in-JS
+I'm on the record as being a big, big fan of atomic CSS. But I'm not blind to the disadvantages. The learning curve can be quite steep; not only do we need to internalize the naming scheme, but we also need to rethink how we apply our CSS. Because we also need to apply a fair amount of classnames to our components, I also tend to recommend this approach for very simple projects, or projects that have a powerful templating system. Applying atomic CSS classes to a React component or Pug mixin makes applying the classnames to all our elements much more palatable.
 
-The closest thing to a purpose-built declarative styling library are Brent Jackson's [`styled-system`](https://styled-system.com) and [Rebass](https://rebassjs.org). They take the fundamentals of Atomic CSS and apply them straight to React: you're declarations are passed as props, with your scale keys as the values.
+### Styled System
 
-```jsx
-<Box p="3">Hi</Box>
-```
+The advent of CSS-in-JS has presented us with a unique opportunity: by taking advantage of an expressive, fully-featured programming language, we can create abstractions on top of CSS that would otherwise be impossible. For example, by taking the lessons learned from atomic CSS and applying them to a JSX-based CSS-in-JS system, [Brent Jackson](https://jxnblk.com/) has created several purpose-built declarative styling libraries.
 
-Of course, this approach also has the same learning curve problem as Atomic CSS. However, there's a benefit this approach has that the others lack: portability.
-
-The component-based model that React follow means that we can use tools to capture our consistently-applied component styles at definition time, while deferring context-specific styles to consumption time. For example: vertical spacing is very often applied differently depending on the elements surrounding the component when it's actually called into a view. Even when creating a component-style system with a templating language, this problem requires us to create wrapper divs.
-
-```pug
-main
-  .mb3
-    +my-pug-mixin
-  footer ...
-```
-
-With a react model, and specifically one built on top of `styled-system`/`rebass`, we can spread our props onto our component and apply them directly to the component.
+The first of these libraries, the foundation upon which the others are built, is called [Styled System](https://styled-system.com/). The library provides a consistent interface to refer to your design tokens when defining or consuming a component. The true genius of Styled System is [how it handles responsive styles](https://styled-system.com/responsive-styles). By default, Styled System props accept a string, which the library parses and converts to a value represented by a design token. If the token is not found, the literal value is passed to the underlying CSS-in-JS library. However, by passing a prop an array, it will apply the 0-index value to the component by default, the 1-index value to the component at the first breakpoint, and so on and so forth.
 
 ```jsx
-// Defining our component
-const MyRebassComponent = props => (
-  <div p={3} {...props}>
-    {children}
-  </div>
+import styled from 'styled-components'
+import { space, color } from 'styled-system'
+
+const Box = styled.div`
+  ${space}
+  ${color}
+`
+
+const MyStyledSystemComponent = props => (
+  <Box p={[2, 3]} color="primary" {...props}>
+    Hi
+  </Box>
 )
+```
 
-// Elsewhere in our codebase
-const MyReactView = () => (
+This approach allows us to not only create components that are not only consistent with our system, but are extremely portable as well. A rule of thumb I try to follow when styling a component is to only define surrounding vertical margin when the component is actually consumed in a view. By spreading our props to a root component defined with Styled System, it becomes trivial to follow this rule.
+
+```jsx
+const MyView = () => (
   <main>
-    <MyRebassComponent mb="3" />
+    <header>...</header>
+
+    <MyStyledSystemComponent my="4" />
+
     <footer>...</footer>
   </main>
 )
 ```
 
-- unfortunately didn't find a solution for vue/angluar/ember
-- react context allows us to create components that automatically adapt to new themes (tokens)
+Because Styled System (when used in React) reads from the theme put into context from your CSS-in-JS library of choice's `ThemeProvider`, creating themeable components is a breeze. However, attaching `space`, `color`, and other token references to all your components can be quite annoying. Luckily, Mr. Jackson has also created a library of primitive components built on top of Styled System called [Rebass](https://rebassjs.org/). These components operate like the `Box` component we utilized inside of `MyStyledSystemComponent`.
 
----
+Most recently, Brent has released [Theme UI](https://theme-ui.com/), a further iteration of this idea. Theme UI exposes an `sx` prop on JSX components that allows us to reference our tokens, provides primitive components to use as a foundation, handles styling of markdown content with MDX, and much, much more. It's an exciting evolution of the approach, and one I intend to explore more fully in the future.
 
-This is a conclusion, that I still need to write.
+The Styled System approach, much like the others, comes with its fair share of downsides. For starters, it shares the same learning curve problem as atomic CSS. It can be somewhat cumbersome to set up, particularly when not using Rebass or Theme UI's primitive components. And while it can technically work with any framework that supports JSX, React is the only true first-class Styled System citizen. But, when given a choice, it is still my preferred method for defining and consuming styles.
+
+## A Vision of the Future
+
+The web has always been an extremely flexible and expressive platform. This has lead to some amazing creative applications of technology, new media experiences, and beautiful interactions. It has also created plenty of [footgun](https://en.wiktionary.org/wiki/footgun) opportunities. By placing self-imposed constraints on the very fabric of the web, we get to remove the more self-sabotaging aspects of designing for the platform. Rather than limiting our creativity, these constraints provide guardrails for us to explore the limits of our designs while providing a consistent and visually harmonious interface to our users.
+
+The declarative styling methodology will continue to evolve over time. As design tokens become more prevalent, design software will add first-class support for them. More libraries and methods will evolve for applying them to our products, both on the web and beyond. As we solve the problem at the heart of CSS, the language we use to communicate between ideation and implementation will meld into one. Perhaps our tools will as well.
