@@ -28,12 +28,9 @@ const IndexPage = () => {
         <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
 
         <Subtitle my={3}>
-          I&rsquo;m a frontend developer currently{' '}
-          <Link
-            href="mailto:alec@lowmess.com?subject=Let's%20Work%20Together"
-            css={themeHover}
-          >
-            seeking new&nbsp;opportunities
+          I&rsquo;m a frontend developer at{' '}
+          <Link href="https://hiringsolved.com/" css={themeHover}>
+            HiringSolved
           </Link>
           .
         </Subtitle>
