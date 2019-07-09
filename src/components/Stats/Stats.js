@@ -24,7 +24,7 @@ const Stats = ({ ...props }) => {
   const [album, setAlbum] = useState(null)
   const [books, setBooks] = useState([])
 
-  async function fillStats() {
+  const fillStats = async () => {
     const {
       commits: commitStat,
       tweets: tweetsStat,

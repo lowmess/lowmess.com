@@ -56,7 +56,7 @@ NavLink.propTypes = {
   to: PropTypes.string.isRequired,
 }
 
-const Navigation = ({ location }) => (
+const Navigation = () => (
   <Flex
     as="nav"
     alignItems="center"
@@ -88,9 +88,5 @@ const Navigation = ({ location }) => (
     </List>
   </Flex>
 )
-
-Navigation.propTypes = {
-  location: PropTypes.object.isRequired,
-}
 
 export default Navigation
