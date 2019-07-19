@@ -1,12 +1,12 @@
 ---
 title: On Declarative Styling
-date: 2019-07-10
+date: 2019-07-19
 description: By limiting the amount of CSS we <em>can</em> write, we improve the quality of the CSS we <em>do</em> write.
 ---
 
 There is a problem at the heart of CSS. It's not the cascade, or specificity, or inconsistencies between rendering engines -- though these things can be annoying. No, it's much simpler than that: the problem is that we can write too much of it.
 
-I am not talking about [append-only stylesheets](https://css-tricks.com/oh-no-stylesheet-grows-grows-grows-append-stylesheet-problem/) (though these too cause problems). Even if we're extremely disciplined about refactoring our CSS, and we only add new rules when absolutely needed, there is still a problem. The problem is the flexibility of the language itself. There are nearly unlimited valid values that a `padding` declaration can take. While extremely freeing, this also introduces surface area for inconsistencies in our designs. And consistency is key to good design! It reduces the end user's cognitive load, it (generally) looks better, and it minimizes the workload for designers & developers.
+I am not talking about [append-only stylesheets](https://css-tricks.com/oh-no-stylesheet-grows-grows-grows-append-stylesheet-problem/) (though these too cause their issues). Even if we're extremely disciplined about refactoring our CSS, and we only add new rules when absolutely needed, something is still wrong. The problem is the flexibility of the language itself. There are nearly unlimited valid values that a `padding` declaration can take, and while extremely freeing this also introduces surface area for inconsistencies in our designs. And consistency is key to good design! It reduces the end user's cognitive load, it (generally) looks better, and it minimizes the workload for designers & developers to boot.
 
 Artificially limiting the number of values that we can use in declarations is key to avoiding these inconsistencies. We want a declaration like `padding` to act a little more like `float`; we should only be able to set a value that we've defined in our governing system. There are many techniques and technologies that can help us accomplish this (or at least get us close). I call the overarching concept that these tools encompass "declarative styling".
 
@@ -14,13 +14,13 @@ Artificially limiting the number of values that we can use in declarations is ke
 
 This term -- declarative styling -- is derived from the computer science concept [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming). It means we want to tell the computer the rules for drawing our interface, and let it follow those rules for us. We no longer want to write `padding: 1rem`, we want to write something like `padding: 3` and have the computer replace the `3` with the 3rd value in our spacing scale.
 
-This accomplishes several things for us. It ensures consistency across our design by allowing us to use a reference rather than a specific value. It also reduces the cognitive load for stakeholders by providing a common language to communicate in. These factors can make designing and iterating faster, and all but eliminate the inherent friction in designer-developer handoff.
+This accomplishes several things for us. It ensures consistency across our design by allowing us to use a reference rather than a specific value. It also reduces the cognitive load for stakeholders by providing a common language to communicate in. These factors (among others) can make designing and iterating faster, and all but eliminate the inherent friction in designer-developer handoff.
 
 ## Design Tokens
 
 Those familiar with the concept of [design tokens](https://css-tricks.com/what-are-design-tokens/) may find a lot of conceptual overlap here. Design tokens are an essential part of declarative styling: they are how we define our custom subset of styling options. If a rule in our stylesheet declares a `background-color`, that swatch should be found in our tokens.
 
-There are many techniques for storing and parsing design tokens. I'm partial to the JSON-based [System UI Theme Specification](https://system-ui.com/theme), which organizes our tokens into a variety of scales. Several of the tools discussed below rely on this or a similar technique, but the concept remains the same: there should be a source of truth for these values, and it should not be the CSS rule itself.
+There are many techniques for storing and parsing design tokens. I'm partial to the JSON-based [System UI theme specification](https://system-ui.com/theme), which organizes our tokens into a variety of scales. Several of the tools discussed below rely on this or a similar technique, but the concept remains the same: there should be a source of truth for these values, and it should not be the CSS rule itself.
 
 ## Techniques
 
@@ -68,7 +68,7 @@ Atomic CSS (aka Functional CSS, aka Utility-first CSS) libraries like BassCSS, T
 
 Customizing BassCSS and Tachyons can be tough, [but it is possible](/blog/customizing-tachyons/). Tailwind, on the other hand, is [fully customizable by default](https://tailwindcss.com/docs/configuration). The Tailwind configuration system is a plain JS object exported from a Node script. A major benefit to this approach is that we can read our tokens from a JSON or YAML file, and apply them to our custom config with a few lines of code.
 
-I'm on the record as being a big, big fan of atomic CSS. But I'm not blind to the disadvantages. The learning curve can be quite steep; not only do we need to internalize the naming scheme, but we also need to rethink how we apply our CSS. Because we also need to apply a fair amount of classnames to our components, I also tend to recommend this approach for very simple projects, or projects that have a powerful templating system. Applying atomic CSS classes to a React component or Pug mixin makes applying the classnames to all our elements much more palatable.
+I'm on the record as being a big, big fan of atomic CSS. But I'm not blind to the disadvantages. The learning curve can be quite steep; not only do we need to internalize the naming scheme, but we also need to rethink how we apply our CSS. Because we also need to apply a fair amount of classnames to our components, I also tend to recommend this approach only for very simple projects or for projects that have a powerful templating system. Applying atomic CSS classes to a React component or Pug mixin makes applying the classnames to our elements much more palatable.
 
 ### Styled System
 
