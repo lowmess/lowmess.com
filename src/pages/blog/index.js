@@ -106,15 +106,9 @@ const BlogPage = () => {
                     </Link>
                   </PostTitle>
 
-                  <Paragraph
-                    fontSize={[1, 2]}
-                    lineHeight="copy"
-                    mt={3}
-                    mb={2}
-                    dangerouslySetInnerHTML={{
-                      __html: unwidow(frontmatter.description),
-                    }}
-                  />
+                  <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
+                    {unwidow(frontmatter.description)}
+                  </Paragraph>
 
                   <ArrowLink dest={fields.slug}>Read More</ArrowLink>
                 </Box>
