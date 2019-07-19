@@ -4,6 +4,10 @@ date: 2019-07-19
 description: By limiting the amount of CSS we can write, we improve the quality of the CSS we do write.
 ---
 
+> The enemy of art is the absence of limitations.
+>
+> <cite>-- Orson Welles</cite>
+
 There is a problem at the heart of CSS. It's not the cascade, or specificity, or inconsistencies between rendering engines -- though these things can be annoying. No, it's much simpler than that: the problem is that we can write too much of it.
 
 I am not talking about [append-only stylesheets](https://css-tricks.com/oh-no-stylesheet-grows-grows-grows-append-stylesheet-problem/) (though these too cause their issues). Even if we're extremely disciplined about refactoring our CSS, and we only add new rules when absolutely needed, something is still wrong. The problem is the flexibility of the language itself. There are nearly unlimited valid values that a `padding` declaration can take, and while extremely freeing this also introduces surface area for inconsistencies in our designs. And consistency is key to good design! It reduces the end user's cognitive load, it (generally) looks better, and it minimizes the workload for designers & developers to boot.
