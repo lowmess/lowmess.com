@@ -1,7 +1,7 @@
 ---
 title: On Declarative Styling
 date: 2019-07-19
-description: By limiting the amount of CSS we <em>can</em> write, we improve the quality of the CSS we <em>do</em> write.
+description: By limiting the amount of CSS we can write, we improve the quality of the CSS we do write.
 ---
 
 There is a problem at the heart of CSS. It's not the cascade, or specificity, or inconsistencies between rendering engines -- though these things can be annoying. No, it's much simpler than that: the problem is that we can write too much of it.
