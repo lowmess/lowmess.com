@@ -10,7 +10,6 @@ const ArrowText = styled(Text).attrs({
   as: 'span',
   fontSize: [0, 1],
   fontFamily: 'monospace',
-  fontWeight: 'normal',
 })`
   display: inline-flex;
   align-items: center;
