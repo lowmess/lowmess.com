@@ -5,8 +5,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "precommit": "lint-staged"
+    "serve": "gatsby serve"
   },
   "repository": {
     "type": "git",
@@ -65,6 +64,11 @@
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
     "prettier-config-lowmess": "^0.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,json,css,md}": [
