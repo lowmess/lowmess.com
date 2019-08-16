@@ -1,36 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'styled-components'
+import styled from 'styled-components'
 import { Box, Heading } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { Paragraph } from './Typography'
 import { themeHover } from '../utils/styles'
 import unwidow from '../utils/unwidow'
 
-const ProjectTitle = ({ children, ...props }) => {
-  const styles = css`
-    display: inline-block;
+const ProjectTitle = styled(Heading).attrs({
+  my: 0,
+  fontSize: [2, 3],
+  fontWeight: 'bold',
+  lineHeight: 'title',
+})`
+  display: inline-block;
 
-    ${themeHover};
-  `
+  ${themeHover};
+`
 
-  return (
-    <Heading
-      my={0}
-      fontSize={[2, 3]}
-      fontWeight="bold"
-      lineHeight="title"
-      css={styles}
-      {...props}
-    >
-      {children}
-    </Heading>
-  )
-}
-
-ProjectTitle.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+const InlineBox = styled(Box)`
+  display: inline-block;
+`
 
 const ProjectPreview = ({ project, level, ...props }) => (
   <Box {...props}>
@@ -43,22 +33,19 @@ const ProjectPreview = ({ project, level, ...props }) => (
     </Paragraph>
 
     {project.website && (
-      <Box
-        {...(project.website && project.repo ? { mr: 4 } : {})}
-        css="display: inline-block"
-      >
+      <InlineBox {...(project.website && project.repo ? { mr: 4 } : {})}>
         <ArrowLink dest={project.website} external={true}>
           Website
         </ArrowLink>
-      </Box>
+      </InlineBox>
     )}
 
     {project.repo && (
-      <Box css="display: inline-block">
+      <InlineBox>
         <ArrowLink dest={project.repo} external={true}>
           Repository
         </ArrowLink>
-      </Box>
+      </InlineBox>
     )}
   </Box>
 )
