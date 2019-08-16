@@ -17,15 +17,19 @@ const ArrowText = styled(Text).attrs({
   ${themeHover};
 `
 
-const ArrowLink = ({ dest, children, external, ...props }) => {
-  return external ? (
-    <a href={dest}>
-      <ArrowText {...props}>
-        {children} <ArrowIcon />
-      </ArrowText>
-    </a>
-  ) : (
-    <Link to={dest}>
+const ArrowLink = ({ href, to, children, ...props }) => {
+  if (href) {
+    return (
+      <a href={href}>
+        <ArrowText {...props}>
+          {children} <ArrowIcon />
+        </ArrowText>
+      </a>
+    )
+  }
+
+  return (
+    <Link to={to}>
       <ArrowText {...props}>
         {children} <ArrowIcon />
       </ArrowText>
@@ -34,7 +38,12 @@ const ArrowLink = ({ dest, children, external, ...props }) => {
 }
 
 ArrowLink.propTypes = {
-  dest: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  to: (props, propName, componentName) => {
+    if (!props.href && !props[propName]) {
+      return new Error(`${componentName} expects an "href" or "to" prop`)
+    }
+  },
   children: PropTypes.node.isRequired,
   external: PropTypes.bool,
 }

@@ -110,7 +110,7 @@ const BlogPage = () => {
                     {unwidow(frontmatter.description)}
                   </Paragraph>
 
-                  <ArrowLink dest={fields.slug}>Read More</ArrowLink>
+                  <ArrowLink to={fields.slug}>Read More</ArrowLink>
                 </Box>
               </Flex>
             )

@@ -34,17 +34,13 @@ const ProjectPreview = ({ project, level, ...props }) => (
 
     {project.website && (
       <InlineBox {...(project.website && project.repo ? { mr: 4 } : {})}>
-        <ArrowLink dest={project.website} external={true}>
-          Website
-        </ArrowLink>
+        <ArrowLink href={project.website}>Website</ArrowLink>
       </InlineBox>
     )}
 
     {project.repo && (
       <InlineBox>
-        <ArrowLink dest={project.repo} external={true}>
-          Repository
-        </ArrowLink>
+        <ArrowLink href={project.repo}>Repository</ArrowLink>
       </InlineBox>
     )}
   </Box>
