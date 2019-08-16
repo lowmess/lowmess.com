@@ -1,6 +1,1 @@
-{
-  "semi": false,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "proseWrap": "never"
-}
+"prettier-config-lowmess"
