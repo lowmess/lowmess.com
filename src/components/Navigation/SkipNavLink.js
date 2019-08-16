@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'styled-components'
-import { Text } from 'rebass'
+import { Link } from 'rebass'
 import { themeHover } from '../../utils/styles'
 
 const SkipNavLink = () => {
@@ -27,20 +27,15 @@ const SkipNavLink = () => {
     ${themeHover};
   `
 
-  // `<Link>` extends `<Box>` instead of `<Link>` for some reason, so the link
-  // has to be a `<Text>` instead. i opened a PR to hopefully make this cleaner.
-  //
-  // @link https://github.com/rebassjs/rebass/pull/582
   return (
-    <Text
-      as="a"
+    <Link
       href="#main-content"
       fontSize={[0, 1]}
       fontFamily="monospace"
       css={styles}
     >
       Skip to main content
-    </Text>
+    </Link>
   )
 }
 
