@@ -1,43 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { css } from 'styled-components'
+import styled from 'styled-components'
 import { Text } from 'rebass'
 import ArrowIcon from './ArrowIcon'
 import { themeHover } from '../../utils/styles'
 
-const arrowStyles = css`
+const ArrowText = styled(Text).attrs({
+  as: 'span',
+  fontSize: [0, 1],
+  fontFamily: 'monospace',
+})`
   display: inline-flex;
   align-items: center;
   ${themeHover};
 `
 
-const ArrowText = ({ children, ...props }) => (
-  <Text
-    as="span"
-    fontSize={[0, 1]}
-    fontFamily="monospace"
-    fontWeight="normal"
-    css={arrowStyles}
-    {...props}
-  >
-    {children}
-  </Text>
-)
+const ArrowLink = ({ href, to, children, ...props }) => {
+  if (href) {
+    return (
+      <a href={href}>
+        <ArrowText {...props}>
+          {children} <ArrowIcon />
+        </ArrowText>
+      </a>
+    )
+  }
 
-ArrowText.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-const ArrowLink = ({ dest, children, external, ...props }) => {
-  return external ? (
-    <a href={dest}>
-      <ArrowText {...props}>
-        {children} <ArrowIcon />
-      </ArrowText>
-    </a>
-  ) : (
-    <Link to={dest}>
+  return (
+    <Link to={to}>
       <ArrowText {...props}>
         {children} <ArrowIcon />
       </ArrowText>
@@ -46,7 +37,12 @@ const ArrowLink = ({ dest, children, external, ...props }) => {
 }
 
 ArrowLink.propTypes = {
-  dest: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  to: (props, propName, componentName) => {
+    if (!props.href && !props[propName]) {
+      return new Error(`${componentName} expects an "href" or "to" prop`)
+    }
+  },
   children: PropTypes.node.isRequired,
   external: PropTypes.bool,
 }

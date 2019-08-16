@@ -1,14 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { css } from 'styled-components'
+import styled from 'styled-components'
 import { Flex, Text } from 'rebass'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import { List, ListItem } from '../Typography'
 import { themeHover } from '../../utils/styles'
 
+const NavItem = styled(ListItem)`
+  display: inline-block;
+`
+
+const NavText = styled(Text)`
+  .active & {
+    border-bottom: ${({ theme }) => theme.borders[2]};
+    border-color: ${({ theme }) => theme.colors.orange};
+  }
+
+  ${themeHover};
+`
+
 const NavLink = ({ children, to, ...props }) => {
+  // the following props are coming from @reach/router, but ESLint
+  // doesn't know that.
+  /* eslint-disable react/prop-types */
   const isActive = ({ location, href, isPartiallyCurrent }) => {
     if (location.pathname === '/' && href === '/') {
       return { className: 'active' }
@@ -18,15 +34,7 @@ const NavLink = ({ children, to, ...props }) => {
 
     return null
   }
-
-  const styles = css`
-    .active & {
-      border-bottom: ${({ theme }) => theme.borders[2]};
-      border-color: ${({ theme }) => theme.colors.orange};
-    }
-
-    ${themeHover};
-  `
+  /* eslint-enable react/prop-types */
 
   // adding the className to the link with `getProps` overrides the className
   // that styled-components generates. this is massively annoying and i haven't
@@ -41,13 +49,13 @@ const NavLink = ({ children, to, ...props }) => {
   //
   // point is, this is the most i've been able to reduce the markup so far.
   return (
-    <ListItem css="display: inline-block" {...props}>
+    <NavItem {...props}>
       <Text as={Link} to={to} getProps={isActive}>
-        <Text as="span" px={1} pb={1} css={styles}>
+        <NavText as="span" px={1} pb={1}>
           {children}
-        </Text>
+        </NavText>
       </Text>
-    </ListItem>
+    </NavItem>
   )
 }
 

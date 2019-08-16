@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { css, createGlobalStyle, withTheme } from 'styled-components'
+import styled, { createGlobalStyle, withTheme } from 'styled-components'
 import { Box, Flex, Card } from 'rebass'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
@@ -47,41 +47,42 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
+const Border = styled(Card).attrs({
+  border: [3, 4],
+  bg: 'transparent',
+})`
+  display: flex;
+  min-height: 100vh;
+  border-color: transparent !important;
+  background-image: url(/topography_900x900.png);
+  background-repeat: repeat;
+  background-position: top center;
+  background-size: 900px;
+
+  @media (min-resolution: 192dpi) {
+    background-image: url(/topography_1800x1800.png);
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    background-image: url(/topography_1200x1200.png);
+    background-size: 1200px;
+  }
+
+  @media (min-width: ${({ theme }) =>
+      theme.breakpoints[0]}) and (min-resolution: 192dpi) {
+    background-image: url(/topography_2400x2400.png);
+  }
+
+  @media print {
+    display: block;
+    min-height: 0;
+    border: 0;
+    background: none;
+  }
+`
+
 const Layout = ({ children, theme }) => {
   const { title, description } = useSiteMetadata()
-
-  // some of these could be moved into the component's props, but in order to
-  // support retina media queries they need to be outside of rebass. it just
-  // feels weird to separate related styles.
-  const borderStyles = css`
-    display: flex;
-    min-height: 100vh;
-    border-color: transparent !important;
-    background-image: url(/topography_900x900.png);
-    background-repeat: repeat;
-    background-position: top center;
-    background-size: 900px;
-
-    @media (min-resolution: 192dpi) {
-      background-image: url(/topography_1800x1800.png);
-    }
-
-    @media (min-width: ${theme.breakpoints[0]}) {
-      background-image: url(/topography_1200x1200.png);
-      background-size: 1200px;
-    }
-
-    @media (min-width: ${theme.breakpoints[0]}) and (min-resolution: 192dpi) {
-      background-image: url(/topography_2400x2400.png);
-    }
-
-    @media print {
-      display: block;
-      min-height: 0;
-      border: 0;
-      background: none;
-    }
-  `
 
   return (
     <>
@@ -121,7 +122,7 @@ const Layout = ({ children, theme }) => {
         />
       </Helmet>
 
-      <Card border={[3, 4]} bg="transparent" css={borderStyles}>
+      <Border>
         <Card
           flex="1"
           borderRadius={2}
@@ -145,7 +146,7 @@ const Layout = ({ children, theme }) => {
             <Footer />
           </Flex>
         </Card>
-      </Card>
+      </Border>
     </>
   )
 }

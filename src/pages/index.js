@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Text, Heading, Link } from 'rebass'
+import { Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
 import { Title, Subtitle, Paragraph } from '../components/Typography'

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Box, Flex, Text, Heading } from 'rebass'
+import { Box, Flex, Text, Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import { Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
@@ -29,15 +29,9 @@ Dep.propTypes = {
 }
 
 const DepLink = ({ children, ...props }) => (
-  <Text
-    as="a"
-    fontSize={[2, 3]}
-    fontWeight="semi-bold"
-    css={themeHover}
-    {...props}
-  >
+  <Link fontSize={[2, 3]} fontWeight="semi-bold" css={themeHover} {...props}>
     {children}
-  </Text>
+  </Link>
 )
 
 DepLink.propTypes = {
