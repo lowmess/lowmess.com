@@ -73,7 +73,7 @@ const ColophonPage = () => {
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
     'sanitize.css': { version: sanitize },
-    'styled-components': { version: styledComponents },
+    '@emotion/core': { version: emotion },
     rebass: { version: rebass },
     eslint: { version: eslint },
     prettier: { version: prettier },
@@ -119,10 +119,8 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://styled-components.com/">
-                styled-components
-              </DepLink>{' '}
-              <DepVer>{styledComponents}</DepVer>
+              <DepLink href="https://emotion.sh/">emotion</DepLink>{' '}
+              <DepVer>{emotion}</DepVer>
             </Dep>
 
             <Dep>
