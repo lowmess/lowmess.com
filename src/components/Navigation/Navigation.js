@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 import { Flex, Text } from 'rebass'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
@@ -50,11 +51,11 @@ const NavLink = ({ children, to, ...props }) => {
   // point is, this is the most i've been able to reduce the markup so far.
   return (
     <NavItem {...props}>
-      <Text as={Link} to={to} getProps={isActive}>
+      <Link to={to} getProps={isActive}>
         <NavText as="span" px={1} pb={1}>
           {children}
         </NavText>
-      </Text>
+      </Link>
     </NavItem>
   )
 }
@@ -71,7 +72,9 @@ const Navigation = () => (
     justifyContent="space-between"
     mt={[0, 2, 3]}
     mb={[5, 6]}
-    css="position: relative"
+    css={css`
+      position: relative;
+    `}
   >
     <SkipNavLink />
 

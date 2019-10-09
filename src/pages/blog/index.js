@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
-import { Box, Flex, Heading } from 'rebass'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
+import { Box, Flex } from 'rebass'
 import Header from '../../components/Header'
 import ArrowLink from '../../components/ArrowLink'
-import { Title, Paragraph } from '../../components/Typography'
+import { Heading, Title, Paragraph } from '../../components/Typography'
 import { useSiteMetadata } from '../../utils/hooks'
 import { themeHover } from '../../utils/styles'
 import unwidow from '../../utils/unwidow'
@@ -34,7 +35,9 @@ const PostTitle = ({ children }) => (
     as="h3"
     fontSize={[2, 3]}
     lineHeight="title"
-    css="display: inline-block"
+    css={css`
+      display: inline-block;
+    `}
   >
     {children}
   </Heading>

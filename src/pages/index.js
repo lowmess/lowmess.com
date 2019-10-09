@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Heading, Link } from 'rebass'
+import { Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Title, Subtitle, Paragraph } from '../components/Typography'
+import { Heading, Title, Subtitle, Paragraph } from '../components/Typography'
 import { themeHover } from '../utils/styles'
 
 const IndexPage = () => {

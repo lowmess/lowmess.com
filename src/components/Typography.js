@@ -1,7 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Box, Text, Heading } from 'rebass'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
+import { Box, Text, Heading as H } from 'rebass'
+
+const Heading = ({ children, ...props }) => (
+  <H variant="heading" {...props}>
+    {children}
+  </H>
+)
+
+Heading.propTypes = {
+  children: PropTypes.node,
+}
 
 const Title = ({ children, ...props }) => (
   <Heading as="h1" mb={3} fontSize={[4, 5]} lineHeight="title" {...props}>
@@ -35,7 +46,9 @@ const Paragraph = ({ children, ...props }) => (
     as="p"
     fontSize={[1, 2]}
     lineHeight="copy"
-    css="max-width: 33em"
+    css={css`
+      max-width: 33em;
+    `}
     {...props}
   >
     {children}
@@ -46,18 +59,28 @@ Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const Rule = styled(Box).attrs({
-  as: 'hr',
-  mx: 0,
-  bg: 'orange',
-})`
+const Rule = styled(Box)`
   max-width: 8rem;
   height: ${({ theme }) => theme.space[2]};
   border: 0;
 `
 
+Rule.defaultProps = {
+  as: 'hr',
+  mx: 0,
+  bg: 'orange',
+}
+
 const List = ({ children, ...props }) => (
-  <Text as="ul" m={0} p={0} css="list-style-type: none" {...props}>
+  <Text
+    as="ul"
+    m={0}
+    p={0}
+    css={css`
+      list-style-type: none;
+    `}
+    {...props}
+  >
     {children}
   </Text>
 )
@@ -76,4 +99,4 @@ ListItem.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export { Title, Subtitle, Paragraph, Rule, List, ListItem }
+export { Heading, Title, Subtitle, Paragraph, Rule, List, ListItem }

@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { List, ListItem } from './Typography'
@@ -65,15 +66,29 @@ const Footer = () => {
         </BlogPost>
 
         <List>
-          <ListItem css="display: inline-block" mr={3}>
+          <ListItem
+            css={css`
+              display: inline-block;
+            `}
+            mr={3}
+          >
             <SocialLink href="https://twitter.com/lowmess">Twitter</SocialLink>
           </ListItem>
 
-          <ListItem css="display: inline-block" mr={3}>
+          <ListItem
+            css={css`
+              display: inline-block;
+            `}
+            mr={3}
+          >
             <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
           </ListItem>
 
-          <ListItem css="display: inline-block">
+          <ListItem
+            css={css`
+              display: inline-block;
+            `}
+          >
             <SocialLink href="https://resume.lowmess.com">
               R&eacute;sum&eacute;
             </SocialLink>

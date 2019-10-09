@@ -23,6 +23,8 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
+    "@emotion/core": "^10.0.21",
+    "@emotion/styled": "^10.0.17",
     "emotion-theming": "^10.0.19",
     "gatsby": "^2.15.33",
     "gatsby-plugin-catch-links": "^2.1.12",

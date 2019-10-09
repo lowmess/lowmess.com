@@ -1,13 +1,8 @@
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { Link } from 'rebass'
 import { themeHover } from '../../utils/styles'
 
-const SkipNavLink = styled(Link).attrs({
-  href: '#main-content',
-  fontSize: [0, 1],
-  fontFamily: 'monospace',
-  children: 'Skip to main content',
-})`
+const SkipNavLink = styled(Link)`
   position: absolute;
   top: 0;
   right: 0;
@@ -29,5 +24,12 @@ const SkipNavLink = styled(Link).attrs({
 
   ${themeHover};
 `
+
+SkipNavLink.defaultProps = {
+  href: '#main-content',
+  fontSize: [0, 1],
+  fontFamily: 'monospace',
+  children: 'Skip to main content',
+}
 
 export default SkipNavLink

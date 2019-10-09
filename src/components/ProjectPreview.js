@@ -1,18 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Box, Heading } from 'rebass'
+import styled from '@emotion/styled'
+import { Box } from 'rebass'
 import ArrowLink from './ArrowLink'
-import { Paragraph } from './Typography'
+import { Heading, Paragraph } from './Typography'
 import { themeHover } from '../utils/styles'
 import unwidow from '../utils/unwidow'
 
-const ProjectTitle = styled(Heading).attrs({
-  my: 0,
-  fontSize: [2, 3],
-  fontWeight: 'bold',
-  lineHeight: 'title',
-})`
+const ProjectTitle = styled(Heading)`
   display: inline-block;
 
   ${themeHover};
@@ -25,7 +20,15 @@ const InlineBox = styled(Box)`
 const ProjectPreview = ({ project, level, ...props }) => (
   <Box {...props}>
     <a href={project.website ? project.website : project.repo}>
-      <ProjectTitle as={level}>{unwidow(project.title)}</ProjectTitle>
+      <ProjectTitle
+        as={level}
+        my={0}
+        fontSize={[2, 3]}
+        fontWeight="bold"
+        lineHeight="title"
+      >
+        {unwidow(project.title)}
+      </ProjectTitle>
     </a>
 
     <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
