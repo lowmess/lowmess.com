@@ -6,7 +6,7 @@ import { themeHover, themeUnderline } from '../../utils/styles'
 // this component basically exists as a giant stylesheet that inherits from the
 // theme. it's for markdown content (hence the name). it's kind of a b
 const blockShape = {
-  borderLeft: 3,
+  borderLeft: 4,
   borderColor: 'orange',
   borderRadius: 1,
   padding: 3,

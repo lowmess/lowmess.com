@@ -11,7 +11,7 @@ const NavText = ({ children, ...props }) => (
   <Text
     sx={{
       '.active &': {
-        borderBottom: 2,
+        borderBottom: 3,
         borderColor: 'orange',
       },
 

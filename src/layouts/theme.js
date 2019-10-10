@@ -39,6 +39,7 @@ const colors = {
 const space = [0, '0.25rem', '0.5rem', '1rem', '2rem', '4rem', '8rem', '16rem']
 const borders = [
   0,
+  '1px solid',
   '0.125rem solid',
   '0.25rem solid',
   '0.5rem solid',

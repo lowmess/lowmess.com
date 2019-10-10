@@ -92,7 +92,7 @@ const Layout = ({ children }) => {
 
       <Border
         sx={{
-          border: [3, 4],
+          border: [4, 5],
           backgroundColor: 'transparent',
         }}
       >
