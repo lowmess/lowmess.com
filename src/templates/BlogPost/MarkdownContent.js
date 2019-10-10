@@ -140,7 +140,7 @@ const MarkdownContent = ({ children, ...props }) => (
             textDecoration: 'none',
 
             '&:after': {
-              content: '',
+              content: `''`,
             },
           },
         },
