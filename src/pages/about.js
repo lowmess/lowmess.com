@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import styled from '@emotion/styled'
 import { Link } from 'rebass'
 import Header from '../components/Header'
 import Stats from '../components/Stats'
@@ -8,10 +8,15 @@ import { Title, Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import { themeHover, themeUnderline } from '../utils/styles'
 
-const AboutLink = styled(Link)`
-  ${themeHover};
-  ${themeUnderline};
-`
+const AboutLink = ({ children, ...props }) => (
+  <Link sx={{ ...themeHover, ...themeUnderline }} {...props}>
+    {children}
+  </Link>
+)
+
+AboutLink.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 const AboutPage = () => {
   const { title } = useSiteMetadata()

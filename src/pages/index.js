@@ -29,7 +29,7 @@ const IndexPage = () => {
 
         <Subtitle my={3}>
           I&rsquo;m a frontend developer at{' '}
-          <Link href="https://hiringsolved.com/" css={themeHover}>
+          <Link href="https://hiringsolved.com/" sx={themeHover}>
             HiringSolved
           </Link>
           .

@@ -29,7 +29,7 @@ Dep.propTypes = {
 }
 
 const DepLink = ({ children, ...props }) => (
-  <Link fontSize={[2, 3]} fontWeight="semi-bold" css={themeHover} {...props}>
+  <Link fontSize={[2, 3]} fontWeight="semi-bold" sx={themeHover} {...props}>
     {children}
   </Link>
 )

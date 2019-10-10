@@ -1,21 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import styled from '@emotion/styled'
 import { Text } from 'rebass'
 import ArrowIcon from './ArrowIcon'
 import { themeHover } from '../../utils/styles'
 
-const ArrowText = styled(Text)`
-  display: inline-flex;
-  align-items: center;
-  ${themeHover};
-`
+const ArrowText = ({ children, ...props }) => (
+  <Text
+    as="span"
+    sx={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      fontSize: [0, 1],
+      fontFamily: 'monospace',
+      ...themeHover,
+    }}
+    {...props}
+  >
+    {children}
+  </Text>
+)
 
-ArrowText.defaultProps = {
-  as: 'span',
-  fontSize: [0, 1],
-  fontFamily: 'monospace',
+ArrowText.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 const ArrowLink = ({ href, to, children, ...props }) => {

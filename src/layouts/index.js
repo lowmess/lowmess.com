@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useTheme } from 'emotion-theming'
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Box, Flex, Card } from 'rebass'
 import Navigation from '../components/Navigation'
@@ -11,6 +10,7 @@ import { useSiteMetadata } from '../utils/hooks'
 import ThemeProvider from './ThemeProvider'
 import GlobalStyles from './GlobalStyles'
 
+// making this a `styled` component because of the combo media queries
 const Border = styled(Card)`
   display: flex;
   min-height: 100vh;
@@ -97,23 +97,23 @@ const Layout = ({ children }) => {
         }}
       >
         <Card
-          flex="1"
-          borderRadius={2}
-          py={3}
-          px={[3, 4]}
-          color="black"
-          bg="white"
-          css={css`
-            max-width: 100%;
-          `}
+          sx={{
+            flex: 1,
+            maxWidth: '100%',
+            borderRadius: 2,
+            paddingY: 3,
+            paddingX: [3, 4],
+            color: 'black',
+            backgroundColor: 'white',
+          }}
         >
           <Flex
-            flexDirection="column"
-            mx="auto"
-            css={css`
-              max-width: 64rem;
-              height: 100%;
-            `}
+            sx={{
+              flexDirection: 'column',
+              maxWidth: '64rem',
+              height: '100%',
+              marginX: 'auto',
+            }}
           >
             <Navigation />
 

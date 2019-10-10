@@ -1,26 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 import { Flex, Text } from 'rebass'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import { List, ListItem } from '../Typography'
 import { themeHover } from '../../utils/styles'
 
-const NavItem = styled(ListItem)`
-  display: inline-block;
-`
+const NavText = ({ children, ...props }) => (
+  <Text
+    sx={{
+      '.active &': {
+        borderBottom: 2,
+        borderColor: 'orange',
+      },
 
-const NavText = styled(Text)`
-  .active & {
-    border-bottom: ${({ theme }) => theme.borders[2]};
-    border-color: ${({ theme }) => theme.colors.orange};
-  }
+      ...themeHover,
+    }}
+    {...props}
+  >
+    {children}
+  </Text>
+)
 
-  ${themeHover};
-`
+NavText.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 const NavLink = ({ children, to, ...props }) => {
   // the following props are coming from @reach/router, but ESLint
@@ -50,13 +55,13 @@ const NavLink = ({ children, to, ...props }) => {
   //
   // point is, this is the most i've been able to reduce the markup so far.
   return (
-    <NavItem {...props}>
+    <ListItem sx={{ display: 'inline-block' }} {...props}>
       <Link to={to} getProps={isActive}>
         <NavText as="span" px={1} pb={1}>
           {children}
         </NavText>
       </Link>
-    </NavItem>
+    </ListItem>
   )
 }
 
@@ -72,9 +77,9 @@ const Navigation = () => (
     justifyContent="space-between"
     mt={[0, 2, 3]}
     mb={[5, 6]}
-    css={css`
-      position: relative;
-    `}
+    sx={{
+      position: 'relative',
+    }}
   >
     <SkipNavLink />
 
