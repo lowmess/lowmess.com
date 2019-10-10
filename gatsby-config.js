@@ -118,12 +118,12 @@ const plugins = [
   'gatsby-transformer-json',
   'gatsby-transformer-sharp',
   'gatsby-plugin-catch-links',
+  'gatsby-plugin-emotion',
   'gatsby-plugin-layout',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-remove-serviceworker',
   'gatsby-plugin-sharp',
   'gatsby-plugin-sitemap',
-  'gatsby-plugin-styled-components',
 ]
 
 // The Fathom variables are set in Netlify's deploy settings.

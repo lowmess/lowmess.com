@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Heading, Link } from 'rebass'
+import { Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Title, Subtitle, Paragraph } from '../components/Typography'
+import { Heading, Title, Subtitle, Paragraph } from '../components/Typography'
 import { themeHover } from '../utils/styles'
 
 const IndexPage = () => {
@@ -29,7 +29,7 @@ const IndexPage = () => {
 
         <Subtitle my={3}>
           I&rsquo;m a frontend developer at{' '}
-          <Link href="https://hiringsolved.com/" css={themeHover}>
+          <Link href="https://hiringsolved.com/" sx={themeHover}>
             HiringSolved
           </Link>
           .

@@ -1,23 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
-import { Box, Flex, Heading } from 'rebass'
+import { Box, Flex, Link } from 'rebass'
 import Header from '../../components/Header'
 import ArrowLink from '../../components/ArrowLink'
-import { Title, Paragraph } from '../../components/Typography'
+import { Heading, Title, Paragraph } from '../../components/Typography'
 import { useSiteMetadata } from '../../utils/hooks'
 import { themeHover } from '../../utils/styles'
 import unwidow from '../../utils/unwidow'
 
-const YearContainer = styled(Box)`
-  display: none;
+const YearContainer = ({ children, ...props }) => (
+  <Box sx={{ display: ['none', 'block'] }} {...props}>
+    {children}
+  </Box>
+)
 
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    display: block;
-  }
-`
+YearContainer.propTypes = {
+  children: PropTypes.node,
+}
 
 const YearTitle = ({ children }) => (
   <Heading fontSize={[2, 3]} fontWeight="medium" lineHeight="title">
@@ -32,9 +33,11 @@ YearTitle.propTypes = {
 const PostTitle = ({ children }) => (
   <Heading
     as="h3"
-    fontSize={[2, 3]}
-    lineHeight="title"
-    css="display: inline-block"
+    sx={{
+      display: 'inline-block',
+      fontSize: [2, 3],
+      lineHeight: 'title',
+    }}
   >
     {children}
   </Heading>
@@ -101,7 +104,7 @@ const BlogPage = () => {
 
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
-                    <Link to={fields.slug} css={themeHover}>
+                    <Link as={GatsbyLink} to={fields.slug} sx={themeHover}>
                       {unwidow(frontmatter.title)}
                     </Link>
                   </PostTitle>

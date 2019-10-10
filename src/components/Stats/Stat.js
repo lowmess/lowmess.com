@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Text, Heading } from 'rebass'
+import { Flex, Text } from 'rebass'
+import { Heading } from '../Typography'
 
 const Stat = ({ children, ...props }) => (
   <Flex alignItems="baseline" flexDirection={['column', 'row']} {...props}>
