@@ -1,15 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
-import { Text } from 'rebass'
+import { Text, Link } from 'rebass'
 import Header from '../components/Header'
 import { Title, Subtitle } from '../components/Typography'
 import { themeHover } from '../utils/styles'
-
-const HaikuLink = styled(Link)`
-  ${themeHover};
-`
 
 const errorPage = () => (
   <>
@@ -33,7 +28,9 @@ const errorPage = () => (
           lineHeight="title"
         >
           &ldquo;
-          <HaikuLink to="/">Click here to go home</HaikuLink>
+          <Link as={GatsbyLink} sx={themeHover} to="/">
+            Click here to go home
+          </Link>
           &rdquo;
           <br />
           &nbsp;is over-used and boring,

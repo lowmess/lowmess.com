@@ -1,29 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
 import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { List, ListItem } from './Typography'
 import { themeHover } from '../utils/styles'
 
-const SocialLink = ({ children, ...props }) => (
-  <Link fontSize={[0, 1]} css={themeHover} {...props}>
-    {children}
-  </Link>
+const SocialLink = ({ href, children, ...props }) => (
+  <ListItem sx={{ display: 'inline-block' }} {...props}>
+    <Link href={href} fontSize={[0, 1]} sx={themeHover}>
+      {children}
+    </Link>
+  </ListItem>
 )
 
 SocialLink.propTypes = {
+  href: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 }
-
-const BlogPost = styled(Box)`
-  display: none;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    display: block;
-  }
-`
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -54,7 +48,7 @@ const Footer = () => {
         alignItems="center"
         justifyContent={['center', 'center', 'space-between']}
       >
-        <BlogPost>
+        <Box sx={{ display: ['none', 'none', 'block'] }}>
           <Text as="span" mr={2}>
             From the blog:
           </Text>
@@ -62,22 +56,20 @@ const Footer = () => {
           <ArrowLink fontWeight="bold" to={post.fields.slug}>
             {post.frontmatter.title}
           </ArrowLink>
-        </BlogPost>
+        </Box>
 
         <List>
-          <ListItem css="display: inline-block" mr={3}>
-            <SocialLink href="https://twitter.com/lowmess">Twitter</SocialLink>
-          </ListItem>
+          <SocialLink href="https://twitter.com/lowmess" mr={3}>
+            Twitter
+          </SocialLink>
 
-          <ListItem css="display: inline-block" mr={3}>
-            <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
-          </ListItem>
+          <SocialLink href="https://github.com/lowmess" mr={3}>
+            GitHub
+          </SocialLink>
 
-          <ListItem css="display: inline-block">
-            <SocialLink href="https://resume.lowmess.com">
-              R&eacute;sum&eacute;
-            </SocialLink>
-          </ListItem>
+          <SocialLink href="https://resume.lowmess.com">
+            R&eacute;sum&eacute;
+          </SocialLink>
         </List>
       </Flex>
     </Text>

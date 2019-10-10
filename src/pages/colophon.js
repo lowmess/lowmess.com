@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Box, Flex, Text, Heading, Link } from 'rebass'
+import { Box, Flex, Text, Link } from 'rebass'
 import Header from '../components/Header'
-import { Title } from '../components/Typography'
+import { Heading, Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import { themeHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
@@ -29,7 +29,7 @@ Dep.propTypes = {
 }
 
 const DepLink = ({ children, ...props }) => (
-  <Link fontSize={[2, 3]} fontWeight="semi-bold" css={themeHover} {...props}>
+  <Link fontSize={[2, 3]} fontWeight="semi-bold" sx={themeHover} {...props}>
     {children}
   </Link>
 )
@@ -73,7 +73,7 @@ const ColophonPage = () => {
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
     'sanitize.css': { version: sanitize },
-    'styled-components': { version: styledComponents },
+    '@emotion/core': { version: emotion },
     rebass: { version: rebass },
     eslint: { version: eslint },
     prettier: { version: prettier },
@@ -119,10 +119,8 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://styled-components.com/">
-                styled-components
-              </DepLink>{' '}
-              <DepVer>{styledComponents}</DepVer>
+              <DepLink href="https://emotion.sh/">emotion</DepLink>{' '}
+              <DepVer>{emotion}</DepVer>
             </Dep>
 
             <Dep>

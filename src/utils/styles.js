@@ -1,16 +1,14 @@
-import { css } from 'styled-components'
+const themeHover = {
+  color: 'inherit',
 
-const themeHover = css`
-  color: inherit;
+  '&:hover': {
+    color: 'orange',
+  },
+}
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange};
-  }
-`
-
-const themeUnderline = css`
-  text-decoration: underline;
-  text-decoration-color: ${({ theme }) => theme.colors.orange};
-`
+const themeUnderline = {
+  textDecoration: 'underline',
+  textDecorationColor: 'orange',
+}
 
 export { themeHover, themeUnderline }

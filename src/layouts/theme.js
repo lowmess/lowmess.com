@@ -39,6 +39,7 @@ const colors = {
 const space = [0, '0.25rem', '0.5rem', '1rem', '2rem', '4rem', '8rem', '16rem']
 const borders = [
   0,
+  '1px solid',
   '0.125rem solid',
   '0.25rem solid',
   '0.5rem solid',
@@ -80,6 +81,12 @@ const fonts = {
     'Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace',
 }
 
+const text = {
+  heading: {
+    fontFamily: fonts['sans-serif'],
+  },
+}
+
 const theme = {
   breakpoints,
   colors,
@@ -90,6 +97,7 @@ const theme = {
   fontSizes,
   fontWeights,
   lineHeights,
+  text,
 }
 
 module.exports = theme

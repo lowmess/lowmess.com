@@ -1,56 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import styled, { createGlobalStyle, withTheme } from 'styled-components'
+import { useTheme } from 'emotion-theming'
+import styled from '@emotion/styled'
 import { Box, Flex, Card } from 'rebass'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { useSiteMetadata } from '../utils/hooks'
+import ThemeProvider from './ThemeProvider'
+import GlobalStyles from './GlobalStyles'
 
-import 'sanitize.css'
-
-const GlobalStyles = createGlobalStyle`
-  html {
-    background-color: ${({ theme }) => theme.colors.orange};
-    line-height: ${({ theme }) => theme.lineHeights.copy};
-    scroll-behavior: smooth;
-
-    @media (prefers-reduced-motion: reduce) {
-      scroll-behavior: auto;
-    }
-
-    @media print {
-      background: none;
-    }
-  }
-
-  ::selection {
-    background-color: ${({ theme }) => theme.colors.orange} !important;
-    color: ${({ theme }) => theme.colors.black} !important;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    text-decoration-skip: ink;
-    text-decoration-skip-ink: auto;
-  }
-
-  @media print {
-    nav, footer {
-      display: none !important;
-    }
-
-    #main-content {
-      margin-bottom: 0 !important;
-    }
-  }
-`
-
-const Border = styled(Card).attrs({
-  border: [3, 4],
-  bg: 'transparent',
-})`
+// making this a `styled` component because of the combo media queries
+const Border = styled(Card)`
   display: flex;
   min-height: 100vh;
   border-color: transparent !important;
@@ -81,61 +42,78 @@ const Border = styled(Card).attrs({
   }
 `
 
-const Layout = ({ children, theme }) => {
+const Head = () => {
   const { title, description } = useSiteMetadata()
+  const theme = useTheme()
 
   return (
-    <>
+    <Helmet htmlAttributes={{ lang: 'en' }}>
+      <title>{title}</title>
+
+      <meta name="description" content={description} />
+      {/* theming */}
+      <meta name="theme-color" content={theme.colors.grays[1]} />
+      <meta name="apple-mobile-web-app-title" content="lowmess" />
+      <meta name="application-name" content="lowmess" />
+      <meta name="msapplication-TileColor" content="{theme.colors.orange}" />
+      {/* icons */}
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="/favicon-32x32.png"
+        sizes="32x32"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="/favicon-16x16.png"
+        sizes="16x16"
+      />
+      <link
+        rel="mask-icon"
+        href="/safari-pinned-tab.svg"
+        color={theme.colors.orange}
+      />
+    </Helmet>
+  )
+}
+
+const Layout = ({ children }) => {
+  return (
+    <ThemeProvider>
+      <Head />
+
       <GlobalStyles />
 
-      <Helmet htmlAttributes={{ lang: 'en' }}>
-        <title>{title}</title>
-
-        <meta name="description" content={description} />
-        {/* theming */}
-        <meta name="theme-color" content={theme.colors.grays[1]} />
-        <meta name="apple-mobile-web-app-title" content="lowmess" />
-        <meta name="application-name" content="lowmess" />
-        <meta name="msapplication-TileColor" content="{theme.colors.orange}" />
-        {/* icons */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-32x32.png"
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-16x16.png"
-          sizes="16x16"
-        />
-        <link
-          rel="mask-icon"
-          href="/safari-pinned-tab.svg"
-          color={theme.colors.orange}
-        />
-      </Helmet>
-
-      <Border>
+      <Border
+        sx={{
+          border: [4, 5],
+          backgroundColor: 'transparent',
+        }}
+      >
         <Card
-          flex="1"
-          borderRadius={2}
-          py={3}
-          px={[3, 4]}
-          color="black"
-          bg="white"
-          css="max-width: 100%"
+          sx={{
+            flex: 1,
+            maxWidth: '100%',
+            borderRadius: 2,
+            paddingY: 3,
+            paddingX: [3, 4],
+            color: 'black',
+            backgroundColor: 'white',
+          }}
         >
           <Flex
-            flexDirection="column"
-            mx="auto"
-            css="max-width: 64rem; height: 100%"
+            sx={{
+              flexDirection: 'column',
+              maxWidth: '64rem',
+              height: '100%',
+              marginX: 'auto',
+            }}
           >
             <Navigation />
 
@@ -147,13 +125,12 @@ const Layout = ({ children, theme }) => {
           </Flex>
         </Card>
       </Border>
-    </>
+    </ThemeProvider>
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
 }
 
-export default withTheme(Layout)
+export default Layout
