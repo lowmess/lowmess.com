@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 import { Box, Text, Heading as H } from 'rebass'
 
 const Heading = ({ children, ...props }) => (
@@ -44,11 +42,11 @@ Subtitle.propTypes = {
 const Paragraph = ({ children, ...props }) => (
   <Text
     as="p"
-    fontSize={[1, 2]}
-    lineHeight="copy"
-    css={css`
-      max-width: 33em;
-    `}
+    sx={{
+      maxWidth: '33em',
+      fontSize: [1, 2],
+      lineHeight: 'copy',
+    }}
     {...props}
   >
     {children}
@@ -59,26 +57,28 @@ Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const Rule = styled(Box)`
-  max-width: 8rem;
-  height: ${({ theme }) => theme.space[2]};
-  border: 0;
-`
-
-Rule.defaultProps = {
-  as: 'hr',
-  mx: 0,
-  bg: 'orange',
-}
+const Rule = ({ ...props }) => (
+  <Box
+    as="hr"
+    sx={{
+      maxWidth: '8rem',
+      height: '0.5rem',
+      marginX: 0,
+      border: 0,
+      backgroundColor: 'orange',
+    }}
+    {...props}
+  />
+)
 
 const List = ({ children, ...props }) => (
   <Text
     as="ul"
-    m={0}
-    p={0}
-    css={css`
-      list-style-type: none;
-    `}
+    sx={{
+      margin: 0,
+      padding: 0,
+      listStyleType: 'none',
+    }}
     {...props}
   >
     {children}
