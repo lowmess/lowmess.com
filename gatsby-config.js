@@ -39,6 +39,25 @@ const plugins = [
         { resolve: `gatsby-remark-smartypants` },
         { resolve: `gatsby-remark-widows` },
       ],
+      plugins: [
+        {
+          resolve: `gatsby-remark-autolink-headers`,
+          options: {
+            offsetY: 16,
+          },
+        },
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            maxWidth: 1536,
+            linkImagesToOriginal: false,
+          },
+        },
+        { resolve: `gatsby-remark-copy-linked-files` },
+        { resolve: `gatsby-remark-prismjs` },
+        { resolve: `gatsby-remark-smartypants` },
+        { resolve: `gatsby-remark-widows` },
+      ],
     },
   },
   {
