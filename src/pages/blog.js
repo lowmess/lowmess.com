@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Box, Flex, Link } from 'rebass'
-import Header from '../../components/Header'
-import ArrowLink from '../../components/ArrowLink'
-import { Heading, Title, Paragraph } from '../../components/Typography'
-import { useSiteMetadata } from '../../utils/hooks'
-import { themeHover } from '../../utils/styles'
-import unwidow from '../../utils/unwidow'
+import Header from '../components/Header'
+import ArrowLink from '../components/ArrowLink'
+import { Heading, Title, Paragraph } from '../components/Typography'
+import { useSiteMetadata } from '../utils/hooks'
+import { themeHover } from '../utils/styles'
+import unwidow from '../utils/unwidow'
 
 const YearContainer = ({ children, ...props }) => (
   <Box sx={{ display: ['none', 'block'] }} {...props}>
@@ -51,7 +51,7 @@ const BlogPage = () => {
   const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
             frontmatter {
@@ -68,7 +68,7 @@ const BlogPage = () => {
     }
   `)
 
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMdx.edges
   let year = '0'
 
   return (

@@ -22,10 +22,7 @@ SocialLink.propTypes = {
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1
-      ) {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
         edges {
           node {
             frontmatter {
@@ -40,7 +37,7 @@ const Footer = () => {
     }
   `)
 
-  const post = data.allMarkdownRemark.edges[0].node
+  const post = data.allMdx.edges[0].node
 
   return (
     <Text as="footer" fontFamily="monospace" mt="auto" mb={[3, 3, 4]}>
