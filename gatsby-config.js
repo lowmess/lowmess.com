@@ -22,12 +22,6 @@ const plugins = [
       },
       gatsbyRemarkPlugins: [
         {
-          resolve: `gatsby-remark-autolink-headers`,
-          options: {
-            offsetY: 16,
-          },
-        },
-        {
           resolve: 'gatsby-remark-images',
           options: {
             maxWidth: 1536,
@@ -40,12 +34,6 @@ const plugins = [
         { resolve: `gatsby-remark-widows` },
       ],
       plugins: [
-        {
-          resolve: `gatsby-remark-autolink-headers`,
-          options: {
-            offsetY: 16,
-          },
-        },
         {
           resolve: 'gatsby-remark-images',
           options: {

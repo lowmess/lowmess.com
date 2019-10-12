@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from '../../components/Header'
 import { Title, Subtitle } from '../../components/Typography'
-import MarkdownContent from './MarkdownContent'
+import MarkdownContent from '../../components/MarkdownContent'
 import { useSiteMetadata } from '../../utils/hooks'
 import unwidow from '../../utils/unwidow'
 
