@@ -2,19 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Text } from 'rebass'
 import Highlight, { defaultProps } from 'prism-react-renderer'
+import theme from 'lowmess-prism'
 import { blockShape } from './markdownStyles'
 
-import 'lowmess-prism'
-
-const Code = ({ className, children, ...props }) => {
+const Code = ({ className: languageClass, children, ...props }) => {
   const languagePrefix = 'language-'
-  const language = className.slice(languagePrefix.length)
+  const language = languageClass
+    .split(' ')
+    .find(c => c.indexOf(languagePrefix !== -1))
+    .slice(languagePrefix.length)
 
   return (
-    <Highlight {...defaultProps} code={children} language={language}>
+    <Highlight
+      {...defaultProps}
+      code={children.trim()}
+      language={language}
+      theme={theme}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Box
-          as="pre"
           className={className}
           style={style}
           sx={{
