@@ -49,6 +49,7 @@
     "gatsby-transformer-sharp": "^2.2.20",
     "github-slugger": "^1.2.1",
     "lowmess-prism": "^0.2.3",
+    "prism-react-renderer": "^0.2.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
 import { Box } from 'rebass'
 import * as Heading from './Headings'
+import { ThematicBreak, BlockQuote } from './TypographicElements'
+import { Code, InlineCode } from './Code'
 
 const components = {
   h1: Heading.One,
@@ -11,6 +13,10 @@ const components = {
   h4: Heading.Four,
   h5: Heading.Five,
   h6: Heading.Six,
+  blockquote: BlockQuote,
+  thematicBreak: ThematicBreak,
+  code: Code,
+  inlineCode: InlineCode,
 }
 
 const MarkdownContent = ({ children, ...props }) => (
@@ -34,6 +40,20 @@ const MarkdownContent = ({ children, ...props }) => (
           '& + h3, & + h4': {
             marginTop: 4,
           },
+        },
+
+        'b, strong, em, small, code': {
+          lineHeight: 'solid',
+        },
+
+        'sup, sub': {
+          verticalAlign: 'baseline',
+          position: 'relative',
+          top: '-0.4em',
+        },
+
+        sub: {
+          top: '0.4em',
         },
       }}
       {...props}
