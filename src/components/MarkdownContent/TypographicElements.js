@@ -19,6 +19,11 @@ const BlockQuote = ({ children }) => (
         maxWidth: '30em',
       },
 
+      'cite::before': {
+        content: `'\u2015'`,
+        marginRight: 1,
+      },
+
       '> :first-child': {
         marginTop: 0,
       },
