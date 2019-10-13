@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
 import { Box } from 'rebass'
 import * as Heading from './Headings'
+import { UnorderedList, OrderedList } from './Lists'
 import { ThematicBreak, BlockQuote } from './TypographicElements'
 import { Code, InlineCode } from './Code'
 
@@ -13,6 +14,8 @@ const components = {
   h4: Heading.Four,
   h5: Heading.Five,
   h6: Heading.Six,
+  ul: UnorderedList,
+  ol: OrderedList,
   blockquote: BlockQuote,
   thematicBreak: ThematicBreak,
   code: Code,
@@ -31,14 +34,6 @@ const MarkdownContent = ({ children, ...props }) => (
           // margin top to all child elements
           '& + *': {
             marginTop: 3,
-          },
-
-          // bigger margin top on headers
-          '& + h1, & + h2': {
-            marginTop: 5,
-          },
-          '& + h3, & + h4': {
-            marginTop: 4,
           },
         },
 
