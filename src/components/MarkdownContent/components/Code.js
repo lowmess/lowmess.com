@@ -38,6 +38,14 @@ const Code = ({ className: languageClass, children, ...props }) => {
               backgroundColor: 'transparent',
               color: 'black',
             },
+
+            '.token-line': {
+              overflow: 'visible !important',
+            },
+
+            '.token:last-child': {
+              paddingRight: 3,
+            },
           }}
           {...props}
         >
