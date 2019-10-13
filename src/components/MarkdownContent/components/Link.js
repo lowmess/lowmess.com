@@ -8,6 +8,23 @@ const Link = ({ children, ...props }) => (
       '&:hover code': {
         color: 'orange',
       },
+
+      '@media print': {
+        '&:after': {
+          content: `' (' attr(href) ')'`,
+          fontSize: '0.875em',
+        },
+        "&[href^='/']:after": {
+          content: `' (https://lowmess.com' attr(href) ')'`,
+        },
+        "&[href^='#']": {
+          textDecoration: 'none',
+
+          '&:after': {
+            content: `''`,
+          },
+        },
+      },
     }}
     {...props}
   >
