@@ -6,6 +6,7 @@ import * as Heading from './Headings'
 import { UnorderedList, OrderedList } from './Lists'
 import { Paragraph, BlockQuote, HorizontalRule } from './TypographicElements'
 import { Code, InlineCode } from './Code'
+import { Image } from './Embeds'
 import { verticalRhythm } from './markdownStyles'
 
 const components = {
@@ -22,6 +23,7 @@ const components = {
   hr: HorizontalRule,
   code: Code,
   inlineCode: InlineCode,
+  img: Image,
 }
 
 const MarkdownContent = ({ children, ...props }) => (

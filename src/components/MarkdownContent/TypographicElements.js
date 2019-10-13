@@ -4,7 +4,18 @@ import { Box, Text } from 'rebass'
 import { verticalRhythm, measure, blockShape } from './markdownStyles'
 
 const Paragraph = ({ children }) => (
-  <Text as="p" sx={{ ...measure, marginTop: 3 }}>
+  <Text
+    as="p"
+    sx={{
+      ...measure,
+      marginTop: 3,
+      // Wider images:
+      ...(children.props &&
+        children.props.className.includes('image') && {
+          maxWidth: '48rem',
+        }),
+    }}
+  >
     {children}
   </Text>
 )
