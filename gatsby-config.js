@@ -152,7 +152,8 @@ plugins.push('gatsby-plugin-netlify')
 module.exports = {
   siteMetadata: {
     title: 'lowmess',
-    description: 'oh, this ole thing? just my portfolio-slash-blog nbd',
+    description:
+      'The official portfolio-slash-blog of Alec Lomas. A Name You Can Trust™',
     siteUrl: 'https://www.lowmess.com',
   },
   plugins,
