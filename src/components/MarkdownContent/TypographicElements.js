@@ -1,10 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from 'rebass'
-import { Rule } from '../Typography'
 import { blockShape } from './markdownStyles'
 
-const ThematicBreak = () => <Rule />
+const HorizontalRule = () => (
+  <Box
+    as="hr"
+    sx={{
+      maxWidth: '4rem',
+      height: '0.25rem',
+      marginY: 4,
+      marginX: 0,
+      border: 0,
+      backgroundColor: 'orange',
+    }}
+  />
+)
 
 const BlockQuote = ({ children }) => (
   <Box
@@ -40,4 +51,4 @@ BlockQuote.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export { ThematicBreak, BlockQuote }
+export { HorizontalRule, BlockQuote }
