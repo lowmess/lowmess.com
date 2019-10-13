@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import GithubSlugger from 'github-slugger'
 import { Link } from 'rebass'
 import { Heading } from '../Typography'
-import unwidow from '../../utils/unwidow'
 
 const LinkIcon = () => (
   <svg
@@ -50,7 +49,7 @@ const AutolinkHeading = ({ children, ...props }) => {
         <LinkIcon />
       </Link>
 
-      {unwidow(children)}
+      {children}
     </Heading>
   )
 }
