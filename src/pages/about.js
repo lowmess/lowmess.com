@@ -1,22 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { Link } from 'rebass'
 import Header from '../components/Header'
 import Stats from '../components/Stats'
 import { Title, Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
-import { themeHover, themeUnderline } from '../utils/styles'
-
-const AboutLink = ({ children, ...props }) => (
-  <Link sx={{ ...themeHover, ...themeUnderline }} {...props}>
-    {children}
-  </Link>
-)
-
-AboutLink.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 const AboutPage = () => {
   const { title } = useSiteMetadata()
@@ -42,9 +30,9 @@ const AboutPage = () => {
 
           <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={3}>
             That&rsquo;s what the intro on{' '}
-            <AboutLink href="https://resume.lowmess.com">
+            <Link href="https://resume.lowmess.com">
               my r&eacute;sum&eacute;
-            </AboutLink>{' '}
+            </Link>{' '}
             says. Kind of boring, huh? Well, it&rsquo;s a r&eacute;sum&eacute;.
             They&rsquo;re supposed to be boring. (Don&rsquo;t be such
             a&nbsp;nitpicker.)
@@ -55,8 +43,7 @@ const AboutPage = () => {
             (don&rsquo;t worry about it), my favorite beer is all of them, and I
             like to list things in threes. If you have any questions, I&rsquo;m
             happy to send you a non sequitur and/or fully-serious response if
-            you{' '}
-            <AboutLink href="mailto:alec@lowmess.com">email&nbsp;me</AboutLink>.
+            you <Link href="mailto:alec@lowmess.com">email&nbsp;me</Link>.
           </Paragraph>
 
           <Stats mt={[4, 5]} />

@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { Text, Link } from 'rebass'
 import Header from '../components/Header'
 import { Title, Subtitle } from '../components/Typography'
-import { themeHover } from '../utils/styles'
 
 const errorPage = () => (
   <>
@@ -28,7 +27,7 @@ const errorPage = () => (
           lineHeight="title"
         >
           &ldquo;
-          <Link as={GatsbyLink} sx={themeHover} to="/">
+          <Link as={GatsbyLink} to="/" variant="ui-link">
             Click here to go home
           </Link>
           &rdquo;

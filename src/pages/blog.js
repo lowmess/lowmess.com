@@ -7,7 +7,6 @@ import Header from '../components/Header'
 import ArrowLink from '../components/ArrowLink'
 import { Heading, Title, Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
-import { themeHover } from '../utils/styles'
 import unwidow from '../utils/unwidow'
 
 const YearContainer = ({ children, ...props }) => (
@@ -104,7 +103,7 @@ const BlogPage = () => {
 
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
-                    <Link as={GatsbyLink} to={fields.slug} sx={themeHover}>
+                    <Link as={GatsbyLink} to={fields.slug} variant="ui-link">
                       {unwidow(frontmatter.title)}
                     </Link>
                   </PostTitle>

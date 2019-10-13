@@ -4,11 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { List, ListItem } from './Typography'
-import { themeHover } from '../utils/styles'
 
 const SocialLink = ({ href, children, ...props }) => (
   <ListItem sx={{ display: 'inline-block' }} {...props}>
-    <Link href={href} fontSize={[0, 1]} sx={themeHover}>
+    <Link href={href} variant="ui-link" fontSize={[0, 1]}>
       {children}
     </Link>
   </ListItem>

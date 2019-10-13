@@ -5,7 +5,6 @@ import { Box, Flex, Text, Link } from 'rebass'
 import Header from '../components/Header'
 import { Heading, Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
-import { themeHover } from '../utils/styles'
 import { dependencies } from '../../package-lock.json'
 
 const SectionTitle = ({ children, ...props }) => (
@@ -29,7 +28,7 @@ Dep.propTypes = {
 }
 
 const DepLink = ({ children, ...props }) => (
-  <Link fontSize={[2, 3]} fontWeight="semi-bold" sx={themeHover} {...props}>
+  <Link variant="ui-link" fontSize={[2, 3]} fontWeight="semi-bold" {...props}>
     {children}
   </Link>
 )

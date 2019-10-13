@@ -4,7 +4,6 @@ import { Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
 import { Heading, Title, Subtitle, Paragraph } from '../components/Typography'
-import { themeHover } from '../utils/styles'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -29,7 +28,7 @@ const IndexPage = () => {
 
         <Subtitle my={3}>
           I&rsquo;m a frontend developer at{' '}
-          <Link href="https://hiringsolved.com/" sx={themeHover}>
+          <Link href="https://hiringsolved.com/" variant="ui-link">
             HiringSolved
           </Link>
           .

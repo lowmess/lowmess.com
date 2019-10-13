@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'rebass'
-import { themeHover } from '../../utils/styles'
 
 const SkipNavLink = ({ children, ...props }) => (
   <Link
+    variant="ui-link"
     sx={{
       position: 'absolute',
       top: 0,
@@ -26,8 +26,6 @@ const SkipNavLink = ({ children, ...props }) => (
         pointerEvents: 'auto',
         opacity: 1,
       },
-
-      ...themeHover,
     }}
     {...props}
   >

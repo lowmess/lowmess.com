@@ -100,6 +100,10 @@ const variants = {
       color: 'orange',
     },
   },
+
+  'unstyled-link': {
+    color: 'inherit',
+  },
 }
 
 const text = {
