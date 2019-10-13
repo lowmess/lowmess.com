@@ -55,7 +55,7 @@ const Head = () => {
       <meta name="theme-color" content={theme.colors.grays[1]} />
       <meta name="apple-mobile-web-app-title" content="lowmess" />
       <meta name="application-name" content="lowmess" />
-      <meta name="msapplication-TileColor" content="{theme.colors.orange}" />
+      <meta name="msapplication-TileColor" content={theme.colors.orange} />
       {/* icons */}
       <link
         rel="apple-touch-icon"
