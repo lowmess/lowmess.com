@@ -81,6 +81,31 @@ const fonts = {
     'Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace',
 }
 
+const variants = {
+  link: {
+    color: 'inherit',
+    textDecoration: 'underline',
+    textDecorationColor: 'orange',
+
+    '&:hover': {
+      color: 'orange',
+    },
+  },
+
+  'ui-link': {
+    color: 'inherit',
+    textDecoration: 'none',
+
+    '&:hover': {
+      color: 'orange',
+    },
+  },
+
+  'unstyled-link': {
+    color: 'inherit',
+  },
+}
+
 const text = {
   heading: {
     fontFamily: fonts['sans-serif'],
@@ -97,6 +122,7 @@ const theme = {
   fontSizes,
   fontWeights,
   lineHeights,
+  variants,
   text,
 }
 

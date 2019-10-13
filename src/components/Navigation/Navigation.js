@@ -5,17 +5,18 @@ import { Flex, Text } from 'rebass'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import { List, ListItem } from '../Typography'
-import { themeHover } from '../../utils/styles'
 
 const NavText = ({ children, ...props }) => (
   <Text
     sx={{
+      '&:hover': {
+        color: 'orange',
+      },
+
       '.active &': {
         borderBottom: 3,
         borderColor: 'orange',
       },
-
-      ...themeHover,
     }}
     {...props}
   >
