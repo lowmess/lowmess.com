@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { Text } from 'rebass'
+import { Link as GatsbyLink } from 'gatsby'
+import { Text, Link } from 'rebass'
 import ArrowIcon from './ArrowIcon'
-import { themeHover } from '../../utils/styles'
 
 const ArrowText = ({ children, ...props }) => (
   <Text
@@ -13,7 +12,6 @@ const ArrowText = ({ children, ...props }) => (
       alignItems: 'center',
       fontSize: [0, 1],
       fontFamily: 'monospace',
-      ...themeHover,
     }}
     {...props}
   >
@@ -28,16 +26,16 @@ ArrowText.propTypes = {
 const ArrowLink = ({ href, to, children, ...props }) => {
   if (href) {
     return (
-      <a href={href}>
+      <Link href={href} variant="ui-link">
         <ArrowText {...props}>
           {children} <ArrowIcon />
         </ArrowText>
-      </a>
+      </Link>
     )
   }
 
   return (
-    <Link to={to}>
+    <Link as={GatsbyLink} to={to} variant="ui-link">
       <ArrowText {...props}>
         {children} <ArrowIcon />
       </ArrowText>

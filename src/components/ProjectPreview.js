@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box } from 'rebass'
+import { Box, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { Heading, Paragraph } from './Typography'
-import { themeHover } from '../utils/styles'
 import unwidow from '../utils/unwidow'
 
 const ProjectTitle = ({ children, ...props }) => (
-  <Heading sx={{ display: 'inline-block', ...themeHover }} {...props}>
+  <Heading sx={{ display: 'inline-block' }} {...props}>
     {children}
   </Heading>
 )
@@ -28,7 +27,10 @@ InlineBox.propTypes = {
 
 const ProjectPreview = ({ project, level, ...props }) => (
   <Box {...props}>
-    <a href={project.website ? project.website : project.repo}>
+    <Link
+      href={project.website ? project.website : project.repo}
+      variant="ui-link"
+    >
       <ProjectTitle
         as={level}
         my={0}
@@ -38,7 +40,7 @@ const ProjectPreview = ({ project, level, ...props }) => (
       >
         {unwidow(project.title)}
       </ProjectTitle>
-    </a>
+    </Link>
 
     <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
       {unwidow(project.description)}

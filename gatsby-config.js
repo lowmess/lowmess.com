@@ -15,15 +15,12 @@ const plugins = [
     },
   },
   {
-    resolve: 'gatsby-transformer-remark',
+    resolve: 'gatsby-plugin-mdx',
     options: {
-      plugins: [
-        {
-          resolve: `gatsby-remark-autolink-headers`,
-          options: {
-            offsetY: 16,
-          },
-        },
+      defaultLayouts: {
+        default: require.resolve('./src/templates/BlogPost.js'),
+      },
+      gatsbyRemarkPlugins: [
         {
           resolve: 'gatsby-remark-images',
           options: {
@@ -31,10 +28,18 @@ const plugins = [
             linkImagesToOriginal: false,
           },
         },
-        'gatsby-remark-copy-linked-files',
-        'gatsby-remark-prismjs',
-        'gatsby-remark-smartypants',
-        'gatsby-remark-widows',
+        { resolve: `gatsby-remark-copy-linked-files` },
+        { resolve: `gatsby-remark-smartypants` },
+        { resolve: `gatsby-remark-widows` },
+      ],
+      plugins: [
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            maxWidth: 1536,
+            linkImagesToOriginal: false,
+          },
+        },
       ],
     },
   },
@@ -55,39 +60,38 @@ const plugins = [
         `,
       feeds: [
         {
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges.map(edge => {
+          serialize: ({ query: { site, allMdx } }) => {
+            return allMdx.edges.map(edge => {
               return Object.assign({}, edge.node.frontmatter, {
                 description: edge.node.frontmatter.description,
                 date: edge.node.frontmatter.date,
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
               })
             })
           },
           query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   limit: 1000,
                   sort: { order: DESC, fields: [frontmatter___date] }
                 ) {
                   edges {
                     node {
-                      html
                       fields { slug }
                       frontmatter {
                         title
                         description
                         date
                       }
+                      body
                     }
                   }
                 }
               }
             `,
           output: '/rss.xml',
-          title: 'Gatsby RSS Feed',
+          title: 'Alec Lomas • lowmess.com',
         },
       ],
     },
@@ -148,7 +152,8 @@ plugins.push('gatsby-plugin-netlify')
 module.exports = {
   siteMetadata: {
     title: 'lowmess',
-    description: 'oh, this ole thing? just my portfolio-slash-blog nbd',
+    description:
+      'The official portfolio-slash-blog of Alec Lomas. A Name You Can Trust™',
     siteUrl: 'https://www.lowmess.com',
   },
   plugins,

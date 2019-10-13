@@ -4,11 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
 import { List, ListItem } from './Typography'
-import { themeHover } from '../utils/styles'
 
 const SocialLink = ({ href, children, ...props }) => (
   <ListItem sx={{ display: 'inline-block' }} {...props}>
-    <Link href={href} fontSize={[0, 1]} sx={themeHover}>
+    <Link href={href} variant="ui-link" fontSize={[0, 1]}>
       {children}
     </Link>
   </ListItem>
@@ -22,10 +21,7 @@ SocialLink.propTypes = {
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1
-      ) {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
         edges {
           node {
             frontmatter {
@@ -40,7 +36,7 @@ const Footer = () => {
     }
   `)
 
-  const post = data.allMarkdownRemark.edges[0].node
+  const post = data.allMdx.edges[0].node
 
   return (
     <Text as="footer" fontFamily="monospace" mt="auto" mb={[3, 3, 4]}>
