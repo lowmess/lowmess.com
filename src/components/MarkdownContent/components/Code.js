@@ -9,7 +9,7 @@ const LineNumber = ({ children }) => (
   <Text
     as="span"
     sx={{
-      display: 'inline-block',
+      display: ['none', 'inline-block'],
       width: '1.75em',
       marginRight: 3,
       paddingRight: 2,
