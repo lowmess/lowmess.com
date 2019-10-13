@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { Box } from 'rebass'
 import * as Heading from './Headings'
 import { UnorderedList, OrderedList } from './Lists'
-import { HorizontalRule, BlockQuote } from './TypographicElements'
+import { Paragraph, BlockQuote, HorizontalRule } from './TypographicElements'
 import { Code, InlineCode } from './Code'
 
 const components = {
@@ -16,6 +16,7 @@ const components = {
   h6: Heading.Six,
   ul: UnorderedList,
   ol: OrderedList,
+  p: Paragraph,
   blockquote: BlockQuote,
   hr: HorizontalRule,
   code: Code,

@@ -1,3 +1,19 @@
+const verticalRhythm = {
+  '& > *': {
+    // reset all margins
+    marginY: 0,
+
+    // margin top to all child elements
+    '& + *': {
+      marginTop: 3,
+    },
+  },
+}
+
+const measure = {
+  maxWidth: '33em',
+}
+
 const blockShape = {
   borderLeft: 4,
   borderColor: 'orange',
@@ -5,4 +21,4 @@ const blockShape = {
   padding: 3,
 }
 
-export { blockShape }
+export { verticalRhythm, measure, blockShape }
