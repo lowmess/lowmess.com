@@ -45,6 +45,12 @@ const MarkdownContent = ({ children, ...props }) => (
         sub: {
           top: '0.4em',
         },
+
+        iframe: {
+          marginY: 4,
+          border: 1,
+          borderColor: 'grays.2',
+        },
       }}
       {...props}
     >
