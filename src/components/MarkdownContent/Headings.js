@@ -61,6 +61,8 @@ AutolinkHeading.propTypes = {
 const One = props => (
   <AutolinkHeading
     as="h1"
+    mt={4}
+    pt={4}
     fontSize={[3, 4]}
     fontWeight="semi-bold"
     {...props}
@@ -70,6 +72,8 @@ const One = props => (
 const Two = props => (
   <AutolinkHeading
     as="h2"
+    mt={4}
+    pt={4}
     fontSize={[2, 3]}
     fontWeight="semi-bold"
     {...props}
@@ -79,6 +83,8 @@ const Two = props => (
 const Three = props => (
   <AutolinkHeading
     as="h3"
+    mt={3}
+    pt={3}
     fontSize={[1, 2]}
     fontWeight="semi-bold"
     {...props}
@@ -86,15 +92,34 @@ const Three = props => (
 )
 
 const Four = props => (
-  <AutolinkHeading as="h4" fontSize={[1, 2]} fontWeight="medium" {...props} />
+  <AutolinkHeading
+    as="h4"
+    mt={3}
+    pt={3}
+    fontSize={[1, 2]}
+    fontWeight="medium"
+    {...props}
+  />
 )
 
 const Five = props => (
-  <AutolinkHeading as="h5" fontSize={[1, 2]} fontWeight="medium" {...props} />
+  <AutolinkHeading
+    as="h5"
+    pt={3}
+    fontSize={[1, 2]}
+    fontWeight="medium"
+    {...props}
+  />
 )
 
 const Six = props => (
-  <AutolinkHeading as="h6" fontSize={[1, 2]} fontWeight="medium" {...props} />
+  <AutolinkHeading
+    as="h6"
+    pt={3}
+    fontSize={[1, 2]}
+    fontWeight="medium"
+    {...props}
+  />
 )
 
 export { One, Two, Three, Four, Five, Six }
