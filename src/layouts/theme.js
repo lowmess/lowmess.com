@@ -85,10 +85,10 @@ const variants = {
   link: {
     color: 'inherit',
     textDecoration: 'underline',
-    textDecorationColor: 'orange',
+    textDecorationColor: colors.orange,
 
     '&:hover': {
-      color: 'orange',
+      color: colors.orange,
     },
   },
 
@@ -97,7 +97,7 @@ const variants = {
     textDecoration: 'none',
 
     '&:hover': {
-      color: 'orange',
+      color: colors.orange,
     },
   },
 
