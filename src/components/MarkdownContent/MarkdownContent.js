@@ -6,6 +6,7 @@ import * as Heading from './Headings'
 import { UnorderedList, OrderedList } from './Lists'
 import { Paragraph, BlockQuote, HorizontalRule } from './TypographicElements'
 import { Code, InlineCode } from './Code'
+import { verticalRhythm } from './markdownStyles'
 
 const components = {
   h1: Heading.One,
@@ -27,16 +28,7 @@ const MarkdownContent = ({ children, ...props }) => (
   <MDXProvider components={components}>
     <Box
       sx={{
-        // Vertical rhythm
-        '& > *': {
-          // reset all margins
-          marginY: 0,
-
-          // margin top to all child elements
-          '& + *': {
-            marginTop: 3,
-          },
-        },
+        ...verticalRhythm,
 
         'b, strong, em, small, code': {
           lineHeight: 'solid',

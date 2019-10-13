@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Text } from 'rebass'
-import { measure, blockShape } from './markdownStyles'
+import { verticalRhythm, measure, blockShape } from './markdownStyles'
 
 const Paragraph = ({ children }) => (
   <Text as="p" sx={{ ...measure, marginTop: 3 }}>
@@ -17,13 +17,19 @@ const BlockQuote = ({ children }) => (
   <Box
     as="blockquote"
     sx={{
+      ...verticalRhythm,
       ...blockShape,
+
       marginY: 4,
       marginX: 0,
       backgroundColor: 'grays.1',
 
       p: {
         maxWidth: '30em',
+      },
+
+      cite: {
+        display: 'block',
       },
 
       'cite::before': {
