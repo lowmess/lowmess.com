@@ -11,8 +11,6 @@ import unwidow from '../../utils/unwidow'
 import 'lowmess-prism'
 
 const BlogPostTemplate = ({ pageContext, children }) => {
-  const post = pageContext
-
   const { title, siteUrl } = useSiteMetadata()
 
   // So this bit is a tad gross. I have to get all MDX nodes, then filter them
@@ -32,6 +30,7 @@ const BlogPostTemplate = ({ pageContext, children }) => {
         edges {
           node {
             frontmatter {
+              title
               date(formatString: "MMMM D, YYYY")
               datetime: date(formatString: "YYYY-MM-DD")
             }
@@ -45,11 +44,16 @@ const BlogPostTemplate = ({ pageContext, children }) => {
   `)
 
   const { node } = edges.find(
-    edge => edge.node.frontmatter.title === post.title
+    edge => edge.node.frontmatter.title === pageContext.frontmatter.title
   )
 
-  post.fields = node.fields
-  post.frontmatter = { ...post.frontmatter, ...node.frontmatter }
+  const post = {
+    frontmatter: {
+      ...pageContext.frontmatter,
+      ...node.frontmatter,
+    },
+    fields: node.fields,
+  }
 
   return (
     <>
