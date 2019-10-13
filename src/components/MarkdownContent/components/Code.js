@@ -5,6 +5,27 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'lowmess-prism'
 import { blockShape } from '../markdownStyles'
 
+const LineNumber = ({ children }) => (
+  <Text
+    as="span"
+    sx={{
+      display: 'inline-block',
+      width: '1.75em',
+      marginRight: 3,
+      paddingRight: 2,
+      textAlign: 'right',
+      color: 'grays.9',
+      userSelect: 'none',
+    }}
+  >
+    {children}
+  </Text>
+)
+
+LineNumber.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
 const Code = ({ className: languageClass, children, ...props }) => {
   const languagePrefix = 'language-'
   const language = languageClass
@@ -52,6 +73,8 @@ const Code = ({ className: languageClass, children, ...props }) => {
           {tokens.map((line, i) => (
             // eslint-disable-next-line
             <div {...getLineProps({ line, key: i })}>
+              <LineNumber>{i + 1}</LineNumber>
+
               {line.map((token, key) => (
                 // eslint-disable-next-line
                 <span {...getTokenProps({ token, key })} />
