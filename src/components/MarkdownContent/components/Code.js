@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Box, Text } from 'rebass'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'lowmess-prism'
-import { blockShape } from './markdownStyles'
+import { blockShape } from '../markdownStyles'
 
 const Code = ({ className: languageClass, children, ...props }) => {
   const languagePrefix = 'language-'
