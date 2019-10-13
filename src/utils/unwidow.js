@@ -1,4 +1,6 @@
 const unwidow = str => {
+  if (typeof str !== 'string') return str
+
   // Remove extra whitespace characters before starting.
   const clean = str.trim().replace(/\s+/g, ' ')
 
