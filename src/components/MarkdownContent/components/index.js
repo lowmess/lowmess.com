@@ -1,5 +1,6 @@
 import * as Heading from './Headings'
 import Paragraph from './Paragraph'
+import Link from './Link'
 import { UnorderedList, OrderedList } from './Lists'
 import BlockQuote from './BlockQuote'
 import { Code, InlineCode } from './Code'
@@ -14,6 +15,7 @@ const components = {
   h5: Heading.Five,
   h6: Heading.Six,
   p: Paragraph,
+  a: Link,
   ul: UnorderedList,
   ol: OrderedList,
   blockquote: BlockQuote,
