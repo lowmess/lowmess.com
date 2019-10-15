@@ -103,6 +103,7 @@ const variants = {
 
   'unstyled-link': {
     color: 'inherit',
+    textDecoration: 'none',
   },
 }
 
