@@ -9,10 +9,6 @@ import { List, ListItem } from '../Typography'
 const NavText = ({ children, ...props }) => (
   <Text
     sx={{
-      '&:hover': {
-        color: 'orange',
-      },
-
       '.active &': {
         borderBottom: 3,
         borderColor: 'orange',
@@ -56,7 +52,20 @@ const NavLink = ({ children, to, ...props }) => {
   //
   // point is, this is the most i've been able to reduce the markup so far.
   return (
-    <ListItem sx={{ display: 'inline-block' }} {...props}>
+    <ListItem
+      sx={{
+        display: 'inline-block',
+        a: {
+          color: 'inherit',
+          textDecoration: 'none',
+
+          '&:hover': {
+            color: 'orange',
+          },
+        },
+      }}
+      {...props}
+    >
       <Link to={to} getProps={isActive}>
         <NavText as="span" px={1} pb={1}>
           {children}

@@ -30,13 +30,6 @@ const GlobalStyles = () => {
           color: ${theme.colors.black} !important;
         }
 
-        a {
-          color: inherit;
-          text-decoration: none;
-          text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-        }
-
         @media print {
           nav,
           footer {
