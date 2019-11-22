@@ -26,7 +26,7 @@ ArrowText.propTypes = {
 const ArrowLink = ({ href, to, children, ...props }) => {
   if (href) {
     return (
-      <Link href={href} variant="ui-link">
+      <Link variant="ui-link" href={href}>
         <ArrowText {...props}>
           {children} <ArrowIcon />
         </ArrowText>
@@ -35,7 +35,7 @@ const ArrowLink = ({ href, to, children, ...props }) => {
   }
 
   return (
-    <Link as={GatsbyLink} to={to} variant="ui-link">
+    <Link variant="ui-link" as={GatsbyLink} to={to}>
       <ArrowText {...props}>
         {children} <ArrowIcon />
       </ArrowText>

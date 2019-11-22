@@ -39,13 +39,14 @@ Subtitle.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const Paragraph = ({ children, ...props }) => (
+const Paragraph = ({ sx, children, ...props }) => (
   <Text
     as="p"
     sx={{
       maxWidth: '33em',
       fontSize: [1, 2],
       lineHeight: 'copy',
+      ...sx,
     }}
     {...props}
   >
@@ -54,10 +55,11 @@ const Paragraph = ({ children, ...props }) => (
 )
 
 Paragraph.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 
-const Rule = ({ ...props }) => (
+const Rule = ({ sx, ...props }) => (
   <Box
     as="hr"
     sx={{
@@ -66,18 +68,24 @@ const Rule = ({ ...props }) => (
       marginX: 0,
       border: 0,
       backgroundColor: 'orange',
+      ...sx,
     }}
     {...props}
   />
 )
 
-const List = ({ children, ...props }) => (
+Rule.propTypes = {
+  sx: PropTypes.object,
+}
+
+const List = ({ sx, children, ...props }) => (
   <Text
     as="ul"
     sx={{
       margin: 0,
       padding: 0,
       listStyleType: 'none',
+      ...sx,
     }}
     {...props}
   >
@@ -86,6 +94,7 @@ const List = ({ children, ...props }) => (
 )
 
 List.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 

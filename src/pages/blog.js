@@ -9,18 +9,19 @@ import { Heading, Title, Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import unwidow from '../utils/unwidow'
 
-const YearContainer = ({ children, ...props }) => (
-  <Box sx={{ display: ['none', 'block'] }} {...props}>
+const YearContainer = ({ sx, children, ...props }) => (
+  <Box sx={{ display: ['none', 'block'], ...sx }} {...props}>
     {children}
   </Box>
 )
 
 YearContainer.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node,
 }
 
-const YearTitle = ({ children }) => (
-  <Heading fontSize={[2, 3]} fontWeight="medium" lineHeight="title">
+const YearTitle = ({ children, ...props }) => (
+  <Heading fontSize={[2, 3]} fontWeight="medium" lineHeight="title" {...props}>
     {children}
   </Heading>
 )
@@ -29,20 +30,23 @@ YearTitle.propTypes = {
   children: PropTypes.string.isRequired,
 }
 
-const PostTitle = ({ children }) => (
+const PostTitle = ({ sx, children, ...props }) => (
   <Heading
     as="h3"
     sx={{
       display: 'inline-block',
       fontSize: [2, 3],
       lineHeight: 'title',
+      ...sx,
     }}
+    {...props}
   >
     {children}
   </Heading>
 )
 
 PostTitle.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 
@@ -103,7 +107,7 @@ const BlogPage = () => {
 
                 <Box width={[1, 4 / 5]}>
                   <PostTitle>
-                    <Link as={GatsbyLink} to={fields.slug} variant="ui-link">
+                    <Link variant="ui-link" as={GatsbyLink} to={fields.slug}>
                       {unwidow(frontmatter.title)}
                     </Link>
                   </PostTitle>

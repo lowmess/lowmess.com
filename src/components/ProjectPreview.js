@@ -5,31 +5,33 @@ import ArrowLink from './ArrowLink'
 import { Heading, Paragraph } from './Typography'
 import unwidow from '../utils/unwidow'
 
-const ProjectTitle = ({ children, ...props }) => (
-  <Heading sx={{ display: 'inline-block' }} {...props}>
+const ProjectTitle = ({ sx, children, ...props }) => (
+  <Heading sx={{ display: 'inline-block', ...sx }} {...props}>
     {children}
   </Heading>
 )
 
 ProjectTitle.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 
-const InlineBox = ({ children, ...props }) => (
-  <Box sx={{ display: 'inline-block' }} {...props}>
+const InlineBox = ({ sx, children, ...props }) => (
+  <Box sx={{ display: 'inline-block', ...sx }} {...props}>
     {children}
   </Box>
 )
 
 InlineBox.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 
 const ProjectPreview = ({ project, level, ...props }) => (
   <Box {...props}>
     <Link
-      href={project.website ? project.website : project.repo}
       variant="ui-link"
+      href={project.website ? project.website : project.repo}
     >
       <ProjectTitle
         as={level}

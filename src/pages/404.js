@@ -27,7 +27,7 @@ const errorPage = () => (
           lineHeight="title"
         >
           &ldquo;
-          <Link as={GatsbyLink} to="/" variant="ui-link">
+          <Link variant="ui-link" as={GatsbyLink} to="/">
             Click here to go home
           </Link>
           &rdquo;
