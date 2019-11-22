@@ -54,7 +54,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
-    "rebass": "^4.0.6",
+    "rebass": "^4.0.7",
     "sanitize.css": "^11.0.0",
     "unfetch": "^4.1.0"
   },
