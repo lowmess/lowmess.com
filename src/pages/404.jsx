@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Text, Heading, Link } from 'rebass'
+import { Text, Link } from 'rebass'
 import Header from '../components/Header'
 
 const errorPage = () => (
@@ -12,11 +12,9 @@ const errorPage = () => (
 
     <article>
       <Header>
-        <Heading variant="title" as="h1">
-          Error 404
-        </Heading>
+        <Header.Title>Error 404</Header.Title>
 
-        <Heading variant="subtitle">Requested Page Not&nbsp;Found</Heading>
+        <Header.Subtitle>Requested Page Not&nbsp;Found</Header.Subtitle>
       </Header>
 
       <main>

@@ -81,9 +81,7 @@ const BlogPage = () => {
 
       <article>
         <Header>
-          <Heading variant="title" as="h1">
-            Eloquent Writings About&nbsp;Stuff
-          </Heading>
+          <Header.Title>Eloquent Writings About&nbsp;Stuff</Header.Title>
         </Header>
 
         <main>

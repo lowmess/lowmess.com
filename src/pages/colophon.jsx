@@ -85,9 +85,7 @@ const ColophonPage = () => {
 
       <article>
         <Header>
-          <Heading variant="title" as="h1">
-            Building Blocks
-          </Heading>
+          <Header.Title>Building Blocks</Header.Title>
         </Header>
 
         <Flex as="main" flexDirection={['column', 'column', 'row']}>

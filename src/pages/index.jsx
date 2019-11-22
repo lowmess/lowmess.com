@@ -23,17 +23,15 @@ const IndexPage = () => {
   return (
     <article>
       <Header>
-        <Heading variant="title" as="h1">
-          Hi! I&rsquo;m Alec&nbsp;Lomas.
-        </Heading>
+        <Header.Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Header.Title>
 
-        <Heading variant="subtitle" my={3}>
+        <Header.Subtitle mb={3}>
           I&rsquo;m a frontend developer &amp; designer at&nbsp;
           <Link variant="ui-link" href="https://hiringsolved.com/">
             HiringSolved
           </Link>
           .
-        </Heading>
+        </Header.Subtitle>
 
         <Text variant="paragraph" as="p" fontSize={[2, 3]} mt={3} mb={4}>
           My goal is to create beautiful websites and rich interactions without

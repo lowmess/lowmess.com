@@ -105,39 +105,14 @@ const variants = {
     color: 'inherit',
     textDecoration: 'none',
   },
-
-  rule: {
-    maxWidth: space[6],
-    height: space[2],
-    marginX: 0,
-    border: 0,
-    backgroundColor: colors.orange,
-  },
-}
-
-const headingBase = {
-  fontFamily: fonts['sans-serif'],
-  lineHeight: 'title',
-  fontWeight: 'bold',
-  letterSpacing: '-0.01em',
 }
 
 const text = {
-  heading: headingBase,
-
-  title: {
-    ...headingBase,
-    marginBottom: 3,
-    fontSize: [4, 5],
-    letterSpacing: '-0.02em',
-  },
-
-  subtitle: {
-    ...headingBase,
-    marginTop: 3,
-    marginBottom: 4,
-    fontWeight: 'medium',
-    letterSpacing: '-0.015em',
+  heading: {
+    fontFamily: fonts['sans-serif'],
+    lineHeight: 'title',
+    fontWeight: 'bold',
+    letterSpacing: '-0.01em',
   },
 
   paragraph: {
