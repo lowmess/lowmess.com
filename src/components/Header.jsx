@@ -13,7 +13,13 @@ HeaderTitle.propTypes = {
 }
 
 const HeaderSubtitle = ({ children, ...props }) => (
-  <Heading mb={4} fontWeight="medium" letterSpacing="-0.015em" {...props}>
+  <Heading
+    mb={4}
+    fontSize={[3, 4]}
+    fontWeight="medium"
+    letterSpacing="-0.015em"
+    {...props}
+  >
     {children}
   </Heading>
 )
