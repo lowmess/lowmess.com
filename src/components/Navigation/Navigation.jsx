@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Flex, Text } from 'rebass'
+import List from '../List'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
-import { List, ListItem } from '../Typography'
 
 const NavText = ({ children, ...props }) => (
   <Text
@@ -24,7 +24,7 @@ NavText.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const NavLink = ({ children, to, ...props }) => {
+const NavLink = ({ to, sx, children, ...props }) => {
   // the following props are coming from @reach/router, but ESLint
   // doesn't know that.
   /* eslint-disable react/prop-types */
@@ -52,9 +52,14 @@ const NavLink = ({ children, to, ...props }) => {
   //
   // point is, this is the most i've been able to reduce the markup so far.
   return (
-    <ListItem
+    <List.Item
       sx={{
         display: 'inline-block',
+
+        '& + &': {
+          marginLeft: 2,
+        },
+
         a: {
           color: 'inherit',
           textDecoration: 'none',
@@ -63,6 +68,8 @@ const NavLink = ({ children, to, ...props }) => {
             color: 'orange',
           },
         },
+
+        ...sx,
       }}
       {...props}
     >
@@ -71,13 +78,14 @@ const NavLink = ({ children, to, ...props }) => {
           {children}
         </NavText>
       </Link>
-    </ListItem>
+    </List.Item>
   )
 }
 
 NavLink.propTypes = {
-  children: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
+  sx: PropTypes.object,
+  children: PropTypes.string.isRequired,
 }
 
 const Navigation = () => (
@@ -98,17 +106,11 @@ const Navigation = () => (
     </Flex>
 
     <List fontSize={[0, 1]} fontFamily="monospace">
-      <NavLink to="/" mr={2}>
-        Home
-      </NavLink>
+      <NavLink to="/">Home</NavLink>
 
-      <NavLink to="/projects/" mr={2}>
-        Projects
-      </NavLink>
+      <NavLink to="/projects/">Projects</NavLink>
 
-      <NavLink to="/blog/" mr={2}>
-        Blog
-      </NavLink>
+      <NavLink to="/blog/">Blog</NavLink>
 
       <NavLink to="/about/">About</NavLink>
     </List>

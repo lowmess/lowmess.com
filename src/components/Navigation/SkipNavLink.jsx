@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'rebass'
 
-const SkipNavLink = ({ children, ...props }) => (
+const SkipNavLink = ({ sx, children, ...props }) => (
   <Link
     variant="ui-link"
     sx={{
@@ -26,6 +26,8 @@ const SkipNavLink = ({ children, ...props }) => (
         pointerEvents: 'auto',
         opacity: 1,
       },
+
+      ...sx,
     }}
     {...props}
   >
@@ -34,6 +36,7 @@ const SkipNavLink = ({ children, ...props }) => (
 )
 
 SkipNavLink.propTypes = {
+  sx: PropTypes.object,
   children: PropTypes.node,
 }
 

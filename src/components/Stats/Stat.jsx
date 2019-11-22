@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Flex, Text } from 'rebass'
-import { Heading } from '../Typography'
 
 const Stat = ({ children, ...props }) => (
   <Flex alignItems="baseline" flexDirection={['column', 'row']} {...props}>
@@ -14,7 +13,7 @@ Stat.propTypes = {
 }
 
 const StatTitle = ({ children }) => (
-  <Heading
+  <Text
     as="span"
     width={[1, 1 / 3, 1 / 4]}
     mb={[1, 0]}
@@ -23,7 +22,7 @@ const StatTitle = ({ children }) => (
     lineHeight="copy"
   >
     {children}
-  </Heading>
+  </Text>
 )
 
 StatTitle.propTypes = {
@@ -47,4 +46,7 @@ StatValue.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export { Stat, StatTitle, StatValue }
+Stat.Title = StatTitle
+Stat.Value = StatValue
+
+export default Stat

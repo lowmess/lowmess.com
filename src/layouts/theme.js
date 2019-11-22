@@ -109,7 +109,18 @@ const variants = {
 
 const text = {
   heading: {
+    fontSize: [2, 3],
     fontFamily: fonts['sans-serif'],
+    lineHeight: 'title',
+    fontWeight: 'bold',
+    letterSpacing: '-0.01em',
+  },
+
+  paragraph: {
+    maxWidth: '33em',
+    fontSize: [1, 2],
+    lineHeight: 'copy',
+    letterSpacing: '-0.02em',
   },
 }
 

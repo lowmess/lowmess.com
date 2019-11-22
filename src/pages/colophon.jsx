@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Box, Flex, Text, Link } from 'rebass'
+import { Box, Flex, Text, Heading, Link } from 'rebass'
 import Header from '../components/Header'
-import { Heading, Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import { dependencies } from '../../package-lock.json'
 
@@ -86,7 +85,7 @@ const ColophonPage = () => {
 
       <article>
         <Header>
-          <Title>Building Blocks</Title>
+          <Header.Title>Building Blocks</Header.Title>
         </Header>
 
         <Flex as="main" flexDirection={['column', 'column', 'row']}>

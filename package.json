@@ -54,13 +54,13 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
-    "rebass": "^4.0.6",
+    "rebass": "^4.0.7",
     "sanitize.css": "^11.0.0",
     "unfetch": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
-    "eslint-config-lowmess": "^3.1.1",
+    "eslint-config-lowmess": "^3.2.2",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",

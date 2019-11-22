@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 
 const ProjectsPage = () => {
@@ -33,7 +32,7 @@ const ProjectsPage = () => {
 
       <article>
         <Header>
-          <Title>First-World Problem&nbsp;Solvers</Title>
+          <Header.Title>First-World Problem&nbsp;Solvers</Header.Title>
         </Header>
 
         <main>

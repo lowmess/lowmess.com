@@ -24,11 +24,11 @@ const Logo = () => (
     </Link>
 
     <Link
+      variant="unstyled-link"
       as={GatsbyLink}
       to="/"
       tabIndex="-1"
       aria-hidden="true"
-      variant="unstyled-link"
       sx={{
         display: ['none', 'inline'],
         color: 'black',

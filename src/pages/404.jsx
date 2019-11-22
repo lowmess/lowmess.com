@@ -3,7 +3,6 @@ import { Link as GatsbyLink } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Text, Link } from 'rebass'
 import Header from '../components/Header'
-import { Title, Subtitle } from '../components/Typography'
 
 const errorPage = () => (
   <>
@@ -13,9 +12,9 @@ const errorPage = () => (
 
     <article>
       <Header>
-        <Title>Error 404</Title>
+        <Header.Title>Error 404</Header.Title>
 
-        <Subtitle>Requested Page Not&nbsp;Found</Subtitle>
+        <Header.Subtitle>Requested Page Not&nbsp;Found</Header.Subtitle>
       </Header>
 
       <main>
@@ -27,7 +26,7 @@ const errorPage = () => (
           lineHeight="title"
         >
           &ldquo;
-          <Link as={GatsbyLink} to="/" variant="ui-link">
+          <Link variant="ui-link" as={GatsbyLink} to="/">
             Click here to go home
           </Link>
           &rdquo;

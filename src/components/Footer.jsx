@@ -3,22 +3,34 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
-import { List, ListItem } from './Typography'
+import List from './List'
 
-const SocialLink = ({ href, children, ...props }) => (
-  <ListItem sx={{ display: 'inline-block' }} {...props}>
-    <Link href={href} variant="ui-link" fontSize={[0, 1]}>
+const SocialLink = ({ href, sx, children, ...props }) => (
+  <List.Item
+    sx={{
+      display: 'inline-block',
+
+      '& + &': {
+        marginLeft: 3,
+      },
+
+      ...sx,
+    }}
+    {...props}
+  >
+    <Link variant="ui-link" href={href} fontSize={[0, 1]}>
       {children}
     </Link>
-  </ListItem>
+  </List.Item>
 )
 
 SocialLink.propTypes = {
   href: PropTypes.string.isRequired,
+  sx: PropTypes.object,
   children: PropTypes.string.isRequired,
 }
 
-const Footer = () => {
+const Footer = ({ ...props }) => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
@@ -39,7 +51,13 @@ const Footer = () => {
   const post = data.allMdx.edges[0].node
 
   return (
-    <Text as="footer" fontFamily="monospace" mt="auto" mb={[3, 3, 4]}>
+    <Text
+      as="footer"
+      fontFamily="monospace"
+      mt="auto"
+      mb={[3, 3, 4]}
+      {...props}
+    >
       <Flex
         alignItems="center"
         justifyContent={['center', 'center', 'space-between']}
@@ -55,13 +73,9 @@ const Footer = () => {
         </Box>
 
         <List>
-          <SocialLink href="https://twitter.com/lowmess" mr={3}>
-            Twitter
-          </SocialLink>
+          <SocialLink href="https://twitter.com/lowmess">Twitter</SocialLink>
 
-          <SocialLink href="https://github.com/lowmess" mr={3}>
-            GitHub
-          </SocialLink>
+          <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
 
           <SocialLink href="https://resume.lowmess.com">
             R&eacute;sum&eacute;

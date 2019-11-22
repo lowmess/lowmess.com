@@ -5,6 +5,7 @@ import { measure } from '../markdownStyles'
 
 const Paragraph = ({ children }) => (
   <Text
+    variant="paragraph"
     as="p"
     sx={{
       ...measure,

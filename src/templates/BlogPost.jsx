@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
-import { Title, Subtitle } from '../components/Typography'
 import MarkdownContent from '../components/MarkdownContent'
 import { useSiteMetadata } from '../utils/hooks'
 import unwidow from '../utils/unwidow'
@@ -82,13 +81,13 @@ const BlogPostTemplate = ({ pageContext, children }) => {
 
       <article>
         <Header>
-          <Title>{unwidow(post.frontmatter.title)}</Title>
+          <Header.Title>{unwidow(post.frontmatter.title)}</Header.Title>
 
-          <Subtitle as="p">
+          <Header.Subtitle as="p">
             <time dateTime={post.frontmatter.datetime}>
               {post.frontmatter.date}
             </time>
-          </Subtitle>
+          </Header.Subtitle>
         </Header>
 
         <MarkdownContent as="main" lineHeight="copy" fontSize={[1, 2]}>
