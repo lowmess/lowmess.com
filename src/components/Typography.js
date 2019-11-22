@@ -1,25 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Text } from 'rebass'
-
-const Rule = ({ sx, ...props }) => (
-  <Box
-    as="hr"
-    sx={{
-      maxWidth: '8rem',
-      height: '0.5rem',
-      marginX: 0,
-      border: 0,
-      backgroundColor: 'orange',
-      ...sx,
-    }}
-    {...props}
-  />
-)
-
-Rule.propTypes = {
-  sx: PropTypes.object,
-}
+import { Text } from 'rebass'
 
 const List = ({ sx, children, ...props }) => (
   <Text
@@ -51,4 +32,4 @@ ListItem.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export { Rule, List, ListItem }
+export { List, ListItem }

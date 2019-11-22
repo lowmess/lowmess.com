@@ -105,6 +105,14 @@ const variants = {
     color: 'inherit',
     textDecoration: 'none',
   },
+
+  rule: {
+    maxWidth: space[6],
+    height: space[2],
+    marginX: 0,
+    border: 0,
+    backgroundColor: colors.orange,
+  },
 }
 
 const headingBase = {

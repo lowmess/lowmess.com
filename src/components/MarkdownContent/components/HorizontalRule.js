@@ -5,8 +5,8 @@ const HorizontalRule = () => (
   <Box
     as="hr"
     sx={{
-      maxWidth: '4rem',
-      height: '0.25rem',
+      maxWidth: theme => theme.space[5],
+      height: theme => theme.space[1],
       marginY: 4,
       marginX: 0,
       border: 0,

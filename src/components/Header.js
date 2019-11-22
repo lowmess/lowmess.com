@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Rule } from './Typography.js'
+import { Box } from 'rebass'
 
 const Header = ({ children }) => (
   <header>
     {children}
 
-    <Rule mt={4} mb={5} />
+    <Box variant="rule" as="hr" mt={4} mb={5} />
   </header>
 )
 
