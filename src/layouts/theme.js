@@ -109,6 +109,7 @@ const variants = {
 
 const text = {
   heading: {
+    fontSize: [2, 3],
     fontFamily: fonts['sans-serif'],
     lineHeight: 'title',
     fontWeight: 'bold',

@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Box, Flex, Text, Heading, Link } from 'rebass'
+import { Box, Flex, Heading, Link } from 'rebass'
+import Paragraph from '../components/Paragraph'
 import Header from '../components/Header'
 import ArrowLink from '../components/ArrowLink'
 import { useSiteMetadata } from '../utils/hooks'
@@ -111,9 +112,9 @@ const BlogPage = () => {
                     </Link>
                   </PostTitle>
 
-                  <Text variant="paragraph" as="p" mt={3} mb={2}>
+                  <Paragraph mt={3} mb={2}>
                     {unwidow(frontmatter.description)}
-                  </Text>
+                  </Paragraph>
 
                   <ArrowLink to={fields.slug}>Read More</ArrowLink>
                 </Box>
