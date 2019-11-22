@@ -46,4 +46,7 @@ StatValue.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export { Stat, StatTitle, StatValue }
+Stat.Title = StatTitle
+Stat.Value = StatValue
+
+export default Stat

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Box, Heading } from 'rebass'
 import getStats from './getStats'
-import { Stat, StatTitle, StatValue } from './Stat'
+import Stat from './Stat'
 
 const SectionTitle = ({ children, ...props }) => (
   <Heading mb={4} fontSize={[3, 4]} {...props}>
@@ -70,38 +70,38 @@ const Stats = ({ ...props }) => {
         <SectionTitle>In the Last 30 Days</SectionTitle>
 
         <Stat mb={2}>
-          <StatTitle>GitHub Commits</StatTitle>
-          <StatValue>{commits || '\u2014'}</StatValue>
+          <Stat.Title>GitHub Commits</Stat.Title>
+          <Stat.Value>{commits || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
-          <StatTitle>Tweets Sent</StatTitle>
-          <StatValue>{tweets || '\u2014'}</StatValue>
+          <Stat.Title>Tweets Sent</Stat.Title>
+          <Stat.Value>{tweets || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
-          <StatTitle>Places Visited</StatTitle>
-          <StatValue>{places || '\u2014'}</StatValue>
+          <Stat.Title>Places Visited</Stat.Title>
+          <Stat.Value>{places || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
-          <StatTitle>Steps Taken</StatTitle>
-          <StatValue>{steps || '\u2014'}</StatValue>
+          <Stat.Title>Steps Taken</Stat.Title>
+          <Stat.Value>{steps || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
-          <StatTitle>Hours Slept</StatTitle>
-          <StatValue>{sleep || '\u2014'}</StatValue>
+          <Stat.Title>Hours Slept</Stat.Title>
+          <Stat.Value>{sleep || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
-          <StatTitle>Songs Played</StatTitle>
-          <StatValue>{songs || '\u2014'}</StatValue>
+          <Stat.Title>Songs Played</Stat.Title>
+          <Stat.Value>{songs || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
-          <StatTitle>Top Album</StatTitle>
-          <StatValue>{album || '\u2014'}</StatValue>
+          <Stat.Title>Top Album</Stat.Title>
+          <Stat.Value>{album || '\u2014'}</Stat.Value>
         </Stat>
       </Box>
 
@@ -110,16 +110,16 @@ const Stats = ({ ...props }) => {
 
         {!books.length && (
           <Stat>
-            <StatValue width={1}>{'\u2014'}</StatValue>
+            <Stat.Value width={1}>{'\u2014'}</Stat.Value>
           </Stat>
         )}
 
         {!!books.length &&
           books.map(book => (
             <Stat mt={2} key={book.name}>
-              <StatValue width={1}>
+              <Stat.Value width={1}>
                 <em>{book.name}</em>, {book.author}
-              </StatValue>
+              </Stat.Value>
             </Stat>
           ))}
       </Box>
