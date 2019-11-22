@@ -27,7 +27,7 @@ const IndexPage = () => {
         <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
 
         <Subtitle my={3}>
-          I&rsquo;m a frontend developer at{' '}
+          I&rsquo;m a frontend developer &amp; designer at&nbsp;
           <Link variant="ui-link" href="https://hiringsolved.com/">
             HiringSolved
           </Link>
