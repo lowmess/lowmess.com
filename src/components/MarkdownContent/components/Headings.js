@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GithubSlugger from 'github-slugger'
-import { Link } from 'rebass'
-import { Heading } from '../../Typography'
+import { Heading, Link } from 'rebass'
 
 const LinkIcon = () => (
   <svg

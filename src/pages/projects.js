@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { Heading } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Title } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 
 const ProjectsPage = () => {
@@ -33,7 +33,9 @@ const ProjectsPage = () => {
 
       <article>
         <Header>
-          <Title>First-World Problem&nbsp;Solvers</Title>
+          <Heading variant="title" as="h1">
+            First-World Problem&nbsp;Solvers
+          </Heading>
         </Header>
 
         <main>

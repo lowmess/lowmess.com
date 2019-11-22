@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Link } from 'rebass'
+import { Box, Heading, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
-import { Heading, Paragraph } from './Typography'
+import { Paragraph } from './Typography'
 import unwidow from '../utils/unwidow'
 
 const ProjectTitle = ({ sx, children, ...props }) => (

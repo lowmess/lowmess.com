@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Link } from 'rebass'
+import { Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Heading, Title, Subtitle, Paragraph } from '../components/Typography'
+import { Paragraph } from '../components/Typography'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -24,15 +24,17 @@ const IndexPage = () => {
   return (
     <article>
       <Header>
-        <Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Title>
+        <Heading variant="title" as="h1">
+          Hi! I&rsquo;m Alec&nbsp;Lomas.
+        </Heading>
 
-        <Subtitle my={3}>
+        <Heading variant="subtitle" my={3}>
           I&rsquo;m a frontend developer &amp; designer at&nbsp;
           <Link variant="ui-link" href="https://hiringsolved.com/">
             HiringSolved
           </Link>
           .
-        </Subtitle>
+        </Heading>
 
         <Paragraph fontSize={[2, 3]} mt={3} mb={4}>
           My goal is to create beautiful websites and rich interactions without

@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'rebass'
+import { Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import Stats from '../components/Stats'
-import { Title, Paragraph } from '../components/Typography'
+import { Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 
 const AboutPage = () => {
@@ -17,7 +17,9 @@ const AboutPage = () => {
 
       <article>
         <Header>
-          <Title>Self-Doxxing</Title>
+          <Heading variant="title" as="h1">
+            Self-Doxxing
+          </Heading>
         </Header>
 
         <main>

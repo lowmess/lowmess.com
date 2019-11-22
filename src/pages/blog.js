@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Box, Flex, Link } from 'rebass'
+import { Box, Flex, Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import ArrowLink from '../components/ArrowLink'
-import { Heading, Title, Paragraph } from '../components/Typography'
+import { Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import unwidow from '../utils/unwidow'
 
@@ -82,7 +82,9 @@ const BlogPage = () => {
 
       <article>
         <Header>
-          <Title>Eloquent Writings About&nbsp;Stuff</Title>
+          <Heading variant="title" as="h1">
+            Eloquent Writings About&nbsp;Stuff
+          </Heading>
         </Header>
 
         <main>

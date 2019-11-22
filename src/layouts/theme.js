@@ -107,9 +107,29 @@ const variants = {
   },
 }
 
+const headingBase = {
+  fontFamily: fonts['sans-serif'],
+  lineHeight: 'title',
+  fontWeight: 'bold',
+  letterSpacing: '-0.01em',
+}
+
 const text = {
-  heading: {
-    fontFamily: fonts['sans-serif'],
+  heading: headingBase,
+
+  title: {
+    ...headingBase,
+    marginBottom: 3,
+    fontSize: [4, 5],
+    letterSpacing: '-0.02em',
+  },
+
+  subtitle: {
+    ...headingBase,
+    marginTop: 3,
+    marginBottom: 4,
+    fontWeight: 'medium',
+    letterSpacing: '-0.015em',
   },
 }
 

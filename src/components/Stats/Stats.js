@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Box } from 'rebass'
-import { Heading } from '../Typography'
+import { Box, Heading } from 'rebass'
 import getStats from './getStats'
 import { Stat, StatTitle, StatValue } from './Stat'
 
