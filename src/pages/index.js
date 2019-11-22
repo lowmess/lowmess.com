@@ -1,9 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Heading, Link } from 'rebass'
+import { Text, Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { Paragraph } from '../components/Typography'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -36,11 +35,11 @@ const IndexPage = () => {
           .
         </Heading>
 
-        <Paragraph fontSize={[2, 3]} mt={3} mb={4}>
+        <Text variant="paragraph" as="p" fontSize={[2, 3]} mt={3} mb={4}>
           My goal is to create beautiful websites and rich interactions without
           sacrificing usability. I care deeply about legibility, performance,
           and the open web. And&nbsp;burritos.
-        </Paragraph>
+        </Text>
       </Header>
 
       <main>

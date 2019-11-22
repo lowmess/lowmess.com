@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Heading, Link } from 'rebass'
+import { Box, Text, Heading, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
-import { Paragraph } from './Typography'
 import unwidow from '../utils/unwidow'
 
 const ProjectTitle = ({ sx, children, ...props }) => (
@@ -44,9 +43,9 @@ const ProjectPreview = ({ project, level, ...props }) => (
       </ProjectTitle>
     </Link>
 
-    <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
+    <Text variant="paragraph" as="p" mt={3} mb={2}>
       {unwidow(project.description)}
-    </Paragraph>
+    </Text>
 
     {project.website && (
       <InlineBox {...(project.website && project.repo ? { mr: 4 } : {})}>

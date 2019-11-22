@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Box, Flex, Heading, Link } from 'rebass'
+import { Box, Flex, Text, Heading, Link } from 'rebass'
 import Header from '../components/Header'
 import ArrowLink from '../components/ArrowLink'
-import { Paragraph } from '../components/Typography'
 import { useSiteMetadata } from '../utils/hooks'
 import unwidow from '../utils/unwidow'
 
@@ -114,9 +113,9 @@ const BlogPage = () => {
                     </Link>
                   </PostTitle>
 
-                  <Paragraph fontSize={[1, 2]} lineHeight="copy" mt={3} mb={2}>
+                  <Text variant="paragraph" as="p" mt={3} mb={2}>
                     {unwidow(frontmatter.description)}
-                  </Paragraph>
+                  </Text>
 
                   <ArrowLink to={fields.slug}>Read More</ArrowLink>
                 </Box>

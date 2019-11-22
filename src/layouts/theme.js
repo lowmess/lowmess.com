@@ -131,6 +131,13 @@ const text = {
     fontWeight: 'medium',
     letterSpacing: '-0.015em',
   },
+
+  paragraph: {
+    maxWidth: '33em',
+    fontSize: [1, 2],
+    lineHeight: 'copy',
+    letterSpacing: '-0.02em',
+  },
 }
 
 const theme = {
