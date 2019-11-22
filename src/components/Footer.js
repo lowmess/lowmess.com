@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Flex, Text, Link } from 'rebass'
 import ArrowLink from './ArrowLink'
-import { List, ListItem } from './Typography'
+import List from './List'
 
 const SocialLink = ({ href, sx, children, ...props }) => (
-  <ListItem
+  <List.Item
     sx={{
       display: 'inline-block',
 
@@ -21,7 +21,7 @@ const SocialLink = ({ href, sx, children, ...props }) => (
     <Link variant="ui-link" href={href} fontSize={[0, 1]}>
       {children}
     </Link>
-  </ListItem>
+  </List.Item>
 )
 
 SocialLink.propTypes = {

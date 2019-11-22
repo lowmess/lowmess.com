@@ -2,6 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Text } from 'rebass'
 
+const ListItem = ({ children, ...props }) => (
+  <Text as="li" {...props}>
+    {children}
+  </Text>
+)
+
+ListItem.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
 const List = ({ sx, children, ...props }) => (
   <Text
     as="ul"
@@ -22,14 +32,6 @@ List.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const ListItem = ({ children, ...props }) => (
-  <Text as="li" {...props}>
-    {children}
-  </Text>
-)
+List.Item = ListItem
 
-ListItem.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export { List, ListItem }
+export default List

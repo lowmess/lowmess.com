@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { Flex, Text } from 'rebass'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
-import { List, ListItem } from '../Typography'
+import List from '../List'
 
 const NavText = ({ children, ...props }) => (
   <Text
@@ -52,7 +52,7 @@ const NavLink = ({ to, sx, children, ...props }) => {
   //
   // point is, this is the most i've been able to reduce the markup so far.
   return (
-    <ListItem
+    <List.Item
       sx={{
         display: 'inline-block',
 
@@ -78,7 +78,7 @@ const NavLink = ({ to, sx, children, ...props }) => {
           {children}
         </NavText>
       </Link>
-    </ListItem>
+    </List.Item>
   )
 }
 
