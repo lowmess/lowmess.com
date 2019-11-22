@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Text, Heading, Link } from 'rebass'
-import ArrowLink from './ArrowLink'
 import unwidow from '../utils/unwidow'
+import ArrowLink from './ArrowLink'
 
 const ProjectTitle = ({ sx, children, ...props }) => (
   <Heading sx={{ display: 'inline-block', ...sx }} {...props}>
@@ -61,7 +61,7 @@ const ProjectPreview = ({ project, level, ...props }) => (
   </Box>
 )
 
-export const projectPropType = PropTypes.shape({
+const projectPropType = PropTypes.shape({
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   repo: PropTypes.string,
@@ -73,4 +73,5 @@ ProjectPreview.propTypes = {
   level: PropTypes.string.isRequired,
 }
 
+export { projectPropType }
 export default ProjectPreview

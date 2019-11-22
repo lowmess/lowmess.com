@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Flex, Text } from 'rebass'
+import List from '../List'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
-import List from '../List'
 
 const NavText = ({ children, ...props }) => (
   <Text
