@@ -70,9 +70,12 @@ const ColophonPage = () => {
     react: { version: react },
     gatsby: { version: gatsby },
     'react-helmet': { version: helmet },
+    '@mdx-js/mdx': { version: mdx },
     'sanitize.css': { version: sanitize },
     '@emotion/core': { version: emotion },
     rebass: { version: rebass },
+    husky: { version: husky },
+    'lint-staged': { version: lintStaged },
     eslint: { version: eslint },
     prettier: { version: prettier },
   } = dependencies
@@ -110,6 +113,11 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
+              <DepLink href="https://mdxjs.com/">MDX</DepLink>{' '}
+              <DepVer>{mdx}</DepVer>
+            </Dep>
+
+            <Dep>
               <DepLink href="https://csstools.github.io/sanitize.css/">
                 sanitize.css
               </DepLink>{' '}
@@ -139,7 +147,15 @@ const ColophonPage = () => {
             </Dep>
 
             <Dep>
-              <DepLink href="https://usefathom.com">Fathom</DepLink>
+              <DepLink href="https://github.com/typicode/husky">husky</DepLink>{' '}
+              <DepVer>{husky}</DepVer>
+            </Dep>
+
+            <Dep>
+              <DepLink href="https://github.com/okonet/lint-staged">
+                lint-staged
+              </DepLink>{' '}
+              <DepVer>{lintStaged}</DepVer>
             </Dep>
 
             <Dep>
@@ -162,7 +178,7 @@ const ColophonPage = () => {
 
             <SanityCheck>Beer</SanityCheck>
 
-            <SanityCheck>Burritos</SanityCheck>
+            <SanityCheck>Mexican Food</SanityCheck>
 
             <SanityCheck>Skateboarding</SanityCheck>
 
