@@ -1,0 +1,5 @@
+# /contact no longer exists
+/contact /about 301
+
+# /work is referring to v1
+/work/* https://v1.lowmess.com/work/:splat 301
