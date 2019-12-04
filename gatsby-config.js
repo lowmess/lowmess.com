@@ -51,7 +51,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-feed',
+      resolve: 'gatsby-plugin-feed-mdx',
       options: {
         query: `
             {
@@ -74,24 +74,26 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },
             query: `
                 {
                   allMdx(
-                    limit: 1000,
                     sort: { order: DESC, fields: [frontmatter___date] }
                   ) {
                     edges {
                       node {
-                        fields { slug }
+                        fields {
+                          slug
+                        }
                         frontmatter {
                           title
                           description
                           date
                         }
-                        body
+                        html
                       }
                     }
                   }
@@ -99,6 +101,7 @@ module.exports = {
               `,
             output: '/rss.xml',
             title: 'Alec Lomas • lowmess.com',
+            match: '^/blog/',
           },
         ],
       },
