@@ -113,14 +113,14 @@ const text = {
     fontFamily: fonts['sans-serif'],
     lineHeight: 'title',
     fontWeight: 'bold',
-    letterSpacing: '-0.01em',
+    letterSpacing: ['-0.02em', '-0.01em'],
   },
 
   paragraph: {
     maxWidth: '33em',
     fontSize: [1, 2],
     lineHeight: 'copy',
-    letterSpacing: '-0.02em',
+    letterSpacing: ['normal', '-0.02em'],
   },
 }
 
