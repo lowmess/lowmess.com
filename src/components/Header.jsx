@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Box, Heading } from 'rebass'
 
 const HeaderTitle = ({ children, ...props }) => (
-  <Heading as="h1" mb={3} fontSize={[4, 5]} letterSpacing="-0.02em" {...props}>
+  <Heading as="h1" mb={3} fontSize={[4, 5]} {...props}>
     {children}
   </Heading>
 )
@@ -13,13 +13,7 @@ HeaderTitle.propTypes = {
 }
 
 const HeaderSubtitle = ({ children, ...props }) => (
-  <Heading
-    mb={4}
-    fontSize={[3, 4]}
-    fontWeight="medium"
-    letterSpacing="-0.015em"
-    {...props}
-  >
+  <Heading mb={4} fontSize={[3, 4]} fontWeight="medium" {...props}>
     {children}
   </Heading>
 )

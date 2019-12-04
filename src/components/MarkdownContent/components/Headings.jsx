@@ -86,7 +86,7 @@ const Three = props => (
     pt={3}
     fontSize={[1, 2]}
     fontWeight="semi-bold"
-    letterSpacing={['normal', '-0.01em']}
+    letterSpacing={['normal', '-0.02em']}
     {...props}
   />
 )
@@ -98,7 +98,7 @@ const Four = props => (
     pt={3}
     fontSize={[1, 2]}
     fontWeight="medium"
-    letterSpacing={['normal', '-0.01em']}
+    letterSpacing={['normal', '-0.02em']}
     {...props}
   />
 )
@@ -109,7 +109,7 @@ const Five = props => (
     pt={3}
     fontSize={[1, 2]}
     fontWeight="medium"
-    letterSpacing={['normal', '-0.01em']}
+    letterSpacing={['normal', '-0.02em']}
     {...props}
   />
 )
@@ -120,7 +120,7 @@ const Six = props => (
     pt={3}
     fontSize={[1, 2]}
     fontWeight="medium"
-    letterSpacing={['normal', '-0.01em']}
+    letterSpacing={['normal', '-0.02em']}
     {...props}
   />
 )
