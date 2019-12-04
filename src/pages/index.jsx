@@ -34,7 +34,7 @@ const IndexPage = () => {
           .
         </Header.Subtitle>
 
-        <Paragraph fontSize={[2, 3]} mt={3} mb={4}>
+        <Paragraph fontSize={[2, 3]} mt={3} mb={4} letterSpacing="-0.02em">
           My goal is to create beautiful websites and rich interactions without
           sacrificing usability. I care deeply about legibility, performance,
           and the open web. And&nbsp;burritos.
