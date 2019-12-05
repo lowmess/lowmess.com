@@ -6,7 +6,7 @@ description: The Fetch API is great, but didn't ship with the ability to timeout
 
 I'm a big fan of the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). I use it regularly in all sorts of projects, including this site and the API that powers the stats on the [about page](/about/). However it isn't always as clear how to do things like error handling and request timeouts as it is in libraries like [Axios](https://github.com/axios/axios).
 
-If you're not familiar with `fetch`, it's a native API that massively simplifies making AJAX requests compared to the older [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHTTPRequest) method, and [it's supported in all modern browsers](https://caniuse.com/#feat=fetch). When it initally landed, however, there was no easy way to handle request timeouts. You could fake it with [`Promise.race`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) or by [wrapping your `fetch` in another Promise](https://github.com/github/fetch/issues/175#issuecomment-216791333), but these solutions don't actually cancel the request. This is where [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) comes in.
+If you're not familiar with `fetch`, it's a native API that massively simplifies making AJAX requests compared to the older [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHTTPRequest) method, and [it's supported in all modern browsers](https://caniuse.com/#feat=fetch). When it initially landed, however, there was no easy way to handle request timeouts. You could fake it with [`Promise.race`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) or by [wrapping your `fetch` in another Promise](https://github.com/github/fetch/issues/175#issuecomment-216791333), but these solutions don't actually cancel the request. This is where [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) comes in.
 
 `AbortController` is an API that, much like its name and my previous sentence suggests, allows us to abort (cancel) requests. Though [browser support isn't _wonderful_ at time of writing](https://caniuse.com/#feat=abortcontroller), it can be used in most modern browsers and [polyfills are available](https://github.com/mo/abortcontroller-polyfill). The API itself has a very small surface area: a `signal` property to attach to request objects, and an `abort` method to actually cancel the request. Because the API is so simple, it's very flexible -- Jake Archibald has [a fairly in-depth article on the Google Developers blog](https://developers.google.com/web/updates/2017/09/abortable-fetch) going over various cancellation scenarios, as well as the history behind the API, and I highly recommend giving it a read.
 
@@ -48,7 +48,7 @@ const fetchWithTimeout = (uri, options = {}, time = 5000) => {
     })
     .catch(error => {
       // When we abort our `fetch`, the controller conveniently throws a named
-      // error, allowing us to handle them seperately from other errors.
+      // error, allowing us to handle them separately from other errors.
       if (error.name === 'AbortError') {
         throw new Error('Response timed out')
       }
@@ -58,7 +58,7 @@ const fetchWithTimeout = (uri, options = {}, time = 5000) => {
 }
 ```
 
-Using the function is fairly straightforward. Because we return `fetch` directly, we can use it in much the same way; the only change should be the addition of a third paramater (our `time` argument) and the extra error handling we discussed above.
+Using the function is fairly straightforward. Because we return `fetch` directly, we can use it in much the same way; the only change should be the addition of a third parameter (our `time` argument) and the extra error handling we discussed above.
 
 ```js
 // This example _always_ logs the error, because I'm telling httpstat.us to wait
