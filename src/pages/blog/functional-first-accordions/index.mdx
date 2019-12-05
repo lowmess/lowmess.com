@@ -170,7 +170,7 @@ document.addEventListener('click', event => {
 })
 ```
 
-All we've told the browser at this point is "if the user has clicked a `<summary>` element, don't do anything". The default behavior associated with clicking a `<summary>` element is to set/remove the `open` attribute on its parent `<details>` element (the browser then knows to hide/show the content inside of `<details>` based on this attribute). The browser won't wait for the content to animate out before hiding it, so we need to do that manually inside our handler. The code to do this is fairly straightforwrd, and boils down to toggling attributes and classes in a specific order at a specified time.
+All we've told the browser at this point is "if the user has clicked a `<summary>` element, don't do anything". The default behavior associated with clicking a `<summary>` element is to set/remove the `open` attribute on its parent `<details>` element (the browser then knows to hide/show the content inside of `<details>` based on this attribute). The browser won't wait for the content to animate out before hiding it, so we need to do that manually inside our handler. The code to do this is fairly straightforward, and boils down to toggling attributes and classes in a specific order at a specified time.
 
 ```js
 // Inside of our event handler
