@@ -11,7 +11,9 @@ const Paragraph = ({ children }) => (
       ...measure,
       marginTop: 3,
       // Wider images:
-      ...(children.props &&
+      ...(children &&
+        children.props &&
+        children.props.className &&
         children.props.className.includes('image') && {
           maxWidth: '48rem',
         }),
