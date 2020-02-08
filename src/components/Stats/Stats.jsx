@@ -19,7 +19,6 @@ const Stats = ({ ...props }) => {
   const [tweets, setTweets] = useState(null)
   const [places, setPlaces] = useState(null)
   const [steps, setSteps] = useState(null)
-  const [sleep, setSleep] = useState(null)
   const [songs, setSongs] = useState(null)
   const [album, setAlbum] = useState(null)
   const [books, setBooks] = useState([])
@@ -30,7 +29,6 @@ const Stats = ({ ...props }) => {
       tweets: tweetsStat,
       places: placesStat,
       steps: stepsStat,
-      sleep: sleepStat,
       songs: songsStat,
       album: albumStat,
       books: booksStat,
@@ -43,8 +41,6 @@ const Stats = ({ ...props }) => {
     if (placesStat) setPlaces(placesStat.toLocaleString())
 
     if (stepsStat) setSteps(stepsStat.toLocaleString())
-
-    if (sleepStat) setSleep(parseFloat(sleepStat.toFixed(2)).toLocaleString())
 
     if (songsStat) setSongs(songsStat.toLocaleString())
 
@@ -87,11 +83,6 @@ const Stats = ({ ...props }) => {
         <Stat mb={2}>
           <Stat.Title>Steps Taken</Stat.Title>
           <Stat.Value>{steps || '\u2014'}</Stat.Value>
-        </Stat>
-
-        <Stat mb={2}>
-          <Stat.Title>Hours Slept</Stat.Title>
-          <Stat.Value>{sleep || '\u2014'}</Stat.Value>
         </Stat>
 
         <Stat mb={2}>
