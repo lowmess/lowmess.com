@@ -67,9 +67,8 @@ const ColophonPage = () => {
   const { title } = useSiteMetadata()
 
   const {
-    react: { version: react },
+    preact: { version: preact },
     gatsby: { version: gatsby },
-    'react-helmet': { version: helmet },
     '@mdx-js/mdx': { version: mdx },
     'sanitize.css': { version: sanitize },
     '@emotion/core': { version: emotion },
@@ -96,20 +95,13 @@ const ColophonPage = () => {
             <SectionTitle>Functionality</SectionTitle>
 
             <Dep mt={4}>
-              <DepLink href="https://reactjs.org">React</DepLink>{' '}
-              <DepVer>{react}</DepVer>
+              <DepLink href="https://reactjs.org">Preact</DepLink>{' '}
+              <DepVer>{preact}</DepVer>
             </Dep>
 
             <Dep>
               <DepLink href="https://gatsbyjs.org">Gatsby</DepLink>{' '}
               <DepVer>{gatsby}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://github.com/nfl/react-helmet">
-                React Helmet
-              </DepLink>{' '}
-              <DepVer>{helmet}</DepVer>
             </Dep>
 
             <Dep>
