@@ -134,6 +134,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-emotion',
     'gatsby-plugin-layout',
+    'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-sharp',
