@@ -50,6 +50,7 @@
     "github-slugger": "^1.2.1",
     "lowmess-prism": "^1.0.3",
     "preact": "^10.3.1",
+    "preact-render-to-string": "^5.1.4",
     "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.19.0",
     "prop-types": "^15.7.2",
