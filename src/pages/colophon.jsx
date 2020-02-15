@@ -95,7 +95,7 @@ const ColophonPage = () => {
             <SectionTitle>Functionality</SectionTitle>
 
             <Dep mt={4}>
-              <DepLink href="https://reactjs.org">Preact</DepLink>{' '}
+              <DepLink href="https://preactjs.com">Preact</DepLink>{' '}
               <DepVer>{preact}</DepVer>
             </Dep>
 
