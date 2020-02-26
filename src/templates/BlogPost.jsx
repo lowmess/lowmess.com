@@ -7,8 +7,6 @@ import MarkdownContent from '../components/MarkdownContent'
 import { useSiteMetadata } from '../utils/hooks'
 import unwidow from '../utils/unwidow'
 
-import 'lowmess-prism'
-
 const BlogPostTemplate = ({ pageContext, children }) => {
   const { title, siteUrl } = useSiteMetadata()
 
