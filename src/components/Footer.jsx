@@ -1,89 +1,91 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
-import { Box, Flex, Text, Link } from 'rebass'
-import ArrowLink from './ArrowLink'
-import List from './List'
+import { Link as GatsbyLink } from 'gatsby'
+import { Box, Grid, Text, Container, Link } from 'theme-ui'
 
-const SocialLink = ({ href, sx, children, ...props }) => (
-  <List.Item
-    sx={{
-      display: 'inline-block',
-
-      '& + &': {
-        marginLeft: 3,
-      },
-
-      ...sx,
-    }}
-    {...props}
-  >
-    <Link variant="ui-link" href={href} fontSize={[0, 1]}>
-      {children}
-    </Link>
-  </List.Item>
+const FooterLink = ({ to, children, ...props }) => (
+  <Link as={to ? GatsbyLink : 'a'} variant="ui" to={to} {...props}>
+    {children}
+  </Link>
 )
 
-SocialLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  sx: PropTypes.object,
-  children: PropTypes.string.isRequired,
+FooterLink.propTypes = {
+  to: PropTypes.string,
+  children: PropTypes.node,
 }
 
-const Footer = ({ ...props }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
-        edges {
-          node {
-            frontmatter {
-              title
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
+const Footer = (props) => (
+  <Box as="footer" bg="footer" py={5} {...props}>
+    <Container>
+      <Grid gap={3} columns="1fr 1fr 2fr">
+        <Box>
+          <Text variant="footer-header">Site</Text>
 
-  const post = data.allMdx.edges[0].node
+          <Box as="ul" variant="list">
+            <li>
+              <FooterLink to="/">Home</FooterLink>
+            </li>
 
-  return (
-    <Text
-      as="footer"
-      fontFamily="monospace"
-      mt="auto"
-      mb={[3, 3, 4]}
-      {...props}
-    >
-      <Flex
-        alignItems="center"
-        justifyContent={['center', 'center', 'space-between']}
-      >
-        <Box sx={{ display: ['none', 'none', 'block'] }}>
-          <Text as="span" mr={2}>
-            From the blog:
-          </Text>
+            <li>
+              <FooterLink to="/projects">Projects</FooterLink>
+            </li>
 
-          <ArrowLink fontWeight="bold" to={post.fields.slug}>
-            {post.frontmatter.title}
-          </ArrowLink>
+            <li>
+              <FooterLink to="/blog">Blog</FooterLink>
+            </li>
+
+            <li>
+              <FooterLink to="/colophon">Colophon</FooterLink>
+            </li>
+
+            <li>
+              <FooterLink to="/uses">Uses</FooterLink>
+            </li>
+          </Box>
         </Box>
 
-        <List>
-          <SocialLink href="https://twitter.com/lowmess">Twitter</SocialLink>
+        <Box>
+          <Text variant="footer-header">Links</Text>
 
-          <SocialLink href="https://github.com/lowmess">GitHub</SocialLink>
+          <Box as="ul" variant="list">
+            <li>
+              <FooterLink href="https://github.com/lowmess">GitHub</FooterLink>
+            </li>
 
-          <SocialLink href="https://resume.lowmess.com">
-            R&eacute;sum&eacute;
-          </SocialLink>
-        </List>
-      </Flex>
-    </Text>
-  )
-}
+            <li>
+              <FooterLink href="https://twitter.com/lowmess">
+                Twitter
+              </FooterLink>
+            </li>
+
+            <li>
+              <FooterLink href="https://dribbble.com/lowmess">
+                Dribbble
+              </FooterLink>
+            </li>
+
+            <li>
+              <FooterLink href="https://codepen.io/lowmess">CodePen</FooterLink>
+            </li>
+
+            <li>
+              <FooterLink href="https://linkedin.com/in/lowmess">
+                LinkedIn
+              </FooterLink>
+            </li>
+
+            <li>
+              <FooterLink href="https://resume.lowmess.com">Résumé</FooterLink>
+            </li>
+          </Box>
+        </Box>
+
+        <Box>
+          <Text variant="footer-header">Latest Blog Post</Text>
+        </Box>
+      </Grid>
+    </Container>
+  </Box>
+)
 
 export default Footer
