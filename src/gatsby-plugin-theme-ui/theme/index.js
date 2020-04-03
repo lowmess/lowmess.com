@@ -12,7 +12,7 @@ import text from './text'
 import links from './links'
 import buttons from './buttons'
 
-const breakpoints = ['48em', '64em']
+const breakpoints = ['40em', '64em']
 
 const theme = {
   //settings
