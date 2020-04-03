@@ -42,7 +42,7 @@ import getStats from '../utils/getStats'
 //       </Header>
 
 //       <main>
-//         <Heading fontSize={[3, 4]} lineHeight="title" mt={5} mb={4}>
+//         <Heading fontSize={[3, 4]} lineHeight="heading" mt={5} mb={4}>
 //           Latest Project
 //         </Heading>
 
@@ -154,11 +154,12 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Container py={5}>
-        <Heading as="h1" variant="site-title">
+      <Container py={[null, 3, 4]}>
+        <Text variant="section-heading">Introduction</Text>
+        <Heading as="h1" variant="site-intro" sx={{ fontWeight: 'bold' }}>
           My name is Alec Lomas, and I make websites.
         </Heading>{' '}
-        <Heading as="h2" variant="site-subtitle">
+        <Heading as="h2" variant="site-intro">
           Currently, I&rsquo;m helping recruiting stay human at{' '}
           <Link href="https://hiringsolved.com">HiringSolved</Link>.
         </Heading>{' '}

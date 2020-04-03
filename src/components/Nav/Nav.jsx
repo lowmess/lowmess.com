@@ -13,9 +13,9 @@ const Nav = ({ sx, ...props }) => {
     <Box
       as="nav"
       sx={{
-        borderTop: [null, null, 4],
-        borderColor: [null, null, 'primary'],
-        paddingTop: [null, null, 5],
+        borderTop: 4,
+        borderColor: 'primary',
+        paddingTop: [3, 4, 5],
         ...sx,
       }}
       {...props}

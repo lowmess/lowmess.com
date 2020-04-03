@@ -1,5 +1,5 @@
 export default {
   container: {
-    px: 3,
+    px: 4,
   },
 }

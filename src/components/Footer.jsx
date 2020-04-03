@@ -44,7 +44,7 @@ const Footer = (props) => {
           sx={{ justifyContent: ['center', 'start'] }}
         >
           <Box>
-            <Text variant="footer-header">Site</Text>
+            <Text variant="section-heading">Site</Text>
 
             <Box as="ul" variant="list">
               <li>
@@ -70,7 +70,7 @@ const Footer = (props) => {
           </Box>
 
           <Box>
-            <Text variant="footer-header">Links</Text>
+            <Text variant="section-heading">Links</Text>
 
             <Box as="ul" variant="list">
               <li>
@@ -112,7 +112,7 @@ const Footer = (props) => {
           </Box>
 
           <Box sx={{ display: ['none', 'block'] }}>
-            <Text variant="footer-header" pb={2}>
+            <Text variant="section-heading" pb={2}>
               Latest Blog Post
             </Text>
 

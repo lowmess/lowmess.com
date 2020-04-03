@@ -16,7 +16,7 @@ export default {
     letterSpacing: '-0.02em',
   },
 
-  'footer-header': {
+  'section-heading': {
     marginTop: 0,
     marginBottom: 3,
     color: 'grays.8',
