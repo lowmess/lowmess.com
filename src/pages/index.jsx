@@ -4,56 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Text, Heading, Link, Container } from 'theme-ui'
 import Layout from '../components/Layout'
 import getStats from '../utils/getStats'
-
-// const IndexPage = () => {
-//   const data = useStaticQuery(graphql`
-//     query {
-//       allProjectsJson(limit: 1) {
-//         edges {
-//           node {
-//             title
-//             description
-//             website
-//             repo
-//           }
-//         }
-//       }
-//     }
-//   `)
-
-//   return (
-//     <article>
-//       <Header>
-//         <Header.Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Header.Title>
-
-//         <Header.Subtitle mb={3}>
-//           I&rsquo;m a frontend developer &amp; designer at&nbsp;
-//           <Link variant="ui-link" href="https://hiringsolved.com/">
-//             HiringSolved
-//           </Link>
-//           .
-//         </Header.Subtitle>
-
-//         <Paragraph fontSize={[2, 3]} mt={3} mb={4} letterSpacing="-0.02em">
-//           My goal is to create beautiful websites and rich interactions without
-//           sacrificing usability. I care deeply about legibility, performance,
-//           and the open web. And&nbsp;burritos.
-//         </Paragraph>
-//       </Header>
-
-//       <main>
-//         <Heading fontSize={[3, 4]} lineHeight="heading" mt={5} mb={4}>
-//           Latest Project
-//         </Heading>
-
-//         <ProjectPreview
-//           project={data.allProjectsJson.edges[0].node}
-//           level="h3"
-//         />
-//       </main>
-//     </article>
-//   )
-// }
+import pluralize from '../utils/pluralize'
 
 const Bold = ({ children }) => (
   <Text as="span" sx={{ fontWeight: 'bold' }}>
@@ -63,6 +14,18 @@ const Bold = ({ children }) => (
 
 Bold.propTypes = {
   children: PropTypes.node,
+}
+
+const ValueCount = ({ value, singular, plural }) => (
+  <Bold>
+    {value.toLocaleString()} {pluralize(value, singular, plural)}
+  </Bold>
+)
+
+ValueCount.propTypes = {
+  value: PropTypes.number.isRequired,
+  singular: PropTypes.string.isRequired,
+  plural: PropTypes.string.isRequired,
 }
 
 const IndexPage = () => {
@@ -86,11 +49,11 @@ const IndexPage = () => {
     }
   `)
 
-  const [commits, setCommits] = React.useState(stats.commits?.toLocaleString())
-  const [tweets, setTweets] = React.useState(stats.tweets?.toLocaleString())
-  const [steps, setSteps] = React.useState(stats.steps?.toLocaleString())
-  const [places, setPlaces] = React.useState(stats.places?.toLocaleString())
-  const [songs, setSongs] = React.useState(stats.songs?.toLocaleString())
+  const [commits, setCommits] = React.useState(stats.commits)
+  const [tweets, setTweets] = React.useState(stats.tweets)
+  const [steps, setSteps] = React.useState(stats.steps)
+  const [places, setPlaces] = React.useState(stats.places)
+  const [songs, setSongs] = React.useState(stats.songs)
   const [album, setAlbum] = React.useState(stats.album)
   const [books, setBooks] = React.useState(stats.books)
 
@@ -133,15 +96,15 @@ const IndexPage = () => {
       books: booksStat,
     } = await getStats()
 
-    if (commitStat) setCommits(commitStat.toLocaleString())
+    if (typeof commitStat === 'number') setCommits(commitStat)
 
-    if (tweetsStat) setTweets(tweetsStat.toLocaleString())
+    if (typeof tweetsStat === 'number') setTweets(tweetsStat)
 
-    if (placesStat) setPlaces(placesStat.toLocaleString())
+    if (typeof placesStat === 'number') setPlaces(placesStat)
 
-    if (stepsStat) setSteps(stepsStat.toLocaleString())
+    if (typeof stepsStat === 'number') setSteps(stepsStat)
 
-    if (songsStat) setSongs(songsStat.toLocaleString())
+    if (typeof songsStat === 'number') setSongs(songsStat)
 
     if (albumStat?.name && albumStat?.artist) setAlbum(albumStat)
 
@@ -164,15 +127,38 @@ const IndexPage = () => {
           <Link href="https://hiringsolved.com">HiringSolved</Link>.
         </Heading>{' '}
         <Text as="p" variant="site-intro">
-          In the last 30 days, I&rsquo;ve pushed <Bold>{commits} commits</Bold>{' '}
-          to GitHub and sent <Bold>{tweets} tweets</Bold>. I&rsquo;ve taken{' '}
-          <Bold>{steps} steps</Bold> while visiting <Bold>{places} places</Bold>
-          . My most played album is <Bold>&ldquo;{album.name}&rdquo;</Bold> by{' '}
-          {album.artist}, and I&rsquo;ve listened to <Bold>{songs} songs</Bold>{' '}
+          In the last 30 days, I&rsquo;ve pushed{' '}
+          <Link variant="ui" href="https://github.com/lowmess">
+            <ValueCount value={commits} singular="commit" plural="commits" />
+          </Link>{' '}
+          to GitHub, sent{' '}
+          <Link variant="ui" href="https://twitter.com/lowmess">
+            <ValueCount value={tweets} singular="tweet" plural="tweets" />
+          </Link>
+          , taken <ValueCount value={steps} singular="step" plural="steps" />,
+          and visited{' '}
+          <ValueCount value={places} singular="place" plural="places" />. My
+          most played album is{' '}
+          <Link
+            variant="ui"
+            href="https://www.last.fm/user/lowmess/library/albums?date_preset=LAST_30_DAYS"
+          >
+            <Bold>&ldquo;{album.name}&rdquo;</Bold> by {album.artist}
+          </Link>
+          , and I&rsquo;ve listened to{' '}
+          <Link
+            variant="ui"
+            href="https://www.last.fm/user/lowmess/library/tracks?date_preset=LAST_30_DAYS"
+          >
+            <ValueCount value={songs} singular="song" plural="songs" />
+          </Link>{' '}
           overall. I am reading{' '}
-          <Bold>
-            {books.length} {books.length > 1 ? 'books' : 'book'}
-          </Bold>{' '}
+          <Link
+            variant="ui"
+            href="https://www.goodreads.com/user/show/27057705-alec-lomas"
+          >
+            <ValueCount value={books.length} singular="book" plural="books" />
+          </Link>{' '}
           at the moment: {booksToSentence(books)}.
         </Text>
       </Container>
