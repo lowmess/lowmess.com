@@ -1,44 +1,43 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Text, Link } from 'rebass'
-import Header from '../components/Header'
+import { Text, Container, Link } from 'theme-ui'
+import Layout from '../components/Layout'
+import { Header, HeaderName, HeaderTitle } from '../components/Header'
 
-const errorPage = () => (
-  <>
+const ErrorPage = () => (
+  <Layout>
     <Helmet>
-      <title>I goofed it.</title>
+      <title>I goofed it</title>
     </Helmet>
 
-    <article>
-      <Header>
-        <Header.Title>Error 404</Header.Title>
+    <Header>
+      <HeaderName>Error 404</HeaderName>
+      <HeaderTitle>Page Not Found</HeaderTitle>
+    </Header>
 
-        <Header.Subtitle>Requested Page Not&nbsp;Found</Header.Subtitle>
-      </Header>
-
-      <main>
-        {/* have to ugily do this because somewhere whitespace gets removed */}
-        <Text
-          as="pre"
-          fontSize={[2, 3]}
-          fontFamily="monospace"
-          lineHeight="title"
-        >
-          &ldquo;
-          <Link variant="ui-link" as={GatsbyLink} to="/">
-            Click here to go home
-          </Link>
-          &rdquo;
-          <br />
-          &nbsp;is over-used and boring,
-          <br />
-          &nbsp;but at least it&rsquo;s clear.
-          <br />
-        </Text>
-      </main>
-    </article>
-  </>
+    <Container mt={[4, 5]}>
+      <Text
+        as="pre"
+        sx={{
+          fontSize: [2, 3],
+          fontFamily: 'mono',
+          lineHeight: 'heading',
+        }}
+      >
+        &ldquo;
+        <Link variant="ui" as={GatsbyLink} to="/">
+          Click here to go home
+        </Link>
+        &rdquo;
+        <br />
+        &nbsp;is over-used and boring,
+        <br />
+        &nbsp;but at least it&rsquo;s clear.
+        <br />
+      </Text>
+    </Container>
+  </Layout>
 )
 
-export default errorPage
+export default ErrorPage

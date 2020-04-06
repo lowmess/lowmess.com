@@ -1,6 +1,9 @@
 import React from 'react'
 import { useColorMode, Button } from 'theme-ui'
 
+// Icons courtesy of Feather
+// @link https://feathericons.com/
+
 const ColorModeToggle = (props) => {
   const [colorMode, setColorMode] = useColorMode()
 

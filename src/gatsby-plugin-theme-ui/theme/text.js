@@ -10,7 +10,7 @@ export default {
   'site-intro': {
     display: 'inline',
     fontFamily: 'sans',
-    fontSize: 4,
+    fontSize: [3, 4],
     fontWeight: 'normal',
     lineHeight: 1.333,
     letterSpacing: '-0.02em',
@@ -25,5 +25,12 @@ export default {
     lineHeight: 'heading',
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
+  },
+
+  'header-title': {
+    fontFamily: 'sans',
+    fontSize: [3, 4],
+    fontWeight: 'bold',
+    letterSpacing: '-0.02em',
   },
 }
