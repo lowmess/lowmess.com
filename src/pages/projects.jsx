@@ -1,12 +1,12 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Header from '../components/Header'
+import { Grid, Container } from 'theme-ui'
+import Layout from '../components/Layout'
+import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
-import { useSiteMetadata } from '../utils/hooks'
 
 const ProjectsPage = () => {
-  const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
     query {
       allProjectsJson {
@@ -25,30 +25,31 @@ const ProjectsPage = () => {
   const projects = data.allProjectsJson.edges
 
   return (
-    <>
+    <Layout>
       <Helmet>
-        <title>Projects • {title}</title>
+        <title>Projects</title>
       </Helmet>
 
-      <article>
-        <Header>
-          <Header.Title>First-World Problem&nbsp;Solvers</Header.Title>
-        </Header>
+      <Header>
+        <HeaderName>Projects</HeaderName>
 
-        <main>
+        <HeaderTitle>First-World Problem&nbsp;Solvers</HeaderTitle>
+      </Header>
+
+      <Container as="main" mt={5}>
+        <Grid columns={[null, 2]} gap={5}>
           {projects.map(({ node }, index) => {
             return (
               <ProjectPreview
-                project={node}
-                level="h2"
                 key={node.title}
-                {...(index + 1 === projects.length ? {} : { mb: [4, 5] })}
+                project={node}
+                count={index + 1}
               />
             )
           })}
-        </main>
-      </article>
-    </>
+        </Grid>
+      </Container>
+    </Layout>
   )
 }
 
