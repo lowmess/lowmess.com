@@ -12,7 +12,9 @@ Header.propTypes = {
   children: PropTypes.node,
 }
 
-const HeaderName = (props) => <Text variant="section-heading" {...props} />
+const HeaderName = (props) => (
+  <Text variant="section-heading" mb={2} {...props} />
+)
 
 const HeaderTitle = (props) => (
   <Heading as="h1" variant="header-title" {...props} />

@@ -118,7 +118,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <Container>
-        <Text variant="section-heading">Introduction</Text>
+        <Text variant="section-heading" mb={3}>
+          Introduction
+        </Text>
         <Heading as="h1" variant="site-intro" sx={{ fontWeight: 'bold' }}>
           My name is Alec Lomas, and I make websites.
         </Heading>{' '}

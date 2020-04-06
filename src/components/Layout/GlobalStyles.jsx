@@ -22,6 +22,10 @@ const GlobalStyles = () => {
           @media (prefers-reduced-motion: reduce) {
             scroll-behavior: auto;
           }
+
+          @media (min-width: 90em) {
+            font-size: 112.5%;
+          }
         }
 
         body {

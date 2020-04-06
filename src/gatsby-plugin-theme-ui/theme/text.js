@@ -17,8 +17,6 @@ export default {
   },
 
   'section-heading': {
-    marginTop: 0,
-    marginBottom: 3,
     color: 'muted-text',
     fontSize: 0,
     fontWeight: 'bold',

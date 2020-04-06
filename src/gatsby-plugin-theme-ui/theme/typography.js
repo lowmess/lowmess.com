@@ -6,7 +6,7 @@ const fonts = {
 }
 
 const fontSizes = [
-  '0.875rem',
+  '0.75rem',
   '1rem',
   '1.25rem',
   '1.5rem',

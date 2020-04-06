@@ -47,7 +47,6 @@ export default {
   'muted-text': palette.grays[8],
 
   footer: palette.grays[2],
-  'project-count': palette.grays[2],
 
   modes: {
     dark: {
@@ -61,10 +60,9 @@ export default {
       accent: palette.orange,
       highlight: palette.orange,
       muted: palette.grays[8],
-      'muted-text': palette.grays[7],
+      'muted-text': palette.grays[8],
 
       footer: palette.black,
-      'project-count': palette.grays[10],
     },
   },
 }

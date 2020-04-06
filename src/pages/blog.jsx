@@ -1,57 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Box, Flex, Heading, Link } from 'rebass'
-import Paragraph from '../components/Paragraph'
-import Header from '../components/Header'
-import ArrowLink from '../components/ArrowLink'
-import { useSiteMetadata } from '../utils/hooks'
-import unwidow from '../utils/unwidow'
-
-const YearContainer = ({ sx, children, ...props }) => (
-  <Box sx={{ display: ['none', 'block'], ...sx }} {...props}>
-    {children}
-  </Box>
-)
-
-YearContainer.propTypes = {
-  sx: PropTypes.object,
-  children: PropTypes.node,
-}
-
-const YearTitle = ({ children, ...props }) => (
-  <Heading fontSize={[2, 3]} fontWeight="medium" lineHeight="title" {...props}>
-    {children}
-  </Heading>
-)
-
-YearTitle.propTypes = {
-  children: PropTypes.string.isRequired,
-}
-
-const PostTitle = ({ sx, children, ...props }) => (
-  <Heading
-    as="h3"
-    sx={{
-      display: 'inline-block',
-      fontSize: [2, 3],
-      lineHeight: 'title',
-      ...sx,
-    }}
-    {...props}
-  >
-    {children}
-  </Heading>
-)
-
-PostTitle.propTypes = {
-  sx: PropTypes.object,
-  children: PropTypes.node.isRequired,
-}
+import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
+import Layout from '../components/Layout'
+import { Header, HeaderName, HeaderTitle } from '../components/Header'
 
 const BlogPage = () => {
-  const { title } = useSiteMetadata()
   const data = useStaticQuery(graphql`
     query {
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
@@ -75,55 +29,56 @@ const BlogPage = () => {
   let year = '0'
 
   return (
-    <>
+    <Layout>
       <Helmet>
-        <title>Blog • {title}</title>
+        <title>Blog</title>
       </Helmet>
 
-      <article>
-        <Header>
-          <Header.Title>Eloquent Writings About&nbsp;Stuff</Header.Title>
-        </Header>
+      <Header>
+        <HeaderName>Blog</HeaderName>
 
-        <main>
+        <HeaderTitle>Eloquent Writings About Stuff</HeaderTitle>
+      </Header>
+
+      <Container as="main" mt={[4, 5]}>
+        <Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
           {posts.map(({ node }, index) => {
             const { fields, frontmatter } = node
-            const thisYear = frontmatter.year
-            let YearComponent
 
-            if (thisYear !== year) {
-              YearComponent = <YearTitle>{frontmatter.year}</YearTitle>
-              year = thisYear
-            }
+            const thisYear = frontmatter.year
+
+            const YearComponent =
+              thisYear === year ? (
+                <Box sx={{ display: ['none', 'block'] }} />
+              ) : (
+                <Heading color="muted-text" mt={[4, 0]}>
+                  {thisYear}
+                </Heading>
+              )
+
+            year = thisYear
 
             return (
-              <Flex
-                key={fields.slug}
-                flexDirection="row"
-                alignItems="flex-start"
-                {...(index + 1 === posts.length ? {} : { mb: [4, 5] })}
-              >
-                <YearContainer width={1 / 5}>{YearComponent}</YearContainer>
+              <React.Fragment key={fields.slug}>
+                {YearComponent}
 
-                <Box width={[1, 4 / 5]}>
-                  <PostTitle>
-                    <Link variant="ui-link" as={GatsbyLink} to={fields.slug}>
-                      {unwidow(frontmatter.title)}
+                <div>
+                  <Heading as="h3" sx={{ display: 'inline-block' }}>
+                    <Link as={GatsbyLink} to={fields.slug} variant="ui">
+                      {frontmatter.title}
                     </Link>
-                  </PostTitle>
+                  </Heading>
 
-                  <Paragraph mt={3} mb={2}>
-                    {unwidow(frontmatter.description)}
-                  </Paragraph>
-
-                  <ArrowLink to={fields.slug}>Read More</ArrowLink>
-                </Box>
-              </Flex>
+                  <Text as="p" sx={{ maxWidth: 'measure', marginY: 2 }}>
+                    {frontmatter.description}
+                  </Text>
+                </div>
+              </React.Fragment>
             )
           })}
-        </main>
-      </article>
-    </>
+        </Grid>
+      </Container>
+    </Layout>
   )
 }
 
