@@ -2,6 +2,9 @@ import React from 'react'
 import { Global, css } from '@emotion/core'
 import { useThemeUI } from 'theme-ui'
 
+// Import fonts
+import '../../assets/fonts'
+
 const GlobalStyles = () => {
   const { theme } = useThemeUI()
   return (
@@ -12,8 +15,10 @@ const GlobalStyles = () => {
         }
 
         html {
+          font-feature-settings: 'calt', 'rlig', 'case', 'cv01';
           scroll-behavior: smooth;
           scroll-padding-top: ${theme.space[5]};
+
           @media (prefers-reduced-motion: reduce) {
             scroll-behavior: auto;
           }
@@ -21,10 +26,6 @@ const GlobalStyles = () => {
 
         body {
           margin: 0;
-          font-size: ${theme.fontSizes.base};
-          font-family: ${theme.fonts.system};
-          font-weight: ${theme.fontWeights.body};
-          line-height: ${theme.lineHeights.copy};
           cursor: default;
         }
 

@@ -1,7 +1,7 @@
 export default {
   root: {
     fontSize: 'base',
-    fontFamily: 'system',
+    fontFamily: 'sans',
     lineHeight: 'copy',
   },
 

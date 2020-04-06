@@ -1,6 +1,6 @@
 export default {
   heading: {
-    fontFamily: 'system',
+    fontFamily: 'sans',
     fontSize: [2, 3],
     fontWeight: 'semi-bold',
     lineHeight: 'heading',
@@ -9,7 +9,7 @@ export default {
 
   'site-intro': {
     display: 'inline',
-    fontFamily: 'system',
+    fontFamily: 'sans',
     fontSize: 4,
     fontWeight: 'normal',
     lineHeight: 1.333,
@@ -19,7 +19,7 @@ export default {
   'section-heading': {
     marginTop: 0,
     marginBottom: 3,
-    color: 'grays.8',
+    color: 'muted-text',
     fontSize: 0,
     fontWeight: 'bold',
     lineHeight: 'heading',

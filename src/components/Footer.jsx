@@ -112,9 +112,7 @@ const Footer = (props) => {
           </Box>
 
           <Box sx={{ display: ['none', 'block'] }}>
-            <Text variant="section-heading" pb={2}>
-              Latest Blog Post
-            </Text>
+            <Text variant="section-heading">Latest Blog Post</Text>
 
             <Link
               variant="ui"
@@ -125,7 +123,7 @@ const Footer = (props) => {
               {post.frontmatter.title}
             </Link>
 
-            <Text as="p" mt={2} sx={{ maxWidth: 'measure' }}>
+            <Text as="p" mt={3} sx={{ maxWidth: 'measure' }}>
               {post.frontmatter.description}
             </Text>
           </Box>

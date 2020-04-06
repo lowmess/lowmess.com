@@ -13,7 +13,7 @@ const palette = {
     '#724506',
   ],
 
-  black: '#443e35',
+  black: '#2a2722',
   white: '#ffffff',
   grays: [
     '#ffffff',
@@ -28,7 +28,6 @@ const palette = {
     '#756a5b',
     '#443e35',
     '#39342d',
-    '#2a2722',
   ],
 }
 
@@ -38,13 +37,14 @@ export default {
   grays: palette.grays,
   oranges: palette.oranges,
 
-  text: palette.black,
+  text: palette.grays[10],
   background: palette.white,
   primary: palette.orange,
   secondary: palette.oranges[6],
   accent: palette.orange,
   highlight: palette.orange,
   muted: palette.grays[4],
+  'muted-text': palette.grays[8],
 
   footer: palette.grays[2],
 
@@ -53,15 +53,16 @@ export default {
       grays: [...palette.grays].reverse(),
       oranges: [...palette.oranges].reverse(),
 
-      text: palette.grays[1],
-      background: palette.black,
+      text: palette.grays[2],
+      background: palette.grays[11],
       primary: palette.orange,
       secondary: palette.oranges[3],
       accent: palette.orange,
       highlight: palette.orange,
       muted: palette.grays[8],
+      'muted-text': palette.grays[7],
 
-      footer: palette.grays[11],
+      footer: palette.black,
     },
   },
 }
