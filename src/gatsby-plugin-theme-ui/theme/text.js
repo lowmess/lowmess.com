@@ -1,6 +1,5 @@
 export default {
   heading: {
-    fontFamily: 'sans',
     fontSize: [2, 3],
     fontWeight: 'semi-bold',
     lineHeight: 'heading',
@@ -9,7 +8,6 @@ export default {
 
   'site-intro': {
     display: 'inline',
-    fontFamily: 'sans',
     fontSize: [3, 4],
     fontWeight: 'normal',
     lineHeight: 1.333,
@@ -22,11 +20,10 @@ export default {
     fontWeight: 'bold',
     lineHeight: 'heading',
     textTransform: 'uppercase',
-    letterSpacing: '0.1em',
+    letterSpacing: '0.2em',
   },
 
   'header-title': {
-    fontFamily: 'sans',
     fontSize: [3, 4],
     fontWeight: 'bold',
     letterSpacing: '-0.02em',

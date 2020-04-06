@@ -5,6 +5,8 @@ const fonts = {
     '"Dank Mono", Dank, dm, Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace',
 }
 
+fonts.heading = fonts.sans
+
 const fontSizes = [
   '0.75rem',
   '1rem',
@@ -28,6 +30,8 @@ const fontWeights = {
   bold: '700',
   'extra-bold': 800,
   black: 900,
+
+  heading: 700,
 }
 
 const lineHeights = {

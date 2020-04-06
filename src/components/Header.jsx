@@ -13,11 +13,11 @@ Header.propTypes = {
 }
 
 const HeaderName = (props) => (
-  <Text variant="section-heading" mb={2} {...props} />
+  <Heading as="h1" variant="section-heading" mb={1} {...props} />
 )
 
 const HeaderTitle = (props) => (
-  <Heading as="h1" variant="header-title" {...props} />
+  <Text variant="header-title" aria-hidden {...props} />
 )
 
 export { Header, HeaderName, HeaderTitle }

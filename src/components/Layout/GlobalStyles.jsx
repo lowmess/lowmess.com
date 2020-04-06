@@ -7,6 +7,7 @@ import '../../assets/fonts'
 
 const GlobalStyles = () => {
   const { theme } = useThemeUI()
+
   return (
     <Global
       styles={css`
@@ -60,6 +61,11 @@ const GlobalStyles = () => {
 
         svg:not([fill]) {
           fill: currentColor;
+        }
+
+        pre,
+        code {
+          font-family: ${theme.fonts.mono};
         }
 
         audio,
