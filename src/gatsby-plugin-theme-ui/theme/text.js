@@ -10,7 +10,7 @@ export default {
     display: 'inline',
     fontSize: [3, 4],
     fontWeight: 'normal',
-    lineHeight: 1.333,
+    lineHeight: 'copy',
     letterSpacing: '-0.02em',
   },
 

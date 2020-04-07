@@ -10,7 +10,7 @@ const LineNumber = ({ children }) => (
     sx={{
       display: ['none', 'inline-block'],
       textAlign: 'right',
-      color: 'rgb(147, 135, 118)',
+      color: '#938776', // Comment color taken from `lowmess-prism`
       userSelect: 'none',
     }}
     aria-hidden
@@ -34,14 +34,18 @@ const Code = ({ className: languageClass, children, ...props }) => {
     <Box
       sx={{
         backgroundColor: 'black',
+
         '.prism-code': {
           backgroundColor: 'transparent !important',
-          fontFamily: 'mono',
         },
-        '.token.comment': { fontStyle: 'italic' },
       }}
     >
-      <Container sx={{ fontFamily: 'mono', maxWidth: 'calc(83ch + 1rem)' }}>
+      <Container
+        sx={{
+          fontFamily: 'mono',
+          maxWidth: (t) => `calc(${t.sizes['mdx-measure']} + ${t.space[5]})`,
+        }}
+      >
         <Highlight
           {...defaultProps}
           code={children.trim()}
@@ -58,8 +62,8 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 paddingY: 3,
                 backgroundColor: 'transparent',
                 color: 'white',
-                fontSize: [0, 1],
-                fontFamily: 'monospace',
+                fontSize: '0.9em',
+                fontFamily: 'mono',
                 whiteSpace: 'pre',
 
                 '@media print': {
@@ -71,8 +75,12 @@ const Code = ({ className: languageClass, children, ...props }) => {
                   overflow: 'visible !important',
                 },
 
-                '.token:last-child': {
-                  paddingRight: 3,
+                '.token': {
+                  fontSize: 'inherit',
+                },
+
+                '.token.comment': {
+                  fontStyle: 'italic',
                 },
               }}
               {...props}
@@ -117,8 +125,8 @@ const InlineCode = ({ children }) => (
     sx={{
       borderRadius: 1,
       paddingX: 1,
-      backgroundColor: 'grays.2',
-      color: 'text',
+      backgroundColor: 'inline-code-background',
+      color: 'inherit',
       fontFamily: 'mono',
       whiteSpace: 'nowrap',
     }}

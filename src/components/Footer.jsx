@@ -48,7 +48,7 @@ const Footer = (props) => {
               Site
             </Text>
 
-            <Box as="ul" variant="list">
+            <Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
               <li>
                 <FooterLink to="/">Home</FooterLink>
               </li>
@@ -76,7 +76,7 @@ const Footer = (props) => {
               Links
             </Text>
 
-            <Box as="ul" variant="list">
+            <Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
               <li>
                 <FooterLink href="https://github.com/lowmess">
                   GitHub
@@ -129,7 +129,7 @@ const Footer = (props) => {
               {post.frontmatter.title}
             </Link>
 
-            <Text as="p" mt={3} sx={{ maxWidth: 'measure' }}>
+            <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
               {post.frontmatter.description}
             </Text>
           </Box>

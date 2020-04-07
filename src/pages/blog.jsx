@@ -69,7 +69,7 @@ const BlogPage = () => {
                     </Link>
                   </Heading>
 
-                  <Text as="p" sx={{ maxWidth: 'measure', marginY: 2 }}>
+                  <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
                     {frontmatter.description}
                   </Text>
                 </div>

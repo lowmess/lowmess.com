@@ -47,6 +47,7 @@ export default {
   'muted-text': palette.grays[8],
 
   footer: palette.grays[2],
+  'inline-code-background': palette.grays[2],
 
   modes: {
     dark: {
@@ -63,6 +64,7 @@ export default {
       'muted-text': palette.grays[8],
 
       footer: palette.black,
+      'inline-code-background': palette.black,
     },
   },
 }
