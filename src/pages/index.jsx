@@ -46,7 +46,7 @@ const BooksToSentence = ({ books }) => {
   return books.map((book, index) => {
     if (index === 0) return <FormattedBook book={book} />
 
-    if (index + 1 === book.length)
+    if (index + 1 === books.length)
       return (
         <React.Fragment>
           , and <FormattedBook book={book} />
