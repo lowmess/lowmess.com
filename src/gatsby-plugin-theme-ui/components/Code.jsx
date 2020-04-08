@@ -62,7 +62,6 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 paddingY: 3,
                 backgroundColor: 'transparent',
                 color: 'white',
-                fontFamily: 'mono',
                 whiteSpace: 'pre',
 
                 '@media print': {
@@ -75,6 +74,7 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 },
 
                 '.token': {
+                  fontFamily: 'mono',
                   fontSize: '0.9em',
                 },
 
