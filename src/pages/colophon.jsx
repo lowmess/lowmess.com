@@ -53,7 +53,7 @@ const ColophonPage = () => {
       <Container mt={5}>
         <Grid columns={[1, 3]} gap={4}>
           <Box>
-            <Heading>Functionality</Heading>
+            <Heading color="muted-text">Functionality</Heading>
 
             <Stack gap={2} mt={3}>
               <Dependency version={preact} href="https://preactjs.com">
@@ -78,7 +78,9 @@ const ColophonPage = () => {
           </Box>
 
           <Box>
-            <Heading>Design</Heading>
+            <Heading color="muted-text" mt={[4, 0]}>
+              Design
+            </Heading>
 
             <Stack gap={2} mt={3}>
               <Dependency version={themeUI} href="https://theme-ui.com">
@@ -96,7 +98,9 @@ const ColophonPage = () => {
           </Box>
 
           <Box>
-            <Heading>Infrastructure</Heading>
+            <Heading color="muted-text" mt={[4, 0]}>
+              Infrastructure
+            </Heading>
 
             <Stack gap={2} mt={3}>
               <Dependency href="https://github.com">GitHub</Dependency>

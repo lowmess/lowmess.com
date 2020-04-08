@@ -59,7 +59,9 @@ const UsesPage = () => (
           <Dependency>Magic Mouse 2</Dependency>
         </Stack>
 
-        <Heading color="muted-text">Software</Heading>
+        <Heading color="muted-text" mt={[4, 0]}>
+          Software
+        </Heading>
 
         <Stack gap={2}>
           <React.Fragment>
@@ -107,7 +109,9 @@ const UsesPage = () => (
           <Dependency href="https://tot.rocks">Tot</Dependency>
         </Stack>
 
-        <Heading color="muted-text">Services</Heading>
+        <Heading color="muted-text" mt={[4, 0]}>
+          Services
+        </Heading>
 
         <Stack gap={2}>
           <Dependency href="https://github.com">GitHub</Dependency>
