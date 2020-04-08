@@ -2,16 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Header from '../components/Header'
-import MarkdownContent from '../components/MarkdownContent'
-import { useSiteMetadata } from '../utils/hooks'
-import unwidow from '../utils/unwidow'
-
-import 'lowmess-prism'
+import { Box, Container } from 'theme-ui'
+import Stack from '../components/Stack'
+import Layout from '../components/Layout'
+import { HeaderName, HeaderTitle } from '../components/Header'
 
 const BlogPostTemplate = ({ pageContext, children }) => {
-  const { title, siteUrl } = useSiteMetadata()
-
   // So this bit is a tad gross. I have to get all MDX nodes, then filter them
   // down to get the actual node the template is rendering. The reason for this
   // is thricefold:
@@ -43,7 +39,7 @@ const BlogPostTemplate = ({ pageContext, children }) => {
   `)
 
   const { node } = edges.find(
-    edge => edge.node.frontmatter.title === pageContext.frontmatter.title
+    (edge) => edge.node.frontmatter.title === pageContext.frontmatter.title
   )
 
   const post = {
@@ -55,46 +51,32 @@ const BlogPostTemplate = ({ pageContext, children }) => {
   }
 
   return (
-    <>
+    <Layout>
       <Helmet>
-        <title>
-          {post.frontmatter.title} • {title}
-        </title>
-
-        <meta name="description" content={post.frontmatter.description} />
-
-        <meta name="twitter:site" content="@lowmess" />
-        <meta name="twitter:card" content="summary" />
-        <meta property="og:site_name" content={title} />
-        <meta
-          property="og:title"
-          name="twitter:title"
-          content={post.frontmatter.title}
-        />
-        <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
-        <meta
-          property="og:description"
-          name="twitter:description"
-          content={post.frontmatter.description}
-        />
+        <title>{post.frontmatter.title}</title>
       </Helmet>
 
-      <article>
-        <Header>
-          <Header.Title>{unwidow(post.frontmatter.title)}</Header.Title>
+      <Box as="header">
+        <Container
+          sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, '1.125rem'] }}
+        >
+          <HeaderName as="time" dateTime={post.frontmatter.datetime}>
+            {post.frontmatter.date}
+          </HeaderName>
 
-          <Header.Subtitle as="p">
-            <time dateTime={post.frontmatter.datetime}>
-              {post.frontmatter.date}
-            </time>
-          </Header.Subtitle>
-        </Header>
+          <HeaderTitle aria-hidden="false">
+            {post.frontmatter.title}
+          </HeaderTitle>
+        </Container>
+      </Box>
 
-        <MarkdownContent as="main" lineHeight="copy" fontSize={[1, 2]}>
-          {children}
-        </MarkdownContent>
-      </article>
-    </>
+      <Stack
+        gap={4}
+        sx={{ marginTop: [4, 5], fontSize: [null, null, '1.125rem'] }}
+      >
+        {children}
+      </Stack>
+    </Layout>
   )
 }
 

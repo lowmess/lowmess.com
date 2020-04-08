@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'lowmess',
-    description:
-      'The official portfolio-slash-blog of Alec Lomas. A Name You Can Trust™',
+    description: `I'm Alec Lomas, and I make websites.`,
     siteUrl: 'https://www.lowmess.com',
   },
   plugins: [
@@ -19,6 +18,14 @@ module.exports = {
       options: {
         name: 'data',
         path: `${__dirname}/src/data/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'STATS',
+        fieldName: 'stats',
+        url: 'https://stats.lowmess.com/graphql',
       },
     },
     {
@@ -68,7 +75,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.frontmatter.description,
                   date: edge.node.frontmatter.date,
@@ -132,13 +139,12 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-layout',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-theme-ui',
     'gatsby-plugin-netlify',
   ],
 }

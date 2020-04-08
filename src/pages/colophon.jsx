@@ -1,184 +1,124 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Box, Flex, Text, Heading, Link } from 'rebass'
-import Header from '../components/Header'
-import { useSiteMetadata } from '../utils/hooks'
+import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
+import Layout from '../components/Layout'
+import Stack from '../components/Stack'
+import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import { dependencies } from '../../package-lock.json'
 
-const SectionTitle = ({ children, ...props }) => (
-  <Heading fontSize={[3, 4]} {...props}>
-    {children}
-  </Heading>
-)
+const Dependency = ({ version, href, children }) => (
+  <Text sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
+    <Link variant="ui" href={href} sx={{ fontSize: [1, 2] }}>
+      {children}
+    </Link>
 
-SectionTitle.propTypes = {
-  children: PropTypes.string.isRequired,
-}
-
-const Dep = ({ children, ...props }) => (
-  <Flex as="p" alignItems="baseline" mt={3} mb={0} {...props}>
-    {children}
-  </Flex>
-)
-
-Dep.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-const DepLink = ({ children, ...props }) => (
-  <Link variant="ui-link" fontSize={[2, 3]} fontWeight="semi-bold" {...props}>
-    {children}
-  </Link>
-)
-
-DepLink.propTypes = {
-  children: PropTypes.string.isRequired,
-}
-
-const DepVer = ({ children, ...props }) => (
-  <Text as="span" ml={3} fontFamily="monospace" {...props}>
-    {children}
+    {version && (
+      <Text as="span" sx={{ marginLeft: 2, fontFamily: 'mono', fontSize: 0 }}>
+        v{version}
+      </Text>
+    )}
   </Text>
 )
 
-DepVer.propTypes = {
-  children: PropTypes.string.isRequired,
-}
-
-const SanityCheck = ({ children, ...props }) => (
-  <Text
-    as="p"
-    mt={3}
-    mb={0}
-    fontSize={[2, 3]}
-    fontWeight="semi-bold"
-    {...props}
-  >
-    {children}
-  </Text>
-)
-
-SanityCheck.propTypes = {
-  children: PropTypes.string.isRequired,
+Dependency.propTypes = {
+  version: PropTypes.string,
+  href: PropTypes.string,
+  children: PropTypes.node,
 }
 
 const ColophonPage = () => {
-  const { title } = useSiteMetadata()
-
   const {
     preact: { version: preact },
     gatsby: { version: gatsby },
+    'theme-ui': { version: themeUI },
     '@mdx-js/mdx': { version: mdx },
-    'sanitize.css': { version: sanitize },
-    '@emotion/core': { version: emotion },
-    rebass: { version: rebass },
-    husky: { version: husky },
-    'lint-staged': { version: lintStaged },
+    'react-helmet': { version: reactHelmet },
     eslint: { version: eslint },
     prettier: { version: prettier },
   } = dependencies
 
   return (
-    <>
+    <Layout>
       <Helmet>
-        <title>Colophon • {title}</title>
+        <title>Colophon</title>
       </Helmet>
 
-      <article>
-        <Header>
-          <Header.Title>Building Blocks</Header.Title>
-        </Header>
+      <Header>
+        <HeaderName>Colophon</HeaderName>
 
-        <Flex as="main" flexDirection={['column', 'column', 'row']}>
-          <Box as="section" mr={[0, 0, 6]}>
-            <SectionTitle>Functionality</SectionTitle>
+        <HeaderTitle>Building Blocks</HeaderTitle>
+      </Header>
 
-            <Dep mt={4}>
-              <DepLink href="https://preactjs.com">Preact</DepLink>{' '}
-              <DepVer>{preact}</DepVer>
-            </Dep>
+      <Container mt={5}>
+        <Grid columns={[1, 3]} gap={4}>
+          <Box>
+            <Heading color="muted-text">Functionality</Heading>
 
-            <Dep>
-              <DepLink href="https://gatsbyjs.org">Gatsby</DepLink>{' '}
-              <DepVer>{gatsby}</DepVer>
-            </Dep>
+            <Stack gap={2} mt={3}>
+              <Dependency version={preact} href="https://preactjs.com">
+                Preact
+              </Dependency>
 
-            <Dep>
-              <DepLink href="https://mdxjs.com/">MDX</DepLink>{' '}
-              <DepVer>{mdx}</DepVer>
-            </Dep>
+              <Dependency version={gatsby} href="https://gatsbyjs.org">
+                Gatsby
+              </Dependency>
 
-            <Dep>
-              <DepLink href="https://csstools.github.io/sanitize.css/">
-                sanitize.css
-              </DepLink>{' '}
-              <DepVer>{sanitize}</DepVer>
-            </Dep>
+              <Dependency version={mdx} href="https://mdxjs.com">
+                MDX
+              </Dependency>
 
-            <Dep>
-              <DepLink href="https://emotion.sh/">emotion</DepLink>{' '}
-              <DepVer>{emotion}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://rebassjs.org/">Rebass</DepLink>{' '}
-              <DepVer>{rebass}</DepVer>
-            </Dep>
+              <Dependency
+                version={reactHelmet}
+                href="https://github.com/nfl/react-helmet"
+              >
+                React Helmet
+              </Dependency>
+            </Stack>
           </Box>
 
-          <Box as="section" mt={[5, 5, 0]} mr={[0, 0, 6]}>
-            <SectionTitle>Infrastructure</SectionTitle>
+          <Box>
+            <Heading color="muted-text" mt={[4, 0]}>
+              Design
+            </Heading>
 
-            <Dep mt={4}>
-              <DepLink href="https://netlify.com">Netlify</DepLink>
-            </Dep>
+            <Stack gap={2} mt={3}>
+              <Dependency version={themeUI} href="https://theme-ui.com">
+                Theme UI
+              </Dependency>
 
-            <Dep>
-              <DepLink href="https://github.com">GitHub</DepLink>
-            </Dep>
+              <Dependency version="3.21" href="https://rsms.me/inter">
+                Inter
+              </Dependency>
 
-            <Dep>
-              <DepLink href="https://github.com/typicode/husky">husky</DepLink>{' '}
-              <DepVer>{husky}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://github.com/okonet/lint-staged">
-                lint-staged
-              </DepLink>{' '}
-              <DepVer>{lintStaged}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://eslint.org/">ESLint</DepLink>{' '}
-              <DepVer>{eslint}</DepVer>
-            </Dep>
-
-            <Dep>
-              <DepLink href="https://prettier.io/">Prettier</DepLink>{' '}
-              <DepVer>{prettier}</DepVer>
-            </Dep>
+              <Dependency version="0.491" href="https://dank.sh">
+                Dank Mono
+              </Dependency>
+            </Stack>
           </Box>
 
-          <Box as="section" mt={[5, 5, 0]}>
-            <SectionTitle>Sanity</SectionTitle>
+          <Box>
+            <Heading color="muted-text" mt={[4, 0]}>
+              Infrastructure
+            </Heading>
 
-            <SanityCheck mt={4}>Music</SanityCheck>
+            <Stack gap={2} mt={3}>
+              <Dependency href="https://github.com">GitHub</Dependency>
 
-            <SanityCheck>Coffee</SanityCheck>
+              <Dependency href="https://netlify.com">Netlify</Dependency>
 
-            <SanityCheck>Beer</SanityCheck>
+              <Dependency version={eslint} href="https://eslint.org">
+                ESLint
+              </Dependency>
 
-            <SanityCheck>Mexican Food</SanityCheck>
-
-            <SanityCheck>Skateboarding</SanityCheck>
-
-            <SanityCheck>Basketball</SanityCheck>
+              <Dependency version={prettier} href="https://prettier.io">
+                Prettier
+              </Dependency>
+            </Stack>
           </Box>
-        </Flex>
-      </article>
-    </>
+        </Grid>
+      </Container>
+    </Layout>
   )
 }
 

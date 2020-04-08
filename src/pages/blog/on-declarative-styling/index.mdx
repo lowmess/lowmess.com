@@ -89,7 +89,7 @@ const Box = styled.div`
   ${color}
 `
 
-const MyStyledSystemComponent = props => (
+const MyStyledSystemComponent = (props) => (
   <Box p={[2, 3]} color="primary" {...props}>
     Hi
   </Box>
@@ -103,7 +103,7 @@ const MyView = () => (
   <main>
     <header>...</header>
 
-    <MyStyledSystemComponent my="4" />
+    <MyStyledSystemComponent my={4} />
 
     <footer>...</footer>
   </main>
