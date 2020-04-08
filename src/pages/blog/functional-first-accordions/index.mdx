@@ -83,7 +83,22 @@ details[open] summary::after {
 
 [Here's the accordion](https://codepen.io/lowmess/pen/zMjagE) as it looks at this point:
 
-<iframe height='300' scrolling='no' title='Details Accordion (CSS Resets Only)' src='//codepen.io/lowmess/embed/zMjagE/?height=300&theme-id=22727&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/lowmess/pen/zMjagE/'>Details Accordion (CSS Resets Only)</a> by Alec Lomas (<a href='https://codepen.io/lowmess'>@lowmess</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe
+  height="300"
+  scrolling="no"
+  title="Details Accordion (CSS Resets Only)"
+  src="//codepen.io/lowmess/embed/zMjagE/?height=300&theme-id=22727&default-tab=result"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  style="width: 100%;"
+>
+  See the Pen{' '}
+  <a href="https://codepen.io/lowmess/pen/zMjagE/">
+    Details Accordion (CSS Resets Only)
+  </a>{' '}
+  by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
+  <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
 Not bad for a few lines of CSS! There's a few more changes I would make before calling this anything approaching good-looking, though.
@@ -109,7 +124,22 @@ summary + * {
 
 [Now we've got a relatively attractive accordion component](https://codepen.io/lowmess/pen/eQrjBG). We could stop now, and we would have a working component that, with a few tweaks, could be dropped onto almost any site and Just Work™️.
 
-<iframe height='300' scrolling='no' title='Details Accordion (Base Styles)' src='//codepen.io/lowmess/embed/eQrjBG/?height=300&theme-id=22727&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/lowmess/pen/eQrjBG/'>Details Accordion (Base Styles)</a> by Alec Lomas (<a href='https://codepen.io/lowmess'>@lowmess</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe
+  height="300"
+  scrolling="no"
+  title="Details Accordion (Base Styles)"
+  src="//codepen.io/lowmess/embed/eQrjBG/?height=300&theme-id=22727&default-tab=result"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  style="width: 100%;"
+>
+  See the Pen{' '}
+  <a href="https://codepen.io/lowmess/pen/eQrjBG/">
+    Details Accordion (Base Styles)
+  </a>{' '}
+  by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
+  <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
 ## Enchanting Progressive Enhancement
@@ -153,11 +183,14 @@ for (const content of document.querySelectorAll('details .content')) {
 There's one last piece we need to set into place before we can trigger the animation. When the element is closed, it has an applied `max-height` of `0`. Since the `auto` declaration is not animatable, we'll need to apply a defined `max-height` to the content when it's open. For the smoothest possible animation, that `max-height` should be the same size as the content height. We can write a simple function to calculate this height and store it as an attribute on the content element.
 
 ```js
-const getContentHeight = node => {
+const getContentHeight = (node) => {
   // Force node to display properly
   node.classList.remove('is-closed')
   // Calculate height and store it
-  node.setAttribute('data-height', `${node.getBoundingClientRect().height}px`)
+  node.setAttribute(
+    'data-height',
+    `${node.getBoundingClientRect().height}px`
+  )
   // Reset node to initial state
   node.classList.add('is-closed')
 }
@@ -166,7 +199,7 @@ const getContentHeight = node => {
 Now that we've accounted for that wrinkle, we can handle interaction on the element. In a bit of premature optimization, we'll [delegate the event](https://javascript.info/event-delegation) to the document.
 
 ```js
-document.addEventListener('click', event => {
+document.addEventListener('click', (event) => {
   if (!event.target.closest('summary')) {
     return
   }
@@ -211,7 +244,22 @@ window.setTimeout(() => {
 
 [Putting it all together](https://codepen.io/lowmess/pen/yQjRXy) gives us a fully functional, animated accordion component. And because we started with an HTML element that gives us our core functionality by default, a user doesn't need to have JavaScript running to access the hidden content.
 
-<iframe height='300' scrolling='no' title='<details> Accordion (Final Form)' src='//codepen.io/lowmess/embed/yQjRXy/?height=300&theme-id=22727&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/lowmess/pen/yQjRXy/'>&lt;details&rt; Accordion (Final Form)</a> by Alec Lomas (<a href='https://codepen.io/lowmess'>@lowmess</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe
+  height="300"
+  scrolling="no"
+  title="<details> Accordion (Final Form)"
+  src="//codepen.io/lowmess/embed/yQjRXy/?height=300&theme-id=22727&default-tab=result"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  style="width: 100%;"
+>
+  See the Pen{' '}
+  <a href="https://codepen.io/lowmess/pen/yQjRXy/">
+    &lt;details&rt; Accordion (Final Form)
+  </a>{' '}
+  by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
+  <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
 ## Extra Credit
