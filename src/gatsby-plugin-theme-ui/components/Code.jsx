@@ -61,6 +61,8 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 overflowX: 'scroll',
                 paddingY: 3,
                 backgroundColor: 'transparent',
+                fontSize: 'inherit',
+                fontFamily: 'mono',
                 color: 'white',
                 whiteSpace: 'pre',
 
