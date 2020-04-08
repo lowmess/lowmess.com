@@ -130,38 +130,42 @@ const IndexPage = () => {
         <Text variant="section-heading" mb={3}>
           Introduction
         </Text>
-        <Heading as="h1" variant="site-intro" sx={{ fontWeight: 'bold' }}>
-          My name is Alec Lomas, and I make websites.
-        </Heading>{' '}
-        <Heading as="h2" variant="site-intro">
-          Currently, I&rsquo;m helping recruiting stay human at{' '}
-          <Link href="https://hiringsolved.com">HiringSolved</Link>.
-        </Heading>{' '}
-        <Text as="p" variant="site-intro">
-          In the last 30 days, I&rsquo;ve pushed{' '}
-          <Link href="https://github.com/lowmess">
-            <ValueCount value={commits} singular="commit" plural="commits" />
-          </Link>{' '}
-          to GitHub, sent{' '}
-          <Link href="https://twitter.com/lowmess">
-            <ValueCount value={tweets} singular="tweet" plural="tweets" />
-          </Link>
-          , taken <ValueCount value={steps} singular="step" plural="steps" />,
-          and visited{' '}
-          <ValueCount value={places} singular="place" plural="places" />. My
-          most played album is{' '}
-          <Link href="https://www.last.fm/user/lowmess/library/albums?date_preset=LAST_30_DAYS">
-            &ldquo;{album.name}&rdquo; by {album.artist}
-          </Link>
-          , and I&rsquo;ve listened to{' '}
-          <Link href="https://www.last.fm/user/lowmess">
-            <ValueCount value={songs} singular="song" plural="songs" />
-          </Link>{' '}
-          overall. I am reading{' '}
-          <Link href="https://www.goodreads.com/user/show/27057705-alec-lomas">
-            <ValueCount value={books.length} singular="book" plural="books" />
-          </Link>{' '}
-          at the moment: <BooksToSentence books={books} />.
+
+        {/* The `Text` wrapper makes sure spaces are consistently sized */}
+        <Text variant="site-intro" sx={{ display: 'contents' }}>
+          <Heading as="h1" variant="site-intro" sx={{ fontWeight: 'bold' }}>
+            My name is Alec Lomas, and I make websites.
+          </Heading>{' '}
+          <Heading as="h2" variant="site-intro">
+            Currently, I&rsquo;m helping recruiting stay human at{' '}
+            <Link href="https://hiringsolved.com">HiringSolved</Link>.
+          </Heading>{' '}
+          <Text as="p" variant="site-intro">
+            In the last 30 days, I&rsquo;ve pushed{' '}
+            <Link href="https://github.com/lowmess">
+              <ValueCount value={commits} singular="commit" plural="commits" />
+            </Link>{' '}
+            to GitHub, sent{' '}
+            <Link href="https://twitter.com/lowmess">
+              <ValueCount value={tweets} singular="tweet" plural="tweets" />
+            </Link>
+            , taken <ValueCount value={steps} singular="step" plural="steps" />,
+            and visited{' '}
+            <ValueCount value={places} singular="place" plural="places" />. My
+            most played album is{' '}
+            <Link href="https://www.last.fm/user/lowmess/library/albums?date_preset=LAST_30_DAYS">
+              &ldquo;{album.name}&rdquo; by {album.artist}
+            </Link>
+            , and I&rsquo;ve listened to{' '}
+            <Link href="https://www.last.fm/user/lowmess">
+              <ValueCount value={songs} singular="song" plural="songs" />
+            </Link>{' '}
+            overall. I am reading{' '}
+            <Link href="https://www.goodreads.com/user/show/27057705-alec-lomas">
+              <ValueCount value={books.length} singular="book" plural="books" />
+            </Link>{' '}
+            at the moment: <BooksToSentence books={books} />.
+          </Text>
         </Text>
       </Container>
     </Layout>
