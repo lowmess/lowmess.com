@@ -99,9 +99,9 @@ const ColophonPage = () => {
             <Heading>Infrastructure</Heading>
 
             <Stack gap={2} mt={3}>
-              <Dependency href="https://netlify.com">Netlify</Dependency>
-
               <Dependency href="https://github.com">GitHub</Dependency>
+
+              <Dependency href="https://netlify.com">Netlify</Dependency>
 
               <Dependency version={eslint} href="https://eslint.org">
                 ESLint
