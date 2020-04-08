@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Heading, Link } from 'rebass'
+import { Heading } from 'rebass'
 import Paragraph from '../components/Paragraph'
 import Header from '../components/Header'
 import ProjectPreview from '../components/ProjectPreview'
@@ -27,11 +27,7 @@ const IndexPage = () => {
         <Header.Title>Hi! I&rsquo;m Alec&nbsp;Lomas.</Header.Title>
 
         <Header.Subtitle mb={3}>
-          I&rsquo;m a frontend developer &amp; designer at&nbsp;
-          <Link variant="ui-link" href="https://hiringsolved.com/">
-            HiringSolved
-          </Link>
-          .
+          I&rsquo;m a frontend developer &amp; designer in Tempe, Arizona.
         </Header.Subtitle>
 
         <Paragraph fontSize={[2, 3]} mt={3} mb={4} letterSpacing="-0.02em">
