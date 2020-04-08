@@ -62,7 +62,6 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 paddingY: 3,
                 backgroundColor: 'transparent',
                 color: 'white',
-                fontSize: '0.9em',
                 fontFamily: 'mono',
                 whiteSpace: 'pre',
 
@@ -76,7 +75,7 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 },
 
                 '.token': {
-                  fontSize: 'inherit',
+                  fontSize: '0.9em',
                 },
 
                 '.token.comment': {
