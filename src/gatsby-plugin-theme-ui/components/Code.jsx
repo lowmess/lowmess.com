@@ -61,7 +61,6 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 overflowX: 'scroll',
                 paddingY: 3,
                 backgroundColor: 'transparent',
-                fontSize: 'inherit',
                 fontFamily: 'mono',
                 color: 'white',
                 whiteSpace: 'pre',
@@ -75,11 +74,6 @@ const Code = ({ className: languageClass, children, ...props }) => {
                   overflow: 'visible !important',
                 },
 
-                '.token': {
-                  fontFamily: 'mono',
-                  fontSize: '0.9em',
-                },
-
                 '.token.comment': {
                   fontStyle: 'italic',
                 },
@@ -90,7 +84,7 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 // eslint-disable-next-line
                 <Grid
                   columns={[1, '2ch 1fr']}
-                  sx={{ columnGap: 3, rowGap: 0 }}
+                  sx={{ display: ['block', 'grid'], columnGap: 3, rowGap: 0 }}
                   {...getLineProps({
                     line,
                     key: index,
