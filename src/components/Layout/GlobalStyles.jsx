@@ -13,6 +13,7 @@ const GlobalStyles = () => {
       styles={css`
         ::selection {
           background-color: ${theme.colors.highlight};
+          color: ${theme.colors.text};
         }
 
         html {
