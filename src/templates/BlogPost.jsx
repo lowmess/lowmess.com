@@ -70,10 +70,7 @@ const BlogPostTemplate = ({ pageContext, children }) => {
         </Container>
       </Box>
 
-      <Stack
-        gap={4}
-        sx={{ marginTop: [4, 5], fontSize: [null, null, '1.125rem'] }}
-      >
+      <Stack gap={4} mt={[4, 5]}>
         {children}
       </Stack>
     </Layout>
