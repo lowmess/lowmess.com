@@ -137,7 +137,7 @@ const IndexPage = () => {
             My name is Alec Lomas, and I make websites.
           </Heading>{' '}
           <Heading as="h2" variant="site-intro">
-            Currently, I&rsquo;m helping make talent discovery easy at{' '}
+            Currently, I&rsquo;m helping recruiting stay human at{' '}
             <Link href="https://hiringsolved.com">HiringSolved</Link>.
           </Heading>{' '}
           <Text as="p" variant="site-intro">
