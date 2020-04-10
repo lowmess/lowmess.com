@@ -34,8 +34,6 @@ const palette = {
 export default {
   black: palette.black,
   white: palette.white,
-  grays: palette.grays,
-  oranges: palette.oranges,
 
   text: palette.grays[10],
   background: palette.white,
@@ -49,9 +47,6 @@ export default {
 
   modes: {
     dark: {
-      grays: [...palette.grays].reverse(),
-      oranges: [...palette.oranges].reverse(),
-
       text: palette.grays[2],
       background: palette.grays[11],
       primary: palette.orange,
