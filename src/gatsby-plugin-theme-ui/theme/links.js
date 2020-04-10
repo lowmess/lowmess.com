@@ -7,7 +7,7 @@ export default {
     fontWeight: 'normal',
 
     '&:hover': {
-      borderColor: 'muted',
+      borderColor: 'border',
       color: 'text',
     },
 

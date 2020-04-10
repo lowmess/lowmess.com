@@ -121,7 +121,7 @@ const InlineCode = ({ children }) => (
     sx={{
       borderRadius: 1,
       paddingX: 1,
-      backgroundColor: 'inline-code-background',
+      backgroundColor: 'muted',
       color: 'inherit',
       fontFamily: 'mono',
       whiteSpace: 'nowrap',

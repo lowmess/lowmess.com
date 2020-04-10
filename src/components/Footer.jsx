@@ -36,7 +36,7 @@ const Footer = (props) => {
   const post = data.allMdx.edges[0].node
 
   return (
-    <Box as="footer" bg="footer" py={5} {...props}>
+    <Box as="footer" bg="muted" py={5} {...props}>
       <Container>
         <Grid
           gap={[4, 3]}
