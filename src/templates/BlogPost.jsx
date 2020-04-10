@@ -3,11 +3,14 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Box, Container } from 'theme-ui'
+import { useSiteMetadata } from '../utils/hooks'
 import Stack from '../components/Stack'
 import Layout from '../components/Layout'
 import { HeaderName, HeaderTitle } from '../components/Header'
 
 const BlogPostTemplate = ({ pageContext, children }) => {
+  const { title, siteUrl } = useSiteMetadata()
+
   // So this bit is a tad gross. I have to get all MDX nodes, then filter them
   // down to get the actual node the template is rendering. The reason for this
   // is thricefold:
@@ -54,12 +57,27 @@ const BlogPostTemplate = ({ pageContext, children }) => {
     <Layout>
       <Helmet>
         <title>{post.frontmatter.title}</title>
+
+        <meta name="description" content={post.frontmatter.description} />
+
+        <meta name="twitter:site" content="@lowmess" />
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:site_name" content={title} />
+        <meta
+          property="og:title"
+          name="twitter:title"
+          content={post.frontmatter.title}
+        />
+        <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
+        <meta
+          property="og:description"
+          name="twitter:description"
+          content={post.frontmatter.description}
+        />
       </Helmet>
 
       <Box as="header">
-        <Container
-          sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, '1.125rem'] }}
-        >
+        <Container sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, 3] }}>
           <HeaderName as="time" dateTime={post.frontmatter.datetime}>
             {post.frontmatter.date}
           </HeaderName>

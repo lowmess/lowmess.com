@@ -62,14 +62,9 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 paddingY: 3,
                 backgroundColor: 'transparent',
                 fontFamily: 'mono',
-                fontSize: 1,
+                fontSize: 2,
                 color: 'white',
                 whiteSpace: 'pre',
-
-                '@media print': {
-                  backgroundColor: 'transparent',
-                  color: 'black',
-                },
 
                 '.token-line': {
                   overflow: 'visible !important',
@@ -121,7 +116,7 @@ const InlineCode = ({ children }) => (
     sx={{
       borderRadius: 1,
       paddingX: 1,
-      backgroundColor: 'inline-code-background',
+      backgroundColor: 'muted',
       color: 'inherit',
       fontFamily: 'mono',
       whiteSpace: 'nowrap',

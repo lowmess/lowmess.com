@@ -30,6 +30,18 @@ const GlobalStyles = () => {
           }
         }
 
+        @media print {
+          * {
+            background-color: transparent !important;
+            color: ${theme.colors.black} !important;
+          }
+
+          nav,
+          footer {
+            display: none;
+          }
+        }
+
         body {
           margin: 0;
           cursor: default;

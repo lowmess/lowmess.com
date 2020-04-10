@@ -34,8 +34,6 @@ const palette = {
 export default {
   black: palette.black,
   white: palette.white,
-  grays: palette.grays,
-  oranges: palette.oranges,
 
   text: palette.grays[10],
   background: palette.white,
@@ -43,28 +41,21 @@ export default {
   secondary: palette.oranges[6],
   accent: palette.orange,
   highlight: palette.orange,
-  muted: palette.grays[4],
+  muted: palette.grays[2],
   'muted-text': palette.grays[8],
-
-  footer: palette.grays[2],
-  'inline-code-background': palette.grays[2],
+  border: palette.grays[4],
 
   modes: {
     dark: {
-      grays: [...palette.grays].reverse(),
-      oranges: [...palette.oranges].reverse(),
-
       text: palette.grays[2],
       background: palette.grays[11],
       primary: palette.orange,
       secondary: palette.oranges[3],
       accent: palette.orange,
       highlight: palette.orange,
-      muted: palette.grays[8],
+      muted: palette.black,
       'muted-text': palette.grays[8],
-
-      footer: palette.black,
-      'inline-code-background': palette.black,
+      border: palette.grays[8],
     },
   },
 }

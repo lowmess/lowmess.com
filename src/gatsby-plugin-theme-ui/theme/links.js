@@ -3,10 +3,11 @@ export default {
     borderBottom: 2,
     borderColor: 'transparent',
     padding: 2,
+    fontSize: [1, 2],
     fontWeight: 'normal',
 
     '&:hover': {
-      borderColor: 'muted',
+      borderColor: 'border',
       color: 'text',
     },
 

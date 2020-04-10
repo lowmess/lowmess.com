@@ -81,7 +81,7 @@ const h1 = (props) => {
 const h2 = (props) => <AutolinkHeading as="h2" mt={[4, 5]} {...props} />
 
 const h3 = (props) => (
-  <AutolinkHeading as="h3" sx={{ fontSize: [1, 2] }} {...props} />
+  <AutolinkHeading as="h3" sx={{ fontSize: [3, 4] }} {...props} />
 )
 
 const h4 = (props) => (

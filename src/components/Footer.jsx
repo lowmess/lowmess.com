@@ -36,7 +36,7 @@ const Footer = (props) => {
   const post = data.allMdx.edges[0].node
 
   return (
-    <Box as="footer" bg="footer" py={5} {...props}>
+    <Box as="footer" bg="muted" py={5} {...props}>
       <Container>
         <Grid
           gap={[4, 3]}
@@ -124,7 +124,7 @@ const Footer = (props) => {
               variant="ui"
               as={GatsbyLink}
               to={post.fields.slug}
-              sx={{ fontSize: 3, fontWeight: 'bold', lineHeight: 'heading' }}
+              sx={{ fontSize: 5, fontWeight: 'bold', lineHeight: 'heading' }}
             >
               {post.frontmatter.title}
             </Link>

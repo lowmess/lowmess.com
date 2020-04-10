@@ -17,10 +17,10 @@ const Head = () => {
 
       <meta name="description" content={description} />
       {/* theming */}
-      <meta name="theme-color" content={theme.colors.grays[1]} />
+      <meta name="theme-color" content={theme.colors.muted} />
       <meta name="apple-mobile-web-app-title" content="lowmess" />
       <meta name="application-name" content="lowmess" />
-      <meta name="msapplication-TileColor" content={theme.colors.orange} />
+      <meta name="msapplication-TileColor" content={theme.colors.primary} />
       {/* icons */}
       <link
         rel="apple-touch-icon"
@@ -42,7 +42,7 @@ const Head = () => {
       <link
         rel="mask-icon"
         href="/safari-pinned-tab.svg"
-        color={theme.colors.orange}
+        color={theme.colors.primary}
       />
     </Helmet>
   )

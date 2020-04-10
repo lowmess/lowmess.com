@@ -5,7 +5,7 @@ import { Box } from 'theme-ui'
 const Stack = ({
   gap = 0,
   dividers,
-  dividerColor = 'muted',
+  dividerColor = 'border',
   children,
   ...props
 }) => {

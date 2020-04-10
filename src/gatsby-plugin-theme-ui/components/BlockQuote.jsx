@@ -15,7 +15,7 @@ const BlockQuote = (props) => (
           right: '100%',
           marginRight: 2,
           color: 'muted-text',
-          fontSize: 5,
+          fontSize: 7,
         },
 
         div: {
@@ -23,7 +23,7 @@ const BlockQuote = (props) => (
         },
 
         p: {
-          fontSize: [2, 3],
+          fontSize: [4, 5],
           fontWeight: 'semi-bold',
           lineHeight: 'heading',
         },

@@ -14,7 +14,7 @@ const Dependency = ({ href, ...props }) => {
       <Text as="span" {...nestedProps} />
     )
 
-  return <WrapperComponent sx={{ fontSize: [1, 2] }} {...props} />
+  return <WrapperComponent sx={{ fontSize: [2, 4] }} {...props} />
 }
 
 Dependency.propTypes = {
