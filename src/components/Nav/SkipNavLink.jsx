@@ -11,6 +11,7 @@ const SkipNavLink = () => (
       right: 0,
       bottom: 0,
       left: 0,
+      zIndex: 1,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

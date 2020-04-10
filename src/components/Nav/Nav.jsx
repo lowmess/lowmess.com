@@ -40,7 +40,7 @@ const Nav = ({ sx, ...props }) => {
                 as={GatsbyLink}
                 to="/"
                 data-active={location.pathname === '/' ? true : null}
-                mr={[0, 2]}
+                mr={[1, 2]}
               >
                 Home
               </NavLink>
@@ -51,7 +51,7 @@ const Nav = ({ sx, ...props }) => {
                 as={GatsbyLink}
                 to="/projects"
                 data-active={location.pathname === '/projects' ? true : null}
-                mr={[0, 2]}
+                mr={[1, 2]}
               >
                 Projects
               </NavLink>
