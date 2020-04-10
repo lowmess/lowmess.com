@@ -124,7 +124,7 @@ const Footer = (props) => {
               variant="ui"
               as={GatsbyLink}
               to={post.fields.slug}
-              sx={{ fontSize: 3, fontWeight: 'bold', lineHeight: 'heading' }}
+              sx={{ fontSize: 5, fontWeight: 'bold', lineHeight: 'heading' }}
             >
               {post.frontmatter.title}
             </Link>

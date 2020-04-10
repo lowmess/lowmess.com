@@ -11,7 +11,7 @@ const Link = (props) => (
       '@media print': {
         '&:after': {
           content: `' (' attr(href) ')'`,
-          fontSize: '0.875em',
+          fontSize: 1,
         },
 
         "&[href^='/']:after": {

@@ -77,9 +77,7 @@ const BlogPostTemplate = ({ pageContext, children }) => {
       </Helmet>
 
       <Box as="header">
-        <Container
-          sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, '1.125rem'] }}
-        >
+        <Container sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, 3] }}>
           <HeaderName as="time" dateTime={post.frontmatter.datetime}>
             {post.frontmatter.date}
           </HeaderName>

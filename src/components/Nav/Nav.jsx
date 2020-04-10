@@ -16,7 +16,7 @@ const Nav = ({ sx, ...props }) => {
       sx={{
         borderTop: 4,
         borderColor: 'primary',
-        paddingTop: [3, 4, 5],
+        paddingTop: [4, null, 5],
         ...sx,
       }}
       {...props}
@@ -33,14 +33,14 @@ const Nav = ({ sx, ...props }) => {
 
         <Logo />
 
-        <Flex>
+        <Flex sx={{ alignItems: 'center' }}>
           <Flex as="ul">
             <li>
               <NavLink
                 as={GatsbyLink}
                 to="/"
                 data-active={location.pathname === '/' ? true : null}
-                mr={2}
+                mr={[0, 2]}
               >
                 Home
               </NavLink>
@@ -51,7 +51,7 @@ const Nav = ({ sx, ...props }) => {
                 as={GatsbyLink}
                 to="/projects"
                 data-active={location.pathname === '/projects' ? true : null}
-                mr={2}
+                mr={[0, 2]}
               >
                 Projects
               </NavLink>

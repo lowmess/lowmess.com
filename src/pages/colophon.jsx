@@ -9,7 +9,7 @@ import { dependencies } from '../../package-lock.json'
 
 const Dependency = ({ version, href, children }) => (
   <Text sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
-    <Link variant="ui" href={href} sx={{ fontSize: [1, 2] }}>
+    <Link variant="ui" href={href} sx={{ fontSize: [2, 4] }}>
       {children}
     </Link>
 

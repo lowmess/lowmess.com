@@ -62,7 +62,7 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 paddingY: 3,
                 backgroundColor: 'transparent',
                 fontFamily: 'mono',
-                fontSize: 1,
+                fontSize: 2,
                 color: 'white',
                 whiteSpace: 'pre',
 

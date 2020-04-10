@@ -1,6 +1,6 @@
 export default {
   heading: {
-    fontSize: [2, 3],
+    fontSize: [4, 5],
     fontWeight: 'semi-bold',
     lineHeight: 'heading',
     letterSpacing: '-0.02em',
@@ -8,7 +8,7 @@ export default {
 
   'site-intro': {
     display: 'inline',
-    fontSize: [3, 4],
+    fontSize: [5, 6],
     fontWeight: 'normal',
     lineHeight: 'copy',
     letterSpacing: '-0.02em',
@@ -24,7 +24,7 @@ export default {
   },
 
   'header-title': {
-    fontSize: [3, 4],
+    fontSize: [5, 6],
     fontWeight: 'bold',
     letterSpacing: '-0.02em',
   },

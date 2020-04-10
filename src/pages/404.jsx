@@ -20,8 +20,8 @@ const ErrorPage = () => (
       <Text
         as="pre"
         sx={{
-          fontSize: [2, 3],
-          fontFamily: 'mono',
+          fontSize: [4, 5],
+          fontFamily: 'sans',
           lineHeight: 'heading',
         }}
       >
