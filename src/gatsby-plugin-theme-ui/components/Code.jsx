@@ -66,11 +66,6 @@ const Code = ({ className: languageClass, children, ...props }) => {
                 color: 'white',
                 whiteSpace: 'pre',
 
-                '@media print': {
-                  backgroundColor: 'transparent',
-                  color: 'black',
-                },
-
                 '.token-line': {
                   overflow: 'visible !important',
                 },
