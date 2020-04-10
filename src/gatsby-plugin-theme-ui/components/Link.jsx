@@ -4,24 +4,20 @@ import { Link as ThemeUILink } from 'theme-ui'
 const Link = (props) => (
   <ThemeUILink
     sx={{
-      '&:hover code': {
-        color: 'primary',
-      },
-
       '@media print': {
-        '&:after': {
+        '&::after': {
           content: `' (' attr(href) ')'`,
           fontSize: 1,
         },
 
-        "&[href^='/']:after": {
+        "&[href^='/']::after": {
           content: `' (https://lowmess.com' attr(href) ')'`,
         },
 
         "&[href^='#']": {
           textDecoration: 'none',
 
-          '&:after': {
+          '&::after': {
             content: `''`,
           },
         },
