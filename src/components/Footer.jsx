@@ -68,6 +68,10 @@ const Footer = (props) => {
               <li>
                 <FooterLink to="/uses">Uses</FooterLink>
               </li>
+
+              <li>
+                <FooterLink href="/rss.xml">RSS</FooterLink>
+              </li>
             </Box>
           </Box>
 
