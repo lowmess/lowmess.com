@@ -2,7 +2,17 @@ import React from 'react'
 import { Box, Container, Text } from 'theme-ui'
 
 const List = (props) => (
-  <Text sx={{ paddingLeft: 0, 'ul, ol': { marginY: 0 } }} {...props} />
+  <Text
+    sx={{
+      paddingLeft: 0,
+      fontSize: [null, null, 3],
+
+      'ul, ol': {
+        marginY: 0,
+      },
+    }}
+    {...props}
+  />
 )
 
 const UnorderedList = (props) => (
