@@ -124,7 +124,7 @@ const UsesPage = () => (
 
           <Dependency href="https://netlify.com">Netlify</Dependency>
 
-          <Dependency href="https://zeit.co/home">ZEIT Now</Dependency>
+          <Dependency href="https://vercel.com">Vercel</Dependency>
 
           <Dependency href="https://dropbox.com">Dropbox</Dependency>
         </Stack>
