@@ -5,17 +5,39 @@ updated: 2019-12-16
 description: Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do.
 ---
 
-> **Update (December 2019):**
->
-> In the year since I've wrote this, it's become increasingly clear that this is not a good method for building accordions. Beyond all the work it takes to make the thing functional (you know, the point of this post), [Dave Rupert recently wrote a short post detailing the accessibility shortcomings of this approach](https://daverupert.com/2019/12/why-details-is-not-an-accordion/). I share Dave's opinion that the web, as a platform, needs to bring some of these common controls to the table to ensure a consistent, accessible experience for all of its users.
+import { Text, Container, Link } from 'theme-ui'
+import Update from '../../components/Update'
+
+<Update date="December 2019">
+  In the year since I've wrote this, it's become increasingly clear that
+  this is not a good method for building accordions. Beyond all the work it
+  takes to make the thing functional (you know, the point of this post),{' '}
+  <Link href="https://daverupert.com/2019/12/why-details-is-not-an-accordion/">
+    Dave Rupert recently wrote a short post detailing the accessibility
+    shortcomings of this approach
+  </Link>
+  . I share Dave's opinion that the web, as a platform, needs to bring some
+  of these common controls to the table to ensure a consistent, accessible experience
+  for all of its users.
+</Update>
 
 There are few UI components encountered as frequently as the accordion. Even if you're unfamiliar with the term, you're familiar with the pattern: a string of text, sometimes accompanied by a button or icon, that reveals more content underneath when clicked. Thousands of developers and hundreds of UI frameworks have created accordions, often with their own rigid markup structures and (potentially bloated) JavaScript. But did you know that a perfectly functional accordion component ships with [most modern browsers](https://caniuse.com/#feat=details)? Check this out:
 
-<details>
-  <summary>This is my cool accordion</summary>
+<!--
+  The weird formatting here is to prevent the markdown parser from turning it
+  into a code block
+-->
 
-  <p>100% HTML, baby. #usetheplatform</p>
+<Container sx={{maxWidth: 'mdx-measure'}}>
+<details>
+<summary>This is my cool accordion</summary>
+
+<Text as="p" my={3}>
+  100% HTML, baby. #usetheplatform
+</Text>
+
 </details>
+</Container>
 
 That's all HTML! The code looks like this:
 
@@ -83,23 +105,25 @@ details[open] summary::after {
 
 [Here's the accordion](https://codepen.io/lowmess/pen/zMjagE) as it looks at this point:
 
-<iframe
-  height="300"
-  scrolling="no"
-  title="Details Accordion (CSS Resets Only)"
-  src="//codepen.io/lowmess/embed/zMjagE/?height=300&theme-id=22727&default-tab=result"
-  frameborder="no"
-  allowtransparency="true"
-  allowfullscreen="true"
-  style="width: 100%;"
->
-  See the Pen{' '}
-  <a href="https://codepen.io/lowmess/pen/zMjagE/">
-    Details Accordion (CSS Resets Only)
-  </a>{' '}
-  by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
-  <a href="https://codepen.io">CodePen</a>.
-</iframe>
+<Container sx={{ iframe: { border: 1, borderColor: 'muted' } }}>
+  <iframe
+    height="300"
+    scrolling="no"
+    title="Details Accordion (CSS Resets Only)"
+    src="//codepen.io/lowmess/embed/zMjagE/?height=300&theme-id=22727&default-tab=result"
+    frameborder="no"
+    allowtransparency="true"
+    allowfullscreen="true"
+    style="width: 100%;"
+  >
+    See the Pen{' '}
+    <a href="https://codepen.io/lowmess/pen/zMjagE/">
+      Details Accordion (CSS Resets Only)
+    </a>{' '}
+    by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
+    <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+</Container>
 
 Not bad for a few lines of CSS! There's a few more changes I would make before calling this anything approaching good-looking, though.
 
@@ -124,23 +148,25 @@ summary + * {
 
 [Now we've got a relatively attractive accordion component](https://codepen.io/lowmess/pen/eQrjBG). We could stop now, and we would have a working component that, with a few tweaks, could be dropped onto almost any site and Just Work™️.
 
-<iframe
-  height="300"
-  scrolling="no"
-  title="Details Accordion (Base Styles)"
-  src="//codepen.io/lowmess/embed/eQrjBG/?height=300&theme-id=22727&default-tab=result"
-  frameborder="no"
-  allowtransparency="true"
-  allowfullscreen="true"
-  style="width: 100%;"
->
-  See the Pen{' '}
-  <a href="https://codepen.io/lowmess/pen/eQrjBG/">
-    Details Accordion (Base Styles)
-  </a>{' '}
-  by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
-  <a href="https://codepen.io">CodePen</a>.
-</iframe>
+<Container sx={{ iframe: { border: 1, borderColor: 'muted' } }}>
+  <iframe
+    height="300"
+    scrolling="no"
+    title="Details Accordion (Base Styles)"
+    src="//codepen.io/lowmess/embed/eQrjBG/?height=300&theme-id=22727&default-tab=result"
+    frameborder="no"
+    allowtransparency="true"
+    allowfullscreen="true"
+    style="width: 100%;"
+  >
+    See the Pen{' '}
+    <a href="https://codepen.io/lowmess/pen/eQrjBG/">
+      Details Accordion (Base Styles)
+    </a>{' '}
+    by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
+    <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+</Container>
 
 ## Enchanting Progressive Enhancement
 
@@ -244,23 +270,25 @@ window.setTimeout(() => {
 
 [Putting it all together](https://codepen.io/lowmess/pen/yQjRXy) gives us a fully functional, animated accordion component. And because we started with an HTML element that gives us our core functionality by default, a user doesn't need to have JavaScript running to access the hidden content.
 
-<iframe
-  height="300"
-  scrolling="no"
-  title="<details> Accordion (Final Form)"
-  src="//codepen.io/lowmess/embed/yQjRXy/?height=300&theme-id=22727&default-tab=result"
-  frameborder="no"
-  allowtransparency="true"
-  allowfullscreen="true"
-  style="width: 100%;"
->
-  See the Pen{' '}
-  <a href="https://codepen.io/lowmess/pen/yQjRXy/">
-    &lt;details&rt; Accordion (Final Form)
-  </a>{' '}
-  by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
-  <a href="https://codepen.io">CodePen</a>.
-</iframe>
+<Container sx={{ iframe: { border: 1, borderColor: 'muted' } }}>
+  <iframe
+    height="300"
+    scrolling="no"
+    title="<details> Accordion (Final Form)"
+    src="//codepen.io/lowmess/embed/yQjRXy/?height=300&theme-id=22727&default-tab=result"
+    frameborder="no"
+    allowtransparency="true"
+    allowfullscreen="true"
+    style="width: 100%;"
+  >
+    See the Pen{' '}
+    <a href="https://codepen.io/lowmess/pen/yQjRXy/">
+      &lt;details&rt; Accordion (Final Form)
+    </a>{' '}
+    by Alec Lomas (<a href="https://codepen.io/lowmess">@lowmess</a>) on{' '}
+    <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+</Container>
 
 ## Extra Credit
 

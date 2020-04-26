@@ -46,7 +46,11 @@ const UsesPage = () => (
             <Details>2.9GHz Dual-Core Intel i5, 8GB memory</Details>
           </React.Fragment>
 
-          <Dependency>24&Prime; ASUS VS248 Monitor</Dependency>
+          <React.Fragment>
+            <Dependency>34&Prime; Acer XR Ultrawide Monitor</Dependency>
+
+            <Details>XR342CK Pbmiiqphuzx</Details>
+          </React.Fragment>
 
           <React.Fragment>
             <Dependency href="https://input.club/whitefox">
@@ -104,6 +108,8 @@ const UsesPage = () => (
 
           <Dependency href="https://www.alfredapp.com">Alfred 4</Dependency>
 
+          <Dependency href="https://mizage.com/divvy">Divvy</Dependency>
+
           <Dependency href="https://kapeli.com/dash">Dash</Dependency>
 
           <Dependency href="https://tot.rocks">Tot</Dependency>
@@ -118,7 +124,7 @@ const UsesPage = () => (
 
           <Dependency href="https://netlify.com">Netlify</Dependency>
 
-          <Dependency href="https://zeit.co/home">ZEIT Now</Dependency>
+          <Dependency href="https://vercel.com">Vercel</Dependency>
 
           <Dependency href="https://dropbox.com">Dropbox</Dependency>
         </Stack>
