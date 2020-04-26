@@ -40,6 +40,7 @@ module.exports = {
             options: {
               maxWidth: 1536,
               linkImagesToOriginal: false,
+              tracedSVG: true,
             },
           },
           { resolve: `gatsby-remark-copy-linked-files` },
