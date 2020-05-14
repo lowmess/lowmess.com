@@ -3,6 +3,9 @@ export default {
     fontSize: 'base',
     fontFamily: 'sans',
     lineHeight: 'copy',
+    textRendering: 'optimizeLegibility',
+    // Not picked up by autoprefixer for some reason?
+    '-webkit-font-smoothing': 'antialiased',
   },
 
   a: {
