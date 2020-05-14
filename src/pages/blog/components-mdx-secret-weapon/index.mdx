@@ -1,0 +1,44 @@
+---
+title: Components are MDX's Secret Weapon
+date: 2020-05-14
+description: MDX allows us to alter any element's markup, which creates entirely new opportunities for styling & functionality.
+---
+
+import { Box, Heading } from 'theme-ui'
+import ExampleCounter from './ExampleCounter'
+
+This blog post is written in [Markdown](https://daringfireball.net/projects/markdown/syntax). Well, kind of. Sort of. It's written in a _version_ of Markdown, one that understands JSX and allows you to render React components inline. It's called [MDX](https://mdxjs.com/), and it's **awesome**.
+
+MDX is really useful for writing longform content with dynamic elements. For example, we can import a React component and render it right here:
+
+<ExampleCounter />
+
+There are tons of applications for this. The most common use is probably documentation sites, where you can import live code playgrounds (among other benefits). But it's also really useful for blogs. It allows us to add complicated layouts or sections to individual blog posts without creating new templates. Or use an `<Update />` component to let users know that information in a post is outdated or has been changed to reflect new information, [like I have here](/blog/functional-first-accordions/).
+
+But that's not what this post is about. Instead I want to talk about my favorite part of MDX: component replacement.
+
+## Custom components
+
+In the long-ago-before-time, when I used Markdown I also needed to write a (typically very long) stylesheet to make sure the content was presented in a way I was happy with. Managing things like vertical rhythm tended to rely on [lobotomized owls](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/) and other compound selectors. On its own this isn't a huge issue; if your site is already built with monolithic CSS, this is just another day in the life.
+
+But what happens when you you're using, say, [a React-based static site generator](https://gatsbyjs.org)? And you've adopted a CSS-in-JS solution? Do you insert a global stylesheet on every page, whether or not the page uses Markdown content? [Do you create a massive wrapper component that's just a cleverly disguised stylesheet](https://github.com/lowmess/lowmess/blob/c1ddc91a7fcd4d47c1f1a921c0dc3eec3ba131f8/src/templates/BlogPost/MarkdownContent.js)? This is where MDX's role as a Markdown parser comes into play.
+
+MDX parses Markdown and understands JSX, but more than that it combines them. In fact, [MDX allows us to replace the default element for any Markdown block](https://mdxjs.com/table-of-components) with a custom React component. This means it is now trivial to change the markup of an element. Not only does this allow us to style our content the way we do the rest of our site, it also opens up (or severely lowers the barrier-of-entry to) opportunities that weren't previously available.
+
+Let's say you wanted your headings to automatically create anchor links. There are plenty of plugins written for various Markdown parsers to accomplish this (and MDX even supports most [remark](https://remark.js.org/) plugins). But if you wanted to change the styles that plugin used, or the slug-generation logic, or the icon it used to indicate the anchor, solutions ranged from complicated to impossible. With MDX, it's as simple as passing custom heading components to the [`<MDXProvider />` component](https://mdxjs.com/getting-started#using-the-wrapper) with the desired functionality.
+
+This not only creates near-limitless styling options, but functionalty options as well. My personal favorite use case I've found is preventing `<h1>`s from being used in blog content. Because I currently only use MDX for blog posts, I know that there's no good reason for me to create an `<h1>`, because the title of the blog post I'm writing already is one. So I replaced Markdown's `<h1>` with my own:
+
+```jsx
+const h1 = () => {
+  if (process.NODE_ENV === 'production') return ''
+
+  return (
+    <div style={{ fontSize: 72, color: 'red' }}>Don&rsquo;t use h1s</div>
+  )
+}
+```
+
+I can opt-out of this at any time by using a custom component, but that extra bit of friction means I have to conciously try to muck up the document outline.
+
+Bottom line: if I'm kicking off a content-focused, React-based site right now, it's going to use MDX. And you better believe I'm going to provide custom components.
