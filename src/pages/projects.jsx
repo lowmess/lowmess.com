@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Box, Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 import Inline from '../components/Inline'

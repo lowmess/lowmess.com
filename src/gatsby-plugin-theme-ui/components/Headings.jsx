@@ -29,16 +29,18 @@ const AutolinkHeading = ({ sx, children, ...props }) => {
   return (
     <Container sx={{ maxWidth: 'mdx-measure' }}>
       <Heading
+        id={slug}
         sx={{
           position: 'relative',
-          display: 'inline-flex',
+          display: ['inline-block', 'inline-flex'],
           alignItems: 'baseline',
           ...sx,
 
           a: {
+            order: [null, 0],
             visibility: 'hidden',
-            position: 'absolute',
-            right: '100%',
+            position: [null, 'absolute'],
+            right: [null, '100%'],
             paddingX: 2,
             color: 'muted-text',
           },
@@ -49,11 +51,11 @@ const AutolinkHeading = ({ sx, children, ...props }) => {
         }}
         {...props}
       >
+        {children}
+
         <Link variant="ui" href={`#${slug}`}>
           <LinkIcon />
         </Link>
-
-        {children}
       </Heading>
     </Container>
   )
