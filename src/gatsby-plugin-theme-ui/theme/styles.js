@@ -5,7 +5,7 @@ export default {
     lineHeight: 'copy',
     textRendering: 'optimizeLegibility',
     // Not picked up by autoprefixer for some reason?
-    '-webkit-font-smoothing': 'antialiased',
+    WebkitFontSmoothing: 'antialiased',
   },
 
   a: {
