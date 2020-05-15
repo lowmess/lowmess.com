@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Box, Container } from 'theme-ui'
 import { useSiteMetadata } from '../utils/hooks'
 import Stack from '../components/Stack'

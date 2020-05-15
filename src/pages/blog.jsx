@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'

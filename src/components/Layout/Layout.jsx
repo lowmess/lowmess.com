@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { useThemeUI, Box, Flex } from 'theme-ui'
 import Nav from '../Nav'
 import Footer from '../Footer'

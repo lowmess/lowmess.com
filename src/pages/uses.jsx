@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 import Stack from '../components/Stack'
