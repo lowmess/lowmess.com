@@ -1,5 +1,11 @@
 {
   "extends": ["lowmess/react"],
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "extends": ["lowmess/typescript"]
+    }
+  ],
   "env": {
     "browser": true,
     "node": true
