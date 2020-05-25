@@ -71,7 +71,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5",
-    "prettier-config-lowmess": "^0.2.0"
+    "prettier-config-lowmess": "^0.2.0",
+    "typescript": "^3.9.3"
   },
   "husky": {
     "hooks": {
