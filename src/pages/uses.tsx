@@ -1,13 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 
-const Dependency = ({ href, ...props }) => {
-  const WrapperComponent = (nestedProps) =>
+interface DependencyProps {
+  href?: string
+}
+
+const Dependency: React.FC<DependencyProps> = ({ href, ...props }) => {
+  const WrapperComponent: React.FC = (nestedProps) =>
     href ? (
       <Link variant="ui" href={href} {...nestedProps} />
     ) : (
@@ -17,13 +20,9 @@ const Dependency = ({ href, ...props }) => {
   return <WrapperComponent sx={{ fontSize: [2, 4] }} {...props} />
 }
 
-Dependency.propTypes = {
-  href: PropTypes.string,
-}
+const Details: React.FC = (props) => <Text sx={{ fontSize: 0 }} {...props} />
 
-const Details = (props) => <Text sx={{ fontSize: 0 }} {...props} />
-
-const UsesPage = () => (
+const UsesPage: React.FC = () => (
   <Layout>
     <Helmet>
       <title>Uses</title>

@@ -1,20 +1,29 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
-import { Box, Grid, Text, Container, Link } from 'theme-ui'
+import { Box, Grid, Text, Container, Link, SxProps } from 'theme-ui'
+import { SpaceProps } from 'styled-system'
 
-const FooterLink = ({ to, children, ...props }) => (
-  <Link as={to ? GatsbyLink : 'a'} variant="ui" to={to} {...props}>
+interface LinkProps {
+  to?: string
+  href?: string
+}
+
+const FooterLink: React.FC<LinkProps> = ({ to, children, ...props }) => (
+  <Link
+    variant="ui"
+    as={to ? GatsbyLink : 'a'}
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
+    to={to}
+    {...props}
+  >
     {children}
   </Link>
 )
 
-FooterLink.propTypes = {
-  to: PropTypes.string,
-  children: PropTypes.node,
-}
+type Props = SxProps & SpaceProps
 
-const Footer = (props) => {
+const Footer: React.FC<Props> = (props) => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
@@ -127,6 +136,8 @@ const Footer = (props) => {
             <Link
               variant="ui"
               as={GatsbyLink}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
               to={post.fields.slug}
               sx={{ fontSize: 5, fontWeight: 'bold', lineHeight: 'heading' }}
             >

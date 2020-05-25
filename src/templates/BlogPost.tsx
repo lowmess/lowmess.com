@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Box, Container } from 'theme-ui'
@@ -8,7 +7,28 @@ import Stack from '../components/Stack'
 import Layout from '../components/Layout'
 import { HeaderName, HeaderTitle } from '../components/Header'
 
-const BlogPostTemplate = ({ pageContext, children }) => {
+type Frontmatter = {
+  title: string
+  description?: string
+  date?: string
+  datetime?: string
+}
+
+type Node = {
+  frontmatter: Frontmatter
+}
+
+type Edge = {
+  node: Node
+}
+
+interface Props {
+  pageContext: {
+    frontmatter: Frontmatter
+  }
+}
+
+const BlogPostTemplate: React.FC<Props> = ({ pageContext, children }) => {
   const { title, siteUrl } = useSiteMetadata()
 
   // So this bit is a tad gross. I have to get all MDX nodes, then filter them
@@ -42,7 +62,8 @@ const BlogPostTemplate = ({ pageContext, children }) => {
   `)
 
   const { node } = edges.find(
-    (edge) => edge.node.frontmatter.title === pageContext.frontmatter.title
+    (edge: Edge) =>
+      edge.node.frontmatter.title === pageContext.frontmatter.title
   )
 
   const post = {
@@ -78,11 +99,13 @@ const BlogPostTemplate = ({ pageContext, children }) => {
 
       <Box as="header">
         <Container sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, 3] }}>
-          <HeaderName as="time" dateTime={post.frontmatter.datetime}>
-            {post.frontmatter.date}
+          <HeaderName as="span">
+            <time dateTime={post.frontmatter.datetime}>
+              {post.frontmatter.date}
+            </time>
           </HeaderName>
 
-          <HeaderTitle aria-hidden="false">
+          <HeaderTitle as="h1" aria-hidden="false">
             {post.frontmatter.title}
           </HeaderTitle>
         </Container>
@@ -93,11 +116,6 @@ const BlogPostTemplate = ({ pageContext, children }) => {
       </Stack>
     </Layout>
   )
-}
-
-BlogPostTemplate.propTypes = {
-  pageContext: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
 }
 
 export default BlogPostTemplate

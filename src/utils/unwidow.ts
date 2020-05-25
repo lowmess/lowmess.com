@@ -1,4 +1,4 @@
-const unwidow = str => {
+const unwidow = (str: string): string => {
   if (typeof str !== 'string') return str
 
   // Remove extra whitespace characters before starting.
