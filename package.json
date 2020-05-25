@@ -55,7 +55,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "sanitize.css": "^11.0.0",
     "theme-ui": "^0.3.1",
     "unfetch": "^4.1.0"
   },
