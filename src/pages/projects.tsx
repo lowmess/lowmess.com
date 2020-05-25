@@ -6,7 +6,14 @@ import Layout from '../components/Layout'
 import Inline from '../components/Inline'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 
-const ProjectsPage = () => {
+interface Project {
+  title: string
+  description?: string
+  website?: string
+  repo?: string
+}
+
+const ProjectsPage: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
       allProjectsJson {
@@ -38,7 +45,7 @@ const ProjectsPage = () => {
 
       <Container as="main" mt={5}>
         <Grid columns={[null, 2]} gap={5}>
-          {projects.map(({ node }, index) => {
+          {projects.map(({ node }: { node: Project }, index: number) => {
             const { title, description, website, repo } = node
             return (
               <Flex

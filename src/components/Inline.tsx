@@ -1,8 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Box, Flex } from 'theme-ui'
+import { Box, Flex, SxStyleProp } from 'theme-ui'
+import { SpaceProps } from 'styled-system'
 
-const Inline = ({ gap = 0, sx, children, ...props }) => {
+interface Props extends SpaceProps {
+  gap?: number
+  sx?: SxStyleProp
+}
+
+const Inline: React.FC<Props> = ({ gap = 0, sx, children, ...props }) => {
   const items = React.Children.toArray(children)
 
   return (
@@ -29,12 +34,6 @@ const Inline = ({ gap = 0, sx, children, ...props }) => {
       ))}
     </Flex>
   )
-}
-
-Inline.propTypes = {
-  gap: PropTypes.number,
-  sx: PropTypes.object,
-  children: PropTypes.node,
 }
 
 export default Inline

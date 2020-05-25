@@ -5,7 +5,22 @@ import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 
-const BlogPage = () => {
+type Frontmatter = {
+  title: string
+  description?: string
+  year: string
+}
+
+type Fields = {
+  slug: string
+}
+
+type Post = {
+  frontmatter: Frontmatter
+  fields: Fields
+}
+
+const BlogPage: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
@@ -42,7 +57,7 @@ const BlogPage = () => {
 
       <Container as="main" mt={[4, 5]}>
         <Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
-          {posts.map(({ node }, index) => {
+          {posts.map(({ node }: { node: Post }) => {
             const { fields, frontmatter } = node
 
             const thisYear = frontmatter.year
@@ -64,7 +79,13 @@ const BlogPage = () => {
 
                 <div>
                   <Heading as="h3" sx={{ display: 'inline-block' }}>
-                    <Link as={GatsbyLink} to={fields.slug} variant="ui">
+                    <Link
+                      variant="ui"
+                      as={GatsbyLink}
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                      // @ts-ignore
+                      to={fields.slug}
+                    >
                       {frontmatter.title}
                     </Link>
                   </Heading>

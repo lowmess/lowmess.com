@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Layout from '../components/Layout'
@@ -7,7 +6,12 @@ import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import { dependencies } from '../../package-lock.json'
 
-const Dependency = ({ version, href, children }) => (
+interface DependencyProps {
+  version?: string
+  href?: string
+}
+
+const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
   <Text sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
     <Link variant="ui" href={href} sx={{ fontSize: [2, 4] }}>
       {children}
@@ -21,13 +25,7 @@ const Dependency = ({ version, href, children }) => (
   </Text>
 )
 
-Dependency.propTypes = {
-  version: PropTypes.string,
-  href: PropTypes.string,
-  children: PropTypes.node,
-}
-
-const ColophonPage = () => {
+const ColophonPage: React.FC = () => {
   const {
     preact: { version: preact },
     gatsby: { version: gatsby },

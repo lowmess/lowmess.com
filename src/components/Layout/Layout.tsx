@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useThemeUI, Box, Flex } from 'theme-ui'
 import Nav from '../Nav'
@@ -7,7 +6,7 @@ import Footer from '../Footer'
 import { useSiteMetadata } from '../../utils/hooks'
 import GlobalStyles from './GlobalStyles'
 
-const Head = () => {
+const Head: React.FC = () => {
   const { title, description } = useSiteMetadata()
   const { theme } = useThemeUI()
 
@@ -48,7 +47,7 @@ const Head = () => {
   )
 }
 
-const Layout = ({ children }) => (
+const Layout: React.FC = ({ children }) => (
   <Flex sx={{ flexDirection: 'column', minHeight: '100vh' }}>
     <Head />
 
@@ -63,9 +62,5 @@ const Layout = ({ children }) => (
     <Footer mt={5} />
   </Flex>
 )
-
-Layout.propTypes = {
-  children: PropTypes.node,
-}
 
 export default Layout

@@ -1,6 +1,27 @@
 import fetch from 'unfetch'
 
-const getStats = async () => {
+type Album = {
+  name: string
+  artist: string
+}
+
+// eslint-disable-next-line import/exports-last
+export type Book = {
+  name: string
+  author: string
+}
+
+type Stats = {
+  commits?: number
+  tweets?: number
+  places?: number
+  steps?: number
+  songs?: number
+  album?: Album
+  books?: Array<Book>
+}
+
+const getStats = async (): Promise<Stats> => {
   const query = `
       query Stats {
         commits
@@ -37,7 +58,7 @@ const getStats = async () => {
     return data
   } catch (error) {
     console.error(error.message ? error.message : error)
-    return false
+    return {}
   }
 }
 

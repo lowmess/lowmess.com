@@ -1,8 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Box } from 'theme-ui'
+import { SpaceProps } from 'styled-system'
 
-const Stack = ({
+interface Props extends SpaceProps {
+  gap?: number
+  dividers?: boolean
+  dividerColor?: string
+}
+
+const Stack: React.FC<Props> = ({
   gap = 0,
   dividers,
   dividerColor = 'border',
@@ -30,13 +36,6 @@ const Stack = ({
       ))}
     </Box>
   )
-}
-
-Stack.propTypes = {
-  gap: PropTypes.number,
-  dividers: PropTypes.bool,
-  dividerColor: PropTypes.string,
-  children: PropTypes.node,
 }
 
 export default Stack

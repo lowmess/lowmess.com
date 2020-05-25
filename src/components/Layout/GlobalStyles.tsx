@@ -5,7 +5,7 @@ import { useThemeUI } from 'theme-ui'
 // Import fonts
 import '../../assets/fonts'
 
-const GlobalStyles = () => {
+const GlobalStyles: React.FC = () => {
   const { theme } = useThemeUI()
 
   return (
@@ -78,7 +78,12 @@ const GlobalStyles = () => {
 
         pre,
         code {
-          font-family: ${theme.fonts.mono};
+          font-family: ${// TS doesn't like that we're calling this by name
+          // instead of by index, but that's insane. Probably there's a way to
+          // get this to be typed properly but we'll come back to it.
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore
+          theme.fonts.mono};
         }
 
         audio,

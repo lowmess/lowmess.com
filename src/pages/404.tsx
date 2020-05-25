@@ -5,7 +5,7 @@ import { Text, Container, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 
-const ErrorPage = () => (
+const ErrorPage: React.FC = () => (
   <Layout>
     <Helmet>
       <title>I goofed it</title>
@@ -26,7 +26,13 @@ const ErrorPage = () => (
         }}
       >
         &ldquo;
-        <Link variant="ui" as={GatsbyLink} to="/">
+        <Link
+          variant="ui"
+          as={GatsbyLink}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore
+          to="/"
+        >
           Click here to go home
         </Link>
         &rdquo;
