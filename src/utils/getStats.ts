@@ -5,7 +5,8 @@ type Album = {
   artist: string
 }
 
-type Book = {
+// eslint-disable-next-line import/exports-last
+export type Book = {
   name: string
   author: string
 }

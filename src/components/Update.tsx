@@ -1,8 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Box, Heading, Container } from 'theme-ui'
+import { Box, Heading, Container, SxStyleProp } from 'theme-ui'
 
-const Update = ({ date, sx, children, ...props }) => (
+interface Props {
+  date?: string
+  sx: SxStyleProp
+}
+
+const Update: React.FC<Props> = ({ date, sx, children, ...props }) => (
   <Box bg="muted" my={5} py={4}>
     <Container sx={{ maxWidth: 'mdx-measure', ...sx }} {...props}>
       <Heading as="h2" variant="section-heading" mb={3}>
@@ -15,11 +19,5 @@ const Update = ({ date, sx, children, ...props }) => (
     </Container>
   </Box>
 )
-
-Update.propTypes = {
-  date: PropTypes.string,
-  sx: PropTypes.object,
-  children: PropTypes.node,
-}
 
 export default Update

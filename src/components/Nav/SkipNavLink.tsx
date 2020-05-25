@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'theme-ui'
 
-const SkipNavLink = () => (
+const SkipNavLink: React.FC = () => (
   <Link
     variant="ui"
     href="#main-content"

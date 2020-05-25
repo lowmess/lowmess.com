@@ -3,7 +3,10 @@
   "overrides": [
     {
       "files": ["**/*.ts?(x)"],
-      "extends": ["lowmess/typescript"]
+      "extends": ["lowmess/typescript"],
+      "rules": {
+        "react/prop-types": 0
+      }
     }
   ],
   "env": {

@@ -2,12 +2,14 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { Link } from 'theme-ui'
 
-const Logo = (props) => (
+const Logo: React.FC = (props) => (
   <Link
     as={GatsbyLink}
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     to="/"
     sx={{ display: 'inline', color: 'primary' }}
-    tabIndex="-1"
+    tabIndex={-1}
     {...props}
   >
     <svg

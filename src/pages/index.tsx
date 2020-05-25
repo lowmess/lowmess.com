@@ -1,39 +1,41 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Text, Heading, Link, Container } from 'theme-ui'
 import Layout from '../components/Layout'
-import getStats from '../utils/getStats'
+import getStats, { Book } from '../utils/getStats'
 import pluralize from '../utils/pluralize'
 
-const ValueCount = ({ value, singular, plural }) => (
+interface ValueCountProps {
+  value: number
+  singular: string
+  plural: string
+}
+
+const ValueCount: React.FC<ValueCountProps> = ({ value, singular, plural }) => (
   <React.Fragment>
     {value.toLocaleString()} {pluralize(value, singular, plural)}
   </React.Fragment>
 )
 
-ValueCount.propTypes = {
-  value: PropTypes.number.isRequired,
-  singular: PropTypes.string.isRequired,
-  plural: PropTypes.string.isRequired,
+interface FormattedBookProps {
+  book: Book
 }
 
-const BookType = PropTypes.shape({
-  name: PropTypes.string,
-  author: PropTypes.string,
-})
-
-const FormattedBook = ({ book }) => (
+const FormattedBook: React.FC<FormattedBookProps> = ({ book }) => (
   <React.Fragment>
     &ldquo;{book.name}&rdquo; by {book.author}
   </React.Fragment>
 )
 
-FormattedBook.propTypes = {
-  book: BookType,
+interface BooksToSentenceProps {
+  books: Array<Book>
 }
 
-const BooksToSentence = ({ books }) => {
+// TO-DO
+// Fix this component typing. I think TS doesn't like how variable the return is.
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+const BooksToSentence: React.FC<BooksToSentenceProps> = ({ books }) => {
   if (books.length === 1) return <FormattedBook book={books[0]} />
 
   if (books.length === 2)
@@ -61,11 +63,7 @@ const BooksToSentence = ({ books }) => {
   })
 }
 
-BooksToSentence.propTypes = {
-  books: PropTypes.arrayOf(BookType),
-}
-
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   const { stats } = useStaticQuery(graphql`
     query IndexPage {
       stats {
@@ -94,7 +92,7 @@ const IndexPage = () => {
   const [album, setAlbum] = React.useState(stats.album)
   const [books, setBooks] = React.useState(stats.books)
 
-  const hydrateStats = async () => {
+  const hydrateStats = async (): Promise<void> => {
     const {
       commits: commitStat,
       tweets: tweetsStat,

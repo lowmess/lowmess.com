@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Text, Container } from 'theme-ui'
 import pluralize from '../../../utils/pluralize'
 
-const ExampleCounter = () => {
+const ExampleCounter: React.FC = () => {
   const [count, setCount] = React.useState(0)
 
   return (
@@ -14,7 +14,7 @@ const ExampleCounter = () => {
           borderColor: 'border',
           backgroundColor: 'muted',
         }}
-        onClick={() => {
+        onClick={(): void => {
           setCount(count + 1)
         }}
       >

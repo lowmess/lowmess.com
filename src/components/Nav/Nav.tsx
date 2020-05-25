@@ -1,13 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
 import { useLocation } from '@reach/router'
-import { Box, Flex, Container, NavLink } from 'theme-ui'
+import { Box, Flex, Container, NavLink, SxProps } from 'theme-ui'
+import { SpaceProps } from 'styled-system'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import ColorModeToggle from './ColorModeToggle'
 
-const Nav = ({ sx, ...props }) => {
+type Props = SxProps & SpaceProps
+
+const Nav: React.FC<Props> = ({ sx, ...props }) => {
   const location = useLocation()
 
   return (
@@ -38,6 +40,8 @@ const Nav = ({ sx, ...props }) => {
             <li>
               <NavLink
                 as={GatsbyLink}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore
                 to="/"
                 data-active={location.pathname === '/' ? true : null}
                 mr={[1, 2]}
@@ -49,6 +53,8 @@ const Nav = ({ sx, ...props }) => {
             <li>
               <NavLink
                 as={GatsbyLink}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore
                 to="/projects"
                 data-active={location.pathname === '/projects' ? true : null}
                 mr={[1, 2]}
@@ -60,6 +66,8 @@ const Nav = ({ sx, ...props }) => {
             <li>
               <NavLink
                 as={GatsbyLink}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore
                 to="/blog"
                 data-active={location.pathname.includes('/blog') ? true : null}
               >
@@ -73,10 +81,6 @@ const Nav = ({ sx, ...props }) => {
       </Container>
     </Box>
   )
-}
-
-Nav.propTypes = {
-  sx: PropTypes.object,
 }
 
 export default Nav
