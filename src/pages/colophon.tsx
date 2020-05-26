@@ -29,9 +29,11 @@ const ColophonPage: React.FC = () => {
   const {
     preact: { version: preact },
     gatsby: { version: gatsby },
-    'theme-ui': { version: themeUI },
     '@mdx-js/mdx': { version: mdx },
     'react-helmet': { version: reactHelmet },
+    'theme-ui': { version: themeUI },
+    prismjs: { version: prismjs },
+    typescript: { version: typescript },
     eslint: { version: eslint },
     prettier: { version: prettier },
   } = dependencies
@@ -85,6 +87,10 @@ const ColophonPage: React.FC = () => {
                 Theme UI
               </Dependency>
 
+              <Dependency version={prismjs} href="https://prismjs.com/">
+                Prism
+              </Dependency>
+
               <Dependency version="3.21" href="https://rsms.me/inter">
                 Inter
               </Dependency>
@@ -104,6 +110,13 @@ const ColophonPage: React.FC = () => {
               <Dependency href="https://github.com">GitHub</Dependency>
 
               <Dependency href="https://netlify.com">Netlify</Dependency>
+
+              <Dependency
+                version={typescript}
+                href="https://www.typescriptlang.org/"
+              >
+                TypeScript
+              </Dependency>
 
               <Dependency version={eslint} href="https://eslint.org">
                 ESLint
