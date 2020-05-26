@@ -46,12 +46,13 @@ const BooksToSentence: React.FC<BooksToSentenceProps> = ({ books }) => {
       {books.map((book, index) => {
         if (index === 0) return <FormattedBook book={book} />
 
-        if (index + 1 === books.length)
+        if (index + 1 === books.length) {
           return (
             <React.Fragment>
               , and <FormattedBook book={book} />
             </React.Fragment>
           )
+        }
 
         return (
           <React.Fragment key={book.name}>
