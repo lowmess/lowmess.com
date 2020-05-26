@@ -105,7 +105,7 @@ const UsesPage: React.FC = () => (
             Affinity Designer
           </Dependency>
 
-          <Dependency href="https://www.alfredapp.com">Alfred 4</Dependency>
+          <Dependency href="https://www.alfredapp.com">Alfred</Dependency>
 
           <Dependency href="https://mizage.com/divvy">Divvy</Dependency>
 
