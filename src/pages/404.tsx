@@ -26,21 +26,16 @@ const ErrorPage: React.FC = () => (
         }}
       >
         &ldquo;
-        <Link
-          variant="ui"
-          as={GatsbyLink}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-          // @ts-ignore
-          to="/"
-        >
-          Click here to go home
-        </Link>
+        <GatsbyLink to="/">
+          <Link as="span" variant="ui">
+            Click here to go home
+          </Link>
+        </GatsbyLink>
         &rdquo;
         <br />
-        &nbsp;is over-used and boring,
+        is over-used and boring,
         <br />
-        &nbsp;but at least it&rsquo;s clear.
-        <br />
+        but at least it&rsquo;s clear.
       </Text>
     </Container>
   </Layout>

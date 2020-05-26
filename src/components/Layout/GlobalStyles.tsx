@@ -58,6 +58,16 @@ const GlobalStyles: React.FC = () => {
           display: inline-block;
         }
 
+        /*
+         * Will be overridden by Theme UI's Link styles, but allows us to use
+         * Link to style text inside of Gatsby links without also having to
+         * style the anchor element directly. This allows us to have control
+         * over the styling without using a polymorphic component.
+         */
+        a {
+          text-decoration: none;
+        }
+
         a,
         button,
         select,

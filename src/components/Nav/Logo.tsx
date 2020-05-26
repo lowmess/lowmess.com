@@ -1,16 +1,13 @@
+/** @jsx jsx */
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { Link } from 'theme-ui'
+import { jsx } from 'theme-ui'
 
-const Logo: React.FC = (props) => (
-  <Link
-    as={GatsbyLink}
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
+const Logo: React.FC = () => (
+  <GatsbyLink
     to="/"
-    sx={{ display: 'inline', color: 'primary' }}
     tabIndex={-1}
-    {...props}
+    sx={{ display: 'inline', color: 'primary', textDecoration: 'none' }}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +19,7 @@ const Logo: React.FC = (props) => (
       <title>Go to homepage</title>
       <path d="M280 120v120c-46.795 0-93.59.148-140.385-.001-24.624-.235-48.379-16.914-56.455-40.76-2.093-6.18-3.139-12.726-3.16-19.207V40H40v200H0V0h120c0 60.088-.568 120.178.002 180.263.164 10.317 9.135 19.703 20.03 19.737H240v-40h-80V0h40v120h80z" />
     </svg>
-  </Link>
+  </GatsbyLink>
 )
 
 export default Logo

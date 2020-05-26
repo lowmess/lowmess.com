@@ -8,18 +8,17 @@ interface LinkProps {
   href?: string
 }
 
-const FooterLink: React.FC<LinkProps> = ({ to, children, ...props }) => (
-  <Link
-    variant="ui"
-    as={to ? GatsbyLink : 'a'}
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    to={to}
-    {...props}
-  >
-    {children}
-  </Link>
-)
+const FooterLink: React.FC<LinkProps> = ({ to, children, ...props }) => {
+  const WrapperComponent = to ? GatsbyLink : 'a'
+
+  return (
+    <WrapperComponent to={to} {...props}>
+      <Link as="span" variant="ui">
+        {children}
+      </Link>
+    </WrapperComponent>
+  )
+}
 
 const Footer: React.FC<ThemeUIProps> = (props) => {
   const data = useStaticQuery(graphql`
@@ -131,16 +130,20 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
               Latest Blog Post
             </Text>
 
-            <Link
-              variant="ui"
-              as={GatsbyLink}
-              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-              // @ts-ignore
-              to={post.fields.slug}
-              sx={{ fontSize: 5, fontWeight: 'bold', lineHeight: 'heading' }}
-            >
-              {post.frontmatter.title}
-            </Link>
+            <GatsbyLink to={post.fields.slug}>
+              <Link
+                as="span"
+                variant="ui"
+                sx={{
+                  fontSize: 5,
+                  fontWeight: 'bold',
+                  lineHeight: 'heading',
+                  textDecoration: 'none',
+                }}
+              >
+                {post.frontmatter.title}
+              </Link>
+            </GatsbyLink>
 
             <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
               {post.frontmatter.description}

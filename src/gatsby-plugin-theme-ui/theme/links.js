@@ -5,6 +5,7 @@ export default {
     padding: 2,
     fontSize: [1, 2],
     fontWeight: 'normal',
+    color: 'text',
 
     '&:hover': {
       borderColor: 'border',
@@ -15,7 +16,7 @@ export default {
       color: 'text',
     },
 
-    '&[data-active]': {
+    '[data-active] &': {
       borderColor: 'primary',
     },
   },
