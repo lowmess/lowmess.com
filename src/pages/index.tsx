@@ -31,10 +31,6 @@ interface BooksToSentenceProps {
   books: Array<Book>
 }
 
-// TO-DO
-// Fix this component typing. I think TS doesn't like how variable the return is.
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 const BooksToSentence: React.FC<BooksToSentenceProps> = ({ books }) => {
   if (books.length === 1) return <FormattedBook book={books[0]} />
 
@@ -45,22 +41,26 @@ const BooksToSentence: React.FC<BooksToSentenceProps> = ({ books }) => {
       </React.Fragment>
     )
 
-  return books.map((book, index) => {
-    if (index === 0) return <FormattedBook book={book} />
+  return (
+    <React.Fragment>
+      {books.map((book, index) => {
+        if (index === 0) return <FormattedBook book={book} />
 
-    if (index + 1 === books.length)
-      return (
-        <React.Fragment>
-          , and <FormattedBook book={book} />
-        </React.Fragment>
-      )
+        if (index + 1 === books.length)
+          return (
+            <React.Fragment>
+              , and <FormattedBook book={book} />
+            </React.Fragment>
+          )
 
-    return (
-      <React.Fragment key={book.name}>
-        , <FormattedBook book={book} />
-      </React.Fragment>
-    )
-  })
+        return (
+          <React.Fragment key={book.name}>
+            , <FormattedBook book={book} />
+          </React.Fragment>
+        )
+      })}
+    </React.Fragment>
+  )
 }
 
 const IndexPage: React.FC = () => {
