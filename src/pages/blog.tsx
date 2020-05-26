@@ -79,15 +79,11 @@ const BlogPage: React.FC = () => {
 
                 <div>
                   <Heading as="h3" sx={{ display: 'inline-block' }}>
-                    <Link
-                      variant="ui"
-                      as={GatsbyLink}
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                      // @ts-ignore
-                      to={fields.slug}
-                    >
-                      {frontmatter.title}
-                    </Link>
+                    <GatsbyLink to={fields.slug}>
+                      <Link as="span" variant="ui">
+                        {frontmatter.title}
+                      </Link>
+                    </GatsbyLink>
                   </Heading>
 
                   <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>

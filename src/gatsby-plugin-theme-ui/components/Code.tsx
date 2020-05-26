@@ -54,6 +54,9 @@ const Code: React.FC<CodeProps> = ({
         <Highlight
           {...defaultProps}
           code={children.trim()}
+          // TS doesn't like that we're passing a string to an enum, but since
+          // we're rendering this from MDX we don't know the language ahead
+          // of time.
           // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
           // @ts-ignore
           language={language}

@@ -36,41 +36,36 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
         <Flex sx={{ alignItems: 'center' }}>
           <Flex as="ul">
             <li>
-              <NavLink
-                as={GatsbyLink}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore
+              <GatsbyLink
                 to="/"
                 data-active={location.pathname === '/' ? true : null}
-                mr={[1, 2]}
               >
-                Home
-              </NavLink>
+                <NavLink as="span" mr={[1, 2]}>
+                  Home
+                </NavLink>
+              </GatsbyLink>
             </li>
 
             <li>
-              <NavLink
-                as={GatsbyLink}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore
-                to="/projects"
-                data-active={location.pathname === '/projects' ? true : null}
-                mr={[1, 2]}
+              <GatsbyLink
+                to="/projects/"
+                data-active={
+                  location.pathname.includes('/projects') ? true : null
+                }
               >
-                Projects
-              </NavLink>
+                <NavLink as="span" mr={[1, 2]}>
+                  Projects
+                </NavLink>
+              </GatsbyLink>
             </li>
 
             <li>
-              <NavLink
-                as={GatsbyLink}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore
-                to="/blog"
+              <GatsbyLink
+                to="/blog/"
                 data-active={location.pathname.includes('/blog') ? true : null}
               >
-                Blog
-              </NavLink>
+                <NavLink as="span">Blog</NavLink>
+              </GatsbyLink>
             </li>
           </Flex>
 
