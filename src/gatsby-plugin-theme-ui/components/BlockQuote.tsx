@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container } from 'theme-ui'
 
-const BlockQuote = (props) => (
+const BlockQuote: React.FC = (props) => (
   <Container sx={{ maxWidth: 'mdx-measure' }}>
     <Box
       as="blockquote"

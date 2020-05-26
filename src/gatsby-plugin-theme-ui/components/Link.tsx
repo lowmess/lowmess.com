@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as ThemeUILink } from 'theme-ui'
 
-const Link = (props) => (
+const Link: React.FC = (props) => (
   <ThemeUILink
     sx={{
       '@media print': {
