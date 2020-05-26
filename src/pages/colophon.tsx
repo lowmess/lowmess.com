@@ -113,7 +113,7 @@ const ColophonPage: React.FC = () => {
 
               <Dependency
                 version={typescript}
-                href="https://www.typescriptlang.org/"
+                href="https://typescriptlang.org/"
               >
                 TypeScript
               </Dependency>

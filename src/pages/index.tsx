@@ -158,11 +158,20 @@ const IndexPage: React.FC = () => {
             <Link href="https://www.last.fm/user/lowmess">
               <ValueCount value={songs} singular="song" plural="songs" />
             </Link>{' '}
-            overall. I am reading{' '}
-            <Link href="https://www.goodreads.com/user/show/27057705-alec-lomas">
-              <ValueCount value={books.length} singular="book" plural="books" />
-            </Link>{' '}
-            at the moment: <BooksToSentence books={books} />.
+            overall.{' '}
+            {books.length > 0 && (
+              <React.Fragment>
+                I am reading{' '}
+                <Link href="https://www.goodreads.com/user/show/27057705-alec-lomas">
+                  <ValueCount
+                    value={books.length}
+                    singular="book"
+                    plural="books"
+                  />
+                </Link>{' '}
+                at the moment: <BooksToSentence books={books} />.
+              </React.Fragment>
+            )}
           </Text>
         </Text>
       </Container>
