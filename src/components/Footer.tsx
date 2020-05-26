@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
-import { Box, Grid, Text, Container, Link, SxProps } from 'theme-ui'
-import { SpaceProps } from 'styled-system'
+import { Box, Grid, Text, Container, Link } from 'theme-ui'
+import { ThemeUIProps } from '../types/ThemeUIComponent'
 
 interface LinkProps {
   to?: string
@@ -21,9 +21,7 @@ const FooterLink: React.FC<LinkProps> = ({ to, children, ...props }) => (
   </Link>
 )
 
-type Props = SxProps & SpaceProps
-
-const Footer: React.FC<Props> = (props) => {
+const Footer: React.FC<ThemeUIProps> = (props) => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {

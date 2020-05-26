@@ -1,10 +1,9 @@
 import React from 'react'
-import { Box, Flex, SxStyleProp } from 'theme-ui'
-import { SpaceProps } from 'styled-system'
+import { Box, Flex } from 'theme-ui'
+import { ThemeUIProps } from '../types/ThemeUIComponent'
 
-interface Props extends SpaceProps {
+interface Props extends ThemeUIProps {
   gap?: number
-  sx?: SxStyleProp
 }
 
 const Inline: React.FC<Props> = ({ gap = 0, sx, children, ...props }) => {

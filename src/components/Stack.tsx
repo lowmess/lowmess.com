@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box } from 'theme-ui'
-import { SpaceProps } from 'styled-system'
+import { ThemeUIProps } from '../types/ThemeUIComponent'
 
-interface Props extends SpaceProps {
+interface Props extends ThemeUIProps {
   gap?: number
   dividers?: boolean
   dividerColor?: string
