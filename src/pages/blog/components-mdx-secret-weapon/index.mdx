@@ -31,7 +31,7 @@ This not only creates near-limitless styling options, but functionalty options a
 
 ```jsx
 const h1 = () => {
-  if (process.NODE_ENV === 'production') return ''
+  if (process.env.NODE_ENV === 'production') return ''
 
   return (
     <div style={{ fontSize: 72, color: 'red' }}>Don&rsquo;t use h1s</div>

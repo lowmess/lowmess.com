@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box, Heading, Container, SxStyleProp } from 'theme-ui'
+import { Box, Heading, Container } from 'theme-ui'
+import { ThemeUIProps } from '../types/ThemeUIComponent'
 
-interface Props {
+interface Props extends ThemeUIProps {
   date?: string
-  sx: SxStyleProp
 }
 
 const Update: React.FC<Props> = ({ date, sx, children, ...props }) => (

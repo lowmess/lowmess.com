@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Container, Text } from 'theme-ui'
+import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
-const List = (props) => (
+const List: React.FC<ThemeUIProps> = (props) => (
   <Text
     sx={{
       paddingLeft: 0,
@@ -15,7 +16,7 @@ const List = (props) => (
   />
 )
 
-const UnorderedList = (props) => (
+const UnorderedList: React.FC = (props) => (
   <Box>
     <Container sx={{ maxWidth: 'mdx-measure' }}>
       <List as="ul" {...props} />
@@ -23,7 +24,7 @@ const UnorderedList = (props) => (
   </Box>
 )
 
-const OrderedList = (props) => (
+const OrderedList: React.FC = (props) => (
   <Box>
     <Container sx={{ maxWidth: 'mdx-measure' }}>
       <List as="ol" {...props} />

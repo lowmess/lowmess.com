@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import GithubSlugger from 'github-slugger'
 import { Container, Heading, Link } from 'theme-ui'
+import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
-const LinkIcon = () => (
+const LinkIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -21,7 +21,11 @@ const LinkIcon = () => (
   </svg>
 )
 
-const AutolinkHeading = ({ sx, children, ...props }) => {
+const AutolinkHeading: React.FC<ThemeUIProps> = ({
+  sx,
+  children,
+  ...props
+}) => {
   const slugger = new GithubSlugger()
 
   const slug = slugger.slug(children)
@@ -61,13 +65,8 @@ const AutolinkHeading = ({ sx, children, ...props }) => {
   )
 }
 
-AutolinkHeading.propTypes = {
-  sx: PropTypes.object,
-  children: PropTypes.node,
-}
-
-const h1 = (props) => {
-  if (process.NODE_ENV !== 'production')
+const h1: React.FC = () => {
+  if (process.env.NODE_ENV !== 'production')
     return (
       <Heading
         as="h1"
@@ -77,24 +76,26 @@ const h1 = (props) => {
       </Heading>
     )
 
-  return ''
+  return <div />
 }
 
-const h2 = (props) => <AutolinkHeading as="h2" mt={[4, 5]} {...props} />
+const h2: React.FC = (props) => (
+  <AutolinkHeading as="h2" mt={[4, 5]} {...props} />
+)
 
-const h3 = (props) => (
+const h3: React.FC = (props) => (
   <AutolinkHeading as="h3" sx={{ fontSize: [3, 4] }} {...props} />
 )
 
-const h4 = (props) => (
+const h4: React.FC = (props) => (
   <AutolinkHeading as="h4" variant="section-heading" {...props} />
 )
 
-const h5 = (props) => (
+const h5: React.FC = (props) => (
   <AutolinkHeading as="h5" variant="section-heading" {...props} />
 )
 
-const h6 = (props) => (
+const h6: React.FC = (props) => (
   <AutolinkHeading as="h6" variant="section-heading" {...props} />
 )
 

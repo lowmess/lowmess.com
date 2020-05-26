@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Box, Text, Grid, Container } from 'theme-ui'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'lowmess-prism'
 
-const LineNumber = ({ children }) => (
+const LineNumber: React.FC = ({ children }) => (
   <Text
     as="span"
     sx={{
@@ -19,15 +18,20 @@ const LineNumber = ({ children }) => (
   </Text>
 )
 
-LineNumber.propTypes = {
-  children: PropTypes.node.isRequired,
+interface CodeProps {
+  className: string
+  children: string
 }
 
-const Code = ({ className: languageClass, children, ...props }) => {
+const Code: React.FC<CodeProps> = ({
+  className: languageClass,
+  children,
+  ...props
+}) => {
   const languagePrefix = 'language-'
   const language = languageClass
     .split(' ')
-    .find((c) => c.indexOf(languagePrefix !== -1))
+    .find((c) => c.indexOf(languagePrefix) !== -1)
     .slice(languagePrefix.length)
 
   return (
@@ -43,16 +47,25 @@ const Code = ({ className: languageClass, children, ...props }) => {
       <Container
         sx={{
           fontFamily: 'mono',
-          maxWidth: (t) => `calc(${t.sizes['mdx-measure']} + ${t.space[5]})`,
+          maxWidth: (t): string =>
+            `calc(${t.sizes['mdx-measure']} + ${t.space[5]})`,
         }}
       >
         <Highlight
           {...defaultProps}
           code={children.trim()}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore
           language={language}
           theme={theme}
         >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          {({
+            className,
+            style,
+            tokens,
+            getLineProps,
+            getTokenProps,
+          }): JSX.Element => (
             <Box
               className={className}
               style={style}
@@ -105,12 +118,7 @@ const Code = ({ className: languageClass, children, ...props }) => {
   )
 }
 
-Code.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-}
-
-const InlineCode = ({ children }) => (
+const InlineCode: React.FC = ({ children }) => (
   <Text
     as="code"
     sx={{
@@ -125,9 +133,5 @@ const InlineCode = ({ children }) => (
     {children}
   </Text>
 )
-
-InlineCode.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export { Code, InlineCode }

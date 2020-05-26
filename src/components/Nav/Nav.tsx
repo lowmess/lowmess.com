@@ -1,15 +1,13 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { useLocation } from '@reach/router'
-import { Box, Flex, Container, NavLink, SxProps } from 'theme-ui'
-import { SpaceProps } from 'styled-system'
+import { Box, Flex, Container, NavLink } from 'theme-ui'
+import { ThemeUIProps } from '../../types/ThemeUIComponent'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import ColorModeToggle from './ColorModeToggle'
 
-type Props = SxProps & SpaceProps
-
-const Nav: React.FC<Props> = ({ sx, ...props }) => {
+const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
   const location = useLocation()
 
   return (

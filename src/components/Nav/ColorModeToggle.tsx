@@ -1,11 +1,11 @@
 import React from 'react'
 import { useColorMode, Button } from 'theme-ui'
-import { SpaceProps } from 'styled-system'
+import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
 // Icons courtesy of Feather
 // @link https://feathericons.com/
 
-const ColorModeToggle: React.FC<SpaceProps> = (props) => {
+const ColorModeToggle: React.FC<ThemeUIProps> = (props) => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
