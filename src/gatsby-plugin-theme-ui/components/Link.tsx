@@ -5,21 +5,18 @@ const Link: React.FC = (props) => (
   <ThemeUILink
     sx={{
       '@media print': {
-        '&::after': {
+        "&[href^='http']::after": {
           content: `' (' attr(href) ')'`,
           fontSize: 1,
         },
 
         "&[href^='/']::after": {
           content: `' (https://lowmess.com' attr(href) ')'`,
+          fontSize: 1,
         },
 
         "&[href^='#']": {
           textDecoration: 'none',
-
-          '&::after': {
-            content: `''`,
-          },
         },
       },
     }}
