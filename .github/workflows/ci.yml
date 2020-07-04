@@ -3,12 +3,20 @@ name: CI
 on: [push]
 
 jobs:
-  lighthouseci:
+  lighthouse:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install && npm install -g @lhci/cli@0.4.x
-      - run: npm run build
-      - run: lhci autorun --upload.target=temporary-public-storage
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+
+      - name: Install dependencies with npm
+        run: npm install && npm install -g @lhci/cli@0.4.x
+
+      - name: Build site
+        run: npm run build
+
+      - name: Run Lighthouse CI
+        run: lhci autorun --upload.target=temporary-public-storage
