@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useColorMode, Button } from 'theme-ui'
+import VisuallyHidden from '@reach/visually-hidden'
 import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
 // Icons courtesy of Feather
@@ -19,6 +20,8 @@ const ColorModeToggle: React.FC<ThemeUIProps> = (props) => {
       }}
       {...props}
     >
+      <VisuallyHidden>Toggle Color Mode</VisuallyHidden>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

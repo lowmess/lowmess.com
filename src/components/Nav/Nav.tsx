@@ -69,7 +69,7 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
             </li>
           </Flex>
 
-          <ColorModeToggle aria-hidden ml={[2, 3]} />
+          <ColorModeToggle ml={[2, 3]} />
         </Flex>
       </Container>
     </Box>
