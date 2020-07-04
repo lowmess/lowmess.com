@@ -1,0 +1,19 @@
+name: Daily Netlify Build
+
+on:
+  schedule:
+    # Run at 0400 daily
+    - cron: '0 4 * * *'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Publish
+        uses: netlify/actions/build@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
