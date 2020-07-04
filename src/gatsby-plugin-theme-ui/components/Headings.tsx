@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import GithubSlugger from 'github-slugger'
 import { Container, Heading, Link } from 'theme-ui'
 import { ThemeUIProps } from '../../types/ThemeUIComponent'

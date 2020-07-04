@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link as ThemeUILink } from 'theme-ui'
 
 const Link: React.FC = (props) => (

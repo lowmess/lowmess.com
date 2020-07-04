@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'

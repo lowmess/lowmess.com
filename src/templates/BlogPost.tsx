@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Box, Container } from 'theme-ui'

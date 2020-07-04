@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Box, Container } from 'theme-ui'
 
 const BlockQuote: React.FC = (props) => (
