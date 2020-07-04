@@ -6,14 +6,10 @@ on:
     - cron: '0 11 * * *'
 
 jobs:
-  publish:
+  request:
+    name: Request Build
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-
-      - name: Trigger build
-        uses: netlify/actions/build@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Send cURL request
+        run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
