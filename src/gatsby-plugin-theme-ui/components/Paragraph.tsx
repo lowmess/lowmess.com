@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Text, Container } from 'theme-ui'
 
 const Paragraph: React.FC = (props) => (

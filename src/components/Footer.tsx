@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import { Box, Grid, Text, Container, Link } from 'theme-ui'
 import { ThemeUIProps } from '../types/ThemeUIComponent'

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { useThemeUI, Box, Flex } from 'theme-ui'
 import Nav from '../Nav'

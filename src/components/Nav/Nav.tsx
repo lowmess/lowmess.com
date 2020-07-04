@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { useLocation } from '@reach/router'
 import { Box, Flex, Container, NavLink } from 'theme-ui'

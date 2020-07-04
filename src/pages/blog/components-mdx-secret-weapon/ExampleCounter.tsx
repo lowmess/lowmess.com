@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Box, Text, Container } from 'theme-ui'
 import pluralize from '../../../utils/pluralize'
 

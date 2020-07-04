@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Box, Text, Grid, Container } from 'theme-ui'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'lowmess-prism'
@@ -57,7 +57,7 @@ const Code: React.FC<CodeProps> = ({
           // TS doesn't like that we're passing a string to an enum, but since
           // we're rendering this from MDX we don't know the language ahead
           // of time.
-          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // eslint-disable-next-line
           // @ts-ignore
           language={language}
           theme={theme}
