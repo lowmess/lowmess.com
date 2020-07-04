@@ -2,8 +2,8 @@ name: Daily Netlify Build
 
 on:
   schedule:
-    # Run at 0400 daily
-    - cron: '0 4 * * *'
+    # Run at 0400 daily (AZ time)
+    - cron: '0 11 * * *'
 
 jobs:
   publish:
@@ -16,4 +16,4 @@ jobs:
         uses: netlify/actions/build@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          # NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
