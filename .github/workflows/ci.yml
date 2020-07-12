@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 1
 
   typecheck:
     runs-on: ubuntu-latest
