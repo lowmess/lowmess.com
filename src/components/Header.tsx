@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { Box, Text, Container, Heading } from 'theme-ui'
-
-interface HeaderComponent {
-  as?: React.ElementType
-}
+import { ThemeUIProps } from '../types/ThemeUIComponent'
 
 const Header: React.FC = ({ children, ...props }) => (
   <Box as="header" {...props}>
@@ -11,11 +8,11 @@ const Header: React.FC = ({ children, ...props }) => (
   </Box>
 )
 
-const HeaderName: React.FC<HeaderComponent> = (props) => (
+const HeaderName: React.FC<ThemeUIProps> = (props) => (
   <Heading as="h1" variant="section-heading" mb={1} {...props} />
 )
 
-const HeaderTitle: React.FC<HeaderComponent> = (props) => (
+const HeaderTitle: React.FC<ThemeUIProps> = (props) => (
   <Text variant="header-title" aria-hidden {...props} />
 )
 
