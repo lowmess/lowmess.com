@@ -40,9 +40,9 @@ const UsesPage: React.FC = () => (
 
         <Stack gap={2}>
           <React.Fragment>
-            <Dependency>Early 2015 13&Prime; MacBook Pro</Dependency>
+            <Dependency>2020 13&Prime; MacBook Pro</Dependency>
 
-            <Details>2.9GHz Dual-Core Intel i5, 8GB memory</Details>
+            <Details>1.4GHz Quad-Core Intel i5, 16GB memory</Details>
           </React.Fragment>
 
           <React.Fragment>
@@ -84,7 +84,7 @@ const UsesPage: React.FC = () => (
           </React.Fragment>
 
           <React.Fragment>
-            <Dependency href="https://hyper.is">Hyper</Dependency>
+            <Dependency href="https://https://iterm2.com">iTerm 2</Dependency>
 
             <Details>
               Zsh,{' '}
@@ -94,7 +94,7 @@ const UsesPage: React.FC = () => (
               ,{' '}
               <Link
                 variant="ui"
-                href="https://github.com/lowmess/hyper-plastic"
+                href="https://gist.github.com/lowmess/8dcb70cd9014e78337ef9658518c5353"
               >
                 Plastic theme
               </Link>
