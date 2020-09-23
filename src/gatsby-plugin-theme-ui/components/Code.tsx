@@ -38,10 +38,6 @@ const Code: React.FC<CodeProps> = ({
     <Box
       sx={{
         backgroundColor: 'black',
-
-        '.prism-code': {
-          backgroundColor: 'transparent !important',
-        },
       }}
     >
       <Container
@@ -76,7 +72,6 @@ const Code: React.FC<CodeProps> = ({
                 width: '100%',
                 overflowX: 'scroll',
                 paddingY: 3,
-                backgroundColor: 'transparent',
                 fontFamily: 'mono',
                 fontSize: 2,
                 color: 'grays.1',
@@ -84,10 +79,6 @@ const Code: React.FC<CodeProps> = ({
 
                 '.token-line': {
                   overflow: 'visible !important',
-                },
-
-                '.token.comment': {
-                  fontStyle: 'italic',
                 },
               }}
               {...props}
@@ -100,7 +91,6 @@ const Code: React.FC<CodeProps> = ({
                   {...getLineProps({
                     line,
                     key: index,
-                    style: { backgroundColor: 'transparent' },
                   })}
                 >
                   <LineNumber>{index + 1}</LineNumber>
