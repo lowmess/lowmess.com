@@ -9,7 +9,7 @@ const LineNumber: React.FC = ({ children }) => (
     sx={{
       display: ['none', 'inline-block'],
       textAlign: 'right',
-      color: '#938776', // Comment color taken from `lowmess-prism`
+      color: '#a89e90', // Comment color taken from `lowmess-prism`
       userSelect: 'none',
     }}
     aria-hidden
@@ -79,7 +79,7 @@ const Code: React.FC<CodeProps> = ({
                 backgroundColor: 'transparent',
                 fontFamily: 'mono',
                 fontSize: 2,
-                color: 'white',
+                color: 'grays.1',
                 whiteSpace: 'pre',
 
                 '.token-line': {

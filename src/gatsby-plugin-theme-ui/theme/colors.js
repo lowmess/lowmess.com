@@ -42,7 +42,7 @@ export default {
   accent: palette.orange,
   highlight: palette.orange,
   muted: palette.grays[2],
-  'muted-text': palette.grays[9],
+  'muted-text': palette.grays[8],
   border: palette.grays[4],
 
   modes: {
