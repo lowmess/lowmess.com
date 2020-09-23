@@ -9,7 +9,7 @@ const LineNumber: React.FC = ({ children }) => (
     sx={{
       display: ['none', 'inline-block'],
       textAlign: 'right',
-      color: '#938776', // Comment color taken from `lowmess-prism`
+      color: '#a89e90', // Comment color taken from `lowmess-prism`
       userSelect: 'none',
     }}
     aria-hidden
@@ -38,10 +38,6 @@ const Code: React.FC<CodeProps> = ({
     <Box
       sx={{
         backgroundColor: 'black',
-
-        '.prism-code': {
-          backgroundColor: 'transparent !important',
-        },
       }}
     >
       <Container
@@ -76,18 +72,13 @@ const Code: React.FC<CodeProps> = ({
                 width: '100%',
                 overflowX: 'scroll',
                 paddingY: 3,
-                backgroundColor: 'transparent',
                 fontFamily: 'mono',
                 fontSize: 2,
-                color: 'white',
+                color: 'grays.1',
                 whiteSpace: 'pre',
 
                 '.token-line': {
                   overflow: 'visible !important',
-                },
-
-                '.token.comment': {
-                  fontStyle: 'italic',
                 },
               }}
               {...props}
@@ -100,7 +91,6 @@ const Code: React.FC<CodeProps> = ({
                   {...getLineProps({
                     line,
                     key: index,
-                    style: { backgroundColor: 'transparent' },
                   })}
                 >
                   <LineNumber>{index + 1}</LineNumber>
