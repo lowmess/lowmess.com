@@ -63,7 +63,7 @@
     "@types/node-fetch": "^2.5.7",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
-    "@types/react-helmet": "^6.0.0",
+    "@types/react-helmet": "^6.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/theme-ui": "^0.3.4",
     "eslint": "^7.4.0",
