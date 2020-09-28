@@ -24,7 +24,7 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.6",
-    "@mdx-js/react": "^1.6.6",
+    "@mdx-js/react": "^1.6.18",
     "@reach/visually-hidden": "^0.10.4",
     "gatsby": "^2.24.65",
     "gatsby-plugin-catch-links": "^2.3.12",
