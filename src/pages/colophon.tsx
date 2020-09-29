@@ -95,7 +95,7 @@ const ColophonPage: React.FC = () => {
                 Inter
               </Dependency>
 
-              <Dependency version="0.491" href="https://dank.sh">
+              <Dependency version="1.000" href="https://dank.sh">
                 Dank Mono
               </Dependency>
             </Stack>

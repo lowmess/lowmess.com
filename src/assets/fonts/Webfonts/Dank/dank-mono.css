@@ -3,8 +3,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('DankMono-Regular.otf') format('opentype'),
-    url('DankMono-Regular.ttf') format('truetype');
+  src: url('DankMono-Regular.woff2') format('woff2'),
+    url('DankMono-Regular.otf') format('opentype');
 }
 
 @font-face {
@@ -12,6 +12,6 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('DankMono-Italic.otf') format('opentype'),
-    url('DankMono-Italic.ttf') format('truetype');
+  src: url('DankMono-Italic.woff2') format('woff2'),
+    url('DankMono-Italic.otf') format('opentype');
 }
