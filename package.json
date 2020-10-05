@@ -56,7 +56,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "theme-ui": "^0.3.1",
-    "unfetch": "^4.1.0"
+    "unfetch": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.11.2",
