@@ -27,7 +27,7 @@
     "@mdx-js/react": "^1.6.18",
     "@reach/visually-hidden": "^0.11.1",
     "gatsby": "^2.24.65",
-    "gatsby-plugin-catch-links": "^2.3.12",
+    "gatsby-plugin-catch-links": "^2.3.14",
     "gatsby-plugin-feed-mdx": "^1.0.1",
     "gatsby-plugin-manifest": "^2.4.31",
     "gatsby-plugin-mdx": "^1.2.41",
