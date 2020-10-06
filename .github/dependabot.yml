@@ -5,3 +5,4 @@ updates:
     target-branch: "develop"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 10
