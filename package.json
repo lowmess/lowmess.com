@@ -38,7 +38,7 @@
     "gatsby-plugin-sharp": "^2.6.38",
     "gatsby-plugin-sitemap": "^2.4.14",
     "gatsby-plugin-theme-ui": "^0.3.0",
-    "gatsby-remark-copy-linked-files": "^2.3.17",
+    "gatsby-remark-copy-linked-files": "^2.3.18",
     "gatsby-remark-images": "^3.3.30",
     "gatsby-remark-smartypants": "^2.3.11",
     "gatsby-remark-widows": "^1.0.0",
