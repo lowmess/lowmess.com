@@ -29,7 +29,7 @@
     "gatsby": "^2.24.67",
     "gatsby-plugin-catch-links": "^2.3.14",
     "gatsby-plugin-feed-mdx": "^1.0.1",
-    "gatsby-plugin-manifest": "^2.4.31",
+    "gatsby-plugin-manifest": "^2.4.34",
     "gatsby-plugin-mdx": "^1.2.43",
     "gatsby-plugin-netlify": "^2.3.16",
     "gatsby-plugin-preact": "^4.0.13",
