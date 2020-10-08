@@ -1,53 +1,27 @@
 import * as React from 'react'
-import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import Head from 'next/head'
+import { default as NextLink } from 'next/link'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Layout from '../components/Layout'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
-
-type Frontmatter = {
-  title: string
-  description?: string
-  year: string
-}
-
-type Fields = {
-  slug: string
-}
+import type { Meta } from '../components/BlogPost'
+import posts from '../utils/getAllPosts'
+import titleSuffix from '../constants/titleSuffix'
 
 type Post = {
-  frontmatter: Frontmatter
-  fields: Fields
+  link: string
+  module: {
+    meta: Meta
+  }
 }
 
 const BlogPage: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
-        edges {
-          node {
-            frontmatter {
-              title
-              description
-              year: date(formatString: "YYYY")
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const posts = data.allMdx.edges
   let year = '0'
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Blog</title>
-      </Helmet>
+    <React.Fragment>
+      <Head>
+        <title key="title">Blog {titleSuffix}</title>
+      </Head>
 
       <Header>
         <HeaderName>Blog</HeaderName>
@@ -57,10 +31,13 @@ const BlogPage: React.FC = () => {
 
       <Container as="main" mt={[4, 5]}>
         <Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
-          {posts.map(({ node }: { node: Post }) => {
-            const { fields, frontmatter } = node
+          {posts.map((post: Post) => {
+            const {
+              link,
+              module: { meta: { title, description, date } = {} } = {},
+            } = post
 
-            const thisYear = frontmatter.year
+            const thisYear = date.substring(0, 4)
 
             const YearComponent =
               thisYear === year ? (
@@ -74,20 +51,18 @@ const BlogPage: React.FC = () => {
             year = thisYear
 
             return (
-              <React.Fragment key={fields.slug}>
+              <React.Fragment key={link}>
                 {YearComponent}
 
                 <div>
                   <Heading as="h3" sx={{ display: 'inline-block' }}>
-                    <GatsbyLink to={fields.slug}>
-                      <Link as="span" variant="ui">
-                        {frontmatter.title}
-                      </Link>
-                    </GatsbyLink>
+                    <NextLink href={link}>
+                      <Link variant="ui">{title}</Link>
+                    </NextLink>
                   </Heading>
 
                   <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
-                    {frontmatter.description}
+                    {description}
                   </Text>
                 </div>
               </React.Fragment>
@@ -95,7 +70,7 @@ const BlogPage: React.FC = () => {
           })}
         </Grid>
       </Container>
-    </Layout>
+    </React.Fragment>
   )
 }
 

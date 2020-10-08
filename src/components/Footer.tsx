@@ -1,45 +1,11 @@
 import * as React from 'react'
-import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
+import { default as NextLink } from 'next/link'
 import { Box, Grid, Text, Container, Link } from 'theme-ui'
+import posts from '../utils/getAllPosts'
 import { ThemeUIProps } from '../types/ThemeUIComponent'
 
-interface LinkProps {
-  to?: string
-  href?: string
-}
-
-const FooterLink: React.FC<LinkProps> = ({ to, children, ...props }) => {
-  const WrapperComponent = to ? GatsbyLink : 'a'
-
-  return (
-    <WrapperComponent to={to} {...props}>
-      <Link as="span" variant="ui">
-        {children}
-      </Link>
-    </WrapperComponent>
-  )
-}
-
 const Footer: React.FC<ThemeUIProps> = (props) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1) {
-        edges {
-          node {
-            frontmatter {
-              title
-              description
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const post = data.allMdx.edges[0].node
+  const post = posts[0]
 
   return (
     <Box as="footer" bg="muted" py={5} {...props}>
@@ -56,27 +22,33 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 
             <Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
               <li>
-                <FooterLink to="/">Home</FooterLink>
+                <NextLink href="/" passHref>
+                  <Link variant="ui">Home</Link>
+                </NextLink>
               </li>
 
               <li>
-                <FooterLink to="/projects">Projects</FooterLink>
+                <NextLink href="/projects" passHref>
+                  <Link variant="ui">Projects</Link>
+                </NextLink>
               </li>
 
               <li>
-                <FooterLink to="/blog">Blog</FooterLink>
+                <NextLink href="/blog" passHref>
+                  <Link variant="ui">Blog</Link>
+                </NextLink>
               </li>
 
               <li>
-                <FooterLink to="/colophon">Colophon</FooterLink>
+                <NextLink href="/colophon" passHref>
+                  <Link variant="ui">Colophon</Link>
+                </NextLink>
               </li>
 
               <li>
-                <FooterLink to="/uses">Uses</FooterLink>
-              </li>
-
-              <li>
-                <FooterLink href="/rss.xml">RSS</FooterLink>
+                <NextLink href="/uses" passHref>
+                  <Link variant="ui">Uses</Link>
+                </NextLink>
               </li>
             </Box>
           </Box>
@@ -88,39 +60,33 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 
             <Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
               <li>
-                <FooterLink href="https://github.com/lowmess">
+                <Link variant="ui" href="https://github.com/lowmess">
                   GitHub
-                </FooterLink>
+                </Link>
               </li>
 
               <li>
-                <FooterLink href="https://twitter.com/lowmess">
+                <Link variant="ui" href="https://twitter.com/lowmess">
                   Twitter
-                </FooterLink>
+                </Link>
               </li>
 
               <li>
-                <FooterLink href="https://dribbble.com/lowmess">
+                <Link variant="ui" href="https://dribbble.com/lowmess">
                   Dribbble
-                </FooterLink>
+                </Link>
               </li>
 
               <li>
-                <FooterLink href="https://codepen.io/lowmess">
-                  CodePen
-                </FooterLink>
-              </li>
-
-              <li>
-                <FooterLink href="https://linkedin.com/in/lowmess">
+                <Link variant="ui" href="https://linkedin.com/in/lowmess">
                   LinkedIn
-                </FooterLink>
+                </Link>
               </li>
 
               <li>
-                <FooterLink href="https://resume.lowmess.com">
+                <Link variant="ui" href="https://resume.lowmess.com">
                   Résumé
-                </FooterLink>
+                </Link>
               </li>
             </Box>
           </Box>
@@ -130,9 +96,8 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
               Latest Blog Post
             </Text>
 
-            <GatsbyLink to={post.fields.slug}>
+            <NextLink href={post.link} passHref>
               <Link
-                as="span"
                 variant="ui"
                 sx={{
                   fontSize: 5,
@@ -141,12 +106,12 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
                   textDecoration: 'none',
                 }}
               >
-                {post.frontmatter.title}
+                {post.module.meta.title}
               </Link>
-            </GatsbyLink>
+            </NextLink>
 
             <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
-              {post.frontmatter.description}
+              {post.module.meta.description}
             </Text>
           </Box>
         </Grid>

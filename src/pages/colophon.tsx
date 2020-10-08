@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
+import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Layout from '../components/Layout'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import { dependencies } from '../../package-lock.json'
+import titleSuffix from '../constants/titleSuffix'
 
 interface DependencyProps {
   version?: string
@@ -27,10 +27,9 @@ const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
 
 const ColophonPage: React.FC = () => {
   const {
-    preact: { version: preact },
-    gatsby: { version: gatsby },
+    react: { version: react },
+    next: { version: next },
     '@mdx-js/mdx': { version: mdx },
-    'react-helmet': { version: reactHelmet },
     'theme-ui': { version: themeUI },
     prismjs: { version: prismjs },
     typescript: { version: typescript },
@@ -39,10 +38,10 @@ const ColophonPage: React.FC = () => {
   } = dependencies
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Colophon</title>
-      </Helmet>
+    <React.Fragment>
+      <Head>
+        <title key="title">Colophon {titleSuffix}</title>
+      </Head>
 
       <Header>
         <HeaderName>Colophon</HeaderName>
@@ -56,23 +55,16 @@ const ColophonPage: React.FC = () => {
             <Heading color="muted-text">Functionality</Heading>
 
             <Stack gap={2} mt={3}>
-              <Dependency version={preact} href="https://preactjs.com">
-                Preact
+              <Dependency version={react} href="https://reactjs.org">
+                React
               </Dependency>
 
-              <Dependency version={gatsby} href="https://gatsbyjs.org">
-                Gatsby
+              <Dependency version={next} href="https://nextjs.org">
+                Next.js
               </Dependency>
 
               <Dependency version={mdx} href="https://mdxjs.com">
                 MDX
-              </Dependency>
-
-              <Dependency
-                version={reactHelmet}
-                href="https://github.com/nfl/react-helmet"
-              >
-                React Helmet
               </Dependency>
             </Stack>
           </Box>
@@ -129,7 +121,7 @@ const ColophonPage: React.FC = () => {
           </Box>
         </Grid>
       </Container>
-    </Layout>
+    </React.Fragment>
   )
 }
 
