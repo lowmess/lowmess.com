@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { default as NextLink } from 'next/link'
-import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
+import { Box, Grid, Text, Container, Heading } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
+import Link from '../components/Link'
 import type { Meta } from '../components/BlogPost'
 import posts from '../utils/getAllPosts'
 import titleSuffix from '../constants/titleSuffix'
@@ -56,9 +56,9 @@ const BlogPage: React.FC = () => {
 
                 <div>
                   <Heading as="h3" sx={{ display: 'inline-block' }}>
-                    <NextLink href={link} passHref>
-                      <Link variant="ui">{title}</Link>
-                    </NextLink>
+                    <Link href={link} variant="ui">
+                      {title}
+                    </Link>
                   </Heading>
 
                   <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>

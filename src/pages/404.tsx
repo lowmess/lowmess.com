@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { default as NextLink } from 'next/link'
-import { Text, Container, Link } from 'theme-ui'
+import { Text, Container } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
+import Link from '../components/Link'
 import titleSuffix from '../constants/titleSuffix'
 
 const ErrorPage: React.FC = () => (
@@ -26,11 +26,9 @@ const ErrorPage: React.FC = () => (
         }}
       >
         &ldquo;
-        <NextLink href="/" passHref>
-          <Link as="span" variant="ui">
-            Click here to go home
-          </Link>
-        </NextLink>
+        <Link href="/" variant="ui">
+          Click here to go home
+        </Link>
         &rdquo;
         <br />
         is over-used and boring,

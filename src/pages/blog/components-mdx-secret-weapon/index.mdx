@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import BlogPost from '../../../components/BlogPost'
+import Link from '../../../components/Link'
 import ExampleCounter from './ExampleCounter'
 
 export const meta = {
@@ -19,7 +19,7 @@ MDX is really useful for writing longform content with dynamic elements. For exa
 
 <ExampleCounter />
 
-There are tons of applications for this. The most common use is probably documentation sites, where you can import live code playgrounds (among other benefits). But it's also really useful for blogs. It allows us to add complicated layouts or sections to individual blog posts without creating new templates. Or use an `<Update />` component to let users know that information in a post is outdated or has been changed to reflect new information, <Link href="/blog/functional-first-accordions" passHref><a>like I have here</a></Link>.
+There are tons of applications for this. The most common use is probably documentation sites, where you can import live code playgrounds (among other benefits). But it's also really useful for blogs. It allows us to add complicated layouts or sections to individual blog posts without creating new templates. Or use an `<Update />` component to let users know that information in a post is outdated or has been changed to reflect new information, <Link href="/blog/functional-first-accordions">like I have here</Link>.
 
 But that's not what this post is about. Instead I want to talk about my favorite part of MDX: component replacement.
 

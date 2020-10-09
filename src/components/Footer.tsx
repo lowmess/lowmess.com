@@ -1,8 +1,20 @@
 import * as React from 'react'
-import { default as NextLink } from 'next/link'
-import { Box, Grid, Text, Container, Link } from 'theme-ui'
+import { Box, Grid, Text, Container, Link as ThemeLink } from 'theme-ui'
+import Link from '../components/Link'
 import posts from '../utils/getAllPosts'
 import { ThemeUIProps } from '../types/ThemeUIComponent'
+
+interface FooterLinkProps {
+  href: string
+  external?: boolean
+}
+
+const FooterLink: React.FC<FooterLinkProps> = ({ href, external, ...props }) =>
+  external ? (
+    <ThemeLink variant="ui" href={href} {...props} />
+  ) : (
+    <Link variant="ui" href={href} {...props} />
+  )
 
 const Footer: React.FC<ThemeUIProps> = (props) => {
   const post = posts[0]
@@ -22,33 +34,23 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 
             <Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
               <li>
-                <NextLink href="/" passHref>
-                  <Link variant="ui">Home</Link>
-                </NextLink>
+                <FooterLink href="/">Home</FooterLink>
               </li>
 
               <li>
-                <NextLink href="/projects" passHref>
-                  <Link variant="ui">Projects</Link>
-                </NextLink>
+                <FooterLink href="/projects">Projects</FooterLink>
               </li>
 
               <li>
-                <NextLink href="/blog" passHref>
-                  <Link variant="ui">Blog</Link>
-                </NextLink>
+                <FooterLink href="/blog">Blog</FooterLink>
               </li>
 
               <li>
-                <NextLink href="/colophon" passHref>
-                  <Link variant="ui">Colophon</Link>
-                </NextLink>
+                <FooterLink href="/colophon">Colophon</FooterLink>
               </li>
 
               <li>
-                <NextLink href="/uses" passHref>
-                  <Link variant="ui">Uses</Link>
-                </NextLink>
+                <FooterLink href="/uses">Uses</FooterLink>
               </li>
             </Box>
           </Box>
@@ -60,33 +62,33 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 
             <Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
               <li>
-                <Link variant="ui" href="https://github.com/lowmess">
+                <FooterLink href="https://github.com/lowmess" external>
                   GitHub
-                </Link>
+                </FooterLink>
               </li>
 
               <li>
-                <Link variant="ui" href="https://twitter.com/lowmess">
+                <FooterLink href="https://twitter.com/lowmess" external>
                   Twitter
-                </Link>
+                </FooterLink>
               </li>
 
               <li>
-                <Link variant="ui" href="https://dribbble.com/lowmess">
+                <FooterLink href="https://dribbble.com/lowmess" external>
                   Dribbble
-                </Link>
+                </FooterLink>
               </li>
 
               <li>
-                <Link variant="ui" href="https://linkedin.com/in/lowmess">
+                <FooterLink href="https://linkedin.com/in/lowmess" external>
                   LinkedIn
-                </Link>
+                </FooterLink>
               </li>
 
               <li>
-                <Link variant="ui" href="https://resume.lowmess.com">
+                <FooterLink href="https://resume.lowmess.com" external>
                   Résumé
-                </Link>
+                </FooterLink>
               </li>
             </Box>
           </Box>
@@ -96,19 +98,17 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
               Latest Blog Post
             </Text>
 
-            <NextLink href={post.link} passHref>
-              <Link
-                variant="ui"
-                sx={{
-                  fontSize: 5,
-                  fontWeight: 'bold',
-                  lineHeight: 'heading',
-                  textDecoration: 'none',
-                }}
-              >
-                {post.module.meta.title}
-              </Link>
-            </NextLink>
+            <FooterLink
+              href={post.link}
+              sx={{
+                fontSize: 5,
+                fontWeight: 'bold',
+                lineHeight: 'heading',
+                textDecoration: 'none',
+              }}
+            >
+              {post.module.meta.title}
+            </FooterLink>
 
             <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
               {post.module.meta.description}

@@ -1,11 +1,21 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
 import { default as NextLink } from 'next/link'
-import { Box, Flex, Container, NavLink } from 'theme-ui'
+import { Box, Flex, Container, NavLink as ThemeLink } from 'theme-ui'
 import { ThemeUIProps } from '../../types/ThemeUIComponent'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import ColorModeToggle from './ColorModeToggle'
+
+interface NavLinkProps extends ThemeUIProps {
+  href: string
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, ...props }) => (
+  <NextLink href={href} passHref>
+    <ThemeLink {...props} />
+  </NextLink>
+)
 
 const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
   const { pathname } = useRouter()
@@ -36,33 +46,32 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
         <Flex sx={{ alignItems: 'center' }}>
           <Flex as="ul">
             <li>
-              <NextLink href="/" passHref>
-                <NavLink
-                  data-active={pathname === '/' ? true : null}
-                  mr={[1, 2]}
-                >
-                  Home
-                </NavLink>
-              </NextLink>
+              <NavLink
+                href="/"
+                data-active={pathname === '/' ? true : null}
+                mr={[1, 2]}
+              >
+                Home
+              </NavLink>
             </li>
 
             <li>
-              <NextLink href="/projects" passHref>
-                <NavLink
-                  data-active={pathname.includes('/projects') ? true : null}
-                  mr={[1, 2]}
-                >
-                  Projects
-                </NavLink>
-              </NextLink>
+              <NavLink
+                href="/projects"
+                data-active={pathname.includes('/projects') ? true : null}
+                mr={[1, 2]}
+              >
+                Projects
+              </NavLink>
             </li>
 
             <li>
-              <NextLink href="/blog" passHref>
-                <NavLink data-active={pathname.includes('/blog') ? true : null}>
-                  Blog
-                </NavLink>
-              </NextLink>
+              <NavLink
+                href="/blog"
+                data-active={pathname.includes('/blog') ? true : null}
+              >
+                Blog
+              </NavLink>
             </li>
           </Flex>
 
