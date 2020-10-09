@@ -1,4 +1,5 @@
 import * as React from 'react'
+import type { GetStaticProps } from 'next'
 import { Text, Heading, Link, Container } from 'theme-ui'
 import getStats, { Stats, Book } from '../utils/getStats'
 import pluralize from '../utils/pluralize'
@@ -163,8 +164,7 @@ const IndexPage: React.FC<IndexProps> = ({ stats }) => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const stats = await getStats()
 
   return {
