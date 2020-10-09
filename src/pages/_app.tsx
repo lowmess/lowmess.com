@@ -3,7 +3,7 @@ import * as React from 'react'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'theme-ui'
 import theme from '../theme'
-import components from '../mdx-components'
+import components from '../components/MDXComponents'
 import Layout from '../components/Layout'
 
 // Import fonts

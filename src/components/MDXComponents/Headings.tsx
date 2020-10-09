@@ -3,7 +3,7 @@ import * as React from 'react'
 import GithubSlugger from 'github-slugger'
 import { onlyText } from 'react-children-utilities'
 import { Container, Heading, Link } from 'theme-ui'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
+import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
 const LinkIcon: React.FC = () => (
   <svg

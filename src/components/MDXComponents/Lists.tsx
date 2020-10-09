@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Box, Container, Text } from 'theme-ui'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
+import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
 const List: React.FC<ThemeUIProps> = (props) => (
   <Text
