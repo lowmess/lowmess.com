@@ -3,16 +3,8 @@ import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import Link from '../components/Link'
-import type { Meta } from '../components/BlogPost'
-import posts from '../utils/getAllPosts'
+import posts, { Post } from '../utils/getAllPosts'
 import titleSuffix from '../constants/titleSuffix'
-
-type Post = {
-  link: string
-  module: {
-    meta: Meta
-  }
-}
 
 const BlogPage: React.FC = () => {
   let year = '0'
@@ -32,10 +24,7 @@ const BlogPage: React.FC = () => {
       <Container as="main" mt={[4, 5]}>
         <Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
           {posts.map((post: Post) => {
-            const {
-              link,
-              module: { meta: { title, description, date } = {} } = {},
-            } = post
+            const { link, meta: { title, description, date } = {} } = post
 
             const thisYear = date.substring(0, 4)
 

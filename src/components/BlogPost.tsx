@@ -4,15 +4,9 @@ import Head from 'next/head'
 import { addMinutes, format } from 'date-fns'
 import { Box, Container } from 'theme-ui'
 import titleSuffix from '../constants/titleSuffix'
+import type { Meta } from '../utils/getAllPosts'
 import Stack from './Stack'
 import { HeaderName, HeaderTitle } from './Header'
-
-// eslint-disable-next-line import/exports-last
-export type Meta = {
-  title: string
-  description?: string
-  date?: string
-}
 
 interface BlogPostProps {
   meta: Meta

@@ -107,11 +107,11 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
                 textDecoration: 'none',
               }}
             >
-              {post.module.meta.title}
+              {post.meta.title}
             </FooterLink>
 
             <Text as="p" sx={{ maxWidth: 'measure', marginTop: 1 }}>
-              {post.module.meta.description}
+              {post.meta.description}
             </Text>
           </Box>
         </Grid>
