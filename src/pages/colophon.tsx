@@ -27,7 +27,7 @@ const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
 
 const ColophonPage: React.FC = () => {
   const {
-    react: { version: react },
+    preact: { version: preact },
     next: { version: next },
     '@mdx-js/mdx': { version: mdx },
     'theme-ui': { version: themeUI },
@@ -55,8 +55,8 @@ const ColophonPage: React.FC = () => {
             <Heading color="muted-text">Functionality</Heading>
 
             <Stack gap={2} mt={3}>
-              <Dependency version={react} href="https://reactjs.org">
-                React
+              <Dependency version={preact} href="https://preactjs.com">
+                Preact
               </Dependency>
 
               <Dependency version={next} href="https://nextjs.org">
