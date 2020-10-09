@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { jsx } from 'theme-ui'
 
 const Logo: React.FC = () => (
-  <Link href="/">
+  <Link href="/" passHref>
     <a // eslint-disable-line jsx-a11y/anchor-is-valid
       tabIndex={-1}
       sx={{ display: 'inline', color: 'primary', textDecoration: 'none' }}

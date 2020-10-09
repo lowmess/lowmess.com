@@ -26,7 +26,7 @@ const ErrorPage: React.FC = () => (
         }}
       >
         &ldquo;
-        <NextLink href="/">
+        <NextLink href="/" passHref>
           <Link as="span" variant="ui">
             Click here to go home
           </Link>

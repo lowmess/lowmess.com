@@ -56,7 +56,7 @@ const BlogPage: React.FC = () => {
 
                 <div>
                   <Heading as="h3" sx={{ display: 'inline-block' }}>
-                    <NextLink href={link}>
+                    <NextLink href={link} passHref>
                       <Link variant="ui">{title}</Link>
                     </NextLink>
                   </Heading>
