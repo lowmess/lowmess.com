@@ -62,6 +62,13 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
             <Heading color="muted-text">Functionality</Heading>
 
             <Stack gap={2} mt={3}>
+              <Dependency
+                version={typescript}
+                href="https://typescriptlang.org/"
+              >
+                TypeScript
+              </Dependency>
+
               <Dependency version={preact} href="https://preactjs.com">
                 Preact
               </Dependency>
@@ -109,13 +116,6 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
               <Dependency href="https://github.com">GitHub</Dependency>
 
               <Dependency href="https://netlify.com">Netlify</Dependency>
-
-              <Dependency
-                version={typescript}
-                href="https://typescriptlang.org/"
-              >
-                TypeScript
-              </Dependency>
 
               <Dependency version={eslint} href="https://eslint.org">
                 ESLint
