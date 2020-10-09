@@ -7,6 +7,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
+import { InitializeColorMode } from 'theme-ui'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -21,6 +22,8 @@ class MyDocument extends Document {
         <Head />
 
         <body>
+          <InitializeColorMode />
+
           <Main />
 
           <NextScript />
