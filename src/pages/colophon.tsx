@@ -1,4 +1,5 @@
 import * as React from 'react'
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Stack from '../components/Stack'
@@ -25,17 +26,23 @@ const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
   </Text>
 )
 
-const ColophonPage: React.FC = () => {
+interface ColophonProps {
+  versions: {
+    [dependency: string]: string
+  }
+}
+
+const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
   const {
-    preact: { version: preact },
-    next: { version: next },
-    '@mdx-js/mdx': { version: mdx },
-    'theme-ui': { version: themeUI },
-    prismjs: { version: prismjs },
-    typescript: { version: typescript },
-    eslint: { version: eslint },
-    prettier: { version: prettier },
-  } = dependencies
+    preact,
+    next,
+    mdx,
+    themeUI,
+    prismjs,
+    typescript,
+    eslint,
+    prettier,
+  } = versions
 
   return (
     <React.Fragment>
@@ -123,6 +130,38 @@ const ColophonPage: React.FC = () => {
       </Container>
     </React.Fragment>
   )
+}
+
+// `getStaticProps` must be async, but I don't need to wait on jack
+// eslint-disable-next-line require-await
+export const getStaticProps: GetStaticProps = async () => {
+  const {
+    preact: { version: preact },
+    next: { version: next },
+    '@mdx-js/mdx': { version: mdx },
+    'theme-ui': { version: themeUI },
+    prismjs: { version: prismjs },
+    typescript: { version: typescript },
+    eslint: { version: eslint },
+    prettier: { version: prettier },
+  } = dependencies
+
+  const versions = {
+    preact,
+    next,
+    mdx,
+    themeUI,
+    prismjs,
+    typescript,
+    eslint,
+    prettier,
+  }
+
+  return {
+    props: {
+      versions,
+    },
+  }
 }
 
 export default ColophonPage
