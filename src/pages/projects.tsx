@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Box, Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Inline from '../components/Inline'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
-import projects from '../constants/projects'
+import projects from '../constants/projects.json'
 import titleSuffix from '../constants/titleSuffix'
 
 interface Project {
