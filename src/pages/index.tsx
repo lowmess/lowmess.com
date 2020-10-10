@@ -136,8 +136,7 @@ const IndexPage: React.FC = () => {
             My name is Alec Lomas, and I make websites.
           </Heading>{' '}
           <Heading as="h2" variant="site-intro">
-            Currently, I&rsquo;m{' '}
-            <Link href="mailto:alec@lowmess.com">looking for my next opportunity</Link>.
+            Currently, I&rsquo;m based in sunny Tempe, Arizona.
           </Heading>{' '}
           <Text as="p" variant="site-intro">
             In the last 30 days, I&rsquo;ve pushed{' '}
