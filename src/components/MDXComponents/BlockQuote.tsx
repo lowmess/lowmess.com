@@ -7,12 +7,13 @@ const BlockQuote: React.FC = (props) => (
       as="blockquote"
       sx={{
         position: 'relative',
+        paddingLeft: [3, 0],
 
         '&::before': {
           content: 'open-quote',
           position: 'absolute',
           top: -3,
-          right: '100%',
+          right: (theme) => [`calc(100% - ${theme.space[3]})`, '100%'],
           marginRight: 2,
           color: 'muted-text',
           fontSize: 7,
