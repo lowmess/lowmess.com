@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { parseISO, format } from 'date-fns'
 import { Box, Container } from 'theme-ui'
-import titleSuffix from '../constants/titleSuffix'
+import metadata from '../constants/metadata.json'
 import type { Meta } from '../utils/getAllPosts'
 import Stack from './Stack'
 import { HeaderName, HeaderTitle } from './Header'
@@ -23,7 +23,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ meta, children }) => {
     <React.Fragment>
       <Head>
         <title key="title">
-          {title} {titleSuffix}
+          {title} {metadata.titleSuffix}
         </title>
 
         <meta name="description" content={description} />
@@ -36,7 +36,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ meta, children }) => {
 
         <meta property="og:title" name="twitter:title" content={title} />
 
-        <meta key="og:url" property="og:url" content={asPath} />
+        <meta key="og:url" property="og:url" content={metadata.url + asPath} />
 
         <meta
           property="og:description"

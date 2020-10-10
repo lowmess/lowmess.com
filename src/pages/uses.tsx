@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
-import titleSuffix from '../constants/titleSuffix'
+import metadata from '../constants/metadata.json'
 
 interface DependencyProps {
   href?: string
@@ -25,7 +25,7 @@ const Details: React.FC = (props) => <Text sx={{ fontSize: 0 }} {...props} />
 const UsesPage: React.FC = () => (
   <React.Fragment>
     <Head>
-      <title key="title">Uses {titleSuffix}</title>
+      <title key="title">Uses {metadata.titleSuffix}</title>
     </Head>
 
     <Header>

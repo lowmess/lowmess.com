@@ -4,7 +4,7 @@ import { Box, Grid, Text, Container, Heading } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import Link from '../components/Link'
 import posts, { Post } from '../utils/getAllPosts'
-import titleSuffix from '../constants/titleSuffix'
+import metadata from '../constants/metadata.json'
 
 const BlogPage: React.FC = () => {
   let year = '0'
@@ -12,7 +12,7 @@ const BlogPage: React.FC = () => {
   return (
     <React.Fragment>
       <Head>
-        <title key="title">Blog {titleSuffix}</title>
+        <title key="title">Blog {metadata.titleSuffix}</title>
       </Head>
 
       <Header>

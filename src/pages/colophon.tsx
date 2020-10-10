@@ -5,7 +5,7 @@ import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import { dependencies } from '../../package-lock.json'
-import titleSuffix from '../constants/titleSuffix'
+import metadata from '../constants/metadata.json'
 
 interface DependencyProps {
   version?: string
@@ -47,7 +47,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
   return (
     <React.Fragment>
       <Head>
-        <title key="title">Colophon {titleSuffix}</title>
+        <title key="title">Colophon {metadata.titleSuffix}</title>
       </Head>
 
       <Header>

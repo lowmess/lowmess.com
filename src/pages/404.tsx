@@ -3,12 +3,12 @@ import Head from 'next/head'
 import { Text, Container } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import Link from '../components/Link'
-import titleSuffix from '../constants/titleSuffix'
+import metadata from '../constants/metadata.json'
 
 const ErrorPage: React.FC = () => (
   <React.Fragment>
     <Head>
-      <title key="title">I goofed it {titleSuffix}</title>
+      <title key="title">I goofed it {metadata.titleSuffix}</title>
     </Head>
 
     <Header>
