@@ -1,5 +1,6 @@
 node_modules
-public
 .cache
 *.log
 .vscode
+.next
+out

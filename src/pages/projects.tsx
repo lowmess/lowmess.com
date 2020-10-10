@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import Head from 'next/head'
 import { Box, Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Layout from '../components/Layout'
 import Inline from '../components/Inline'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
+import projects from '../constants/projects.json'
+import titleSuffix from '../constants/titleSuffix'
 
 interface Project {
   title: string
@@ -14,28 +14,11 @@ interface Project {
 }
 
 const ProjectsPage: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allProjectsJson {
-        edges {
-          node {
-            title
-            description
-            website
-            repo
-          }
-        }
-      }
-    }
-  `)
-
-  const projects = data.allProjectsJson.edges
-
   return (
-    <Layout>
-      <Helmet>
-        <title>Projects</title>
-      </Helmet>
+    <React.Fragment>
+      <Head>
+        <title key="title">Projects {titleSuffix}</title>
+      </Head>
 
       <Header>
         <HeaderName>Projects</HeaderName>
@@ -45,8 +28,9 @@ const ProjectsPage: React.FC = () => {
 
       <Container as="main" mt={5}>
         <Grid columns={[null, 2]} gap={5}>
-          {projects.map(({ node }: { node: Project }, index: number) => {
-            const { title, description, website, repo } = node
+          {projects.map((project: Project, index: number) => {
+            const { title, description, website, repo } = project
+
             return (
               <Flex
                 key={title}
@@ -92,7 +76,7 @@ const ProjectsPage: React.FC = () => {
           })}
         </Grid>
       </Container>
-    </Layout>
+    </React.Fragment>
   )
 }
 

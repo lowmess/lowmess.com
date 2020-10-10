@@ -1,8 +1,15 @@
----
-title: No Red Squigglies For Semicolons
-date: 2019-12-04
-description: Linters are powerful code quality tools. Stylistic consistency is important. Linters should never enforce stylistic consistency.
----
+import BlogPost from '../../components/BlogPost'
+
+export const meta = {
+  title: 'No Red Squigglies For Semicolons',
+  date: '2019-12-04',
+  description:
+    'Linters are powerful code quality tools. Stylistic consistency is important. Linters should never enforce stylistic consistency.',
+}
+
+export default ({ children }) => (
+  <BlogPost meta={meta}>{children}</BlogPost>
+)
 
 Us developers are an opinionated bunch. We share our opinions wide and loud through blog posts, tweets, talks at meetups, in meetings. The tenacity with which we hold these opinions seems to have [an inverse correlation with their impact](https://en.wikipedia.org/wiki/Law_of_triviality), and nowhere is this strange dichotomy more present than in stylistic choices. Should we use tabs or spaces for whitespace? Should we use semicolons or not? Single quotes or double quotes?
 

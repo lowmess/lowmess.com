@@ -2,9 +2,6 @@ import * as React from 'react'
 import { Global, css } from '@emotion/core'
 import { useThemeUI } from 'theme-ui'
 
-// Import fonts
-import '../../assets/fonts'
-
 const GlobalStyles: React.FC = () => {
   const { theme } = useThemeUI()
 

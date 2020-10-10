@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
+import Head from 'next/head'
 import { Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Layout from '../components/Layout'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
+import titleSuffix from '../constants/titleSuffix'
 
 interface DependencyProps {
   href?: string
@@ -23,10 +23,10 @@ const Dependency: React.FC<DependencyProps> = ({ href, ...props }) => {
 const Details: React.FC = (props) => <Text sx={{ fontSize: 0 }} {...props} />
 
 const UsesPage: React.FC = () => (
-  <Layout>
-    <Helmet>
-      <title>Uses</title>
-    </Helmet>
+  <React.Fragment>
+    <Head>
+      <title key="title">Uses {titleSuffix}</title>
+    </Head>
 
     <Header>
       <HeaderName>Uses</HeaderName>
@@ -129,7 +129,7 @@ const UsesPage: React.FC = () => (
         </Stack>
       </Grid>
     </Container>
-  </Layout>
+  </React.Fragment>
 )
 
 export default UsesPage

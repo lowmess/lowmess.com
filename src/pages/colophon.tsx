@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
+import type { GetStaticProps } from 'next'
+import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Layout from '../components/Layout'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import { dependencies } from '../../package-lock.json'
+import titleSuffix from '../constants/titleSuffix'
 
 interface DependencyProps {
   version?: string
@@ -25,24 +26,29 @@ const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
   </Text>
 )
 
-const ColophonPage: React.FC = () => {
+interface ColophonProps {
+  versions: {
+    [dependency: string]: string
+  }
+}
+
+const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
   const {
-    preact: { version: preact },
-    gatsby: { version: gatsby },
-    '@mdx-js/mdx': { version: mdx },
-    'react-helmet': { version: reactHelmet },
-    'theme-ui': { version: themeUI },
-    prismjs: { version: prismjs },
-    typescript: { version: typescript },
-    eslint: { version: eslint },
-    prettier: { version: prettier },
-  } = dependencies
+    preact,
+    next,
+    mdx,
+    themeUI,
+    prismjs,
+    typescript,
+    eslint,
+    prettier,
+  } = versions
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Colophon</title>
-      </Helmet>
+    <React.Fragment>
+      <Head>
+        <title key="title">Colophon {titleSuffix}</title>
+      </Head>
 
       <Header>
         <HeaderName>Colophon</HeaderName>
@@ -56,23 +62,23 @@ const ColophonPage: React.FC = () => {
             <Heading color="muted-text">Functionality</Heading>
 
             <Stack gap={2} mt={3}>
+              <Dependency
+                version={typescript}
+                href="https://typescriptlang.org/"
+              >
+                TypeScript
+              </Dependency>
+
               <Dependency version={preact} href="https://preactjs.com">
                 Preact
               </Dependency>
 
-              <Dependency version={gatsby} href="https://gatsbyjs.org">
-                Gatsby
+              <Dependency version={next} href="https://nextjs.org">
+                Next.js
               </Dependency>
 
               <Dependency version={mdx} href="https://mdxjs.com">
                 MDX
-              </Dependency>
-
-              <Dependency
-                version={reactHelmet}
-                href="https://github.com/nfl/react-helmet"
-              >
-                React Helmet
               </Dependency>
             </Stack>
           </Box>
@@ -111,13 +117,6 @@ const ColophonPage: React.FC = () => {
 
               <Dependency href="https://netlify.com">Netlify</Dependency>
 
-              <Dependency
-                version={typescript}
-                href="https://typescriptlang.org/"
-              >
-                TypeScript
-              </Dependency>
-
               <Dependency version={eslint} href="https://eslint.org">
                 ESLint
               </Dependency>
@@ -129,8 +128,40 @@ const ColophonPage: React.FC = () => {
           </Box>
         </Grid>
       </Container>
-    </Layout>
+    </React.Fragment>
   )
+}
+
+// `getStaticProps` must be async, but I don't need to wait on jack
+// eslint-disable-next-line require-await
+export const getStaticProps: GetStaticProps = async () => {
+  const {
+    preact: { version: preact },
+    next: { version: next },
+    '@mdx-js/mdx': { version: mdx },
+    'theme-ui': { version: themeUI },
+    prismjs: { version: prismjs },
+    typescript: { version: typescript },
+    eslint: { version: eslint },
+    prettier: { version: prettier },
+  } = dependencies
+
+  const versions = {
+    preact,
+    next,
+    mdx,
+    themeUI,
+    prismjs,
+    typescript,
+    eslint,
+    prettier,
+  }
+
+  return {
+    props: {
+      versions,
+    },
+  }
 }
 
 export default ColophonPage

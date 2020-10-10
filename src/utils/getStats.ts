@@ -1,17 +1,16 @@
-import fetch from 'unfetch'
+/* eslint-disable import/exports-last */
 
 type Album = {
   name: string
   artist: string
 }
 
-// eslint-disable-next-line import/exports-last
 export type Book = {
   name: string
   author: string
 }
 
-type Stats = {
+export type Stats = {
   commits?: number
   tweets?: number
   places?: number
