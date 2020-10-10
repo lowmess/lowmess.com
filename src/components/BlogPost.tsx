@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { addMinutes, format } from 'date-fns'
+import { parseISO, format } from 'date-fns'
 import { Box, Container } from 'theme-ui'
 import titleSuffix from '../constants/titleSuffix'
 import type { Meta } from '../utils/getAllPosts'
@@ -17,10 +17,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ meta, children }) => {
 
   const { title, description, date } = meta
 
-  const d = new Date(date)
-  const dateOffset = d.getTimezoneOffset()
-  const datetime = addMinutes(d, dateOffset)
-  const formattedDate = format(datetime, 'MMMM d, yyyy')
+  const formattedDate = format(parseISO(date), 'MMMM d, yyyy')
 
   return (
     <React.Fragment>
