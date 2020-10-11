@@ -15,6 +15,10 @@ const withMDX = require('@next/mdx')({
 })
 
 const nextConfig = {
+  experimental: {
+    modern: true,
+  },
+
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 
   webpack(config, { dev, isServer }) {
