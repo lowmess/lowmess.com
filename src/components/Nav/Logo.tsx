@@ -7,7 +7,17 @@ const Logo: React.FC = () => (
   <Link href="/" passHref>
     <a // eslint-disable-line jsx-a11y/anchor-is-valid
       tabIndex={-1}
-      sx={{ display: 'inline', color: 'primary', textDecoration: 'none' }}
+      sx={{
+        display: 'inline',
+        color: 'primary',
+        textDecoration: 'none',
+
+        // ordinarily, this would be a big no-no, but since this can't be
+        // accessed with a keyboard anyhow, it should be fine.
+        '&:focus': {
+          outline: 0,
+        },
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
