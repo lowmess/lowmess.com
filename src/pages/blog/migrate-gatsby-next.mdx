@@ -111,7 +111,7 @@ Luckily, [the `rss` package](https://www.npmjs.com/package/rss) made actually ge
 
 ### Preact
 
-Netlify has a really handy plugin to use [Preact](https://preactjs.com) in production, reducing your bundle size by a fair amount. If your Gatsby site doesn't need to support IE10, I highly recommend using it. While there isn't a plug-and-play option for Next.js, we can use npm aliases to replace references to React with the `preact/compat` package. Combined with some webpack wizardry, we can reduce the size of our builds a good amount. [Here's the official example](https://github.com/vercel/next.js/tree/canary/examples/using-preact) that I definitely didn't just copy & paste from.
+Gatsby has a [really handy plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-preact/) to use [Preact](https://preactjs.com) in production, reducing your bundle size by a fair amount. If your Gatsby site doesn't need to support IE10, I highly recommend using it. While there isn't a plug-and-play option for Next.js, we can use npm aliases to replace references to React with the `preact/compat` package. Combined with some webpack wizardry, we can reduce the size of our builds a good amount. [Here's the official example](https://github.com/vercel/next.js/tree/canary/examples/using-preact) that I definitely didn't just copy & paste from.
 
 ## Should You Switch?
 
@@ -123,11 +123,11 @@ I'm pretty adamant about keeping my dependencies up to date. Moving on from the 
 
 ### Simpler Data Flow
 
-Doing things the Gatsby way means pulling your data out of the unified GraphQL API. As mentioned earlier, that's great when you have lots of data sources, but less so when you're working on a tiny blog like this. Plus, since `getStaticProps` runs at build time, you can move some costlier work there to boost production performance (one reason why I suspect I could get performance gains out of using `getStaticPaths` to render my blog posts).
+Doing things the Gatsby way means pulling your data out of the unified GraphQL API. As mentioned earlier, that's great when you have lots of data sources, but less so when you're working on a tiny blog like this. Plus, since `getStaticProps` runs at build time, you can move some costlier work there to boost production performance (you can do similar things with Gatsby, of course, but not as simply).
 
 ### Only As Static As You Want
 
-If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while ensuring the stats are still always up to date.
+If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while continuing to ensure the stats are always up to date (doing so would require me to change hosting providers, but that's a can of worms for another day).
 
 ## What Did We Learn?
 
