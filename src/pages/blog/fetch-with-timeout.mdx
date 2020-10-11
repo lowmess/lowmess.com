@@ -1,8 +1,15 @@
----
-title: Request Timeouts With the Fetch API
-date: 2019-03-30
-description: The Fetch API is great, but didn't ship with the ability to timeout requests. There's a new API to help with that.
----
+import BlogPost from '../../components/BlogPost'
+
+export const meta = {
+  title: 'Request Timeouts With the Fetch API',
+  date: '2019-03-30',
+  description:
+    "The Fetch API is great, but didn't ship with the ability to timeout requests. There's a new API to help with that.",
+}
+
+export default ({ children }) => (
+  <BlogPost meta={meta}>{children}</BlogPost>
+)
 
 I'm a big fan of the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). I use it regularly in all sorts of projects, including this site and the API that powers the stats on the [about page](/about/). However it isn't always as clear how to do things like error handling and request timeouts as it is in libraries like [Axios](https://github.com/axios/axios).
 

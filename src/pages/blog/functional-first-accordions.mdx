@@ -1,12 +1,17 @@
----
-title: Functional-First Accordions
-date: 2018-12-30
-updated: 2019-12-16
-description: Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do.
----
-
 import { Text, Container, Link } from 'theme-ui'
 import Update from '../../components/Update'
+import BlogPost from '../../components/BlogPost'
+
+export const meta = {
+  title: 'Functional-First Accordions',
+  date: '2018-12-30',
+  description:
+    'Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do.',
+}
+
+export default ({ children }) => (
+  <BlogPost meta={meta}>{children}</BlogPost>
+)
 
 <Update date="December 2019">
   In the year since I've wrote this, it's become increasingly clear that
@@ -32,12 +37,14 @@ There are few UI components encountered as frequently as the accordion. Even if 
 <details>
 <summary>This is my cool accordion</summary>
 
+
 <Text as="p" my={3}>
   100% HTML, baby. #usetheplatform
 </Text>
 
 </details>
 </Container>
+
 
 That's all HTML! The code looks like this:
 
@@ -111,10 +118,10 @@ details[open] summary::after {
     scrolling="no"
     title="Details Accordion (CSS Resets Only)"
     src="//codepen.io/lowmess/embed/zMjagE/?height=300&theme-id=22727&default-tab=result"
-    frameborder="no"
+    frameBorder="no"
     allowtransparency="true"
-    allowfullscreen="true"
-    style="width: 100%;"
+    allowFullScreen={true}
+    style={{ width: '100%' }}
   >
     See the Pen{' '}
     <a href="https://codepen.io/lowmess/pen/zMjagE/">
@@ -154,10 +161,10 @@ summary + * {
     scrolling="no"
     title="Details Accordion (Base Styles)"
     src="//codepen.io/lowmess/embed/eQrjBG/?height=300&theme-id=22727&default-tab=result"
-    frameborder="no"
+    frameBorder="no"
     allowtransparency="true"
-    allowfullscreen="true"
-    style="width: 100%;"
+    allowFullScreen={true}
+    style={{ width: '100%' }}
   >
     See the Pen{' '}
     <a href="https://codepen.io/lowmess/pen/eQrjBG/">
@@ -276,10 +283,10 @@ window.setTimeout(() => {
     scrolling="no"
     title="<details> Accordion (Final Form)"
     src="//codepen.io/lowmess/embed/yQjRXy/?height=300&theme-id=22727&default-tab=result"
-    frameborder="no"
+    frameBorder="no"
     allowtransparency="true"
-    allowfullscreen="true"
-    style="width: 100%;"
+    allowFullScreen={true}
+    style={{ width: '100%' }}
   >
     See the Pen{' '}
     <a href="https://codepen.io/lowmess/pen/yQjRXy/">

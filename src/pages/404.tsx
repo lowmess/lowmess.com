@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
-import { Helmet } from 'react-helmet'
-import { Text, Container, Link } from 'theme-ui'
-import Layout from '../components/Layout'
+import Head from 'next/head'
+import { Text, Container } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
+import Link from '../components/Link'
+import metadata from '../constants/metadata.json'
 
 const ErrorPage: React.FC = () => (
-  <Layout>
-    <Helmet>
-      <title>I goofed it</title>
-    </Helmet>
+  <React.Fragment>
+    <Head>
+      <title key="title">I goofed it {metadata.titleSuffix}</title>
+    </Head>
 
     <Header>
       <HeaderName>Error 404</HeaderName>
@@ -26,11 +26,9 @@ const ErrorPage: React.FC = () => (
         }}
       >
         &ldquo;
-        <GatsbyLink to="/">
-          <Link as="span" variant="ui">
-            Click here to go home
-          </Link>
-        </GatsbyLink>
+        <Link href="/" variant="ui">
+          Click here to go home
+        </Link>
         &rdquo;
         <br />
         is over-used and boring,
@@ -38,7 +36,7 @@ const ErrorPage: React.FC = () => (
         but at least it&rsquo;s clear.
       </Text>
     </Container>
-  </Layout>
+  </React.Fragment>
 )
 
 export default ErrorPage

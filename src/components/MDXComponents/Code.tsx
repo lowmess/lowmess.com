@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react'
 import { Box, Text, Grid, Container } from 'theme-ui'
 import Highlight, { defaultProps } from 'prism-react-renderer'
@@ -43,8 +44,7 @@ const Code: React.FC<CodeProps> = ({
       <Container
         sx={{
           fontFamily: 'mono',
-          maxWidth: (t): string =>
-            `calc(${t.sizes['mdx-measure']} + ${t.space[5]})`,
+          maxWidth: (t) => `calc(${t.sizes['mdx-measure']} + ${t.space[5]})`,
         }}
       >
         <Highlight
@@ -58,13 +58,7 @@ const Code: React.FC<CodeProps> = ({
           language={language}
           theme={theme}
         >
-          {({
-            className,
-            style,
-            tokens,
-            getLineProps,
-            getTokenProps,
-          }): JSX.Element => (
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <Box
               className={className}
               style={style}

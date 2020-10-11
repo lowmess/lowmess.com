@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import Head from 'next/head'
 import { Box, Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Layout from '../components/Layout'
 import Inline from '../components/Inline'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
+import projects from '../constants/projects.json'
+import metadata from '../constants/metadata.json'
 
 interface Project {
   title: string
@@ -13,87 +13,69 @@ interface Project {
   repo?: string
 }
 
-const ProjectsPage: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allProjectsJson {
-        edges {
-          node {
-            title
-            description
-            website
-            repo
-          }
-        }
-      }
-    }
-  `)
+const ProjectsPage: React.FC = () => (
+  <React.Fragment>
+    <Head>
+      <title key="title">Projects {metadata.titleSuffix}</title>
+    </Head>
 
-  const projects = data.allProjectsJson.edges
+    <Header>
+      <HeaderName>Projects</HeaderName>
 
-  return (
-    <Layout>
-      <Helmet>
-        <title>Projects</title>
-      </Helmet>
+      <HeaderTitle>First-World Problem Solvers</HeaderTitle>
+    </Header>
 
-      <Header>
-        <HeaderName>Projects</HeaderName>
+    <Container as="main" mt={5}>
+      <Grid columns={[null, 2]} gap={5}>
+        {projects.map((project: Project, index: number) => {
+          const { title, description, website, repo } = project
 
-        <HeaderTitle>First-World Problem Solvers</HeaderTitle>
-      </Header>
-
-      <Container as="main" mt={5}>
-        <Grid columns={[null, 2]} gap={5}>
-          {projects.map(({ node }: { node: Project }, index: number) => {
-            const { title, description, website, repo } = node
-            return (
-              <Flex
-                key={title}
-                sx={{ position: 'relative', alignItems: 'baseline' }}
+          return (
+            <Flex
+              key={title}
+              sx={{ position: 'relative', alignItems: 'baseline' }}
+            >
+              <Text
+                aria-hidden
+                variant="heading"
+                sx={{
+                  position: [null, null, 'absolute'],
+                  right: '100%',
+                  marginRight: 3,
+                  color: 'muted-text',
+                  userSelect: 'none',
+                }}
               >
-                <Text
-                  aria-hidden
-                  variant="heading"
-                  sx={{
-                    position: [null, null, 'absolute'],
-                    right: '100%',
-                    marginRight: 3,
-                    color: 'muted-text',
-                    userSelect: 'none',
-                  }}
-                >
-                  {index + 1}
-                </Text>
+                {index + 1}
+              </Text>
 
-                <Box>
-                  <Heading>
-                    <Link variant="ui" href={website || repo}>
-                      {title}
-                    </Link>
-                  </Heading>
+              <Box>
+                <Heading>
+                  <Link variant="ui" href={website || repo}>
+                    {title}
+                  </Link>
+                </Heading>
 
-                  {description && (
-                    <Text as="p" sx={{ maxWidth: 'measure', marginTop: 2 }}>
-                      {description}
-                    </Text>
-                  )}
+                {description && (
+                  <Text as="p" sx={{ maxWidth: 'measure', marginTop: 2 }}>
+                    {description}
+                  </Text>
+                )}
 
-                  <Inline gap={2} mt={2}>
-                    {website && <Link href={website}>Website</Link>}
+                <Inline gap={2} mt={2}>
+                  {website && <Link href={website}>Website</Link>}
 
-                    {website && repo && '\u00B7'}
+                  {website && repo && '\u00B7'}
 
-                    {repo && <Link href={repo}>Repository</Link>}
-                  </Inline>
-                </Box>
-              </Flex>
-            )
-          })}
-        </Grid>
-      </Container>
-    </Layout>
-  )
-}
+                  {repo && <Link href={repo}>Repository</Link>}
+                </Inline>
+              </Box>
+            </Flex>
+          )
+        })}
+      </Grid>
+    </Container>
+  </React.Fragment>
+)
 
 export default ProjectsPage

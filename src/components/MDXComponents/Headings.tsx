@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react'
 import GithubSlugger from 'github-slugger'
+import { onlyText } from 'react-children-utilities'
 import { Container, Heading, Link } from 'theme-ui'
 import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
@@ -26,9 +28,11 @@ const AutolinkHeading: React.FC<ThemeUIProps> = ({
   children,
   ...props
 }) => {
+  const childText = onlyText(children)
+
   const slugger = new GithubSlugger()
 
-  const slug = slugger.slug(children)
+  const slug = slugger.slug(childText, false)
 
   return (
     <Container sx={{ maxWidth: 'mdx-measure' }}>
@@ -84,7 +88,11 @@ const h2: React.FC = (props) => (
 )
 
 const h3: React.FC = (props) => (
-  <AutolinkHeading as="h3" sx={{ fontSize: [3, 4] }} {...props} />
+  <AutolinkHeading
+    as="h3"
+    sx={{ fontSize: [3, 4], marginTop: [3, 4] }}
+    {...props}
+  />
 )
 
 const h4: React.FC = (props) => (

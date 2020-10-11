@@ -1,17 +1,16 @@
-import fetch from 'unfetch'
+/* eslint-disable import/exports-last */
 
 type Album = {
   name: string
   artist: string
 }
 
-// eslint-disable-next-line import/exports-last
 export type Book = {
   name: string
   author: string
 }
 
-type Stats = {
+export type Stats = {
   commits?: number
   tweets?: number
   places?: number
@@ -46,6 +45,7 @@ const getStats = async (): Promise<Stats> => {
       body: JSON.stringify({ query }),
       headers: {
         'Content-Type': 'application/json',
+        Link: '<https://stats.lowmess.com/graphql>; rel="preconnect"',
       },
     })
 

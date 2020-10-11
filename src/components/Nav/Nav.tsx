@@ -1,14 +1,24 @@
 import * as React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
-import { useLocation } from '@reach/router'
-import { Box, Flex, Container, NavLink } from 'theme-ui'
+import { useRouter } from 'next/router'
+import { default as NextLink } from 'next/link'
+import { Box, Flex, Container, NavLink as ThemeLink } from 'theme-ui'
 import { ThemeUIProps } from '../../types/ThemeUIComponent'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import ColorModeToggle from './ColorModeToggle'
 
+interface NavLinkProps extends ThemeUIProps {
+  href: string
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, ...props }) => (
+  <NextLink href={href} passHref>
+    <ThemeLink {...props} />
+  </NextLink>
+)
+
 const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
-  const location = useLocation()
+  const { pathname } = useRouter()
 
   return (
     <Box
@@ -36,36 +46,32 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
         <Flex sx={{ alignItems: 'center' }}>
           <Flex as="ul">
             <li>
-              <GatsbyLink
-                to="/"
-                data-active={location.pathname === '/' ? true : null}
+              <NavLink
+                href="/"
+                data-active={pathname === '/' ? true : null}
+                mr={[1, 2]}
               >
-                <NavLink as="span" mr={[1, 2]}>
-                  Home
-                </NavLink>
-              </GatsbyLink>
+                Home
+              </NavLink>
             </li>
 
             <li>
-              <GatsbyLink
-                to="/projects/"
-                data-active={
-                  location.pathname.includes('/projects') ? true : null
-                }
+              <NavLink
+                href="/projects"
+                data-active={pathname.includes('/projects') ? true : null}
+                mr={[1, 2]}
               >
-                <NavLink as="span" mr={[1, 2]}>
-                  Projects
-                </NavLink>
-              </GatsbyLink>
+                Projects
+              </NavLink>
             </li>
 
             <li>
-              <GatsbyLink
-                to="/blog/"
-                data-active={location.pathname.includes('/blog') ? true : null}
+              <NavLink
+                href="/blog"
+                data-active={pathname.includes('/blog') ? true : null}
               >
-                <NavLink as="span">Blog</NavLink>
-              </GatsbyLink>
+                Blog
+              </NavLink>
             </li>
           </Flex>
 
