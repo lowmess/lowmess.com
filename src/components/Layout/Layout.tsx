@@ -1,54 +1,26 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { useThemeUI, Box, Flex } from 'theme-ui'
+import { Box, Flex } from 'theme-ui'
 import metadata from '../../constants/metadata.json'
 import Nav from '../Nav'
 import Footer from '../Footer'
 import GlobalStyles from './GlobalStyles'
 
 const Layout: React.FC = ({ children }) => {
-  const { theme } = useThemeUI()
   const { title, description } = metadata
 
   return (
     <React.Fragment>
       <Head>
+        {/*
+         * Shouldn't be set in `_document`:
+         * https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md
+         */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
 
         <title key="title">{title}</title>
 
         <meta name="description" content={description} />
-
-        {/* theming */}
-        <meta name="theme-color" content={theme.colors.muted} />
-        <meta name="apple-mobile-web-app-title" content={title} />
-        <meta name="application-name" content={title} />
-        <meta name="msapplication-TileColor" content={theme.colors.primary} />
-
-        {/* icons */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-32x32.png"
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-16x16.png"
-          sizes="16x16"
-        />
-        <link
-          rel="mask-icon"
-          href="/safari-pinned-tab.svg"
-          color={theme.colors.primary}
-        />
       </Head>
 
       <Flex sx={{ flexDirection: 'column', minHeight: '100vh' }}>

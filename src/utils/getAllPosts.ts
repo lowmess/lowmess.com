@@ -1,7 +1,7 @@
 /* eslint-disable import/exports-last */
 const importAll = (r: __WebpackModuleApi.RequireContext) => {
   return r.keys().map((fileName) => ({
-    link: `/blog${fileName.substr(1).replace(/\.mdx$/, '')}`,
+    link: `/blog${fileName.substring(1).replace(/\.mdx$/, '')}`,
     meta: r(fileName).meta,
   }))
 }
