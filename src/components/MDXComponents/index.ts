@@ -4,6 +4,7 @@ import a from './Link'
 import { UnorderedList as ul, OrderedList as ol } from './Lists'
 import { Code as code, InlineCode as inlineCode } from './Code'
 import blockquote from './BlockQuote'
+import { default as hr } from './Break'
 // import img from './Image'
 
 export default {
@@ -20,5 +21,6 @@ export default {
   code,
   inlineCode,
   blockquote,
+  hr,
   // img,
 }

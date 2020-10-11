@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { default as NextLink } from 'next/link'
-import { Link as ThemeLink } from 'theme-ui'
+import { Link as ThemeUILink } from 'theme-ui'
 import { ThemeUIProps } from '../types/ThemeUIComponent'
 
 interface LinkProps extends ThemeUIProps {
@@ -9,7 +9,7 @@ interface LinkProps extends ThemeUIProps {
 
 const Link: React.FC<LinkProps> = ({ href, ...props }) => (
   <NextLink href={href} passHref>
-    <ThemeLink {...props} />
+    <ThemeUILink {...props} />
   </NextLink>
 )
 
