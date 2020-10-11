@@ -3,7 +3,7 @@ import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { InitializeColorMode } from 'theme-ui'
 import metadata from '../constants/metadata.json'
-import colors from '../theme/colors'
+import colors from '../constants/theme/colors'
 
 class MyDocument extends Document {
   render() {

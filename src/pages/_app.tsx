@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'theme-ui'
-import theme from '../theme'
+import theme from '../constants/theme'
 import components from '../components/MDXComponents'
 import Layout from '../components/Layout'
 
