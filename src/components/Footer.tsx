@@ -54,6 +54,10 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
               </li>
 
               <li>
+                <FooterLink href="/archive">Archive</FooterLink>
+              </li>
+
+              <li>
                 <FooterLink href="/rss.xml" external>
                   RSS
                 </FooterLink>
@@ -82,6 +86,12 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
               <li>
                 <FooterLink href="https://dribbble.com/lowmess" external>
                   Dribbble
+                </FooterLink>
+              </li>
+
+              <li>
+                <FooterLink href="https://codepen.io/lowmess" external>
+                  CodePen
                 </FooterLink>
               </li>
 

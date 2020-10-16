@@ -11,13 +11,17 @@ export default ({ children }) => (
   <BlogPost meta={meta}>{children}</BlogPost>
 )
 
-Recently -- and quite frankly I'm shocked this wasn't a major national news story -- I was bored. As I often do when I'm bored, I decided to tinker with this here website. There weren't any obvious bugs to fix and the design is pretty much sorted, which unfortunately left very little to tinker with. All hope was not lost, as I have been curious about Next.js's static site generation [since it debuted with version 9.3 of the framework](https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support). This seemed an opportune time to test it out independent of content, design, or site structure. This also meant moving away from [Gatsby](https://gatsbyjs.com), which I have been using as the basis for this site for the last 3 years.
+Recently -- and quite frankly I'm shocked this wasn't a major national news story -- I was bored. As I often do when I'm bored, I decided to tinker with this here website. There weren't any obvious bugs to fix and the design is pretty much sorted, which unfortunately left very little to tinker with. All hope was not lost, as I have been curious about [Next.js](https://nextjs.org)'s static site generation [since it debuted with version 9.3 of the framework](https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support). This seemed an opportune time to test it out independent of content, design, or site structure. This also meant moving away from [Gatsby](https://gatsbyjs.com), which I have been using as the basis for this site for the last 3 years.
+
+## Gatsby vs. Next.js
+
+If you're unfamiliar, Gatsby and Next.js are frameworks for developing highly-performant React-based websites. They share some things in common, but differ in core philosophy: Gatsby is a static site generator first and foremost, while Next.js is a more general server-rendered framework for React applications. While both offer the ability to generate static pages, only Next.js has the ability to generate server-rendered pages on the fly ([though, contrary to popular belief, Gatsby sites _can_ have client-only routes](https://www.gatsbyjs.com/docs/adding-app-and-website-functionality/#client-only-routes)). The other main difference is their approach to data-fetching: in Gatsby, all data is accessed via an internal GraphQL API while Next.js is completely agnostic as to how the data finds its way to your components.
 
 ## What's Wrong With Gatsby?
 
 Nothing.
 
-Well, almost nothing. As [Jared Palmer expertly points out](https://jaredpalmer.com/gatsby-vs-nextjs#graphql-is-overkill-for-most-static-sites), the "unified data graph" approach of Gatsby often introduces more complication than is necessary for small static sites such as this. (You might find yourself asking "isn't _any_ React framework more complication than is necessary for small static sites such as this?" And to that I say yes. But this site is just as much a portfolio piece as a practical bit of code and also do you hate fun?)
+Well, almost nothing. As [Jared Palmer expertly points out](https://jaredpalmer.com/gatsby-vs-nextjs#graphql-is-overkill-for-most-static-sites), the unified data graph approach of Gatsby often introduces more complication than is necessary for small static sites such as this. (You might find yourself asking "isn't _any_ React framework more complication than is necessary for small static sites such as this?" And to that I say yes. But this site is just as much a portfolio piece as a practical bit of code and also do you hate fun?)
 
 But ultimately this was an excuse to dip my toes in the Next.js waters. I only fully dived in when it turned out the temperature was to my liking.
 

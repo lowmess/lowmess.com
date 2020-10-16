@@ -10,11 +10,15 @@ interface ValueCountProps {
   plural: string
 }
 
-const ValueCount: React.FC<ValueCountProps> = ({ value, singular, plural }) => (
-  <React.Fragment>
-    {value.toLocaleString()} {pluralize(value, singular, plural)}
-  </React.Fragment>
-)
+const ValueCount: React.FC<ValueCountProps> = ({ value, singular, plural }) => {
+  const count = typeof value === 'number' ? value : 0
+
+  return (
+    <React.Fragment>
+      {count.toLocaleString()} {pluralize(count, singular, plural)}
+    </React.Fragment>
+  )
+}
 
 interface FormattedBookProps {
   book: Book
