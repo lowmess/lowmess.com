@@ -4,7 +4,7 @@
   "description": "The website and portfolio of Alec Lomas",
   "scripts": {
     "start": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "postbuild": "node lib/generate-sitemap && node lib/generate-rss"
   },
   "repository": {
