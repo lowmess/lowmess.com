@@ -4,3 +4,5 @@ node_modules
 .vscode
 .next
 out
+public/rss.xml
+public/sitemap.xml
