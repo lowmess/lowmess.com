@@ -72,43 +72,7 @@ interface IndexProps {
 }
 
 const IndexPage: React.FC<IndexProps> = ({ stats }) => {
-  const [commits, setCommits] = React.useState(stats.commits)
-  const [tweets, setTweets] = React.useState(stats.tweets)
-  const [steps, setSteps] = React.useState(stats.steps)
-  const [places, setPlaces] = React.useState(stats.places)
-  const [songs, setSongs] = React.useState(stats.songs)
-  const [album, setAlbum] = React.useState(stats.album)
-  const [books, setBooks] = React.useState(stats.books)
-
-  const hydrateStats = async (): Promise<void> => {
-    const {
-      commits: commitStat,
-      tweets: tweetsStat,
-      places: placesStat,
-      steps: stepsStat,
-      songs: songsStat,
-      album: albumStat,
-      books: booksStat,
-    } = await getStats()
-
-    if (typeof commitStat === 'number') setCommits(commitStat)
-
-    if (typeof tweetsStat === 'number') setTweets(tweetsStat)
-
-    if (typeof placesStat === 'number') setPlaces(placesStat)
-
-    if (typeof stepsStat === 'number') setSteps(stepsStat)
-
-    if (typeof songsStat === 'number') setSongs(songsStat)
-
-    if (albumStat?.name && albumStat?.artist) setAlbum(albumStat)
-
-    if (booksStat.length > 0) setBooks(booksStat)
-  }
-
-  React.useEffect(() => {
-    hydrateStats()
-  }, [])
+  const { commits, tweets, steps, places, songs, album, books } = stats
 
   return (
     <Container>
@@ -175,6 +139,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       stats,
     },
+    revalidate: 60 * 60, // revalidate at most once per hour
   }
 }
 
