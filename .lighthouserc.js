@@ -2,13 +2,13 @@ module.exports = {
   ci: {
     collect: {
       startServerCommand: 'npm run serve',
-      startServerReadyPattern: 'ready on',
+      startServerReadyPattern:
+        'ready - started server on http://localhost:3000',
       url: [
         'http://localhost:3000/',
         'http://localhost:3000/blog',
         'http://localhost:3000/blog/fetch-with-timeout',
         'http://localhost:3000/projects',
-        'http://localhost:3000/404.html',
       ],
       upload: {
         target: 'temporary-public-storage',
