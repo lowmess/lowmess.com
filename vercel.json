@@ -8,9 +8,7 @@
     {
       "source": "/about",
       "destination": "/"
-    }
-  ],
-  "rewrites": [
+    },
     {
       "source": "/work/:project*",
       "destination": "https://v1.lowmess.com/work/:project*"
