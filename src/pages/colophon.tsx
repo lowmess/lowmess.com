@@ -115,7 +115,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
             <Stack gap={2} mt={3}>
               <Dependency href="https://github.com">GitHub</Dependency>
 
-              <Dependency href="https://netlify.com">Netlify</Dependency>
+              <Dependency href="https://vercel.com">Vercel</Dependency>
 
               <Dependency version={eslint} href="https://eslint.org">
                 ESLint
