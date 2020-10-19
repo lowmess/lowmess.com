@@ -5,7 +5,8 @@
   "scripts": {
     "start": "next dev",
     "build": "next build",
-    "postbuild": "node lib/generate-sitemap && node lib/generate-rss"
+    "postbuild": "node lib/generate-sitemap && node lib/generate-rss",
+    "ci": "next build && next start"
   },
   "repository": {
     "type": "git",

@@ -1,9 +1,15 @@
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: 'npm run start',
+      startServerCommand: 'npm run ci',
       startServerReadyPattern: 'ready on',
-      url: ['http://localhost:3000/'],
+      url: [
+        'http://localhost:3000/',
+        'http://localhost:3000/blog',
+        'http://localhost:3000/blog/fetch-with-timeout',
+        'http://localhost:3000/projects',
+        'http://localhost:3000/404',
+      ],
       upload: {
         target: 'temporary-public-storage',
       },
