@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "redirects": [
+    {
+      "source": "/contact",
+      "destination": "/"
+    },
+    {
+      "source": "/about",
+      "destination": "/"
+    },
+    {
+      "source": "/work/:project*",
+      "destination": "https://v1.lowmess.com/work/:project*"
+    }
+  ]
+}

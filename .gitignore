@@ -2,5 +2,8 @@ node_modules
 .cache
 *.log
 .vscode
+.vercel
 .next
 out
+public/rss.xml
+public/sitemap.xml
