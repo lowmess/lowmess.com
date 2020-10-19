@@ -79,6 +79,9 @@ jobs:
       - name: Install dependencies with npm
         run: npm install && npm install -g @lhci/cli@0.4.x
 
+      - name: Build site
+        run: npm run build
+
       - name: Run Lighthouse CI
         run: lhci autorun
         env:
