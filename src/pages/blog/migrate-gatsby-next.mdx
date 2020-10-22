@@ -1,3 +1,4 @@
+import { Link } from 'theme-ui'
 import BlogPost from '../../components/BlogPost'
 import Update from '../../components/Update'
 
@@ -135,12 +136,20 @@ Doing things the Gatsby way means pulling your data out of the unified GraphQL A
 If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while continuing to ensure the stats are always accurate (doing so would require me to change hosting providers, but that's a can of worms for another day).
 
 <Update date="October 2020">
-
-
-A mere [checks notes] week after I initially made this migration, I _did_ wind up switching the way the homepage fetches the stat data. It's not quite fully server-rendered, however; I'm using something Next.js calls ["incremental static regeneration" (ISR)](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration). ISR is very simple conceptually: it allows you to tell Next.js how often you expect your static props to change, and re-calculates them _at most_ that often. It is very much a perfect middle-ground between statically-generated and server-rendered content. In my case, the homepage will request new stats once per hour.
-
+  A mere [checks notes] week after I initially made this migration, I{' '}
+  <em>did</em> wind up switching the way the homepage fetches the stat
+  data. It's not quite fully server-rendered, however; I'm using something
+  Next.js calls{' '}
+  <Link href="https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration">
+    &ldquo;incremental static regeneration&rdquo; (ISR)
+  </Link>
+  . ISR is very simple conceptually: it allows you to tell Next.js how often
+  you expect your static props to change, and re-calculates them <em>
+    at most
+  </em> that often. It is very much a perfect middle-ground between statically-generated
+  and server-rendered content. In my case, the homepage will request new stats
+  once per hour.
 </Update>
-
 
 ## What Did We Learn?
 
