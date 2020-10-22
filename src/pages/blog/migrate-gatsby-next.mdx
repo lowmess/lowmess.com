@@ -135,11 +135,10 @@ Doing things the Gatsby way means pulling your data out of the unified GraphQL A
 
 If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while continuing to ensure the stats are always accurate (doing so would require me to change hosting providers, but that's a can of worms for another day).
 
-<Update date="October 2020">
-  A mere [checks notes] week after I initially made this migration, I{' '}
-  <em>did</em> wind up switching the way the homepage fetches the stat
-  data. It's not quite fully server-rendered, however; I'm using something
-  Next.js calls{' '}
+<Update date="October 2020" inline>
+  A mere [checks notes] week after I initially made this migration, I did
+  wind up switching the way the homepage fetches the stat data. It's not
+  quite fully server-rendered, however; I'm using something Next.js calls{' '}
   <Link href="https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration">
     &ldquo;incremental static regeneration&rdquo; (ISR)
   </Link>
