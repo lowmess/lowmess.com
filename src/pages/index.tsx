@@ -10,15 +10,11 @@ interface ValueCountProps {
   plural: string
 }
 
-const ValueCount: React.FC<ValueCountProps> = ({ value, singular, plural }) => {
-  const count = typeof value === 'number' ? value : 0
-
-  return (
-    <React.Fragment>
-      {count.toLocaleString()} {pluralize(count, singular, plural)}
-    </React.Fragment>
-  )
-}
+const ValueCount: React.FC<ValueCountProps> = ({ value, singular, plural }) => (
+  <React.Fragment>
+    {value.toLocaleString()} {pluralize(value, singular, plural)}
+  </React.Fragment>
+)
 
 interface FormattedBookProps {
   book: Book
@@ -72,7 +68,15 @@ interface IndexProps {
 }
 
 const IndexPage: React.FC<IndexProps> = ({ stats }) => {
-  const { commits, tweets, steps, places, songs, album, books } = stats
+  const {
+    commits = 0,
+    tweets = 0,
+    steps = 0,
+    places = 0,
+    songs = 0,
+    album = null,
+    books = [],
+  } = stats
 
   return (
     <Container>
@@ -103,18 +107,24 @@ const IndexPage: React.FC<IndexProps> = ({ stats }) => {
           </Link>
           , taken <ValueCount value={steps} singular="step" plural="steps" />,
           and visited{' '}
-          <ValueCount value={places} singular="place" plural="places" />. My
-          most played album is{' '}
-          <Link href="https://www.last.fm/user/lowmess/library/albums?date_preset=LAST_30_DAYS">
-            &ldquo;{album.name}&rdquo; by {album.artist}
-          </Link>
-          , and I&rsquo;ve listened to{' '}
-          <Link href="https://www.last.fm/user/lowmess">
-            <ValueCount value={songs} singular="song" plural="songs" />
-          </Link>{' '}
-          overall.{' '}
+          <ValueCount value={places} singular="place" plural="places" />.
+          {album.name && album.artist && (
+            <React.Fragment>
+              {' '}
+              My most played album is{' '}
+              <Link href="https://www.last.fm/user/lowmess/library/albums?date_preset=LAST_30_DAYS">
+                &ldquo;{album.name}&rdquo; by {album.artist}
+              </Link>
+              , and I&rsquo;ve listened to{' '}
+              <Link href="https://www.last.fm/user/lowmess">
+                <ValueCount value={songs} singular="song" plural="songs" />
+              </Link>{' '}
+              overall.
+            </React.Fragment>
+          )}
           {books.length > 0 && (
             <React.Fragment>
+              {' '}
               I am reading{' '}
               <Link href="https://www.goodreads.com/user/show/27057705-alec-lomas">
                 <ValueCount
