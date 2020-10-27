@@ -45,7 +45,6 @@ const getStats = async (): Promise<Stats> => {
       body: JSON.stringify({ query }),
       headers: {
         'Content-Type': 'application/json',
-        Link: '<https://stats.lowmess.com/graphql>; rel="preconnect"',
       },
     })
 
