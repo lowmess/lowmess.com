@@ -24,7 +24,7 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
-    "@mdx-js/loader": "^1.6.18",
+    "@mdx-js/loader": "^1.6.19",
     "@next/mdx": "^9.5.5",
     "@reach/visually-hidden": "^0.11.1",
     "@silvenon/remark-smartypants": "^1.0.0",
