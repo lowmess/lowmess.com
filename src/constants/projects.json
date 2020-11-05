@@ -1,5 +1,12 @@
 [
   {
+    "title": "lameass.recipes",
+    "date": "2020-11-01",
+    "description": "A recipe website made in collaboration with my sister, an excellent home cook. None of that life-story-as-recipe stuff: we just get down to brass tacks.",
+    "website": "https://lameass.recipes",
+    "repo": "https://github.com/lowmess/lameass.recipes"
+  },
+  {
     "title": "AZ Golf Gurus",
     "date": "2019-04-22",
     "description": "In addition to designing & developing the website, I also created the branding for this (now defunct) Arizona-based golf services company.",
