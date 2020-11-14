@@ -4,13 +4,13 @@ import { Link as ThemeUILink } from 'theme-ui'
 import { ThemeUIProps } from '../types/ThemeUIComponent'
 
 interface LinkProps extends ThemeUIProps {
-  href: string
+	href: string
 }
 
 const Link: React.FC<LinkProps> = ({ href, ...props }) => (
-  <NextLink href={href} passHref>
-    <ThemeUILink {...props} />
-  </NextLink>
+	<NextLink href={href} passHref>
+		<ThemeUILink {...props} />
+	</NextLink>
 )
 
 export default Link

@@ -7,35 +7,35 @@ import Footer from '../Footer'
 import GlobalStyles from './GlobalStyles'
 
 const Layout: React.FC = ({ children }) => {
-  const { title, description } = metadata
+	const { title, description } = metadata
 
-  return (
-    <React.Fragment>
-      <Head>
-        {/*
-         * Shouldn't be set in `_document`:
-         * https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md
-         */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	return (
+		<React.Fragment>
+			<Head>
+				{/*
+				 * Shouldn't be set in `_document`:
+				 * https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md
+				 */}
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title key="title">{title}</title>
+				<title key="title">{title}</title>
 
-        <meta name="description" content={description} />
-      </Head>
+				<meta name="description" content={description} />
+			</Head>
 
-      <Flex sx={{ flexDirection: 'column', minHeight: '100vh' }}>
-        <GlobalStyles />
+			<Flex sx={{ flexDirection: 'column', minHeight: '100vh' }}>
+				<GlobalStyles />
 
-        <Nav mb={5} />
+				<Nav mb={5} />
 
-        <Box id="main-content" sx={{ flex: 1, paddingY: [null, 3, 4] }}>
-          {children}
-        </Box>
+				<Box id="main-content" sx={{ flex: 1, paddingY: [null, 3, 4] }}>
+					{children}
+				</Box>
 
-        <Footer mt={5} />
-      </Flex>
-    </React.Fragment>
-  )
+				<Footer mt={5} />
+			</Flex>
+		</React.Fragment>
+	)
 }
 
 export default Layout
