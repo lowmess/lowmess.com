@@ -8,78 +8,78 @@ import Logo from './Logo'
 import ColorModeToggle from './ColorModeToggle'
 
 interface NavLinkProps extends ThemeUIProps {
-  href: string
+	href: string
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, ...props }) => (
-  <NextLink href={href} passHref>
-    <ThemeLink {...props} />
-  </NextLink>
+	<NextLink href={href} passHref>
+		<ThemeLink {...props} />
+	</NextLink>
 )
 
 const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
-  const { pathname } = useRouter()
+	const { pathname } = useRouter()
 
-  return (
-    <Box
-      as="nav"
-      sx={{
-        borderTop: 4,
-        borderColor: 'primary',
-        paddingTop: [4, null, 5],
-        ...sx,
-      }}
-      {...props}
-    >
-      <Container
-        sx={{
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <SkipNavLink />
+	return (
+		<Box
+			as="nav"
+			sx={{
+				borderTop: 4,
+				borderColor: 'primary',
+				paddingTop: [4, null, 5],
+				...sx,
+			}}
+			{...props}
+		>
+			<Container
+				sx={{
+					position: 'relative',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between',
+				}}
+			>
+				<SkipNavLink />
 
-        <Logo />
+				<Logo />
 
-        <Flex sx={{ alignItems: 'center' }}>
-          <Flex as="ul">
-            <li>
-              <NavLink
-                href="/"
-                data-active={pathname === '/' ? true : null}
-                mr={[1, 2]}
-              >
-                Home
-              </NavLink>
-            </li>
+				<Flex sx={{ alignItems: 'center' }}>
+					<Flex as="ul">
+						<li>
+							<NavLink
+								href="/"
+								data-active={pathname === '/' ? true : null}
+								mr={[1, 2]}
+							>
+								Home
+							</NavLink>
+						</li>
 
-            <li>
-              <NavLink
-                href="/projects"
-                data-active={pathname.includes('/projects') ? true : null}
-                mr={[1, 2]}
-              >
-                Projects
-              </NavLink>
-            </li>
+						<li>
+							<NavLink
+								href="/projects"
+								data-active={pathname.includes('/projects') ? true : null}
+								mr={[1, 2]}
+							>
+								Projects
+							</NavLink>
+						</li>
 
-            <li>
-              <NavLink
-                href="/blog"
-                data-active={pathname.includes('/blog') ? true : null}
-              >
-                Blog
-              </NavLink>
-            </li>
-          </Flex>
+						<li>
+							<NavLink
+								href="/blog"
+								data-active={pathname.includes('/blog') ? true : null}
+							>
+								Blog
+							</NavLink>
+						</li>
+					</Flex>
 
-          <ColorModeToggle ml={[2, 3]} />
-        </Flex>
-      </Container>
-    </Box>
-  )
+					<ColorModeToggle ml={[2, 3]} />
+				</Flex>
+			</Container>
+		</Box>
+	)
 }
 
 export default Nav

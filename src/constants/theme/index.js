@@ -15,26 +15,26 @@ import buttons from './buttons'
 const breakpoints = ['40em', '64em']
 
 const theme = {
-  //settings
-  useColorSchemeMediaQuery: true,
-  // primitives
-  breakpoints,
-  colors,
-  space,
-  borders,
-  radii,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  sizes,
-  // variants
-  styles,
-  variants,
-  layout,
-  text,
-  links,
-  buttons,
+	//settings
+	useColorSchemeMediaQuery: true,
+	// primitives
+	breakpoints,
+	colors,
+	space,
+	borders,
+	radii,
+	fonts,
+	fontSizes,
+	fontWeights,
+	lineHeights,
+	sizes,
+	// variants
+	styles,
+	variants,
+	layout,
+	text,
+	links,
+	buttons,
 }
 
 export default theme
