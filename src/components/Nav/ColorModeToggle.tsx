@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useColorMode, Button } from 'theme-ui'
-import VisuallyHidden from '@reach/visually-hidden'
+import { VisuallyHidden } from '@reach/visually-hidden'
 import { ThemeUIProps } from '../../types/ThemeUIComponent'
 
 // Icons courtesy of Feather
