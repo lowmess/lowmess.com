@@ -1,14 +1,15 @@
 import BlogPost from '../../components/BlogPost'
+import Link from '../../components/Link'
 
 export const meta = {
-  title: 'On Declarative Styling',
-  date: '2019-07-19',
-  description:
-    'By limiting the amount of CSS we can write, we improve the quality of the CSS we do write.',
+	title: 'On Declarative Styling',
+	date: '2019-07-19',
+	description:
+		'By limiting the amount of CSS we can write, we improve the quality of the CSS we do write.',
 }
 
 export default ({ children }) => (
-  <BlogPost meta={meta}>{children}</BlogPost>
+	<BlogPost meta={meta}>{children}</BlogPost>
 )
 
 > The enemy of art is the absence of limitations.
@@ -43,7 +44,7 @@ The most commonly-used solution, and one you're likely familiar with, is to use 
 
 ```css
 .box {
-  padding: var(--spacing-3);
+	padding: var(--spacing-3);
 }
 ```
 
@@ -51,17 +52,17 @@ Unlike the variables of preprocessors like Sass and LESS, custom properties can 
 
 ```css
 .btn {
-  /* First we define our variables in the base component style */
-  --button-padding-y: var(--spacing-2);
-  --button-padding-x: var(--spacing-3);
-  /* Then we apply our variables to our declarations */
-  padding: var(--button-padding-y) var(--button-padding-x);
+	/* First we define our variables in the base component style */
+	--button-padding-y: var(--spacing-2);
+	--button-padding-x: var(--spacing-3);
+	/* Then we apply our variables to our declarations */
+	padding: var(--button-padding-y) var(--button-padding-x);
 }
 
 /* By updating our variables, the styles will change automatically */
 .btn--large {
-  --button-padding-y: var(--spacing-3);
-  --button-padding-x: var(--spacing-4);
+	--button-padding-y: var(--spacing-3);
+	--button-padding-x: var(--spacing-4);
 }
 ```
 
@@ -77,7 +78,7 @@ Atomic CSS (aka Functional CSS, aka Utility-first CSS) libraries like BassCSS, T
 <div class="p3">Hi</div>
 ```
 
-Customizing BassCSS and Tachyons can be tough, [but it is possible](/blog/customizing-tachyons/). Tailwind, on the other hand, is [fully customizable by default](https://tailwindcss.com/docs/configuration). The Tailwind configuration system is a plain JS object exported from a Node script. A major benefit to this approach is that we can read our tokens from a JSON or YAML file, and apply them to our custom config with a few lines of code.
+Customizing BassCSS and Tachyons can be tough, <Link href="/blog/customizing-tachyons/">but it is possible</Link>. Tailwind, on the other hand, is [fully customizable by default](https://tailwindcss.com/docs/configuration). The Tailwind configuration system is a plain JS object exported from a Node script. A major benefit to this approach is that we can read our tokens from a JSON or YAML file, and apply them to our custom config with a few lines of code.
 
 I'm on the record as being a big, big fan of atomic CSS. But I'm not blind to the disadvantages. The learning curve can be quite steep; not only do we need to internalize the naming scheme, but we also need to rethink how we apply our CSS. Because we also need to apply a fair amount of classnames to our components, I also tend to recommend this approach only for very simple projects or for projects that have a powerful templating system. Applying atomic CSS classes to a React component or Pug mixin makes applying the classnames to our elements much more palatable.
 
@@ -92,14 +93,14 @@ import styled from 'styled-components'
 import { space, color } from 'styled-system'
 
 const Box = styled.div`
-  ${space}
-  ${color}
+	${space}
+	${color}
 `
 
 const MyStyledSystemComponent = (props) => (
-  <Box p={[2, 3]} color="primary" {...props}>
-    Hi
-  </Box>
+	<Box p={[2, 3]} color="primary" {...props}>
+		Hi
+	</Box>
 )
 ```
 
@@ -107,13 +108,13 @@ This approach allows us to not only create components that are not only consiste
 
 ```jsx
 const MyView = () => (
-  <main>
-    <header>...</header>
+	<main>
+		<header>...</header>
 
-    <MyStyledSystemComponent my={4} />
+		<MyStyledSystemComponent my={4} />
 
-    <footer>...</footer>
-  </main>
+		<footer>...</footer>
+	</main>
 )
 ```
 
