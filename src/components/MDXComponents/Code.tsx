@@ -35,6 +35,11 @@ const Code: React.FC<CodeProps> = ({
 		.find((c) => c.indexOf(languagePrefix) !== -1)
 		.slice(languagePrefix.length)
 
+	// for some godforsaken reason, mdx converts tabs in code blocks to 4 spaces.
+	// as far as i can tell, this is not adjustable. therefore, we have this regex
+	// that converts any 4 consecutive spaces to two spaces. i hate it.
+	const code = children.trim().replace(/[ ]{4}/g, '  ')
+
 	return (
 		<Box
 			sx={{
@@ -49,7 +54,7 @@ const Code: React.FC<CodeProps> = ({
 			>
 				<Highlight
 					{...defaultProps}
-					code={children.trim()}
+					code={code}
 					// TS doesn't like that we're passing a string to an enum, but since
 					// we're rendering this from MDX we don't know the language ahead
 					// of time.
