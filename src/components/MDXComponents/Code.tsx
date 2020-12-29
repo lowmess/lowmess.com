@@ -35,10 +35,7 @@ const Code: React.FC<CodeProps> = ({
 		.find((c) => c.indexOf(languagePrefix) !== -1)
 		.slice(languagePrefix.length)
 
-	// for some godforsaken reason, mdx converts tabs in code blocks to 4 spaces.
-	// as far as i can tell, this is not adjustable. therefore, we have this regex
-	// that converts any 4 consecutive spaces to two spaces. i hate it.
-	const code = children.trim().replace(/[ ]{4}/g, '  ')
+	const code = children.trim()
 
 	return (
 		<Box
