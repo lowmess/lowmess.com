@@ -36,7 +36,7 @@
     "preact": "^10.5.9",
     "preact-render-to-string": "^5.1.12",
     "prism-react-renderer": "^1.1.1",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.23.0",
     "react": "npm:@preact/compat@^0.0.3",
     "react-children-utilities": "^2.2.1",
     "react-dom": "npm:@preact/compat@^0.0.3",
