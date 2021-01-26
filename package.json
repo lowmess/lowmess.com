@@ -38,7 +38,7 @@
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.23.0",
     "react": "npm:@preact/compat@^0.0.3",
-    "react-children-utilities": "^2.2.2",
+    "react-children-utilities": "^2.2.3",
     "react-dom": "npm:@preact/compat@^0.0.3",
     "react-ssr-prepass": "npm:preact-ssr-prepass@^1.1.1",
     "theme-ui": "^0.3.5"
