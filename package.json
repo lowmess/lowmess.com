@@ -51,7 +51,7 @@
     "@types/styled-system": "^5.1.10",
     "@types/theme-ui": "^0.3.7",
     "@types/webpack-env": "^1.16.0",
-    "eslint": "^7.18.0",
+    "eslint": "^7.19.0",
     "eslint-config-lowmess": "^4.0.0",
     "glob": "^7.1.6",
     "husky": "^4.3.8",
