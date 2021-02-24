@@ -34,7 +34,7 @@ interface ColophonProps {
 
 const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 	const {
-		preact,
+		react,
 		next,
 		mdx,
 		themeUI,
@@ -69,8 +69,8 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 								TypeScript
 							</Dependency>
 
-							<Dependency version={preact} href="https://preactjs.com">
-								Preact
+							<Dependency version={react} href="https://reactjs.org">
+								React
 							</Dependency>
 
 							<Dependency version={next} href="https://nextjs.org">
@@ -136,7 +136,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 // eslint-disable-next-line require-await
 export const getStaticProps: GetStaticProps = async () => {
 	const {
-		preact: { version: preact },
+		react: { version: react },
 		next: { version: next },
 		'@mdx-js/mdx': { version: mdx },
 		'theme-ui': { version: themeUI },
@@ -147,7 +147,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	} = dependencies
 
 	const versions = {
-		preact,
+		react,
 		next,
 		mdx,
 		themeUI,
