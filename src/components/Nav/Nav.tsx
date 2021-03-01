@@ -48,7 +48,7 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
 						<li>
 							<NavLink
 								href="/"
-								data-active={pathname === '/' ? true : null}
+								aria-current={pathname === '/' ? 'page' : null}
 								mr={[1, 2]}
 							>
 								Home
@@ -58,7 +58,7 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
 						<li>
 							<NavLink
 								href="/projects"
-								data-active={pathname.includes('/projects') ? true : null}
+								aria-current={pathname.includes('/projects') ? 'page' : null}
 								mr={[1, 2]}
 							>
 								Projects
@@ -68,7 +68,7 @@ const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
 						<li>
 							<NavLink
 								href="/blog"
-								data-active={pathname.includes('/blog') ? true : null}
+								aria-current={pathname.includes('/blog') ? 'page' : null}
 							>
 								Blog
 							</NavLink>

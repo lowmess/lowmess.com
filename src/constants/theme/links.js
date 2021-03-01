@@ -16,7 +16,7 @@ export default {
 			color: 'text',
 		},
 
-		'&[data-active]': {
+		'&[aria-current]': {
 			borderColor: 'primary',
 		},
 	},
