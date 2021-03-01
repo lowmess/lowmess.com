@@ -60,7 +60,7 @@
     "prettier": "^2.2.1",
     "prettier-config-lowmess": "^0.3.0",
     "rss": "^1.2.2",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
