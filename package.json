@@ -7,9 +7,7 @@
     "prebuild": "node lib/generate-sitemap && node lib/generate-rss",
     "build": "next build",
     "serve": "next start",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
