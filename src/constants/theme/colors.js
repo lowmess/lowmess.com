@@ -1,44 +1,31 @@
-const baseOrange = `35, 90%`
-const baseGray = `35, 10%`
-
-const generatePalette = (hs) =>
-	[...Array(9).keys()].map((l) => `hsl(${hs}, ${l + 1}0%)`).reverse()
-
-const palette = {
-	orange: `hsl(${baseOrange}, 50%)`,
-	oranges: generatePalette(baseOrange),
-
-	black: `hsl(${baseGray}, 15%)`,
-	white: `hsl(${baseGray}, 100%)`,
-	offWhite: `hsl(${baseGray}, 95%)`,
-	grays: generatePalette(baseGray),
-}
+const orange = (l = 50) => `hsl(35, 90%, ${l}%)`
+const gray = (l = 50) => `hsl(35, 10%, ${l}%)`
 
 export default {
-	black: palette.black,
-	white: palette.white,
+	black: gray(15),
+	white: gray(100),
 
-	text: palette.grays[7],
-	background: palette.white,
-	primary: palette.orange,
-	secondary: palette.oranges[5],
-	accent: palette.orange,
-	highlight: palette.orange,
-	muted: palette.grays[0],
-	'muted-text': palette.grays[5],
-	border: palette.grays[2],
+	text: gray(25),
+	background: gray(100),
+	primary: orange(),
+	secondary: orange(60),
+	accent: orange(),
+	highlight: orange(),
+	muted: gray(90),
+	'muted-text': gray(39), // 40 is just under contrast, this gets the same look
+	border: gray(80),
 
 	modes: {
 		dark: {
-			text: palette.offWhite,
-			background: palette.grays[7],
-			primary: palette.orange,
-			secondary: palette.oranges[3],
-			accent: palette.orange,
-			highlight: palette.orange,
-			muted: palette.black,
-			'muted-text': palette.grays[3],
-			border: palette.grays[5],
+			text: gray(95),
+			background: gray(20),
+			primary: orange(),
+			secondary: orange(40),
+			accent: orange(),
+			highlight: orange(),
+			muted: gray(15),
+			'muted-text': gray(61), // 60 is just under contrast, this gets the same look
+			border: gray(40),
 		},
 	},
 }
