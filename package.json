@@ -37,7 +37,7 @@
     "prism-react-renderer": "^1.2.0",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
-    "react-children-utilities": "^2.4.1",
+    "react-children-utilities": "^2.5.0",
     "react-dom": "^17.0.1",
     "theme-ui": "^0.3.5"
   },
