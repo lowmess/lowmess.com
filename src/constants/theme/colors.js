@@ -1,61 +1,44 @@
-const palette = {
-	orange: '#f2930d',
-	oranges: [
-		'#fdf2e1',
-		'#fbe3c2',
-		'#f9d49e',
-		'#f7c276',
-		'#f5ad47',
-		'#f2930d',
-		'#da840b',
-		'#bf740a',
-		'#9f6008',
-		'#724506',
-	],
+const baseOrange = `35, 90%`
+const baseGray = `35, 10%`
 
-	black: '#2a2722',
-	white: '#ffffff',
-	grays: [
-		'#ffffff',
-		'#f9f9f8',
-		'#efedea',
-		'#e3e0db',
-		'#d6d2cb',
-		'#c9c2ba',
-		'#b9b1a6',
-		'#a89e90',
-		'#938776',
-		'#756a5b',
-		'#443e35',
-		'#39342d',
-	],
+const generatePalette = (hs) =>
+	[...Array(9).keys()].map((l) => `hsl(${hs}, ${l + 1}0%)`).reverse()
+
+const palette = {
+	orange: `hsl(${baseOrange}, 50%)`,
+	oranges: generatePalette(baseOrange),
+
+	black: `hsl(${baseGray}, 15%)`,
+	white: `hsl(${baseGray}, 100%)`,
+	offWhite: `hsl(${baseGray}, 95%)`,
+	grays: generatePalette(baseGray),
 }
 
 export default {
 	black: palette.black,
 	white: palette.white,
 
-	text: palette.grays[10],
+	text: palette.grays[7],
 	background: palette.white,
 	primary: palette.orange,
-	secondary: palette.oranges[6],
+	secondary: palette.oranges[5],
 	accent: palette.orange,
 	highlight: palette.orange,
-	muted: palette.grays[2],
-	'muted-text': palette.grays[9],
-	border: palette.grays[4],
+	muted: palette.grays[0],
+	'muted-text': palette.grays[5],
+	border: palette.grays[2],
 
 	modes: {
 		dark: {
-			text: palette.grays[2],
-			background: palette.grays[11],
+			text: palette.offWhite,
+			background: palette.grays[7],
 			primary: palette.orange,
 			secondary: palette.oranges[3],
 			accent: palette.orange,
 			highlight: palette.orange,
 			muted: palette.black,
-			'muted-text': palette.grays[7],
-			border: palette.grays[8],
+			'muted-text': palette.grays[3],
+			border: palette.grays[5],
 		},
 	},
 }
