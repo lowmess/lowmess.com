@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { Grid, Text, Container, Heading, Link } from 'theme-ui'
+import { Grid, Text, Container, Heading, Link, SxProp } from 'theme-ui'
 import Stack from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import metadata from '../constants/metadata.json'
@@ -10,7 +10,7 @@ interface DependencyProps {
 }
 
 const Dependency: React.FC<DependencyProps> = ({ href, ...props }) => {
-	const WrapperComponent: React.FC = (nestedProps) =>
+	const WrapperComponent: React.FC<SxProp> = (nestedProps) =>
 		href ? (
 			<Link variant="ui" href={href} {...nestedProps} />
 		) : (
@@ -20,7 +20,9 @@ const Dependency: React.FC<DependencyProps> = ({ href, ...props }) => {
 	return <WrapperComponent sx={{ fontSize: [2, 4] }} {...props} />
 }
 
-const Details: React.FC = (props) => <Text sx={{ fontSize: 0 }} {...props} />
+const Details: React.FC = (props) => (
+	<Text sx={{ display: 'block', fontSize: 0 }} {...props} />
+)
 
 const UsesPage: React.FC = () => (
 	<React.Fragment>

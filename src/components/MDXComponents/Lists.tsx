@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Box, Container, Text } from 'theme-ui'
-import { ThemeUIProps } from '../../types/ThemeUIComponent'
+import { TextProps } from '@theme-ui/components'
 
-const List: React.FC<ThemeUIProps> = (props) => (
+const List: React.FC<TextProps> = (props) => (
 	<Text
 		sx={{
 			paddingLeft: 0,

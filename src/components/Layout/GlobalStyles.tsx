@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/react'
 import { useThemeUI } from 'theme-ui'
 
 const GlobalStyles: React.FC = () => {
@@ -85,12 +85,15 @@ const GlobalStyles: React.FC = () => {
 
 				pre,
 				code {
-					font-family: ${// TS doesn't like that we're calling this by name
-					// instead of by index, but that's insane. Probably there's a way to
-					// get this to be typed properly but we'll come back to it.
-					// eslint-disable-next-line
-					// @ts-ignore
-					theme.fonts.mono};
+					font-family: ${
+						// TS doesn't like that we're calling this by name instead of by
+						// index, but I don't want to create an exact theme type just to
+						// accomodate this one use.
+						//
+						// eslint-disable-next-line
+						// @ts-ignore
+						theme.fonts.mono
+					};
 				}
 
 				audio,
