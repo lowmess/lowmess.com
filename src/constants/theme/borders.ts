@@ -10,7 +10,4 @@ const borders = [
 
 const radii = [0, '0.125rem', '0.25rem', '0.5rem', '1rem']
 
-radii.circle = '100%'
-radii.pill = '9999px'
-
 export { borders, radii }
