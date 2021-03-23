@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { Box } from 'theme-ui'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
+import { ResponsiveStyleValue } from '@theme-ui/css'
+import { BoxProps } from '@theme-ui/components'
 
-interface Props extends ThemeUIProps {
-	gap?: number
+interface Props extends BoxProps {
+	gap?: ResponsiveStyleValue<number>
 	dividers?: boolean
-	dividerColor?: string
+	dividerColor?: ResponsiveStyleValue<string>
 }
 
 const Stack: React.FC<Props> = ({

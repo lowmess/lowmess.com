@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { default as NextLink } from 'next/link'
 import { Link as ThemeUILink } from 'theme-ui'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
+import { LinkProps as ThemeLinkProps } from '@theme-ui/components'
 
-interface LinkProps extends ThemeUIProps {
+interface LinkProps extends ThemeLinkProps {
 	href: string
 }
 

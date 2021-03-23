@@ -80,12 +80,12 @@ const IndexPage: React.FC<IndexProps> = ({ stats }) => {
 
 	return (
 		<Container>
-			<Text variant="section-heading" mb={3}>
+			<Text as="p" variant="section-heading" mb={3}>
 				Introduction
 			</Text>
 
 			{/* The `Text` wrapper makes sure spaces are consistently sized */}
-			<Text variant="site-intro" sx={{ display: 'contents' }}>
+			<Text as="div" variant="site-intro" sx={{ display: 'contents' }}>
 				<Heading as="h1" variant="site-intro" sx={{ fontWeight: 'bold' }}>
 					My name is Alec Lomas, and I make websites.
 				</Heading>{' '}

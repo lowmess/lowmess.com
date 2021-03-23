@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useColorMode, Button } from 'theme-ui'
 import { VisuallyHidden } from '@reach/visually-hidden'
-import { ThemeUIProps } from '../../types/ThemeUIComponent'
+import { ButtonProps } from '@theme-ui/components'
 
 // Icons courtesy of Feather
 // @link https://feathericons.com/
 
-const ColorModeToggle: React.FC<ThemeUIProps> = (props) => {
+const ColorModeToggle: React.FC<ButtonProps> = (props) => {
 	const [colorMode, setColorMode] = useColorMode()
 
 	return (

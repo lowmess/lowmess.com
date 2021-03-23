@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Box, Heading, Container } from 'theme-ui'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
+import { BoxProps } from '@theme-ui/components'
 
-interface Props extends ThemeUIProps {
+interface Props extends BoxProps {
 	date?: string
 	inline?: boolean
 }

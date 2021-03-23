@@ -1,61 +1,31 @@
-const palette = {
-	orange: '#f2930d',
-	oranges: [
-		'#fdf2e1',
-		'#fbe3c2',
-		'#f9d49e',
-		'#f7c276',
-		'#f5ad47',
-		'#f2930d',
-		'#da840b',
-		'#bf740a',
-		'#9f6008',
-		'#724506',
-	],
-
-	black: '#2a2722',
-	white: '#ffffff',
-	grays: [
-		'#ffffff',
-		'#f9f9f8',
-		'#efedea',
-		'#e3e0db',
-		'#d6d2cb',
-		'#c9c2ba',
-		'#b9b1a6',
-		'#a89e90',
-		'#938776',
-		'#756a5b',
-		'#443e35',
-		'#39342d',
-	],
-}
+const orange = (l = 50) => `hsl(35, 90%, ${l}%)`
+const gray = (l = 50) => `hsl(35, 10%, ${l}%)`
 
 export default {
-	black: palette.black,
-	white: palette.white,
+	black: gray(15),
+	white: gray(100),
 
-	text: palette.grays[10],
-	background: palette.white,
-	primary: palette.orange,
-	secondary: palette.oranges[6],
-	accent: palette.orange,
-	highlight: palette.orange,
-	muted: palette.grays[2],
-	'muted-text': palette.grays[9],
-	border: palette.grays[4],
+	text: gray(25),
+	background: gray(100),
+	primary: orange(),
+	secondary: orange(60),
+	accent: orange(),
+	highlight: orange(),
+	muted: gray(90),
+	'muted-text': gray(39), // 40 is just under contrast, this gets the same look
+	border: gray(80),
 
 	modes: {
 		dark: {
-			text: palette.grays[2],
-			background: palette.grays[11],
-			primary: palette.orange,
-			secondary: palette.oranges[3],
-			accent: palette.orange,
-			highlight: palette.orange,
-			muted: palette.black,
-			'muted-text': palette.grays[7],
-			border: palette.grays[8],
+			text: gray(95),
+			background: gray(20),
+			primary: orange(),
+			secondary: orange(40),
+			accent: orange(),
+			highlight: orange(),
+			muted: gray(15),
+			'muted-text': gray(61), // 60 is just under contrast, this gets the same look
+			border: gray(40),
 		},
 	},
 }
