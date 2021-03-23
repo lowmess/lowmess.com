@@ -3,7 +3,7 @@ import * as React from 'react'
 import GithubSlugger from 'github-slugger'
 import { onlyText } from 'react-children-utilities'
 import { Container, Heading, Link } from 'theme-ui'
-import { ThemeUIProps } from '../../types/ThemeUIComponent'
+import { HeadingProps } from '@theme-ui/components'
 
 const LinkIcon: React.FC = () => (
 	<svg
@@ -23,7 +23,7 @@ const LinkIcon: React.FC = () => (
 	</svg>
 )
 
-const AutolinkHeading: React.FC<ThemeUIProps> = ({
+const AutolinkHeading: React.FC<HeadingProps> = ({
 	sx,
 	children,
 	...props

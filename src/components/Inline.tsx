@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { Box, Flex } from 'theme-ui'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
+import { ResponsiveStyleValue } from '@theme-ui/css'
+import { BoxProps } from '@theme-ui/components'
 
-interface Props extends ThemeUIProps {
-	gap?: number
+interface Props extends BoxProps {
+	gap?: ResponsiveStyleValue<number>
 }
 
 const Inline: React.FC<Props> = ({ gap = 0, sx, children, ...props }) => {

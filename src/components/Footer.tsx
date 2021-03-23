@@ -1,11 +1,17 @@
 import * as React from 'react'
-import { Box, Grid, Text, Container, Link as ThemeLink } from 'theme-ui'
+import {
+	Box,
+	Grid,
+	Text,
+	Heading,
+	Container,
+	Link as ThemeLink,
+} from 'theme-ui'
+import { BoxProps, LinkProps } from '@theme-ui/components'
 import Link from '../components/Link'
 import posts from '../utils/getAllPosts'
-import { ThemeUIProps } from '../types/ThemeUIComponent'
 
-interface FooterLinkProps {
-	href: string
+interface FooterLinkProps extends LinkProps {
 	external?: boolean
 }
 
@@ -16,7 +22,7 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, external, ...props }) =>
 		<Link variant="ui" href={href} {...props} />
 	)
 
-const Footer: React.FC<ThemeUIProps> = (props) => {
+const Footer: React.FC<BoxProps> = (props) => {
 	const post = posts[0]
 
 	return (
@@ -28,9 +34,9 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 					sx={{ justifyContent: ['center', 'start'] }}
 				>
 					<Box>
-						<Text variant="section-heading" mb={3}>
+						<Heading variant="section-heading" mb={3}>
 							Site
-						</Text>
+						</Heading>
 
 						<Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
 							<li>
@@ -66,9 +72,9 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 					</Box>
 
 					<Box>
-						<Text variant="section-heading" mb={3}>
+						<Heading variant="section-heading" mb={3}>
 							Links
-						</Text>
+						</Heading>
 
 						<Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
 							<li>
@@ -110,9 +116,9 @@ const Footer: React.FC<ThemeUIProps> = (props) => {
 					</Box>
 
 					<Box sx={{ display: ['none', 'block'] }}>
-						<Text variant="section-heading" mb={3}>
+						<Heading variant="section-heading" mb={3}>
 							Latest Blog Post
-						</Text>
+						</Heading>
 
 						<FooterLink
 							href={post.link}

@@ -2,12 +2,15 @@ import * as React from 'react'
 import { useRouter } from 'next/router'
 import { default as NextLink } from 'next/link'
 import { Box, Flex, Container, NavLink as ThemeLink } from 'theme-ui'
-import { ThemeUIProps } from '../../types/ThemeUIComponent'
+import {
+	BoxProps,
+	NavLinkProps as ThemeNavLinkProps,
+} from '@theme-ui/components'
 import SkipNavLink from './SkipNavLink'
 import Logo from './Logo'
 import ColorModeToggle from './ColorModeToggle'
 
-interface NavLinkProps extends ThemeUIProps {
+interface NavLinkProps extends ThemeNavLinkProps {
 	href: string
 }
 
@@ -17,7 +20,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, ...props }) => (
 	</NextLink>
 )
 
-const Nav: React.FC<ThemeUIProps> = ({ sx, ...props }) => {
+const Nav: React.FC<BoxProps> = ({ sx, ...props }) => {
 	const { pathname } = useRouter()
 
 	return (
