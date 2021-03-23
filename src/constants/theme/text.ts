@@ -1,4 +1,6 @@
-export default {
+import { NestedThemeUICSSObject } from './'
+
+const text: NestedThemeUICSSObject = {
 	heading: {
 		fontSize: [4, 5],
 		fontWeight: 'semi-bold',
@@ -28,4 +30,11 @@ export default {
 		fontWeight: 'bold',
 		letterSpacing: '-0.02em',
 	},
+
+	list: {
+		p: 0,
+		listStyleType: 'none',
+	},
 }
+
+export default text

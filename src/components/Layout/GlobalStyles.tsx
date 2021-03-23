@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Global, css } from '@emotion/react'
-import { useThemeUI } from 'theme-ui'
+import { useTheme } from '../../constants/theme'
 
 const GlobalStyles: React.FC = () => {
-	const { theme } = useThemeUI()
+	const { theme } = useTheme()
 
 	return (
 		<Global
@@ -85,15 +85,7 @@ const GlobalStyles: React.FC = () => {
 
 				pre,
 				code {
-					font-family: ${
-						// TS doesn't like that we're calling this by name instead of by
-						// index, but I don't want to create an exact theme type just to
-						// accomodate this one use.
-						//
-						// eslint-disable-next-line
-						// @ts-ignore
-						theme.fonts.mono
-					};
+					font-family: ${theme.fonts.mono};
 				}
 
 				audio,

@@ -38,7 +38,7 @@ const Footer: React.FC<BoxProps> = (props) => {
 							Site
 						</Heading>
 
-						<Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
+						<Text as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
 							<li>
 								<FooterLink href="/">Home</FooterLink>
 							</li>
@@ -68,7 +68,7 @@ const Footer: React.FC<BoxProps> = (props) => {
 									RSS
 								</FooterLink>
 							</li>
-						</Box>
+						</Text>
 					</Box>
 
 					<Box>
@@ -76,7 +76,7 @@ const Footer: React.FC<BoxProps> = (props) => {
 							Links
 						</Heading>
 
-						<Box as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
+						<Text as="ul" variant="list" sx={{ lineHeight: 1.75 }}>
 							<li>
 								<FooterLink href="https://github.com/lowmess" external>
 									GitHub
@@ -112,7 +112,7 @@ const Footer: React.FC<BoxProps> = (props) => {
 									Résumé
 								</FooterLink>
 							</li>
-						</Box>
+						</Text>
 					</Box>
 
 					<Box sx={{ display: ['none', 'block'] }}>
