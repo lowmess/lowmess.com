@@ -5,7 +5,7 @@ import { TextProps } from '@theme-ui/components'
 const List: React.FC<TextProps> = (props) => (
 	<Text
 		sx={{
-			paddingLeft: 0,
+			paddingLeft: [4, 0],
 			fontSize: [null, null, 3],
 
 			'ul, ol': {
