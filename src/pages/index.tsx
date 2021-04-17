@@ -91,8 +91,8 @@ const IndexPage: React.FC<IndexProps> = ({ stats }) => {
 				</Heading>{' '}
 				<Heading as="h2" variant="site-intro">
 					Currently, I&rsquo;m working with{' '}
-					<Link href="https://evidation.com">Evidation Health</Link> to
-					radically change medicine.
+					<Link href="https://carvana.com">Carvana</Link> to shape the future of
+					car buying.
 				</Heading>{' '}
 				<Text as="p" variant="site-intro">
 					In the last 30 days, I&rsquo;ve pushed{' '}
