@@ -29,7 +29,7 @@
     "@next/mdx": "^10.1.3",
     "@reach/visually-hidden": "^0.15.0",
     "@silvenon/remark-smartypants": "^1.0.0",
-    "date-fns": "^2.20.3",
+    "date-fns": "^2.21.1",
     "github-slugger": "^1.3.0",
     "lowmess-prism": "^2.0.2",
     "next": "^10.1.3",
@@ -39,10 +39,10 @@
     "react": "^17.0.2",
     "react-children-utilities": "^2.5.0",
     "react-dom": "^17.0.2",
-    "theme-ui": "^0.6.2"
+    "theme-ui": "^0.7.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.37",
+    "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/webpack-env": "^1.16.0",
