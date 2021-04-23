@@ -1,13 +1,20 @@
 import * as React from 'react'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import Link from '../components/Link'
-import posts, { Post } from '../utils/getAllPosts'
 import metadata from '../constants/metadata.json'
+import { dateSortDesc } from '../utils/posts'
+// eslint-disable-next-line import/no-unresolved
+import { frontMatter } from './blog/*.mdx'
 
-const BlogPage: React.FC = () => {
-	let year = '0'
+interface BlogPageProps {
+	posts: FrontMatter[]
+}
+
+const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
+	let year = 0
 
 	return (
 		<React.Fragment>
@@ -23,10 +30,10 @@ const BlogPage: React.FC = () => {
 
 			<Container as="main" mt={[4, 5]}>
 				<Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
-					{posts.map((post: Post) => {
-						const { link, meta: { title, description, date } = {} } = post
+					{posts.map((post) => {
+						const { title, description, year: postYear, slug, url } = post
 
-						const thisYear = date.substring(0, 4)
+						const thisYear = postYear
 
 						const YearComponent =
 							thisYear === year ? (
@@ -40,12 +47,12 @@ const BlogPage: React.FC = () => {
 						year = thisYear
 
 						return (
-							<React.Fragment key={link}>
+							<React.Fragment key={slug}>
 								{YearComponent}
 
 								<div>
 									<Heading as="h3" sx={{ display: 'inline-block' }}>
-										<Link href={link} variant="ui">
+										<Link href={url} variant="ui">
 											{title}
 										</Link>
 									</Heading>
@@ -61,6 +68,17 @@ const BlogPage: React.FC = () => {
 			</Container>
 		</React.Fragment>
 	)
+}
+
+// eslint-disable-next-line require-await
+export const getStaticProps: GetStaticProps = async () => {
+	const posts = frontMatter.sort(dateSortDesc)
+
+	return {
+		props: {
+			posts,
+		},
+	}
 }
 
 export default BlogPage
