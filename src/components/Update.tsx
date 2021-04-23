@@ -26,10 +26,8 @@ const Update: React.FC<Props> = ({
 				Update {date && <span>({date})</span>}
 			</Heading>
 
-			{/* inline font-size taken from `Paragraph.tsx` */}
-			<Box as="p" sx={{ fontSize: inline ? [null, null, 3] : [3, null, 4] }}>
-				{children}
-			</Box>
+			{/* clears the spacing added by MDX components */}
+			<Box mx={[-3, -4]}>{children}</Box>
 		</Container>
 	</Box>
 )
