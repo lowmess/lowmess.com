@@ -1,15 +1,8 @@
-import BlogPost from '../../components/BlogPost'
-
-export const meta = {
-  title: 'Styling Links for Print',
-  date: '2020-07-03',
-  description:
-    "With a little CSS, we can ensure the user always knows where a link goes. Even when they're printing it.",
-}
-
-export default ({ children }) => (
-  <BlogPost meta={meta}>{children}</BlogPost>
-)
+---
+title: 'Styling Links for Print'
+date: 2020-07-03
+description: "With a little CSS, we can ensure the user always knows where a link goes. Even when they're printing it."
+---
 
 A few weeks ago, amid the ongoing COVID-19 pandemic, my apartment building left a note in my mailbox. Among the helpful information and polite requests to wear masks in shared areas, I noticed a piece of text that had a very familiar style. It was blue, and underlined, and seemed to hint at a missing piece of content. In short, it was a link. Of course, this being a printed piece of mail, the link wasn't much help to me. And, while this note was certainly a Google Docs or Word document, it made me think about the way links are styled on the web.
 
@@ -17,17 +10,17 @@ While people aren't printing out websites at the same volume they used to, print
 
 ```css
 @media print {
-  a:link[href^='http']::after {
-    content: ' (' attr(href) ')';
-  }
+	a:link[href^='http']::after {
+		content: ' (' attr(href) ')';
+	}
 
-  a:link[href^='/']::after {
-    content: ' (https://mywebsite.com' attr(href) ')';
-  }
+	a:link[href^='/']::after {
+		content: ' (https://mywebsite.com' attr(href) ')';
+	}
 
-  a:link[href^='#'] {
-    text-decoration: none;
-  }
+	a:link[href^='#'] {
+		text-decoration: none;
+	}
 }
 ```
 

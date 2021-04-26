@@ -1,17 +1,11 @@
+---
+title: 'Migrating from Gatsby to Next.js'
+date: 2020-10-11
+description: "I moved this site off Gatsby and onto Next.js. Here's the why (mostly boredom) and the how (with the power of coding)."
+---
+
 import { Link } from 'theme-ui'
-import BlogPost from '../../components/BlogPost'
 import Update from '../../components/Update'
-
-export const meta = {
-  title: 'Migrating from Gatsby to Next.js',
-  date: '2020-10-11',
-  description:
-    "I moved this site off Gatsby and onto Next.js. Here's the why (mostly boredom) and the how (with the power of coding).",
-}
-
-export default ({ children }) => (
-  <BlogPost meta={meta}>{children}</BlogPost>
-)
 
 Recently -- and quite frankly I'm shocked this wasn't a major national news story -- I was bored. As I often do when I'm bored, I decided to tinker with this here website. There weren't any obvious bugs to fix and the design is pretty much sorted, which unfortunately left very little to tinker with. All hope was not lost, as I have been curious about [Next.js](https://nextjs.org)'s static site generation [since it debuted with version 9.3 of the framework](https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support). This seemed an opportune time to test it out independent of content, design, or site structure. This also meant moving away from [Gatsby](https://gatsbyjs.com), which I have been using as the basis for this site for the last 3 years.
 
@@ -51,11 +45,11 @@ import components from '../components/MDXComponents'
 import Layout from '../components/Layout'
 
 const App = ({ Component, pageProps }) => (
-  <ThemeProvider theme={theme} components={components}>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  </ThemeProvider>
+	<ThemeProvider theme={theme} components={components}>
+		<Layout>
+			<Component {...pageProps} />
+		</Layout>
+	</ThemeProvider>
 )
 
 export default App
@@ -71,19 +65,19 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { InitializeColorMode } from 'theme-ui'
 
 class MyDocument extends Document {
-  render() {
-    return (
-      <Html lang="en">
-        <Head />
+	render() {
+		return (
+			<Html lang="en">
+				<Head />
 
-        <body>
-          <InitializeColorMode />
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+				<body>
+					<InitializeColorMode />
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		)
+	}
 }
 
 export default MyDocument
@@ -99,9 +93,9 @@ import { default as NextLink } from 'next/link'
 import { Link as ThemeUILink } from 'theme-ui'
 
 const Link = ({ href, ...props }) => (
-  <NextLink href={href} passHref>
-    <ThemeUILink {...props} />
-  </NextLink>
+	<NextLink href={href} passHref>
+		<ThemeUILink {...props} />
+	</NextLink>
 )
 
 export default Link
@@ -114,6 +108,12 @@ export default Link
 I'm one of the dozen or so people that continued to use an RSS app after Google decided to off Google Reader, murder-style. Getting a working RSS feed was **by far** the most challenging part of this process. I nearly gave up on the conversion altogether because of it -- and I'm still not very happy with where I ended up with it. After failing to get my MDX to compile in a custom node script, I brute forced it and extracted the `meta` object (frontmatter) from the MDX files by way of regex. This means my feed no longer contains the full contents of the article, which is a bummer. Maybe I'm missing something obvious here. Maybe this is a solved problem. But I wasn't able to find an example of a statically-rendered Next.js site using MDX directly that had an RSS feed, and I didn't want to be held up on this (I estimate approximately negative 3 people are subscribed to the feed here).
 
 Luckily, [the `rss` package](https://www.npmjs.com/package/rss) made actually generating the feed super easy once I had the data. I added a `postbuild` script to my `package.json` that [generates a sitemap](https://www.npmjs.com/package/nextjs-sitemap-generator) and an RSS feed every time the site is built.
+
+<Update date="April 2021">
+
+Turns out there is a solution for this -- I'm not the only one still using RSS. There are a few helper packages for extracting frontmatter from MDX and making it easier to work with. I chose to use [`next-mdx-enhanced`](https://github.com/hashicorp/next-mdx-enhanced). Others ([`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote), [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler)) are faster, offer more flexibility, etc., but I wanted something that let me keep the blog posts in the `pages` directory. There were tradeoffs to this, of course, but using frontmatter meant I could use [`gray-matter`](https://github.com/jonschlinkert/gray-matter) to extract the info needed to generate the RSS feed.
+
+</Update>
 
 ### Preact
 
@@ -136,18 +136,9 @@ Doing things the Gatsby way means pulling your data out of the unified GraphQL A
 If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while continuing to ensure the stats are always accurate (doing so would require me to change hosting providers, but that's a can of worms for another day).
 
 <Update date="October 2020" inline>
-  A mere [checks notes] week after I initially made this migration, I did
-  wind up switching the way the homepage fetches the stat data. It's not
-  quite fully server-rendered, however; I'm using something Next.js calls{' '}
-  <Link href="https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration">
-    &ldquo;incremental static regeneration&rdquo; (ISR)
-  </Link>
-  . ISR is very simple conceptually: it allows you to tell Next.js how often
-  you expect your static props to change, and re-calculates them <em>
-    at most
-  </em> that often. It is very much a perfect middle-ground between statically-generated
-  and server-rendered content. In my case, the homepage will request new stats
-  once every 15 minutes.
+
+A mere [checks notes] week after I initially made this migration, I did wind up switching the way the homepage fetches the stat data. It's not quite fully server-rendered, however; I'm using something Next.js calls ["incremental static regeneration" (ISR)](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration). ISR is very simple conceptually: it allows you to tell Next.js how often you expect your static props to change, and re-calculates them _at most_ that often. It is very much a perfect middle-ground between statically-generated and server-rendered content. In my case, the homepage will request new stats once every 15 minutes.
+
 </Update>
 
 ## What Did We Learn?

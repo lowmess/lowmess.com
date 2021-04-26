@@ -61,7 +61,7 @@ const UsesPage: React.FC = () => (
 						<Details>Hako Clear switches</Details>
 					</React.Fragment>
 
-					<Dependency>Magic Mouse 2</Dependency>
+					<Dependency>Magic Trackpad 2</Dependency>
 				</Stack>
 
 				<Heading color="muted-text" mt={[4, 0]}>
@@ -79,7 +79,7 @@ const UsesPage: React.FC = () => (
 								Dank Mono
 							</Link>
 							,{' '}
-							<Link variant="ui" href="https://will-stone.github.io/plastic">
+							<Link variant="ui" href="https://plastictheme.com">
 								Plastic theme
 							</Link>
 						</Details>
@@ -94,10 +94,7 @@ const UsesPage: React.FC = () => (
 								Dank Mono
 							</Link>
 							,{' '}
-							<Link
-								variant="ui"
-								href="https://gist.github.com/lowmess/8dcb70cd9014e78337ef9658518c5353"
-							>
+							<Link variant="ui" href="https://plastictheme.com">
 								Plastic theme
 							</Link>
 						</Details>
