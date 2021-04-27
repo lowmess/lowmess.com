@@ -109,7 +109,7 @@ I'm one of the dozen or so people that continued to use an RSS app after Google 
 
 Luckily, [the `rss` package](https://www.npmjs.com/package/rss) made actually generating the feed super easy once I had the data. I added a `postbuild` script to my `package.json` that [generates a sitemap](https://www.npmjs.com/package/nextjs-sitemap-generator) and an RSS feed every time the site is built.
 
-<Update date="April 2021">
+<Update date="April 2021" inline>
 
 Turns out there is a solution for this -- I'm not the only one still using RSS. There are a few helper packages for extracting frontmatter from MDX and making it easier to work with. I chose to use [`next-mdx-enhanced`](https://github.com/hashicorp/next-mdx-enhanced). Others ([`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote), [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler)) are faster, offer more flexibility, etc., but I wanted something that let me keep the blog posts in the `pages` directory. There were tradeoffs to this, of course, but using frontmatter meant I could use [`gray-matter`](https://github.com/jonschlinkert/gray-matter) to extract the info needed to generate the RSS feed.
 
@@ -117,7 +117,13 @@ Turns out there is a solution for this -- I'm not the only one still using RSS. 
 
 ### Preact
 
-Gatsby has a [really handy plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-preact/) to use [Preact](https://preactjs.com) in production, reducing your bundle size by a fair amount. If your Gatsby site doesn't need to support IE10, I highly recommend using it. While there isn't a plug-and-play option for Next.js, we can use npm aliases to replace references to React with the `preact/compat` package. Combined with some webpack wizardry, we can reduce the size of our builds a good amount. [Here's the official example](https://github.com/vercel/next.js/tree/canary/examples/using-preact) that I definitely didn't just copy & paste from.
+Gatsby has a [really handy plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-preact/) to use [Preact](https://preactjs.com) in production, reducing your bundle size by a fair amount. If your Gatsby site doesn't need to support IE10, I highly recommend using it. While there isn't a plug-and-play option for Next.js, we can use npm aliases to replace references to React with the `preact/compat` package. Combined with some webpack wizardry, we can reduce the size of our builds a good amount. [Here's the official example](https://github.com/vercel/next.js/tree/629884af7d3ced97b8c2ec7aebdfb1a3a5d808f0/examples/using-preact) that I definitely didn't just copy & paste from.
+
+<Update date="February 2021" inline>
+
+I ultimately wound up migrating back to React proper -- I didn't want to deal with the headache of managing the custom chunk splitting that using Preact required. However, the Preact team has since extracted that behavior into [a standalone plugin](https://github.com/preactjs/next-plugin-preact). Maybe I'll waffle on this again, but for now its nice not having to double-check compatability for every new Next.js release.
+
+</Update>
 
 ## Should You Switch?
 
