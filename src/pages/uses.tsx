@@ -41,25 +41,25 @@ const UsesPage: React.FC = () => (
 				<Heading color="muted-text">Hardware</Heading>
 
 				<Stack gap={2}>
-					<React.Fragment>
+					<div>
 						<Dependency>2020 13&Prime; MacBook Pro</Dependency>
 
 						<Details>1.4GHz Quad-Core Intel i5, 16GB memory</Details>
-					</React.Fragment>
+					</div>
 
-					<React.Fragment>
+					<div>
 						<Dependency>34&Prime; Acer XR Ultrawide Monitor</Dependency>
 
 						<Details>XR342CK Pbmiiqphuzx</Details>
-					</React.Fragment>
+					</div>
 
-					<React.Fragment>
+					<div>
 						<Dependency href="https://input.club/whitefox">
 							Input Club WhiteFox Keyboard
 						</Dependency>
 
 						<Details>Hako Clear switches</Details>
-					</React.Fragment>
+					</div>
 
 					<Dependency>Magic Trackpad 2</Dependency>
 				</Stack>
@@ -69,7 +69,7 @@ const UsesPage: React.FC = () => (
 				</Heading>
 
 				<Stack gap={2}>
-					<React.Fragment>
+					<div>
 						<Dependency href="https://code.visualstudio.com">
 							VS Code
 						</Dependency>
@@ -83,9 +83,9 @@ const UsesPage: React.FC = () => (
 								Plastic theme
 							</Link>
 						</Details>
-					</React.Fragment>
+					</div>
 
-					<React.Fragment>
+					<div>
 						<Dependency href="https://https://iterm2.com">iTerm 2</Dependency>
 
 						<Details>
@@ -98,7 +98,7 @@ const UsesPage: React.FC = () => (
 								Plastic theme
 							</Link>
 						</Details>
-					</React.Fragment>
+					</div>
 
 					<Dependency href="https://affinity.serif.com/en-us/designer">
 						Affinity Designer
