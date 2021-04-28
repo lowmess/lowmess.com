@@ -40,7 +40,7 @@ const contentSecurityPolicy = `
 	script-src 'self' 'unsafe-eval' 'unsafe-inline' *.codepen.io;
 	child-src *.codepen.io;
 	style-src 'self' 'unsafe-inline';
-	img-src * blob: data:;
+	img-src 'self' blob: data:;
 	media-src 'none';
 	connect-src *;
 	font-src 'self';
