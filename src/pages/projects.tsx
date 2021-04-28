@@ -65,7 +65,7 @@ const ProjectsPage: React.FC = () => (
 								<Inline gap={2} mt={2}>
 									{website && <Link href={website}>Website</Link>}
 
-									{website && repo && '\u00B7'}
+									{website && repo && <span>&#183;</span>}
 
 									{repo && <Link href={repo}>Repository</Link>}
 								</Inline>
