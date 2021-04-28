@@ -53,7 +53,7 @@ const securityHeaders = [
 	},
 	{
 		key: 'Referrer-Policy',
-		value: 'origin-when-cross-origin',
+		value: 'strict-origin',
 	},
 	{
 		key: 'X-Frame-Options',
