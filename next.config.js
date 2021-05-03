@@ -95,4 +95,4 @@ const nextConfig = {
 	},
 }
 
-module.exports = withTM(withMDX(nextConfig))
+module.exports = withMDX(withTM(nextConfig))
