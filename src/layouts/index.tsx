@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { Box, Container } from 'theme-ui'
 import metadata from '../constants/metadata.json'
-import Stack from '../components/Stack'
+import { VStack } from '../components/Stack'
 import { HeaderName, HeaderTitle } from '../components/Header'
 
 interface BlogPostProps {
@@ -53,9 +53,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, children }) => {
 				</Container>
 			</Box>
 
-			<Stack gap={4} mt={[4, 5]}>
+			<VStack gap={4} mt={[4, 5]}>
 				{children}
-			</Stack>
+			</VStack>
 		</React.Fragment>
 	)
 }

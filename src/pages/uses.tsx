@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { Grid, Text, Container, Heading, Link, SxProp } from 'theme-ui'
-import Stack from '../components/Stack'
+import { VStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import metadata from '../constants/metadata.json'
 
@@ -40,7 +40,7 @@ const UsesPage: React.FC = () => (
 			<Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
 				<Heading color="muted-text">Hardware</Heading>
 
-				<Stack gap={2}>
+				<VStack gap={2}>
 					<div>
 						<Dependency>2020 13&Prime; MacBook Pro</Dependency>
 
@@ -62,13 +62,13 @@ const UsesPage: React.FC = () => (
 					</div>
 
 					<Dependency>Magic Trackpad 2</Dependency>
-				</Stack>
+				</VStack>
 
 				<Heading color="muted-text" mt={[4, 0]}>
 					Software
 				</Heading>
 
-				<Stack gap={2}>
+				<VStack gap={2}>
 					<div>
 						<Dependency href="https://code.visualstudio.com">
 							VS Code
@@ -111,13 +111,13 @@ const UsesPage: React.FC = () => (
 					<Dependency href="https://kapeli.com/dash">Dash</Dependency>
 
 					<Dependency href="https://tot.rocks">Tot</Dependency>
-				</Stack>
+				</VStack>
 
 				<Heading color="muted-text" mt={[4, 0]}>
 					Services
 				</Heading>
 
-				<Stack gap={2}>
+				<VStack gap={2}>
 					<Dependency href="https://github.com">GitHub</Dependency>
 
 					<Dependency href="https://netlify.com">Netlify</Dependency>
@@ -125,7 +125,7 @@ const UsesPage: React.FC = () => (
 					<Dependency href="https://vercel.com">Vercel</Dependency>
 
 					<Dependency href="https://dropbox.com">Dropbox</Dependency>
-				</Stack>
+				</VStack>
 			</Grid>
 		</Container>
 	</React.Fragment>

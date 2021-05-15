@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { Text, Container, Heading, Link } from 'theme-ui'
-import Stack from '../components/Stack'
+import { VStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import metadata from '../constants/metadata.json'
 
@@ -30,8 +30,8 @@ const Archive: React.FC = () => (
 		</Header>
 
 		<Container mt={5}>
-			<Stack gap={5}>
-				<Stack gap={3}>
+			<VStack gap={5}>
+				<VStack gap={3}>
 					<Heading>
 						Version 0 <Dates>(2014 &ndash; 2015)</Dates>
 					</Heading>
@@ -46,9 +46,9 @@ const Archive: React.FC = () => (
 					<Tooling>
 						Built with <Link href="https://jquery.com">jQuery</Link>, I assume.
 					</Tooling>
-				</Stack>
+				</VStack>
 
-				<Stack gap={3}>
+				<VStack gap={3}>
 					<Heading>
 						<Link href="https://v1.lowmess.com">Version 1</Link>{' '}
 						<Dates>(2015 &ndash; 2017)</Dates>
@@ -67,9 +67,9 @@ const Archive: React.FC = () => (
 						<Link href="https://sass-lang.com">Sass</Link>, and{' '}
 						<Link href="https://jquery.com">jQuery</Link>.
 					</Tooling>
-				</Stack>
+				</VStack>
 
-				<Stack gap={3}>
+				<VStack gap={3}>
 					<Heading>
 						<Link href="https://v2.lowmess.com">Version 2</Link>{' '}
 						<Dates>(2017)</Dates>
@@ -88,9 +88,9 @@ const Archive: React.FC = () => (
 						<Link href="https://postcss.org">PostCSS</Link>, and{' '}
 						<Link href="http://tachyons.io">Tachyons</Link>.
 					</Tooling>
-				</Stack>
+				</VStack>
 
-				<Stack gap={3}>
+				<VStack gap={3}>
 					<Heading>
 						<Link href="https://v3.lowmess.com">Version 3</Link>{' '}
 						<Dates>(2017 &ndash; 2020)</Dates>
@@ -109,9 +109,9 @@ const Archive: React.FC = () => (
 						<Link href="https://mdxjs.com">MDX</Link>, and{' '}
 						<Link href="https://rebassjs.org">Rebass</Link>.
 					</Tooling>
-				</Stack>
+				</VStack>
 
-				<Stack gap={3}>
+				<VStack gap={3}>
 					<Heading>
 						<Link href="https://v4.lowmess.com">Version 4</Link>{' '}
 						<Dates>(2020 &ndash; present)</Dates>
@@ -128,8 +128,8 @@ const Archive: React.FC = () => (
 						<Link href="https://mdxjs.com">MDX</Link>, and{' '}
 						<Link href="https://theme-ui.com">Theme UI</Link>.
 					</Tooling>
-				</Stack>
-			</Stack>
+				</VStack>
+			</VStack>
 		</Container>
 	</React.Fragment>
 )

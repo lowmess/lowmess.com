@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { Box, Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Inline from '../components/Inline'
+import { HStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import projects from '../constants/projects.json'
 import metadata from '../constants/metadata.json'
@@ -62,13 +62,13 @@ const ProjectsPage: React.FC = () => (
 									</Text>
 								)}
 
-								<Inline gap={2} mt={2}>
+								<HStack gap={2} mt={2}>
 									{website && <Link href={website}>Website</Link>}
 
 									{website && repo && <span>&#183;</span>}
 
 									{repo && <Link href={repo}>Repository</Link>}
-								</Inline>
+								</HStack>
 							</Box>
 						</Flex>
 					)
