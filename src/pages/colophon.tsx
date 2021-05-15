@@ -7,20 +7,33 @@ import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import { dependencies } from '../../package-lock.json'
 import metadata from '../constants/metadata.json'
 
+const DependencyList = (props) => (
+	<VStack
+		as="ul"
+		gap={2}
+		sx={{
+			marginTop: 3,
+			padding: 0,
+			listStyleType: 'none',
+		}}
+		{...props}
+	/>
+)
+
 interface DependencyProps {
 	version?: string
 	href?: string
 }
 
 const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
-	<Text sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
+	<Text as="li" sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
 		<Link variant="ui" href={href} sx={{ fontSize: [2, 4] }}>
 			{children}
 		</Link>
 
 		{version && (
-			<Text as="span" sx={{ marginLeft: 2, fontFamily: 'mono', fontSize: 0 }}>
-				v{version}
+			<Text as="span" sx={{ fontFamily: 'mono', fontSize: 0 }}>
+				&#8201;v{version}
 			</Text>
 		)}
 	</Text>
@@ -53,7 +66,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 					<Box>
 						<Heading color="muted-text">Functionality</Heading>
 
-						<VStack gap={2} mt={3}>
+						<DependencyList>
 							<Dependency
 								version={typescript}
 								href="https://typescriptlang.org/"
@@ -72,7 +85,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							<Dependency version={mdx} href="https://mdxjs.com">
 								MDX
 							</Dependency>
-						</VStack>
+						</DependencyList>
 					</Box>
 
 					<Box>
@@ -80,7 +93,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							Design
 						</Heading>
 
-						<VStack gap={2} mt={3}>
+						<DependencyList>
 							<Dependency version={themeUI} href="https://theme-ui.com">
 								Theme UI
 							</Dependency>
@@ -96,7 +109,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							<Dependency version="1.000" href="https://dank.sh">
 								Dank Mono
 							</Dependency>
-						</VStack>
+						</DependencyList>
 					</Box>
 
 					<Box>
@@ -104,7 +117,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							Infrastructure
 						</Heading>
 
-						<VStack gap={2} mt={3}>
+						<DependencyList>
 							<Dependency href="https://github.com">GitHub</Dependency>
 
 							<Dependency href="https://vercel.com">Vercel</Dependency>
@@ -116,7 +129,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							<Dependency version={prettier} href="https://prettier.io">
 								Prettier
 							</Dependency>
-						</VStack>
+						</DependencyList>
 					</Box>
 				</Grid>
 			</Container>
