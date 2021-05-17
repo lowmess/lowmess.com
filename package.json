@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/node": "^15.3.0",
     "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.3",
+    "@types/react-dom": "^17.0.5",
     "@types/webpack-env": "^1.16.0",
     "eslint": "^7.26.0",
     "eslint-config-lowmess": "^4.1.4",
