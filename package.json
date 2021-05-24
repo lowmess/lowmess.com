@@ -46,7 +46,7 @@
     "theme-ui": "^0.8.4"
   },
   "devDependencies": {
-    "@types/node": "^15.3.0",
+    "@types/node": "^15.6.0",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.5",
     "@types/webpack-env": "^1.16.0",
