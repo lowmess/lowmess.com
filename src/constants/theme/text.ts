@@ -28,6 +28,7 @@ const text: NestedThemeUICSSObject = {
 	'header-title': {
 		fontSize: [5, 6],
 		fontWeight: 'bold',
+		lineHeight: 'heading',
 		letterSpacing: '-0.02em',
 	},
 
