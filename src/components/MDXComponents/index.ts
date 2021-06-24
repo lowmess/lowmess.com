@@ -7,7 +7,7 @@ import blockquote from './BlockQuote'
 import { default as hr } from './Break'
 // import img from './Image'
 
-export default {
+const components = {
 	h1,
 	h2,
 	h3,
@@ -24,3 +24,5 @@ export default {
 	hr,
 	// img,
 }
+
+export default components
