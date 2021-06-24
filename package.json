@@ -52,6 +52,7 @@
     "@types/webpack-env": "^1.16.0",
     "eslint": "^7.28.0",
     "eslint-config-lowmess": "^4.1.4",
+    "eslint-config-next": "^11.0.1",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
