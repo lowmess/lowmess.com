@@ -1,4 +1,4 @@
-export default {
+const links = {
 	nav: {
 		borderBottom: 2,
 		borderColor: 'transparent',
@@ -30,3 +30,5 @@ export default {
 		},
 	},
 }
+
+export default links

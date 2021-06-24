@@ -1,7 +1,7 @@
 const orange = (l = 50) => `hsl(35, 90%, ${l}%)`
 const gray = (l = 50) => `hsl(35, 10%, ${l}%)`
 
-export default {
+const colors = {
 	black: gray(15),
 	white: gray(100),
 
@@ -29,3 +29,5 @@ export default {
 		},
 	},
 }
+
+export default colors
