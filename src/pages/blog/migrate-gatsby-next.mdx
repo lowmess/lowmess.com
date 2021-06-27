@@ -33,7 +33,7 @@ The Next.js docs have [a handy migration guide](https://nextjs.org/docs/migratin
 
 ### MDX
 
-Like I said, Next.js does have plugins. One of them is for MDX. Following the instructions for [the `@next/mdx` package](https://www.npmjs.com/package/@next/mdx) got the files compiling. Since Next.js doesn't handle frontmatter directly, I had to convert the frontmatter for each file to an object and manually export the template with the data. I could have used [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation) for this, but rendering the files in place felt the best.
+Like I said, Next.js does have plugins. One of them is for MDX. Following the instructions for [the `@next/mdx` plugin](https://www.npmjs.com/package/@next/mdx) got the files compiling. Since Next.js doesn't handle frontmatter directly, I had to convert the frontmatter for each file to an object and manually export the template with the data. I could have used [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation) for this, but rendering the files in place felt the best.
 
 #### Dates
 
@@ -115,9 +115,9 @@ I'm one of the dozen or so people that continued to use an RSS app after Google 
 
 Luckily, [the `rss` package](https://www.npmjs.com/package/rss) made actually generating the feed super easy once I had the data. I added a `postbuild` script to my `package.json` that [generates a sitemap](https://www.npmjs.com/package/nextjs-sitemap-generator) and an RSS feed every time the site is built.
 
-<Update date="April 2021" inline>
+<Update date="June 2021" inline>
 
-Turns out there is a solution for this -- I'm not the only one still using RSS. There are a few helper packages for extracting frontmatter from MDX and making it easier to work with. I chose to use [`next-mdx-enhanced`](https://github.com/hashicorp/next-mdx-enhanced). Others ([`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote), [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler)) are faster, offer more flexibility, etc., but I wanted something that let me keep the blog posts in the `pages` directory. There were tradeoffs to this, of course, but using frontmatter meant I could use [`gray-matter`](https://github.com/jonschlinkert/gray-matter) to extract the info needed to generate the RSS feed.
+Turns out there are a few solutions to handle frontmatter in MDX with Next.js, and I explored them. I used [`next-mdx-enhanced`](https://github.com/hashicorp/next-mdx-enhanced) for a while, and had [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) working locally (I never tried [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) because it was so similar to `mdx-bundler`, and I preferred the latter's API). Ultimately each had issues I either couldn't or didn't want to deal with, so I wound up going back to the `@next/mdx`. I refined my regex-fu and used a very completely 100% safe `eval` to extract the metadata necessary to create a half decent RSS feed.
 
 </Update>
 
