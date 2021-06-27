@@ -1,10 +1,16 @@
----
-title: 'The Tokens Are the System'
-date: 2020-12-15
-description: "When creating a design system library, it's important to remember that the library can't solve for every possible view. But our users can."
----
-
+import BlogPost from '../../components/BlogPost'
 import Link from '../../components/Link'
+
+export const meta = {
+	title: 'The Tokens Are the System',
+	date: new Date('2020-12-15'),
+	description:
+		"When creating a design system library, it's important to remember that the library can't solve for every possible view. But our users can.",
+}
+
+export default ({ children }) => (
+	<BlogPost meta={meta}>{children}</BlogPost>
+)
 
 Let's pose a hypothetical.
 

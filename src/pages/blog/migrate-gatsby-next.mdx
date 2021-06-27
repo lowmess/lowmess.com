@@ -1,11 +1,17 @@
----
-title: 'Migrating from Gatsby to Next.js'
-date: 2020-10-11
-description: "I moved this site off Gatsby and onto Next.js. Here's the why (mostly boredom) and the how (with the power of coding)."
----
-
 import { Link } from 'theme-ui'
+import BlogPost from '../../components/BlogPost'
 import Update from '../../components/Update'
+
+export const meta = {
+	title: 'Migrating from Gatsby to Next.js',
+	date: new Date('2020-10-11'),
+	description:
+		"I moved this site off Gatsby and onto Next.js. Here's the why (mostly boredom) and the how (with the power of coding).",
+}
+
+export default ({ children }) => (
+	<BlogPost meta={meta}>{children}</BlogPost>
+)
 
 Recently -- and quite frankly I'm shocked this wasn't a major national news story -- I was bored. As I often do when I'm bored, I decided to tinker with this here website. There weren't any obvious bugs to fix and the design is pretty much sorted, which unfortunately left very little to tinker with. All hope was not lost, as I have been curious about [Next.js](https://nextjs.org)'s static site generation [since it debuted with version 9.3 of the framework](https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support). This seemed an opportune time to test it out independent of content, design, or site structure. This also meant moving away from [Gatsby](https://gatsbyjs.com), which I have been using as the basis for this site for the last 3 years.
 

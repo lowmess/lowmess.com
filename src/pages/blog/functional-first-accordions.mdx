@@ -1,11 +1,17 @@
----
-title: 'Functional-First Accordions'
-date: 2018-12-30
-description: 'Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do.'
----
-
 import { Text, Container, Link } from 'theme-ui'
+import BlogPost from '../../components/BlogPost'
 import Update from '../../components/Update'
+
+export const meta = {
+	title: 'Functional-First Accordions',
+	date: new Date('2018-12-30'),
+	description:
+		'Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do.',
+}
+
+export default ({ children }) => (
+	<BlogPost meta={meta}>{children}</BlogPost>
+)
 
 <Update date="December 2019">
 

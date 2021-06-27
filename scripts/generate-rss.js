@@ -1,11 +1,7 @@
 const fs = require('fs')
 const path = require('path')
-const { promisify } = require('util')
-const matter = require('gray-matter')
 const RSS = require('rss')
-const g = require('glob')
-
-const glob = promisify(g)
+const globby = require('globby')
 
 const metadataPath = path.resolve(__dirname, '../src/constants/metadata.json')
 const metadata = require(metadataPath)
@@ -19,16 +15,29 @@ const dateSortDesc = (a, b) => {
 	return 0
 }
 
+const META_RE = /export\s+const\s+meta\s+=\s+(\{(\n|.)*?\n\})/
+
+const extractMeta = (source) => {
+	const match = META_RE.exec(source)
+
+	if (!match || typeof match[1] !== 'string') {
+		throw new Error(`${name} needs to export const meta = {}`)
+	}
+
+	// eslint-disable-next-line no-eval
+	const meta = eval(`(${match[1]})`)
+
+	return meta
+}
+
 const generateRSS = async () => {
 	const basePath = path.resolve(__dirname, '../src/pages/blog')
-	const postPaths = await glob(`${basePath}/**/*.mdx`)
+	const postPaths = await globby([`${basePath}/**/*.mdx`])
 
 	const posts = postPaths
 		.map((postPath) => {
 			const contents = fs.readFileSync(postPath)
-			const {
-				data: { title, date, description },
-			} = matter(contents)
+			const { title, description, date } = extractMeta(contents)
 
 			const slug = postPath
 				.split('/')
@@ -36,7 +45,7 @@ const generateRSS = async () => {
 				.replace(/\.mdx?$/g, '')
 			const link = `/blog/${slug}`
 
-			return { link, title, date, description }
+			return { link, title, description, date }
 		})
 		.sort(dateSortDesc)
 
@@ -49,11 +58,11 @@ const generateRSS = async () => {
 
 	posts.forEach(({ link, title, description, date }) => {
 		feed.item({
-			title: title,
+			title,
 			guid: link,
 			url: `${metadata.url}${link}`,
-			date: date,
-			description: description,
+			date,
+			description,
 		})
 	})
 
