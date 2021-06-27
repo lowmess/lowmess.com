@@ -11,7 +11,7 @@ import { BoxProps, LinkProps } from '@theme-ui/components'
 import Link from '../components/Link'
 // eslint-disable-next-line import/no-unresolved
 import { frontMatter } from '../pages/blog/*.mdx'
-import { dateSortDesc } from '../utils/posts'
+import { dateSortDesc } from '../lib/posts'
 
 // no way to make this static unless i create a prebuild hook...
 // which i don't want to do

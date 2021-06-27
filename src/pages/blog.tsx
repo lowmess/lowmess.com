@@ -5,7 +5,7 @@ import { Box, Grid, Text, Container, Heading } from 'theme-ui'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import Link from '../components/Link'
 import metadata from '../constants/metadata.json'
-import { dateSortDesc } from '../utils/posts'
+import { dateSortDesc } from '../lib/posts'
 // eslint-disable-next-line import/no-unresolved
 import { frontMatter } from './blog/*.mdx'
 
