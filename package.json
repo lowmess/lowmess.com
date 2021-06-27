@@ -4,7 +4,7 @@
   "description": "The website and portfolio of Alec Lomas",
   "scripts": {
     "start": "next dev",
-    "prebuild": "node lib/generate-sitemap && node lib/generate-rss",
+    "prebuild": "node scripts/generate-sitemap && node scripts/generate-rss",
     "build": "next build",
     "serve": "next start",
     "prepare": "husky install"
