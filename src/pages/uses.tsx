@@ -1,7 +1,8 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { Grid, Text, Container, Heading, Link, SxProp } from 'theme-ui'
-import Stack from '../components/Stack'
+import { VisuallyHidden } from '@reach/visually-hidden'
+import { VStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import metadata from '../constants/metadata.json'
 
@@ -20,8 +21,21 @@ const Dependency: React.FC<DependencyProps> = ({ href, ...props }) => {
 	return <WrapperComponent sx={{ fontSize: [2, 4] }} {...props} />
 }
 
-const Details: React.FC = (props) => (
-	<Text sx={{ display: 'block', fontSize: 0 }} {...props} />
+const Details: React.FC = ({ children, ...props }) => (
+	<Text sx={{ display: 'block', fontSize: 0 }} {...props}>
+		<VisuallyHidden> (</VisuallyHidden>
+		{children}
+		<VisuallyHidden>)</VisuallyHidden>
+	</Text>
+)
+
+const DependencyList = (props) => (
+	<VStack
+		as="ul"
+		gap={2}
+		sx={{ padding: 0, listStyleType: 'none' }}
+		{...props}
+	/>
 )
 
 const UsesPage: React.FC = () => (
@@ -40,36 +54,38 @@ const UsesPage: React.FC = () => (
 			<Grid columns={[1, '8rem 1fr']} gap={[4, 5]}>
 				<Heading color="muted-text">Hardware</Heading>
 
-				<Stack gap={2}>
-					<React.Fragment>
+				<DependencyList>
+					<li>
 						<Dependency>2020 13&Prime; MacBook Pro</Dependency>
 
 						<Details>1.4GHz Quad-Core Intel i5, 16GB memory</Details>
-					</React.Fragment>
+					</li>
 
-					<React.Fragment>
+					<li>
 						<Dependency>34&Prime; Acer XR Ultrawide Monitor</Dependency>
 
 						<Details>XR342CK Pbmiiqphuzx</Details>
-					</React.Fragment>
+					</li>
 
-					<React.Fragment>
+					<li>
 						<Dependency href="https://input.club/whitefox">
 							Input Club WhiteFox Keyboard
 						</Dependency>
 
 						<Details>Hako Clear switches</Details>
-					</React.Fragment>
+					</li>
 
-					<Dependency>Magic Trackpad 2</Dependency>
-				</Stack>
+					<li>
+						<Dependency>Magic Trackpad 2</Dependency>
+					</li>
+				</DependencyList>
 
 				<Heading color="muted-text" mt={[4, 0]}>
 					Software
 				</Heading>
 
-				<Stack gap={2}>
-					<React.Fragment>
+				<DependencyList>
+					<li>
 						<Dependency href="https://code.visualstudio.com">
 							VS Code
 						</Dependency>
@@ -83,9 +99,9 @@ const UsesPage: React.FC = () => (
 								Plastic theme
 							</Link>
 						</Details>
-					</React.Fragment>
+					</li>
 
-					<React.Fragment>
+					<li>
 						<Dependency href="https://https://iterm2.com">iTerm 2</Dependency>
 
 						<Details>
@@ -98,34 +114,52 @@ const UsesPage: React.FC = () => (
 								Plastic theme
 							</Link>
 						</Details>
-					</React.Fragment>
+					</li>
 
-					<Dependency href="https://affinity.serif.com/en-us/designer">
-						Affinity Designer
-					</Dependency>
+					<li>
+						<Dependency href="https://affinity.serif.com/en-us/designer">
+							Affinity Designer
+						</Dependency>
+					</li>
 
-					<Dependency href="https://www.alfredapp.com">Alfred</Dependency>
+					<li>
+						<Dependency href="https://www.alfredapp.com">Alfred</Dependency>
+					</li>
 
-					<Dependency href="https://mizage.com/divvy">Divvy</Dependency>
+					<li>
+						<Dependency href="https://mizage.com/divvy">Divvy</Dependency>
+					</li>
 
-					<Dependency href="https://kapeli.com/dash">Dash</Dependency>
+					<li>
+						<Dependency href="https://kapeli.com/dash">Dash</Dependency>
+					</li>
 
-					<Dependency href="https://tot.rocks">Tot</Dependency>
-				</Stack>
+					<li>
+						<Dependency href="https://tot.rocks">Tot</Dependency>
+					</li>
+				</DependencyList>
 
 				<Heading color="muted-text" mt={[4, 0]}>
 					Services
 				</Heading>
 
-				<Stack gap={2}>
-					<Dependency href="https://github.com">GitHub</Dependency>
+				<DependencyList>
+					<li>
+						<Dependency href="https://github.com">GitHub</Dependency>
+					</li>
 
-					<Dependency href="https://netlify.com">Netlify</Dependency>
+					<li>
+						<Dependency href="https://netlify.com">Netlify</Dependency>
+					</li>
 
-					<Dependency href="https://vercel.com">Vercel</Dependency>
+					<li>
+						<Dependency href="https://vercel.com">Vercel</Dependency>
+					</li>
 
-					<Dependency href="https://dropbox.com">Dropbox</Dependency>
-				</Stack>
+					<li>
+						<Dependency href="https://dropbox.com">Dropbox</Dependency>
+					</li>
+				</DependencyList>
 			</Grid>
 		</Container>
 	</React.Fragment>

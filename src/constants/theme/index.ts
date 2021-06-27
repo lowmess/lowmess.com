@@ -23,8 +23,6 @@ const makeTheme = <T extends Theme>(t: T) => t
 const breakpoints = ['40em', '64em']
 
 const theme = makeTheme({
-	//settings
-	useColorSchemeMediaQuery: true,
 	// primitives
 	breakpoints,
 	colors,
@@ -50,6 +48,6 @@ interface ExactContextValue extends Omit<ThemeUIContextValue, 'theme'> {
 	theme: ExactTheme
 }
 
-export const useTheme = (useThemeUI as unknown) as () => ExactContextValue
+export const useTheme = useThemeUI as unknown as () => ExactContextValue
 
 export default theme

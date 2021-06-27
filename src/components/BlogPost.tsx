@@ -2,18 +2,24 @@ import * as React from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { Box, Container } from 'theme-ui'
+import { format, addMinutes } from 'date-fns'
 import metadata from '../constants/metadata.json'
-import Stack from '../components/Stack'
+import { VStack } from '../components/Stack'
 import { HeaderName, HeaderTitle } from '../components/Header'
+import { Meta } from '../types/posts'
 
 interface BlogPostProps {
-	frontMatter: FrontMatter
+	meta: Meta
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, children }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ meta, children }) => {
 	const { asPath } = useRouter()
 
-	const { title, description, datetime, date } = frontMatter
+	const { title, description, date } = meta
+
+	const offset = date.getTimezoneOffset()
+	const datetime = date.toISOString()
+	const displayDate = format(addMinutes(date, offset), 'MMMM d, yyyy')
 
 	return (
 		<React.Fragment>
@@ -44,7 +50,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, children }) => {
 			<Box as="header">
 				<Container sx={{ maxWidth: 'mdx-measure', fontSize: [null, null, 3] }}>
 					<HeaderName as="span">
-						<time dateTime={datetime}>{date}</time>
+						<time dateTime={datetime}>{displayDate}</time>
 					</HeaderName>
 
 					<HeaderTitle as="h1" aria-hidden="false">
@@ -53,9 +59,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, children }) => {
 				</Container>
 			</Box>
 
-			<Stack gap={4} mt={[4, 5]}>
+			<VStack gap={4} mt={[4, 5]}>
 				{children}
-			</Stack>
+			</VStack>
 		</React.Fragment>
 	)
 }

@@ -1,42 +1,49 @@
 import * as React from 'react'
-import { Box } from 'theme-ui'
+import { Flex } from 'theme-ui'
 import { ResponsiveStyleValue } from '@theme-ui/css'
 import { BoxProps } from '@theme-ui/components'
 
-interface Props extends BoxProps {
+type Direction = 'vertical' | 'horizontal'
+
+interface StackProps extends BoxProps {
+	direction?: Direction | Direction[]
 	gap?: ResponsiveStyleValue<number>
-	dividers?: boolean
-	dividerColor?: ResponsiveStyleValue<string>
 }
 
-const Stack: React.FC<Props> = ({
+export const Stack: React.FC<StackProps> = ({
+	direction = 'vertical',
 	gap = 0,
-	dividers,
-	dividerColor = 'border',
+	sx,
 	children,
 	...props
 }) => {
-	const items = React.Children.toArray(children)
+	const directionToFlow = (flowDirection: Direction): string =>
+		flowDirection === 'vertical' ? 'column nowrap' : 'row wrap'
+
+	const flexFlow = Array.isArray(direction)
+		? direction.map(directionToFlow)
+		: directionToFlow(direction)
 
 	return (
-		<Box {...props}>
-			{items.map((child, index) => (
-				<Box
-					key={index}
-					sx={{
-						'& + &': {
-							marginTop: gap,
-							borderTop: dividers ? 1 : 0,
-							borderColor: dividerColor,
-							paddingTop: dividers ? gap : 0,
-						},
-					}}
-				>
-					{child}
-				</Box>
-			))}
-		</Box>
+		<Flex
+			sx={{
+				flexFlow,
+				gap,
+				...sx,
+			}}
+			{...props}
+		>
+			{children}
+		</Flex>
 	)
 }
 
-export default Stack
+type DirectionalStackProps = Omit<StackProps, 'direction'>
+
+export const VStack: React.FC<DirectionalStackProps> = (props) => (
+	<Stack {...props} direction="vertical" />
+)
+
+export const HStack: React.FC<DirectionalStackProps> = (props) => (
+	<Stack {...props} direction="horizontal" />
+)

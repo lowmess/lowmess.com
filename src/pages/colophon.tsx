@@ -2,10 +2,23 @@ import * as React from 'react'
 import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Stack from '../components/Stack'
+import { VStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
-import { dependencies } from '../../package-lock.json'
+import pkg from '../../package-lock.json'
 import metadata from '../constants/metadata.json'
+
+const DependencyList = (props) => (
+	<VStack
+		as="ul"
+		gap={2}
+		sx={{
+			marginTop: 3,
+			padding: 0,
+			listStyleType: 'none',
+		}}
+		{...props}
+	/>
+)
 
 interface DependencyProps {
 	version?: string
@@ -13,14 +26,14 @@ interface DependencyProps {
 }
 
 const Dependency: React.FC<DependencyProps> = ({ version, href, children }) => (
-	<Text sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
+	<Text as="li" sx={{ display: 'inline-flex', alignItems: 'baseline' }}>
 		<Link variant="ui" href={href} sx={{ fontSize: [2, 4] }}>
 			{children}
 		</Link>
 
 		{version && (
-			<Text as="span" sx={{ marginLeft: 2, fontFamily: 'mono', fontSize: 0 }}>
-				v{version}
+			<Text as="span" sx={{ fontFamily: 'mono', fontSize: 0 }}>
+				&#8201;v{version}
 			</Text>
 		)}
 	</Text>
@@ -33,16 +46,8 @@ interface ColophonProps {
 }
 
 const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
-	const {
-		react,
-		next,
-		mdx,
-		themeUI,
-		prismjs,
-		typescript,
-		eslint,
-		prettier,
-	} = versions
+	const { react, next, mdx, themeUI, prismjs, typescript, eslint, prettier } =
+		versions
 
 	return (
 		<React.Fragment>
@@ -61,7 +66,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 					<Box>
 						<Heading color="muted-text">Functionality</Heading>
 
-						<Stack gap={2} mt={3}>
+						<DependencyList>
 							<Dependency
 								version={typescript}
 								href="https://typescriptlang.org/"
@@ -80,7 +85,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							<Dependency version={mdx} href="https://mdxjs.com">
 								MDX
 							</Dependency>
-						</Stack>
+						</DependencyList>
 					</Box>
 
 					<Box>
@@ -88,7 +93,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							Design
 						</Heading>
 
-						<Stack gap={2} mt={3}>
+						<DependencyList>
 							<Dependency version={themeUI} href="https://theme-ui.com">
 								Theme UI
 							</Dependency>
@@ -104,7 +109,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							<Dependency version="1.000" href="https://dank.sh">
 								Dank Mono
 							</Dependency>
-						</Stack>
+						</DependencyList>
 					</Box>
 
 					<Box>
@@ -112,7 +117,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							Infrastructure
 						</Heading>
 
-						<Stack gap={2} mt={3}>
+						<DependencyList>
 							<Dependency href="https://github.com">GitHub</Dependency>
 
 							<Dependency href="https://vercel.com">Vercel</Dependency>
@@ -124,7 +129,7 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 							<Dependency version={prettier} href="https://prettier.io">
 								Prettier
 							</Dependency>
-						</Stack>
+						</DependencyList>
 					</Box>
 				</Grid>
 			</Container>
@@ -136,15 +141,17 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 // eslint-disable-next-line require-await
 export const getStaticProps: GetStaticProps = async () => {
 	const {
-		react: { version: react },
-		next: { version: next },
-		'@mdx-js/mdx': { version: mdx },
-		'theme-ui': { version: themeUI },
-		prismjs: { version: prismjs },
-		typescript: { version: typescript },
-		eslint: { version: eslint },
-		prettier: { version: prettier },
-	} = dependencies
+		dependencies: {
+			react: { version: react },
+			next: { version: next },
+			'@mdx-js/mdx': { version: mdx },
+			'theme-ui': { version: themeUI },
+			prismjs: { version: prismjs },
+			typescript: { version: typescript },
+			eslint: { version: eslint },
+			prettier: { version: prettier },
+		},
+	} = pkg
 
 	const versions = {
 		react,

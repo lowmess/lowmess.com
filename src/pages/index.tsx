@@ -1,8 +1,8 @@
 import * as React from 'react'
 import type { GetStaticProps } from 'next'
 import { Text, Heading, Link, Container } from 'theme-ui'
-import getStats, { Stats, Book } from '../utils/getStats'
-import pluralize from '../utils/pluralize'
+import getStats, { Stats, Book } from '../lib/getStats'
+import pluralize from '../lib/pluralize'
 
 interface ValueCountProps {
 	value: number

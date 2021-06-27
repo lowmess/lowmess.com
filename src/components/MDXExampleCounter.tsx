@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Box, Text, Container } from 'theme-ui'
-import pluralize from '../utils/pluralize'
+import pluralize from '../lib/pluralize'
 
 const ExampleCounter: React.FC = () => {
 	const [count, setCount] = React.useState(0)

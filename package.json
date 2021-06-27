@@ -1,10 +1,10 @@
 {
   "name": "lowmess",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "The website and portfolio of Alec Lomas",
   "scripts": {
     "start": "next dev",
-    "prebuild": "node lib/generate-sitemap && node lib/generate-rss",
+    "prebuild": "node scripts/generate-sitemap && node scripts/generate-rss",
     "build": "next build",
     "serve": "next start",
     "prepare": "husky install"
@@ -25,38 +25,38 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^11.0.1",
     "@reach/visually-hidden": "^0.15.0",
     "@silvenon/remark-smartypants": "^1.0.0",
-    "babel-plugin-import-glob-array": "^0.2.0",
-    "date-fns": "^2.21.1",
+    "date-fns": "^2.22.1",
     "github-slugger": "^1.3.0",
-    "glob": "^7.1.6",
-    "gray-matter": "^4.0.3",
+    "globby": "^11.0.4",
     "lowmess-prism": "^2.0.2",
-    "next": "^10.1.3",
-    "next-mdx-enhanced": "^5.0.0",
-    "next-transpile-modules": "^6.4.0",
+    "next": "^11.0.0",
+    "next-transpile-modules": "^8.0.0",
     "nextjs-sitemap-generator": "^1.3.1",
-    "prism-react-renderer": "^1.2.0",
+    "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.23.0",
     "react": "^17.0.2",
-    "react-children-utilities": "^2.5.0",
+    "react-children-utilities": "^2.5.3",
     "react-dom": "^17.0.2",
     "rss": "^1.2.2",
-    "theme-ui": "^0.7.3"
+    "theme-ui": "^0.10.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
+    "@types/node": "^15.12.4",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
     "@types/webpack-env": "^1.16.0",
-    "eslint": "^7.25.0",
+    "eslint": "^7.29.0",
     "eslint-config-lowmess": "^4.1.4",
+    "eslint-config-next": "^11.0.1",
     "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
     "prettier-config-lowmess": "^0.3.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.4"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

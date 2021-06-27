@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { Box, Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
-import Inline from '../components/Inline'
+import { Flex, Grid, Text, Container, Heading, Link } from 'theme-ui'
+import { HStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
 import projects from '../constants/projects.json'
 import metadata from '../constants/metadata.json'
@@ -26,30 +26,32 @@ const ProjectsPage: React.FC = () => (
 		</Header>
 
 		<Container as="main" mt={5}>
-			<Grid columns={[null, 2]} gap={5}>
-				{projects.map((project: Project, index: number) => {
+			<Grid columns={[null, 2]} gap={5} sx={{ counterReset: 'projects' }}>
+				{projects.map((project: Project) => {
 					const { title, description, website, repo } = project
 
 					return (
 						<Flex
 							key={title}
-							sx={{ position: 'relative', alignItems: 'baseline' }}
-						>
-							<Text
-								aria-hidden
-								variant="heading"
-								sx={{
+							sx={{
+								alignItems: 'baseline',
+								position: 'relative',
+								counterIncrement: 'projects',
+
+								'&::before': {
+									content: 'counter(projects)',
 									position: [null, null, 'absolute'],
 									right: '100%',
 									marginRight: 3,
+									fontSize: [4, 5],
+									fontWeight: 'semi-bold',
+									lineHeight: 'heading',
 									color: 'muted-text',
 									userSelect: 'none',
-								}}
-							>
-								{index + 1}
-							</Text>
-
-							<Box>
+								},
+							}}
+						>
+							<div>
 								<Heading>
 									<Link variant="ui" href={website || repo}>
 										{title}
@@ -62,14 +64,14 @@ const ProjectsPage: React.FC = () => (
 									</Text>
 								)}
 
-								<Inline gap={2} mt={2}>
+								<HStack gap={2} mt={2}>
 									{website && <Link href={website}>Website</Link>}
 
-									{website && repo && '\u00B7'}
+									{website && repo && <span aria-hidden>&#183;</span>}
 
 									{repo && <Link href={repo}>Repository</Link>}
-								</Inline>
-							</Box>
+								</HStack>
+							</div>
 						</Flex>
 					)
 				})}
