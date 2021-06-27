@@ -55,8 +55,6 @@ const securityHeaders = [
 ]
 
 const nextConfig = {
-	webpack5: false,
-
 	pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 
 	// eslint-disable-next-line require-await
