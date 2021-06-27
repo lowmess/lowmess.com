@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Box, Grid, Text, Container, Heading, Link } from 'theme-ui'
 import { VStack } from '../components/Stack'
 import { Header, HeaderName, HeaderTitle } from '../components/Header'
-import { dependencies } from '../../package-lock.json'
+import pkg from '../../package-lock.json'
 import metadata from '../constants/metadata.json'
 
 const DependencyList = (props) => (
@@ -141,15 +141,17 @@ const ColophonPage: React.FC<ColophonProps> = ({ versions }) => {
 // eslint-disable-next-line require-await
 export const getStaticProps: GetStaticProps = async () => {
 	const {
-		react: { version: react },
-		next: { version: next },
-		'@mdx-js/mdx': { version: mdx },
-		'theme-ui': { version: themeUI },
-		prismjs: { version: prismjs },
-		typescript: { version: typescript },
-		eslint: { version: eslint },
-		prettier: { version: prettier },
-	} = dependencies
+		dependencies: {
+			react: { version: react },
+			next: { version: next },
+			'@mdx-js/mdx': { version: mdx },
+			'theme-ui': { version: themeUI },
+			prismjs: { version: prismjs },
+			typescript: { version: typescript },
+			eslint: { version: eslint },
+			prettier: { version: prettier },
+		},
+	} = pkg
 
 	const versions = {
 		react,
