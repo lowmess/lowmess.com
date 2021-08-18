@@ -26,7 +26,7 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^11.0.1",
+    "@next/mdx": "^11.1.0",
     "@reach/visually-hidden": "^0.16.0",
     "@silvenon/remark-smartypants": "^1.0.0",
     "date-fns": "^2.23.0",
