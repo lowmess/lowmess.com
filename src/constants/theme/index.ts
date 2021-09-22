@@ -1,6 +1,6 @@
 /* eslint-disable import/exports-last */
 import { useThemeUI, ThemeUIContextValue } from 'theme-ui'
-import { Theme, ThemeUICSSObject } from '@theme-ui/css'
+import { Theme, ThemeUICSSObject, ColorModesScale } from '@theme-ui/css'
 // primitives
 import colors from './colors'
 import space from './space'
@@ -42,7 +42,9 @@ const theme = makeTheme({
 	buttons,
 })
 
-export type ExactTheme = typeof theme
+export type ExactTheme = typeof theme & {
+	rawColors?: ColorModesScale
+}
 
 interface ExactContextValue extends Omit<ThemeUIContextValue, 'theme'> {
 	theme: ExactTheme
