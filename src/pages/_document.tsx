@@ -13,7 +13,7 @@ class MyDocument extends Document {
 					<meta charSet="utf-8" />
 
 					{/* theming */}
-					<meta name="theme-color" content={colors.muted} />
+					<meta name="color-scheme" content="light dark" />
 					<meta name="apple-mobile-web-app-title" content={metadata.title} />
 					<meta name="application-name" content={metadata.title} />
 					<meta name="msapplication-TileColor" content={colors.primary} />

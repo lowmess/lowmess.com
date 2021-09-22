@@ -1,12 +1,14 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { Box, Flex } from 'theme-ui'
+import { useTheme } from '../../constants/theme'
 import metadata from '../../constants/metadata.json'
 import Nav from '../Nav'
 import Footer from '../Footer'
 import GlobalStyles from './GlobalStyles'
 
 const Layout: React.FC = ({ children }) => {
+	const { theme: { rawColors } = {} } = useTheme()
 	const { title, description } = metadata
 
 	return (
@@ -21,6 +23,8 @@ const Layout: React.FC = ({ children }) => {
 				<title key="title">{title}</title>
 
 				<meta name="description" content={description} />
+
+				<meta name="theme-color" content={rawColors.muted as string} />
 			</Head>
 
 			<Flex sx={{ flexDirection: 'column', minHeight: '100vh' }}>
