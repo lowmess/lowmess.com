@@ -33,7 +33,7 @@
     "github-slugger": "^1.4.0",
     "globby": "^11.0.4",
     "lowmess-prism": "^2.0.2",
-    "mdx-embed": "^0.0.19",
+    "mdx-embed": "^0.0.20",
     "next": "^11.1.2",
     "next-transpile-modules": "^8.0.0",
     "nextjs-sitemap-generator": "^1.3.1",
