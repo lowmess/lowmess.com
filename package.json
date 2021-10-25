@@ -53,7 +53,7 @@
     "eslint": "^7.32.0",
     "eslint-config-lowmess": "^4.1.4",
     "eslint-config-next": "^11.1.2",
-    "husky": "^7.0.2",
+    "husky": "^7.0.4",
     "lint-staged": "^11.2.4",
     "prettier": "^2.4.1",
     "prettier-config-lowmess": "^0.3.0",
