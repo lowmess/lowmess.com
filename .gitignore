@@ -7,3 +7,4 @@ node_modules
 out
 public/rss.xml
 public/sitemap.xml
+tsconfig.tsbuildinfo

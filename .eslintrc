@@ -1,16 +1,9 @@
 {
-	"extends": [
-		"lowmess/react",
-		"next"
-	],
+	"extends": ["lowmess/react", "plugin:@next/next/recommended"],
 	"overrides": [
 		{
-			"files": [
-				"**/*.ts?(x)"
-			],
-			"extends": [
-				"lowmess/typescript"
-			],
+			"files": ["**/*.ts?(x)"],
+			"extends": ["lowmess/typescript"],
 			"rules": {
 				"react/prop-types": 0
 			}

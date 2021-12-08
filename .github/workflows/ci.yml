@@ -14,10 +14,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - uses: bahmutov/npm-install@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
 
-      - name: Run ESLint
+      - name: Install dependencies
+        run: npm ci --omit=dev --ignore-scripts
+
+      - name: Lint JavaScript
         run: npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0
 
   typecheck:
@@ -27,10 +32,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - uses: bahmutov/npm-install@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
 
-      - name: Run TypeScript
+      - name: Install dependencies
+        run: npm ci --omit=dev --ignore-scripts
+
+      - name: Check types
         run: npx tsc
 
   lighthouse:
@@ -43,7 +53,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: bahmutov/npm-install@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --omit=dev --ignore-scripts
 
       - name: Get Next.js build cache
         uses: actions/cache@v2
