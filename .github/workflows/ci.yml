@@ -20,7 +20,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --omit=dev --ignore-scripts
+        run: npm install --omit=dev --ignore-scripts
 
       - name: Lint JavaScript
         run: npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0
@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --omit=dev --ignore-scripts
+        run: npm install --omit=dev --ignore-scripts
 
       - name: Check types
         run: npx tsc
@@ -59,7 +59,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --omit=dev --ignore-scripts
+        run: npm install --omit=dev --ignore-scripts
 
       - name: Get Next.js build cache
         uses: actions/cache@v2
