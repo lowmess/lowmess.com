@@ -12,7 +12,7 @@ interface ValueCountProps {
 
 const ValueCount: React.FC<ValueCountProps> = ({ value, singular, plural }) => (
 	<React.Fragment>
-		{value.toLocaleString()} {pluralize(value, singular, plural)}
+		{value?.toLocaleString() ?? '???'} {pluralize(value, singular, plural)}
 	</React.Fragment>
 )
 
