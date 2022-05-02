@@ -53,7 +53,7 @@
     "@types/node": "^17.0.23",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
-    "@types/webpack-env": "^1.16.3",
+    "@types/webpack-env": "^1.16.4",
     "eslint": "^7.32.0",
     "eslint-config-lowmess": "^4.1.4",
     "husky": "^7.0.4",
