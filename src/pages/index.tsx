@@ -90,8 +90,8 @@ const IndexPage: React.FC<IndexProps> = ({ stats }) => {
 					My name is Alec Lomas, and I make websites.
 				</Heading>{' '}
 				<Heading as="h2" variant="site-intro">
-					Currently, I&rsquo;m helping teams respond to incidents
-					collaboratively at <Link href="https://allma.io">Allma</Link>.
+					I&rsquo;m currently based in Portland, Oregon and{' '}
+					<Link href="mailto:alec@lowmess.com">seeking new opportunities</Link>.
 				</Heading>{' '}
 				<Text as="p" variant="site-intro">
 					In the last 30 days, I&rsquo;ve pushed{' '}
