@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Heading } from 'rebass'
 import getStats from './getStats'
@@ -15,50 +15,9 @@ SectionTitle.propTypes = {
 }
 
 const Stats = ({ ...props }) => {
-  const [commits, setCommits] = useState(null)
-  const [tweets, setTweets] = useState(null)
-  const [places, setPlaces] = useState(null)
-  const [steps, setSteps] = useState(null)
-  const [songs, setSongs] = useState(null)
-  const [album, setAlbum] = useState(null)
-  const [books, setBooks] = useState([])
+  const {commits, tweets, places, steps, songs, album: albumStat, books} = getStats()
 
-  const fillStats = async () => {
-    const {
-      commits: commitStat,
-      tweets: tweetsStat,
-      places: placesStat,
-      steps: stepsStat,
-      songs: songsStat,
-      album: albumStat,
-      books: booksStat,
-    } = await getStats()
-
-    if (commitStat) setCommits(commitStat.toLocaleString())
-
-    if (tweetsStat) setTweets(tweetsStat.toLocaleString())
-
-    if (placesStat) setPlaces(placesStat.toLocaleString())
-
-    if (stepsStat) setSteps(stepsStat.toLocaleString())
-
-    if (songsStat) setSongs(songsStat.toLocaleString())
-
-    if (albumStat && albumStat.name && albumStat.artist) {
-      const albumComponent = (
-        <span>
-          <em>{albumStat.name}</em>, {albumStat.artist}
-        </span>
-      )
-      setAlbum(albumComponent)
-    }
-
-    if (booksStat && booksStat.length) setBooks(booksStat)
-  }
-
-  useEffect(() => {
-    fillStats()
-  }, [])
+  const album = albumStat ? <React.Fragment><em>{albumStat.name}</em> by {albumStat.artist}</React.Fragment> : null
 
   return (
     <>
