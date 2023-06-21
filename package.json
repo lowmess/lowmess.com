@@ -32,7 +32,7 @@
     "@next/mdx": "^12.1.6",
     "@reach/visually-hidden": "^0.17.0",
     "@silvenon/remark-smartypants": "^1.0.0",
-    "date-fns": "^2.28.0",
+    "date-fns": "^2.30.0",
     "github-slugger": "^1.4.0",
     "globby": "^11.1.0",
     "lowmess-prism": "^2.0.2",
@@ -50,17 +50,17 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.6",
-    "@types/node": "^17.0.42",
+    "@types/node": "^20.1.4",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "@types/webpack-env": "^1.17.0",
     "eslint": "^7.32.0",
     "eslint-config-lowmess": "^4.1.4",
-    "husky": "^8.0.1",
-    "lint-staged": "^12.4.3",
-    "prettier": "^2.6.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
     "prettier-config-lowmess": "^0.3.0",
-    "typescript": "^4.7.3"
+    "typescript": "^5.0.4"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

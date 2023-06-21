@@ -12,7 +12,6 @@ export type Book = {
 
 export type Stats = {
 	commits?: number
-	tweets?: number
 	places?: number
 	steps?: number
 	songs?: number
@@ -24,7 +23,6 @@ const getStats = async (): Promise<Stats> => {
 	const query = `
       query Stats {
         commits
-        tweets
         places
         steps
         songs
