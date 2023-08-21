@@ -57,7 +57,7 @@
     "eslint": "^7.32.0",
     "eslint-config-lowmess": "^4.1.4",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^2.8.8",
     "prettier-config-lowmess": "^0.3.0",
     "typescript": "^5.1.3"
