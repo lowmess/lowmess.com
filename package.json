@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.6",
-    "@types/node": "^20.4.1",
+    "@types/node": "^20.8.6",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "@types/webpack-env": "^1.18.1",
