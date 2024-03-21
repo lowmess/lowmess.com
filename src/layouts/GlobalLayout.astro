@@ -1,0 +1,21 @@
+---
+import HeadMetadata from "~/components/HeadMetadata.astro";
+
+type Props = {
+	title?: string;
+	description?: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<HeadMetadata title={title} description={description} />
+	</head>
+
+	<body>
+		<slot />
+	</body>
+</html>

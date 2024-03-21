@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+
+import GlobalLayout from "~/layouts/GlobalLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+);
+---
+
+<GlobalLayout title="Blog">
+	<h1>Blog</h1>
+
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</GlobalLayout>

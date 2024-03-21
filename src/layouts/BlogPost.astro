@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import GlobalLayout from "~/layouts/GlobalLayout.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description } = Astro.props;
+---
+
+<GlobalLayout title={title} description={description}>
+	<a href="/blog">back to the blog</a>
+	<slot />
+</GlobalLayout>

@@ -1,0 +1,64 @@
+:root {
+	/* palette */
+	--hue-orange: 35;
+	--sat-orange: 90%;
+
+	--hue-gray: 35;
+	--sat-gray: 10%;
+
+	--color-black: hsl(var(--hue-gray), var(--sat-gray), 15%);
+	--color-white: hsl(var(--hue-gray), var(--sat-gray), 100%);
+
+	--color-text: hsl(var(--hue-gray), var(--sat-gray), 25%);
+	--color-background: hsl(var(--hue-gray), var(--sat-gray), 100%);
+	--color-primary: hsl(var(--hue-orange), var(--sat-orange), 50%);
+
+	/* typography */
+	/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1280,20,1.333,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,s,2xl,12 */
+	--font-size-sm: clamp(0.83rem, 0.8rem + 0.17vw, 0.94rem);
+	--font-size-md: clamp(1rem, 0.92rem + 0.42vw, 1.25rem);
+	--font-size-lg: clamp(1.2rem, 1.04rem + 0.78vw, 1.67rem);
+	--font-size-xl: clamp(1.44rem, 1.18rem + 1.3vw, 2.22rem);
+	--font-size-xxl: clamp(1.73rem, 1.32rem + 2.05vw, 2.96rem);
+	--font-size-subheading: clamp(2.07rem, 1.45rem + 3.12vw, 3.95rem);
+	--font-size-heading: clamp(2.49rem, 1.56rem + 4.62vw, 5.26rem);
+
+	--line-height-solid: 1;
+	--line-height-heading: 1.25;
+	--line-height-body: 1.5;
+
+	--font-family-sans: Inter, system-ui;
+	--font-family-mono: Dank, "Dank Mono", Menlo, Consolas, Roboto Mono,
+		Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace;
+
+	/* spacing */
+	--space-none: 0;
+	--space-xs: 4px;
+	--space-sm: 8px;
+	--space-md: 16px;
+	--space-lg: 32px;
+	--space-xl: 64px;
+	--space-xxl: 128px;
+
+	--rlh: calc(
+		var(--font-size-md) * var(--line-height-body)
+	); /* fake it til w3c makes it */
+
+	--rhythm-none: 0;
+	--rhythm-xs: calc(var(--rlh) * 0.25);
+	--rhythm-sm: calc(var(--rlh) * 0.5);
+	--rhythm-md: var(--rlh);
+	--rhythm-lg: var(--rlh * 2);
+	--rhythm-xl: var(--rlh * 4);
+	--rhythm-xxl: var(--rlh * 8);
+
+	/* sizing */
+	--size-container: 64rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-text: hsl(var(--hue-gray), var(--sat-gray), 95%);
+		--color-background: hsl(var(--hue-gray), var(--sat-gray), 20%);
+	}
+}

@@ -1,0 +1,63 @@
+{
+  "name": "lowmess",
+  "version": "5.0.0",
+  "type": "module",
+  "description": "The website and portfolio of Alec Lomas",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lowmess/lowmess.git"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "design"
+  ],
+  "author": "Alec Lomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lowmess/lowmess/issues"
+  },
+  "homepage": "https://lowmess.com",
+  "dependencies": {
+    "@astrojs/mdx": "^2.2.1",
+    "@astrojs/rss": "^4.0.5",
+    "@astrojs/sitemap": "^3.1.1",
+    "astro": "^4.5.8",
+    "markdown-it": "^14.1.0",
+    "postcss-preset-env": "^9.5.2",
+    "sanitize-html": "^2.13.0",
+    "sanitize.css": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^0.32.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-config-lowmess": "^0.3.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.4.3"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs,jsx,ts,tsx,astro}": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  }
+}

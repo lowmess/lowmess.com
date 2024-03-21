@@ -1,0 +1,6 @@
+html {
+	background-color: var(--color-background);
+	font-size: var(--font-size-md);
+	line-height: var(--line-height-body);
+	color: var(--color-text);
+}

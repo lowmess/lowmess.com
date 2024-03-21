@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow:
+
+User-agent: GPTBot
+Disallow: /
+
+Sitemap: https://lowmess.com/sitemap-index.xml
