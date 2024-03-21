@@ -135,24 +135,40 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"blog": {
-"a-better-album-ranking-algorithm.mdx": {
-	id: "a-better-album-ranking-algorithm.mdx";
-  slug: "a-better-album-ranking-algorithm";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
+		"archive": {
 "a-form-fitted-z-shell.mdx": {
 	id: "a-form-fitted-z-shell.mdx";
   slug: "a-form-fitted-z-shell";
   body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
+  collection: "archive";
+  data: InferEntrySchema<"archive">
 } & { render(): Render[".mdx"] };
 "components-mdx-secret-weapon.mdx": {
 	id: "components-mdx-secret-weapon.mdx";
   slug: "components-mdx-secret-weapon";
+  body: string;
+  collection: "archive";
+  data: InferEntrySchema<"archive">
+} & { render(): Render[".mdx"] };
+"functional-first-accordions.mdx": {
+	id: "functional-first-accordions.mdx";
+  slug: "functional-first-accordions";
+  body: string;
+  collection: "archive";
+  data: InferEntrySchema<"archive">
+} & { render(): Render[".mdx"] };
+"migrate-gatsby-next.mdx": {
+	id: "migrate-gatsby-next.mdx";
+  slug: "migrate-gatsby-next";
+  body: string;
+  collection: "archive";
+  data: InferEntrySchema<"archive">
+} & { render(): Render[".mdx"] };
+};
+"blog": {
+"a-better-album-ranking-algorithm.mdx": {
+	id: "a-better-album-ranking-algorithm.mdx";
+  slug: "a-better-album-ranking-algorithm";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -167,20 +183,6 @@ declare module 'astro:content' {
 "fetch-with-timeout.mdx": {
 	id: "fetch-with-timeout.mdx";
   slug: "fetch-with-timeout";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"functional-first-accordions.mdx": {
-	id: "functional-first-accordions.mdx";
-  slug: "functional-first-accordions";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"migrate-gatsby-next.mdx": {
-	id: "migrate-gatsby-next.mdx";
-  slug: "migrate-gatsby-next";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -213,6 +215,8 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+};
+"graveyard": {
 };
 
 	};
