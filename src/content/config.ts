@@ -16,4 +16,18 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const archive = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		date: z
+			.string()
+			.or(z.date())
+			.transform((val) => new Date(val)),
+		archived: z
+			.string()
+			.or(z.date())
+			.transform((val) => new Date(val)),
+	}),
+});
+
+export const collections = { blog, archive };
