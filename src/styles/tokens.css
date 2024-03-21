@@ -27,7 +27,9 @@
 	--line-height-heading: 1.25;
 	--line-height-body: 1.5;
 
-	--font-family-sans: Inter, system-ui;
+	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
+	--font-family-subheading: Izoard, ui-sans-serif, system-ui, sans-serif;
+	--font-family-body: Novela, ui-serif, serif;
 	--font-family-mono: Dank, "Dank Mono", Menlo, Consolas, Roboto Mono,
 		Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace;
 
@@ -40,17 +42,14 @@
 	--space-xl: 64px;
 	--space-xxl: 128px;
 
-	--rlh: calc(
-		var(--font-size-md) * var(--line-height-body)
-	); /* fake it til w3c makes it */
-
+	/* vertical rhythm */
 	--rhythm-none: 0;
-	--rhythm-xs: calc(var(--rlh) * 0.25);
-	--rhythm-sm: calc(var(--rlh) * 0.5);
-	--rhythm-md: var(--rlh);
-	--rhythm-lg: var(--rlh * 2);
-	--rhythm-xl: var(--rlh * 4);
-	--rhythm-xxl: var(--rlh * 8);
+	--rhythm-xs: 0.25rlh;
+	--rhythm-sm: 0.5lh;
+	--rhythm-md: 1rlh;
+	--rhythm-lg: 2rlh;
+	--rhythm-xl: 4rlh;
+	--rhythm-xxl: 8rlh;
 
 	/* sizing */
 	--size-container: 64rem;
