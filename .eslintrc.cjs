@@ -25,5 +25,4 @@ module.exports = {
 			processor: "astro/client-side-ts",
 		},
 	],
-	ignorePatterns: ["*.d.ts"],
 };
