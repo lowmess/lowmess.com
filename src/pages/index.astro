@@ -1,9 +1,19 @@
 ---
+import Collage from "~/components/Collage.astro";
 import GlobalLayout from "~/layouts/GlobalLayout.astro";
 ---
 
 <GlobalLayout>
-	<h1>hi</h1>
+	<h1>my name is alec&nbsp;lomas, and i make websites.</h1>
 
 	<a href="/blog">blog</a>
+
+	<Collage />
 </GlobalLayout>
+
+<style>
+	h1 {
+		font-size: var(--font-size-heading);
+		line-height: var(--line-height-solid);
+	}
+</style>
