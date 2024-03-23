@@ -1,0 +1,54 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div"> & { cellWidth?: string };
+
+const { class: className, cellWidth, ...props } = Astro.props;
+---
+
+<div class:list={["grid", className]} {...props}></div>
+
+<style define:vars={{ cellWidth }}>
+	.grid {
+		--cell-width: var(--cellWidth, 12.5%);
+		border: 2px solid white;
+		opacity: 0.25;
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	.grid::after {
+		content: "";
+		display: block;
+		height: calc(100% + var(--cell-width));
+		background-image: repeating-linear-gradient(
+				to right,
+				transparent,
+				transparent calc(var(--cell-width) - 4px),
+				white var(--cell-width)
+			),
+			repeating-linear-gradient(
+				to bottom,
+				transparent,
+				transparent calc(var(--cell-width) - 4px),
+				white var(--cell-width)
+			);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.grid::after {
+			will-change: background-position;
+			animation: 8s linear 0s infinite running grid-scroll;
+		}
+	}
+
+	@keyframes grid-scroll {
+		0% {
+			transform: translateY(0);
+		}
+
+		100% {
+			transform: translateY(-3cqw);
+		}
+	}
+</style>

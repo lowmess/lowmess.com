@@ -6,28 +6,18 @@ type Props = HTMLAttributes<"div">;
 const { class: className, ...props } = Astro.props;
 ---
 
-<div class:list={["container", className]} {...props}>
-	<div class="circle"></div>
-
-	<div class="splashdown"></div>
-</div>
+<div class:list={["sphere", className]} {...props}></div>
 
 <style>
-	.container {
-		position: relative;
-		container-type: inline-size;
-	}
-
-	.circle {
-		position: relative;
-		width: 33cqw;
+	.sphere {
 		aspect-ratio: 1;
 		background-color: var(--color-primary);
 		border-radius: 100%;
+		pointer-events: none;
 	}
 
-	.circle::before,
-	.circle::after {
+	.sphere::before,
+	.sphere::after {
 		content: "";
 		display: block;
 		position: absolute;
@@ -38,7 +28,18 @@ const { class: className, ...props } = Astro.props;
 		filter: contrast(200%);
 	}
 
-	.circle::before {
+	/* shadow */
+	.sphere::before {
+		background: radial-gradient(
+				circle at 35% 22.5%,
+				hsl(35, 90%, 0%, 0),
+				hsl(35, 90%, 5%)
+			),
+			url(https://grainy-gradients.vercel.app/noise.svg);
+		mix-blend-mode: multiply;
+	}
+	/* highlight. */
+	.sphere::after {
 		background: radial-gradient(
 				circle at 10% 0%,
 				color-mix(in hsl, var(--color-primary), white),
@@ -46,16 +47,6 @@ const { class: className, ...props } = Astro.props;
 			),
 			url(https://grainy-gradients.vercel.app/noise.svg);
 		mix-blend-mode: screen;
-		opacity: 0.25;
-	}
-
-	.circle::after {
-		background: radial-gradient(
-				circle at 35% 22.5%,
-				rgba(0, 0, 0, 0),
-				hsl(35, 90%, 14%)
-			),
-			url(https://grainy-gradients.vercel.app/noise.svg);
-		mix-blend-mode: multiply;
+		opacity: 0.05;
 	}
 </style>
