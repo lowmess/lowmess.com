@@ -1,5 +1,6 @@
 ---
 import HeadMetadata from "~/components/HeadMetadata.astro";
+import Navigation from "~/components/Navigation.astro";
 
 type Props = {
 	title?: string;
@@ -16,6 +17,8 @@ const { title, description } = Astro.props;
 	</head>
 
 	<body>
+		<Navigation />
+
 		<slot />
 	</body>
 </html>

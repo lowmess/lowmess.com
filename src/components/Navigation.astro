@@ -1,0 +1,75 @@
+---
+import LayoutGrid from "~/components/LayoutGrid.astro";
+import Logo from "~/components/Logo.astro";
+---
+
+<nav>
+	<!-- <Container class="container"> -->
+	<LayoutGrid class="layout">
+		<a href="/" class="logo">
+			<Logo title="Go to homepage" />
+		</a>
+
+		<ul>
+			<li>
+				<a href="/">Home</a>
+			</li>
+
+			<li>
+				<a href="/work">Work</a>
+			</li>
+
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+		</ul></LayoutGrid
+	>
+	<!-- </Container> -->
+</nav>
+
+<style>
+	nav {
+		margin-block-end: var(--space-xl);
+		padding-block: var(--space-lg);
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		gap: var(--space-lg);
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		padding: 0;
+	}
+
+	ul a {
+		font-family: var(--font-family-subheading);
+		text-transform: uppercase;
+		color: var(--color-text);
+		text-decoration: none;
+		font-size: var(--font-size-xs);
+		letter-spacing: 4px;
+		opacity: 0.75;
+	}
+
+	ul a:hover {
+		opacity: 1;
+	}
+
+	.layout {
+		align-items: center;
+	}
+
+	.logo {
+		color: var(--color-primary);
+	}
+
+	@media (min-width: 768px) {
+		ul {
+			gap: var(--space-xl);
+		}
+	}
+</style>

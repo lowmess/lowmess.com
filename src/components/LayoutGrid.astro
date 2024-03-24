@@ -1,0 +1,39 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
+
+const { as: Tag = "div", class: className, ...props } = Astro.props;
+---
+
+<div class="container">
+	<Tag class:list={["layout", className]} {...props}><slot /></Tag>
+</div>
+
+<style>
+	.container {
+		container-type: inline-size;
+		max-width: 1440px;
+		padding-inline: var(--container-padding);
+	}
+
+	.layout {
+		container-type: inline-size;
+		display: grid;
+		align-items: baseline;
+		grid-template-columns: calc(24px + var(--space-lg)) 1fr;
+	}
+
+	@media (min-width: 480px) {
+		.layout {
+			grid-template-columns: calc(24px + var(--space-xl)) 1fr;
+		}
+	}
+
+	@media (min-width: 640px) {
+		.layout {
+			/* roughly matches the hero heading */
+			grid-template-columns: 22cqw 1fr;
+		}
+	}
+</style>

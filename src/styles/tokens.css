@@ -15,6 +15,7 @@
 
 	/* typography */
 	/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1280,20,1.333,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,s,2xl,12 */
+	--font-size-xs: clamp(0.6944rem, 0.6914rem + 0.0151vi, 0.7035rem);
 	--font-size-sm: clamp(0.83rem, 0.8rem + 0.17vw, 0.94rem);
 	--font-size-md: clamp(1rem, 0.92rem + 0.42vw, 1.25rem);
 	--font-size-lg: clamp(1.2rem, 1.04rem + 0.78vw, 1.67rem);
@@ -28,7 +29,7 @@
 	--line-height-body: 1.5;
 
 	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
-	--font-family-subheading: Izoard, ui-sans-serif, system-ui, sans-serif;
+	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
 	--font-family-body: Novela, ui-serif, serif;
 	--font-family-mono: Dank, "Dank Mono", Menlo, Consolas, Roboto Mono,
 		Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace;
