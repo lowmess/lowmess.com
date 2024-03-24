@@ -52,7 +52,8 @@
 	--rhythm-xxl: 8rlh;
 
 	/* sizing */
-	--size-container: 64rem;
+	--container-width: 64rem;
+	--container-padding: var(--space-md);
 }
 
 @media (prefers-color-scheme: dark) {
