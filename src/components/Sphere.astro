@@ -37,7 +37,7 @@ const { class: className, ...props } = Astro.props;
 
 	/* shadow */
 	.sphere::before {
-		background: radial-gradient(
+		background-image: radial-gradient(
 				circle at 35% 22.5%,
 				hsl(300, 90%, 0%, 0),
 				hsl(300, 90%, 10%)
@@ -48,7 +48,7 @@ const { class: className, ...props } = Astro.props;
 	}
 	/* highlight. */
 	.sphere::after {
-		background: radial-gradient(
+		background-image: radial-gradient(
 				circle at 10% 0%,
 				color-mix(in hsl, hsl(300, 90%, 45%), white),
 				hsl(300, 90%, 45%)

@@ -1,8 +1,9 @@
 ---
 import { type HTMLAttributes } from "astro/types";
 
-import Sphere from "~/components/Sphere.astro";
 import Grid from "~/components/Grid.astro";
+import Horizon from "~/components/Horizon.astro";
+import Sphere from "~/components/Sphere.astro";
 
 type Props = HTMLAttributes<"div">;
 
@@ -23,9 +24,22 @@ const { class: className, ...props } = Astro.props;
 	<div class="content">
 		<p>
 			For over a decade, I&apos;ve been designing for the web &amp; building the
-			frontends that power those designs. TKTKTKTK
+			frontends that power those designs. This is a second sentence. This is a
+			third one. Here&apos;s a sentence talking about how I need to reword the
+			first sentence.
+		</p>
+
+		<p>
+			Currently, I am helping build the future of management construction
+			software at <a
+				href="https://ressiosoftware.com"
+				target="_blank"
+				rel="noreferrer noopener">Ressio</a
+			>.
 		</p>
 	</div>
+
+	<Horizon class="horizon" />
 </div>
 
 <style>
@@ -39,8 +53,8 @@ const { class: className, ...props } = Astro.props;
 
 	h1 {
 		position: relative;
-		left: 19cqw;
-		width: 81cqw;
+		left: 22cqw;
+		width: 78cqw;
 		font-size: var(--font-size-heading);
 		line-height: calc(var(--font-size-heading) - var(--space-sm));
 		margin-block-end: 0;
@@ -51,10 +65,17 @@ const { class: className, ...props } = Astro.props;
 	.sphere {
 		position: absolute;
 		top: 2cqw;
-		left: 1cqw;
+		left: 4cqw;
 		z-index: 20;
 		width: 33cqw;
 		box-shadow: 8px 8px 32px -8px rgb(0, 0, 0, 0.5);
+	}
+
+	.horizon {
+		position: relative;
+		z-index: 1;
+		width: 100vw;
+		margin-left: calc(var(--container-padding) * -1);
 	}
 
 	.grid {
@@ -69,7 +90,7 @@ const { class: className, ...props } = Astro.props;
 	.marker {
 		position: absolute;
 		top: -2cqw;
-		left: -8cqw;
+		left: -2cqw;
 		z-index: -2;
 		width: 60cqw;
 		opacity: 0.5;
@@ -85,9 +106,27 @@ const { class: className, ...props } = Astro.props;
 
 	.content {
 		position: relative;
-		left: calc(40cqw + var(--space-lg));
-		width: calc(60cqw - var(--space-lg));
+		left: calc(40cqw + var(--space-md));
+		width: calc(60cqw - var(--space-md));
 		max-width: 55ch;
-		margin-block-start: var(--space-lg);
+		margin-block: var(--space-lg);
+	}
+
+	p {
+		margin: 0;
+		text-wrap: pretty;
+	}
+
+	p + p {
+		margin-block-start: var(--rhythm-md);
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration-color: var(--color-primary);
+	}
+
+	a:hover {
+		color: var(--color-primary);
 	}
 </style>

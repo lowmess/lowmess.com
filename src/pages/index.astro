@@ -1,4 +1,5 @@
 ---
+import Container from "~/components/Container.astro";
 import Hero from "~/components/Hero.astro";
 import GlobalLayout from "~/layouts/GlobalLayout.astro";
 ---
@@ -6,5 +7,17 @@ import GlobalLayout from "~/layouts/GlobalLayout.astro";
 <GlobalLayout>
 	<Hero />
 
-	<a href="/blog">blog</a>
+	<div class="bg">
+		<Container><a href="/blog">blog</a></Container>
+	</div>
 </GlobalLayout>
+
+<style>
+	.bg {
+		position: relative;
+		z-index: 999;
+		background-color: var(--color-background);
+		/* temp */
+		min-height: 50vh;
+	}
+</style>

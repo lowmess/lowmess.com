@@ -53,7 +53,7 @@
 
 	/* sizing */
 	--container-width: 64rem;
-	--container-padding: var(--space-md);
+	--container-padding: var(--space-lg);
 }
 
 @media (prefers-color-scheme: dark) {

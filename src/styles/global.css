@@ -11,7 +11,3 @@ html {
 	text-wrap: balance;
 	line-height: var(--font-family-heading);
 }
-
-body {
-	padding: 4rem;
-}
