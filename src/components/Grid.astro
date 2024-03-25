@@ -1,23 +1,30 @@
 ---
 import { type HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<"div"> & { cellWidth?: string };
+type Props = HTMLAttributes<"div"> & { numberOfColumns?: number };
 
-const { class: className, cellWidth, ...props } = Astro.props;
+const { class: className, numberOfColumns, ...props } = Astro.props;
 ---
 
-<div class:list={["grid", className]} {...props}></div>
+<div class:list={["grid-container", className]} {...props}>
+	<div class="grid-cells"></div>
+</div>
 
-<style define:vars={{ cellWidth }}>
-	.grid {
-		--cell-width: var(--cellWidth, 12.5%);
+<style define:vars={{ numberOfColumns }}>
+	.grid-container {
+		container-type: inline-size;
+	}
+
+	.grid-cells {
+		--cell-width: calc(100cqw / var(--numberOfColumns));
+		height: 100%;
 		border: 2px solid white;
 		opacity: 0.25;
 		overflow: hidden;
 		pointer-events: none;
 	}
 
-	.grid::after {
+	.grid-cells::after {
 		content: "";
 		display: block;
 		height: calc(100% + var(--cell-width));
@@ -36,8 +43,8 @@ const { class: className, cellWidth, ...props } = Astro.props;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
-		.grid::after {
-			will-change: background-position;
+		.grid-cells::after {
+			will-change: transform;
 			animation: 8s linear 0s infinite running grid-scroll;
 		}
 	}
@@ -48,7 +55,7 @@ const { class: className, cellWidth, ...props } = Astro.props;
 		}
 
 		100% {
-			transform: translateY(-3cqw);
+			transform: translateY(calc(var(--cell-width) * -1));
 		}
 	}
 </style>
