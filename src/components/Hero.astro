@@ -2,7 +2,6 @@
 import { type HTMLAttributes } from "astro/types";
 
 import Grid from "~/components/Grid.astro";
-import Horizon from "~/components/Horizon.astro";
 import Sphere from "~/components/Sphere.astro";
 
 type Props = HTMLAttributes<"div">;
@@ -39,7 +38,8 @@ const { class: className, ...props } = Astro.props;
 		</p>
 	</div>
 
-	<Horizon class="horizon" />
+	<div class="horizon"><img src="/assets/vista.png" alt="" /></div>
+	<div class="shadow"></div>
 </div>
 
 <style>
@@ -72,10 +72,52 @@ const { class: className, ...props } = Astro.props;
 	}
 
 	.horizon {
-		position: relative;
-		z-index: 1;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		width: 100vw;
-		margin-left: calc(var(--container-padding) * -1);
+		background-color: var(--color-background);
+		mask-image: url("/assets/vista.png");
+		mask-size: cover;
+		line-height: 1;
+	}
+
+	.horizon img {
+		width: 100%;
+		object-fit: cover;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.shadow {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -9999;
+		width: 100vw;
+		height: var(--space-xxl);
+		background-color: var(--color-background);
+	}
+
+	.shadow::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: linear-gradient(
+				to top,
+				color-mix(in hsl, var(--color-background), black),
+				transparent
+			),
+			url(https://grainy-gradients.vercel.app/noise.svg);
+		background-repeat: repeat;
+		background-size:
+			100%,
+			1000px 1000px;
+		filter: contrast(150%);
+		mix-blend-mode: multiply;
+		opacity: 0.33;
 	}
 
 	.grid {
@@ -109,7 +151,8 @@ const { class: className, ...props } = Astro.props;
 		left: calc(40cqw + var(--space-md));
 		width: calc(60cqw - var(--space-md));
 		max-width: 55ch;
-		margin-block: var(--space-lg);
+		margin-block-start: var(--space-lg);
+		margin-block-end: var(--space-xl);
 	}
 
 	p {
