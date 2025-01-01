@@ -1,7 +1,7 @@
-import * as React from 'react'
 import type { GetStaticProps } from 'next'
-import { Text, Heading, Link, Container } from 'theme-ui'
-import getStats, { Stats, Book } from '../lib/getStats'
+import * as React from 'react'
+import { Container, Heading, Link, Text } from 'theme-ui'
+import getStats, { Book, Stats } from '../lib/getStats'
 import pluralize from '../lib/pluralize'
 
 interface ValueCountProps {
@@ -70,6 +70,7 @@ interface IndexProps {
 const IndexPage: React.FC<IndexProps> = ({ stats }) => {
 	const {
 		commits = 0,
+		tweets = 0,
 		steps = 0,
 		places = 0,
 		songs = 0,
@@ -96,10 +97,13 @@ const IndexPage: React.FC<IndexProps> = ({ stats }) => {
 					<Link href="https://github.com/lowmess">
 						<ValueCount value={commits} singular="commit" plural="commits" />
 					</Link>{' '}
-					to GitHub, taken{' '}
-					<ValueCount value={steps} singular="step" plural="steps" />, and
-					visited <ValueCount value={places} singular="place" plural="places" />
-					.
+					to GitHub, sent{' '}
+					<Link href="https://twitter.com/lowmess">
+						<ValueCount value={tweets} singular="tweet" plural="tweets" />
+					</Link>
+					, taken <ValueCount value={steps} singular="step" plural="steps" />,
+					and visited{' '}
+					<ValueCount value={places} singular="place" plural="places" />.
 					{album.name && album.artist && (
 						<React.Fragment>
 							{' '}
