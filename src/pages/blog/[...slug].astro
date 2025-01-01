@@ -1,0 +1,48 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import { format } from "date-fns";
+
+import ArchiveReason from "#components/ArchiveReason.astro";
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+
+import "#styles/blog.css";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog", ({ data }) =>
+		import.meta.env.PROD ? !data.draft : true,
+	);
+
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+const { title, description, date, archived, archiveReason } = post.data;
+---
+
+<GlobalLayout title={title} description={description}>
+	{
+		archived && archiveReason && (
+			<ArchiveReason archived={archived} archiveReason={archiveReason} />
+		)
+	}
+
+	<PageHeading eyebrowText={format(date, "MMMM do, yyyy")} slotIsHeading
+		>{title}</PageHeading
+	>
+
+	<div class="content"><Content /></div>
+</GlobalLayout>
+
+<style>
+	.content {
+		max-width: 65ch;
+		margin-inline: auto;
+	}
+</style>

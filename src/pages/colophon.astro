@@ -1,0 +1,189 @@
+---
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+
+import pkg from "../../package-lock.json";
+
+const {
+	packages: {
+		"node_modules/astro": { version: astroVersion },
+		"node_modules/typescript": { version: typescriptVersion },
+		"node_modules/@mdx-js/mdx": { version: mdxVersion },
+		"node_modules/shiki": { version: shikiVersion },
+		"node_modules/eslint": { version: eslintVersion },
+		"node_modules/prettier": { version: prettierVersion },
+	},
+} = pkg;
+---
+
+<GlobalLayout title="Colophon">
+	<PageHeading eyebrowText="Ingredients used in this <s>cake</s> website"
+		>Building blocks</PageHeading
+	>
+
+	<div class="stuff">
+		<h2>Typefaces</h2>
+
+		<ul>
+			<li class="strawford">
+				<a href="https://www.atipofoundry.com/fonts/strawford">Strawford</a>
+			</li>
+
+			<li class="novela">
+				<a href="https://www.atipofoundry.com/fonts/novela">Novela</a>
+			</li>
+
+			<li class="izoard">
+				<a href="https://www.atipofoundry.com/fonts/izoard">Izoard</a>
+			</li>
+
+			<li class="dank">
+				<a href="https://philpl.gumroad.com/l/dank-mono">Dank Mono</a>
+			</li>
+		</ul>
+
+		<h2>Packages</h2>
+
+		<ul class="packages">
+			<li>
+				<a href="https://astro.build"
+					>Astro <span class="version">{astroVersion}</span></a
+				>
+			</li>
+
+			<li>
+				<a href="https://www.typescriptlang.org/"
+					>TypeScript <span class="version">{typescriptVersion}</span></a
+				>
+			</li>
+
+			<li>
+				<a href="https://mdxjs.com/"
+					>MDX <span class="version">{mdxVersion}</span></a
+				>
+			</li>
+
+			<li>
+				<a href="https://shiki.matsu.io/"
+					>Shiki <span class="version">{shikiVersion}</span></a
+				>
+			</li>
+
+			<li><a href="https://plastic.wstone.uk/">Plastic</a></li>
+
+			<li>
+				<a href="https://eslint.org/"
+					>ESLint <span class="version">{eslintVersion}</span></a
+				>
+			</li>
+
+			<li>
+				<a href="https://prettier.io/"
+					>Prettier <span class="version">{prettierVersion}</span></a
+				>
+			</li>
+		</ul>
+
+		<h2>Infrastructure</h2>
+
+		<ul>
+			<li><a href="https://github.com">GitHub</a></li>
+
+			<li><a href="https://vercel.com">Vercel</a></li>
+		</ul>
+	</div>
+</GlobalLayout>
+
+<style>
+	.stuff {
+		display: grid;
+		align-items: baseline;
+		justify-content: center;
+		column-gap: var(--space-lg);
+		row-gap: var(--rhythm-md);
+
+		@media (min-width: 30em) {
+			grid-template-columns: repeat(2, max-content);
+			row-gap: var(--rhythm-lg);
+		}
+
+		@media (min-width: 36em) {
+			margin-inline-start: calc(var(--space-xxl) * -1);
+		}
+
+		@media (min-width: 55em) {
+			grid-template-columns: repeat(4, max-content);
+		}
+	}
+
+	.packages {
+		@media (min-width: 55em) {
+			grid-column: 4;
+			grid-row: 1/3;
+		}
+	}
+
+	h2 {
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-md);
+		color: var(--color-text-secondary);
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing-wide);
+		font-weight: 400;
+
+		@media (min-width: 30em) {
+			text-align: end;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		font-family: var(--font-family-heading);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+		list-style-type: none;
+
+		& + & {
+			margin-block-start: var(--rhythm-sm);
+		}
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+
+	.version {
+		font-family: var(--font-family-mono);
+		font-size: var(--font-size-xs);
+
+		&::before {
+			content: "v";
+		}
+	}
+
+	.strawford {
+		font-family: var(--font-family-heading);
+	}
+
+	.novela {
+		font-family: var(--font-family-body);
+	}
+
+	.izoard {
+		font-family: var(--font-family-subheading);
+		text-transform: uppercase;
+	}
+
+	.dank {
+		font-family: var(--font-family-mono);
+	}
+</style>

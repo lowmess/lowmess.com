@@ -1,0 +1,123 @@
+[
+	{
+		"id": "1",
+		"basics": {
+			"name": "Alec Lomas",
+			"label": "Frontend Web Developer",
+			"email": "alec@lowmess.com",
+			"phone": "(602) 500-2370",
+			"website": "https://lowmess.com",
+			"summary": "I'm a frontend developer with a passion for legibility, performance, and the open web. Coming from a design background, I bring strong product sense and a keen eye for detail to every project.",
+			"location": {
+				"city": "Portland",
+				"countryCode": "US",
+				"region": "Oregon"
+			},
+			"profiles": [
+				{
+					"network": "GitHub",
+					"username": "lowmess",
+					"url": "https://github.com/lowmess"
+				},
+				{
+					"network": "LinkedIn",
+					"username": "lowmess",
+					"url": "https://linkedin.com/in/lowmess"
+				},
+				{
+					"network": "Bluesky",
+					"username": "@lowmess.com",
+					"url": "https://bsky.app/profile/lowmess.com"
+				}
+			]
+		},
+		"work": [
+			{
+				"name": "Ressio",
+				"position": "Software Engineer",
+				"website": "https://ressiosoftware.com",
+				"startDate": "2023-10-23",
+				"summary": "Developed next-generation construction management software."
+			},
+			{
+				"name": "Data Theorem",
+				"position": "Frontend Engineer",
+				"website": "https://datatheorem.com",
+				"startDate": "2022-10-24",
+				"endDate": "2023-10-19",
+				"summary": "Built dashboards for application security platform using TypeScript & React. Contributed to a major overhaul of the entire UI, including designing missing screens & functionality. Rebuilt the marketing site from the ground-up."
+			},
+			{
+				"name": "Allma",
+				"position": "Software Engineer",
+				"startDate": "2021-10-11",
+				"endDate": "2022-08-23",
+				"summary": "Built Slack bot for incident collaboration using TypeScript & associated web application with React. Contributed to UI/UX design of both projects. Worked with team to create a comprehensive frontend style guide."
+			},
+			{
+				"name": "Carvana",
+				"position": "Engineer II",
+				"website": "https://carvana.com",
+				"startDate": "2021-04-16",
+				"endDate": "2021-10-08",
+				"summary": "Developed applications using TypeScript & React for the underwriting team. Worked with others to shape the direction of product features and UI/UX."
+			},
+			{
+				"name": "HiringSolved",
+				"position": "Frontend Engineer",
+				"startDate": "2019-07-08",
+				"endDate": "2020-08-19",
+				"summary": "Developed a next-generation candidate matching tool using React & GraphQL. Collaborated with other stakeholders to shape product & feature direction. Built a flexible, extensive design system library to reduce boilerplate & enforce design consistency across applications."
+			},
+			{
+				"name": "Fuel Made",
+				"position": "Web Developer",
+				"website": "https://fuelmade.com",
+				"startDate": "2018-01-22",
+				"endDate": "2018-12-14",
+				"summary": "Worked directly with clients and other stakeholders to deliver exceptional, high-conversion eCommerce websites on the Shopify platform. Created tools to standardize and expedite internal developer experience."
+			},
+			{
+				"name": "meltmedia",
+				"position": "Associate Frontend Developer",
+				"website": "https://meltmedia.com",
+				"startDate": "2016-04-11",
+				"endDate": "2017-12-22",
+				"summary": "Created components & design framework for the Adobe Experience Manager platform. Worked with QA team to create React- and Vue-based services that empower PMO & clients to self-test websites. Member of frontend code style & UI/UX standards teams."
+			}
+		],
+		"education": [
+			{
+				"institution": "Glendale Community College",
+				"area": "Digital Media Arts",
+				"studyType": "Associate's Degree",
+				"startDate": "2012-08-01",
+				"endDate": "2014-07-31",
+				"gpa": "3.8"
+			}
+		],
+		"skills": [
+			{
+				"name": "React"
+			},
+			{
+				"name": "JavaScript"
+			},
+			{
+				"name": "CSS"
+			},
+			{
+				"name": "UI/UX Design"
+			}
+		],
+		"languages": [
+			{
+				"language": "English",
+				"fluency": "Native speaker"
+			}
+		],
+		"meta": {
+			"expLimit": 4
+		}
+	}
+]

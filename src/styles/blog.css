@@ -1,0 +1,152 @@
+.content {
+	> * {
+		margin-block: 0;
+	}
+
+	:where(h1, h2, h3, h4, h5, h6, p, li) {
+		text-wrap: pretty;
+	}
+
+	:where(h1, h2) {
+		margin-block-start: var(--rhythm-xl);
+		font-size: var(--font-size-xl);
+	}
+
+	h3 {
+		margin-block-start: var(--rhythm-lg);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+	}
+
+	:where(h4, h5, h6) {
+		margin-block-start: var(--rhythm-md);
+	}
+
+	h4 {
+		font-size: var(--font-size-md);
+		font-weight: 500;
+	}
+
+	:where(h5, h6) {
+		font-size: var(--font-size-sm);
+		font-family: var(--font-family-subheading);
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing-wide);
+		font-weight: 400;
+		color: var(--color-text-secondary);
+	}
+
+	* + :where(p, ul, ol, pre, img, blockquote, details) {
+		margin-block-start: var(--rhythm-md);
+	}
+
+	& > :is(pre, img, figure, iframe) {
+		margin-block: var(--rhythm-lg);
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration-color: var(--color-primary);
+
+		&:hover {
+			color: var(--color-primary);
+		}
+
+		@media print {
+			&[href^="http"]::after {
+				content: " (" attr(href) ")";
+			}
+
+			&[href^="/"]::after {
+				content: " (https://lowmess.com" attr(href) ")";
+			}
+		}
+	}
+
+	:where(ol, ul) {
+		@container (min-width: 65ch) {
+			padding: 0;
+		}
+
+		li::marker {
+			font-family: var(--font-family-subheading);
+			color: var(--color-text-secondary);
+		}
+	}
+
+	pre {
+		width: calc(100cqw + var(--content-padding) * 2);
+		margin-inline-start: calc(50% - (50cqw + var(--content-padding)));
+		padding: var(--content-padding);
+		font-size: var(--font-size-sm);
+		tab-size: 2;
+
+		code {
+			display: block;
+			max-width: 90ch;
+			margin-inline: auto;
+			font-family: var(--font-family-mono);
+		}
+	}
+
+	blockquote {
+		position: relative;
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-lg);
+		font-style: italic;
+
+		&::before {
+			content: open-quote;
+			position: absolute;
+			top: -0.25em;
+			left: -0.75em;
+			font-size: var(--font-size-xxl);
+			color: var(--color-primary);
+		}
+
+		& > * {
+			margin-block: 0;
+		}
+
+		& > * + * {
+			margin-block-start: var(--rhythm-md);
+		}
+
+		cite {
+			font-family: var(--font-family-subheading);
+			font-size: var(--font-size-sm);
+			color: var(--color-text-secondary);
+			font-style: normal;
+			text-transform: uppercase;
+			letter-spacing: var(--letter-spacing-wide);
+
+			&::before {
+				content: "\2014";
+			}
+		}
+	}
+
+	figure {
+		margin-inline: 0;
+
+		& > * {
+			margin-block: 0;
+		}
+
+		& > * + * {
+			margin-block-start: var(--rhythm-sm);
+		}
+
+		figcaption {
+			font-family: var(--font-family-body);
+			font-size: var(--font-size-xs);
+			font-style: italic;
+			text-align: center;
+			color: hsl(from var(--color-text) h s l / 0.66);
+
+			a:not(:hover) {
+				color: inherit;
+			}
+		}
+	}
+}

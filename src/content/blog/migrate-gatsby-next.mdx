@@ -1,0 +1,153 @@
+---
+title: "Migrating from Gatsby to Next.js"
+description: "I moved this site off Gatsby and onto Next.js. Here&apos;s the why (mostly boredom) and the how (with the power of coding)."
+date: 2020-10-11
+archived: 2024-03-20
+archiveReason: "Not only have both Gatsby and Next.js changed dramatically since I wrote this post, this site now uses <em>neither</em> of them."
+---
+
+import Update from "#components/Update.astro";
+
+Recently -- and quite frankly I'm shocked this wasn't a major national news story -- I was bored. As I often do when I'm bored, I decided to tinker with this here website. There weren't any obvious bugs to fix and the design is pretty much sorted, which unfortunately left very little to tinker with. All hope was not lost, as I have been curious about [Next.js](https://nextjs.org)'s static site generation [since it debuted with version 9.3 of the framework](https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support). This seemed an opportune time to test it out independent of content, design, or site structure. This also meant moving away from [Gatsby](https://gatsbyjs.com), which I have been using as the basis for this site for the last 3 years.
+
+## Gatsby vs. Next.js
+
+If you're unfamiliar, Gatsby and Next.js are frameworks for developing highly-performant React-based websites. They share some things in common, but differ in core philosophy: Gatsby is a static site generator first and foremost, while Next.js is a more general server-rendered framework for React applications. While both offer the ability to generate static pages, only Next.js has the ability to generate server-rendered pages on the fly ([though, contrary to popular belief, Gatsby sites _can_ have client-only routes](https://www.gatsbyjs.com/docs/adding-app-and-website-functionality/#client-only-routes)). The other main difference is their approach to data-fetching: in Gatsby, all data is accessed via an internal GraphQL API while Next.js is completely agnostic as to how the data finds its way to your components.
+
+## What's Wrong With Gatsby?
+
+Nothing.
+
+Well, almost nothing. As [Jared Palmer expertly points out](https://jaredpalmer.com/gatsby-vs-nextjs#graphql-is-overkill-for-most-static-sites), the unified data graph approach of Gatsby often introduces more complication than is necessary for small static sites such as this. (You might find yourself asking "isn't _any_ React framework more complication than is necessary for small static sites such as this?" And to that I say yes. But this site is just as much a portfolio piece as a practical bit of code and also do you hate fun?)
+
+But ultimately this was an excuse to dip my toes in the Next.js waters. I only fully dived in when it turned out the temperature was to my liking.
+
+## Making the Switch
+
+The Next.js docs have [a handy migration guide](https://nextjs.org/docs/migrating/from-gatsby), which seemed as good a place to start as any. Following these steps got me most of the way there, but I needed to do some work to get the site across the finish line. A bulk of that work was replicating functionality that plugins were providing in [the Gatsby version of the site](https://v4.lowmess.com). There _are_ Next.js plugins, but for the most part extra functionality is left up to the user. Here's some of the notables:
+
+### MDX
+
+Like I said, Next.js does have plugins. One of them is for MDX. Following the instructions for [the `@next/mdx` plugin](https://www.npmjs.com/package/@next/mdx) got the files compiling. Since Next.js doesn't handle frontmatter directly, I had to convert the frontmatter for each file to an object and manually export the template with the data. I could have used [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation) for this, but rendering the files in place felt the best.
+
+#### Dates
+
+An underrated aspect of Gatsby is the ability to format dates at build time without installing any packages or doing any date manipulation on the frontend. Luckily, libraries like [`date-fns`](https://date-fns.org) make manipulating dates in JavaScript _fairly_ easy (standard library when?). Combining [`parseISO`](https://date-fns.org/v2.16.1/docs/parseISO) with [`format`](https://date-fns.org/v2.16.1/docs/format) got me date strings for my blog post headers without any timezone wonkiness.
+
+### Theme UI
+
+Setting up was [Theme UI](https://theme-ui.com) was actually the first thing I did, since literally every component on the site would look like hot garbage without the [`ThemeProvider`](https://theme-ui.com/api#themeprovider). Because I would need to wrap every page of the site in the provider, I created [a custom `App`](https://nextjs.org/docs/advanced-features/custom-app) to do so. This also allowed me to wrap every page with my `Layout` component (à la Gatsby v1), meaning I didn't have to manually include it in every page.
+
+```jsx
+import * as React from "react";
+import { ThemeProvider } from "theme-ui";
+import theme from "../constants/theme";
+import components from "../components/MDXComponents";
+import Layout from "../components/Layout";
+
+const App = ({ Component, pageProps }) => (
+	<ThemeProvider theme={theme} components={components}>
+		<Layout>
+			<Component {...pageProps} />
+		</Layout>
+	</ThemeProvider>
+);
+
+export default App;
+```
+
+#### Color Mode Flash
+
+With just the `ThemeProvider`, there will be a flash of the default color mode on initial page load, which can be jarring for users who are using an alternative color mode. Luckily, Theme UI is aware of the problem, and offers a handy [`InitializeColorMode` component](https://theme-ui.com/api#initializecolormode) to solve for it. In Next.js, this is used in a [custom `Document`](https://nextjs.org/docs/advanced-features/custom-document):
+
+```jsx
+import * as React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { InitializeColorMode } from "theme-ui";
+
+class MyDocument extends Document {
+	render() {
+		return (
+			<Html lang="en">
+				<Head />
+
+				<body>
+					<InitializeColorMode />
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		);
+	}
+}
+
+export default MyDocument;
+```
+
+### Links
+
+The `Link` section of the migration guide doesn't quite paint the full picture. There is one significant difference between Gatsby and Next.js's `Link` components: the latter isn't always an `<a>` element. If the component's child isn't a text node or itself an `<a>`, `Link` just adds an `onClick` handler to the child and calls it a day. This means that I couldn't use Theme UI's `as` prop to copy the functionality, and that I needed to [add a `passHref` prop to each `Link`](https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag) to force Next.js to add an href the `<a>` rendered by Theme UI's `Link`. I didn't want to do this for every link on the site, so I made a custom `Link` component to combine the two:
+
+```jsx
+import * as React from "react";
+import { default as NextLink } from "next/link";
+import { Link as ThemeUILink } from "theme-ui";
+
+const Link = ({ href, ...props }) => (
+	<NextLink href={href} passHref>
+		<ThemeUILink {...props} />
+	</NextLink>
+);
+
+export default Link;
+```
+
+[Link. Link. Link?](https://en.wikipedia.org/wiki/Semantic_satiation)
+
+### RSS Feed
+
+I'm one of the dozen or so people that continued to use an RSS app after Google decided to off Google Reader, murder-style. Getting a working RSS feed was **by far** the most challenging part of this process. I nearly gave up on the conversion altogether because of it -- and I'm still not very happy with where I ended up with it. After failing to get my MDX to compile in a custom node script, I brute forced it and extracted the `meta` object (frontmatter) from the MDX files by way of regex. This means my feed no longer contains the full contents of the article, which is a bummer. Maybe I'm missing something obvious here. Maybe this is a solved problem. But I wasn't able to find an example of a statically-rendered Next.js site using MDX directly that had an RSS feed, and I didn't want to be held up on this (I estimate approximately negative 3 people are subscribed to the feed here).
+
+Luckily, [the `rss` package](https://www.npmjs.com/package/rss) made actually generating the feed super easy once I had the data. I added a `postbuild` script to my `package.json` that [generates a sitemap](https://www.npmjs.com/package/nextjs-sitemap-generator) and an RSS feed every time the site is built.
+
+<Update date="June 2021">
+
+Turns out there are a few solutions to handle frontmatter in MDX with Next.js, and I explored them. I used [`next-mdx-enhanced`](https://github.com/hashicorp/next-mdx-enhanced) for a while, and had [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) working locally (I never tried [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) because it was so similar to `mdx-bundler`, and I preferred the latter's API). Ultimately each had issues I either couldn't or didn't want to deal with, so I wound up going back to the `@next/mdx`. I refined my regex-fu and used a very completely 100% safe `eval` to extract the metadata necessary to create a half decent RSS feed.
+
+</Update>
+
+### Preact
+
+Gatsby has a [really handy plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-preact/) to use [Preact](https://preactjs.com) in production, reducing your bundle size by a fair amount. If your Gatsby site doesn't need to support IE10, I highly recommend using it. While there isn't a plug-and-play option for Next.js, we can use npm aliases to replace references to React with the `preact/compat` package. Combined with some webpack wizardry, we can reduce the size of our builds a good amount. [Here's the official example](https://github.com/vercel/next.js/tree/629884af7d3ced97b8c2ec7aebdfb1a3a5d808f0/examples/using-preact) that I definitely didn't just copy & paste from.
+
+<Update date="February 2021">
+
+I ultimately wound up migrating back to React proper -- I didn't want to deal with the headache of managing the custom chunk splitting that using Preact required. However, the Preact team has since extracted that behavior into [a standalone plugin](https://github.com/preactjs/next-plugin-preact). Maybe I'll waffle on this again, but for now its nice not having to double-check compatability for every new Next.js release.
+
+</Update>
+
+## Should You Switch?
+
+While I'm happy with the outcome of this exercise, I can't possibly answer that. If your Gatsby site is working, and working for you, I would err on the side of "no". This is doubly true if your site has multiple sources of data: working with multiple source APIs is Gatsby's true strength (or at least it's where the unified graph approach to site building shines brightest). That said, I was clearly happy enough with the early results of the exercise to put further time into getting the site into shipping state. Here are some reasons why:
+
+### Fewer Dependencies
+
+I'm pretty adamant about keeping my dependencies up to date. Moving on from the plugin-centric Gatsby approach to the userland Next.js approach meant I got to remove a lot of those dependencies. Like, a lot a lot. Like, my `package-lock.json` lost 15 **thousand** lines of code a lot. Some of this was surely due to my having too many plugins (this site has exactly one image on it at time of writing, `gatsby-image` was probably overkill). But a lot of it has to do with Next.js managing internally a lot of things that Gatsby leaves to plugins.
+
+### Simpler Data Flow
+
+Doing things the Gatsby way means pulling your data out of the unified GraphQL API. As mentioned earlier, that's great when you have lots of data sources, but less so when you're working on a tiny blog like this. Plus, since `getStaticProps` runs at build time, you can move some costlier work there to boost production performance. You can do similar things with Gatsby, of course -- but not as simply.
+
+### Only As Static As You Want
+
+If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while continuing to ensure the stats are always accurate (doing so would require me to change hosting providers, but that's a can of worms for another day).
+
+<Update date="October 2020">
+
+A mere [checks notes] week after I initially made this migration, I did wind up switching the way the homepage fetches the stat data. It's not quite fully server-rendered, however; I'm using something Next.js calls ["incremental static regeneration" (ISR)](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration). ISR is very simple conceptually: it allows you to tell Next.js how often you expect your static props to change, and re-calculates them _at most_ that often. It is very much a perfect middle-ground between statically-generated and server-rendered content. In my case, the homepage will request new stats once every 15 minutes.
+
+</Update>
+
+## What Did We Learn?
+
+I'll do a lot of tinkering when I'm bored.

@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+
+import { sortBlogPosts } from "#/utils/blog";
+import BlogPostList from "#components/BlogPostList.astro";
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+
+const posts = (
+	await getCollection("blog", ({ data }) => {
+		if (data.archived) return false;
+
+		return import.meta.env.PROD ? !data.draft : true;
+	})
+).sort(sortBlogPosts);
+---
+
+<GlobalLayout title="Blog">
+	<PageHeading eyebrowText="Hey check it out, it's a blog"
+		>Eloquent writings about stuff</PageHeading
+	>
+
+	<BlogPostList posts={posts} />
+</GlobalLayout>

@@ -1,0 +1,25 @@
+---
+title: "The Tokens Are the System"
+description: "When creating a design system library, it&apos;s important to remember that the library can&apos;t solve for every possible view. But our users can."
+date: 2020-12-15
+---
+
+Let's pose a hypothetical.
+
+At work, you are tasked with creating a new view within the company's application. Luckily your company has an established design system library (DSL), so you should be able to speed through the UI part of the task. But this new view introduces a component not covered by the library. You've talked with design, and they agree it's an oversight, but necessary for the view. Or they acknowledge the inconvenience but point out it's a one-off. In either case, this view cannot wait for the creation of a new component in the library. How do you solve this dilemma?
+
+## That Wasn't a Hypothetical
+
+That's right. I tricked you. That exact scenario has happened to me (and a lot of other developers, I'm certain) many times using both third-party and in-house <abbr title="design system libraries">DSLs</abbr>. The answer is dependent on the team and on the library's engineering. Sometimes design provides redlines for these one-offs. Sometimes you're left on your own, and you need to scrounge around in source code to find color, spacing, and other values. Sometimes these values are defined in a <a href="/blog/on-declarative-styling#design-tokens">design token</a> map. Sometimes they're exposed as Sass variables or CSS custom properties; sometimes the library has a [Box component](https://rebassjs.org/reflexbox/).
+
+In truth, how we solve this particular hypothetical isn't very important. What _is_ important is remembering that it isn't a hypothetical at all. This situation **will** arise.
+
+Also worth keeping in mind is that the problem isn't only applicable to one-off components. Spacing is often (rightfully) left to the developers consuming the library, but incongruent spacing can have a dramatically negative impact on how the UI feels. How ever the developers approach the one-off component, they will approach these smaller problems the same way.
+
+## Designing a System
+
+Taking this quote-unquote "hypothetical" into account when creating our own <abbr title="design system libraries">DSLs</abbr> is very important. Recall how I said the solution is dependent on the library's engineering. Think through how your users would approach this problem with the tools you've given them. Have you exposed enough tokens to them for them to create their own view- or application-specific components that are harmonious with the rest of the system? How easy, how obvious is it for them to use the tokens? (Also important: have you documented your design tokens?)
+
+There are many ways to solve for this, some of which I've mentioned above. While I have my preference as both a library author and consumer -- Box components are very good -- I ultimately only care that the <abbr title="design system library">DSL</abbr> makes my job quicker & easier while also improving the consistency of the UI. Whether that means the library ships with a customized [Tailwind](https://tailwindcss.com) config, a design token JSON file, or some other solution I've yet to come across is immaterial.
+
+I just want to create that damn component.

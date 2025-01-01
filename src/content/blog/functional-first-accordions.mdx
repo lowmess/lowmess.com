@@ -1,0 +1,251 @@
+---
+title: "Functional-First Accordions"
+description: "Did you know that HTML basically has a built-in, fully functional accordion component? Well now you do."
+date: 2018-12-30
+archived: 2024-03-20
+archiveReason: "This post had a disclaimer on it for 5 entire damn years pointing to an article by Dave Rupert <a href='https://daverupert.com/2019/12/why-details-is-not-an-accordion/'>about accessibility concerns with the <code>&lt;details&gt;</code> element</a>. As far as I&apos;m aware, these concerns still haven&apos;t been reliably addressed."
+---
+
+import CodepenEmbed from "#components/CodepenEmbed.astro";
+import Update from "#components/Update.astro";
+
+<Update date="December 2019" inline="false">
+
+In the year since I've wrote this, it's become increasingly clear that this is not a good method for building accordions. Beyond all the work it takes to make the thing functional (you know, the point of this post), [Dave Rupert recently wrote a short post detailing the accessibility shortcomings of this approach](https://daverupert.com/2019/12/why-details-is-not-an-accordion/). I share Dave's opinion that the web, as a platform, needs to bring some of these common controls to the table to ensure a consistent, accessible experience for all of its users.
+
+</Update>
+
+There are few UI components encountered as frequently as the accordion. Even if you're unfamiliar with the term, you're familiar with the pattern: a string of text, sometimes accompanied by a button or icon, that reveals more content underneath when clicked. Thousands of developers and hundreds of UI frameworks have created accordions, often with their own rigid markup structures and (potentially bloated) JavaScript. But did you know that a perfectly functional accordion component ships with [most modern browsers](https://caniuse.com/#feat=details)? Check this out:
+
+<details>
+<summary>This is my cool accordion</summary>
+
+<p>100% HTML, baby. #usetheplatform</p>
+
+</details>
+
+That's all HTML! The code looks like this:
+
+```html
+<details>
+	<summary>This is my cool accordion</summary>
+
+	<p>100% HTML, baby. #usetheplatform</p>
+</details>
+```
+
+The element that helps us achieve this marvel of modern engineering is called [`details`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) (along with `summary` to set custom titles). It allows us to create content that is not visible until the element is clicked on. Sounds like an accordion to me!
+
+Of course, there are some downsides to the `details` element. For starters, it isn't exactly what I'd call attractive. There's no way to animate content in and out, and no way to adjust the "twistie" (the triangle icon that indicates the component state). In addition, working in _most_ modern browsers means that it doesn't work in _all_ modern browsers, not to mention legacy browsers. But, much like our UI framework-developing forebears, we can use some CSS & JavaScript to solve those issues, with the added benefit of an accordion that works when JavaScript (and even CSS!) is disabled.
+
+## The Beauty Is in the Details
+
+The first and easiest changes we should make just involve making the element display consistently in all browsers.
+
+```css
+details {
+	display: block;
+}
+summary {
+	display: list-item;
+}
+```
+
+Similarly easy, though a little more opinionated, is changing the cursor to highlight that the element is interactive.
+
+```css
+summary {
+	cursor: pointer;
+}
+```
+
+Now let's get into the fun stuff. First up is changing the default twistie to be something closer to convention.
+
+```css
+/* Hide the default twistie */
+/* Spec-compliant: */
+summary {
+	list-style-type: none;
+}
+/* Non-standard: */
+summary::-webkit-details-marker {
+	display: none;
+}
+
+/* Display a more common one */
+summary {
+	position: relative;
+	padding-right: 1.5rem;
+}
+summary::after {
+	content: "+";
+	position: absolute;
+	top: calc(50% - 0.5em);
+	right: 0;
+}
+details[open] summary::after {
+	content: "-";
+}
+```
+
+[Here's the accordion](https://codepen.io/lowmess/pen/zMjagE) as it looks at this point:
+
+<CodepenEmbed codepenId="zMjagE" />
+
+Not bad for a few lines of CSS! There's a few more changes I would make before calling this anything approaching good-looking, though.
+
+```css
+details {
+	border-bottom: 1px solid #eee;
+	padding: 1rem;
+}
+:not(details) + details,
+details:first-of-type {
+	border-top: 1px solid #eee;
+}
+
+summary {
+	margin-bottom: 0;
+	font-weight: 700;
+}
+summary + * {
+	margin-top: 1rem;
+}
+```
+
+[Now we've got a relatively attractive accordion component](https://codepen.io/lowmess/pen/eQrjBG). We could stop now, and we would have a working component that, with a few tweaks, could be dropped onto almost any site and Just Work™️.
+
+<CodepenEmbed codepenId="eQrjBG" />
+
+## Enchanting Progressive Enhancement
+
+We don't want to be outdone by those UI frameworks of yore, though. So we'll need to do a little more work to animate the content in and out. The base markup does have to be changed to be a little less clean, and we'll need some new CSS.
+
+```html
+<details>
+	<summary>An updated details accordion</summary>
+
+	<div class="content">
+		<p>I'm some content!</p>
+	</div>
+</details>
+```
+
+```css
+.content {
+	overflow-y: hidden;
+	transition: all 0.4s ease;
+}
+
+.content.is-closed {
+	max-height: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	opacity: 0;
+}
+```
+
+You may have noticed that we didn't apply the `is-closed` class to the content in the markup. Since we're using JS to trigger that class, and it hides the content, we only want to apply the class if JS is allowed to run on the page.
+
+```js
+for (const content of document.querySelectorAll("details .content")) {
+	content.classList.add("is-closed");
+}
+```
+
+There's one last piece we need to set into place before we can trigger the animation. When the element is closed, it has an applied `max-height` of `0`. Since the `auto` declaration is not animatable, we'll need to apply a defined `max-height` to the content when it's open. For the smoothest possible animation, that `max-height` should be the same size as the content height. We can write a simple function to calculate this height and store it as an attribute on the content element.
+
+```js
+const getContentHeight = (node) => {
+	// Force node to display properly
+	node.classList.remove("is-closed");
+	// Calculate height and store it
+	node.setAttribute("data-height", `${node.getBoundingClientRect().height}px`);
+	// Reset node to initial state
+	node.classList.add("is-closed");
+};
+```
+
+Now that we've accounted for that wrinkle, we can handle interaction on the element. In a bit of premature optimization, we'll [delegate the event](https://javascript.info/event-delegation) to the document.
+
+```js
+document.addEventListener("click", (event) => {
+	if (!event.target.closest("summary")) {
+		return;
+	}
+
+	event.preventDefault();
+});
+```
+
+All we've told the browser at this point is "if the user has clicked a `<summary>` element, don't do anything". The default behavior associated with clicking a `<summary>` element is to set/remove the `open` attribute on its parent `<details>` element (the browser then knows to hide/show the content inside of `<details>` based on this attribute). The browser won't wait for the content to animate out before hiding it, so we need to do that manually inside our handler. The code to do this is fairly straightforward, and boils down to toggling attributes and classes in a specific order at a specified time.
+
+```js
+// Inside of our event handler
+const accordion = event.target.closest("details");
+const content = accordion.querySelector(".content");
+
+// Handle closing
+if (accordion.hasAttribute("open")) {
+	// Animate content out
+	content.style.removeProperty("max-height");
+	content.classList.add("is-closed");
+	// Wait for animation to finish, then remove the `open` attribute
+	window.setTimeout(() => {
+		accordion.removeAttribute("open");
+	}, 400);
+	// Exit handler
+	return;
+}
+
+// Handle opening
+// Set the `open` attribute so the content will display
+accordion.setAttribute("open", "");
+// If our content does not have a calculated height, calculate it
+if (!content.hasAttribute("data-height")) {
+	getContentHeight(content);
+}
+// Wait a beat for the height to calculate, then animate content in
+window.setTimeout(() => {
+	content.style.maxHeight = content.getAttribute("data-height");
+	content.classList.remove("is-closed");
+}, 0);
+```
+
+[Putting it all together](https://codepen.io/lowmess/pen/yQjRXy) gives us a fully functional, animated accordion component. And because we started with an HTML element that gives us our core functionality by default, a user doesn't need to have JavaScript running to access the hidden content.
+
+<CodepenEmbed codepenId="yQjRXy" />
+
+## Extra Credit
+
+Although the accordion we've created is great, we've only covered the baseline functionality. There are a few ways we can change or improve the functionality further, including but not limited to:
+
+### Improve Accessibility
+
+Because the `<details>` element is baked-in to the platform, it should be accessible by default. However, this only applies to browsers that actually support the element. If you have users from browsers that don't support the element, considerations for accessibility should be taken (adding `tabindex` and `aria-` attributes, for example).
+
+### Handle Window Resizing
+
+The vertical expansion animation we're using to transition accordion content in and out of view is smooth and natural, but there is one issue: it isn't responsive. Because we only calculate the height of the element once, if the element width changes to the degree that the content flows to a new line, the animation will break. An ideal solution would account for this, and there are a variety of ways we could do so.
+
+### Increase Interaction Target Size
+
+We set container padding on the `<details>` element to give the contents of the accordion room to breath. However, this means to open the accordion you have to click or tap on the `<summary>` content. Setting the padding on the `<summary>` and content container independently should make the accordion a little easier to use.
+
+### Animate the Twistie
+
+Animating the twistie to compliment the content animation would bring another level of polish to our accordion. Extra extra credit: make the animation happen on interaction (instead of relying on the `[open]` attribute).
+
+### Force Content to Show In Non-Screen Environments
+
+Accordions can bring a lot to the table in screen-based environments, however they can also make content inaccessible in non-screen environments (such as when printing or using a screenreader). The content should be accessible in all environments.
+
+### Only Open One Item At a Time
+
+Just kidding. If [you need an accordion at all](https://www.nngroup.com/articles/accordions-complex-content/), you probably [should not do this](https://www.smashingmagazine.com/2017/06/designing-perfect-accordion-checklist/#designing-interaction-for-the-accordion). As it is an action not directly requested by the user, it can cause frustration.
+
+### Package the Accordion Into a Reusable Component
+
+We should probably abstract away all of this markup to ensure consistency and improve DX. Frameworks like React and Vue provide a simple way to do this, but it should also be possible in most templating languages.

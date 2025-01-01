@@ -1,0 +1,251 @@
+/*
+ * All font licenses are available on request.
+ */
+
+/* ===========================================================================
+ * S T R A W F O R D
+ * ======================================================================== */
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-thin-webfont.woff2") format("woff2");
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-thinitalic-webfont.woff2") format("woff2");
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-extralight-webfont.woff2") format("woff2");
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-extralightitalic-webfont.woff2") format("woff2");
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-light-webfont.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-lightitalic-webfont.woff2") format("woff2");
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-regularitalic-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-medium-webfont.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-mediumitalic-webfont.woff2") format("woff2");
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-bold-webfont.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-bolditalic-webfont.woff2") format("woff2");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-black-webfont.woff2") format("woff2");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Strawford";
+	src: url("/fonts/strawford-blackitalic-webfont.woff2") format("woff2");
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* ===========================================================================
+ * N O V E L A
+ * ======================================================================== */
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-regularitalic-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-semibold-webfont.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-semibolditalic-webfont.woff2") format("woff2");
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-bold-webfont.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-bolditalic-webfont.woff2") format("woff2");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-black-webfont.woff2") format("woff2");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela";
+	src: url("/fonts/novela-blackitalic-webfont.woff2") format("woff2");
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela Display";
+	src: url("/fonts/novela-displayitalic-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Novela Display";
+	src: url("/fonts/novela-displayregular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ===========================================================================
+ * I Z O A R D
+ * ======================================================================== */
+
+@font-face {
+	font-family: "Izoard Soft";
+	src: url("/fonts/izoardsoft-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Izoard";
+	src: url("/fonts/izoard-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ===========================================================================
+ * D A N K   M O N O
+ * ======================================================================== */
+
+@font-face {
+	font-family: "Dank Mono";
+	src: url("/fonts/DankMono-Regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Dank Mono";
+	src: url("/fonts/DankMono-Italic.woff2") format("woff2");
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Dank Mono";
+	src: url("/fonts/DankMono-Bold.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}

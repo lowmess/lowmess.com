@@ -1,0 +1,25 @@
+---
+title: 'No Red Squigglies For Semicolons'
+description: 'Linters are powerful code quality tools. Stylistic consistency is important. Linters should never enforce stylistic consistency.'
+date: 2019-12-04
+---
+
+Us developers are an opinionated bunch. We share our opinions wide and loud through blog posts, tweets, talks at meetups, in meetings. The tenacity with which we hold these opinions seems to have [an inverse correlation with their impact](https://en.wikipedia.org/wiki/Law_of_triviality), and nowhere is this strange dichotomy more present than in stylistic choices. Should we use tabs or spaces for whitespace? Should we use semicolons or not? Single quotes or double quotes?
+
+Collectively, these stylistic choices are known as bikeshedding. Thousands of words have been written about how we should be painting our bikesheds. We have many tools to help us paint the bikeshed. But, truth be told, I don’t care much about what color the bikeshed is. What I do care about is my code editor’s linting extension putting a red squiggly line under a function declaration because there’s a space between the name of the function and its parameter list.
+
+## Linters Are For Code Quality, Formatters Are For Style
+
+Linters are incredible code quality tools. They enforce best patterns and can help catch bugs well before our code makes it to a browser. But they are ill-equipped to handle issues of style. Attempting to use an undefined variable is a bug, and your linter should point this out to you. Using single quotes instead of double quotes, on the other hand, will not impact your code’s logic or ability to run. As such, your linter should not care about this issue. At the very least it should not interrupt your work to tell you about it.
+
+Formatters are a different kind of tool altogether. They care only about enforcing a consistent style and rarely (if ever) give real-time feedback. Instead, they wait until your work is at a safe stopping point to run: when you save a file, when you commit, or when you explicitly tell the formatter to run. Because of this, they are much less likely to introduce friction into your workflow.
+
+In the JavaScript world the most used linter is [ESLint](https://eslint.org), and the most used formatter is [Prettier](https://prettier.io). [They're what I use](/colophon/) across my projects. Unfortunately, many popular ESLint configs include strict enforcement of stylistic rules. Recognizing that conflicts between the two tools would arise, the Prettier team created [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier). The aptly-named ESLint config turns off any rules that conflict with Prettier, giving it full dominion over all issues of style. Using it allows us to keep the code quality benefits of our linter, only without those pesky bikeshedding errors.
+
+## If You Have to Remember To Do It, You'll Forget To Do It
+
+The workflow friction does not stop with squiggly lines, of course. If your setup relies on you to remember to run a linter or formatter (or test suite) against your code, you will forget to do so. Probably not every time, maybe even not most of the time, but _definitely_ some of the time. This is especially true when working in a shared codebase: we can’t be sure all members of our team have the same linting & formatting extensions installed, that those extenstions are configured the same way, or be sure our teammates will remember to run those tools manually. Instead, I find it better to set these tools up to run with Git hooks.
+
+Git hooks allow us to run arbitrary commands when performing a Git function; they allow us to run scripts before or after committing or pushing or pulling. While possible to [set these hooks up manually](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks), tools like [husky](https://github.com/typicode/husky) make setting them up much easier. I also often use a tool called [lint-staged](https://github.com/okonet/lint-staged) to lint & format only those files staged for commit. This makes the process much faster, and ensures that no extraneous files are included in a commit.
+
+Combined with removing bikeshedding rules from your linter, introducing a formatter and setting up Git hooks will remove a fair amount of friction from your code writing process. Setting these tools up — ESLint, Prettier, husky, & lint-staged — are among the first things I do in any new JavaScript project. I highly recommend giving it a shot.

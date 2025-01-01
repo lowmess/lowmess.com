@@ -1,0 +1,97 @@
+:root {
+	/* palette */
+	--color-orange: hsl(35, 90%, 50%);
+	--color-gray: hsl(from var(--color-orange) h 10% l);
+
+	--color-black: hsl(from var(--color-gray) h s 15%);
+	--color-white: hsl(from var(--color-gray) h s 100%);
+
+	--color-text: hsl(from var(--color-gray) h s 28%);
+	--color-text-body: hsl(from var(--color-text) h s l / 0.9);
+	--color-text-secondary: hsl(from var(--color-primary) h 40% 55%);
+	--color-background: hsl(from var(--color-gray) h s 95%);
+	--color-primary: var(--color-orange);
+
+	/* typography */
+	/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1280,20,1.25,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,s,2xl,12 */
+	--font-size-xs: clamp(0.6944rem, 0.6593rem + 0.1759vw, 0.8rem);
+	--font-size-sm: clamp(0.8333rem, 0.7778rem + 0.2778vw, 1rem);
+	--font-size-md: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+	--font-size-lg: clamp(1.2rem, 1.0792rem + 0.6042vw, 1.5625rem);
+	--font-size-xl: clamp(1.44rem, 1.269rem + 0.8552vw, 1.9531rem);
+	--font-size-xxl: clamp(1.728rem, 1.4902rem + 1.189vw, 2.4414rem);
+	--font-size-subheading: clamp(2.0736rem, 1.7475rem + 1.6303vw, 3.0518rem);
+	--font-size-heading: clamp(2.4883rem, 2.0462rem + 2.2106vw, 3.8147rem);
+	--font-size-title: clamp(2.986rem, 2.3919rem + 2.9706vw, 4.7684rem);
+
+	--line-height-solid: 1;
+	--line-height-heading: 1.25;
+	--line-height-body: 1.5;
+
+	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
+	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
+	--font-family-body: Novela, ui-serif, serif;
+	--font-family-mono: Dank, "Dank Mono", Menlo, Consolas, Roboto Mono,
+		Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace;
+
+	/* spacing */
+	--space-none: 0;
+	--space-xxs: 2px;
+	--space-xs: 4px;
+	--space-sm: 8px;
+	--space-md: 16px;
+	--space-lg: 32px;
+	--space-xl: 64px;
+	--space-xxl: 128px;
+
+	/* vertical rhythm */
+	--rhythm-none: 0;
+	--rhythm-xs: 0.25rlh;
+	--rhythm-sm: 0.5lh;
+	--rhythm-md: 1rlh;
+	--rhythm-lg: 2rlh;
+	--rhythm-xl: 3rlh;
+	--rhythm-xxl: 4rlh;
+
+	/* letter-spacing */
+	--letter-spacing-none: 0;
+	--letter-spacing-narrow: 2px;
+	--letter-spacing-wide: 4px;
+
+	/* sizing */
+	--container-padding: var(--space-sm);
+	--content-width: 64rem;
+	--content-padding: var(--space-md);
+
+	/* outline */
+	--outline-width: 6px;
+	--outline-color: hsl(from var(--color-orange) h 40% 65%);
+
+	/* logo */
+	--logo-width: calc(var(--outline-width) * 7);
+	--logo-aspect-ratio: 7 / 6;
+
+	/* footer */
+	--footer-background-color: hsl(from var(--color-gray) h 25% 20%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-text: hsl(from var(--color-gray) h s 95%);
+		--color-text-secondary: hsl(from var(--color-primary) h 20% 50%);
+		--color-background: hsl(from var(--color-gray) h s 20%);
+
+		--outline-color: hsl(from var(--color-orange) h 20% 35%);
+
+		--footer-background-color: var(--color-black);
+	}
+}
+
+@media (min-width: 48em) {
+	:root {
+		--content-padding: var(--space-lg);
+		--container-padding: var(--space-md);
+
+		--outline-width: 8px;
+	}
+}

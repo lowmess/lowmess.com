@@ -1,0 +1,81 @@
+html {
+	background-color: var(--color-background);
+	scroll-behavior: smooth;
+
+	@media (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding-block-start: var(--container-padding);
+	padding-inline: var(--container-padding);
+	background-color: var(--color-background);
+	background-image: url(/images/noise-light.svg);
+	/* breaks background-blend-mode in iOS */
+	/* background-repeat: repeat; */
+	background-size: cover;
+	background-blend-mode: multiply;
+	font-size: var(--font-size-md);
+	font-family: var(--font-family-body);
+	line-height: var(--line-height-body);
+	color: var(--color-text);
+
+	@media (prefers-color-scheme: dark) {
+		background-image: url(/images/noise-dark.svg);
+	}
+}
+
+body > main {
+	flex: 1;
+	width: 100%;
+	padding-block: calc(var(--content-padding) * 2);
+}
+
+::selection {
+	background-color: hsl(from var(--color-primary) h s l / 0.75);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	font-family: var(--font-family-heading);
+	text-wrap: balance;
+	line-height: var(--font-family-heading);
+}
+
+:is(code, pre) {
+	font-family: var(--font-family-mono);
+	color: currentColor;
+}
+
+:where(p, a) > code {
+	display: inline-block;
+	margin-inline: 0.1em;
+	border: 1px solid hsl(from var(--color-primary) h s l / 0.25);
+	border-radius: 2px;
+	padding-block: 0.1em;
+	padding-inline: 0.2em;
+	background-color: hsl(from var(--color-primary) h s l / 0.05);
+	line-height: 1;
+}
+
+:where(p, li, code, pre) {
+	color: var(--color-text-body);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+
+	/* https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe */
+	white-space: nowrap;
+	word-wrap: normal;
+}

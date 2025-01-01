@@ -1,0 +1,92 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	headingLevel?: "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+	project: CollectionEntry<"projects">;
+}>;
+
+const {
+	as: Tag = "div",
+	headingLevel: Heading = "h2",
+	class: className,
+	project,
+	...props
+} = Astro.props;
+
+const { title, description, website, repo } = project.data;
+---
+
+<Tag class:list={["preview", className]} {...props}>
+	<Heading class="title">
+		{website || repo ? <a href={website || repo}>{title}</a> : title}
+	</Heading>
+
+	<p set:html={description} />
+
+	<div class="links">
+		{website && <a href={website}>Website</a>}
+
+		{website && repo && <span>&bull;</span>}
+
+		{repo && <a href={repo}>Repository</a>}
+	</div>
+</Tag>
+
+<style>
+	.title {
+		margin-block: 0;
+		font-family: var(--font-family-heading);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+		line-height: var(--line-height-heading);
+		text-wrap: balance;
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+
+	p {
+		max-width: 55ch;
+		margin-block-start: var(--rhythm-xs);
+		margin-block-end: 0;
+		text-wrap: pretty;
+		color: hsl(from var(--color-text) h s l / 0.9);
+	}
+
+	.links {
+		display: flex;
+		gap: var(--space-sm);
+		margin-block-start: var(--rhythm-md);
+		font-size: var(--font-size-xs);
+		font-family: var(--font-family-subheading);
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		color: var(--color-text-secondary);
+
+		a {
+			color: var(--color-text-secondary);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+	}
+
+	:global(.preview p a) {
+		color: var(--color-text);
+		text-decoration-color: var(--color-primary);
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+</style>

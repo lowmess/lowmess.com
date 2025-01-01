@@ -1,0 +1,83 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import BlogPostPreview from "#components/BlogPostPreview.astro";
+import { groupPostsByYear } from "#utils/blog.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	posts: Array<CollectionEntry<"blog">>;
+	headingLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+}>;
+
+const {
+	as: Tag = "div",
+	headingLevel: Heading = "h2",
+	class: className,
+	posts,
+	...props
+} = Astro.props;
+
+const groups = groupPostsByYear(posts);
+---
+
+<Tag class:list={["container", className]} {...props}>
+	{
+		groups.map(({ year, posts }) => (
+			<>
+				<Heading class="year">{year}</Heading>
+
+				<div class="posts">
+					{posts.map((post) => (
+						<BlogPostPreview post={post} />
+					))}
+				</div>
+			</>
+		))
+	}
+</Tag>
+
+<style>
+	.container {
+		display: grid;
+		gap: var(--rhythm-md);
+		align-items: baseline;
+
+		@media (min-width: 30em) {
+			grid-template-columns: max-content 1fr;
+			justify-content: center;
+			gap: var(--space-lg);
+		}
+
+		@media (min-width: 36em) {
+			gap: var(--space-xl);
+		}
+
+		@media (min-width: 53em) {
+			grid-template-columns: repeat(2, max-content);
+		}
+	}
+
+	.posts {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-md);
+
+		@media (min-width: 30em) {
+			gap: var(--rhythm-lg);
+		}
+	}
+
+	.year {
+		margin-block: 0;
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-lg);
+		font-family: var(--font-family-subheading);
+		font-weight: 400;
+
+		@media (min-width: 30em) {
+			text-align: end;
+		}
+	}
+</style>

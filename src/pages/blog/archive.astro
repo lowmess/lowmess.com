@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+
+import { sortBlogPosts } from "#/utils/blog";
+import BlogPostList from "#components/BlogPostList.astro";
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+
+const posts = (
+	await getCollection("blog", ({ data }) => data.archived && !data.draft)
+).sort(sortBlogPosts);
+---
+
+<GlobalLayout title="Post graveyard">
+	<PageHeading
+		eyebrowText="These posts are bad. Or old. Or bad <em>and</em> old."
+		>A nice upstate farm just for posts</PageHeading
+	>
+
+	<BlogPostList posts={posts} />
+</GlobalLayout>

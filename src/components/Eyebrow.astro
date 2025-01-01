@@ -1,0 +1,22 @@
+---
+import type { Polymorphic } from "astro/types";
+
+type Props<Tag extends "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> =
+	Polymorphic<{ as: Tag }>;
+
+const { as: Tag = "span", class: className, ...props } = Astro.props;
+---
+
+<Tag class:list={["eyebrow", className]} {...props}><slot /></Tag>
+
+<style>
+	.eyebrow {
+		margin-block: 0;
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing-wide);
+		text-wrap: balance;
+		color: var(--color-text-secondary);
+	}
+</style>

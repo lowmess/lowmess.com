@@ -1,0 +1,188 @@
+---
+import Logo from "#components/Logo.astro";
+---
+
+<nav>
+	<div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+
+	<a href="/" class="logo">
+		<Logo title="Go to homepage" />
+	</a>
+
+	<ul>
+		<li>
+			<a href="/" data-current={Astro.url.pathname === "/"}>Home</a>
+		</li>
+
+		<li>
+			<a href="/work" data-current={Astro.url.pathname.includes("/work")}
+				>Work</a
+			>
+		</li>
+
+		<li>
+			<a href="/blog" data-current={Astro.url.pathname.includes("/blog")}
+				>Blog</a
+			>
+		</li>
+	</ul>
+</nav>
+
+<style>
+	nav {
+		position: relative;
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		max-width: var(--content-width);
+		margin-inline: auto;
+		border: var(--outline-width) solid var(--outline-color);
+		border-block-end: 0;
+		border-start-end-radius: var(--outline-width);
+		padding-inline-end: calc(var(--content-padding) / 2);
+		line-height: 1;
+
+		@media (min-width: 64em) {
+			margin-block-start: calc(var(--container-padding) * 2);
+		}
+
+		@media print {
+			border: 0;
+		}
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		margin: 0;
+
+		@media print {
+			display: none;
+		}
+	}
+
+	li {
+		padding: 0;
+	}
+
+	li a {
+		position: relative;
+		font-family: var(--font-family-subheading);
+		text-transform: uppercase;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		font-size: var(--font-size-sm);
+		letter-spacing: var(--letter-spacing-wide);
+
+		&:hover,
+		&[data-current="true"] {
+			color: var(--color-text);
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: 3px;
+			bottom: -2px;
+			left: 0;
+			height: 2px;
+			background-color: var(--color-primary);
+			transform: scaleX(0);
+			transform-origin: center left;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover::after,
+		&[data-current="true"]::after {
+			transform: scaleX(1);
+		}
+	}
+
+	.skip-link {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-block-start: var(--rhythm-md);
+		opacity: 0;
+		pointer-events: none;
+
+		&:focus-within {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		a {
+			color: var(--color-text);
+			text-decoration-color: var(--color-primary);
+
+			&:hover {
+				color: var(--color-primary);
+			}
+		}
+	}
+
+	.logo {
+		position: relative;
+		top: calc(var(--outline-width) * -1);
+		left: calc(var(--outline-width) * -1);
+		display: block;
+		width: var(--logo-width);
+		aspect-ratio: var(--logo-aspect-ratio);
+		color: var(--outline-color);
+		line-height: 0;
+		transition: color 0.5s ease;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+
+		svg {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: calc(100% - var(--outline-width));
+			right: calc(var(--outline-width) * 3);
+			z-index: 1;
+			display: block;
+			background-color: var(--color-background);
+			background-image: url(/images/noise-light.svg);
+			/* breaks background-blend-mode in iOS */
+			/* background-repeat: repeat; */
+			background-blend-mode: multiply;
+			pointer-events: none;
+			transition:
+				top 0.2s ease,
+				right 0.2s ease,
+				bottom 0.2s ease,
+				left 0.2s ease;
+
+			@media (prefers-color-scheme: dark) {
+				background-image: url(/images/noise-dark.svg);
+			}
+		}
+
+		&:hover::before {
+			top: calc(var(--outline-width) * -1);
+			left: calc(var(--outline-width) * -1);
+			bottom: calc(var(--outline-width) * -4);
+			right: calc(var(--outline-width) * -2);
+		}
+
+		@media print {
+			color: var(--color-primary);
+		}
+	}
+</style>

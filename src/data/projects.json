@@ -1,0 +1,91 @@
+[
+	{
+		"id": "80085",
+		"title": "This Very Website",
+		"description": "I have been building &amp; iterating on this website for over a decade. You can see more versions in <a href='/archive'>the archive</a>.",
+		"date": "2025-01-01",
+		"website": "/",
+		"repo": "https://github.com/lowmess/lowmess.com"
+	},
+	{
+		"id": "11",
+		"title": "Data Theorem Marketing Site",
+		"description": "I lead the effort to modernize the Data Theorem marketing site while I was working there. Built with Astro and DatoCMS.",
+		"date": "2023-10-01",
+		"website": "https://datatheorem.com"
+	},
+	{
+		"id": "10",
+		"title": "AZ Golf Gurus",
+		"date": "2022-11-11",
+		"description": "In addition to designing & developing the website, I also created the branding for this Arizona-based golf coaching company.",
+		"website": "https://azgolfgurus.com",
+		"repo": "https://github.com/lowmess/az-golf-gurus"
+	},
+	{
+		"id": "9",
+		"title": "lameass.recipes",
+		"date": "2020-11-01",
+		"description": "A recipe website made in collaboration with my sister, an excellent home cook. None of that life-story-as-recipe stuff: we just get down to brass tacks.",
+		"website": "https://lameass.recipes",
+		"repo": "https://github.com/lowmess/lameass.recipes"
+	},
+	{
+		"id": "8",
+		"title": "Most Wanted Records",
+		"date": "2019-02-14",
+		"description": "Get a list of your top 25 most-played albums that you don't own on physical media yet. A good way to figure out how to spend $500.",
+		"website": "https://most-wanted.lowmess.com",
+		"repo": "https://github.com/lowmess/music/tree/master/src/most-wanted"
+	},
+	{
+		"id": "7",
+		"title": "Chirp E-commerce Site",
+		"date": "2018-11-01",
+		"description": "To help the client transition into their new brand before the Black Friday rush, I developed this ecommerce site in under 6 weeks. Built at Fuel Made.",
+		"website": "https://gochirp.com"
+	},
+	{
+		"id": "6",
+		"title": "cocokind E-commerce Site",
+		"date": "2018-07-01",
+		"description": "While working at Fuel Made, I developed this skincare ecommerce website. It was the first site built with an atomic CSS library I wrote while at the agency.",
+		"website": "https://www.cocokind.com"
+	},
+	{
+		"id": "5",
+		"title": "herohero",
+		"date": "2017-11-25",
+		"description": "Generate social media hero images from HTML files. Because sometimes designing in the browser is just easier than opening <s>Illustrator</s> <s>Sketch</s> Figma.",
+		"repo": "https://github.com/lowmess/herohero"
+	},
+	{
+		"id": "4",
+		"title": "Genentech AEM Components",
+		"date": "2017-01-01",
+		"description": "As part of a team tasked with streamlining the development of over 100 Genentech websites, I developed a brand-agnostic component library in Adobe Experience Manager. Built at meltmedia."
+	},
+	{
+		"id": "3",
+		"title": "hero-patterns.js",
+		"date": "2016-10-28",
+		"description": "Easily use patterns from heropatterns.com, right in your JavaScript. Perfect for CSS-in-JS solutions and randomization.",
+		"website": "https://hero-patterns.lowmess.com",
+		"repo": "https://github.com/lowmess/hero-patterns"
+	},
+	{
+		"id": "2",
+		"title": "Metalsmith Resume",
+		"date": "2016-07-13",
+		"description": "Make writing your résumé suck less bad. Generate a simple static site & PDF résumé from Markdown with a few keystrokes.",
+		"website": "https://metalsmith-resume.lowmess.com",
+		"repo": "https://github.com/lowmess/metalsmith-resume"
+	},
+	{
+		"id": "1",
+		"title": "Phenotonic",
+		"date": "2016-02-01",
+		"description": "After noticing a lack of products geared towards home gardening, my brother & I founded a business to fill that gap. I was responsible for all creative & development work on the brand.",
+		"website": "https://archive--phenotonic.netlify.com"
+	}
+]

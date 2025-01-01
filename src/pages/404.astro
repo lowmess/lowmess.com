@@ -1,0 +1,37 @@
+---
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+---
+
+<GlobalLayout title="Page not found">
+	<PageHeading eyebrowText="Error 404">Page not found</PageHeading>
+
+	<p class="haiku">
+		<span>&ldquo;<a href="/">Click here to go home</a>&rdquo;</span>
+		<span>is over-used and boring,</span>
+		<span>but at least it&apos;s clear.</span>
+	</p>
+</GlobalLayout>
+
+<style>
+	.haiku {
+		margin-block: calc(var(--rhythm-xxl) * 2);
+		font-size: var(--font-size-xxl);
+		line-height: var(--line-height-solid);
+		font-style: italic;
+		text-align: center;
+
+		span {
+			display: block;
+		}
+
+		a {
+			color: var(--color-text);
+			text-decoration-color: var(--color-primary);
+
+			&:hover {
+				color: var(--color-primary);
+			}
+		}
+	}
+</style>

@@ -1,0 +1,171 @@
+---
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+---
+
+<GlobalLayout title="Uses">
+	<PageHeading eyebrowText="Here's a bunch of stuff I use"
+		>Tools of my trade</PageHeading
+	>
+
+	<div class="stuff">
+		<h2>Hardware</h2>
+
+		<ul>
+			<li>
+				<span class="dependency">M2 Pro Mac Mini</span>
+
+				<span class="details">16 GB Memory</span>
+			</li>
+
+			<li>
+				<span class="dependency">34&Prime; Acer XR Ultrawide Monitor</span>
+
+				<span class="details">XR342CK Pbmiiqphuzx</span>
+			</li>
+
+			<li>
+				<a href="https://input.club/whitefox" class="dependency"
+					>Input Club WhiteFox Keyboard</a
+				>
+
+				<span class="details">Hako Clear switches</span>
+			</li>
+
+			<li>
+				<span class="dependency">Magic Trackpad 2</span>
+
+				<span class="details">Not the USB-C one, unfortunately.</span>
+			</li>
+		</ul>
+
+		<h2>Software</h2>
+
+		<ul>
+			<li>
+				<a href="https://code.visualstudio.com" class="dependency">VS Code</a>
+
+				<span class="details"
+					><a href="https://philpl.gumroad.com/l/dank-mono">Dank Mono</a>, <a
+						href="https://plastic.wstone.uk/">Plastic theme</a
+					></span
+				>
+			</li>
+
+			<li>
+				<a href="https://iterm2.com" class="dependency">iTerm 2</a>
+
+				<span class="details"
+					>Zsh, <a href="https://philpl.gumroad.com/l/dank-mono">Dank Mono</a>, <a
+						href="https://plastic.wstone.uk/">Plastic theme</a
+					></span
+				>
+			</li>
+
+			<li>
+				<a href="https://affinity.serif.com/en-us/designer" class="dependency"
+					>Affinity Designer 2</a
+				>
+			</li>
+
+			<li>
+				<a href="https://www.alfredapp.com" class="dependency">Alfred</a>
+			</li>
+
+			<li>
+				<a href="https://manytricks.com/moom/" class="dependency">Moom</a>
+			</li>
+
+			<li>
+				<a href="https://kapeli.com/dash" class="dependency">Dash</a>
+			</li>
+
+			<li>
+				<a href="https://tot.rocks" class="dependency">Tot</a>
+			</li>
+
+			<li>
+				<a href="https://bear.app/" class="dependency">Bear</a>
+			</li>
+		</ul>
+
+		<h2>Services</h2>
+
+		<ul>
+			<li><a href="https://github.com" class="dependency">GitHub</a></li>
+
+			<li><a href="https://vercel.com" class="dependency">Vercel</a></li>
+
+			<li><a href="https://netlify.com" class="dependency">Netlify</a></li>
+
+			<li><a href="https://dropbox.com" class="dependency">Dropbox</a></li>
+		</ul>
+	</div>
+</GlobalLayout>
+
+<style>
+	.stuff {
+		display: grid;
+		align-items: baseline;
+		column-gap: var(--space-lg);
+		row-gap: var(--rhythm-md);
+		text-align: center;
+
+		@media (min-width: 30em) {
+			grid-template-columns: repeat(2, max-content);
+			justify-content: center;
+			row-gap: var(--rhythm-lg);
+			text-align: start;
+		}
+	}
+
+	h2 {
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-md);
+		color: var(--color-text-secondary);
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing-wide);
+		font-weight: 400;
+
+		@media (min-width: 30em) {
+			text-align: end;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style-type: none;
+
+		& + & {
+			margin-block-start: var(--rhythm-sm);
+		}
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration-color: var(--color-primary);
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+
+	.dependency {
+		font-family: var(--font-family-heading);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+	}
+
+	a.dependency {
+		text-decoration: none;
+	}
+
+	.details {
+		display: block;
+		font-size: var(--font-size-sm);
+	}
+</style>

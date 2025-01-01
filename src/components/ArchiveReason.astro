@@ -1,0 +1,101 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { format } from "date-fns";
+
+import WarningIcon from "#components/WarningIcon.astro";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	archived: string | Date;
+	archiveReason: string;
+}>;
+
+const {
+	as: Tag = "div",
+	archived,
+	archiveReason,
+	class: className,
+	...props
+} = Astro.props;
+---
+
+<Tag class:list={["archive-reason", className]} {...props}>
+	<div class="icon"><WarningIcon /></div>
+
+	<div>
+		<p class="date">
+			This post was archived on {format(archived, "MMMM do, yyyy")}
+		</p>
+
+		<p class="reason" set:html={archiveReason} />
+	</div>
+</Tag>
+
+<style>
+	.archive-reason {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		align-items: baseline;
+		justify-content: center;
+		gap: var(--space-md);
+		width: calc(100% + var(--content-padding) * 2);
+		margin-inline-start: calc(var(--content-padding) * -1);
+		margin-block-end: var(--rhythm-lg);
+		border-block: var(--outline-width) solid var(--outline-color);
+		padding: var(--content-padding);
+		background-color: var(--outline-color);
+
+		@container (min-width: 75ch) {
+			grid-template-columns: repeat(2, max-content);
+			padding-inline-start: 0;
+		}
+	}
+
+	.icon {
+		position: relative;
+		top: -1px;
+		color: var(--color-background);
+
+		@media (prefers-color-scheme: dark) {
+			color: var(--color-primary);
+		}
+	}
+
+	p {
+		max-width: 65ch;
+	}
+
+	.date {
+		margin: 0;
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-sm);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		color: var(--color-background);
+		text-wrap: pretty;
+
+		@media (prefers-color-scheme: dark) {
+			color: var(--color-primary);
+		}
+	}
+
+	.reason {
+		text-wrap: pretty;
+
+		:global(a) {
+			text-decoration-color: var(--color-background);
+
+			&:hover {
+				color: var(--color-background);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				text-decoration-color: var(--color-primary);
+
+				&:hover {
+					color: var(--color-primary);
+				}
+			}
+		}
+	}
+</style>

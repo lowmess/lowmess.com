@@ -1,0 +1,74 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<
+	"span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+> & {
+	year: string;
+	headingLevel?: "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+};
+
+const { year, headingLevel: Heading = "h2" } = Astro.props;
+---
+
+<Heading class="year" set:html={year} />
+
+<div class="dot"></div>
+
+<div class="details"><slot /></div>
+
+<style>
+	.year {
+		margin-block: 0;
+		font-size: var(--font-size-md);
+		font-family: var(--font-family-subheading);
+		font-weight: 400;
+		color: var(--color-text-secondary);
+
+		* + & {
+			margin-block-start: var(--rhythm-lg);
+		}
+
+		@media (min-width: 32em) {
+			text-align: end;
+
+			* + & {
+				margin-block: 0;
+			}
+		}
+	}
+
+	.dot {
+		display: none;
+		position: relative;
+		height: 100%;
+
+		&::before {
+			content: "";
+			z-index: 1;
+			position: absolute;
+			top: calc(var(--rhythm-md) * -1);
+			bottom: calc(var(--rhythm-md) * -1);
+			left: var(--outline-width);
+			width: var(--outline-width);
+			background-color: var(--outline-color);
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			position: relative;
+			top: 0.25em;
+			z-index: 2;
+			width: calc(var(--outline-width) * 3);
+			aspect-ratio: 1;
+			border: var(--outline-width) solid var(--outline-color);
+			border-radius: 100%;
+			background-color: var(--color-background);
+		}
+
+		@media (min-width: 32em) {
+			display: block;
+		}
+	}
+</style>

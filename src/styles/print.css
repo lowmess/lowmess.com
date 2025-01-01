@@ -1,0 +1,39 @@
+@media print {
+	body {
+		background-color: white;
+		color: black;
+		font-size: 1rem;
+	}
+
+	nav,
+	main {
+		padding: 0 !important;
+	}
+
+	footer,
+	nav ul {
+		display: none;
+	}
+
+	:where(h1, h2, h3, h4, h5, h6, p, li, a, pre, code, blockquote) {
+		color: black !important;
+	}
+
+	.logo {
+		color: var(--color-primary) !important;
+	}
+
+	.logo::before,
+	.logo::after {
+		display: none !important;
+	}
+
+	:where(p, a) > code {
+		display: inline;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		background-color: inherit;
+		line-height: inherit;
+	}
+}

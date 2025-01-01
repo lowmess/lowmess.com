@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+
+import { sortProjects } from "#/utils/work";
+import PageHeading from "#components/PageHeading.astro";
+import ProjectPreview from "#components/ProjectPreview.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+
+const projects = (await getCollection("projects")).sort(sortProjects);
+---
+
+<GlobalLayout title="Work">
+	<PageHeading eyebrowText="Things I've worked on"
+		>A series of interactive documents</PageHeading
+	>
+
+	<div class="projects">
+		{
+			projects.map((project) => (
+				<ProjectPreview project={project} class="project" />
+			))
+		}
+	</div>
+</GlobalLayout>
+
+<style>
+	.projects {
+		display: grid;
+		column-gap: var(--space-lg);
+		row-gap: var(--rhythm-lg);
+
+		@media (min-width: 40em) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: 64em) {
+			column-gap: var(--space-xl);
+		}
+	}
+
+	.project {
+		position: relative;
+		padding-inline-start: calc(var(--space-sm) + var(--space-md));
+		counter-increment: projects;
+
+		&::before {
+			content: counter(projects);
+			position: absolute;
+			top: -1px;
+			right: calc(100% - 0.66em);
+			font-family: var(--font-family-subheading);
+			font-size: var(--font-size-lg);
+			line-height: var(--line-height-heading);
+			color: var(--color-text-secondary);
+			user-select: none;
+		}
+
+		@media (min-width: 48em) {
+			padding-inline-start: var(--content-padding);
+
+			&::before {
+				right: calc(100% - 0.33em);
+			}
+		}
+	}
+</style>

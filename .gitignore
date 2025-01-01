@@ -1,0 +1,9 @@
+node_modules
+.cache
+*.log
+.vscode
+.vercel
+.next
+dist/
+tsconfig.tsbuildinfo
+.astro/

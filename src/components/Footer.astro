@@ -1,0 +1,262 @@
+---
+import { getCollection } from "astro:content";
+
+import { sortBlogPosts } from "#/utils/blog";
+import BlogPostPreview from "#components/BlogPostPreview.astro";
+import Content from "#components/Content.astro";
+import Logo from "#components/Logo.astro";
+
+const latestPost = (
+	await getCollection("blog", ({ data }) => {
+		if (data.archived) return false;
+
+		return import.meta.env.PROD ? !data.draft : true;
+	})
+)
+	.sort(sortBlogPosts)
+	.shift();
+---
+
+<footer>
+	<Content class="content">
+		<div>
+			<h2>Site</h2>
+
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/work">Work</a></li>
+				<li><a href="/blog">Blog</a></li>
+				<!-- secret posts: <li><a href="/blog/archive">Graveyard</a></li> -->
+				<li><a href="/colophon">Colophon</a></li>
+				<li><a href="/uses">Uses</a></li>
+				<li><a href="/archive">Archive</a></li>
+				<li><a href="/rss.xml">RSS</a></li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Links</h2>
+
+			<ul>
+				<li>
+					<a href="https://bsky.app/profile/lowmess.com" rel="me">Bluesky</a>
+				</li>
+				<li>
+					<a href="https://letterboxd.com/lowmess/" rel="me">Letterboxd</a>
+				</li>
+				<li><a href="https://www.last.fm/user/lowmess" rel="me">Last.fm</a></li>
+				<li><a href="https://github.com/lowmess" rel="me">GitHub</a></li>
+				<li><a href="https://codepen.io/lowmess" rel="me">CodePen</a></li>
+				<li><a href="https://linkedin.com/in/lowmess" rel="me">LinkedIn</a></li>
+				<li><a href="/resume">Resume</a></li>
+			</ul>
+		</div>
+
+		{
+			latestPost && (
+				<div class="latest-post">
+					<h2>Latest blog post</h2>
+
+					<BlogPostPreview post={latestPost} headingLevel="span" />
+				</div>
+			)
+		}
+
+		<a href="/" class="logo">
+			<Logo title="Go to homepage" />
+		</a>
+	</Content>
+</footer>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none" id="test">
+	<filter id="noise" x="0" y="0">
+		<feTurbulence
+			type="fractalNoise"
+			baseFrequency="0.25"
+			numOctaves="3"
+			stitchTiles="stitch"></feTurbulence>
+		<feDisplacementMap
+			in2="turbulence"
+			in="SourceGraphic"
+			scale="50"
+			xChannelSelector="R"
+			yChannelSelector="B"></feDisplacementMap>
+	</filter>
+
+	<rect width="500" height="16" filter="url(#noise)" opacity="1"></rect>
+</svg>
+
+<style>
+	footer {
+		--color-text: hsl(from var(--color-gray) h s 95%);
+
+		width: 100vw;
+		position: relative;
+		left: calc(50% - 50vw);
+		padding-block-end: var(--container-padding);
+		padding-inline: var(--container-padding);
+		background-color: var(--footer-background-color);
+
+		@media (min-width: 64em) {
+			padding-block-end: calc(var(--container-padding) * 3);
+		}
+
+		@media print {
+			display: none;
+		}
+	}
+
+	.content {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-xl);
+		border-block-end: var(--outline-width) solid var(--outline-color);
+		border-end-start-radius: var(--outline-width);
+		padding-block: var(--content-padding);
+
+		@media (min-width: 40em) {
+			grid-template-columns: repeat(2, minmax(max-content, var(--space-xxl)));
+			gap: var(--space-xl);
+			justify-content: center;
+		}
+
+		@media (min-width: 64em) {
+			grid-template-columns: 1fr 1fr 3fr;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			right: calc(var(--outline-width) * -1);
+			bottom: calc(var(--outline-width) * -1);
+			z-index: 0;
+			width: calc(var(--outline-width) * 5 - 2px);
+			height: calc(var(--outline-width) * 4);
+			transform: scale(1);
+			transform-origin: bottom right;
+			background-color: var(--footer-background-color);
+		}
+
+		&:has(.logo:hover)::before {
+			transform: scale(0);
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: calc(var(--outline-width) * -1);
+			bottom: calc(var(--outline-width) * -1);
+			width: calc(var(--outline-width) * 8);
+			height: calc(var(--outline-width) * 4);
+			pointer-events: none;
+			background-color: var(--footer-background-color);
+			transform: scale(0);
+			transform-origin: bottom right;
+			transition: transform 0.2s ease;
+		}
+
+		&:has(.logo:hover)::after {
+			transform: scale(1);
+		}
+	}
+
+	.latest-post {
+		display: none;
+
+		@media (min-width: 64em) {
+			display: block;
+		}
+
+		a {
+			font-family: var(--font-family-heading);
+			font-size: var(--font-size-lg);
+			font-weight: 600;
+			color: var(--color-text);
+			text-decoration: none;
+
+			&:hover {
+				color: var(--color-primary);
+			}
+		}
+
+		p {
+			margin-block-start: var(--space-sm);
+			margin-block-end: 0;
+			font-size: var(--font-size-sm);
+			text-wrap: pretty;
+		}
+	}
+
+	.logo {
+		position: absolute;
+		z-index: 1;
+		right: calc(var(--outline-width) * -1);
+		bottom: calc(var(--outline-width) * -1);
+		display: block;
+		width: var(--logo-width);
+		aspect-ratio: var(--logo-aspect-ratio);
+		color: var(--outline-color);
+		line-height: 0;
+		transform: rotateZ(-180deg);
+		transition:
+			color 0.5s ease,
+			transform 0.3s ease;
+
+		&:hover {
+			color: var(--color-primary);
+			transform: rotateZ(0deg);
+		}
+
+		svg {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+		}
+
+		/* increase touch area to prevent jitters */
+		&:hover::after {
+			content: "";
+			position: absolute;
+			top: -33%;
+			left: -33%;
+			width: 150%;
+			aspect-ratio: 1;
+			border-radius: 100%;
+		}
+	}
+
+	h2 {
+		margin-block-start: 0;
+		margin-block-end: var(--rhythm-sm);
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-wide);
+		color: var(--color-text-secondary);
+		text-transform: uppercase;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		font-family: var(--font-family-heading);
+		list-style-type: none;
+
+		a {
+			color: var(--color-text);
+			text-decoration: none;
+
+			&:hover {
+				color: var(--color-primary);
+			}
+		}
+
+		& + & {
+			margin-block-start: var(--rhythm-xs);
+		}
+	}
+</style>

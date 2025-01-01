@@ -1,0 +1,297 @@
+---
+import { getEntry } from "astro:content";
+import { format } from "date-fns";
+
+import Logo from "#components/Logo.astro";
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+
+const resumePayload = await getEntry("resume", "1");
+
+if (!resumePayload) {
+	console.error("No resume found");
+	throw new Error("No resume found");
+}
+
+const { data: resume } = resumePayload;
+---
+
+<GlobalLayout title="Resume">
+	<PageHeading eyebrowText="It's my resume. You can print it out."
+		>What I&apos;ve done and when I did it</PageHeading
+	>
+
+	<article class="resume">
+		<div class="logo"><Logo title="" /></div>
+
+		<section class="intro">
+			<h2 class="name">{resume.basics?.name || "Alec Lomas"}</h2>
+
+			<div class="col-layout">
+				<ul class="meta">
+					{
+						resume.basics?.location?.city &&
+							resume.basics?.location?.region && (
+								<li>
+									{resume.basics.location.city}, {resume.basics.location.region}
+								</li>
+							)
+					}
+
+					{
+						resume.basics?.website && (
+							<li>
+								<a href="/">
+									{resume.basics.website.replace(/http(s)?:\/\//, "")}
+								</a>
+							</li>
+						)
+					}
+
+					{
+						resume.basics?.email && (
+							<li>
+								<a href={`mailto:${resume.basics.email}`}>
+									{resume.basics.email}
+								</a>
+							</li>
+						)
+					}
+
+					{
+						resume.basics?.profiles?.[0]?.url &&
+							resume.basics?.profiles?.[0]?.uusername && (
+								<li>
+									<a href={resume.basics.profiles[0].url}>
+										@{resume.basics.profiles[0].username}
+									</a>
+								</li>
+							)
+					}
+				</ul>
+
+				{
+					resume.basics?.summary && (
+						<p class="summary">{resume.basics.summary}</p>
+					)
+				}
+			</div>
+		</section>
+
+		{
+			resume.work?.length && (
+				<section class="experience">
+					<h2>Experience</h2>
+
+					<div class="experiences">
+						{resume.work.map((job) => (
+							<div class="experience">
+								<h3>
+									{job.website ? (
+										<a href={job.website}>{job.name}</a>
+									) : (
+										job.name
+									)}
+								</h3>
+
+								<div class="col-layout">
+									<div>
+										<p class="job-title">{job.position}</p>
+										<p class="dates">
+											{format(job.startDate, "MMM yyyy")}&ndash;
+											{job.endDate && format(job.endDate, "MMM yyyy")}
+										</p>
+									</div>
+
+									<p class="summary">{job.summary}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
+			)
+		}
+
+		{
+			resume.education?.length && (
+				<section class="education">
+					<h2>Education</h2>
+
+					<div class="schools">
+						{resume.education.map((school) => (
+							<div>
+								<h3>{school.institution}</h3>
+
+								<div class="col-layout">
+									<p class="dates">
+										{format(school.startDate, "MMM yyyy")}&ndash;
+										{school.endDate && format(school.endDate, "MMM yyyy")}
+									</p>
+
+									<p class="summary">
+										{school.studyType} in {school.area}
+									</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
+			)
+		}
+
+		{
+			resume.skills?.length && (
+				<section class="proficiencies">
+					<h2>Proficiencies</h2>
+
+					<ul class="proficiency-list">
+						{resume.skills.map((skill) => (
+							<li>{skill.name}</li>
+						))}
+					</ul>
+				</section>
+			)
+		}
+	</article>
+</GlobalLayout>
+
+<style>
+	.intro,
+	.logo {
+		display: none;
+	}
+
+	.resume {
+		display: grid;
+		align-items: baseline;
+		column-gap: var(--space-lg);
+		row-gap: var(--rhythm-lg);
+		justify-content: center;
+	}
+
+	.logo {
+		grid-column: 1;
+		grid-row: 1/5;
+		color: var(--color-primary);
+
+		svg {
+			position: relative;
+			top: -8px; /* i dunno man */
+			height: var(--font-size-lg);
+			width: auto;
+		}
+	}
+
+	.name {
+		margin-block-start: 0;
+		margin-block-end: var(--rhythm-md);
+		font-size: var(--font-size-xl);
+		line-height: 1;
+	}
+
+	h2:not(.name) {
+		margin-block-start: 0;
+		margin-block-end: var(--rhythm-sm);
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing-wide);
+		color: var(--color-text-secondary);
+	}
+
+	h3 {
+		margin-block-start: 0;
+		margin-block-end: var(--rhythm-xs);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+	}
+
+	.col-layout {
+		display: grid;
+		align-items: baseline;
+		gap: var(--rhythm-md);
+
+		@media print, (min-width: 48em) {
+			grid-template-columns: calc(var(--space-xl) + var(--space-xxl)) 1fr;
+			gap: var(--space-xl);
+		}
+	}
+
+	.meta {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.summary {
+		max-width: 45ch;
+		text-wrap: pretty;
+	}
+
+	.experiences {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-lg);
+	}
+
+	.job-title {
+		font-weight: 600;
+	}
+
+	.proficiency-list {
+		display: inline-flex;
+		gap: var(--space-sm);
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li + li::before {
+			content: "\2022";
+			margin-inline-end: var(--space-sm);
+			color: var(--color-text-secondary);
+		}
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+
+	ul,
+	p {
+		margin-block: 0;
+	}
+
+	@media print {
+		:global(nav) {
+			display: none !important;
+		}
+
+		:global(:has(~ .resume)) {
+			display: none !important;
+		}
+
+		.resume {
+			grid-template-columns: min-content 1fr;
+			row-gap: var(--rhythm-md);
+		}
+
+		.experiences {
+			gap: var(--rhythm-md);
+		}
+
+		/* fit to one page */
+		.experience:nth-child(3) ~ .experience {
+			display: none;
+		}
+
+		.intro,
+		.logo {
+			display: block;
+		}
+	}
+</style>

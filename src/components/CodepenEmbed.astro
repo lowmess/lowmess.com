@@ -1,0 +1,33 @@
+---
+type Props = {
+	codepenId: string;
+};
+
+const { codepenId } = Astro.props;
+---
+
+<p
+	class="codepen"
+	data-height="300"
+	data-default-tab="html,result"
+	data-slug-hash={codepenId}
+	data-user="lowmess"
+	style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+>
+</p>
+
+<script is:inline async src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+></script>
+
+<style>
+	:global(.cp_embed_wrapper) {
+		width: calc(100cqw + var(--content-padding) * 2);
+		margin-block: var(--rhythm-md);
+		margin-inline-start: calc(50% - (50cqw + var(--content-padding)));
+		padding-inline: var(--content-padding);
+	}
+
+	:global(.cp_embed_wrapper iframe) {
+		height: 300px;
+	}
+</style>

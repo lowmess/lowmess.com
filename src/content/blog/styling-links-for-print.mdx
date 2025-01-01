@@ -1,0 +1,29 @@
+---
+title: "Styling Links for Print"
+description: "With a little CSS, we can ensure the user always knows where a link goes. Even when they&apos;re printing it."
+date: 2020-07-03
+---
+
+A few weeks ago, amid the ongoing COVID-19 pandemic, my apartment building left a note in my mailbox. Among the helpful information and polite requests to wear masks in shared areas, I noticed a piece of text that had a very familiar style. It was blue, and underlined, and seemed to hint at a missing piece of content. In short, it was a link. Of course, this being a printed piece of mail, the link wasn't much help to me. And, while this note was certainly a Google Docs or Word document, it made me think about the way links are styled on the web.
+
+While people aren't printing out websites at the same volume they used to, print styles are still very important. Modern browsers use these styles when saving a page as a PDF, for example. The problem is that links in this context are not always clickable. But with a little CSS we can ensure the user is always shown the URL the link points to:
+
+```css
+@media print {
+	a:link[href^="http"]::after {
+		content: " (" attr(href) ")";
+	}
+
+	a:link[href^="/"]::after {
+		content: " (https://mywebsite.com" attr(href) ")";
+	}
+
+	a:link[href^="#"] {
+		text-decoration: none;
+	}
+}
+```
+
+This CSS takes advantage of the `print` media query to set special styles on links in that context. Specifically, we are creating [a psuedo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) on links that begin with `http` (absolute links) and `/` (root-relative links). The `content` of those elements is set to the link element's `href` attribute using [the `attr` function](https://developer.mozilla.org/en-US/docs/Web/CSS/attr). As a bonus, we also remove the link-styling for anchor links, since those have no practical purpose in print contexts.
+
+Of course this isn't an advised solution to _every_ link, but it is particularly useful for blog posts, technical documentation, and any content that a user might want to save to refer to later. Printing websites not be a common occurrence anymore, but setting print styles absolutely should be.

@@ -1,0 +1,167 @@
+---
+import ArchiveEntry from "#components/ArchiveEntry.astro";
+import PageHeading from "#components/PageHeading.astro";
+import GlobalLayout from "#layouts/GlobalLayout.astro";
+---
+
+<GlobalLayout title="Archive">
+	<PageHeading
+		eyebrowText="Older versions of the exact website you're on right now"
+		>Visions of websites past</PageHeading
+	>
+
+	<div class="sites">
+		<ArchiveEntry year="2014–2015">
+			<p class="title">Version 0</p>
+
+			<p>
+				The code for this version is (perhaps fortunately) lost to time. The
+				only thing I remember about it is that it had similar navigation to v1.
+				And that it was built as a student project using student design work.
+				That&apos;s called efficiency.
+			</p>
+
+			<p class="tooling">
+				Built with <a href="https://jquery.com/">jQuery</a>, I assume.
+			</p>
+		</ArchiveEntry>
+
+		<ArchiveEntry year="2015–2017"
+			><p class="title"><a href="https://v1.lowmess.com/">Version 1</a></p>
+
+			<p>
+				Mostly this was a showcase for the design work I did as a student, but
+				if you look closely you can find some client work. The copy (and color
+				contrast) on this site is really bad, and I find it&apos;s best to not
+				think about the quality of the code.
+			</p>
+
+			<p class="tooling">
+				Built with <a href="https://prepros.io/">Prepros</a>, <a
+					href="https://pugjs.org/">Pug (née Jade)</a
+				>,
+				<a href="https://sass-lang.com">Sass</a>, and <a
+					href="https://jquery.com/">jQuery</a
+				>.
+			</p></ArchiveEntry
+		>
+
+		<ArchiveEntry year="2017"
+			><p class="title"><a href="https://v2.lowmess.com/">Version 2</a></p>
+
+			<p>
+				The first portfolio I made as a developer. I hated the design on this
+				one basically as soon as I launched it, and it lasted fewer than 6
+				months before I scrapped it for v3.
+			</p>
+
+			<p class="tooling">
+				Built with <a href="https://rollupjs.org">Rollup</a>, <a
+					href="https://metalsmith.io">Metalsmith</a
+				>, <a href="https://pugjs.org">Pug</a>, <a href="https://postcss.org"
+					>PostCSS</a
+				>, and <a href="http://tachyons.io">Tachyons</a>.
+			</p></ArchiveEntry
+		>
+
+		<ArchiveEntry year="2017–2020">
+			<p class="title"><a href="https://v3.lowmess.com/">Version 3</a></p>
+
+			<p>
+				This design proved popular, and several developers forked the repo and
+				used it as a basis for their own sites. However it proved limiting when
+				I wanted to implement dark mode. Also I got bored of it (the
+				Designer&apos;s Curse&trade;).
+			</p>
+
+			<p class="tooling">
+				Built with <a href="https://gatsbyjs.com">Gatsby</a>, <a
+					href="https://preactjs.com">Preact</a
+				>, <a href="https://mdxjs.com">MDX</a>, and <a
+					href="https://rebassjs.org">Rebass</a
+				>.
+			</p>
+		</ArchiveEntry>
+
+		<ArchiveEntry year="2020–2024">
+			<p class="title">
+				<a href="https://v4.lowmess.com/">Version 4</a> &amp; <a
+					href="https://v4-1.lowmess.com/">Version 4.1</a
+				>
+			</p>
+
+			<p>
+				This design survived a change of framework (<a
+					href="/blog/migrate-gatsby-next">Gatsby to Next.js</a
+				>). The star of the show was something relegated to the about page in
+				v3: a rolling 30-day stat aggregation. Unfortunately, several sites
+				restricting API access crippled the homepage.
+			</p>
+
+			<p class="tooling">
+				Built with <a href="https://gatsbyjs.com">Gatsby</a>/<a
+					href="https://nextjs.org">Next.js</a
+				>, <a href="https://preactjs.com">Preact</a>, <a
+					href="https://mdxjs.com">MDX</a
+				>, and <a href="https://theme-ui.com">Theme UI</a>.
+			</p>
+		</ArchiveEntry>
+
+		<ArchiveEntry year="2025–">
+			<p class="title"><a href="/">Version 5</a></p>
+
+			<p>It&apos;s the site you are currently looking at.</p>
+
+			<p class="tooling">
+				Built with <a href="https://astro.build">Astro</a> and <a
+					href="https://mdxjs.com">MDX</a
+				>.
+			</p>
+		</ArchiveEntry>
+	</div>
+</GlobalLayout>
+
+<style>
+	.sites {
+		display: grid;
+		align-items: baseline;
+		gap: var(--rhythm-md);
+
+		@media (min-width: 32em) {
+			grid-template-columns: max-content calc(var(--outline-width) * 3) 1fr;
+			column-gap: var(--content-padding);
+			row-gap: var(--rhythm-lg);
+		}
+	}
+
+	.title {
+		font-size: var(--font-size-lg);
+		line-height: var(--line-height-heading);
+		font-family: var(--font-family-heading);
+		font-weight: 500;
+		color: var(--color-text);
+	}
+
+	.tooling {
+		font-size: var(--font-size-sm);
+	}
+
+	p {
+		margin: 0;
+		max-width: 50ch;
+		text-wrap: pretty;
+	}
+
+	p + p {
+		margin-block-start: var(--rhythm-md);
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration-color: var(--color-primary);
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+</style>
