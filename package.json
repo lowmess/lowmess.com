@@ -34,7 +34,7 @@
     "@silvenon/remark-smartypants": "^1.0.0",
     "date-fns": "^2.30.0",
     "github-slugger": "^1.4.0",
-    "globby": "^11.1.0",
+    "globby": "^14.0.2",
     "lowmess-prism": "^2.0.2",
     "mdx-embed": "^1.0.0",
     "next": "^12.1.6",
