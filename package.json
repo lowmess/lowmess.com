@@ -33,7 +33,7 @@
     "@astrojs/mdx": "^4.0.3",
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.1.1",
+    "astro": "^5.1.2",
     "date-fns": "^4.1.0",
     "markdown-it": "^14.1.0",
     "postcss-preset-env": "^10.1.3",
