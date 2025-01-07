@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-		"check": "astro check --minimumFailingSeverity warning",
+    "check": "astro check --minimumFailingSeverity warning",
     "astro": "astro",
     "prepare": "husky install"
   },
@@ -34,6 +34,7 @@
     "@astrojs/mdx": "^4.0.3",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
+    "@vercel/speed-insights": "^1.1.0",
     "astro": "^5.1.3",
     "date-fns": "^4.1.0",
     "markdown-it": "^14.1.0",
