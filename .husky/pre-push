@@ -1,1 +1,1 @@
-npx --no-install tsc
+npx --no-install astro check

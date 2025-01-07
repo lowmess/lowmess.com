@@ -21,7 +21,7 @@ jobs:
           cache-dependency-path: "package-lock.json"
 
       - name: Install dependencies
-        run: npm ci --omit=dev --ignore-scripts
+        run: npm ci --ignore-scripts
 
       - name: Lint JS-like files
         run: npx eslint .  --max-warnings 0
@@ -40,7 +40,7 @@ jobs:
           cache-dependency-path: "package-lock.json"
 
       - name: Install dependencies
-        run: npm ci --omit=dev --ignore-scripts
+        run: npm ci --ignore-scripts
 
       - name: Check types
         run: npx astro check --minimumFailingSeverity warning
