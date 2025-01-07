@@ -24,7 +24,7 @@ jobs:
         run: npm ci --omit=dev --ignore-scripts
 
       - name: Lint JS-like files
-        run: npx eslint . --ext .js,.cjs,.mjs,.jsx,.ts,.tsx,.astro --max-warnings 0
+        run: npx eslint .  --max-warnings 0
 
   typecheck:
     name: Typecheck
@@ -43,4 +43,4 @@ jobs:
         run: npm ci --omit=dev --ignore-scripts
 
       - name: Check types
-        run: npx tsc
+        run: npx astro check --minimumFailingSeverity warning
