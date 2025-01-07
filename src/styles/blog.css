@@ -149,4 +149,11 @@
 			}
 		}
 	}
+
+	hr {
+		height: calc(var(--outline-width) * 0.5);
+		margin-block: var(--rhythm-xl);
+		border: 0;
+		background-color: var(--outline-color);
+	}
 }
