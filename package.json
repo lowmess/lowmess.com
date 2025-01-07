@@ -32,7 +32,7 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "@astrojs/mdx": "^4.0.3",
-    "@astrojs/rss": "^4.0.10",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.1.3",
     "date-fns": "^4.1.0",
