@@ -68,24 +68,6 @@ const latestPost = (
 	</Content>
 </footer>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none" id="test">
-	<filter id="noise" x="0" y="0">
-		<feTurbulence
-			type="fractalNoise"
-			baseFrequency="0.25"
-			numOctaves="3"
-			stitchTiles="stitch"></feTurbulence>
-		<feDisplacementMap
-			in2="turbulence"
-			in="SourceGraphic"
-			scale="50"
-			xChannelSelector="R"
-			yChannelSelector="B"></feDisplacementMap>
-	</filter>
-
-	<rect width="500" height="16" filter="url(#noise)" opacity="1"></rect>
-</svg>
-
 <style>
 	footer {
 		--color-text: hsl(from var(--color-gray) h s 95%);

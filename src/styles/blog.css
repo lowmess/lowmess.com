@@ -36,12 +36,19 @@
 		color: var(--color-text-secondary);
 	}
 
-	* + :where(p, ul, ol, pre, img, blockquote, details) {
+	*
+		+ :where(
+			p,
+			ul,
+			ol,
+			blockquote,
+			details,
+			pre,
+			figure,
+			iframe,
+			lite-youtube
+		) {
 		margin-block-start: var(--rhythm-md);
-	}
-
-	& > :is(pre, img, figure, iframe) {
-		margin-block: var(--rhythm-lg);
 	}
 
 	a {
@@ -60,6 +67,11 @@
 			&[href^="/"]::after {
 				content: " (https://lowmess.com" attr(href) ")";
 			}
+		}
+
+		&[data-footnote-backref] {
+			margin-inline-start: var(--space-xxs);
+			font-size: var(--font-size-sm);
 		}
 	}
 
@@ -155,5 +167,17 @@
 		margin-block: var(--rhythm-xl);
 		border: 0;
 		background-color: var(--outline-color);
+	}
+
+	lite-youtube {
+		margin-inline: auto;
+	}
+
+	sup {
+		position: relative;
+		top: -0.5em;
+		margin-inline-start: var(--space-xxs);
+		font-size: 0.75em;
+		vertical-align: baseline;
 	}
 }
