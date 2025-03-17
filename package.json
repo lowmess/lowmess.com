@@ -31,7 +31,7 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
-    "@astrojs/mdx": "^4.1.0",
+    "@astrojs/mdx": "^4.2.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@vercel/analytics": "^1.5.0",
