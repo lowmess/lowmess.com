@@ -6,3 +6,23 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    groups:
+      astro:
+        patterns:
+          - "@astrojs/*"
+          - "astro*"
+      types:
+        patterns:
+          - "@types/*"
+          - "typescript"
+      linting:
+        patterns:
+          - "eslint*"
+          - "typescript-eslint"
+      formatting:
+        patterns:
+          - "prettier*"
+      pre-commit:
+        patterns:
+          - "husky"
+          - "lint-staged"
