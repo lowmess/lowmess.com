@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 
-import { sortBlogPosts } from "#/utils/blog";
 import BlogPostList from "#components/BlogPostList.astro";
 import PageHeading from "#components/PageHeading.astro";
 import GlobalLayout from "#layouts/GlobalLayout.astro";
+import { sortBlogPosts } from "#utils/blog";
 
 const posts = (
 	await getCollection("blog", ({ data }) => data.archived && !data.draft)
