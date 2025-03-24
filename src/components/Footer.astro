@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 
-import { sortBlogPosts } from "#/utils/blog";
 import BlogPostPreview from "#components/BlogPostPreview.astro";
 import Content from "#components/Content.astro";
 import Logo from "#components/Logo.astro";
+import { sortBlogPosts } from "#utils/blog";
 
 const latestPost = (
 	await getCollection("blog", ({ data }) => {

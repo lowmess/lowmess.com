@@ -2,7 +2,7 @@ import rss from "@astrojs/rss";
 import { type APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "#/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "#consts";
 import { sortBlogPosts } from "#utils/blog.ts";
 
 export const GET: APIRoute = async ({ site = "https://lowmess.com" }) => {
