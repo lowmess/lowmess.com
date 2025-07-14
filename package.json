@@ -41,7 +41,7 @@
     "date-fns": "^4.1.0",
     "postcss-preset-env": "^10.2.4",
     "sanitize.css": "^13.0.0",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
