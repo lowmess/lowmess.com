@@ -20,6 +20,7 @@ body {
 	background-color: var(--color-background);
 	background-image: url("/images/topography-light.svg");
 	background-repeat: repeat;
+	background-position-x: center;
 	font-size: var(--font-size-md);
 	font-family: var(--font-family-body);
 	line-height: var(--line-height-body);
