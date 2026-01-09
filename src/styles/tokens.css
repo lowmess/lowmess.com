@@ -35,13 +35,13 @@
 
 	--line-height-solid: 1;
 	--line-height-heading: 1.25;
-	--line-height-body: 1.5;
+	--line-height-body: 1.75;
 
 	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
 	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
 	--font-family-body: Novela, ui-serif, serif;
 	--font-family-mono:
-		Dank, "Dank Mono", Menlo, Consolas, Roboto Mono, Ubuntu Monospace,
+		Dank, "Fira Code", Menlo, Consolas, Roboto Mono, Ubuntu Monospace,
 		Oxygen Mono, Liberation Mono, monospace;
 
 	/* spacing */

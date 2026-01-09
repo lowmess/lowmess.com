@@ -40,7 +40,7 @@ body > main {
 	line-height: var(--font-family-heading);
 }
 
-:is(code, pre) {
+:where(code, pre) {
 	font-family: var(--font-family-mono);
 	color: currentColor;
 }
@@ -48,11 +48,12 @@ body > main {
 :where(p, a) > code {
 	display: inline-block;
 	margin-inline: 0.1em;
-	border: 1px solid hsl(from var(--color-primary) h s l / 0.25);
+	border: 1px solid hsl(from var(--color-primary) h s l / 0.125);
 	border-radius: 2px;
-	padding-block: 0.1em;
-	padding-inline: 0.2em;
-	background-color: hsl(from var(--color-primary) h s l / 0.05);
+	padding-block: 2px;
+	padding-inline: 4px;
+	background-color: var(--color-code-background);
+	color: var(--color-code-text);
 	line-height: 1;
 }
 
@@ -73,4 +74,10 @@ body > main {
 	/* https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe */
 	white-space: nowrap;
 	word-wrap: normal;
+}
+
+.astro-code,
+.astro-code span {
+	background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+	color: light-dark(var(--shiki-light), var(--shiki-dark));
 }

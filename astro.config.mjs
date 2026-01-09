@@ -3,6 +3,8 @@ import sitemap from "@astrojs/sitemap";
 import embeds from "astro-embed/integration";
 import { defineConfig } from "astro/config";
 
+import { alabasterTheme, rubberTheme } from "./syntax-themes";
+
 // https://astro.build/config
 export default defineConfig({
 	site: "https://lowmess.com",
@@ -10,7 +12,13 @@ export default defineConfig({
 		embeds(),
 		mdx({
 			syntaxHighlight: "shiki",
-			shikiConfig: { theme: "plastic" },
+			shikiConfig: {
+				defaultColor: false,
+				themes: {
+					light: alabasterTheme,
+					dark: rubberTheme,
+				},
+			},
 		}),
 		sitemap({ filter: (page) => !page.includes("/blog/archive") }),
 	],
