@@ -158,20 +158,12 @@ import Logo from "#components/Logo.astro";
 			z-index: 1;
 			display: block;
 			background-color: var(--color-background);
-			background-image: url(/images/noise-light.svg);
-			/* breaks background-blend-mode in iOS */
-			/* background-repeat: repeat; */
-			background-blend-mode: multiply;
 			pointer-events: none;
 			transition:
 				top 0.2s ease,
 				right 0.2s ease,
 				bottom 0.2s ease,
 				left 0.2s ease;
-
-			@media (prefers-color-scheme: dark) {
-				background-image: url(/images/noise-dark.svg);
-			}
 		}
 
 		&:hover::before {
