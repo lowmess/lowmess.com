@@ -12,12 +12,12 @@
 	);
 	--color-text-body: hsl(from var(--color-text) h s l / 0.9);
 	--color-text-secondary: light-dark(
-		hsl(from var(--color-primary) h 40% 55%),
+		hsl(from var(--color-primary) h 40% 50%),
 		hsl(from var(--color-primary) h 20% 50%)
 	);
 	--color-background: light-dark(
 		hsl(from var(--color-gray) h s 95%),
-		hsl(from var(--color-gray) h s 20%)
+		hsl(from var(--color-gray) h s 18%)
 	);
 	--color-primary: var(--color-orange);
 
@@ -86,7 +86,7 @@
 
 	/* footer */
 	--footer-background-color: light-dark(
-		hsl(from var(--color-gray) h 25% 20%),
+		hsl(from var(--color-gray) h 15% 20%),
 		var(--color-black)
 	);
 }
