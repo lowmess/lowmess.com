@@ -60,7 +60,7 @@ body > main {
 	padding-inline: 4px;
 	background-color: var(--color-code-background);
 	color: var(--color-code-text);
-	line-height: 1;
+	line-height: var(--line-height-solid);
 }
 
 :where(p, li, code, pre) {
