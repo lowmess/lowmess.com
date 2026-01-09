@@ -18,10 +18,16 @@ body {
 	padding-block-start: var(--container-padding);
 	padding-inline: var(--container-padding);
 	background-color: var(--color-background);
+	background-image: url("/images/topography-light.svg");
+	background-repeat: repeat;
 	font-size: var(--font-size-md);
 	font-family: var(--font-family-body);
 	line-height: var(--line-height-body);
 	color: var(--color-text);
+
+	@media (prefers-color-scheme: dark) {
+		background-image: url("/images/topography-dark.svg");
+	}
 }
 
 body > main {

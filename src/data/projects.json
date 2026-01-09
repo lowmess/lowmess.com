@@ -18,8 +18,7 @@
 		"id": "10",
 		"title": "AZ Golf Gurus",
 		"date": "2022-11-11",
-		"description": "In addition to designing & developing the website, I also created the branding for this Arizona-based golf coaching company.",
-		"website": "https://azgolfgurus.com",
+		"description": "I created the branding for this Arizona-based golf coaching company. I also designed the first several versions of the website.",
 		"repo": "https://github.com/lowmess/az-golf-gurus"
 	},
 	{
@@ -86,6 +85,6 @@
 		"title": "Phenotonic",
 		"date": "2016-02-01",
 		"description": "After noticing a lack of products geared towards home gardening, my brother & I founded a business to fill that gap. I was responsible for all creative & development work on the brand.",
-		"website": "https://archive--phenotonic.netlify.com"
+		"website": "https://archive--phenotonic.netlify.app"
 	}
 ]
