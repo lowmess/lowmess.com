@@ -74,7 +74,8 @@ const latestPost = (
 
 		width: 100vw;
 		position: relative;
-		left: calc(50% - 50vw);
+		left: var(--container-padding);
+		margin-inline: calc(var(--container-padding) * -2);
 		padding-block-end: var(--container-padding);
 		padding-inline: var(--container-padding);
 		background-color: var(--footer-background-color);
@@ -96,6 +97,7 @@ const latestPost = (
 		border-block-end: var(--outline-width) solid var(--outline-color);
 		border-end-start-radius: var(--outline-width);
 		padding-block: var(--content-padding);
+		background-color: var(--footer-background-color);
 
 		@media (min-width: 40em) {
 			grid-template-columns: repeat(2, minmax(max-content, var(--space-xxl)));

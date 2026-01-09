@@ -41,6 +41,7 @@ import Logo from "#components/Logo.astro";
 		border-block-end: 0;
 		border-start-end-radius: var(--outline-width);
 		padding-inline-end: calc(var(--content-padding) / 2);
+		background-color: var(--color-background);
 		line-height: 1;
 
 		@media (min-width: 64em) {
@@ -152,33 +153,21 @@ import Logo from "#components/Logo.astro";
 			content: "";
 			position: absolute;
 			top: 0;
-			left: 0;
-			bottom: calc(100% - var(--outline-width));
 			right: calc(var(--outline-width) * 3);
+			bottom: calc(100% - var(--outline-width));
+			left: 0;
 			z-index: 1;
 			display: block;
 			background-color: var(--color-background);
-			background-image: url(/images/noise-light.svg);
-			/* breaks background-blend-mode in iOS */
-			/* background-repeat: repeat; */
-			background-blend-mode: multiply;
 			pointer-events: none;
 			transition:
-				top 0.2s ease,
 				right 0.2s ease,
-				bottom 0.2s ease,
-				left 0.2s ease;
-
-			@media (prefers-color-scheme: dark) {
-				background-image: url(/images/noise-dark.svg);
-			}
+				bottom 0.2s ease;
 		}
 
 		&:hover::before {
-			top: calc(var(--outline-width) * -1);
-			left: calc(var(--outline-width) * -1);
-			bottom: calc(var(--outline-width) * -4);
-			right: calc(var(--outline-width) * -2);
+			right: calc(var(--outline-width) * 1);
+			bottom: calc(var(--outline-width) * -1);
 		}
 
 		@media print {
