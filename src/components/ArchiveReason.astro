@@ -1,6 +1,5 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
-import { format } from "date-fns";
 
 import WarningIcon from "#components/WarningIcon.astro";
 
@@ -17,6 +16,10 @@ const {
 	class: className,
 	...props
 } = Astro.props;
+
+const formatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+});
 ---
 
 <Tag class:list={["archive-reason", className]} {...props}>
@@ -24,7 +27,7 @@ const {
 
 	<div>
 		<p class="date">
-			This post was archived on {format(archived, "MMMM do, yyyy")}
+			This post was archived on {formatter.format(archived)}
 		</p>
 
 		<p class="reason" set:html={archiveReason} />

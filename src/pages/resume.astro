@@ -1,6 +1,5 @@
 ---
 import { getEntry } from "astro:content";
-import { format } from "date-fns";
 
 import Logo from "#components/Logo.astro";
 import PageHeading from "#components/PageHeading.astro";
@@ -14,6 +13,11 @@ if (!resumePayload) {
 }
 
 const { data: resume } = resumePayload;
+
+const formatter = new Intl.DateTimeFormat("en-US", {
+	year: "numeric",
+	month: "short",
+});
 ---
 
 <GlobalLayout title="Resume">
@@ -60,7 +64,7 @@ const { data: resume } = resumePayload;
 
 					{
 						resume.basics?.profiles?.[0]?.url &&
-							resume.basics?.profiles?.[0]?.uusername && (
+							resume.basics?.profiles?.[0]?.username && (
 								<li>
 									<a href={resume.basics.profiles[0].url}>
 										@{resume.basics.profiles[0].username}
@@ -98,8 +102,8 @@ const { data: resume } = resumePayload;
 									<div>
 										<p class="job-title">{job.position}</p>
 										<p class="dates">
-											{format(job.startDate, "MMM yyyy")}&ndash;
-											{job.endDate && format(job.endDate, "MMM yyyy")}
+											{formatter.format(new Date(job.startDate))}&ndash;
+											{job.endDate && formatter.format(new Date(job.endDate))}
 										</p>
 									</div>
 
@@ -124,8 +128,9 @@ const { data: resume } = resumePayload;
 
 								<div class="col-layout">
 									<p class="dates">
-										{format(school.startDate, "MMM yyyy")}&ndash;
-										{school.endDate && format(school.endDate, "MMM yyyy")}
+										{formatter.format(new Date(school.startDate))}&ndash;
+										{school.endDate &&
+											formatter.format(new Date(school.endDate))}
 									</p>
 
 									<p class="summary">

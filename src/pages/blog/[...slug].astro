@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import { format } from "date-fns";
 
 import ArchiveReason from "#components/ArchiveReason.astro";
 import PageHeading from "#components/PageHeading.astro";
@@ -24,6 +23,10 @@ const post = Astro.props;
 const { Content } = await render(post);
 
 const { title, description, date, archived, archiveReason } = post.data;
+
+const formatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+});
 ---
 
 <GlobalLayout title={title} description={description}>
@@ -33,7 +36,7 @@ const { title, description, date, archived, archiveReason } = post.data;
 		)
 	}
 
-	<PageHeading eyebrowText={format(date, "MMMM do, yyyy")} slotIsHeading
+	<PageHeading eyebrowText={formatter.format(date)} slotIsHeading
 		>{title}</PageHeading
 	>
 
