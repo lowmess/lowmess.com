@@ -6,10 +6,19 @@
 	--color-black: hsl(from var(--color-gray) h s 15%);
 	--color-white: hsl(from var(--color-gray) h s 100%);
 
-	--color-text: hsl(from var(--color-gray) h s 28%);
+	--color-text: light-dark(
+		hsl(from var(--color-gray) h s 28%),
+		hsl(from var(--color-gray) h s 95%)
+	);
 	--color-text-body: hsl(from var(--color-text) h s l / 0.9);
-	--color-text-secondary: hsl(from var(--color-primary) h 40% 55%);
-	--color-background: hsl(from var(--color-gray) h s 95%);
+	--color-text-secondary: light-dark(
+		hsl(from var(--color-primary) h 40% 55%),
+		hsl(from var(--color-primary) h 20% 50%)
+	);
+	--color-background: light-dark(
+		hsl(from var(--color-gray) h s 95%),
+		hsl(from var(--color-gray) h s 20%)
+	);
 	--color-primary: var(--color-orange);
 
 	/* typography */
@@ -31,8 +40,9 @@
 	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
 	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
 	--font-family-body: Novela, ui-serif, serif;
-	--font-family-mono: Dank, "Dank Mono", Menlo, Consolas, Roboto Mono,
-		Ubuntu Monospace, Oxygen Mono, Liberation Mono, monospace;
+	--font-family-mono:
+		Dank, "Dank Mono", Menlo, Consolas, Roboto Mono, Ubuntu Monospace,
+		Oxygen Mono, Liberation Mono, monospace;
 
 	/* spacing */
 	--space-none: 0;
@@ -65,26 +75,20 @@
 
 	/* outline */
 	--outline-width: 6px;
-	--outline-color: hsl(from var(--color-orange) h 40% 65%);
+	--outline-color: light-dark(
+		hsl(from var(--color-orange) h 40% 65%),
+		hsl(from var(--color-orange) h 20% 35%)
+	);
 
 	/* logo */
 	--logo-width: calc(var(--outline-width) * 7);
 	--logo-aspect-ratio: 7 / 6;
 
 	/* footer */
-	--footer-background-color: hsl(from var(--color-gray) h 25% 20%);
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-text: hsl(from var(--color-gray) h s 95%);
-		--color-text-secondary: hsl(from var(--color-primary) h 20% 50%);
-		--color-background: hsl(from var(--color-gray) h s 20%);
-
-		--outline-color: hsl(from var(--color-orange) h 20% 35%);
-
-		--footer-background-color: var(--color-black);
-	}
+	--footer-background-color: light-dark(
+		hsl(from var(--color-gray) h 25% 20%),
+		var(--color-black)
+	);
 }
 
 @media (min-width: 48em) {
