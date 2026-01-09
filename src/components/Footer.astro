@@ -74,7 +74,8 @@ const latestPost = (
 
 		width: 100vw;
 		position: relative;
-		left: calc(50% - 50vw);
+		left: var(--container-padding);
+		margin-inline: calc(var(--container-padding) * -2);
 		padding-block-end: var(--container-padding);
 		padding-inline: var(--container-padding);
 		background-color: var(--footer-background-color);
