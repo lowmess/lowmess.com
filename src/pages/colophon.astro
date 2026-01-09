@@ -69,8 +69,6 @@ const {
 				>
 			</li>
 
-			<li><a href="https://plastic.wstone.uk/">Plastic</a></li>
-
 			<li>
 				<a href="https://eslint.org/"
 					>ESLint <span class="version">{eslintVersion}</span></a
@@ -104,20 +102,20 @@ const {
 
 		@media (min-width: 30em) {
 			grid-template-columns: repeat(2, max-content);
-			row-gap: var(--rhythm-lg);
+			row-gap: 0;
 		}
 
 		@media (min-width: 36em) {
 			margin-inline-start: calc(var(--space-xxl) * -1);
 		}
 
-		@media (min-width: 55em) {
+		@media (min-width: 58em) {
 			grid-template-columns: repeat(4, max-content);
 		}
 	}
 
 	.packages {
-		@media (min-width: 55em) {
+		@media (min-width: 58em) {
 			grid-column: 4;
 			grid-row: 1/3;
 		}

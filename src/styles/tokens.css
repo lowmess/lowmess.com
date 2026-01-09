@@ -41,8 +41,8 @@
 	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
 	--font-family-body: Novela, ui-serif, serif;
 	--font-family-mono:
-		Dank, "Fira Code", Menlo, Consolas, Roboto Mono, Ubuntu Monospace,
-		Oxygen Mono, Liberation Mono, monospace;
+		"Fira Code", Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Oxygen Mono,
+		Liberation Mono, monospace;
 
 	/* spacing */
 	--space-none: 0;
