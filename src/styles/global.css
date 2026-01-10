@@ -19,8 +19,9 @@ body {
 	padding-inline: var(--container-padding);
 	background-color: var(--color-background);
 	background-image: url("/images/topography-light.svg");
-	background-repeat: repeat;
+	background-size: 900px 900px;
 	background-position-x: center;
+	background-repeat: repeat;
 	background-attachment: fixed;
 	font-size: var(--font-size-md);
 	font-family: var(--font-family-body);
