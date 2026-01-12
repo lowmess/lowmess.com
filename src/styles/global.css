@@ -1,7 +1,3 @@
-:root {
-	color-scheme: light dark;
-}
-
 html {
 	background-color: var(--color-background);
 	scroll-behavior: smooth;
