@@ -37,7 +37,8 @@
 
 	--line-height-solid: 1;
 	--line-height-heading: 1.25;
-	--line-height-body: 1.75;
+	--line-height-body: 1.5;
+	--line-height-prose: 1.75;
 
 	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
 	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
