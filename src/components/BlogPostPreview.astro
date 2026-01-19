@@ -17,14 +17,26 @@ const {
 } = Astro.props;
 ---
 
-<Tag class:list={["preview", className]} {...props}>
-	<Heading class="title" data-is-draft={post.data.draft || undefined}
+<Tag
+	class:list={["preview", className]}
+	itemscope
+	itemtype="https://schema.org/BlogPosting"
+	itemprop="blogPost"
+	{...props}
+>
+	<Heading
+		class="title"
+		data-is-draft={post.data.draft || undefined}
+		itemprop="headline"
 		><a href={`/blog/${post.id}`} set:html={post.data.title} />{
 			post.data.draft && <span class="draft">Draft</span>
 		}</Heading
 	>
 
-	<p set:html={post.data.archiveReason || post.data.description} />
+	<p
+		set:html={post.data.archiveReason || post.data.description}
+		itemprop="description"
+	/>
 </Tag>
 
 <style>

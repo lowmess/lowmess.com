@@ -27,7 +27,10 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 
 	<div>
 		<p class="date">
-			This post was archived on {formatter.format(archived)}
+			This post was archived on <time
+				datetime={archived}
+				itemprop="dateModified">{formatter.format(archived)}</time
+			>
 		</p>
 
 		<p class="reason" set:html={archiveReason} />
