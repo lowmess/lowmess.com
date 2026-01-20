@@ -19,12 +19,17 @@ const {
 const { title, description, website, repo } = project.data;
 ---
 
-<Tag class:list={["preview", className]} {...props}>
-	<Heading class="title">
+<Tag
+	class:list={["preview", className]}
+	itemscope
+	itemtype="https://schema.org/WebSite"
+	{...props}
+>
+	<Heading class="title" itemprop="name">
 		{website || repo ? <a href={website || repo}>{title}</a> : title}
 	</Heading>
 
-	<p set:html={description} />
+	<p itemprop="description" set:html={description} />
 
 	<div class="links">
 		{website && <a href={website}>Website</a>}

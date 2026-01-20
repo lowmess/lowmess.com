@@ -27,6 +27,14 @@ body {
 	@media (prefers-color-scheme: dark) {
 		background-image: url("/images/topography-dark.svg");
 	}
+
+	:root[data-color-theme="light"] & {
+		background-image: url("/images/topography-light.svg");
+	}
+
+	:root[data-color-theme="dark"] & {
+		background-image: url("/images/topography-dark.svg");
+	}
 }
 
 body > main {

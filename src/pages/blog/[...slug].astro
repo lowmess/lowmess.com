@@ -29,22 +29,30 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 });
 ---
 
-<GlobalLayout title={title} description={description}>
+<GlobalLayout
+	title={title}
+	description={description}
+	itemscope
+	itemtype="https://schema.org/BlogPosting"
+>
 	{
 		archived && archiveReason && (
 			<ArchiveReason archived={archived} archiveReason={archiveReason} />
 		)
 	}
 
-	<PageHeading eyebrowText={formatter.format(date)} slotIsHeading
-		>{title}</PageHeading
+	<PageHeading
+		eyebrowText={formatter.format(date)}
+		eyebrowProps={{ itemprop: "datePublished" }}
+		slotIsHeading
+		itemprop="headline">{title}</PageHeading
 	>
 
-	<div class="content"><Content /></div>
+	<div class="article-content" itemprop="articleBody"><Content /></div>
 </GlobalLayout>
 
 <style>
-	.content {
+	.article-content {
 		max-width: 65ch;
 		margin-inline: auto;
 		line-height: var(--line-height-prose);

@@ -1,0 +1,128 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import Contrast from "#components/Contrast.svg";
+import Moon from "#components/Moon.svg";
+import Sun from "#components/Sun.svg";
+
+type Props = HTMLAttributes<"svg">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div class="container">
+	<label for="color-theme-select" class="visually-hidden"
+		>Change color scheme</label
+	>
+
+	<select id="color-theme-select" name="color-theme-select">
+		<option value="system">System</option>
+
+		<option value="light">Light</option>
+
+		<option value="dark">Dark</option>
+	</select>
+
+	<div aria-hidden class:list={["theme-icon", className]} {...props}>
+		<Contrast class="system-icon" />
+
+		<Sun class="light-icon" />
+
+		<Moon class="dark-icon" />
+	</div>
+</div>
+
+<script>
+	const defaultTheme = "system";
+	const storedTheme = localStorage.getItem("color-theme");
+
+	const $colorThemeSelect = document.querySelector(
+		"#color-theme-select",
+	) as HTMLSelectElement | null;
+
+	// set initial value
+	if ($colorThemeSelect) {
+		$colorThemeSelect.value = storedTheme ?? defaultTheme;
+	}
+
+	// attach listener to update DOM & localstorage on change
+	$colorThemeSelect?.addEventListener("change", (event) => {
+		const $target = event.currentTarget as HTMLSelectElement;
+		const nextValue = $target?.value;
+
+		document.documentElement.dataset.colorTheme = nextValue;
+		localStorage.setItem("color-theme", nextValue);
+	});
+</script>
+
+<style>
+	.container {
+		position: relative;
+
+		@media (scripting: none), (scripting: initial-only), print {
+			display: none;
+		}
+	}
+
+	.theme-icon {
+		display: inline-flex;
+		align-items: center;
+		padding: var(--space-sm);
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+
+		svg {
+			width: 1em;
+			height: 1em;
+		}
+	}
+
+	select {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+		cursor: pointer;
+
+		&:hover + .theme-icon {
+			color: var(--color-text);
+		}
+	}
+
+	.light-icon,
+	.dark-icon {
+		display: none;
+	}
+
+	:global(:root[data-color-theme="system"]) {
+		.system-icon {
+			display: block;
+		}
+
+		.light-icon,
+		.dark-icon {
+			display: none;
+		}
+	}
+
+	:global(:root[data-color-theme="light"]) {
+		.light-icon {
+			display: block;
+		}
+
+		.system-icon,
+		.dark-icon {
+			display: none;
+		}
+	}
+
+	:global(:root[data-color-theme="dark"]) {
+		.dark-icon {
+			display: block;
+		}
+
+		.system-icon,
+		.light-icon {
+			display: none;
+		}
+	}
+</style>

@@ -1,6 +1,7 @@
 ---
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import type { HTMLAttributes } from "astro/types";
 
 import Content from "#components/Content.astro";
 import Footer from "#components/Footer.astro";
@@ -12,24 +13,32 @@ import "#styles/global.css";
 import "#styles/print.css";
 import "#styles/tokens.css";
 
-type Props = {
+type Props = HTMLAttributes<"main"> & {
 	title?: string;
 	description?: string;
 };
 
-const { title, description } = Astro.props;
+const { title, description, ...props } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<HeadMetadata title={title} description={description} />
+
+		<!-- set initial color scheme -->
+		<script>
+			const defaultTheme = "system";
+			const storedTheme = localStorage.getItem("color-theme");
+
+			document.documentElement.dataset.colorTheme = storedTheme ?? defaultTheme;
+		</script>
 	</head>
 
 	<body>
 		<Navigation />
 
-		<Content as="main" id="main-content"><slot /></Content>
+		<Content as="main" id="main-content" {...props}><slot /></Content>
 
 		<Footer />
 

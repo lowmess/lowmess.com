@@ -94,6 +94,14 @@
 	);
 }
 
+:root[data-color-theme="light"] {
+	color-scheme: light;
+}
+
+:root[data-color-theme="dark"] {
+	color-scheme: dark;
+}
+
 @media (min-width: 48em) {
 	:root {
 		--content-padding: var(--space-lg);

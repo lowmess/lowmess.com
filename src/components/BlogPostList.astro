@@ -22,7 +22,12 @@ const {
 const groups = groupPostsByYear(posts);
 ---
 
-<Tag class:list={["container", className]} {...props}>
+<Tag
+	class:list={["container", className]}
+	itemscope
+	itemtype="https://schema.org/Blog"
+	{...props}
+>
 	{
 		groups.map(({ year, posts }) => (
 			<>

@@ -21,7 +21,7 @@ const {
 <Tag class:list={["update", className]} data-is-inline={inline} {...props}>
 	<div class="icon"><InfoIcon /></div>
 
-	<div>
+	<div itemprop="correction">
 		<p class="date">
 			Update ({date})
 		</p>
@@ -42,7 +42,10 @@ const {
 		margin-block: var(--rhythm-md);
 		border-block: var(--outline-width) solid var(--outline-color);
 		padding: var(--content-padding);
-		background-color: hsl(from var(--outline-color) h s l / 0.1);
+		background-color: light-dark(
+			hsl(from var(--outline-color) h s l / 0.1),
+			hsl(from var(--color-black) h s l / 0.5)
+		);
 
 		:global(p) {
 			max-width: 65ch;
@@ -71,10 +74,6 @@ const {
 				grid-template-columns: repeat(2, max-content);
 				padding-inline-start: 0;
 			}
-		}
-
-		@media (prefers-color-scheme: dark) {
-			background-color: hsl(from var(--color-black) h s l / 0.5);
 		}
 	}
 
