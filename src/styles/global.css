@@ -94,3 +94,36 @@ body > main {
 	background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
 	color: light-dark(var(--shiki-light), var(--shiki-dark));
 }
+
+.astro-code .diff {
+	&.add,
+	&.add span {
+		color: light-dark(#448c27, #98c379);
+	}
+
+	&.remove,
+	&.remove span {
+		color: light-dark(#aa3731, #e06c75);
+	}
+
+	&::before {
+		position: relative;
+		left: calc(var(--space-sm) * -1);
+
+		@media (min-width: 48em) {
+			left: calc(var(--space-md) * -1);
+		}
+
+		@media (min-width: 64em) {
+			left: calc(var(--space-md) * -2);
+		}
+	}
+
+	&.add::before {
+		content: "+";
+	}
+
+	&.remove::before {
+		content: "-";
+	}
+}

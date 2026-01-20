@@ -1,5 +1,6 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import { transformerNotationDiff } from "@shikijs/transformers";
 import embeds from "astro-embed/integration";
 import { defineConfig } from "astro/config";
 
@@ -18,6 +19,7 @@ export default defineConfig({
 					light: alabasterTheme,
 					dark: rubberTheme,
 				},
+				transformers: [transformerNotationDiff()],
 			},
 		}),
 		sitemap({ filter: (page) => !page.includes("/blog/archive") }),
