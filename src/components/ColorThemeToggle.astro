@@ -59,7 +59,7 @@ const { class: className, ...props } = Astro.props;
 	.container {
 		position: relative;
 
-		@media (scripting: none) {
+		@media (scripting: none), (scripting: initial-only), print {
 			display: none;
 		}
 	}
