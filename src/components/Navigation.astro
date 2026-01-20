@@ -1,4 +1,5 @@
 ---
+import ColorThemeToggle from "#components/ColorThemeToggle.astro";
 import Logo from "#components/Logo.astro";
 ---
 
@@ -9,23 +10,27 @@ import Logo from "#components/Logo.astro";
 		<Logo title="Go to homepage" />
 	</a>
 
-	<ul>
-		<li>
-			<a href="/" data-current={Astro.url.pathname === "/"}>Home</a>
-		</li>
+	<div class="nav-items">
+		<ul>
+			<li>
+				<a href="/" data-current={Astro.url.pathname === "/"}>Home</a>
+			</li>
 
-		<li>
-			<a href="/work" data-current={Astro.url.pathname.includes("/work")}
-				>Work</a
-			>
-		</li>
+			<li>
+				<a href="/work" data-current={Astro.url.pathname.includes("/work")}
+					>Work</a
+				>
+			</li>
 
-		<li>
-			<a href="/blog" data-current={Astro.url.pathname.includes("/blog")}
-				>Blog</a
-			>
-		</li>
-	</ul>
+			<li>
+				<a href="/blog" data-current={Astro.url.pathname.includes("/blog")}
+					>Blog</a
+				>
+			</li>
+		</ul>
+
+		<ColorThemeToggle />
+	</div>
 </nav>
 
 <style>
@@ -53,7 +58,7 @@ import Logo from "#components/Logo.astro";
 		}
 	}
 
-	ul {
+	.nav-items {
 		display: flex;
 		align-items: center;
 		gap: var(--space-md);
@@ -62,6 +67,10 @@ import Logo from "#components/Logo.astro";
 		@media print {
 			display: none;
 		}
+	}
+
+	ul {
+		display: contents;
 	}
 
 	li {

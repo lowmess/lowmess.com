@@ -25,6 +25,14 @@ const { title, description, ...props } = Astro.props;
 <html lang="en">
 	<head>
 		<HeadMetadata title={title} description={description} />
+
+		<!-- set initial color scheme -->
+		<script>
+			const defaultTheme = "system";
+			const storedTheme = localStorage.getItem("color-theme");
+
+			document.documentElement.dataset.colorTheme = storedTheme ?? defaultTheme;
+		</script>
 	</head>
 
 	<body>

@@ -60,11 +60,7 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	.icon {
 		position: relative;
 		top: -1px;
-		color: var(--color-background);
-
-		@media (prefers-color-scheme: dark) {
-			color: var(--color-primary);
-		}
+		color: light-dark(var(--color-background), var(--color-primary));
 	}
 
 	p {
@@ -77,30 +73,21 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		font-size: var(--font-size-sm);
 		letter-spacing: var(--letter-spacing-wide);
 		text-transform: uppercase;
-		color: var(--color-background);
+		color: light-dark(var(--color-background), var(--color-primary));
 		text-wrap: pretty;
-
-		@media (prefers-color-scheme: dark) {
-			color: var(--color-primary);
-		}
 	}
 
 	.reason {
 		text-wrap: pretty;
 
 		:global(a) {
-			text-decoration-color: var(--color-background);
+			text-decoration-color: light-dark(
+				var(--color-background),
+				var(--color-primary)
+			);
 
 			&:hover {
-				color: var(--color-background);
-			}
-
-			@media (prefers-color-scheme: dark) {
-				text-decoration-color: var(--color-primary);
-
-				&:hover {
-					color: var(--color-primary);
-				}
+				color: light-dark(var(--color-background), var(--color-primary));
 			}
 		}
 	}
