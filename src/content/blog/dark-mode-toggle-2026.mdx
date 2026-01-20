@@ -78,9 +78,7 @@ $colorThemeSelect?.addEventListener("change", (event) => {
 
 Note that even though I have a `"system"` value in my `<select>`, I don't have to worry about it messing up any styles by setting the data attribute, since `:root` and `:root[data-color-theme="system"]` would function identically. If you wanted to clear the attribute instead, that's also a valid approach, though some of the rest of the code would need to be tweaked.
 
-## Sweating the Details
-
-That's enough for a basic toggle, but now loading in new pages or refreshing will always revert to the default system color theme. To fix that, we'll want to store the result of each change in `localStorage` (or even as a database column if you are working on a project that stores user preferences in a table).
+That's enough for a basic toggle, but now loading in new pages or refreshing will always revert to the default system color theme. To fix that, we'll want to store the result of each change somewhere. Since this is a static site, I'm doing so in `localStorage`, but a cookie or database entry may work better for dynamically rendered sites.
 
 ```ts
 const $colorThemeSelect = document.querySelector("#color-theme-select");
@@ -89,7 +87,7 @@ $colorThemeSelect?.addEventListener("change", (event) => {
 	const nextValue = event.currentTarget.value;
 
 	document.documentElement.dataset.colorTheme = nextValue;
-	localStorage.setItem("color-theme", nextValue);
+	localStorage.setItem("color-theme", nextValue); // [!code ++]
 });
 ```
 
@@ -102,14 +100,23 @@ const storedTheme = localStorage.getItem("color-theme");
 document.documentElement.dataset.colorTheme = storedTheme ?? defaultTheme;
 ```
 
-We might as well also set the default value on our `<select>` so the correct option is checked:
+Be sure to put that script in your `<head>` to avoid any flashes of unwanted color. If you're dynamically rendering the page, this is where storing the value as a cookie/in your database comes in. You can read the value and apply the appropriate `data-color-theme` attribute to the root `<html>` element before the browser even gets the document.
+
+We might as well also set the default value on our `<select>` so the correct option is checked. Unlike setting the color theme on the document, this can happen after the initial parse/paint since it's unlikely a user will be able to interact with the selector faster than the script parsing/execution. You can place it right next to your change handler.
 
 ```ts
 const $colorThemeSelect = document.querySelector("#color-theme-select");
 
-if ($colorThemeSelect) {
-	$colorThemeSelect.value = storedTheme ?? defaultTheme;
-}
+if ($colorThemeSelect) { // [!code ++]
+	$colorThemeSelect.value = storedTheme ?? defaultTheme; // [!code ++]
+} // [!code ++]
+
+$colorThemeSelect?.addEventListener("change", (event) => {
+	const nextValue = event.currentTarget.value;
+
+	document.documentElement.dataset.colorTheme = nextValue;
+	localStorage.setItem("color-theme", nextValue);
+});
 ```
 
 The last detail is to only display the select if the user can actually interact with it. Did you know they added a [`scripting` media query to CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/scripting)? Me neither until earlier today.
