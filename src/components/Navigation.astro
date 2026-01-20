@@ -61,8 +61,7 @@ import Logo from "#components/Logo.astro";
 	.nav-items {
 		display: flex;
 		align-items: center;
-		gap: var(--space-md);
-		margin: 0;
+		gap: var(--space-sm);
 
 		@media print {
 			display: none;
@@ -70,7 +69,10 @@ import Logo from "#components/Logo.astro";
 	}
 
 	ul {
-		display: contents;
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		margin: 0;
 	}
 
 	li {
