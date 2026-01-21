@@ -16,7 +16,7 @@ import "#styles/tokens.css";
 type Props = HTMLAttributes<"main"> & {
 	title?: string;
 	description?: string;
-	ogImageUrl?: string;
+	ogImageUrl?: string | URL;
 };
 
 const { title, description, ogImageUrl, ...props } = Astro.props;

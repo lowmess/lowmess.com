@@ -1,19 +1,23 @@
 ---
+import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
+
 import "sanitize.css";
 import "sanitize.css/assets.css";
 import "sanitize.css/reduce-motion.css";
 import "sanitize.css/typography.css";
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
-
 type Props = {
 	title?: string;
 	description?: string;
 	image?: string;
-	ogImageUrl?: string;
+	ogImageUrl?: string | URL;
 };
 
-const { title, description, ogImageUrl = "/og-image.png" } = Astro.props;
+const {
+	title,
+	description,
+	ogImageUrl = `${Astro.url.origin}/og-image.png`,
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
