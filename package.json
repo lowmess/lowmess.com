@@ -40,13 +40,16 @@
     "astro": "^5.16.11",
     "astro-embed": "^0.12.0",
     "postcss-preset-env": "^11.1.1",
+    "react": "^19.2.3",
     "sanitize.css": "^13.0.0",
+    "satori": "^0.19.1",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/ts-plugin": "^1.10.6",
     "@types/node": "^25.0.9",
+    "@types/react": "^19.2.9",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
