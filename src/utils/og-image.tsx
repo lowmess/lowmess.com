@@ -1,4 +1,37 @@
-import React, { type HTMLAttributes, type PropsWithChildren } from "react";
+import React, {
+	type HTMLAttributes,
+	type PropsWithChildren,
+	type ReactNode,
+} from "react";
+import satori from "satori";
+import sharp from "sharp";
+
+import izoard from "#assets/fonts/izoard-regular-webfont.woff";
+import strawford from "#assets/fonts/strawford-bold-webfont.woff";
+
+export async function generateOgImage(template: ReactNode) {
+	const svg = await satori(template, {
+		width: 1200,
+		height: 635,
+		fonts: [
+			{
+				name: "Izoard",
+				data: Buffer.from(izoard),
+				weight: 400,
+				style: "normal",
+			},
+			{
+				name: "Strawford",
+				data: Buffer.from(strawford),
+				weight: 700,
+				style: "normal",
+			},
+		],
+	});
+	const png = await sharp(Buffer.from(svg)).resize(1200, 635).png().toBuffer();
+
+	return png;
+}
 
 function OgImageLayout({
 	style,
@@ -30,7 +63,6 @@ function OgImageLayout({
 					border: "16px solid hsl(35 20% 35%)",
 					borderRadius: "16px",
 					padding: "96px",
-					paddingBottom: "128px",
 					backgroundColor: "hsl(35 10% 18%)",
 					...style,
 				}}
@@ -182,6 +214,15 @@ export function OgSiteImage(): React.ReactNode {
 			>
 				and i make websites<span style={{ color: "hsl(35 90% 50%)" }}>.</span>
 			</span>
+
+			<div
+				style={{
+					height: "16px",
+					width: "256px",
+					marginTop: "64px",
+					backgroundColor: "hsl(35 90% 50%)",
+				}}
+			/>
 		</OgImageLayout>
 	);
 }
