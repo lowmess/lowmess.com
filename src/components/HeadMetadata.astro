@@ -10,9 +10,10 @@ type Props = {
 	title?: string;
 	description?: string;
 	image?: string;
+	ogImageUrl?: string;
 };
 
-const { title, description } = Astro.props;
+const { title, description, ogImageUrl = "/og-image.png" } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -63,6 +64,7 @@ const pageDescription = description || SITE_DESCRIPTION;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={pageDescription} />
+<meta property="og:image" content={ogImageUrl} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary" />
