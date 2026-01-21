@@ -16,15 +16,20 @@ import "#styles/tokens.css";
 type Props = HTMLAttributes<"main"> & {
 	title?: string;
 	description?: string;
+	ogImageUrl?: string;
 };
 
-const { title, description, ...props } = Astro.props;
+const { title, description, ogImageUrl, ...props } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<HeadMetadata title={title} description={description} />
+		<HeadMetadata
+			title={title}
+			description={description}
+			ogImageUrl={ogImageUrl}
+		/>
 
 		<!-- set initial color scheme -->
 		<script>
