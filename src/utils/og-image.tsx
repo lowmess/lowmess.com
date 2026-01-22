@@ -44,9 +44,6 @@ function OgImageLayout({
 				width: "100%",
 				height: "100%",
 				backgroundColor: "hsl(35 10% 18%)",
-				backgroundImage: "url(https://lowmess.com/images/topography-dark.svg)",
-				backgroundSize: "1800px 1800px",
-				backgroundPosition: "center",
 				color: "hsl(35 10% 95%)",
 				padding: "32px",
 			}}
