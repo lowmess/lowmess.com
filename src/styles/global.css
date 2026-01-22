@@ -14,27 +14,10 @@ body {
 	padding-block-start: var(--container-padding);
 	padding-inline: var(--container-padding);
 	background-color: var(--color-background);
-	background-image: url("/images/topography-light.svg");
-	background-size: 900px 900px;
-	background-position-x: center;
-	background-repeat: repeat;
-	background-attachment: fixed;
 	font-size: var(--font-size-md);
 	font-family: var(--font-family-body);
 	line-height: var(--line-height-body);
 	color: var(--color-text);
-
-	@media (prefers-color-scheme: dark) {
-		background-image: url("/images/topography-dark.svg");
-	}
-
-	:root[data-color-theme="light"] & {
-		background-image: url("/images/topography-light.svg");
-	}
-
-	:root[data-color-theme="dark"] & {
-		background-image: url("/images/topography-dark.svg");
-	}
 }
 
 body > main {

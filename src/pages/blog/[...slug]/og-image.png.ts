@@ -17,7 +17,9 @@ export const GET: APIRoute = async ({ params }) => {
 	}
 
 	const { title, date } = post.data;
-	const png = await generateOgImage(OgBlogPostImage({ title, date }));
+	const png = await generateOgImage(
+		OgBlogPostImage({ title, date, slug: post.id }),
+	);
 
 	return new Response(png as Uint8Array<ArrayBuffer>, {
 		headers: {
