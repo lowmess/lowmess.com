@@ -1,34 +1,10 @@
 import { file, glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
+import { blogPostSchema } from "#schemas/blog-post.ts";
+import { concertSchema } from "#schemas/concert.ts";
 import { resumeSchema } from "#schemas/resume.ts";
-
-export const blogPostSchema = z.object({
-	title: z.string(),
-	description: z.string(),
-	date: z
-		.string()
-		.or(z.date())
-		.transform((val) => new Date(val)),
-	draft: z.boolean().optional(),
-	updated: z
-		.string()
-		.or(z.date())
-		.optional()
-		.transform((val) => (val ? new Date(val) : undefined)),
-	archived: z
-		.string()
-		.or(z.date())
-		.optional()
-		.transform((val) => {
-			if (!val) return val;
-
-			return new Date(val);
-		}),
-	archiveReason: z.string().optional(),
-});
-
-export type BlogPost = z.infer<typeof blogPostSchema>;
+import { screeningSchema } from "#schemas/screening.ts";
 
 const blog = defineCollection({
 	loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
@@ -42,6 +18,7 @@ const projects = defineCollection({
 		description: z.string(),
 		date: z
 			.string()
+			.date()
 			.or(z.date())
 			.transform((val) => new Date(val)),
 		website: z.string().optional(),
@@ -54,4 +31,14 @@ const resume = defineCollection({
 	schema: resumeSchema,
 });
 
-export const collections = { blog, projects, resume };
+const concerts = defineCollection({
+	loader: file("./src/data/concerts.json"),
+	schema: concertSchema,
+});
+
+const screenings = defineCollection({
+	loader: file("./src/data/screenings.json"),
+	schema: screeningSchema,
+});
+
+export const collections = { blog, projects, resume, concerts, screenings };
