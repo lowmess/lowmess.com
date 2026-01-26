@@ -72,7 +72,11 @@ export async function getGithubData({
 
 	const contributions = json.data.viewer.contributionsCollection;
 
-	const mappedContributions = [
+	const mappedContributions: Array<{
+		occurredAt: string;
+		type: "commit" | "pullRequest" | "review";
+		commitCount?: number;
+	}> = [
 		// @ts-expect-error i do not want to type out the github api
 		...contributions.commitContributionsByRepository.flatMap((c) =>
 			// @ts-expect-error i do not want to type out the github api
@@ -88,13 +92,9 @@ export async function getGithubData({
 			...node,
 			type: "review",
 		})),
-	] satisfies Array<{
-		occurredAt: string;
-		type: "commit" | "pullRequest" | "review";
-		commitCount?: number;
-	}>;
+	];
 
-	const groupedStats: Record<string, GithubStat> = mappedContributions.reduce(
+	const groupedStats = mappedContributions.reduce(
 		(groups, contribution) => {
 			const rawDate = new Date(contribution.occurredAt);
 			const formattedDateString = rawDate.toISOString().split("T")[0];
@@ -102,7 +102,9 @@ export async function getGithubData({
 			if (!groups[formattedDateString]) {
 				groups[formattedDateString] = {
 					commitCount:
-						contribution.type === "commit" ? contribution.commitCount : 0,
+						contribution.type === "commit"
+							? (contribution.commitCount ?? 0)
+							: 0,
 					pullRequestCount: contribution.type === "pullRequest" ? 1 : 0,
 					reviewCount: contribution.type === "review" ? 1 : 0,
 				};
@@ -113,7 +115,7 @@ export async function getGithubData({
 
 			switch (contribution.type) {
 				case "commit":
-					thisGroup.commitCount += contribution.commitCount;
+					thisGroup.commitCount += contribution.commitCount ?? 0;
 					break;
 
 				case "pullRequest":
@@ -123,11 +125,14 @@ export async function getGithubData({
 				case "review":
 					thisGroup.reviewCount += 1;
 					break;
+
+				default:
+					return contribution.type satisfies never;
 			}
 
 			return groups;
 		},
-		{},
+		{} as Record<string, GithubStat>,
 	);
 
 	return {
