@@ -1,15 +1,3 @@
-export function getPacificTimezoneMsOffset() {
-	const instant = new Date();
-	const pacificTime = new Date(
-		instant.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }),
-	);
-	const utcTime = new Date(
-		instant.toLocaleString("en-US", { timeZone: "Etc/UTC" }),
-	);
-
-	return Math.round(utcTime.getTime() - pacificTime.getTime());
-}
-
 export function isTuple<T>(array: T[]): array is [T, ...T[]] {
 	return array.length > 0;
 }

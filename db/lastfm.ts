@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 import { OLDEST_POSSIBLE_TIMESTAMP } from "./consts.ts";
-import { getDefaultTimePeriod, getPacificTimezoneMsOffset } from "./utils.ts";
+import { getDefaultTimePeriod } from "./utils.ts";
 
 type Track = {
 	artist: {
@@ -114,9 +114,7 @@ export async function getLastfmData({
 				return groups;
 			}
 
-			const rawTimestamp = parseInt(track.date.uts, 10) * 1000;
-			const timestamp =
-				new Date(rawTimestamp).getTime() - getPacificTimezoneMsOffset();
+			const timestamp = parseInt(track.date.uts, 10) * 1000;
 			const date = new Date(timestamp);
 			const formattedDateString = date.toISOString().split("T")[0];
 

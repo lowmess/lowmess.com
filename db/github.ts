@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-import { getDefaultTimePeriod, getPacificTimezoneMsOffset } from "./utils.ts";
+import { getDefaultTimePeriod } from "./utils.ts";
 
 type GithubStat = {
 	commitCount: number;
@@ -17,7 +17,10 @@ export async function getGithubData({
 }: Params = {}) {
 	const nextTimestamp = Date.now();
 	const fromDate = new Date(from);
-	const today = new Date(new Date().getTime() - getPacificTimezoneMsOffset());
+	const today = new Date();
+	// set time to 11:59pm
+	today.setUTCHours(23, 59, 59, 0);
+
 	const daysToCheck: Array<Date> = [];
 
 	while (fromDate < today) {

@@ -2,7 +2,6 @@ import "dotenv/config";
 import Parser from "rss-parser";
 
 import { OLDEST_POSSIBLE_TIMESTAMP } from "./consts.ts";
-import { getPacificTimezoneMsOffset } from "./utils.ts";
 
 const parser = new Parser();
 
@@ -52,10 +51,7 @@ export async function getLetterboxdData({ lastReadGuid }: Params = {}) {
 			}
 
 			const rawDate = new Date(item.isoDate);
-			const offsetDate = new Date(
-				rawDate.getTime() - getPacificTimezoneMsOffset(),
-			);
-			const formattedDateString = offsetDate.toISOString().split("T")[0];
+			const formattedDateString = rawDate.toISOString().split("T")[0];
 
 			if (!groups[formattedDateString]) {
 				groups[formattedDateString] = 1;

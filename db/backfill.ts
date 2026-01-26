@@ -4,7 +4,7 @@ import { getBlueskyData } from "./bluesky";
 import { getGithubData } from "./github";
 import { getLastfmData } from "./lastfm";
 import { getLetterboxdData } from "./letterboxd";
-import { getPacificTimezoneMsOffset, isTuple } from "./utils";
+import { isTuple } from "./utils";
 
 const DATE_TO_BACKFILL_FROM = "2026-01-01";
 const SET_SYNC_TABLE = true;
@@ -17,8 +17,10 @@ const UPDATE_LETTERBOXD = true;
  * helper function to re-sync database if/when sync action fails
  */
 export default async function backfill() {
-	const from =
-		new Date(DATE_TO_BACKFILL_FROM).getTime() - getPacificTimezoneMsOffset();
+	const fromDate = new Date(DATE_TO_BACKFILL_FROM);
+	fromDate.setUTCHours(0, 0, 0, 0);
+
+	const from = fromDate.getTime();
 
 	/*****************************************************************************
 	 * B L U E S K Y
