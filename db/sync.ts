@@ -108,42 +108,22 @@ export default async function sync() {
 					.set({ githubTimestamp: githubData.lastTimestamp })
 					.where(eq(Sync.id, "1"));
 
-				const existingData = await db
-					.select()
-					.from(Code)
-					.where(inArray(Code.date, Object.keys(githubData.groupedStats)));
-
 				const queries = Object.entries(githubData.groupedStats).map(
 					([key, value]) => {
-						const existingStat = existingData.find((stat) => stat.date === key);
-
-						if (existingStat) {
-							return db
-								.update(Code)
-								.set({
-									commitCount: existingStat.commitCount + value.commitCount,
-									pullRequestCount:
-										existingStat.pullRequestCount + value.pullRequestCount,
-									reviewCount: existingStat.reviewCount + value.reviewCount,
-								})
-								.where(eq(Code.date, key));
-						}
-
-						return (
-							db
-								.insert(Code)
-								.values({ date: key, ...value })
-								// this shouldn't be possible to hit, but doesn't hurt to be safe
-								.onConflictDoUpdate({
-									target: Code.date,
-									targetWhere: sql`date <> ${key}`,
-									set: {
-										commitCount: sql`excluded.commitCount`,
-										pullRequestCount: sql`excluded.pullRequestCount`,
-										reviewCount: sql`excluded.reviewCount`,
-									},
-								})
-						);
+						// unlike the other stats, the github resolver always returns a full
+						// day's count. therefore, we always want to override on conflict
+						return db
+							.insert(Code)
+							.values({ date: key, ...value })
+							.onConflictDoUpdate({
+								target: Code.date,
+								targetWhere: sql`date <> ${key}`,
+								set: {
+									commitCount: sql`excluded.commitCount`,
+									pullRequestCount: sql`excluded.pullRequestCount`,
+									reviewCount: sql`excluded.reviewCount`,
+								},
+							});
 					},
 				);
 

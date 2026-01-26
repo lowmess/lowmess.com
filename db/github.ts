@@ -12,70 +12,122 @@ type Params = {
 	from?: number;
 };
 
+/**
+ * note that because contributions can be delayed, this will always count from
+ * 00:00:00 on the date of the `from` timestamp. therefore, rather than
+ * counting up in the database, this should always replace the data. additionally,
+ * the timestamp returned is intentionally set 7 days in the past, so sync will
+ * look back to capture straggling contributions.
+ */
 export async function getGithubData({
 	from = getDefaultTimePeriod(),
 }: Params = {}) {
-	const nextTimestamp = Date.now();
+	const instant = new Date();
+	instant.setUTCDate(instant.getUTCDate() - 7);
+	instant.setUTCHours(0, 0, 0, 0);
+	const nextTimestamp = instant.getTime();
+
 	const fromDate = new Date(from);
-	const today = new Date();
-	// set time to 11:59pm
-	today.setUTCHours(23, 59, 59, 0);
+	fromDate.setUTCHours(0, 0, 0, 0);
 
-	const daysToCheck: Array<Date> = [];
-
-	while (fromDate < today) {
-		daysToCheck.push(new Date(fromDate));
-		fromDate.setDate(fromDate.getDate() + 1);
-	}
-
-	const query = `query recentCommits($fromDate: DateTime, $toDate: DateTime) {
+	const query = `query recentCommits($fromDate: DateTime) {
     viewer {
-      contributionsCollection(from: $fromDate, to: $toDate) {
-        totalCommitContributions
-				totalPullRequestContributions
-				totalPullRequestReviewContributions
+      contributionsCollection(from: $fromDate) {
+        commitContributionsByRepository {
+					contributions(last: 100) {
+						nodes {
+							commitCount
+							occurredAt
+						}
+					}
+				}
+				pullRequestContributions(last: 100) {
+					nodes {
+						occurredAt
+					}
+				}
+				pullRequestReviewContributions(last: 100) {
+					nodes {
+						occurredAt
+					}
+				}
       }
     }
   }`;
 
-	const groupedStats: Record<string, GithubStat> = {};
+	const res = await fetch(`https://api.github.com/graphql`, {
+		method: "POST",
+		body: JSON.stringify({
+			query,
+			variables: {
+				fromDate: fromDate.toISOString(),
+			},
+		}),
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${process.env.GITHUB_API_KEY}`,
+		},
+	});
+	const json = await res.json();
 
-	// it is not possible (as far as i can tell) to get this data grouped by
-	// date directly from github. so we are just making X number of requests
-	await Promise.all(
-		daysToCheck.map(async (day, index) => {
-			const toDate = daysToCheck[index + 1];
+	const contributions = json.data.viewer.contributionsCollection;
 
-			if (!toDate) {
-				return;
+	const mappedContributions = [
+		// @ts-expect-error i do not want to type out the github api
+		...contributions.commitContributionsByRepository.flatMap((c) =>
+			// @ts-expect-error i do not want to type out the github api
+			c.contributions.nodes.map((node) => ({ ...node, type: "commit" })),
+		),
+		// @ts-expect-error i do not want to type out the github api
+		...contributions.pullRequestContributions.nodes.map((node) => ({
+			...node,
+			type: "pullRequest",
+		})),
+		// @ts-expect-error i do not want to type out the github api
+		...contributions.pullRequestReviewContributions.nodes.map((node) => ({
+			...node,
+			type: "review",
+		})),
+	] satisfies Array<{
+		occurredAt: string;
+		type: "commit" | "pullRequest" | "review";
+		commitCount?: number;
+	}>;
+
+	const groupedStats: Record<string, GithubStat> = mappedContributions.reduce(
+		(groups, contribution) => {
+			const rawDate = new Date(contribution.occurredAt);
+			const formattedDateString = rawDate.toISOString().split("T")[0];
+
+			if (!groups[formattedDateString]) {
+				groups[formattedDateString] = {
+					commitCount:
+						contribution.type === "commit" ? contribution.commitCount : 0,
+					pullRequestCount: contribution.type === "pullRequest" ? 1 : 0,
+					reviewCount: contribution.type === "review" ? 1 : 0,
+				};
+				return groups;
 			}
 
-			const res = await fetch(`https://api.github.com/graphql`, {
-				method: "POST",
-				body: JSON.stringify({
-					query,
-					variables: {
-						fromDate: day.toISOString(),
-						toDate: toDate.toISOString(),
-					},
-				}),
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${process.env.GITHUB_API_KEY}`,
-				},
-			});
-			const json = await res.json();
+			const thisGroup = groups[formattedDateString];
 
-			const contributions = json.data.viewer.contributionsCollection;
+			switch (contribution.type) {
+				case "commit":
+					thisGroup.commitCount += contribution.commitCount;
+					break;
 
-			const label = day.toISOString().split("T").shift();
+				case "pullRequest":
+					thisGroup.pullRequestCount += 1;
+					break;
 
-			groupedStats[label!] = {
-				commitCount: contributions.totalCommitContributions,
-				pullRequestCount: contributions.totalPullRequestContributions,
-				reviewCount: contributions.totalPullRequestReviewContributions,
-			};
-		}),
+				case "review":
+					thisGroup.reviewCount += 1;
+					break;
+			}
+
+			return groups;
+		},
+		{},
 	);
 
 	return {
