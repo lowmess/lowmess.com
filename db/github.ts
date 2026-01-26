@@ -96,8 +96,7 @@ export async function getGithubData({
 
 	const groupedStats = mappedContributions.reduce(
 		(groups, contribution) => {
-			const rawDate = new Date(contribution.occurredAt);
-			const formattedDateString = rawDate.toISOString().split("T")[0];
+			const formattedDateString = contribution.occurredAt.split("T")[0];
 
 			if (!groups[formattedDateString]) {
 				groups[formattedDateString] = {
