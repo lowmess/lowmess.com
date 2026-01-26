@@ -3,8 +3,8 @@
 ## Installing
 
 ```bash
-git clone https://github.com/lowmess/lowmess.git
-cd lowmess
+git clone git@github.com:lowmess/lowmess.com.git
+cd lowmess.com
 npm i
 ```
 
@@ -19,3 +19,7 @@ npm run build
 ```bash
 npm run start
 ```
+
+## Environment Variables
+
+You can find the environment variables needed in [`env.d.ts`](./src/env.d.ts)

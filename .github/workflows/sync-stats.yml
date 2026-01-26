@@ -1,0 +1,35 @@
+name: Sync
+
+on:
+  schedule:
+    - cron: "5 8,20 * * *"
+
+jobs:
+  sync:
+    name: Sync stats database
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Run sync job
+        env:
+          ASTRO_DB_REMOTE_URL: ${{ secrets.ASTRO_DB_REMOTE_URL }}
+          ASTRO_DB_APP_TOKEN: ${{ secrets.ASTRO_DB_APP_TOKEN }}
+          BLUESKY_DID: ${{ secrets.BLUESKY_DID }}
+          GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USER_NAME: ${{ secrets.LASTFM_USER_NAME }}
+          LETTERBOXD_USER_NAME: ${{ secrets.LETTERBOXD_USER_NAME }}
+          VAL_TOWN_URL: ${{ secrets.VAL_TOWN_URL }}
+
+        run: npx astro db execute db/sync.ts --remote

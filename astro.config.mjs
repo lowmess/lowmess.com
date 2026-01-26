@@ -1,9 +1,10 @@
-import fs from "fs";
+import db from "@astrojs/db";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { transformerNotationDiff } from "@shikijs/transformers";
 import embeds from "astro-embed/integration";
 import { defineConfig } from "astro/config";
+import fs from "fs";
 
 import { alabasterTheme, rubberTheme } from "./syntax-themes";
 
@@ -44,6 +45,7 @@ export default defineConfig({
 			},
 		}),
 		sitemap({ filter: (page) => !page.includes("/blog/archive") }),
+		db(),
 	],
 	vite: {
 		plugins: [rawFontsPlugin([".woff"])],
