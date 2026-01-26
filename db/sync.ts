@@ -15,7 +15,6 @@ import { getBlueskyData } from "./bluesky";
 import { getGithubData } from "./github";
 import { getLastfmData } from "./lastfm";
 import { getLetterboxdData } from "./letterboxd";
-import { isTuple } from "./utils";
 
 /**
  * syncs the database with the latest stats
@@ -36,7 +35,7 @@ export default async function sync() {
 				blueskyData.latestGuid &&
 				Object.keys(blueskyData.groupedCounts).length
 			) {
-				await db
+				const syncUpdate = db
 					.update(Sync)
 					.set({ blueskyGuid: blueskyData.latestGuid })
 					.where(eq(Sync.id, "1"));
@@ -46,7 +45,7 @@ export default async function sync() {
 					.from(Social)
 					.where(inArray(Social.date, Object.keys(blueskyData.groupedCounts)));
 
-				const queries = Object.entries(blueskyData.groupedCounts).map(
+				const valueUpdates = Object.entries(blueskyData.groupedCounts).map(
 					([key, value]) => {
 						const existingStat = existingData.find((stat) => stat.date === key);
 
@@ -71,9 +70,7 @@ export default async function sync() {
 					},
 				);
 
-				if (isTuple(queries)) {
-					await db.batch(queries);
-				}
+				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
 			if (typeof process.env.VAL_TOWN_URL !== "string") {
@@ -103,33 +100,45 @@ export default async function sync() {
 				githubData.lastTimestamp &&
 				Object.keys(githubData.groupedStats).length
 			) {
-				await db
+				const syncUpdate = db
 					.update(Sync)
 					.set({ githubTimestamp: githubData.lastTimestamp })
 					.where(eq(Sync.id, "1"));
 
-				const queries = Object.entries(githubData.groupedStats).map(
+				const existingData = await db
+					.select()
+					.from(Code)
+					.where(inArray(Code.date, Object.keys(githubData.groupedStats)));
+
+				const valueUpdates = Object.entries(githubData.groupedStats).map(
 					([key, value]) => {
-						// unlike the other stats, the github resolver always returns a full
-						// day's count. therefore, we always want to override on conflict
-						return db
-							.insert(Code)
-							.values({ date: key, ...value })
-							.onConflictDoUpdate({
-								target: Code.date,
-								targetWhere: sql`date <> ${key}`,
-								set: {
-									commitCount: sql`excluded.commitCount`,
-									pullRequestCount: sql`excluded.pullRequestCount`,
-									reviewCount: sql`excluded.reviewCount`,
-								},
-							});
+						const existingStat = existingData.find((stat) => stat.date === key);
+
+						if (existingStat) {
+							// unlike the other stats, the github resolver always returns a full
+							// day's count. therefore, we always want to override on conflict
+							return db.update(Code).set(value).where(eq(Code.date, key));
+						}
+
+						return (
+							db
+								.insert(Code)
+								.values({ date: key, ...value })
+								// this shouldn't be possible to hit, but doesn't hurt to be safe
+								.onConflictDoUpdate({
+									target: Code.date,
+									targetWhere: sql`date <> ${key}`,
+									set: {
+										commitCount: sql`excluded.commitCount`,
+										pullRequestCount: sql`excluded.pullRequestCount`,
+										reviewCount: sql`excluded.reviewCount`,
+									},
+								})
+						);
 					},
 				);
 
-				if (isTuple(queries)) {
-					await db.batch(queries);
-				}
+				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
 			if (typeof process.env.VAL_TOWN_URL !== "string") {
@@ -159,7 +168,7 @@ export default async function sync() {
 				lastfmData.lastTimestamp &&
 				Object.keys(lastfmData.groupedStats).length
 			) {
-				await db
+				const syncUpdate = db
 					.update(Sync)
 					.set({ lastfmTimestamp: lastfmData.lastTimestamp })
 					.where(eq(Sync.id, "1"));
@@ -169,7 +178,7 @@ export default async function sync() {
 					.from(Music)
 					.where(inArray(Music.date, Object.keys(lastfmData.groupedStats)));
 
-				const queries = Object.entries(lastfmData.groupedStats).map(
+				const valueUpdates = Object.entries(lastfmData.groupedStats).map(
 					([key, value]) => {
 						const existingStat = existingData.find((stat) => stat.date === key);
 
@@ -217,9 +226,7 @@ export default async function sync() {
 					},
 				);
 
-				if (isTuple(queries)) {
-					await db.batch(queries);
-				}
+				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
 			if (typeof process.env.VAL_TOWN_URL !== "string") {
@@ -249,7 +256,7 @@ export default async function sync() {
 				letterboxdData.latestGuid &&
 				Object.keys(letterboxdData.groupedCounts).length
 			) {
-				await db
+				const syncUpdate = db
 					.update(Sync)
 					.set({ letterboxdGuid: letterboxdData.latestGuid })
 					.where(eq(Sync.id, "1"));
@@ -259,7 +266,7 @@ export default async function sync() {
 					.from(Film)
 					.where(inArray(Film.date, Object.keys(letterboxdData.groupedCounts)));
 
-				const queries = Object.entries(letterboxdData.groupedCounts).map(
+				const valueUpdates = Object.entries(letterboxdData.groupedCounts).map(
 					([key, value]) => {
 						const existingStat = existingData.find((stat) => stat.date === key);
 
@@ -284,9 +291,7 @@ export default async function sync() {
 					},
 				);
 
-				if (isTuple(queries)) {
-					await db.batch(queries);
-				}
+				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
 			if (typeof process.env.VAL_TOWN_URL !== "string") {

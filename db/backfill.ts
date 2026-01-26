@@ -4,7 +4,7 @@ import { getBlueskyData } from "./bluesky";
 import { getGithubData } from "./github";
 import { getLastfmData } from "./lastfm";
 import { getLetterboxdData } from "./letterboxd";
-import { isTuple } from "./utils";
+import { hasValue, isTuple } from "./utils";
 
 const DATE_TO_BACKFILL_FROM = "2026-01-01";
 const SET_SYNC_TABLE = true;
@@ -35,7 +35,7 @@ export default async function backfill() {
 
 			// since bluesky is just an RSS feed, we can only grab the most recent items
 			// anyways. so we should update everything we can, including the sync table
-			await db
+			const syncUpdate = db
 				.insert(Sync)
 				.values([
 					{
@@ -53,7 +53,7 @@ export default async function backfill() {
 					},
 				});
 
-			const queries = Object.entries(blueskyData.groupedCounts).map(
+			const valueUpdates = Object.entries(blueskyData.groupedCounts).map(
 				([key, value]) => {
 					return db
 						.insert(Social)
@@ -66,9 +66,7 @@ export default async function backfill() {
 				},
 			);
 
-			if (isTuple(queries)) {
-				await db.batch(queries);
-			}
+			await db.batch([syncUpdate, ...valueUpdates]);
 		} catch (error) {
 			console.warn("failure loading or setting bluesky data:");
 			console.warn(error);
@@ -86,8 +84,10 @@ export default async function backfill() {
 				return;
 			}
 
+			let syncUpdate;
+
 			if (SET_SYNC_TABLE) {
-				await db
+				syncUpdate = db
 					.insert(Sync)
 					.values([
 						{
@@ -106,7 +106,7 @@ export default async function backfill() {
 					});
 			}
 
-			const queries = Object.entries(githubData.groupedStats).map(
+			const valueUpdates = Object.entries(githubData.groupedStats).map(
 				([key, value]) => {
 					return db
 						.insert(Code)
@@ -123,8 +123,10 @@ export default async function backfill() {
 				},
 			);
 
-			if (isTuple(queries)) {
-				await db.batch(queries);
+			const updates = [syncUpdate, ...valueUpdates].filter(hasValue);
+
+			if (isTuple(updates)) {
+				await db.batch(updates);
 			}
 		} catch (error) {
 			console.warn("failure loading or setting github data:");
@@ -143,8 +145,10 @@ export default async function backfill() {
 				return;
 			}
 
+			let syncUpdate;
+
 			if (SET_SYNC_TABLE) {
-				await db
+				syncUpdate = db
 					.insert(Sync)
 					.values([
 						{
@@ -163,7 +167,7 @@ export default async function backfill() {
 					});
 			}
 
-			const queries = Object.entries(lastfmData.groupedStats).map(
+			const valueUpdates = Object.entries(lastfmData.groupedStats).map(
 				([key, value]) => {
 					return db
 						.insert(Music)
@@ -187,8 +191,10 @@ export default async function backfill() {
 				},
 			);
 
-			if (isTuple(queries)) {
-				await db.batch(queries);
+			const updates = [syncUpdate, ...valueUpdates].filter(hasValue);
+
+			if (isTuple(updates)) {
+				await db.batch(updates);
 			}
 		} catch (error) {
 			console.warn("failure loading or setting last.fm data:");
@@ -209,7 +215,7 @@ export default async function backfill() {
 
 			// since letterboxd is just an RSS feed, we can only grab the most recent items
 			// anyways. so we should update everything we can, including the sync table
-			await db
+			const syncUpdate = db
 				.insert(Sync)
 				.values([
 					{
@@ -227,7 +233,7 @@ export default async function backfill() {
 					},
 				});
 
-			const queries = Object.entries(letterboxdData.groupedCounts).map(
+			const valueUpdates = Object.entries(letterboxdData.groupedCounts).map(
 				([key, value]) => {
 					return db
 						.insert(Film)
@@ -240,9 +246,7 @@ export default async function backfill() {
 				},
 			);
 
-			if (isTuple(queries)) {
-				await db.batch(queries);
-			}
+			await db.batch([syncUpdate, ...valueUpdates]);
 		} catch (error) {
 			console.warn("failure loading or setting letterboxd data:");
 			console.warn(error);

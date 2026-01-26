@@ -46,6 +46,10 @@ async function getTracks({
 	const res = await fetch(uri);
 	const json = await res.json();
 
+	if (!json.recenttracks.track) {
+		throw new Error("No tracks returned from last.fm");
+	}
+
 	const tracksFromResponse = json.recenttracks.track as Array<Track>;
 	const tracksFromJson = Array.isArray(tracksFromResponse)
 		? tracksFromResponse
@@ -100,7 +104,7 @@ export async function getLastfmData({
 
 	if (!firstTrackWithTimestamp) {
 		return {
-			lastTimestamp: Date.now(),
+			lastTimestamp: from,
 			groupedStats: [],
 		};
 	}
