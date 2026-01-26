@@ -115,11 +115,11 @@ export default async function sync() {
 
 				const queries = Object.entries(githubData.groupedStats).map(
 					([key, value]) => {
-						// unlike the other stats, the github resolver always returns a full
-						// day's count. therefore, we always want to override on conflict
 						const existingStat = existingData.find((stat) => stat.date === key);
 
 						if (existingStat) {
+							// unlike the other stats, the github resolver always returns a full
+							// day's count. therefore, we always want to override on conflict
 							return db.update(Code).set(value).where(eq(Code.date, key));
 						}
 
