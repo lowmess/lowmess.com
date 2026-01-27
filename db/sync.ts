@@ -73,15 +73,15 @@ export default async function sync() {
 				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
-			if (typeof process.env.VAL_TOWN_URL !== "string") {
-				console.warn("Error fetching or setting bluesky data");
-			} else {
+			console.warn("Error fetching or setting bluesky data");
+
+			if (typeof process.env.VAL_TOWN_URL === "string") {
 				await fetch(process.env.VAL_TOWN_URL, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify(error),
+					body: JSON.stringify({ service: "bluesky", error }, null, 2),
 				});
 			}
 		}
@@ -141,15 +141,15 @@ export default async function sync() {
 				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
-			if (typeof process.env.VAL_TOWN_URL !== "string") {
-				console.warn("Error fetching or setting github data");
-			} else {
+			console.warn("Error fetching or setting github data");
+
+			if (typeof process.env.VAL_TOWN_URL === "string") {
 				await fetch(process.env.VAL_TOWN_URL, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify(error),
+					body: JSON.stringify({ service: "github", error }, null, 2),
 				});
 			}
 		}
@@ -229,15 +229,15 @@ export default async function sync() {
 				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
-			if (typeof process.env.VAL_TOWN_URL !== "string") {
-				console.warn("Error fetching or setting last.fm data");
-			} else {
+			console.warn("Error fetching or setting last.fm data");
+
+			if (typeof process.env.VAL_TOWN_URL === "string") {
 				await fetch(process.env.VAL_TOWN_URL, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify(error),
+					body: JSON.stringify({ service: "last.fm", error }, null, 2),
 				});
 			}
 		}
@@ -294,15 +294,15 @@ export default async function sync() {
 				await db.batch([syncUpdate, ...valueUpdates]);
 			}
 		} catch (error) {
-			if (typeof process.env.VAL_TOWN_URL !== "string") {
-				console.warn("Error fetching or setting letterboxd data");
-			} else {
+			console.warn("Error fetching or setting letterboxd data");
+
+			if (typeof process.env.VAL_TOWN_URL === "string") {
 				await fetch(process.env.VAL_TOWN_URL, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify(error),
+					body: JSON.stringify({ service: "letterboxd", error }, null, 2),
 				});
 			}
 		}
