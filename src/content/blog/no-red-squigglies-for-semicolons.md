@@ -1,6 +1,6 @@
 ---
-title: 'No Red Squigglies For Semicolons'
-description: 'Linters are powerful code quality tools. Stylistic consistency is important. Linters should never enforce stylistic consistency.'
+title: "No Red Squigglies For Semicolons"
+description: "Linters are powerful code quality tools. Stylistic consistency is important. Linters should never enforce stylistic consistency."
 date: 2019-12-04
 ---
 

@@ -8,7 +8,6 @@ const {
 	packages: {
 		"node_modules/astro": { version: astroVersion },
 		"node_modules/typescript": { version: typescriptVersion },
-		"node_modules/@mdx-js/mdx": { version: mdxVersion },
 		"node_modules/shiki": { version: shikiVersion },
 		"node_modules/eslint": { version: eslintVersion },
 		"node_modules/prettier": { version: prettierVersion },
@@ -58,12 +57,6 @@ const {
 			</li>
 
 			<li>
-				<a href="https://mdxjs.com/"
-					>MDX <span class="version">{mdxVersion}</span></a
-				>
-			</li>
-
-			<li>
 				<a href="https://shiki.matsu.io/"
 					>Shiki <span class="version">{shikiVersion}</span></a
 				>
@@ -102,7 +95,7 @@ const {
 
 		@media (min-width: 30em) {
 			grid-template-columns: repeat(2, max-content);
-			row-gap: 0;
+			row-gap: var(--rhythm-sm);
 		}
 
 		@media (min-width: 36em) {

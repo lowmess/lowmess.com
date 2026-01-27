@@ -1,6 +1,6 @@
 ---
-title: 'A Better Album Ranking Algorithm'
-description: 'In its quest to glorify the scrobble, Last.fm has forgotten the humble album. We can almost fix that.'
+title: "A Better Album Ranking Algorithm"
+description: "In its quest to glorify the scrobble, Last.fm has forgotten the humble album. We can almost fix that."
 date: 2018-03-12
 ---
 
@@ -17,7 +17,7 @@ Album play counts are slightly different than song play counts. They should star
 If the length of an album is what makes a complete playthrough of an album rarer than a playthrough of a song, a playthrough of a longer album should count for more than that of a shorter album. (There's an argument to be made that the same is true of songs, but we'll leave that for another day.) Thus, the ideal album ranking algorithm would account for total playthroughs, with a weight given to longer albums. Maybe even something as simple as this:
 
 ```js
-albumPlaythroughs * (1 + albumDuration / 2700)
+albumPlaythroughs * (1 + albumDuration / 2700);
 ```
 
 Here, we weight the duration in 45 minute increments, the length of a single LP (`albumDuration` being in seconds). Adding 1 to the duration calculation helps to ensure we're not simply normalizing for record length -- while that is also a valid way to rank album plays, it is not the one I prefer.
@@ -49,9 +49,9 @@ Let's take three albums of varying lengths and see how they handle this algorith
 Given one playthrough each, the three records will be ranked in exactly the same order they are now. Let's listen to a few more tracks.
 
 ```js
-const cardinalRank = 3.5 * (1 + 1845 / 2700) // 5.89
-const marqueeRank = 3 * (1 + 2745 / 2700) // 6.05
-const summertimeRank = 2.5 * (1 + 3545 / 2700) // 5.78
+const cardinalRank = 3.5 * (1 + 1845 / 2700); // 5.89
+const marqueeRank = 3 * (1 + 2745 / 2700); // 6.05
+const summertimeRank = 2.5 * (1 + 3545 / 2700); // 5.78
 ```
 
 Now we're getting somewhere. Even though _Cardinal_ has the most playthroughs, _Marquee Moon_ has the highest rank thanks to its lengthier runtime. _Summertime '06_ is just barely in third place despite having a full playthrough less than _Cardinal_. The system works, folks.

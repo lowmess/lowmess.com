@@ -94,7 +94,7 @@ $colorThemeSelect?.addEventListener("change", (event) => {
 Now that we have the value stored, we need to update the document on page load:
 
 ```ts
-const defaultTheme = "system"
+const defaultTheme = "system";
 const storedTheme = localStorage.getItem("color-theme");
 
 document.documentElement.dataset.colorTheme = storedTheme ?? defaultTheme;
@@ -107,7 +107,8 @@ We might as well also set the default value on our `<select>` so the correct opt
 ```ts
 const $colorThemeSelect = document.querySelector("#color-theme-select");
 
-if ($colorThemeSelect) { // [!code ++]
+if ($colorThemeSelect) {
+	// [!code ++]
 	$colorThemeSelect.value = storedTheme ?? defaultTheme; // [!code ++]
 } // [!code ++]
 
