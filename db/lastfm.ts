@@ -28,16 +28,18 @@ type GetTracksParams = {
 	from: number;
 	to?: number;
 	tracks?: Array<Track>;
+	page?: number;
 };
 
 async function getTracks({
 	from,
 	to: toFromParams = Date.now(),
 	tracks: tracksFromParams = [],
+	page = 1,
 }: GetTracksParams) {
 	const to = Math.max(OLDEST_POSSIBLE_TIMESTAMP, toFromParams);
 
-	const uri = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&limit=200&user=${
+	const uri = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&limit=200&page=${page}&user=${
 		process.env.LASTFM_USER_NAME
 	}&from=${Math.floor(from / 1000)}&to=${Math.floor(
 		to / 1000,
@@ -46,9 +48,12 @@ async function getTracks({
 	const res = await fetch(uri);
 	const json = await res.json();
 
-	if (!json.recenttracks.track) {
-		throw new Error("No tracks returned from last.fm");
+	if (json.error) {
+		throw new Error(json.message);
 	}
+
+	const { totalPages: totalPagesRaw = "1" } = json.recenttracks["@attr"];
+	const totalPages = parseInt(totalPagesRaw, 10);
 
 	const tracksFromResponse = json.recenttracks.track as Array<Track>;
 	const tracksFromJson = Array.isArray(tracksFromResponse)
@@ -57,23 +62,12 @@ async function getTracks({
 
 	let tracks = [...tracksFromParams, ...tracksFromJson];
 
-	const lastTrackWithTimestamp = tracksFromJson.findLast(
-		(track) => !!track.date?.uts,
-	);
-
-	// if this block triggers, it is very likely that the only track returned is
-	// the one i am currently listening to
-	if (!lastTrackWithTimestamp) {
-		return tracks;
-	}
-
-	const lastTimestamp = parseInt(lastTrackWithTimestamp.date.uts, 10) * 1000;
-
-	if (lastTimestamp > from) {
+	if (totalPages > page) {
 		tracks = await getTracks({
 			from,
-			to: lastTimestamp,
+			to,
 			tracks: [...tracks],
+			page: page + 1,
 		});
 	}
 
