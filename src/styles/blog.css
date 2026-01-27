@@ -173,15 +173,87 @@
 		background-color: var(--outline-color);
 	}
 
-	lite-youtube {
-		margin-inline: auto;
-	}
-
 	sup {
 		position: relative;
 		top: -0.5em;
 		margin-inline-start: var(--space-xxs);
 		font-size: 0.75em;
 		vertical-align: baseline;
+	}
+
+	.update {
+		width: calc(100cqw + var(--content-padding) * 2);
+		margin-inline-start: calc(var(--content-padding) * -1);
+		margin-block: var(--rhythm-md);
+		border-block: var(--outline-width) solid var(--outline-color);
+		padding-block: var(--rhythm-md);
+		padding-inline-start: calc(var(--content-padding) * 4);
+		padding-inline-end: calc(var(--content-padding) * 2);
+		background-color: light-dark(
+			hsl(from var(--outline-color) h s l / 0.1),
+			hsl(from var(--color-black) h s l / 0.5)
+		);
+		font-size: inherit;
+		font-style: inherit;
+
+		@media (min-width: 48em) {
+			padding-inline-start: calc(var(--content-padding) * 2);
+		}
+
+		@container (min-width: 65ch) {
+			padding-inline-start: calc(var(--content-padding) * 2);
+			margin-inline-start: calc(50% - (50cqw + var(--content-padding)));
+		}
+
+		@container (min-width: 75ch) {
+			width: calc(100% + var(--content-padding) * 4);
+			margin-inline-start: calc(var(--content-padding) * -2);
+			border: var(--outline-width) solid var(--outline-color);
+			border-radius: var(--outline-width);
+		}
+
+		p {
+			margin-block: 0;
+
+			/* the "Update (Date)" header */
+			&:first-child:not(:only-child) {
+				position: relative;
+				font-family: var(--font-family-subheading);
+				font-size: var(--font-size-sm);
+				letter-spacing: var(--letter-spacing-wide);
+				text-transform: uppercase;
+				color: var(--color-primary);
+				text-wrap: pretty;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 1px;
+					left: calc(var(--content-padding) * -2.5);
+					width: 24px;
+					aspect-ratio: 1;
+					background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23f2930d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>');
+
+					@media (min-width: 48em) {
+						left: calc(var(--content-padding) * -1.25);
+					}
+				}
+			}
+		}
+
+		p + p {
+			margin-block-start: var(--rhythm-md);
+		}
+	}
+
+	.cp_embed_wrapper {
+		width: calc(100cqw + var(--content-padding) * 2);
+		margin-block: var(--rhythm-md);
+		margin-inline-start: calc(50% - (50cqw + var(--content-padding)));
+		padding-inline: var(--content-padding);
+
+		iframe {
+			height: 300px;
+		}
 	}
 }

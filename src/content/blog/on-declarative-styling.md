@@ -1,6 +1,6 @@
 ---
-title: 'On Declarative Styling'
-description: 'By limiting the amount of CSS we can write, we improve the quality of the CSS we do write.'
+title: "On Declarative Styling"
+description: "By limiting the amount of CSS we can write, we improve the quality of the CSS we do write."
 date: 2019-07-19
 ---
 
@@ -81,19 +81,19 @@ The advent of CSS-in-JS has presented us with a unique opportunity: by taking ad
 The first of these libraries, the foundation upon which the others are built, is called [Styled System](https://styled-system.com/). The library provides a consistent interface to refer to your design tokens when defining or consuming a component. The true genius of Styled System is [how it handles responsive styles](https://styled-system.com/responsive-styles). By default, Styled System props accept a string, which the library parses and converts to a value represented by a design token. If the token is not found, the literal value is passed to the underlying CSS-in-JS library. However, by passing a prop an array, it will apply the 0-index value to the component by default, the 1-index value to the component at the first breakpoint, and so on and so forth.
 
 ```jsx
-import styled from 'styled-components'
-import { space, color } from 'styled-system'
+import styled from "styled-components";
+import { space, color } from "styled-system";
 
 const Box = styled.div`
 	${space}
 	${color}
-`
+`;
 
 const MyStyledSystemComponent = (props) => (
 	<Box p={[2, 3]} color="primary" {...props}>
 		Hi
 	</Box>
-)
+);
 ```
 
 This approach allows us to not only create components that are not only consistent with our system, but are extremely portable as well. A rule of thumb I try to follow when styling a component is to only define surrounding vertical margin when the component is actually consumed in a view. By spreading our props to a root component defined with Styled System, it becomes trivial to follow this rule.
@@ -107,7 +107,7 @@ const MyView = () => (
 
 		<footer>...</footer>
 	</main>
-)
+);
 ```
 
 Because Styled System (when used in React) reads from the theme put into context from your CSS-in-JS library of choice's `ThemeProvider`, creating themeable components is a breeze. However, attaching `space`, `color`, and other token references to all your components can be quite annoying. Luckily, Mr. Jackson has also created a library of primitive components built on top of Styled System called [Rebass](https://rebassjs.org/). These components operate like the `Box` component we utilized inside of `MyStyledSystemComponent`.

@@ -94,7 +94,7 @@ $colorThemeSelect?.addEventListener("change", (event) => {
 Now that we have the value stored, we need to update the document on page load:
 
 ```ts
-const defaultTheme = "system"
+const defaultTheme = "system";
 const storedTheme = localStorage.getItem("color-theme");
 
 document.documentElement.dataset.colorTheme = storedTheme ?? defaultTheme;
@@ -104,6 +104,7 @@ Be sure to put that script in your `<head>` to avoid any flashes of unwanted col
 
 We might as well also set the default value on our `<select>` so the correct option is checked. Unlike setting the color theme on the document, this can happen after the initial parse/paint since it's unlikely a user will be able to interact with the selector faster than the script parsing/execution. You can place it right next to your change handler.
 
+<!-- prettier-ignore -->
 ```ts
 const $colorThemeSelect = document.querySelector("#color-theme-select");
 

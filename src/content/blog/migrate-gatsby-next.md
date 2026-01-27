@@ -6,8 +6,6 @@ archived: 2024-03-20
 archiveReason: "Not only have both Gatsby and Next.js changed dramatically since I wrote this post, this site now uses <em>neither</em> of them."
 ---
 
-import Update from "#components/Update.astro";
-
 Recently -- and quite frankly I'm shocked this wasn't a major national news story -- I was bored. As I often do when I'm bored, I decided to tinker with this here website. There weren't any obvious bugs to fix and the design is pretty much sorted, which unfortunately left very little to tinker with. All hope was not lost, as I have been curious about [Next.js](https://nextjs.org)'s static site generation [since it debuted with version 9.3 of the framework](https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support). This seemed an opportune time to test it out independent of content, design, or site structure. This also meant moving away from [Gatsby](https://gatsbyjs.com), which I have been using as the basis for this site for the last 3 years.
 
 ## Gatsby vs. Next.js
@@ -110,21 +108,25 @@ I'm one of the dozen or so people that continued to use an RSS app after Google 
 
 Luckily, [the `rss` package](https://www.npmjs.com/package/rss) made actually generating the feed super easy once I had the data. I added a `postbuild` script to my `package.json` that [generates a sitemap](https://www.npmjs.com/package/nextjs-sitemap-generator) and an RSS feed every time the site is built.
 
-<Update date="June 2021">
+<div class="update">
+
+Update (June 2021)
 
 Turns out there are a few solutions to handle frontmatter in MDX with Next.js, and I explored them. I used [`next-mdx-enhanced`](https://github.com/hashicorp/next-mdx-enhanced) for a while, and had [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) working locally (I never tried [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) because it was so similar to `mdx-bundler`, and I preferred the latter's API). Ultimately each had issues I either couldn't or didn't want to deal with, so I wound up going back to the `@next/mdx`. I refined my regex-fu and used a very completely 100% safe `eval` to extract the metadata necessary to create a half decent RSS feed.
 
-</Update>
+</div>
 
 ### Preact
 
 Gatsby has a [really handy plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-preact/) to use [Preact](https://preactjs.com) in production, reducing your bundle size by a fair amount. If your Gatsby site doesn't need to support IE10, I highly recommend using it. While there isn't a plug-and-play option for Next.js, we can use npm aliases to replace references to React with the `preact/compat` package. Combined with some webpack wizardry, we can reduce the size of our builds a good amount. [Here's the official example](https://github.com/vercel/next.js/tree/629884af7d3ced97b8c2ec7aebdfb1a3a5d808f0/examples/using-preact) that I definitely didn't just copy & paste from.
 
-<Update date="February 2021">
+<div class="update">
+
+Update (February 2021)
 
 I ultimately wound up migrating back to React proper -- I didn't want to deal with the headache of managing the custom chunk splitting that using Preact required. However, the Preact team has since extracted that behavior into [a standalone plugin](https://github.com/preactjs/next-plugin-preact). Maybe I'll waffle on this again, but for now its nice not having to double-check compatability for every new Next.js release.
 
-</Update>
+</div>
 
 ## Should You Switch?
 
@@ -142,11 +144,13 @@ Doing things the Gatsby way means pulling your data out of the unified GraphQL A
 
 If I ever wanted to create a truly dynamic page, using Next.js allows me to do that. For example, the homepage currently fetches new stats on mount, and updates them when the request completes. Moving that work to a server could reduce page shift, while continuing to ensure the stats are always accurate (doing so would require me to change hosting providers, but that's a can of worms for another day).
 
-<Update date="October 2020">
+<div class="update">
+
+Update (October 2020)
 
 A mere [checks notes] week after I initially made this migration, I did wind up switching the way the homepage fetches the stat data. It's not quite fully server-rendered, however; I'm using something Next.js calls ["incremental static regeneration" (ISR)](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration). ISR is very simple conceptually: it allows you to tell Next.js how often you expect your static props to change, and re-calculates them _at most_ that often. It is very much a perfect middle-ground between statically-generated and server-rendered content. In my case, the homepage will request new stats once every 15 minutes.
 
-</Update>
+</div>
 
 ## What Did We Learn?
 

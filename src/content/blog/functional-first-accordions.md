@@ -6,14 +6,13 @@ archived: 2024-03-20
 archiveReason: "This post had a disclaimer on it for 5 entire damn years pointing to an article by Dave Rupert <a href='https://daverupert.com/2019/12/why-details-is-not-an-accordion/'>about accessibility concerns with the <code>&lt;details&gt;</code> element</a>. As far as I&apos;m aware, these concerns still haven&apos;t been reliably addressed."
 ---
 
-import CodepenEmbed from "#components/CodepenEmbed.astro";
-import Update from "#components/Update.astro";
+<div class="update">
 
-<Update date="December 2019" inline="false">
+Update (December 2019)
 
 In the year since I've wrote this, it's become increasingly clear that this is not a good method for building accordions. Beyond all the work it takes to make the thing functional (you know, the point of this post), [Dave Rupert recently wrote a short post detailing the accessibility shortcomings of this approach](https://daverupert.com/2019/12/why-details-is-not-an-accordion/). I share Dave's opinion that the web, as a platform, needs to bring some of these common controls to the table to ensure a consistent, accessible experience for all of its users.
 
-</Update>
+</div>
 
 There are few UI components encountered as frequently as the accordion. Even if you're unfamiliar with the term, you're familiar with the pattern: a string of text, sometimes accompanied by a button or icon, that reveals more content underneath when clicked. Thousands of developers and hundreds of UI frameworks have created accordions, often with their own rigid markup structures and (potentially bloated) JavaScript. But did you know that a perfectly functional accordion component ships with [most modern browsers](https://caniuse.com/#feat=details)? Check this out:
 
@@ -90,7 +89,11 @@ details[open] summary::after {
 
 [Here's the accordion](https://codepen.io/lowmess/pen/zMjagE) as it looks at this point:
 
-<CodepenEmbed codepenId="zMjagE" />
+<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="zMjagE" data-pen-title="&amp;lt;details&amp;gt; Accordion (CSS Resets Only)" data-user="lowmess" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/lowmess/pen/zMjagE">
+  &lt;details&gt; Accordion (CSS Resets Only)</a> by alec (<a href="https://codepen.io/lowmess">@lowmess</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
 
 Not bad for a few lines of CSS! There's a few more changes I would make before calling this anything approaching good-looking, though.
 
@@ -115,7 +118,11 @@ summary + * {
 
 [Now we've got a relatively attractive accordion component](https://codepen.io/lowmess/pen/eQrjBG). We could stop now, and we would have a working component that, with a few tweaks, could be dropped onto almost any site and Just Work™️.
 
-<CodepenEmbed codepenId="eQrjBG" />
+<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="eQrjBG" data-pen-title="&amp;lt;details&amp;gt; Accordion (Base Styles)" data-user="lowmess" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/lowmess/pen/eQrjBG">
+  &lt;details&gt; Accordion (Base Styles)</a> by alec (<a href="https://codepen.io/lowmess">@lowmess</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
 
 ## Enchanting Progressive Enhancement
 
@@ -216,7 +223,11 @@ window.setTimeout(() => {
 
 [Putting it all together](https://codepen.io/lowmess/pen/yQjRXy) gives us a fully functional, animated accordion component. And because we started with an HTML element that gives us our core functionality by default, a user doesn't need to have JavaScript running to access the hidden content.
 
-<CodepenEmbed codepenId="yQjRXy" />
+<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="yQjRXy" data-pen-title="&amp;lt;details&amp;gt; Accordion (Final Form)" data-user="lowmess" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/lowmess/pen/yQjRXy">
+  &lt;details&gt; Accordion (Final Form)</a> by alec (<a href="https://codepen.io/lowmess">@lowmess</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
 
 ## Extra Credit
 
@@ -249,3 +260,5 @@ Just kidding. If [you need an accordion at all](https://www.nngroup.com/articles
 ### Package the Accordion Into a Reusable Component
 
 We should probably abstract away all of this markup to ensure consistency and improve DX. Frameworks like React and Vue provide a simple way to do this, but it should also be possible in most templating languages.
+
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
