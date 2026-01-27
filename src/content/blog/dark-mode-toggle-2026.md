@@ -104,11 +104,11 @@ Be sure to put that script in your `<head>` to avoid any flashes of unwanted col
 
 We might as well also set the default value on our `<select>` so the correct option is checked. Unlike setting the color theme on the document, this can happen after the initial parse/paint since it's unlikely a user will be able to interact with the selector faster than the script parsing/execution. You can place it right next to your change handler.
 
+<!-- prettier-ignore -->
 ```ts
 const $colorThemeSelect = document.querySelector("#color-theme-select");
 
-if ($colorThemeSelect) {
-	// [!code ++]
+if ($colorThemeSelect) { // [!code ++]
 	$colorThemeSelect.value = storedTheme ?? defaultTheme; // [!code ++]
 } // [!code ++]
 
