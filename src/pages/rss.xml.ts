@@ -1,5 +1,5 @@
 import rss, { type RSSFeedItem } from "@astrojs/rss";
-import { type APIRoute } from "astro";
+import { type APIContext } from "astro";
 import { getCollection } from "astro:content";
 import markdownit from "markdown-it";
 import { transform, walk } from "ultrahtml";
@@ -8,7 +8,7 @@ import sanitize from "ultrahtml/transformers/sanitize";
 import { SITE_DESCRIPTION, SITE_TITLE } from "#consts";
 import { sortBlogPosts } from "#utils/blog.ts";
 
-export const GET: APIRoute = async ({ site }) => {
+export async function GET({ site }: APIContext) {
 	const baseUrl = site?.origin ?? "https://lowmess.com";
 
 	const posts = (
@@ -55,4 +55,4 @@ export const GET: APIRoute = async ({ site }) => {
 		site: site ?? baseUrl,
 		items: feedItems,
 	});
-};
+}

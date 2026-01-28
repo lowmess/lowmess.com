@@ -7,6 +7,16 @@ import React, {
 import satori from "satori";
 import sharp from "sharp";
 
+const izoardRegular = fs.readFileSync(
+	"./src/assets/fonts/izoard-regular-webfont.woff",
+);
+const strawfordRegular = fs.readFileSync(
+	"./src/assets/fonts/strawford-regular-webfont.woff",
+);
+const strawfordBold = fs.readFileSync(
+	"./src/assets/fonts/strawford-bold-webfont.woff",
+);
+
 export async function generateOgImage(template: ReactNode) {
 	const svg = await satori(template, {
 		width: 1200,
@@ -14,21 +24,19 @@ export async function generateOgImage(template: ReactNode) {
 		fonts: [
 			{
 				name: "Izoard",
-				data: fs.readFileSync("./src/assets/fonts/izoard-regular-webfont.woff"),
+				data: izoardRegular,
 				weight: 400,
 				style: "normal",
 			},
 			{
 				name: "Strawford",
-				data: fs.readFileSync(
-					"./src/assets/fonts/strawford-regular-webfont.woff",
-				),
+				data: strawfordRegular,
 				weight: 400,
 				style: "normal",
 			},
 			{
 				name: "Strawford",
-				data: fs.readFileSync("./src/assets/fonts/strawford-bold-webfont.woff"),
+				data: strawfordBold,
 				weight: 700,
 				style: "normal",
 			},
@@ -41,10 +49,9 @@ export async function generateOgImage(template: ReactNode) {
 
 type OgImageLayoutProps = PropsWithChildren<{
 	style?: HTMLAttributes<"div">["style"];
-	footerText?: string;
 }>;
 
-function OgImageLayout({ style, footerText, children }: OgImageLayoutProps) {
+function OgImageLayout({ style, children }: OgImageLayoutProps) {
 	return (
 		<div
 			style={{
@@ -57,12 +64,10 @@ function OgImageLayout({ style, footerText, children }: OgImageLayoutProps) {
 		>
 			<div
 				style={{
+					flex: 1,
 					display: "flex",
 					flexDirection: "column",
-					height: "459px",
-					paddingTop: "24px",
-					paddingRight: "32px",
-					paddingLeft: "32px",
+					padding: "32px",
 					backgroundColor: "hsl(35 10% 18%)",
 				}}
 			>
@@ -76,10 +81,8 @@ function OgImageLayout({ style, footerText, children }: OgImageLayoutProps) {
 						width: "100%",
 						height: "100%",
 						border: "16px solid hsl(35 20% 35%)",
-						borderBottomWidth: 0,
-						borderTopRightRadius: "16px",
-						borderTopLeftRadius: "16px",
-						padding: "96px",
+						borderRadius: "16px",
+						padding: "32px",
 						backgroundColor: "hsl(35 10% 18%)",
 						...style,
 					}}
@@ -116,42 +119,6 @@ function OgImageLayout({ style, footerText, children }: OgImageLayoutProps) {
 					{children}
 				</div>
 			</div>
-
-			<div
-				style={{
-					display: "flex",
-					width: "100%",
-					height: "176px",
-					paddingBottom: "32px",
-					paddingRight: "32px",
-					paddingLeft: "32px",
-					backgroundColor: "hsl(35 10% 15%)",
-					color: "hsl(35 20% 50%)",
-				}}
-			>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-						justifyContent: "center",
-						position: "relative",
-						width: "100%",
-						height: "100%",
-						border: "16px solid hsl(35 20% 35%)",
-						borderTopWidth: 0,
-						borderBottomRightRadius: "16px",
-						borderBottomLeftRadius: "16px",
-						padding: "32px",
-						backgroundColor: "hsl(35 10% 15%)",
-						fontFamily: "Strawford",
-						fontWeight: 400,
-						fontSize: "36px",
-					}}
-				>
-					{footerText}
-				</div>
-			</div>
 		</div>
 	);
 }
@@ -159,18 +126,16 @@ function OgImageLayout({ style, footerText, children }: OgImageLayoutProps) {
 export function OgBlogPostImage({
 	title,
 	date,
-	slug,
 }: {
 	title: string;
 	date: Date;
-	slug: string;
 }): React.ReactNode {
 	const formatter = new Intl.DateTimeFormat("en-US", {
 		dateStyle: "long",
 	});
 
 	return (
-		<OgImageLayout footerText={`lowmess.com/blog/${slug}`}>
+		<OgImageLayout style={{ paddingTop: "16px" }}>
 			<span
 				style={{
 					fontFamily: "Izoard",
@@ -205,10 +170,7 @@ export function OgBlogPostImage({
 
 export function OgSiteImage(): React.ReactNode {
 	return (
-		<OgImageLayout
-			style={{ paddingTop: "128px", paddingRight: 0, paddingLeft: 0 }}
-			footerText="lowmess.com"
-		>
+		<OgImageLayout>
 			<span
 				style={{
 					fontFamily: "Strawford",
