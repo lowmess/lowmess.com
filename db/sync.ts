@@ -194,7 +194,7 @@ export default async function sync() {
 										mostPlayedAlbumArtist: value.mostPlayedAlbum.artist,
 										mostPlayedAlbumPlayCount: value.mostPlayedAlbum.playCount,
 									})
-									.where(eq(Code.date, key));
+									.where(eq(Music.date, key));
 							}
 						}
 

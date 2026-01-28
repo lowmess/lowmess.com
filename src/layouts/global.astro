@@ -1,0 +1,123 @@
+---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import type { HTMLAttributes } from "astro/types";
+
+import Content from "#components/content.astro";
+import Footer from "#components/footer.astro";
+import Navigation from "#components/navigation.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
+
+import "sanitize.css";
+import "sanitize.css/assets.css";
+import "sanitize.css/reduce-motion.css";
+import "sanitize.css/typography.css";
+
+import "#styles/fonts.css";
+import "#styles/global.css";
+import "#styles/print.css";
+import "#styles/tokens.css";
+
+type Props = HTMLAttributes<"main"> & {
+	title?: string;
+	description?: string;
+	ogImageUrl?: string | URL;
+};
+
+const {
+	title,
+	description,
+	ogImageUrl = `${Astro.url.origin}/og-image.png`,
+	...props
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const pageTitle = title ? `${title} • ${SITE_TITLE}` : SITE_TITLE;
+const pageDescription = description || SITE_DESCRIPTION;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Sitemap -->
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<!-- RSS Feed -->
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={SITE_TITLE}
+			href={`${Astro.site}rss.xml`}
+		/>
+
+		<!-- Primary Meta Tags -->
+		<title>{pageTitle}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={pageDescription} />
+
+		<!-- Theming -->
+		<meta name="color-scheme" content="light dark" />
+		<meta name="theme-color" content="#e8e6e3" />
+		<meta name="apple-mobile-web-app-title" content={title} />
+		<meta name="application-name" content={title} />
+		<meta name="msapplication-TileColor" content="#f2930d" />
+
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f2930d" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:image" content={ogImageUrl} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@lowmess" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<!-- preload display fonts -->
+		<link
+			rel="preload"
+			href="/fonts/strawford-bold-webfont.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+
+		<!-- set initial color scheme -->
+		<script>
+			const defaultTheme = "system";
+			const storedTheme = localStorage.getItem("color-theme");
+
+			document.documentElement.dataset.colorTheme = storedTheme ?? defaultTheme;
+		</script>
+	</head>
+
+	<body>
+		<Navigation />
+
+		<Content as="main" id="main-content" {...props}><slot /></Content>
+
+		<Footer />
+
+		<Analytics />
+		<SpeedInsights />
+	</body>
+</html>
