@@ -115,8 +115,8 @@ export default async function sync() {
 						const existingStat = existingData.find((stat) => stat.date === key);
 
 						if (existingStat) {
-							// unlike the other stats, the github resolver always returns a full
-							// day's count. therefore, we always want to override on conflict
+							// the github resolver always returns a full day's count.
+							// therefore, we always want to override on conflict
 							return db.update(Code).set(value).where(eq(Code.date, key));
 						}
 
@@ -183,22 +183,19 @@ export default async function sync() {
 						const existingStat = existingData.find((stat) => stat.date === key);
 
 						if (existingStat) {
-							const updateAlbum =
-								existingStat.mostPlayedAlbumPlayCount <
-								value.mostPlayedAlbum.playCount;
-
-							return db
-								.update(Music)
-								.set({
-									playCount: existingStat.playCount + value.playCount,
-
-									...(updateAlbum && {
+							if (existingStat) {
+								// the last.fm resolver always returns at least one full day's
+								// count. therefore, we always want to override on conflict
+								return db
+									.update(Music)
+									.set({
+										playCount: value.playCount,
 										mostPlayedAlbumName: value.mostPlayedAlbum.name,
 										mostPlayedAlbumArtist: value.mostPlayedAlbum.artist,
 										mostPlayedAlbumPlayCount: value.mostPlayedAlbum.playCount,
-									}),
-								})
-								.where(eq(Music.date, key));
+									})
+									.where(eq(Code.date, key));
+							}
 						}
 
 						return (
