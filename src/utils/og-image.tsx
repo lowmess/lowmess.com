@@ -1,3 +1,4 @@
+import fs from "fs";
 import React, {
 	type HTMLAttributes,
 	type PropsWithChildren,
@@ -6,10 +7,6 @@ import React, {
 import satori from "satori";
 import sharp from "sharp";
 
-import izoardRegular from "#assets/fonts/izoard-regular-webfont.woff";
-import strawfordBold from "#assets/fonts/strawford-bold-webfont.woff";
-import strawfordRegular from "#assets/fonts/strawford-regular-webfont.woff";
-
 export async function generateOgImage(template: ReactNode) {
 	const svg = await satori(template, {
 		width: 1200,
@@ -17,19 +14,21 @@ export async function generateOgImage(template: ReactNode) {
 		fonts: [
 			{
 				name: "Izoard",
-				data: Buffer.from(izoardRegular),
+				data: fs.readFileSync("./src/assets/fonts/izoard-regular-webfont.woff"),
 				weight: 400,
 				style: "normal",
 			},
 			{
 				name: "Strawford",
-				data: Buffer.from(strawfordRegular),
+				data: fs.readFileSync(
+					"./src/assets/fonts/strawford-regular-webfont.woff",
+				),
 				weight: 400,
 				style: "normal",
 			},
 			{
 				name: "Strawford",
-				data: Buffer.from(strawfordBold),
+				data: fs.readFileSync("./src/assets/fonts/strawford-bold-webfont.woff"),
 				weight: 700,
 				style: "normal",
 			},
