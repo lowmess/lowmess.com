@@ -13,7 +13,7 @@ import strawfordRegular from "#assets/fonts/strawford-regular-webfont.woff";
 export async function generateOgImage(template: ReactNode) {
 	const svg = await satori(template, {
 		width: 1200,
-		height: 635,
+		height: 630,
 		fonts: [
 			{
 				name: "Izoard",
@@ -35,7 +35,7 @@ export async function generateOgImage(template: ReactNode) {
 			},
 		],
 	});
-	const png = await sharp(Buffer.from(svg)).resize(1200, 635).png().toBuffer();
+	const png = await sharp(Buffer.from(svg)).png().toBuffer();
 
 	return png;
 }
@@ -61,7 +61,7 @@ function OgImageLayout({ style, footerText, children }: OgImageLayoutProps) {
 					display: "flex",
 					flexDirection: "column",
 					height: "459px",
-					paddingTop: "32px",
+					paddingTop: "24px",
 					paddingRight: "32px",
 					paddingLeft: "32px",
 					backgroundColor: "hsl(35 10% 18%)",
