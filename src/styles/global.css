@@ -79,6 +79,8 @@ body > main {
 }
 
 .astro-code .diff {
+	position: relative;
+
 	&.add,
 	&.add span {
 		color: light-dark(#448c27, #98c379);
@@ -90,7 +92,8 @@ body > main {
 	}
 
 	&::before {
-		position: relative;
+		position: absolute;
+		top: -0.15lh;
 		left: calc(var(--space-sm) * -1);
 
 		@media (min-width: 48em) {
