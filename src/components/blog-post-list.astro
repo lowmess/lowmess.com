@@ -2,7 +2,7 @@
 import type { HTMLTag, Polymorphic } from "astro/types";
 import { type CollectionEntry } from "astro:content";
 
-import BlogPostPreview from "#components/BlogPostPreview.astro";
+import BlogPostPreview from "#components/blog-post-preview.astro";
 import { groupPostsByYear } from "#utils/blog.ts";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{

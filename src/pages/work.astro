@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import PageHeading from "#components/PageHeading.astro";
-import ProjectPreview from "#components/ProjectPreview.astro";
-import GlobalLayout from "#layouts/GlobalLayout.astro";
+import PageHeading from "#components/page-heading.astro";
+import ProjectPreview from "#components/project-preview.astro";
+import GlobalLayout from "#layouts/global.astro";
 import { sortProjects } from "#utils/work";
 
 const projects = (await getCollection("projects")).sort(sortProjects);
