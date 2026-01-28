@@ -88,8 +88,16 @@ type GetDataParams = {
 };
 
 export async function getLastfmData({
-	from = getDefaultTimePeriod(),
+	from: fromFromParams = getDefaultTimePeriod(),
 }: GetDataParams = {}) {
+	// adjust from time to start of the previous day to always return at least
+	// one full day's stats
+	const fromDate = new Date(fromFromParams);
+	fromDate.setUTCDate(fromDate.getUTCDate() - 1);
+	fromDate.setUTCHours(0, 0, 0, 0);
+
+	const from = fromDate.getTime();
+
 	const tracks = await getTracks({
 		from,
 	});
@@ -98,7 +106,7 @@ export async function getLastfmData({
 
 	if (!firstTrackWithTimestamp) {
 		return {
-			lastTimestamp: from,
+			lastTimestamp: fromFromParams,
 			groupedStats: [],
 		};
 	}
