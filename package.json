@@ -51,7 +51,7 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/ts-plugin": "^1.10.6",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.2.0",
     "@types/react": "^19.2.9",
     "dotenv": "^17.2.3",
     "eslint": "^9.39.2",
