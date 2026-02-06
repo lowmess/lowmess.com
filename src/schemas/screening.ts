@@ -7,10 +7,11 @@ export const screeningSchema = z.object({
 		.or(z.date())
 		.transform((val) => new Date(val)),
 	title: z.string(),
-	venue: z.string(),
 	format: z
 		.enum(["35mm", "70mm", "IMAX", "IMAX 3D", "3D", "Digital"])
 		.default("Digital"),
+	venue: z.string(),
+	with: z.array(z.string()).optional(),
 	link: z.string(),
 });
 
