@@ -9,6 +9,7 @@ export const concertSchema = z.object({
 	headliner: z.string(),
 	openers: z.array(z.string()).optional(),
 	venue: z.string(),
+	with: z.array(z.string()).optional(),
 });
 
 export type Concert = z.output<typeof concertSchema>;
