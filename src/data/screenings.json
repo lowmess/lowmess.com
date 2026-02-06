@@ -1,42 +1,59 @@
 [
 	{
+		"id": "2026-02-04",
+		"date": "2026-02-04",
+		"title": "Speed Racer",
+		"format": "Digital",
+		"venue": "Hollywood Theatre",
+		"with": ["Connor"],
+		"link": "https://boxd.it/cZPT4f"
+	},
+	{
+		"id": "2026-02-01",
+		"date": "2026-02-01",
+		"title": "Devil in a Blue Dress",
+		"format": "Digital",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/cX6BnF"
+	},
+	{
 		"id": "2026-01-22",
 		"date": "2026-01-22",
 		"title": "28 Years Later: The Bone Temple",
-		"venue": "Regal Pioneer Place",
 		"format": "Digital",
+		"venue": "Regal Pioneer Place",
 		"link": "https://boxd.it/cMl2aH"
 	},
 	{
 		"id": "2026-01-17",
 		"date": "2026-01-17",
 		"title": "The Testament of Ann Lee",
-		"venue": "Hollywood Theatre",
 		"format": "70mm",
+		"venue": "Hollywood Theatre",
 		"link": "https://boxd.it/cHcBRX"
 	},
 	{
 		"id": "2026-01-14",
 		"date": "2026-01-14",
 		"title": "Is This Thing On?",
-		"venue": "Living Room Theaters",
 		"format": "Digital",
+		"venue": "Living Room Theaters",
 		"link": "https://boxd.it/cE50tD"
 	},
 	{
 		"id": "2026-01-07",
 		"date": "2026-01-07",
 		"title": "xXx",
-		"venue": "Hollywood Theatre",
 		"format": "Digital",
+		"venue": "Hollywood Theatre",
 		"link": "https://boxd.it/cw8n2T"
 	},
 	{
 		"id": "2026-01-01",
 		"date": "2026-01-01",
 		"title": "No Other Choice",
-		"venue": "Hollywood Theatre",
 		"format": "35mm",
+		"venue": "Hollywood Theatre",
 		"link": "https://boxd.it/cntniX"
 	}
 ]
