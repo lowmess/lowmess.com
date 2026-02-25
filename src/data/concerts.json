@@ -1,1 +1,10 @@
-[]
+[
+	{
+		"id": "2026-02-12",
+		"date": "2026-02-12",
+		"headliner": "shame",
+		"openers": ["The Sophs"],
+		"venue": "Wonder Ballroom",
+		"with": ["Aaron"]
+	}
+]
