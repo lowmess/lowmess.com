@@ -1,5 +1,21 @@
 [
 	{
+		"id": "2026-02-28",
+		"date": "2026-02-28",
+		"headliner": "Forty Feet Tall",
+		"openers": ["Jonny's Day Out", "Femme Cell"],
+		"venue": "Mississippi Studios",
+		"with": ["Tony", "Kiki"]
+	},
+	{
+		"id": "2026-02-27",
+		"date": "2026-02-27",
+		"headliner": "Playboy Manbaby",
+		"openers": ["Mega Ran", "Nasalrod"],
+		"venue": "Show Bar",
+		"with": ["Tim"]
+	},
+	{
 		"id": "2026-02-12",
 		"date": "2026-02-12",
 		"headliner": "shame",
