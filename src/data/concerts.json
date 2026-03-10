@@ -1,5 +1,20 @@
 [
 	{
+		"id": "2026-03-08",
+		"date": "2026-03-08",
+		"headliner": "Whitney",
+		"openers": ["Prewn"],
+		"venue": "Revolution Hall",
+		"with": ["Aaron"]
+	},
+	{
+		"id": "2026-03-06",
+		"date": "2026-03-06",
+		"headliner": "Matt Pryor",
+		"venue": "Show Bar",
+		"with": ["Aaron"]
+	},
+	{
 		"id": "2026-02-28",
 		"date": "2026-02-28",
 		"headliner": "Forty Feet Tall",
