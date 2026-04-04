@@ -1,8 +1,7 @@
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 export const concertSchema = z.object({
-	date: z
-		.string()
+	date: z.iso
 		.date()
 		.or(z.date())
 		.transform((val) => new Date(val)),
