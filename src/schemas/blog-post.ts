@@ -1,22 +1,19 @@
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 export const blogPostSchema = z.object({
 	title: z.string(),
 	description: z.string(),
-	date: z
-		.string()
+	date: z.iso
 		.date()
 		.or(z.date())
 		.transform((val) => new Date(val)),
 	draft: z.boolean().optional(),
-	updated: z
-		.string()
+	updated: z.iso
 		.date()
 		.or(z.date())
 		.optional()
 		.transform((val) => (val ? new Date(val) : undefined)),
-	archived: z
-		.string()
+	archived: z.iso
 		.date()
 		.or(z.date())
 		.optional()
