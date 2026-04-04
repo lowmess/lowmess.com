@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 
 import GlobalLayout from "#layouts/global.astro";
+import { sortProjects } from "#utils/work.ts";
 
 const resumePayload = await getEntry("resume", "1");
 
@@ -20,7 +21,9 @@ if (!resume.work?.length) {
 const currentJobs = resume.work.filter((job) => !job.endDate);
 const previousJobs = resume.work.filter((job) => job.endDate);
 
-const projects = (await getCollection("projects")).slice(0, resume.work.length);
+const projects = (await getCollection("projects"))
+	.sort(sortProjects)
+	.slice(0, resume.work.length);
 ---
 
 <GlobalLayout>
