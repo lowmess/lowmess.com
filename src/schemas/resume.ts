@@ -1,4 +1,4 @@
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 /**
  * a zod version of the jsonresume schema. automatically converted using transform.tools.
@@ -8,7 +8,6 @@ import { z } from "astro:content";
 export const resumeSchema = z
 	.object({
 		$schema: z
-			.string()
 			.url()
 			.describe(
 				"link to the version of the schema that can validate the resume",
@@ -22,7 +21,7 @@ export const resumeSchema = z
 					.string()
 					.describe("URL (as per RFC 3986) to a image in JPEG or PNG format")
 					.optional(),
-				email: z.string().email().describe("e.g. thomas@gmail.com").optional(),
+				email: z.email().describe("e.g. thomas@gmail.com").optional(),
 				phone: z
 					.string()
 					.describe(
@@ -30,7 +29,6 @@ export const resumeSchema = z
 					)
 					.optional(),
 				url: z
-					.string()
 					.url()
 					.describe(
 						"URL (as per RFC 3986) to your website, e.g. personal homepage",
@@ -76,7 +74,6 @@ export const resumeSchema = z
 									.describe("e.g. neutralthoughts")
 									.optional(),
 								url: z
-									.string()
 									.url()
 									.describe("e.g. http://twitter.example.com/neutralthoughts")
 									.optional(),
@@ -102,7 +99,6 @@ export const resumeSchema = z
 							.optional(),
 						position: z.string().describe("e.g. Software Engineer").optional(),
 						url: z
-							.string()
 							.url()
 							.describe("e.g. http://facebook.example.com")
 							.optional(),
@@ -135,7 +131,6 @@ export const resumeSchema = z
 						organization: z.string().describe("e.g. Facebook").optional(),
 						position: z.string().describe("e.g. Software Engineer").optional(),
 						url: z
-							.string()
 							.url()
 							.describe("e.g. http://facebook.example.com")
 							.optional(),
@@ -170,7 +165,6 @@ export const resumeSchema = z
 							.describe("e.g. Massachusetts Institute of Technology")
 							.optional(),
 						url: z
-							.string()
 							.url()
 							.describe("e.g. http://facebook.example.com")
 							.optional(),
@@ -224,11 +218,7 @@ export const resumeSchema = z
 							.describe("e.g. Certified Kubernetes Administrator")
 							.optional(),
 						date: z.any().optional(),
-						url: z
-							.string()
-							.url()
-							.describe("e.g. http://example.com")
-							.optional(),
+						url: z.url().describe("e.g. http://example.com").optional(),
 						issuer: z.string().describe("e.g. CNCF").optional(),
 					})
 					.catchall(z.any()),
@@ -248,7 +238,6 @@ export const resumeSchema = z
 							.optional(),
 						releaseDate: z.any().optional(),
 						url: z
-							.string()
 							.url()
 							.describe(
 								"e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html",
@@ -345,7 +334,6 @@ export const resumeSchema = z
 						startDate: z.any().optional(),
 						endDate: z.any().optional(),
 						url: z
-							.string()
 							.url()
 							.describe(
 								"e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html",
@@ -375,7 +363,6 @@ export const resumeSchema = z
 		meta: z
 			.object({
 				canonical: z
-					.string()
 					.url()
 					.describe("URL (as per RFC 3986) to latest version of this document")
 					.optional(),

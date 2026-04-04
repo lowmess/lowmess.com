@@ -1,5 +1,6 @@
 import { file, glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 import { blogPostSchema } from "#schemas/blog-post.ts";
 import { concertSchema } from "#schemas/concert.ts";
@@ -16,8 +17,7 @@ const projects = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		date: z
-			.string()
+		date: z.iso
 			.date()
 			.or(z.date())
 			.transform((val) => new Date(val)),
