@@ -1,5 +1,35 @@
 [
 	{
+		"id": "2026-04-05",
+		"date": "2026-04-05",
+		"headliner": "Cass McCombs",
+		"openers": ["Hand Habits"],
+		"venue": "Aladdin Theater",
+		"with": ["Tim"]
+	},
+	{
+		"id": "2026-03-28",
+		"date": "2026-03-28",
+		"headliner": "mclusky",
+		"openers": ["Ekko Astral"],
+		"venue": "Aladdin Theater",
+		"with": ["Tim"]
+	},
+	{
+		"id": "2026-03-26",
+		"date": "2026-03-26",
+		"headliner": "The Belair Lip Bombs",
+		"openers": ["dust"],
+		"venue": "Polaris Hall"
+	},
+	{
+		"id": "2026-03-24",
+		"date": "2026-03-24",
+		"headliner": "The Wonder Years",
+		"venue": "Revolution Hall",
+		"with": ["Aaron"]
+	},
+	{
 		"id": "2026-03-08",
 		"date": "2026-03-08",
 		"headliner": "Whitney",

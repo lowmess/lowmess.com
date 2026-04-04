@@ -1,5 +1,31 @@
 [
 	{
+		"id": "2026-03-13",
+		"date": "2026-03-13",
+		"title": "Project Hail Mary",
+		"format": "Digital",
+		"venue": "The New Parkway Theater",
+		"with": ["Dad"],
+		"link": "https://boxd.it/dCEiN7"
+	},
+	{
+		"id": "2026-03-13",
+		"date": "2026-03-13",
+		"title": "Project Hail Mary",
+		"format": "70mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/dvN9od"
+	},
+	{
+		"id": "2026-03-04",
+		"date": "2026-03-04",
+		"title": "Torque",
+		"format": "Digital",
+		"venue": "Hollywood Theatre",
+		"with": ["Connor"],
+		"link": "https://boxd.it/doRjGh"
+	},
+	{
 		"id": "2026-02-21:1900",
 		"date": "2026-02-21",
 		"title": "One Battle After Another",
