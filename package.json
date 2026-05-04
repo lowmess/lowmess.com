@@ -37,7 +37,7 @@
     "@shikijs/transformers": "^4.0.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^6.1.9",
+    "astro": "^6.2.2",
     "markdown-it": "^14.1.1",
     "postcss-preset-env": "^11.2.1",
     "react": "^19.2.5",
@@ -48,7 +48,7 @@
     "ultrahtml": "^1.6.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/ts-plugin": "^1.10.7",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^25.5.0",
