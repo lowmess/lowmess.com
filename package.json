@@ -37,9 +37,9 @@
     "@shikijs/transformers": "^4.0.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^6.1.8",
+    "astro": "^6.2.2",
     "markdown-it": "^14.1.1",
-    "postcss-preset-env": "^11.2.0",
+    "postcss-preset-env": "^11.2.1",
     "react": "^19.2.5",
     "rss-parser": "^3.13.0",
     "sanitize.css": "^13.0.0",
@@ -48,10 +48,10 @@
     "ultrahtml": "^1.6.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/ts-plugin": "^1.10.7",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.6.2",
     "@types/react": "^19.2.14",
     "dotenv": "^17.4.2",
     "eslint": "^9.39.2",
@@ -61,8 +61,8 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.2"
   },
   "lint-staged": {
     "!(*.d.ts)*.{js,cjs,mjs,jsx,ts,tsx,astro}": [

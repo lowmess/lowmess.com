@@ -1,5 +1,44 @@
 [
 	{
+		"id": "2026-05-07",
+		"date": "2026-05-07",
+		"headliner": "Snail Mail",
+		"openers": ["Sharp Pins", "Armlock"],
+		"venue": "Wonder Ballroom",
+		"with": ["Tim"]
+	},
+	{
+		"id": "2026-05-02",
+		"date": "2026-05-02",
+		"headliner": "Waxahatchee & MJ Lenderman",
+		"openers": ["Brennan Wedl"],
+		"venue": "Roseland Theater",
+		"with": ["Tommy", "Tim", "Sarah", "Dan"]
+	},
+	{
+		"id": "2026-04-30",
+		"date": "2026-04-30",
+		"headliner": "Unknown Mortal Orchestra",
+		"openers": ["Sean Solomon"],
+		"venue": "Revolution Hall"
+	},
+	{
+		"id": "2026-04-22",
+		"date": "2026-04-22",
+		"headliner": "Wednesday",
+		"openers": ["Gouge Away"],
+		"venue": "Revolution Hall",
+		"with": ["Aaron", "Tim", "Dylan", "Sarah"]
+	},
+	{
+		"id": "2026-04-10",
+		"date": "2026-04-10",
+		"headliner": "Forty Feet Tall",
+		"openers": ["MONSTERWATCH"],
+		"venue": "High Limit Room",
+		"with": ["Tony", "Kiki"]
+	},
+	{
 		"id": "2026-04-05",
 		"date": "2026-04-05",
 		"headliner": "Cass McCombs",
