@@ -38,7 +38,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^6.3.7",
-    "markdown-it": "^14.1.1",
+    "markdown-it": "^14.2.0",
     "postcss-preset-env": "^11.3.0",
     "react": "^19.2.6",
     "rss-parser": "^3.13.0",
