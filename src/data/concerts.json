@@ -1,5 +1,21 @@
 [
 	{
+		"id": "2026-06-07",
+		"date": "2026-06-07",
+		"headliner": "Jeff Rosenstock",
+		"openers": ["Star 99"],
+		"venue": "Wonder Ballroom",
+		"with": ["Kayla", "Tim"]
+	},
+	{
+		"id": "2026-06-06",
+		"date": "2026-06-06",
+		"headliner": "Jeff Rosenstock",
+		"openers": ["Star 99"],
+		"venue": "Wonder Ballroom",
+		"with": ["Kayla", "Aaron"]
+	},
+	{
 		"id": "2026-05-20",
 		"date": "2026-05-20",
 		"headliner": "American Football",
