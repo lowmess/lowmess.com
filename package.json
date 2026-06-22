@@ -44,7 +44,7 @@
     "rss-parser": "^3.13.0",
     "sanitize.css": "^13.0.0",
     "satori": "^0.26.0",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.1",
     "ultrahtml": "^1.6.0"
   },
   "devDependencies": {
