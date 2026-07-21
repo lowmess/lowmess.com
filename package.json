@@ -32,7 +32,7 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "@astrojs/db": "^0.21.2",
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.2",
     "@shikijs/transformers": "^4.0.2",
     "@vercel/analytics": "^2.0.1",
