@@ -1,4 +1,3 @@
-import db from "@astrojs/db";
 import sitemap from "@astrojs/sitemap";
 import { transformerNotationDiff } from "@shikijs/transformers";
 import { defineConfig } from "astro/config";
@@ -20,7 +19,6 @@ export default defineConfig({
 	},
 	integrations: [
 		sitemap({ filter: (page) => !page.includes("/blog/archive") }),
-		db(),
 	],
 	redirects: {
 		"/projects": "/work",

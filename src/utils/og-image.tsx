@@ -96,7 +96,7 @@ function OgImageLayout({ style, children }: OgImageLayoutProps) {
 							height: "112px",
 							backgroundColor: "hsl(35 10% 18%)",
 						}}
-					/>
+					></div>
 
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
