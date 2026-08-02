@@ -1,5 +1,21 @@
 [
 	{
+		"id": "2026-07-17",
+		"date": "2026-07-17",
+		"headliner": "Jimmy Eat World",
+		"openers": ["Motion City Soundtrack", "Illuminati Hotties"],
+		"venue": "Hayden Homes Ampitheater",
+		"with": ["Aaron", "Kelly", "Tommy", "Tina"]
+	},
+	{
+		"id": "2026-07-02",
+		"date": "2026-07-02",
+		"headliner": "Santana",
+		"openers": ["The Doobie Brothers"],
+		"venue": "Jones Beach Theater",
+		"with": ["Kayla", "Dad", "Yvette"]
+	},
+	{
 		"id": "2026-06-07",
 		"date": "2026-06-07",
 		"headliner": "Jeff Rosenstock",

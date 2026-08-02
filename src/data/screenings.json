@@ -1,5 +1,89 @@
 [
 	{
+		"id": "2026-08-01",
+		"date": "2026-08-01",
+		"title": "Barry Lyndon",
+		"format": "35mm",
+		"venue": "Whitsell Auditorium",
+		"link": "https://boxd.it/fAlYmR"
+	},
+	{
+		"id": "2026-07-25",
+		"date": "2026-07-25",
+		"title": "The Odyssey",
+		"format": "70mm",
+		"venue": "Hollywood Theatre",
+		"with": ["Aaron"],
+		"link": "https://boxd.it/frCyvh"
+	},
+	{
+		"id": "2026-07-13",
+		"date": "2026-07-13",
+		"title": "Big Trouble in Little China",
+		"format": "35mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/fejiqv"
+	},
+	{
+		"id": "2026-07-12",
+		"date": "2026-07-12",
+		"title": "2001: A Space Odyssey",
+		"format": "70mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/fdhrcz"
+	},
+	{
+		"id": "2026-07-11:2300",
+		"date": "2026-07-11",
+		"title": "Evil Dead II",
+		"format": "35mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/fcaMpB"
+	},
+	{
+		"id": "2026-07-11:1830",
+		"date": "2026-07-11",
+		"title": "Back to the Future",
+		"format": "35mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/fc4Jil"
+	},
+	{
+		"id": "2026-07-10",
+		"date": "2026-07-10",
+		"title": "The Invite",
+		"format": "Digital",
+		"venue": "Regal Lloyd Center",
+		"with": ["Tommy"],
+		"link": "https://boxd.it/fb9fM7"
+	},
+	{
+		"id": "2026-07-03",
+		"date": "2026-07-03",
+		"title": "The Third Man",
+		"format": "35mm",
+		"venue": "Film Forum",
+		"with": ["Kayla", "Dad", "Yvette"],
+		"link": "https://boxd.it/f428r5"
+	},
+	{
+		"id": "2026-06-26",
+		"date": "2026-06-26",
+		"title": "Supergirl",
+		"format": "Digital",
+		"venue": "Cinemark Watchung",
+		"with": ["Dad"],
+		"link": "https://boxd.it/eXJ9xB"
+	},
+	{
+		"id": "2026-06-16",
+		"date": "2026-06-16",
+		"title": "Disclosure Day",
+		"format": "Digital",
+		"venue": "Regal Lloyd Center",
+		"link": "https://boxd.it/ePlsbT"
+	},
+	{
 		"id": "2026-06-01",
 		"date": "2026-06-01",
 		"title": "Repo Man",
