@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build --remote",
+    "build": "astro build",
     "preview": "astro preview",
     "check": "astro check --minimumFailingSeverity warning",
     "astro": "astro",
@@ -31,7 +31,6 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
-    "@astrojs/db": "^0.21.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@shikijs/transformers": "^4.3.1",
