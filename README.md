@@ -19,7 +19,3 @@ npm run build
 ```bash
 npm run start
 ```
-
-## Environment Variables
-
-You can find the environment variables needed in [`env.d.ts`](./src/env.d.ts)
