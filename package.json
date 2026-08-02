@@ -31,12 +31,14 @@
   },
   "homepage": "https://lowmess.com",
   "dependencies": {
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/ts-plugin": "^1.10.10",
     "@shikijs/transformers": "^4.3.1",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^6.4.7",
+    "astro": "^7.1.6",
     "markdown-it": "^14.3.0",
     "postcss-preset-env": "^11.3.2",
     "react": "^19.2.7",
@@ -47,8 +49,7 @@
     "ultrahtml": "^1.6.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@astrojs/ts-plugin": "^1.10.9",
+    "@eslint/js": "^9.39.2",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
