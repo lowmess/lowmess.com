@@ -28,11 +28,7 @@ const projects = (await getCollection("projects"))
 
 <GlobalLayout>
 	<div class="content">
-		<h1>
-			My name is Alec&nbsp;Lomas<span class="orange">,</span> and I make websites<span
-				class="orange">.</span
-			>
-		</h1>
+		<h1>I make websites.</h1>
 
 		<div class="split">
 			<div class="projects">
@@ -122,10 +118,24 @@ const projects = (await getCollection("projects"))
 	h1 {
 		margin-block: 0;
 		margin-block-end: var(--rhythm-lg);
-		font-size: var(--font-size-title);
+		font-family: var(--font-family-heading);
+		font-style: italic;
+		font-size: calc(var(--font-size-title) * 1.5);
 		line-height: var(--line-height-solid);
-		text-transform: lowercase;
-		text-align: center;
+
+		.name {
+			font-family: var(--font-family-heading);
+			font-style: normal;
+			font-weight: 600;
+			/* color: var(--color-primary); */
+		}
+
+		.websites {
+			font-family: var(--font-family-mono);
+			font-style: normal;
+			font-weight: 400;
+			color: var(--color-primary);
+		}
 	}
 
 	h2 {

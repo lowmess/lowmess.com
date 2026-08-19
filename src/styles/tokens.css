@@ -40,12 +40,12 @@
 	--line-height-body: 1.5;
 	--line-height-prose: 1.75;
 
-	--font-family-heading: Strawford, ui-sans-serif, system-ui, sans-serif;
-	--font-family-subheading: "Izoard", ui-sans-serif, system-ui, sans-serif;
-	--font-family-body: Novela, ui-serif, serif;
+	--font-family-heading: Framboisier, Georgia, ui-serif, serif;
+	--font-family-body: ui-sans-serif, system-ui, sans-serif;
 	--font-family-mono:
 		"Fira Code", Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Oxygen Mono,
 		Liberation Mono, monospace;
+	--font-family-subheading: var(--font-family-mono);
 
 	/* spacing */
 	--space-none: 0;
@@ -75,10 +75,13 @@
 	--container-padding: var(--space-sm);
 	--content-width: 64rem;
 	--content-padding: var(--space-md);
+	--content-padding-start: calc(var(--space-lg) - var(--outline-width));
+	--content-padding-end: var(--space-lg);
 
 	/* outline */
-	--outline-width: 6px;
-	--outline-color: light-dark(
+	--outline-width: 4px;
+	--outline-color: var(--color-primary);
+	--outline-color-muted: light-dark(
 		hsl(from var(--color-orange) h 40% 65%),
 		hsl(from var(--color-orange) h 20% 35%)
 	);
@@ -102,11 +105,11 @@
 	color-scheme: dark;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 64em) {
 	:root {
 		--content-padding: var(--space-lg);
 		--container-padding: var(--space-md);
-
-		--outline-width: 8px;
+		--content-padding-start: calc(var(--space-xl) - var(--outline-width));
+		--content-padding-end: var(--space-xl);
 	}
 }

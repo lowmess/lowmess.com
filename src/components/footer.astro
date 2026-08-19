@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 
 import BlogPostPreview from "#components/blog-post-preview.astro";
 import Content from "#components/content.astro";
-import Logo from "#components/logo.astro";
 import { sortBlogPosts } from "#utils/blog";
 
 const latestPost = (
@@ -61,10 +60,6 @@ const latestPost = (
 				</div>
 			)
 		}
-
-		<a href="/" class="logo">
-			<Logo title="Go to homepage" />
-		</a>
 	</Content>
 </footer>
 
@@ -81,7 +76,7 @@ const latestPost = (
 		background-color: var(--footer-background-color);
 
 		@media (min-width: 64em) {
-			padding-block-end: calc(var(--container-padding) * 3);
+			padding-block-end: calc(var(--container-padding) * 2);
 		}
 
 		@media print {
@@ -94,10 +89,9 @@ const latestPost = (
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: var(--space-xl);
-		border-block-end: var(--outline-width) solid var(--outline-color);
-		border-end-start-radius: var(--outline-width);
-		padding-block: var(--content-padding);
-		background-color: var(--footer-background-color);
+		border-inline-start: var(--outline-width) solid var(--outline-color);
+		padding-block-start: var(--content-padding);
+		padding-block-end: 0;
 
 		@media (min-width: 40em) {
 			grid-template-columns: repeat(2, minmax(max-content, var(--space-xxl)));
@@ -109,39 +103,8 @@ const latestPost = (
 			grid-template-columns: 1fr 1fr 3fr;
 		}
 
-		&::before {
-			content: "";
-			position: absolute;
-			right: calc(var(--outline-width) * -1);
-			bottom: calc(var(--outline-width) * -1);
-			z-index: 0;
-			width: calc(var(--outline-width) * 5 - 2px);
-			height: calc(var(--outline-width) * 4);
-			transform: scale(1);
-			transform-origin: bottom right;
-			background-color: var(--footer-background-color);
-		}
-
-		&:has(.logo:hover)::before {
-			transform: scale(0);
-		}
-
-		&::after {
-			content: "";
-			position: absolute;
-			right: calc(var(--outline-width) * -1);
-			bottom: calc(var(--outline-width) * -1);
-			width: calc(var(--outline-width) * 8);
-			height: calc(var(--outline-width) * 4);
-			pointer-events: none;
-			background-color: var(--footer-background-color);
-			transform: scale(0);
-			transform-origin: bottom right;
-			transition: transform 0.2s ease;
-		}
-
-		&:has(.logo:hover)::after {
-			transform: scale(1);
+		@media (min-width: 80em) {
+			padding-block-end: var(--container-padding);
 		}
 	}
 
@@ -169,45 +132,6 @@ const latestPost = (
 			margin-block-end: 0;
 			font-size: var(--font-size-sm);
 			text-wrap: pretty;
-		}
-	}
-
-	.logo {
-		position: absolute;
-		z-index: 1;
-		right: calc(var(--outline-width) * -1);
-		bottom: calc(var(--outline-width) * -1);
-		display: block;
-		width: var(--logo-width);
-		aspect-ratio: var(--logo-aspect-ratio);
-		color: var(--outline-color);
-		line-height: 0;
-		transform: rotateZ(-180deg);
-		transition:
-			color 0.5s ease,
-			transform 0.3s ease;
-
-		&:hover {
-			color: var(--color-primary);
-			transform: rotateZ(0deg);
-		}
-
-		svg {
-			position: relative;
-			z-index: 2;
-			width: 100%;
-			height: 100%;
-		}
-
-		/* increase touch area to prevent jitters */
-		&:hover::after {
-			content: "";
-			position: absolute;
-			top: -33%;
-			left: -33%;
-			width: 150%;
-			aspect-ratio: 1;
-			border-radius: 100%;
 		}
 	}
 

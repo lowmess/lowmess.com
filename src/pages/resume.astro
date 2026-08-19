@@ -1,8 +1,8 @@
 ---
 import { getEntry } from "astro:content";
 
-import Logo from "#components/logo.astro";
 import PageHeading from "#components/page-heading.astro";
+import Logo from "#icons/logo.svg";
 import GlobalLayout from "#layouts/global.astro";
 
 const resumePayload = await getEntry("resume", "1");
@@ -26,7 +26,7 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	>
 
 	<article class="resume">
-		<div class="logo"><Logo title="" /></div>
+		<div class="logo"><Logo /></div>
 
 		<section class="intro">
 			<h2 class="name">{resume.basics?.name || "Alec Lomas"}</h2>

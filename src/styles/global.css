@@ -36,6 +36,10 @@ body > main {
 	line-height: var(--font-family-heading);
 }
 
+:where(h1, h2) {
+	font-style: italic;
+}
+
 :where(code, pre) {
 	font-family: var(--font-family-mono);
 	color: currentColor;

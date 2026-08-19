@@ -13,10 +13,11 @@ const { as: Tag = "div", class: className, ...props } = Astro.props;
 		container-type: inline-size;
 		max-width: var(--content-width);
 		margin-inline: auto;
-		padding-inline: var(--content-padding);
+		padding-inline-start: var(--content-padding-start);
+		padding-inline-end: var(--content-padding-end);
 		padding-block-end: var(--rhythm-xxl);
-		border-inline: var(--outline-width) solid var(--outline-color);
-		background-color: var(--color-background);
+		border-inline-start: var(--outline-width) solid var(--outline-color);
+		transition: border-color 0.3s ease;
 
 		@media print {
 			border: 0;

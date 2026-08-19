@@ -1,29 +1,29 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import Contrast from "#components/icon-contrast.svg";
-import Moon from "#components/icon-moon.svg";
-import Sun from "#components/icon-sun.svg";
+import Contrast from "#icons/contrast.svg";
+import Moon from "#icons/moon.svg";
+import Sun from "#icons/sun.svg";
 
-type Props = HTMLAttributes<"svg">;
+type Props = HTMLAttributes<"div">;
 
 const { class: className, ...props } = Astro.props;
 ---
 
-<div class="container">
+<div class:list={["container", className]} {...props}>
 	<label for="color-theme-select" class="visually-hidden"
 		>Change color scheme</label
 	>
 
 	<select id="color-theme-select" name="color-theme-select">
-		<option value="system">System</option>
+		<option value="system">Auto</option>
 
 		<option value="light">Light</option>
 
 		<option value="dark">Dark</option>
 	</select>
 
-	<div aria-hidden class:list={["theme-icon", className]} {...props}>
+	<div aria-hidden class="theme-icon">
 		<Contrast class="system-icon" />
 
 		<Sun class="light-icon" />
@@ -70,6 +70,7 @@ const { class: className, ...props } = Astro.props;
 		padding: var(--space-sm);
 		font-size: var(--font-size-lg);
 		color: var(--color-text-secondary);
+		transition: color 0.3s ease;
 
 		svg {
 			width: 1em;
