@@ -1,13 +1,14 @@
 ---
 import ColorThemeToggle from "#components/color-theme-toggle.astro";
-import Logo from "#components/logo.astro";
+import Logo from "#icons/logo.svg";
 ---
 
 <nav>
 	<div class="skip-link"><a href="#main-content">Skip to main content</a></div>
 
-	<a href="/" class="logo">
-		<Logo title="Go to homepage" />
+	<a href="/" class="logo" id="navigation-logo">
+		<span class="visually-hidden">Go to homepage</span>
+		<Logo aria-hidden />
 	</a>
 
 	<div class="nav-items">
@@ -29,27 +30,28 @@ import Logo from "#components/logo.astro";
 			</li>
 		</ul>
 
-		<ColorThemeToggle />
+		<ColorThemeToggle class="theme-toggle" />
 	</div>
 </nav>
 
 <style>
 	nav {
-		position: relative;
 		display: flex;
 		width: 100%;
 		align-items: center;
 		justify-content: space-between;
 		max-width: var(--content-width);
+		margin-block-start: calc(var(--container-padding) * -1);
 		margin-inline: auto;
-		border: var(--outline-width) solid var(--outline-color);
-		border-block-end: 0;
-		border-start-end-radius: var(--outline-width);
-		padding-inline-end: calc(var(--content-padding) / 2);
-		background-color: var(--color-background);
+		border-inline-start: var(--outline-width) solid var(--outline-color);
 		line-height: var(--line-height-solid);
+		transition: border-color 0.3s ease;
 
 		@media (min-width: 64em) {
+			margin-block-start: 0;
+		}
+
+		@media (min-width: 80em) {
 			margin-block-start: calc(var(--container-padding) * 2);
 		}
 
@@ -61,7 +63,7 @@ import Logo from "#components/logo.astro";
 	.nav-items {
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
+		gap: var(--space-lg);
 
 		@media print {
 			display: none;
@@ -76,17 +78,16 @@ import Logo from "#components/logo.astro";
 	}
 
 	li {
-		padding: 0;
+		position: relative;
+		padding-inline: var(--space-sm);
 	}
 
 	li a {
-		position: relative;
-		font-family: var(--font-family-subheading);
-		text-transform: uppercase;
+		font-family: var(--font-family-body);
 		color: var(--color-text-secondary);
 		text-decoration: none;
 		font-size: var(--font-size-sm);
-		letter-spacing: var(--letter-spacing-wide);
+		transition: color 0.3s ease;
 
 		&:hover,
 		&[data-current="true"] {
@@ -96,20 +97,29 @@ import Logo from "#components/logo.astro";
 		&::after {
 			content: "";
 			position: absolute;
-			right: 3px;
-			bottom: -2px;
+			right: 0;
+			bottom: -0.5em;
 			left: 0;
 			height: 2px;
-			background-color: var(--color-primary);
+			background-color: var(--color-text-secondary);
 			transform: scaleX(0);
-			transform-origin: center left;
+			transform-origin: center;
 			transition: transform 0.3s ease;
+		}
+
+		&[data-current="true"]::after {
+			background-color: var(--color-primary);
 		}
 
 		&:hover::after,
 		&[data-current="true"]::after {
 			transform: scaleX(1);
 		}
+	}
+
+	.theme-toggle {
+		position: relative;
+		top: 1px;
 	}
 
 	.skip-link {
@@ -140,7 +150,6 @@ import Logo from "#components/logo.astro";
 
 	.logo {
 		position: relative;
-		top: calc(var(--outline-width) * -1);
 		left: calc(var(--outline-width) * -1);
 		display: block;
 		width: var(--logo-width);
@@ -163,26 +172,27 @@ import Logo from "#components/logo.astro";
 		&::before {
 			content: "";
 			position: absolute;
-			top: 0;
-			right: calc(var(--outline-width) * 3);
-			bottom: calc(100% - var(--outline-width));
-			left: 0;
+			top: -1em;
+			right: calc(100% - var(--outline-width) * 3);
+			bottom: calc(100% - 1px);
+			left: calc(var(--outline-width) * -1);
 			z-index: 1;
 			display: block;
 			background-color: var(--color-background);
 			pointer-events: none;
-			transition:
-				right 0.2s ease,
-				bottom 0.2s ease;
+			transition: bottom 0.2s ease;
 		}
 
 		&:hover::before {
-			right: calc(var(--outline-width) * 1);
-			bottom: calc(var(--outline-width) * -1);
+			bottom: calc(var(--outline-width) * -2);
 		}
 
 		@media print {
 			color: var(--color-primary);
 		}
+	}
+
+	:global(body:has(#navigation-logo:hover)) {
+		--outline-color: var(--outline-color-muted);
 	}
 </style>

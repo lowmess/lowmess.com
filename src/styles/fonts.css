@@ -203,6 +203,26 @@
 }
 
 /* ===========================================================================
+ * F R A M B O I S I E R
+ * ======================================================================== */
+
+@font-face {
+	font-family: "Framboisier";
+	src: url("/fonts/framboisier-bold.woff") format("woff");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Framboisier";
+	src: url("/fonts/framboisier-bolditalic.woff") format("woff");
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* ===========================================================================
  * I Z O A R D
  * ======================================================================== */
 
