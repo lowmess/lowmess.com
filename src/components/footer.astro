@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 
-import BlogPostPreview from "#components/blog-post-preview.astro";
 import Content from "#components/content.astro";
 import { sortBlogPosts } from "#utils/blog";
 
@@ -18,8 +17,27 @@ const latestPost = (
 
 <footer>
 	<Content class="content">
-		<div>
-			<h2>Site</h2>
+		<div class="section">
+			<h2 data-np-heading>Just listened</h2>
+			<p data-np-track>&mdash;</p>
+		</div>
+
+		<div class="section">
+			{
+				latestPost && (
+					<>
+						<h2>Recent writing</h2>
+
+						<p>
+							<a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+						</p>
+					</>
+				)
+			}
+		</div>
+
+		<div class="section">
+			<h2>On this site</h2>
 
 			<ul>
 				<li><a href="/">Home</a></li>
@@ -29,12 +47,13 @@ const latestPost = (
 				<li><a href="/colophon">Colophon</a></li>
 				<li><a href="/uses">Uses</a></li>
 				<li><a href="/archive">Archive</a></li>
+				<li><a href="/resume">Resume</a></li>
 				<li><a href="/rss.xml">RSS</a></li>
 			</ul>
 		</div>
 
-		<div>
-			<h2>Links</h2>
+		<div class="section">
+			<h2>Around town</h2>
 
 			<ul>
 				<li>
@@ -43,30 +62,61 @@ const latestPost = (
 				<li>
 					<a href="https://letterboxd.com/lowmess/" rel="me">Letterboxd</a>
 				</li>
-				<li><a href="https://www.last.fm/user/lowmess" rel="me">Last.fm</a></li>
+				<li>
+					<a href="https://www.last.fm/user/lowmess" rel="me">Last.fm</a>
+				</li>
 				<li><a href="https://github.com/lowmess" rel="me">GitHub</a></li>
 				<li><a href="https://codepen.io/lowmess" rel="me">CodePen</a></li>
-				<li><a href="https://linkedin.com/in/lowmess" rel="me">LinkedIn</a></li>
-				<li><a href="/resume">Resume</a></li>
+				<li><a href="https://sifa.id/p/lowmess.com" rel="me">Sifa</a></li>
+				<li>
+					<a href="https://linkedin.com/in/lowmess" rel="me">LinkedIn</a>
+				</li>
 			</ul>
 		</div>
-
-		{
-			latestPost && (
-				<div class="latest-post">
-					<h2>Latest blog post</h2>
-
-					<BlogPostPreview post={latestPost} headingLevel="span" />
-				</div>
-			)
-		}
 	</Content>
 </footer>
 
+<script>
+	import { LASTFM_API_KEY, LASTFM_USER_NAME } from "astro:env/client";
+
+	const $npHeading = document.querySelector("[data-np-heading]");
+	const $npTrack = document.querySelector("[data-np-track]");
+
+	async function getRecentTrack() {
+		if (!$npHeading || !$npTrack) {
+			return;
+		}
+
+		const uri = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&limit=1&user=${
+			LASTFM_USER_NAME
+		}&api_key=${LASTFM_API_KEY}&format=json`;
+
+		const res = await fetch(uri);
+		const json = await res.json();
+
+		if (json.error) {
+			return;
+		}
+
+		const track = json.recenttracks.track[0];
+
+		const isNowPlaying = track["@attr"]?.nowplaying === "true";
+		const album = track.album["#text"];
+		const artist = track.artist["#text"];
+
+		$npHeading.innerHTML = isNowPlaying ? "Now playing" : "Just listened";
+		$npTrack.innerHTML = `&#8220;${album}&#8221; by ${artist}`;
+	}
+
+	try {
+		await getRecentTrack();
+	} catch {
+		console.log("Failed to fetch/parse latest track from Last.fm");
+	}
+</script>
+
 <style>
 	footer {
-		--color-text: hsl(from var(--color-gray) h s 95%);
-
 		width: 100vw;
 		position: relative;
 		left: var(--container-padding);
@@ -74,6 +124,7 @@ const latestPost = (
 		padding-block-end: var(--container-padding);
 		padding-inline: var(--container-padding);
 		background-color: var(--footer-background-color);
+		color: var(--footer-text);
 
 		@media (min-width: 64em) {
 			padding-block-end: calc(var(--container-padding) * 2);
@@ -86,85 +137,76 @@ const latestPost = (
 
 	.content {
 		position: relative;
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--space-xl);
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--rhythm-sm);
 		border-inline-start: var(--outline-width) solid var(--outline-color);
 		padding-block-start: var(--content-padding);
 		padding-block-end: 0;
-
-		@media (min-width: 40em) {
-			grid-template-columns: repeat(2, minmax(max-content, var(--space-xxl)));
-			gap: var(--space-xl);
-			justify-content: center;
-		}
-
-		@media (min-width: 64em) {
-			grid-template-columns: 1fr 1fr 3fr;
-		}
 
 		@media (min-width: 80em) {
 			padding-block-end: var(--container-padding);
 		}
 	}
 
-	.latest-post {
-		display: none;
+	.section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-xs);
 
-		@media (min-width: 64em) {
-			display: block;
-		}
-
-		a {
-			font-family: var(--font-family-heading);
-			font-size: var(--font-size-lg);
-			font-weight: 600;
-			color: var(--color-text);
-			text-decoration: none;
-
-			&:hover {
-				color: var(--color-primary);
-			}
-		}
-
-		p {
-			margin-block-start: var(--space-sm);
-			margin-block-end: 0;
-			font-size: var(--font-size-sm);
-			text-wrap: pretty;
+		@media (min-width: 40em) {
+			flex-direction: row;
+			gap: var(--space-md);
 		}
 	}
 
 	h2 {
-		margin-block-start: 0;
-		margin-block-end: var(--rhythm-sm);
+		margin-block: 0;
 		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-xs);
-		letter-spacing: var(--letter-spacing-wide);
-		color: var(--color-text-secondary);
-		text-transform: uppercase;
+		font-size: var(--font-size-sm);
+		font-style: normal;
+		font-weight: 500;
+
+		@media (min-width: 40em) {
+			text-align: end;
+		}
+	}
+
+	p {
+		margin-block: 0;
+		font-family: var(--font-family-subheading);
+		font-size: var(--font-size-sm);
+		font-style: normal;
+		font-weight: 500;
+		color: var(--footer-text-secondary);
+		text-wrap: pretty;
 	}
 
 	ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-xs);
 		margin: 0;
 		padding: 0;
+
+		@media (min-width: 30em) {
+			flex-direction: row;
+			gap: var(--space-md);
+		}
 	}
 
 	li {
-		font-family: var(--font-family-heading);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-sm);
 		list-style-type: none;
+	}
 
-		a {
-			color: var(--color-text);
-			text-decoration: none;
+	a {
+		color: var(--footer-text-secondary);
+		text-decoration: none;
 
-			&:hover {
-				color: var(--color-primary);
-			}
-		}
-
-		& + & {
-			margin-block-start: var(--rhythm-xs);
+		&:hover {
+			color: var(--footer-text);
 		}
 	}
 </style>

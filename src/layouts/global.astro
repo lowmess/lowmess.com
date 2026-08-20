@@ -2,6 +2,7 @@
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import type { HTMLAttributes } from "astro/types";
+import { Font } from "astro:assets";
 
 import Content from "#components/content.astro";
 import Footer from "#components/footer.astro";
@@ -13,7 +14,6 @@ import "sanitize.css/assets.css";
 import "sanitize.css/reduce-motion.css";
 import "sanitize.css/typography.css";
 
-import "#styles/fonts.css";
 import "#styles/global.css";
 import "#styles/print.css";
 import "#styles/tokens.css";
@@ -92,16 +92,15 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<meta property="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={ogImageUrl} />
 
-		<!-- preload display fonts -->
-		<link
-			rel="preload"
-			href="/fonts/strawford-bold-webfont.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
+		<!-- Identity -->
+		<link rel="me" href="https://sifa.id/p/lowmess.com" />
 
-		<!-- set initial color scheme -->
+		<!-- Fonts -->
+		<Font cssVariable="--typeface-framboisier" />
+		<Font cssVariable="--typeface-hanken-grotesk" />
+		<Font cssVariable="--typeface-fira-code" />
+
+		<!-- Set initial color scheme -->
 		<script>
 			const defaultTheme = "system";
 			const storedTheme = localStorage.getItem("color-theme");

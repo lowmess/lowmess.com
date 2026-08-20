@@ -3,23 +3,23 @@
 
 	/* palette */
 	--color-orange: hsl(35, 90%, 50%);
-	--color-gray: hsl(from var(--color-orange) h 10% l);
+	--color-gray: hsl(from var(--color-orange) h 12% l);
 
-	--color-black: hsl(from var(--color-gray) h s 15%);
+	--color-black: hsl(from var(--color-gray) h s 12%);
 	--color-white: hsl(from var(--color-gray) h s 100%);
 
 	--color-text: light-dark(
 		hsl(from var(--color-gray) h s 28%),
 		hsl(from var(--color-gray) h s 95%)
 	);
-	--color-text-body: hsl(from var(--color-text) h s l / 0.9);
+	--color-text-body: hsl(from var(--color-text) h s l / 0.95);
 	--color-text-secondary: light-dark(
-		hsl(from var(--color-primary) h 40% 50%),
-		hsl(from var(--color-primary) h 20% 50%)
+		hsl(from var(--color-primary) h 40% 45%),
+		hsl(from var(--color-primary) h 25% 65%)
 	);
 	--color-background: light-dark(
 		hsl(from var(--color-gray) h s 95%),
-		hsl(from var(--color-gray) h s 18%)
+		hsl(from var(--color-gray) h s 15%)
 	);
 	--color-primary: var(--color-orange);
 
@@ -40,12 +40,10 @@
 	--line-height-body: 1.5;
 	--line-height-prose: 1.75;
 
-	--font-family-heading: Framboisier, Georgia, ui-serif, serif;
-	--font-family-body: ui-sans-serif, system-ui, sans-serif;
-	--font-family-mono:
-		"Fira Code", Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Oxygen Mono,
-		Liberation Mono, monospace;
-	--font-family-subheading: var(--font-family-mono);
+	--font-family-heading: var(--typeface-framboisier);
+	--font-family-subheading: var(--typeface-hanken-grotesk);
+	--font-family-body: var(--typeface-hanken-grotesk);
+	--font-family-mono: var(--typeface-fira-code);
 
 	/* spacing */
 	--space-none: 0;
@@ -82,7 +80,7 @@
 	--outline-width: 4px;
 	--outline-color: var(--color-primary);
 	--outline-color-muted: light-dark(
-		hsl(from var(--color-orange) h 40% 65%),
+		hsl(from var(--color-orange) h 40% 75%),
 		hsl(from var(--color-orange) h 20% 35%)
 	);
 
@@ -94,6 +92,11 @@
 	--footer-background-color: light-dark(
 		hsl(from var(--color-gray) h 15% 20%),
 		var(--color-black)
+	);
+	--footer-text: light-dark(var(--color-white), var(--color-text));
+	--footer-text-secondary: light-dark(
+		hsl(from var(--color-primary) h 35% 60%),
+		var(--color-text-secondary)
 	);
 }
 

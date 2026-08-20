@@ -38,6 +38,10 @@ body > main {
 
 :where(h1, h2) {
 	font-style: italic;
+
+	& > :where(em, code) {
+		font-style: normal;
+	}
 }
 
 :where(code, pre) {
