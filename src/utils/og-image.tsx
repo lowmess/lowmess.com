@@ -7,14 +7,9 @@ import React, {
 import satori from "satori";
 import sharp from "sharp";
 
-const izoardRegular = fs.readFileSync(
-	"./src/assets/fonts/izoard-regular-webfont.woff",
-);
-const strawfordRegular = fs.readFileSync(
-	"./src/assets/fonts/strawford-regular-webfont.woff",
-);
-const strawfordBold = fs.readFileSync(
-	"./src/assets/fonts/strawford-bold-webfont.woff",
+const framboisier = fs.readFileSync("./src/assets/fonts/framboisier-bold.woff");
+const framboisierItalic = fs.readFileSync(
+	"./src/assets/fonts/framboisier-bolditalic.woff",
 );
 
 export async function generateOgImage(template: ReactNode) {
@@ -23,22 +18,16 @@ export async function generateOgImage(template: ReactNode) {
 		height: 630,
 		fonts: [
 			{
-				name: "Izoard",
-				data: izoardRegular,
-				weight: 400,
-				style: "normal",
-			},
-			{
-				name: "Strawford",
-				data: strawfordRegular,
-				weight: 400,
-				style: "normal",
-			},
-			{
-				name: "Strawford",
-				data: strawfordBold,
+				name: "Framboisier",
+				data: framboisier,
 				weight: 700,
 				style: "normal",
+			},
+			{
+				name: "Framboisier",
+				data: framboisierItalic,
+				weight: 700,
+				style: "italic",
 			},
 		],
 	});
