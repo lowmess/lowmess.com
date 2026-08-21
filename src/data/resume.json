@@ -37,7 +37,10 @@
 				"position": "Software Engineer",
 				"website": "https://ressiosoftware.com",
 				"startDate": "2023-10-23",
-				"summary": "Developed next-generation construction management software."
+				"summary": "Developed next-generation construction management software.",
+				"meta": {
+					"featured": true
+				}
 			},
 			{
 				"name": "Data Theorem",
@@ -45,7 +48,10 @@
 				"website": "https://datatheorem.com",
 				"startDate": "2022-10-24",
 				"endDate": "2023-10-19",
-				"summary": "Built dashboards for application security platform using TypeScript & React. Contributed to a major overhaul of the entire UI, including designing missing screens & functionality. Rebuilt the marketing site from the ground-up."
+				"summary": "Built dashboards for application security platform using TypeScript & React. Contributed to a major overhaul of the entire UI, including designing missing screens & functionality. Rebuilt the marketing site from the ground-up.",
+				"meta": {
+					"featured": true
+				}
 			},
 			{
 				"name": "Allma",
@@ -60,7 +66,10 @@
 				"website": "https://carvana.com",
 				"startDate": "2021-04-16",
 				"endDate": "2021-10-08",
-				"summary": "Developed applications using TypeScript & React for the underwriting team. Worked with others to shape the direction of product features and UI/UX."
+				"summary": "Developed applications using TypeScript & React for the underwriting team. Worked with others to shape the direction of product features and UI/UX.",
+				"meta": {
+					"featured": true
+				}
 			},
 			{
 				"name": "HiringSolved",
@@ -75,7 +84,10 @@
 				"website": "https://fuelmade.com",
 				"startDate": "2018-01-22",
 				"endDate": "2018-12-14",
-				"summary": "Worked directly with clients and other stakeholders to deliver exceptional, high-conversion eCommerce websites on the Shopify platform. Created tools to standardize and expedite internal developer experience."
+				"summary": "Worked directly with clients and other stakeholders to deliver exceptional, high-conversion eCommerce websites on the Shopify platform. Created tools to standardize and expedite internal developer experience.",
+				"meta": {
+					"featured": true
+				}
 			},
 			{
 				"name": "meltmedia",

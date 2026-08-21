@@ -41,21 +41,28 @@ import Logo from "#icons/logo.svg";
 		align-items: center;
 		justify-content: space-between;
 		max-width: var(--content-width);
-		margin-block-start: calc(var(--container-padding) * -1);
+		margin-block-start: max(
+			calc(var(--container-padding) * -1),
+			env(safe-area-inset-top)
+		);
 		margin-inline: auto;
 		border-inline-start: var(--outline-width) solid var(--outline-color);
 		line-height: var(--line-height-solid);
 		transition: border-color 0.3s ease;
 
 		@media (min-width: 64em) {
-			margin-block-start: 0;
+			margin-block-start: max(0, env(safe-area-inset-top));
 		}
 
 		@media (min-width: 80em) {
-			margin-block-start: calc(var(--container-padding) * 2);
+			margin-block-start: max(
+				calc(var(--container-padding) * 2),
+				env(safe-area-inset-top)
+			);
 		}
 
 		@media print {
+			margin-block-start: 0;
 			border: 0;
 		}
 	}
@@ -63,7 +70,7 @@ import Logo from "#icons/logo.svg";
 	.nav-items {
 		display: flex;
 		align-items: center;
-		gap: var(--space-lg);
+		gap: var(--space-sm);
 
 		@media print {
 			display: none;
@@ -73,7 +80,7 @@ import Logo from "#icons/logo.svg";
 	ul {
 		display: flex;
 		align-items: center;
-		gap: var(--space-md);
+		gap: var(--space-sm);
 		margin: 0;
 	}
 

@@ -47,7 +47,7 @@ const latestPost = (
 				<li><a href="/colophon">Colophon</a></li>
 				<li><a href="/uses">Uses</a></li>
 				<li><a href="/archive">Archive</a></li>
-				<li><a href="/resume">Resume</a></li>
+				<li><a href="/resume">Resum&eacute;</a></li>
 				<li><a href="/rss.xml">RSS</a></li>
 			</ul>
 		</div>
@@ -121,13 +121,19 @@ const latestPost = (
 		position: relative;
 		left: var(--container-padding);
 		margin-inline: calc(var(--container-padding) * -2);
-		padding-block-end: var(--container-padding);
+		padding-block-end: max(
+			var(--container-padding),
+			env(safe-area-inset-bottom)
+		);
 		padding-inline: var(--container-padding);
 		background-color: var(--footer-background-color);
 		color: var(--footer-text);
 
 		@media (min-width: 64em) {
-			padding-block-end: calc(var(--container-padding) * 2);
+			padding-block-end: max(
+				calc(var(--container-padding) * 2),
+				env(safe-area-inset-bottom)
+			);
 		}
 
 		@media print {
@@ -142,11 +148,7 @@ const latestPost = (
 		row-gap: var(--rhythm-sm);
 		border-inline-start: var(--outline-width) solid var(--outline-color);
 		padding-block-start: var(--content-padding);
-		padding-block-end: 0;
-
-		@media (min-width: 80em) {
-			padding-block-end: var(--container-padding);
-		}
+		padding-block-end: var(--container-padding);
 	}
 
 	.section {

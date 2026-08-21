@@ -8,20 +8,6 @@
 		"repo": "https://github.com/lowmess/lowmess.com"
 	},
 	{
-		"id": "11",
-		"title": "Data Theorem Marketing Site",
-		"description": "I lead the effort to modernize the Data Theorem marketing site while I was working there. Built with Astro and DatoCMS.",
-		"date": "2023-10-01",
-		"website": "https://datatheorem.com"
-	},
-	{
-		"id": "10",
-		"title": "AZ Golf Gurus",
-		"date": "2022-11-11",
-		"description": "I created the branding for this Arizona-based golf coaching company. I also designed the first several versions of the website.",
-		"repo": "https://github.com/lowmess/az-golf-gurus"
-	},
-	{
 		"id": "9",
 		"title": "lameass.recipes",
 		"date": "2020-11-01",
@@ -38,53 +24,11 @@
 		"repo": "https://github.com/lowmess/music/tree/master/src/most-wanted"
 	},
 	{
-		"id": "7",
-		"title": "Chirp E-commerce Site",
-		"date": "2018-11-01",
-		"description": "To help the client transition into their new brand before the Black Friday rush, I developed this ecommerce site in under 6 weeks. Built at Fuel Made.",
-		"website": "https://gochirp.com"
-	},
-	{
-		"id": "6",
-		"title": "cocokind E-commerce Site",
-		"date": "2018-07-01",
-		"description": "While working at Fuel Made, I developed this skincare ecommerce website. It was the first site built with an atomic CSS library I wrote while at the agency.",
-		"website": "https://www.cocokind.com"
-	},
-	{
-		"id": "5",
-		"title": "herohero",
-		"date": "2017-11-25",
-		"description": "Generate social media hero images from HTML files. Because sometimes designing in the browser is just easier than opening <s>Illustrator</s> <s>Sketch</s> Figma.",
-		"repo": "https://github.com/lowmess/herohero"
-	},
-	{
-		"id": "4",
-		"title": "Genentech AEM Components",
-		"date": "2017-01-01",
-		"description": "As part of a team tasked with streamlining the development of over 100 Genentech websites, I developed a brand-agnostic component library in Adobe Experience Manager. Built at meltmedia."
-	},
-	{
 		"id": "3",
 		"title": "hero-patterns.js",
 		"date": "2016-10-28",
 		"description": "Easily use patterns from heropatterns.com, right in your JavaScript. Perfect for CSS-in-JS solutions and randomization.",
 		"website": "https://hero-patterns.lowmess.com",
 		"repo": "https://github.com/lowmess/hero-patterns"
-	},
-	{
-		"id": "2",
-		"title": "Metalsmith Resume",
-		"date": "2016-07-13",
-		"description": "Make writing your résumé suck less bad. Generate a simple static site & PDF résumé from Markdown with a few keystrokes.",
-		"website": "https://metalsmith-resume.lowmess.com",
-		"repo": "https://github.com/lowmess/metalsmith-resume"
-	},
-	{
-		"id": "1",
-		"title": "Phenotonic",
-		"date": "2016-02-01",
-		"description": "After noticing a lack of products geared towards home gardening, my brother & I founded a business to fill that gap. I was responsible for all creative & development work on the brand.",
-		"website": "https://archive--phenotonic.netlify.app"
 	}
 ]

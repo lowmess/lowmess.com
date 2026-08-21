@@ -1,18 +1,54 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
+import BreakHeading from "#components/break-heading.astro";
 import PageHeading from "#components/page-heading.astro";
 import ProjectPreview from "#components/project-preview.astro";
+import ArrowRight from "#icons/arrow-right.svg";
 import GlobalLayout from "#layouts/global.astro";
 import { sortProjects } from "#utils/work";
+
+const resumePayload = await getEntry("resume", "1");
+
+if (!resumePayload) {
+	console.error("No resume found");
+	throw new Error("No resume found");
+}
+
+const { data: resume } = resumePayload;
+
+if (!resume.work?.length) {
+	console.error("No jobs found");
+	throw new Error("No jobs found");
+}
+
+const selectedEmployers = resume.work.filter((job) => job.meta?.featured);
 
 const projects = (await getCollection("projects")).sort(sortProjects);
 ---
 
 <GlobalLayout title="Work">
-	<PageHeading eyebrowText="Things I've worked on"
-		>A series of interactive documents</PageHeading
-	>
+	<PageHeading>Work</PageHeading>
+
+	<BreakHeading>Selected employers</BreakHeading>
+
+	<ul>
+		{
+			selectedEmployers.map((job) => (
+				<li>
+					<a href={job.website} target="_blank" rel="noopener noreferrer">
+						{job.name}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+
+	<p>
+		<a href="/resume" class="resume-link">View resum&eacute; <ArrowRight /></a>
+	</p>
+
+	<BreakHeading>Selected projects</BreakHeading>
 
 	<div class="projects">
 		{
@@ -24,43 +60,53 @@ const projects = (await getCollection("projects")).sort(sortProjects);
 </GlobalLayout>
 
 <style>
-	.projects {
-		display: grid;
-		column-gap: var(--space-lg);
-		row-gap: var(--rhythm-lg);
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-sm);
+		margin: 0;
+		padding: 0;
+	}
 
-		@media (min-width: 40em) {
-			grid-template-columns: repeat(2, 1fr);
-		}
+	li {
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xxl);
+		font-weight: 500;
+		list-style-type: none;
+	}
 
-		@media (min-width: 64em) {
-			column-gap: var(--space-xl);
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
 		}
 	}
 
-	.project {
-		position: relative;
-		padding-inline-start: calc(var(--space-sm) + var(--space-md));
-		counter-increment: projects;
+	.resume-link {
+		color: var(--color-text-secondary);
+		text-decoration: none;
 
-		&::before {
-			content: counter(projects);
-			position: absolute;
+		svg {
+			position: relative;
 			top: -1px;
-			right: calc(100% - 0.66em);
-			font-family: var(--font-family-subheading);
-			font-size: var(--font-size-lg);
-			line-height: var(--line-height-heading);
-			color: var(--color-text-secondary);
-			user-select: none;
+			width: 1em;
+			transition: transform 0.2s ease;
 		}
 
-		@media (min-width: 48em) {
-			padding-inline-start: var(--content-padding);
+		&:hover {
+			color: var(--color-primary);
 
-			&::before {
-				right: calc(100% - 0.33em);
+			svg {
+				transform: translateX(var(--space-xs));
 			}
 		}
+	}
+
+	.projects {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-md);
 	}
 </style>

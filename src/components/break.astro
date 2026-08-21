@@ -1,0 +1,40 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div class:list={["break", className]} {...props}><slot /></div>
+
+<style>
+	.break {
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: calc((var(--outline-width) + var(--content-padding-start)) * -1);
+			width: calc(var(--content-padding-start) - var(--space-sm));
+
+			@media (min-width: 40em) {
+				width: calc(var(--content-padding-start) - var(--space-md));
+			}
+		}
+
+		&::before {
+			top: calc(50% + (var(--outline-width) * -0.5));
+			height: var(--outline-width);
+			background-color: var(--outline-color);
+			transition: background-color 0.3s ease;
+		}
+
+		&::after {
+			height: calc(var(--outline-width) * 2);
+			background-color: var(--color-background);
+			top: calc(50% + (var(--outline-width) * 0.5));
+		}
+	}
+</style>
