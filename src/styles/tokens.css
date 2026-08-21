@@ -58,7 +58,7 @@
 	/* vertical rhythm */
 	--rhythm-none: 0;
 	--rhythm-xs: 0.25rlh;
-	--rhythm-sm: 0.5lh;
+	--rhythm-sm: 0.5rlh;
 	--rhythm-md: 1rlh;
 	--rhythm-lg: 2rlh;
 	--rhythm-xl: 3rlh;
@@ -108,11 +108,16 @@
 	color-scheme: dark;
 }
 
+@media (min-width: 40em) {
+	:root {
+		--content-padding-start: calc(var(--space-xl) - var(--outline-width));
+		--content-padding-end: var(--space-xl);
+	}
+}
+
 @media (min-width: 64em) {
 	:root {
 		--content-padding: var(--space-lg);
 		--container-padding: var(--space-md);
-		--content-padding-start: calc(var(--space-xl) - var(--outline-width));
-		--content-padding-end: var(--space-xl);
 	}
 }

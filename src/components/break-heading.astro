@@ -1,0 +1,26 @@
+---
+import type { Polymorphic } from "astro/types";
+
+import Break from "#components/break.astro";
+
+type Props<Tag extends "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> =
+	Polymorphic<{ as: Tag }>;
+
+const { as: Tag = "h2", class: className, ...props } = Astro.props;
+---
+
+<Break
+	><Tag class:list={["break-heading", className]} {...props}><slot /></Tag
+	></Break
+>
+
+<style>
+	.break-heading {
+		margin-block-start: var(--rhythm-xl);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-md);
+		font-style: normal;
+		font-weight: 400;
+		color: var(--color-text-secondary);
+	}
+</style>

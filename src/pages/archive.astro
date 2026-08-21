@@ -1,19 +1,28 @@
 ---
-import ArchiveEntry from "#components/archive-entry.astro";
+import { Image } from "astro:assets";
+
+import version0image from "#assets/images/lowmess-com_version-0.png";
+import version1image from "#assets/images/lowmess-com_version-1.png";
+import version2image from "#assets/images/lowmess-com_version-2.png";
+import version3image from "#assets/images/lowmess-com_version-3.png";
+import version4image from "#assets/images/lowmess-com_version-4.png";
+import version5image from "#assets/images/lowmess-com_version-5.png";
+import version6image from "#assets/images/lowmess-com_version-6.png";
+import BreakHeading from "#components/break-heading.astro";
 import PageHeading from "#components/page-heading.astro";
+import ArrowRight from "#icons/arrow-right.svg";
 import GlobalLayout from "#layouts/global.astro";
 ---
 
 <GlobalLayout title="Archive">
-	<PageHeading
-		eyebrowText="Older versions of the exact website you're on right now"
-		>Visions of websites past</PageHeading
-	>
+	<PageHeading>Website Archive</PageHeading>
 
-	<div class="sites">
-		<ArchiveEntry year="2014–2015">
-			<p class="title">Version 0</p>
+	<BreakHeading>Version 0 (2014&ndash;2015)</BreakHeading>
 
+	<div class="archive-preview">
+		<Image src={version0image} alt="" />
+
+		<div>
 			<p>
 				The code for this version is (perhaps fortunately) lost to time. The
 				only thing I remember about it is that it had similar navigation to v1.
@@ -24,11 +33,15 @@ import GlobalLayout from "#layouts/global.astro";
 			<p class="tooling">
 				Built with <a href="https://jquery.com/">jQuery</a>, I assume.
 			</p>
-		</ArchiveEntry>
+		</div>
+	</div>
 
-		<ArchiveEntry year="2015–2017"
-			><p class="title"><a href="https://v1.lowmess.com/">Version 1</a></p>
+	<BreakHeading>Version 1 (2015&ndash;2017)</BreakHeading>
 
+	<div class="archive-preview">
+		<Image src={version1image} alt="" />
+
+		<div>
 			<p>
 				Mostly this was a showcase for the design work I did as a student, but
 				if you look closely you can find some client work. The copy (and color
@@ -36,23 +49,39 @@ import GlobalLayout from "#layouts/global.astro";
 				think about the quality of the code.
 			</p>
 
+			<p>
+				<a href="https://v1.lowmess.com/" class="archive-site"
+					>Visit version 1 <ArrowRight /></a
+				>
+			</p>
+
 			<p class="tooling">
 				Built with <a href="https://prepros.io/">Prepros</a>, <a
 					href="https://pugjs.org/">Pug (née Jade)</a
-				>,
+				>,{" "}
 				<a href="https://sass-lang.com">Sass</a>, and <a
 					href="https://jquery.com/">jQuery</a
 				>.
-			</p></ArchiveEntry
-		>
+			</p>
+		</div>
+	</div>
 
-		<ArchiveEntry year="2017"
-			><p class="title"><a href="https://v2.lowmess.com/">Version 2</a></p>
+	<BreakHeading>Version 2 (2017)</BreakHeading>
 
+	<div class="archive-preview">
+		<Image src={version2image} alt="" />
+
+		<div>
 			<p>
 				The first portfolio I made as a developer. I hated the design on this
 				one basically as soon as I launched it, and it lasted fewer than 6
 				months before I scrapped it for v3.
+			</p>
+
+			<p>
+				<a href="https://v2.lowmess.com/" class="archive-site"
+					>Visit version 2 <ArrowRight /></a
+				>
 			</p>
 
 			<p class="tooling">
@@ -61,17 +90,27 @@ import GlobalLayout from "#layouts/global.astro";
 				>, <a href="https://pugjs.org">Pug</a>, <a href="https://postcss.org"
 					>PostCSS</a
 				>, and <a href="http://tachyons.io">Tachyons</a>.
-			</p></ArchiveEntry
-		>
+			</p>
+		</div>
+	</div>
 
-		<ArchiveEntry year="2017–2020">
-			<p class="title"><a href="https://v3.lowmess.com/">Version 3</a></p>
+	<BreakHeading>Version 3 (2017&ndash;2020)</BreakHeading>
 
+	<div class="archive-preview">
+		<Image src={version3image} alt="" />
+
+		<div>
 			<p>
 				This design proved popular, and several developers forked the repo and
 				used it as a basis for their own sites. However it proved limiting when
 				I wanted to implement dark mode. Also I got bored of it (the
 				Designer&apos;s Curse&trade;).
+			</p>
+
+			<p>
+				<a href="https://v3.lowmess.com/" class="archive-site"
+					>Visit version 3 <ArrowRight /></a
+				>
 			</p>
 
 			<p class="tooling">
@@ -81,19 +120,31 @@ import GlobalLayout from "#layouts/global.astro";
 					href="https://rebassjs.org">Rebass</a
 				>.
 			</p>
-		</ArchiveEntry>
+		</div>
+	</div>
 
-		<ArchiveEntry year="2020–2024">
-			<p class="title">
-				<a href="https://v4.lowmess.com/">Version 4</a>
-			</p>
+	<BreakHeading>Versions 4 &amp; 4.1 (2020&ndash;2024)</BreakHeading>
 
+	<div class="archive-preview">
+		<Image src={version4image} alt="" />
+
+		<div>
 			<p>
 				This design survived a change of framework (<a
 					href="/blog/migrate-gatsby-next">Gatsby to Next.js</a
 				>). The star of the show was something relegated to the about page in
 				v3: a rolling 30-day stat aggregation. Unfortunately, several sites
 				restricting API access crippled the homepage.
+			</p>
+
+			<p class="links">
+				<a href="https://v4.lowmess.com/" class="archive-site"
+					>Visit version 4 <ArrowRight /></a
+				>
+
+				<a href="https://v4-1.lowmess.com/" class="archive-site"
+					>Visit version 4.1 <ArrowRight /></a
+				>
 			</p>
 
 			<p class="tooling">
@@ -103,35 +154,54 @@ import GlobalLayout from "#layouts/global.astro";
 					href="https://mdxjs.com">MDX</a
 				>, and <a href="https://theme-ui.com">Theme UI</a>.
 			</p>
-		</ArchiveEntry>
+		</div>
+	</div>
 
-		<ArchiveEntry year="2025–">
-			<p class="title"><a href="/">Version 5</a></p>
+	<BreakHeading>Version 5 (2025&ndash;2026)</BreakHeading>
 
-			<p>It&apos;s the site you are currently looking at.</p>
+	<div class="archive-preview">
+		<Image src={version5image} alt="" />
+
+		<div>
+			<p>
+				As API access became a rare commodity, I needed to pivot. Also I wanted
+				to use <a href="https://astro.build/">Astro</a>. You can read about some
+				of the design process in <a href="/blog/redesign-2025">this blog post</a
+				>.
+			</p>
+
+			<p>
+				<a href="https://v5.lowmess.com/" class="archive-site"
+					>Visit version 5 <ArrowRight /></a
+				>
+			</p>
 
 			<p class="tooling">
 				Built with <a href="https://astro.build">Astro</a> and <a
 					href="https://mdxjs.com">MDX</a
 				>.
 			</p>
-		</ArchiveEntry>
+		</div>
+	</div>
+
+	<BreakHeading>Version 6 (2026&ndash;)</BreakHeading>
+
+	<div class="archive-preview">
+		<Image src={version6image} alt="" />
+
+		<div>
+			<p>It is this website. You are on it right now.</p>
+
+			<p class="tooling">
+				Built with <a href="https://astro.build">Astro</a> and <a
+					href="/colophon">some friends</a
+				>.
+			</p>
+		</div>
 	</div>
 </GlobalLayout>
 
 <style>
-	.sites {
-		display: grid;
-		align-items: baseline;
-		gap: var(--rhythm-md);
-
-		@media (min-width: 32em) {
-			grid-template-columns: max-content calc(var(--outline-width) * 3) 1fr;
-			column-gap: var(--content-padding);
-			row-gap: var(--rhythm-lg);
-		}
-	}
-
 	.title {
 		font-size: var(--font-size-lg);
 		line-height: var(--line-height-heading);
@@ -141,12 +211,22 @@ import GlobalLayout from "#layouts/global.astro";
 	}
 
 	.tooling {
+		color: var(--color-text-secondary);
 		font-size: var(--font-size-sm);
+
+		a {
+			color: inherit;
+			text-decoration-color: var(--color-text);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
 	}
 
 	p {
 		margin: 0;
-		max-width: 50ch;
+		max-width: 55ch;
 		text-wrap: pretty;
 	}
 
@@ -155,11 +235,55 @@ import GlobalLayout from "#layouts/global.astro";
 	}
 
 	a {
-		color: var(--color-text);
+		color: inherit;
 		text-decoration-color: var(--color-primary);
 
 		&:hover {
 			color: var(--color-primary);
 		}
+	}
+
+	.archive-site {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+
+			svg {
+				transform: translateX(var(--space-xs));
+			}
+		}
+
+		svg {
+			width: 1em;
+			position: relative;
+			top: -2px;
+			transition: transform 0.2s ease;
+		}
+	}
+
+	.archive-preview {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-md);
+		margin-block-start: var(--rhythm-lg);
+
+		img {
+			max-width: 360px;
+			aspect-ratio: 4 / 3;
+			object-fit: cover;
+		}
+
+		@media (min-width: 55em) {
+			flex-direction: row;
+			gap: var(--space-xl);
+			align-items: center;
+		}
+	}
+
+	.links {
+		display: flex;
+		gap: var(--space-md);
 	}
 </style>

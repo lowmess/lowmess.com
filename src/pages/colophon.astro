@@ -1,4 +1,5 @@
 ---
+import BreakHeading from "#components/break-heading.astro";
 import PageHeading from "#components/page-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
 
@@ -8,7 +9,9 @@ const {
 	packages: {
 		"node_modules/astro": { version: astroVersion },
 		"node_modules/typescript": { version: typescriptVersion },
+		"node_modules/sanitize.css": { version: sanitizeCSSVersion },
 		"node_modules/shiki": { version: shikiVersion },
+		"node_modules/satori": { version: satoriVersion },
 		"node_modules/eslint": { version: eslintVersion },
 		"node_modules/prettier": { version: prettierVersion },
 	},
@@ -16,131 +19,95 @@ const {
 ---
 
 <GlobalLayout title="Colophon">
-	<PageHeading eyebrowText="Ingredients used in this <s>cake</s> website"
-		>Building blocks</PageHeading
-	>
+	<PageHeading>Colophon</PageHeading>
 
-	<div class="stuff">
-		<h2>Typefaces</h2>
+	<BreakHeading>Typefaces</BreakHeading>
 
-		<ul>
-			<li class="strawford">
-				<a href="https://www.atipofoundry.com/fonts/strawford">Strawford</a>
-			</li>
+	<ul>
+		<li class="framboisier">
+			<a href="https://www.futurefonts.com/schmerbertype/framboisier"
+				>Framboisier</a
+			>
+		</li>
 
-			<li class="novela">
-				<a href="https://www.atipofoundry.com/fonts/novela">Novela</a>
-			</li>
+		<li class="hanken-grotesk">
+			<a href="https://hanken.co/products/hanken-grotesk">Hanken Grotesk</a>
+		</li>
 
-			<li class="izoard">
-				<a href="https://www.atipofoundry.com/fonts/izoard">Izoard</a>
-			</li>
+		<li class="fira-code">
+			<a href="https://github.com/tonsky/FiraCode">Fira Code</a>
+		</li>
+	</ul>
 
-			<li class="dank">
-				<a href="https://github.com/tonsky/FiraCode">Fira Code</a>
-			</li>
-		</ul>
+	<BreakHeading>Packages</BreakHeading>
 
-		<h2>Packages</h2>
+	<ul class="packages">
+		<li>
+			<a href="https://astro.build"
+				>Astro <span class="version">{astroVersion}</span></a
+			>
+		</li>
 
-		<ul class="packages">
-			<li>
-				<a href="https://astro.build"
-					>Astro <span class="version">{astroVersion}</span></a
-				>
-			</li>
+		<li>
+			<a href="https://www.typescriptlang.org/"
+				>TypeScript <span class="version">{typescriptVersion}</span></a
+			>
+		</li>
 
-			<li>
-				<a href="https://www.typescriptlang.org/"
-					>TypeScript <span class="version">{typescriptVersion}</span></a
-				>
-			</li>
+		<li>
+			<a href="https://csstools.github.io/sanitize.css/"
+				>sanitize.css <span class="version">{sanitizeCSSVersion}</span></a
+			>
+		</li>
 
-			<li>
-				<a href="https://shiki.matsu.io/"
-					>Shiki <span class="version">{shikiVersion}</span></a
-				>
-			</li>
+		<li>
+			<a href="https://shiki.matsu.io/"
+				>Shiki <span class="version">{shikiVersion}</span></a
+			>
+		</li>
 
-			<li>
-				<a href="https://eslint.org/"
-					>ESLint <span class="version">{eslintVersion}</span></a
-				>
-			</li>
+		<li>
+			<a href="https://github.com/vercel/satori"
+				>Satori <span class="version">{satoriVersion}</span></a
+			>
+		</li>
 
-			<li>
-				<a href="https://prettier.io/"
-					>Prettier <span class="version">{prettierVersion}</span></a
-				>
-			</li>
-		</ul>
+		<li>
+			<a href="https://eslint.org/"
+				>ESLint <span class="version">{eslintVersion}</span></a
+			>
+		</li>
 
-		<h2>Infrastructure</h2>
+		<li>
+			<a href="https://prettier.io/"
+				>Prettier <span class="version">{prettierVersion}</span></a
+			>
+		</li>
+	</ul>
 
-		<ul>
-			<li><a href="https://github.com">GitHub</a></li>
+	<BreakHeading>Infrastructure</BreakHeading>
 
-			<li><a href="https://netlify.com">Netlify</a></li>
-		</ul>
-	</div>
+	<ul>
+		<li><a href="https://github.com">GitHub</a></li>
+
+		<li><a href="https://netlify.com">Netlify</a></li>
+	</ul>
 </GlobalLayout>
 
 <style>
-	.stuff {
-		display: grid;
-		align-items: baseline;
-		justify-content: center;
-		column-gap: var(--space-lg);
-		row-gap: var(--rhythm-md);
-
-		@media (min-width: 30em) {
-			grid-template-columns: repeat(2, max-content);
-			row-gap: var(--rhythm-sm);
-		}
-
-		@media (min-width: 36em) {
-			margin-inline-start: calc(var(--space-xxl) * -1);
-		}
-
-		@media (min-width: 58em) {
-			grid-template-columns: repeat(4, max-content);
-		}
-	}
-
-	.packages {
-		@media (min-width: 58em) {
-			grid-column: 4;
-			grid-row: 1/3;
-		}
-	}
-
-	h2 {
-		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-md);
-		color: var(--color-text-secondary);
-		text-transform: uppercase;
-		letter-spacing: var(--letter-spacing-wide);
-		font-weight: 400;
-
-		@media (min-width: 30em) {
-			text-align: end;
-		}
-	}
-
 	ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-sm);
 		margin: 0;
 		padding: 0;
 	}
 
 	li {
-		font-family: var(--font-family-heading);
-		font-size: var(--font-size-lg);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xxl);
 		font-weight: 500;
 		list-style-type: none;
-
-		& + & {
-			margin-block-start: var(--rhythm-sm);
-		}
 	}
 
 	a {
@@ -153,28 +120,26 @@ const {
 	}
 
 	.version {
+		position: relative;
+		top: -1px;
 		font-family: var(--font-family-mono);
 		font-size: var(--font-size-xs);
+		color: var(--color-text-secondary);
 
 		&::before {
 			content: "v";
 		}
 	}
 
-	.strawford {
-		font-family: var(--font-family-heading);
+	.framboisier {
+		font-family: var(--typeface-framboisier);
 	}
 
-	.novela {
-		font-family: var(--font-family-body);
+	.hanken-grotesk {
+		font-family: var(--typeface-hanken-grotesk);
 	}
 
-	.izoard {
-		font-family: var(--font-family-subheading);
-		text-transform: uppercase;
-	}
-
-	.dank {
-		font-family: var(--font-family-mono);
+	.fira-code {
+		font-family: var(--typeface-fira-code);
 	}
 </style>

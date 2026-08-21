@@ -10,7 +10,7 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 
 const {
 	as: Tag = "div",
-	headingLevel: Heading = "h2",
+	headingLevel: Heading = "h3",
 	class: className,
 	project,
 	...props
@@ -20,7 +20,7 @@ const { title, description, website, repo } = project.data;
 ---
 
 <Tag
-	class:list={["preview", className]}
+	class:list={["project-preview", className]}
 	itemscope
 	itemtype="https://schema.org/WebSite"
 	{...props}
@@ -30,68 +30,39 @@ const { title, description, website, repo } = project.data;
 	</Heading>
 
 	<p itemprop="description" set:html={description} />
-
-	<div class="links">
-		{website && <a href={website}>Website</a>}
-
-		{website && repo && <span>&bull;</span>}
-
-		{repo && <a href={repo}>Repository</a>}
-	</div>
 </Tag>
 
 <style>
 	.title {
 		margin-block: 0;
-		font-family: var(--font-family-heading);
-		font-size: var(--font-size-lg);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xxl);
 		font-weight: 500;
-		line-height: var(--line-height-heading);
-		text-wrap: balance;
-	}
-
-	a {
-		color: var(--color-text);
-		text-decoration: none;
-
-		&:hover {
-			color: var(--color-primary);
-		}
-	}
-
-	p {
-		max-width: 55ch;
-		margin-block-start: var(--rhythm-xs);
-		margin-block-end: 0;
-		text-wrap: pretty;
-		color: hsl(from var(--color-text) h s l / 0.9);
-	}
-
-	.links {
-		display: flex;
-		gap: var(--space-sm);
-		margin-block-start: var(--rhythm-md);
-		font-size: var(--font-size-xs);
-		font-family: var(--font-family-subheading);
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		color: var(--color-text-secondary);
+		list-style-type: none;
 
 		a {
-			color: var(--color-text-secondary);
+			color: var(--color-text);
+			text-decoration: none;
 
 			&:hover {
-				color: var(--color-text);
+				color: var(--color-primary);
 			}
 		}
 	}
 
-	:global(.preview p a) {
-		color: var(--color-text);
-		text-decoration-color: var(--color-primary);
+	:global(.project-preview p) {
+		max-width: 55ch;
+		margin-block: 0;
+		font-size: var(--font-size-md);
+		color: var(--color-text-secondary);
+	}
+
+	:global(.project-preview a) {
+		color: inherit;
+		text-decoration-color: var(--color-text);
 
 		&:hover {
-			color: var(--color-primary);
+			color: var(--color-text);
 		}
 	}
 </style>

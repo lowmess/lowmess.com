@@ -1,153 +1,125 @@
 ---
+import BreakHeading from "#components/break-heading.astro";
 import PageHeading from "#components/page-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
 ---
 
 <GlobalLayout title="Uses">
-	<PageHeading eyebrowText="Here's a bunch of stuff I use"
-		>Tools of my trade</PageHeading
-	>
+	<PageHeading>Stuff I Use</PageHeading>
 
-	<div class="stuff">
-		<h2>Hardware</h2>
+	<BreakHeading>Hardware</BreakHeading>
 
-		<ul>
-			<li>
-				<span class="dependency">M2 Pro Mac Mini</span>
+	<ul>
+		<li>
+			<span>M2 Pro Mac Mini</span>
 
-				<span class="details">16 GB Memory</span>
-			</li>
+			<span class="details">16 GB Memory</span>
+		</li>
 
-			<li>
-				<span class="dependency">34&Prime; Acer XR Ultrawide Monitor</span>
+		<li>
+			<span>34&Prime; Acer XR Ultrawide Monitor</span>
 
-				<span class="details">XR342CK Pbmiiqphuzx</span>
-			</li>
+			<span class="details">XR342CK Pbmiiqphuzx</span>
+		</li>
 
-			<li>
-				<a href="https://input.club/whitefox" class="dependency"
-					>Input Club WhiteFox Keyboard</a
-				>
+		<li>
+			<a href="https://input.club/whitefox">Input Club WhiteFox Keyboard</a>
 
-				<span class="details">Hako Clear switches</span>
-			</li>
+			<span class="details">Hako Clear switches</span>
+		</li>
 
-			<li>
-				<span class="dependency">Magic Trackpad 2</span>
+		<li>
+			<span>Magic Trackpad 2</span>
 
-				<span class="details">Not the USB-C one, unfortunately.</span>
-			</li>
-		</ul>
+			<span class="details">Not the USB-C one, unfortunately.</span>
+		</li>
+	</ul>
 
-		<h2>Software</h2>
+	<BreakHeading>Software</BreakHeading>
 
-		<ul>
-			<li>
-				<a href="https://code.visualstudio.com" class="dependency">VS Code</a>
+	<ul>
+		<li>
+			<a href="https://code.visualstudio.com">VS Code</a>
 
-				<span class="details"
-					><a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
-						href="https://github.com/apust/vscode-rubber-theme">Rubber theme</a
-					></span
-				>
-			</li>
+			<span class="details"
+				><a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
+					href="https://github.com/apust/vscode-rubber-theme">Rubber theme</a
+				></span
+			>
+		</li>
 
-			<li>
-				<a href="https://ghostty.org/" class="dependency">Ghostty</a>
+		<li>
+			<a href="https://ghostty.org/">Ghostty</a>
 
-				<span class="details"
-					>Zsh, <a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
-						href="https://plastic.wstone.uk/">Plastic theme</a
-					></span
-				>
-			</li>
+			<span class="details"
+				>Zsh, <a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
+					href="https://plastic.wstone.uk/">Plastic theme</a
+				></span
+			>
+		</li>
 
-			<li>
-				<a href="https://affinity.serif.com/en-us/designer" class="dependency"
-					>Affinity Designer 2</a
-				>
-			</li>
+		<li>
+			<a href="https://affinity.serif.com/en-us/designer">Affinity Designer 2</a
+			>
+		</li>
 
-			<li>
-				<a href="https://www.alfredapp.com" class="dependency">Alfred</a>
-			</li>
+		<li>
+			<a href="https://www.alfredapp.com">Alfred</a>
+		</li>
 
-			<li>
-				<a href="https://manytricks.com/moom/" class="dependency">Moom</a>
-			</li>
+		<li>
+			<a href="https://manytricks.com/moom/">Moom</a>
+		</li>
 
-			<li>
-				<a href="https://kapeli.com/dash" class="dependency">Dash</a>
-			</li>
+		<li>
+			<a href="https://kapeli.com/dash">Dash</a>
+		</li>
 
-			<li>
-				<a href="https://anybox.app/" class="dependency">Anybox</a>
-			</li>
+		<li>
+			<a href="https://anybox.app/">Anybox</a>
+		</li>
 
-			<li>
-				<a href="https://antinote.io/" class="dependency">Antinote</a>
-			</li>
+		<li>
+			<a href="https://antinote.io/">Antinote</a>
+		</li>
 
-			<li>
-				<a href="https://bear.app/" class="dependency">Bear</a>
-			</li>
-		</ul>
+		<li>
+			<a href="https://bear.app/">Bear</a>
+		</li>
 
-		<h2>Services</h2>
+		<li><a href="https://reeder.app/">Reeder</a></li>
+	</ul>
 
-		<ul>
-			<li><a href="https://github.com" class="dependency">GitHub</a></li>
+	<BreakHeading>Services</BreakHeading>
 
-			<li><a href="https://netlify.com" class="dependency">Netlify</a></li>
-		</ul>
-	</div>
+	<ul>
+		<li><a href="https://github.com">GitHub</a></li>
+
+		<li><a href="https://netlify.com">Netlify</a></li>
+
+		<li><a href="https://codepen.io">CodePen</a></li>
+	</ul>
 </GlobalLayout>
 
 <style>
-	.stuff {
-		display: grid;
-		align-items: baseline;
-		column-gap: var(--space-lg);
-		row-gap: var(--rhythm-md);
-		text-align: center;
-
-		@media (min-width: 30em) {
-			grid-template-columns: repeat(2, max-content);
-			justify-content: center;
-			row-gap: var(--rhythm-lg);
-			text-align: start;
-		}
-	}
-
-	h2 {
-		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-md);
-		color: var(--color-text-secondary);
-		text-transform: uppercase;
-		letter-spacing: var(--letter-spacing-wide);
-		font-weight: 400;
-
-		@media (min-width: 30em) {
-			text-align: end;
-		}
-	}
-
 	ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-sm);
 		margin: 0;
 		padding: 0;
 	}
 
 	li {
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xxl);
+		font-weight: 500;
 		list-style-type: none;
-
-		& + & {
-			margin-block-start: var(--rhythm-sm);
-		}
 	}
 
 	a {
-		color: var(--color-text);
-		text-decoration-color: var(--color-primary);
+		color: inherit;
+		text-decoration: none;
 
 		&:hover {
 			color: var(--color-primary);
@@ -155,8 +127,7 @@ import GlobalLayout from "#layouts/global.astro";
 	}
 
 	.dependency {
-		font-family: var(--font-family-heading);
-		font-size: var(--font-size-lg);
+		font-family: var(--font-family-body);
 		font-weight: 500;
 	}
 
@@ -167,5 +138,6 @@ import GlobalLayout from "#layouts/global.astro";
 	.details {
 		display: block;
 		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
 	}
 </style>
