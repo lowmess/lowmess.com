@@ -22,11 +22,11 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 const { Content } = await render(post);
 
-const { title, description, date, archived, archiveReason } = post.data;
+const { title, description, archived, archiveReason } = post.data;
 
-const formatter = new Intl.DateTimeFormat("en-US", {
-	dateStyle: "long",
-});
+// const formatter = new Intl.DateTimeFormat("en-US", {
+// 	dateStyle: "long",
+// });
 ---
 
 <GlobalLayout
@@ -42,12 +42,7 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		)
 	}
 
-	<PageHeading
-		eyebrowText={formatter.format(date)}
-		eyebrowProps={{ itemprop: "datePublished" }}
-		slotIsHeading
-		itemprop="headline">{title}</PageHeading
-	>
+	<PageHeading itemprop="headline">{title}</PageHeading>
 
 	<div class="article-content" itemprop="articleBody"><Content /></div>
 </GlobalLayout>
