@@ -90,21 +90,6 @@
 		}
 	}
 
-	pre {
-		width: calc(100cqw + var(--content-padding) * 2);
-		margin-inline-start: calc(50% - (50cqw + var(--content-padding)));
-		padding: var(--content-padding);
-		font-size: var(--font-size-sm);
-		tab-size: 2;
-
-		code {
-			display: block;
-			max-width: 90ch;
-			margin-inline: auto;
-			font-family: var(--font-family-mono);
-		}
-	}
-
 	blockquote {
 		position: relative;
 		font-family: var(--font-family-body);

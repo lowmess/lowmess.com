@@ -1,6 +1,6 @@
 ---
-title: Generating Open Graph Images With Astro & Satori
-description: Open Graph images are a great way to make your post stand out on social media, and generating them has never been easier.
+title: "Generating Open Graph Images With Astro & Satori"
+description: "Open Graph images are a great way to make your post stand out on social media, and generating them has never been easier."
 date: 2026-01-28
 draft: false
 ---
@@ -57,7 +57,6 @@ Since we will be [returning these from an endpoint](#okay-but-how-do-i-put-these
 
 We actually need to add some stuff there, but it depends on whether you are using third-party or local fonts (or, I suppose, some combination of the two). If you are loading your fonts from Google or another third-party source, you should `fetch` the file and turn it into an `ArrayBuffer`.
 
-<!-- prettier-ignore -->
 ```tsx
 const myFetchedFont = await fetch("https://example.com/font-file.woff"); // [!code ++]
 const myFetchedFontData = await myFetchedFont.arrayBuffer(); // [!code ++]
@@ -80,7 +79,6 @@ export async function generateOgImage(template: ReactNode) {
 
 For local fonts, `fs.readFileSync` is your friend. Note that the path for the font file should be from the project root, not relative to the helper.
 
-<!-- prettier-ignore -->
 ```tsx
 import fs from "fs"; // [!code ++]
 
