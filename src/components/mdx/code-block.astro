@@ -1,0 +1,89 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import Content from "#components/content.astro";
+
+type Props = HTMLAttributes<"pre">;
+
+const { "data-language": lang, style, ...props } = Astro.props;
+
+let languageLabel;
+
+switch (lang) {
+	case "astro":
+		languageLabel = "Astro";
+		break;
+
+	case "ts":
+	case "tsx":
+		languageLabel = "TypeScript";
+		break;
+
+	case "js":
+	case "jsx":
+		languageLabel = "JavaScript";
+		break;
+
+	case "html":
+		languageLabel = "HTML";
+		break;
+
+	case "css":
+		languageLabel = "CSS";
+		break;
+
+	case "bash":
+	case "sh":
+		languageLabel = "Shell";
+		break;
+
+	case "json":
+		languageLabel = "JSON";
+		break;
+}
+---
+
+{
+	languageLabel && (
+		<span class="language-label" aria-hidden>
+			{languageLabel}
+		</span>
+	)
+}
+
+<div class="code-container" style={style}>
+	<Content class="code-content">
+		<pre style={style} data-language={lang} {...props}><slot /></pre>
+	</Content>
+</div>
+
+<style>
+	.language-label {
+		display: block;
+		margin-block-start: var(--rhythm-md);
+		margin-block-end: calc((var(--rhythm-sm) + var(--rhythm-xs)) * -1);
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+	}
+
+	.code-container {
+		width: 100vw;
+		margin-block: var(--rhythm-md);
+		margin-inline: calc(50cqw - 50vw);
+		padding-inline: var(--container-padding);
+		background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+		color: light-dark(var(--shiki-light), var(--shiki-dark));
+		overflow-x: hidden;
+	}
+
+	.code-content {
+		padding-block: calc(var(--content-padding) * 0.5);
+	}
+
+	pre {
+		margin-block: 0;
+		font-family: var(--font-family-mono);
+		font-size: var(--font-size-sm);
+		tab-size: 2;
+	}
+</style>

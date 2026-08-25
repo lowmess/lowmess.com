@@ -1,0 +1,26 @@
+---
+import BreakHeading from "#components/break-heading.astro";
+
+const { class: className, ...props } = Astro.props;
+---
+
+<BreakHeading class:list={["section-heading", className]} {...props}
+	><slot /></BreakHeading
+>
+
+<style>
+	.section-heading {
+		position: relative;
+		top: -0.1lh;
+		font-family: var(--font-family-heading);
+		font-size: var(--font-size-xl);
+		color: var(--color-text);
+		line-height: var(--line-height-heading);
+	}
+
+	:global(.section-heading code) {
+		font-family: var(--font-family-mono);
+		font-size: var(--font-size-lg);
+		color: inherit;
+	}
+</style>

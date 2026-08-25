@@ -44,7 +44,7 @@ const {
 		margin-block: 0;
 		font-family: var(--font-family-heading);
 		font-size: var(--font-size-lg);
-		font-weight: 500;
+		font-weight: 700;
 		text-wrap: balance;
 
 		&[data-is-draft="true"] {
@@ -68,16 +68,20 @@ const {
 		margin-block-start: var(--rhythm-xs);
 		margin-block-end: 0;
 		text-wrap: pretty;
-		color: hsl(from var(--color-text) h s l / 0.9);
+		color: var(--color-text-secondary);
 	}
 
 	:global(.preview p a) {
-		color: var(--color-text);
-		text-decoration-color: var(--color-primary);
+		color: inherit;
+		text-decoration-color: var(--color-text);
 
 		&:hover {
-			color: var(--color-primary);
+			color: var(--color-text);
 		}
+	}
+
+	:global(.preview p code) {
+		font-size: var(--font-size-sm);
 	}
 
 	.draft {

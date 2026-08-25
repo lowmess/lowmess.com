@@ -1,3 +1,4 @@
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { transformerNotationDiff } from "@shikijs/transformers";
 import { defineConfig, envField, fontProviders } from "astro/config";
@@ -11,6 +12,16 @@ export default defineConfig({
 		"/projects": "/work",
 	},
 	integrations: [
+		mdx({
+			shikiConfig: {
+				defaultColor: false,
+				themes: {
+					light: alabasterTheme,
+					dark: rubberTheme,
+				},
+				transformers: [transformerNotationDiff()],
+			},
+		}),
 		sitemap({ filter: (page) => !page.includes("/blog/archive") }),
 	],
 	env: {
@@ -20,16 +31,6 @@ export default defineConfig({
 				context: "client",
 				access: "public",
 			}),
-		},
-	},
-	markdown: {
-		shikiConfig: {
-			defaultColor: false,
-			themes: {
-				light: alabasterTheme,
-				dark: rubberTheme,
-			},
-			transformers: [transformerNotationDiff()],
 		},
 	},
 	fonts: [

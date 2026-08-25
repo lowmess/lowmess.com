@@ -25,7 +25,7 @@ const { class: className, ...props } = Astro.props;
 		}
 
 		&::before {
-			top: calc(50% + (var(--outline-width) * -0.5));
+			top: calc(0.5lh + (var(--outline-width) * -0.5));
 			height: var(--outline-width);
 			background-color: var(--outline-color);
 			transition: background-color 0.3s ease;
@@ -34,7 +34,7 @@ const { class: className, ...props } = Astro.props;
 		&::after {
 			height: calc(var(--outline-width) * 2);
 			background-color: var(--color-background);
-			top: calc(50% + (var(--outline-width) * 0.5));
+			top: calc(0.5lh + (var(--outline-width) * 0.5));
 		}
 	}
 </style>
