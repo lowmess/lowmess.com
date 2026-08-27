@@ -8,12 +8,12 @@ type Props = HTMLAttributes<"h2">;
 const { class: className, ...props } = Astro.props;
 ---
 
-<BreakHeading class:list={["heading-two", className]} {...props}
+<BreakHeading class:list={["heading-two", className]} as="h2" {...props}
 	><slot /></BreakHeading
 >
 
 <style>
-	.heading-two {
+	h2.heading-two {
 		position: relative;
 		top: -0.2lh;
 		margin-block-start: calc(var(--rhythm-xl) * 2);
