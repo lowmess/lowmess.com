@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"h4">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<h4 class:list={["heading-four", className]} {...props}><slot /></h4>
+
+<style>
+	.heading-four {
+		margin-block-start: var(--rhythm-lg);
+		margin-block-end: var(--rhythm-md);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+		text-wrap: balance;
+	}
+
+	:global(h4.heading-four code) {
+		font-size: var(--font-size-md);
+	}
+</style>

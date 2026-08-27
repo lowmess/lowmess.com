@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"h5">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<h5 class:list={["heading-five", className]} {...props}><slot /></h5>
+
+<style>
+	.heading-five {
+		margin-block-start: var(--rhythm-md);
+		margin-block-end: var(--rhythm-md);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-md);
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		text-wrap: balance;
+	}
+
+	:global(h5.heading-five code) {
+		font-size: var(--font-size-sm);
+	}
+</style>

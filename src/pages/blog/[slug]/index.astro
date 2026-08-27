@@ -2,12 +2,22 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 import ArchiveReason from "#components/archive-reason.astro";
+import BlockQuote from "#components/mdx/block-quote.astro";
 import CodeBlock from "#components/mdx/code-block.astro";
 import GlobalLayout from "#layouts/global.astro";
+import HeadingFive from "#components/mdx/heading-five.astro";
+import HeadingFour from "#components/mdx/heading-four.astro";
+import HeadingOne from "#components/mdx/heading-one.astro";
+import HeadingThree from "#components/mdx/heading-three.astro";
 import HeadingTwo from "#components/mdx/heading-two.astro";
+import InlineCode from "#components/mdx/inline-code.astro";
+import Link from "#components/mdx/link.astro";
+import OrderedList from "#components/mdx/ordered-list.astro";
 import PageHeading from "#components/page-heading.astro";
+import Paragraph from "#components/mdx/paragraph.astro";
+import UnorderedList from "#components/mdx/unordered-list.astro";
 
-import "#styles/blog.css";
+// import "#styles/blog.css";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", ({ data }) =>
@@ -53,16 +63,27 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	</p>
 
 	<div class="article-content" itemprop="articleBody">
-		<Content components={{ h2: HeadingTwo, pre: CodeBlock }} />
+		<Content
+			components={{
+				a: Link,
+				blockquote: BlockQuote,
+				code: InlineCode,
+				h1: HeadingOne,
+				h2: HeadingTwo,
+				h3: HeadingThree,
+				h4: HeadingFour,
+				h5: HeadingFive,
+				h6: HeadingFive,
+				ol: OrderedList,
+				p: Paragraph,
+				pre: CodeBlock,
+				ul: UnorderedList,
+			}}
+		/>
 	</div>
 </GlobalLayout>
 
 <style>
-	.article-content {
-		max-width: 65ch;
-		line-height: var(--line-height-prose);
-	}
-
 	.publish-date {
 		margin-block-start: calc(var(--rhythm-xl) * -1);
 		margin-block-end: var(--rhythm-xxl);

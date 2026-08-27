@@ -1,0 +1,15 @@
+<ol><slot /></ol>
+
+<style>
+	ol {
+		margin-block: var(--rhythm-md);
+		padding-inline-start: 2ch;
+		list-style-position: outside;
+
+		:global(li) {
+			max-width: calc(65ch - var(--space-sm));
+			padding-left: var(--space-sm);
+			text-wrap: pretty;
+		}
+	}
+</style>

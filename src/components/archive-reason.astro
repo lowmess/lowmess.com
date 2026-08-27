@@ -1,6 +1,7 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
 
+import Break from "#components/break.astro";
 import WarningIcon from "#icons/warning.svg";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
@@ -23,13 +24,15 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 ---
 
 <Tag class:list={["archive-reason", className]} {...props}>
-	<div class="icon"><WarningIcon /></div>
-
 	<div>
 		<p class="date">
-			This post was archived on <time
-				datetime={archived}
-				itemprop="dateModified">{formatter.format(archived)}</time
+			<WarningIcon />
+
+			<span>
+				This post was archived on <time
+					datetime={archived}
+					itemprop="dateModified">{formatter.format(archived)}</time
+				></span
 			>
 		</p>
 
@@ -37,30 +40,15 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	</div>
 </Tag>
 
+<Break class="break" />
+
 <style>
-	.archive-reason {
-		display: grid;
-		grid-template-columns: max-content 1fr;
-		align-items: baseline;
-		justify-content: center;
-		gap: var(--space-md);
-		width: calc(100% + var(--content-padding) * 2);
-		margin-inline-start: calc(var(--content-padding) * -1);
-		margin-block-end: var(--rhythm-lg);
-		border-block: var(--outline-width) solid var(--outline-color);
-		padding: var(--content-padding);
-		background-color: var(--outline-color);
-
-		@container (min-width: 75ch) {
-			grid-template-columns: repeat(2, max-content);
-			padding-inline-start: 0;
-		}
-	}
-
 	.icon {
-		position: relative;
-		top: -1px;
-		color: light-dark(var(--color-background), var(--color-primary));
+		position: absolute;
+		right: calc(100% + var(--space-md));
+		top: 2px;
+		width: var(--font-size-lg);
+		color: var(--color-primary);
 	}
 
 	p {
@@ -68,13 +56,20 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	}
 
 	.date {
+		display: flex;
+		gap: 1ch;
+		align-items: baseline;
 		margin: 0;
-		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-sm);
-		letter-spacing: var(--letter-spacing-wide);
-		text-transform: uppercase;
-		color: light-dark(var(--color-background), var(--color-primary));
+		font-size: var(--font-size-lg);
+		color: var(--color-primary);
 		text-wrap: pretty;
+
+		svg {
+			position: relative;
+			top: 2px;
+			flex-shrink: 0;
+			width: 1em;
+		}
 	}
 
 	.reason {
@@ -90,5 +85,10 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 				color: light-dark(var(--color-background), var(--color-primary));
 			}
 		}
+	}
+
+	.break {
+		height: 1px;
+		margin-block: var(--rhythm-xl);
 	}
 </style>
