@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"h3">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<h3 class:list={["heading-three", className]} {...props}><slot /></h3>
+
+<style>
+	.heading-three {
+		margin-block-start: var(--rhythm-xl);
+		margin-block-end: var(--rhythm-md);
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xl);
+		font-weight: 600;
+		text-wrap: balance;
+	}
+
+	:global(h3.heading-three code) {
+		font-size: var(--font-size-md);
+	}
+</style>

@@ -43,36 +43,37 @@ switch (lang) {
 }
 ---
 
-{
-	languageLabel && (
-		<span class="language-label" aria-hidden>
-			{languageLabel}
-		</span>
-	)
-}
-
 <div class="code-container" style={style}>
 	<Content class="code-content">
+		{
+			languageLabel && (
+				<span class="language-label" style={style} aria-hidden>
+					{languageLabel}
+				</span>
+			)
+		}
+
 		<pre style={style} data-language={lang} {...props}><slot /></pre>
 	</Content>
 </div>
 
 <style>
 	.language-label {
-		display: block;
-		margin-block-start: var(--rhythm-md);
-		margin-block-end: calc((var(--rhythm-sm) + var(--rhythm-xs)) * -1);
-		font-size: var(--font-size-sm);
-		color: var(--color-text-secondary);
+		display: inline-block;
+		margin-block: 0;
+		font-family: var(--font-family-mono);
+		font-size: var(--font-size-xs);
+		color: hsl(from currentColor h s l / 0.625);
 	}
 
 	.code-container {
 		width: 100vw;
-		margin-block: var(--rhythm-md);
+		margin-block: var(--rhythm-lg);
 		margin-inline: calc(50cqw - 50vw);
 		padding-inline: var(--container-padding);
 		background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
 		color: light-dark(var(--shiki-light), var(--shiki-dark));
+		overflow-y: visible;
 		overflow-x: hidden;
 	}
 
@@ -81,9 +82,40 @@ switch (lang) {
 	}
 
 	pre {
+		width: calc(100% + var(--content-padding-start));
 		margin-block: 0;
-		font-family: var(--font-family-mono);
+		margin-inline-start: calc(var(--content-padding-start) * -1);
+		padding-inline-start: var(--content-padding-start);
 		font-size: var(--font-size-sm);
 		tab-size: 2;
+	}
+
+	:global(.diff) {
+		position: relative;
+	}
+
+	:global(.diff::before) {
+		position: absolute;
+		left: calc(var(--content-padding-start) * -0.5);
+	}
+
+	:global(.diff.add, .diff.add span) {
+		color: light-dark(#448c27, #98c379);
+	}
+
+	:global(.diff.add::before) {
+		content: "+";
+	}
+
+	:global(.diff.remove, .diff.remove span) {
+		color: light-dark(#aa3731, #e06c75);
+
+		&::before {
+			content: "-";
+		}
+	}
+
+	:global(.diff.remove::before) {
+		content: "-";
 	}
 </style>
