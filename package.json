@@ -30,6 +30,7 @@
     "url": "https://github.com/lowmess/lowmess/issues"
   },
   "homepage": "https://lowmess.com",
+  "packageManager": "npm@11.19.1",
   "dependencies": {
     "@astrojs/check": "^0.9.10",
     "@astrojs/rss": "^4.0.19",
