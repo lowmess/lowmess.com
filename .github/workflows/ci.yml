@@ -17,6 +17,7 @@ jobs:
       - uses: nubjs/setup-nub@v0
         with:
           node-version-file: .node-version
+          cache: npm
 
       - name: Install dependencies
         run: nub ci --ignore-scripts
@@ -34,6 +35,7 @@ jobs:
       - uses: nubjs/setup-nub@v0
         with:
           node-version-file: .node-version
+          cache: npm
 
       - name: Install dependencies
         run: nub ci --ignore-scripts
