@@ -17,7 +17,6 @@ jobs:
       - uses: nubjs/setup-nub@v0
         with:
           node-version-file: .node-version
-          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: nub ci --ignore-scripts
@@ -35,7 +34,6 @@ jobs:
       - uses: nubjs/setup-nub@v0
         with:
           node-version-file: .node-version
-          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: nub ci --ignore-scripts
