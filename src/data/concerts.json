@@ -1,5 +1,21 @@
 [
 	{
+		"id": 25,
+		"date": "2026-08-29",
+		"headliner": "twisted teens",
+		"openers": ["Forty Drop Few"],
+		"venue": "Polaris Hall",
+		"with": ["Dylan"]
+	},
+	{
+		"id": 24,
+		"date": "2026-08-08",
+		"headliner": "LCD Soundsystem",
+		"openers": ["Victoryland"],
+		"venue": "Edgefield Ampitheater",
+		"with": ["Tommy"]
+	},
+	{
 		"id": 23,
 		"date": "2026-07-29",
 		"headliner": "WU LYF",

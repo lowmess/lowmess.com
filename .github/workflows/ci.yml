@@ -14,15 +14,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: nubjs/setup-nub@v0
+      - uses: actions/setup-node@v6
         with:
-          node-version-file: .node-version
+          node-version-file: ".node-version"
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
 
       - name: Install dependencies
-        run: nub ci --ignore-scripts
+        run: npm ci --ignore-scripts
 
       - name: Lint JS-like files
-        run: nubx eslint .  --max-warnings 0
+        run: npx eslint .  --max-warnings 0
 
   typecheck:
     name: Typecheck
@@ -31,12 +33,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: nubjs/setup-nub@v0
+      - uses: actions/setup-node@v6
         with:
-          node-version-file: .node-version
+          node-version-file: ".node-version"
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
 
       - name: Install dependencies
-        run: nub ci --ignore-scripts
+        run: npm ci --ignore-scripts
 
       - name: Check types
-        run: nubx astro check --minimumFailingSeverity warning
+        run: npx astro check --minimumFailingSeverity warning

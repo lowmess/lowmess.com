@@ -1,5 +1,45 @@
 [
 	{
+		"id": 40,
+		"date": "2026-08-27",
+		"title": "The End of Oak Street",
+		"format": "Digital",
+		"venue": "Living Room Portland",
+		"link": "https://boxd.it/g3PQxt"
+	},
+	{
+		"id": 39,
+		"date": "2026-08-25",
+		"title": "Thief",
+		"format": "35mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/g1ZH7D"
+	},
+	{
+		"id": 38,
+		"date": "2026-08-24",
+		"title": "Teenage Sex and Death at Camp Miasma",
+		"format": "Digital",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/g15ymd"
+	},
+	{
+		"id": 37,
+		"date": "2026-08-23",
+		"title": "Tony",
+		"format": "Digital",
+		"venue": "Regal Fox Tower",
+		"link": "https://boxd.it/g04zcd"
+	},
+	{
+		"id": 36,
+		"date": "2026-08-19",
+		"title": "Miami Vice",
+		"format": "35mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/fVJ0lr"
+	},
+	{
 		"id": 35,
 		"date": "2026-08-07",
 		"title": "Skate Dreams",
