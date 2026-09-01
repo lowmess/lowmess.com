@@ -68,24 +68,46 @@ switch (lang) {
 
 	.code-container {
 		width: 100vw;
+		position: relative;
 		margin-block: var(--rhythm-lg);
-		margin-inline: calc(50cqw - 50vw);
-		padding-inline: var(--container-padding);
+		/*
+		 * i genuinely have no idea why the normal `50% - 50vw` method isn't working
+		 * on its own, or why i have to re-calculate at the different viewport sizes.
+		 */
+		margin-inline-start: calc(
+			50% - 50vw - var(--container-padding-inline-start)
+		);
+		padding-inline-start: var(--container-padding-inline-start);
+		padding-inline-end: var(--container-padding-inline-end);
 		background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
 		color: light-dark(var(--shiki-light), var(--shiki-dark));
 		overflow-y: visible;
 		overflow-x: hidden;
+
+		@media (min-width: 40em) {
+			margin-inline-start: calc(
+				50% - 50vw -
+					((var(--container-padding-inline-start) + var(--outline-width)) * 0.5)
+			);
+		}
+
+		@media (min-width: 40em) {
+			margin-inline-start: calc(
+				50% - 50vw -
+					((var(--outline-width) + var(--content-padding-inline-start)) * 0.5)
+			);
+		}
 	}
 
 	div.code-content {
-		padding-block: calc(var(--content-padding) * 0.5);
+		padding-block: calc(var(--content-padding-block) * 0.5);
 	}
 
 	pre {
-		width: calc(100% + var(--content-padding-start));
+		width: calc(100% + var(--content-padding-inline-start));
 		margin-block: 0;
-		margin-inline-start: calc(var(--content-padding-start) * -1);
-		padding-inline-start: var(--content-padding-start);
+		margin-inline-start: calc(var(--content-padding-inline-start) * -1);
+		padding-inline-start: var(--content-padding-inline-start);
 		font-size: var(--font-size-sm);
 		tab-size: 2;
 	}
@@ -96,7 +118,7 @@ switch (lang) {
 
 	:global(.diff::before) {
 		position: absolute;
-		left: calc(var(--content-padding-start) * -0.5);
+		left: calc(var(--content-padding-inline-start) * -0.5);
 	}
 
 	:global(.diff.add, .diff.add span) {

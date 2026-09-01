@@ -3,8 +3,8 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 import { type CollectionEntry } from "astro:content";
 
 import BlogPostPreview from "#components/blog-post-preview.astro";
+import Break from "#components/break.astro";
 import { groupPostsByYear } from "#utils/blog.ts";
-import BreakHeading from "./break-heading.astro";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
 	as: Tag;
@@ -32,48 +32,39 @@ const groups = groupPostsByYear(posts);
 	{
 		groups.map(({ year, posts }) => (
 			<>
-				<BreakHeading as={headingLevel} class="year">
-					{year}
-				</BreakHeading>
-
-				<div class="posts">
+				<Break data-year={year.slice(2)} class="break">
 					{posts.map((post) => (
-						<BlogPostPreview post={post} />
+						<BlogPostPreview
+							post={post}
+							headingLevel={headingLevel}
+							class="preview"
+						/>
 					))}
-				</div>
+				</Break>
 			</>
 		))
 	}
 </Tag>
 
 <style>
-	.container {
-		display: grid;
-		gap: var(--rhythm-md);
-		align-items: baseline;
-
-		@media (min-width: 30em) {
-			grid-template-columns: max-content 1fr;
-			justify-content: center;
-			gap: var(--space-lg);
-		}
-
-		@media (min-width: 40em) {
-			gap: var(--space-xl);
-		}
-	}
-
-	.posts {
+	.container,
+	.break {
 		display: flex;
 		flex-direction: column;
 		gap: var(--rhythm-md);
+		align-items: baseline;
 
 		@media (min-width: 30em) {
 			gap: var(--rhythm-lg);
 		}
 	}
 
-	.year.year {
-		margin-block: 0;
+	.break::after {
+		content: attr(data-year);
+	}
+
+	.preview {
+		position: relative;
+		top: -0.125lh;
 	}
 </style>

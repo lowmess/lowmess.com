@@ -17,5 +17,9 @@ const { class: className, ...props } = Astro.props;
 		font-family: var(--font-family-heading);
 		text-wrap: balance;
 		font-weight: 700;
+
+		@media print {
+			margin-block-end: var(--rhythm-lg);
+		}
 	}
 </style>

@@ -11,19 +11,21 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	padding-block-start: var(--container-padding);
-	padding-inline: var(--container-padding);
+	padding-block-start: var(--container-padding-block);
+	padding-inline-start: var(--container-padding-inline-start);
+	padding-inline-end: var(--container-padding-inline-end);
 	background-color: var(--color-background);
 	font-size: var(--font-size-md);
 	font-family: var(--font-family-body);
 	line-height: var(--line-height-body);
 	color: var(--color-text);
+	counter-reset: break 0;
 }
 
 body > main {
 	flex: 1;
 	width: 100%;
-	padding-block: calc(var(--content-padding) * 2);
+	padding-block: calc(var(--content-padding-block) * 2);
 }
 
 ::selection {

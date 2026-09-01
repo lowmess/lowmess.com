@@ -42,7 +42,7 @@ import Logo from "#icons/logo.svg";
 		justify-content: space-between;
 		max-width: var(--content-width);
 		margin-block-start: max(
-			calc(var(--container-padding) * -1),
+			calc(var(--container-padding-block) * -1),
 			env(safe-area-inset-top)
 		);
 		margin-inline: auto;
@@ -56,13 +56,14 @@ import Logo from "#icons/logo.svg";
 
 		@media (min-width: 80em) {
 			margin-block-start: max(
-				calc(var(--container-padding) * 2),
+				var(--container-padding-block),
 				env(safe-area-inset-top)
 			);
 		}
 
 		@media print {
 			margin-block-start: 0;
+			margin-block-end: var(--space-lg);
 			border: 0;
 		}
 	}

@@ -13,7 +13,7 @@
 		hsl(from var(--color-gray) h s 95%)
 	);
 	--color-text-secondary: light-dark(
-		hsl(from var(--color-primary) h 25% 50%),
+		hsl(from var(--color-primary) h 40% 40%),
 		hsl(from var(--color-primary) h 25% 65%)
 	);
 	--color-background: light-dark(
@@ -69,11 +69,14 @@
 	--letter-spacing-wide: 4px;
 
 	/* sizing */
-	--container-padding: var(--space-sm);
+	--container-padding-block: calc(var(--space-md) + var(--outline-width));
+	--container-padding-inline-start: calc(
+		var(--space-md) + var(--outline-width)
+	);
+	--container-padding-inline-end: var(--space-md);
 	--content-width: 64rem;
-	--content-padding: var(--space-md);
-	--content-padding-start: calc(var(--space-lg) - var(--outline-width));
-	--content-padding-end: var(--space-lg);
+	--content-padding-block: var(--space-md);
+	--content-padding-inline-start: var(--space-lg);
 
 	/* outline */
 	--outline-width: 4px;
@@ -109,14 +112,15 @@
 
 @media (min-width: 40em) {
 	:root {
-		--content-padding-start: calc(var(--space-xl) - var(--outline-width));
-		--content-padding-end: var(--space-xl);
+		--container-padding-inline-end: var(--space-lg);
 	}
 }
 
 @media (min-width: 64em) {
 	:root {
-		--content-padding: var(--space-lg);
-		--container-padding: var(--space-md);
+		--container-padding-block: var(--space-lg);
+		--container-padding-inline-start: var(--space-lg);
+		--content-padding-block: var(--space-lg);
+		--content-padding-inline-start: var(--space-xl);
 	}
 }

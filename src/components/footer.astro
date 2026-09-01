@@ -119,19 +119,20 @@ const latestPost = (
 	footer {
 		width: 100vw;
 		position: relative;
-		left: var(--container-padding);
-		margin-inline: calc(var(--container-padding) * -2);
+		margin-inline-start: calc(var(--container-padding-inline-start) * -1);
+		margin-inline-end: calc(var(--container-padding-inline-end) * -1);
 		padding-block-end: max(
-			var(--container-padding),
+			var(--container-padding-block),
 			env(safe-area-inset-bottom)
 		);
-		padding-inline: var(--container-padding);
+		padding-inline-start: var(--container-padding-inline-start);
+		padding-inline-end: var(--container-padding-inline-end);
 		background-color: var(--footer-background-color);
 		color: var(--footer-text);
 
 		@media (min-width: 64em) {
 			padding-block-end: max(
-				calc(var(--container-padding) * 2),
+				var(--container-padding-block),
 				env(safe-area-inset-bottom)
 			);
 		}
@@ -147,8 +148,8 @@ const latestPost = (
 		flex-direction: column;
 		row-gap: var(--rhythm-sm);
 		border-inline-start: var(--outline-width) solid var(--outline-color);
-		padding-block-start: var(--content-padding);
-		padding-block-end: var(--container-padding);
+		padding-block-start: var(--content-padding-block);
+		padding-block-end: var(--container-padding-block);
 	}
 
 	.section {
@@ -168,10 +169,6 @@ const latestPost = (
 		font-size: var(--font-size-sm);
 		font-style: normal;
 		font-weight: 500;
-
-		@media (min-width: 40em) {
-			text-align: end;
-		}
 	}
 
 	p {
@@ -191,7 +188,7 @@ const latestPost = (
 		margin: 0;
 		padding: 0;
 
-		@media (min-width: 30em) {
+		@media (min-width: 32em) {
 			flex-direction: row;
 			gap: var(--space-md);
 		}

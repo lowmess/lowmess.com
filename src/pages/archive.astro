@@ -17,7 +17,9 @@ import GlobalLayout from "#layouts/global.astro";
 <GlobalLayout title="Archive">
 	<PageHeading>Visions of Websites Past</PageHeading>
 
-	<BreakHeading>Version 0 (2014&ndash;2015)</BreakHeading>
+	<div class="break-reset"></div>
+
+	<BreakHeading>2014&ndash;2015</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version0image} alt="" />
@@ -36,7 +38,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div>
 	</div>
 
-	<BreakHeading>Version 1 (2015&ndash;2017)</BreakHeading>
+	<BreakHeading>2015&ndash;2017</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version1image} alt="" />
@@ -66,7 +68,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div>
 	</div>
 
-	<BreakHeading>Version 2 (2017)</BreakHeading>
+	<BreakHeading>2017</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version2image} alt="" />
@@ -94,7 +96,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div>
 	</div>
 
-	<BreakHeading>Version 3 (2017&ndash;2020)</BreakHeading>
+	<BreakHeading>2017&ndash;2020</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version3image} alt="" />
@@ -123,7 +125,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div>
 	</div>
 
-	<BreakHeading>Versions 4 &amp; 4.1 (2020&ndash;2024)</BreakHeading>
+	<BreakHeading>2020&ndash;2024</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version4image} alt="" />
@@ -157,7 +159,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div>
 	</div>
 
-	<BreakHeading>Version 5 (2025&ndash;2026)</BreakHeading>
+	<BreakHeading>2025&ndash;2026</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version5image} alt="" />
@@ -184,7 +186,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div>
 	</div>
 
-	<BreakHeading>Version 6 (2026&ndash;)</BreakHeading>
+	<BreakHeading>2026&ndash;</BreakHeading>
 
 	<div class="archive-preview">
 		<Image src={version6image} alt="" />
@@ -202,6 +204,10 @@ import GlobalLayout from "#layouts/global.astro";
 </GlobalLayout>
 
 <style>
+	.break-reset {
+		counter-reset: break -1;
+	}
+
 	.title {
 		font-size: var(--font-size-lg);
 		line-height: var(--line-height-heading);
