@@ -10,31 +10,49 @@ const { class: className, ...props } = Astro.props;
 
 <style>
 	.break {
+		--counter-size: var(--font-size-sm);
+		--size: calc(var(--counter-size) + (var(--space-sm) * 2) + 1px);
 		position: relative;
+		counter-increment: break 1;
+
+		@media (min-width: 30em) {
+			--counter-size: var(--font-size-md);
+		}
 
 		&::before,
 		&::after {
-			content: "";
 			position: absolute;
-			left: calc((var(--outline-width) + var(--content-padding-start)) * -1);
-			width: calc(var(--content-padding-start) - var(--space-sm));
+			top: calc(var(--size) * -0.125);
+			left: calc(
+				var(--content-padding-inline-start) * -1 - (var(--size) * 0.5) -
+					(var(--outline-width) * 0.5)
+			);
+			width: var(--size);
+			height: var(--size);
 
-			@media (min-width: 40em) {
-				width: calc(var(--content-padding-start) - var(--space-md));
+			@media print {
+				display: none;
 			}
 		}
 
 		&::before {
-			top: calc(0.5lh + (var(--outline-width) * -0.5));
-			height: var(--outline-width);
-			background-color: var(--outline-color);
-			transition: background-color 0.3s ease;
+			content: "";
+			border: var(--outline-width) solid var(--outline-color);
+			border-radius: 100%;
+			background-color: var(--color-background);
+			transition: border-color 0.3s ease;
 		}
 
 		&::after {
-			height: calc(var(--outline-width) * 2);
-			background-color: var(--color-background);
-			top: calc(0.5lh + (var(--outline-width) * 0.5));
+			content: counter(break);
+			translate: -1px;
+			font-size: var(--counter-size);
+			color: var(--outline-color);
+			text-align: center;
+			font-weight: 500;
+			letter-spacing: -2px;
+			transition: color 0.3s ease;
+			line-height: var(--size);
 		}
 	}
 </style>
