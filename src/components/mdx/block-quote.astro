@@ -1,18 +1,14 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import Break from "#components/break.astro";
-
 type Props = HTMLAttributes<"blockquote">;
 
 const { class: className, ...props } = Astro.props;
 ---
 
-<Break>
-	<blockquote class:list={["block-quote", className]} {...props}>
-		<slot />
-	</blockquote>
-</Break>
+<blockquote class:list={["block-quote", className]} {...props}>
+	<slot />
+</blockquote>
 
 <style>
 	blockquote {
@@ -31,7 +27,7 @@ const { class: className, ...props } = Astro.props;
 			position: absolute;
 			top: 0.05lh;
 			right: 100%;
-			color: var(--outline-color);
+			color: var(--color-primary);
 			transition: color 0.3s ease;
 
 			@media (min-width: 40em) {

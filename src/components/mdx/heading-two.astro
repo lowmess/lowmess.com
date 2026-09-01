@@ -1,15 +1,17 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import BreakHeading from "#components/break-heading.astro";
+import NumberedSection from "#components/numbered-section.astro";
 
 type Props = HTMLAttributes<"h2">;
 
 const { class: className, ...props } = Astro.props;
 ---
 
-<BreakHeading class:list={["heading-two", className]} as="h2" {...props}
-	><slot /></BreakHeading
+<NumberedSection
+	><h2 class:list={["heading-two", className]} {...props}>
+		<slot />
+	</h2></NumberedSection
 >
 
 <style>
