@@ -1,9 +1,10 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 
-import BreakHeading from "#components/break-heading.astro";
+import NumberedSection from "#components/numbered-section.astro";
 import PageHeading from "#components/page-heading.astro";
 import ProjectPreview from "#components/project-preview.astro";
+import SectionHeading from "#components/section-heading.astro";
 import ArrowRight from "#icons/arrow-right.svg";
 import GlobalLayout from "#layouts/global.astro";
 import { sortProjects } from "#utils/work";
@@ -30,33 +31,38 @@ const projects = (await getCollection("projects")).sort(sortProjects);
 <GlobalLayout title="Work">
 	<PageHeading>Things I&apos;ve Done</PageHeading>
 
-	<BreakHeading>Selected employers</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Selected employers</SectionHeading>
 
-	<ul>
-		{
-			selectedEmployers.map((job) => (
-				<li>
-					<a href={job.website} target="_blank" rel="noopener noreferrer">
-						{job.name}
-					</a>
-				</li>
-			))
-		}
-	</ul>
+		<ul>
+			{
+				selectedEmployers.map((job) => (
+					<li>
+						<a href={job.website} target="_blank" rel="noopener noreferrer">
+							{job.name}
+						</a>
+					</li>
+				))
+			}
+		</ul>
 
-	<p>
-		<a href="/resume" class="resume-link">View resum&eacute; <ArrowRight /></a>
-	</p>
+		<p>
+			<a href="/resume" class="resume-link">View resum&eacute; <ArrowRight /></a
+			>
+		</p></NumberedSection
+	>
 
-	<BreakHeading>Selected projects</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Selected projects</SectionHeading>
 
-	<div class="projects">
-		{
-			projects.map((project) => (
-				<ProjectPreview project={project} class="project" />
-			))
-		}
-	</div>
+		<div class="projects">
+			{
+				projects.map((project) => (
+					<ProjectPreview project={project} class="project" />
+				))
+			}
+		</div></NumberedSection
+	>
 </GlobalLayout>
 
 <style>

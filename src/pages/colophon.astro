@@ -1,6 +1,7 @@
 ---
-import BreakHeading from "#components/break-heading.astro";
+import NumberedSection from "#components/numbered-section.astro";
 import PageHeading from "#components/page-heading.astro";
+import SectionHeading from "#components/section-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
 
 import pkg from "../../package-lock.json";
@@ -21,77 +22,83 @@ const {
 <GlobalLayout title="Colophon">
 	<PageHeading>Building Blocks</PageHeading>
 
-	<BreakHeading>Typefaces</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Typefaces</SectionHeading>
 
-	<ul>
-		<li class="framboisier">
-			<a href="https://www.futurefonts.com/schmerbertype/framboisier"
-				>Framboisier</a
-			>
-		</li>
+		<ul>
+			<li class="framboisier">
+				<a href="https://www.futurefonts.com/schmerbertype/framboisier"
+					>Framboisier</a
+				>
+			</li>
 
-		<li class="hanken-grotesk">
-			<a href="https://hanken.co/products/hanken-grotesk">Hanken Grotesk</a>
-		</li>
+			<li class="hanken-grotesk">
+				<a href="https://hanken.co/products/hanken-grotesk">Hanken Grotesk</a>
+			</li>
 
-		<li class="fira-code">
-			<a href="https://github.com/tonsky/FiraCode">Fira Code</a>
-		</li>
-	</ul>
+			<li class="fira-code">
+				<a href="https://github.com/tonsky/FiraCode">Fira Code</a>
+			</li>
+		</ul>
+	</NumberedSection>
 
-	<BreakHeading>Packages</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Packages</SectionHeading>
 
-	<ul class="packages">
-		<li>
-			<a href="https://astro.build"
-				>Astro <span class="version">{astroVersion}</span></a
-			>
-		</li>
+		<ul class="packages">
+			<li>
+				<a href="https://astro.build"
+					>Astro <span class="version">{astroVersion}</span></a
+				>
+			</li>
 
-		<li>
-			<a href="https://www.typescriptlang.org/"
-				>TypeScript <span class="version">{typescriptVersion}</span></a
-			>
-		</li>
+			<li>
+				<a href="https://www.typescriptlang.org/"
+					>TypeScript <span class="version">{typescriptVersion}</span></a
+				>
+			</li>
 
-		<li>
-			<a href="https://csstools.github.io/sanitize.css/"
-				>sanitize.css <span class="version">{sanitizeCSSVersion}</span></a
-			>
-		</li>
+			<li>
+				<a href="https://csstools.github.io/sanitize.css/"
+					>sanitize.css <span class="version">{sanitizeCSSVersion}</span></a
+				>
+			</li>
 
-		<li>
-			<a href="https://shiki.matsu.io/"
-				>Shiki <span class="version">{shikiVersion}</span></a
-			>
-		</li>
+			<li>
+				<a href="https://shiki.matsu.io/"
+					>Shiki <span class="version">{shikiVersion}</span></a
+				>
+			</li>
 
-		<li>
-			<a href="https://github.com/vercel/satori"
-				>Satori <span class="version">{satoriVersion}</span></a
-			>
-		</li>
+			<li>
+				<a href="https://github.com/vercel/satori"
+					>Satori <span class="version">{satoriVersion}</span></a
+				>
+			</li>
 
-		<li>
-			<a href="https://eslint.org/"
-				>ESLint <span class="version">{eslintVersion}</span></a
-			>
-		</li>
+			<li>
+				<a href="https://eslint.org/"
+					>ESLint <span class="version">{eslintVersion}</span></a
+				>
+			</li>
 
-		<li>
-			<a href="https://prettier.io/"
-				>Prettier <span class="version">{prettierVersion}</span></a
-			>
-		</li>
-	</ul>
+			<li>
+				<a href="https://prettier.io/"
+					>Prettier <span class="version">{prettierVersion}</span></a
+				>
+			</li>
+		</ul></NumberedSection
+	>
 
-	<BreakHeading>Infrastructure</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Infrastructure</SectionHeading>
 
-	<ul>
-		<li><a href="https://github.com">GitHub</a></li>
+		<ul>
+			<li><a href="https://github.com">GitHub</a></li>
 
-		<li><a href="https://netlify.com">Netlify</a></li>
-	</ul>
+			<li><a href="https://netlify.com">Netlify</a></li>
+		</ul></NumberedSection
+	>
 </GlobalLayout>
 
 <style>

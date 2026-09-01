@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
+import NumberedSection from "#components/numbered-section.astro";
+import SectionHeading from "#components/section-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
-import Break from "#components/break.astro";
 import { sortBlogPosts } from "#utils/blog";
 
 const latestPost = (
@@ -19,33 +20,35 @@ const latestPost = (
 <GlobalLayout>
 	<h1>My name is Alec&nbsp;Lomas, and I make websites.</h1>
 
-	<Break><h2>Introduction</h2></Break>
+	<NumberedSection
+		><SectionHeading>Introduction</SectionHeading>
 
-	<p>
-		For over a decade, I have been building marketing &amp; eCommerce websites,
-		complex web applications, and my family's fantasy football accounting
-		ledger. Coming from a design background, I love to polish user flows and
-		sweat the details. Especially when one of my uncles owes me money.
-	</p>
+		<p>
+			For over a decade, I have been building marketing &amp; eCommerce
+			websites, complex web applications, and my family's fantasy football
+			accounting ledger. Coming from a design background, I love to polish user
+			flows and sweat the details. Especially when one of my uncles owes me
+			money.
+		</p>
 
-	<p>
-		I am currently hard at work building the future of construction management
-		software at <a href="https://www.ressiosoftware.com/">Ressio</a> from beautiful
-		Portland, Oregon.
-	</p>
+		<p>
+			I am currently hard at work building the future of construction management
+			software at <a href="https://www.ressiosoftware.com/">Ressio</a> from beautiful
+			Portland, Oregon.
+		</p></NumberedSection
+	>
 
 	{
 		latestPost && (
-			<>
-				<Break>
-					<h2>Latest blog post</h2>
-				</Break>
+			<NumberedSection>
+				<SectionHeading>Latest blog post</SectionHeading>
 
 				<p>
-					&ldquo;<a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+					&ldquo;
+					<a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
 					&rdquo;: <span set:html={latestPost.data.description} />
 				</p>
-			</>
+			</NumberedSection>
 		)
 	}
 
@@ -58,15 +61,6 @@ const latestPost = (
 			font-size: var(--font-size-title);
 			line-height: var(--line-height-solid);
 			text-wrap: balance;
-		}
-
-		h2 {
-			margin-block-start: var(--rhythm-xl);
-			font-family: var(--font-family-body);
-			font-size: var(--font-size-md);
-			font-style: normal;
-			font-weight: 400;
-			color: var(--color-text-secondary);
 		}
 
 		p {

@@ -1,7 +1,6 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
 
-import Break from "#components/break.astro";
 import WarningIcon from "#icons/warning.svg";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
@@ -40,9 +39,11 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	</div>
 </Tag>
 
-<Break class="break" />
-
 <style>
+	.archive-reason {
+		margin-block-end: var(--rhythm-xxl);
+	}
+
 	.icon {
 		position: absolute;
 		right: calc(100% + var(--space-md));
@@ -85,10 +86,5 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 				color: light-dark(var(--color-background), var(--color-primary));
 			}
 		}
-	}
-
-	.break {
-		height: 1px;
-		margin-block: var(--rhythm-xl);
 	}
 </style>

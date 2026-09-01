@@ -3,7 +3,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 import { type CollectionEntry } from "astro:content";
 
 import BlogPostPreview from "#components/blog-post-preview.astro";
-import Break from "#components/break.astro";
+import NumberedSection from "#components/numbered-section.astro";
 import { groupPostsByYear } from "#utils/blog.ts";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
@@ -31,24 +31,22 @@ const groups = groupPostsByYear(posts);
 >
 	{
 		groups.map(({ year, posts }) => (
-			<>
-				<Break data-year={year.slice(2)} class="break">
-					{posts.map((post) => (
-						<BlogPostPreview
-							post={post}
-							headingLevel={headingLevel}
-							class="preview"
-						/>
-					))}
-				</Break>
-			</>
+			<NumberedSection data-year={year.slice(2)} class="year">
+				{posts.map((post) => (
+					<BlogPostPreview
+						post={post}
+						headingLevel={headingLevel}
+						class="preview"
+					/>
+				))}
+			</NumberedSection>
 		))
 	}
 </Tag>
 
 <style>
 	.container,
-	.break {
+	.year {
 		display: flex;
 		flex-direction: column;
 		gap: var(--rhythm-md);
@@ -59,7 +57,7 @@ const groups = groupPostsByYear(posts);
 		}
 	}
 
-	.break::after {
+	.year::after {
 		content: attr(data-year);
 	}
 

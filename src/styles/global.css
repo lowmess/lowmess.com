@@ -19,7 +19,7 @@ body {
 	font-family: var(--font-family-body);
 	line-height: var(--line-height-body);
 	color: var(--color-text);
-	counter-reset: break 0;
+	counter-reset: numbered-section 0;
 }
 
 body > main {
@@ -38,7 +38,7 @@ body > main {
 	line-height: var(--font-family-heading);
 }
 
-:where(h1, h2) {
+:where(h1) {
 	font-style: italic;
 
 	& > :where(em, code) {

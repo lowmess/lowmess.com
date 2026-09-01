@@ -1,104 +1,112 @@
 ---
-import BreakHeading from "#components/break-heading.astro";
+import NumberedSection from "#components/numbered-section.astro";
 import PageHeading from "#components/page-heading.astro";
+import SectionHeading from "#components/section-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
 ---
 
 <GlobalLayout title="Uses">
 	<PageHeading>Tools of My Trade</PageHeading>
 
-	<BreakHeading>Hardware</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Hardware</SectionHeading>
 
-	<ul>
-		<li>
-			<span>M2 Pro Mac Mini</span>
+		<ul>
+			<li>
+				<span>M2 Pro Mac Mini</span>
 
-			<span class="details">16 GB Memory</span>
-		</li>
+				<span class="details">16 GB Memory</span>
+			</li>
 
-		<li>
-			<span>34&Prime; Acer XR Ultrawide Monitor</span>
+			<li>
+				<span>34&Prime; Acer XR Ultrawide Monitor</span>
 
-			<span class="details">XR342CK Pbmiiqphuzx</span>
-		</li>
+				<span class="details">XR342CK Pbmiiqphuzx</span>
+			</li>
 
-		<li>
-			<a href="https://input.club/whitefox">Input Club WhiteFox Keyboard</a>
+			<li>
+				<a href="https://input.club/whitefox">Input Club WhiteFox Keyboard</a>
 
-			<span class="details">Hako Clear switches</span>
-		</li>
+				<span class="details">Hako Clear switches</span>
+			</li>
 
-		<li>
-			<span>Magic Trackpad 2</span>
+			<li>
+				<span>Magic Trackpad 2</span>
 
-			<span class="details">Not the USB-C one, unfortunately.</span>
-		</li>
-	</ul>
+				<span class="details">Not the USB-C one, unfortunately.</span>
+			</li>
+		</ul>
+	</NumberedSection>
 
-	<BreakHeading>Software</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Software</SectionHeading>
 
-	<ul>
-		<li>
-			<a href="https://code.visualstudio.com">VS Code</a>
+		<ul>
+			<li>
+				<a href="https://code.visualstudio.com">VS Code</a>
 
-			<span class="details"
-				><a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
-					href="https://github.com/apust/vscode-rubber-theme">Rubber theme</a
-				></span
-			>
-		</li>
+				<span class="details"
+					><a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
+						href="https://github.com/apust/vscode-rubber-theme">Rubber theme</a
+					></span
+				>
+			</li>
 
-		<li>
-			<a href="https://ghostty.org/">Ghostty</a>
+			<li>
+				<a href="https://ghostty.org/">Ghostty</a>
 
-			<span class="details"
-				>Zsh, <a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
-					href="https://plastic.wstone.uk/">Plastic theme</a
-				></span
-			>
-		</li>
+				<span class="details"
+					>Zsh, <a href="https://github.com/tonsky/FiraCode">Fira Code</a>, <a
+						href="https://plastic.wstone.uk/">Plastic theme</a
+					></span
+				>
+			</li>
 
-		<li>
-			<a href="https://affinity.serif.com/en-us/designer">Affinity Designer 2</a
-			>
-		</li>
+			<li>
+				<a href="https://affinity.serif.com/en-us/designer"
+					>Affinity Designer 2</a
+				>
+			</li>
 
-		<li>
-			<a href="https://www.alfredapp.com">Alfred</a>
-		</li>
+			<li>
+				<a href="https://www.alfredapp.com">Alfred</a>
+			</li>
 
-		<li>
-			<a href="https://manytricks.com/moom/">Moom</a>
-		</li>
+			<li>
+				<a href="https://manytricks.com/moom/">Moom</a>
+			</li>
 
-		<li>
-			<a href="https://kapeli.com/dash">Dash</a>
-		</li>
+			<li>
+				<a href="https://kapeli.com/dash">Dash</a>
+			</li>
 
-		<li>
-			<a href="https://anybox.app/">Anybox</a>
-		</li>
+			<li>
+				<a href="https://anybox.app/">Anybox</a>
+			</li>
 
-		<li>
-			<a href="https://antinote.io/">Antinote</a>
-		</li>
+			<li>
+				<a href="https://antinote.io/">Antinote</a>
+			</li>
 
-		<li>
-			<a href="https://bear.app/">Bear</a>
-		</li>
+			<li>
+				<a href="https://bear.app/">Bear</a>
+			</li>
 
-		<li><a href="https://reeder.app/">Reeder</a></li>
-	</ul>
+			<li><a href="https://reeder.app/">Reeder</a></li>
+		</ul></NumberedSection
+	>
 
-	<BreakHeading>Services</BreakHeading>
+	<NumberedSection>
+		<SectionHeading>Services</SectionHeading>
 
-	<ul>
-		<li><a href="https://github.com">GitHub</a></li>
+		<ul>
+			<li><a href="https://github.com">GitHub</a></li>
 
-		<li><a href="https://netlify.com">Netlify</a></li>
+			<li><a href="https://netlify.com">Netlify</a></li>
 
-		<li><a href="https://codepen.io">CodePen</a></li>
-	</ul>
+			<li><a href="https://codepen.io">CodePen</a></li>
+		</ul></NumberedSection
+	>
 </GlobalLayout>
 
 <style>

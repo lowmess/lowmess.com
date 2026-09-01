@@ -6,14 +6,14 @@ type Props = HTMLAttributes<"div">;
 const { class: className, ...props } = Astro.props;
 ---
 
-<div class:list={["break", className]} {...props}><slot /></div>
+<div class:list={["numbered-section", className]} {...props}><slot /></div>
 
 <style>
-	.break {
+	.numbered-section {
 		--counter-size: var(--font-size-sm);
 		--size: calc(var(--counter-size) + (var(--space-sm) * 2) + 1px);
 		position: relative;
-		counter-increment: break 1;
+		counter-increment: numbered-section 1;
 
 		@media (min-width: 30em) {
 			--counter-size: var(--font-size-md);
@@ -44,7 +44,7 @@ const { class: className, ...props } = Astro.props;
 		}
 
 		&::after {
-			content: counter(break);
+			content: counter(numbered-section);
 			translate: -1px;
 			font-size: var(--counter-size);
 			color: var(--outline-color);
@@ -53,6 +53,10 @@ const { class: className, ...props } = Astro.props;
 			letter-spacing: -2px;
 			transition: color 0.3s ease;
 			line-height: var(--size);
+		}
+
+		&:hover::after {
+			color: var(--color-text);
 		}
 	}
 </style>
