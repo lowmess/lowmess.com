@@ -18,7 +18,7 @@ import GlobalLayout from "#layouts/global.astro";
 <GlobalLayout title="Archive">
 	<PageHeading>Visions of Websites Past</PageHeading>
 
-	<NumberedSection class="counter-reset">
+	<NumberedSection as="article" class="counter-reset">
 		<SectionHeading>2014&ndash;2015</SectionHeading>
 
 		<div class="archive-preview">
@@ -39,7 +39,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div></NumberedSection
 	>
 
-	<NumberedSection>
+	<NumberedSection as="article">
 		<SectionHeading>2015&ndash;2017</SectionHeading>
 
 		<div class="archive-preview">
@@ -71,7 +71,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div></NumberedSection
 	>
 
-	<NumberedSection>
+	<NumberedSection as="article">
 		<SectionHeading>2017</SectionHeading>
 
 		<div class="archive-preview">
@@ -101,7 +101,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div></NumberedSection
 	>
 
-	<NumberedSection>
+	<NumberedSection as="article">
 		<SectionHeading>2017&ndash;2020</SectionHeading>
 
 		<div class="archive-preview">
@@ -132,7 +132,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div></NumberedSection
 	>
 
-	<NumberedSection>
+	<NumberedSection as="article">
 		<SectionHeading>2020&ndash;2024</SectionHeading>
 
 		<div class="archive-preview">
@@ -168,7 +168,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div></NumberedSection
 	>
 
-	<NumberedSection>
+	<NumberedSection as="article">
 		<SectionHeading>2025&ndash;2026</SectionHeading>
 
 		<div class="archive-preview">
@@ -198,7 +198,7 @@ import GlobalLayout from "#layouts/global.astro";
 		</div></NumberedSection
 	>
 
-	<NumberedSection>
+	<NumberedSection as="article">
 		<SectionHeading>2026&ndash;</SectionHeading>
 
 		<div class="archive-preview">
@@ -305,5 +305,9 @@ import GlobalLayout from "#layouts/global.astro";
 	.links {
 		display: flex;
 		gap: var(--space-md);
+	}
+
+	article {
+		break-inside: avoid;
 	}
 </style>
