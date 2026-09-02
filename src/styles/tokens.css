@@ -13,7 +13,7 @@
 		hsl(from var(--color-gray) h s 95%)
 	);
 	--color-text-secondary: light-dark(
-		hsl(from var(--color-primary) h 40% 40%),
+		hsl(from var(--color-primary) h 10% 42%),
 		hsl(from var(--color-primary) h 25% 65%)
 	);
 	--color-background: light-dark(
