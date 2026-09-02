@@ -97,6 +97,12 @@ switch (lang) {
 					((var(--outline-width) + var(--content-padding-inline-start)) * 0.5)
 			);
 		}
+
+		@media print {
+			background-color: white;
+			color: black;
+			break-inside: avoid;
+		}
 	}
 
 	div.code-content {

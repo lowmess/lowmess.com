@@ -39,4 +39,11 @@
 		background-color: inherit;
 		line-height: inherit;
 	}
+
+	.astro-code,
+	.astro-code span {
+		background-color: white;
+		color: black;
+		break-inside: avoid;
+	}
 }

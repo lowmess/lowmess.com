@@ -55,6 +55,10 @@ const groups = groupPostsByYear(posts);
 		@media (min-width: 30em) {
 			gap: var(--rhythm-lg);
 		}
+
+		@media print {
+			gap: var(--rhythm-md);
+		}
 	}
 
 	.year.year::after {

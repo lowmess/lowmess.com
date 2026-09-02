@@ -33,6 +33,28 @@ const { title, description, website, repo } = project.data;
 </Tag>
 
 <style>
+	.project-preview {
+		p {
+			max-width: 55ch;
+			margin-block: 0;
+			font-size: var(--font-size-md);
+			color: var(--color-text-secondary);
+		}
+
+		:global(a) {
+			color: inherit;
+			text-decoration-color: var(--color-text);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+
+		@media print {
+			break-inside: avoid;
+		}
+	}
+
 	.title {
 		margin-block: 0;
 		font-family: var(--font-family-body);
@@ -47,22 +69,6 @@ const { title, description, website, repo } = project.data;
 			&:hover {
 				color: var(--color-primary);
 			}
-		}
-	}
-
-	:global(.project-preview p) {
-		max-width: 55ch;
-		margin-block: 0;
-		font-size: var(--font-size-md);
-		color: var(--color-text-secondary);
-	}
-
-	:global(.project-preview a) {
-		color: inherit;
-		text-decoration-color: var(--color-text);
-
-		&:hover {
-			color: var(--color-text);
 		}
 	}
 </style>
