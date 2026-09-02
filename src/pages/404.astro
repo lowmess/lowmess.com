@@ -1,37 +1,38 @@
 ---
+import NumberedSection from "#components/numbered-section.astro";
 import PageHeading from "#components/page-heading.astro";
+import SectionHeading from "#components/section-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
 ---
 
 <GlobalLayout title="Page not found">
-	<PageHeading>Page Not Found</PageHeading>
+	<NumberedSection data-count=": (" class="sad">
+		<SectionHeading as="h1">Error 404</SectionHeading>
 
-	<p class="haiku">
-		<span>&ldquo;<a href="/">Click here to go home</a>&rdquo;</span>
-		<span>is over-used and boring,</span>
-		<span>but at least it&apos;s clear.</span>
-	</p>
+		<PageHeading as="h2">Page Not Found</PageHeading>
+	</NumberedSection>
 </GlobalLayout>
 
 <style>
-	.haiku {
-		margin-block: calc(var(--rhythm-xxl) * 2);
-		font-size: var(--font-size-xxl);
-		line-height: var(--line-height-solid);
+	h1 {
+		font-style: normal;
+	}
+
+	h2 {
 		font-style: italic;
-		text-align: center;
+	}
 
-		span {
-			display: block;
+	.sad::after {
+		transform: translateY(-1px) translateX(1px) rotateZ(90deg);
+
+		@media (min-width: 30em) {
+			transform: translateY(-1px) translateX(2px) rotateZ(90deg);
 		}
+	}
 
-		a {
-			color: var(--color-text);
-			text-decoration-color: var(--color-primary);
-
-			&:hover {
-				color: var(--color-primary);
-			}
-		}
+	svg {
+		position: absolute;
+		/* inset: 0; */
+		opacity: 0.25;
 	}
 </style>

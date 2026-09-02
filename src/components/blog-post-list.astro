@@ -31,7 +31,7 @@ const groups = groupPostsByYear(posts);
 >
 	{
 		groups.map(({ year, posts }) => (
-			<NumberedSection data-year={year.slice(2)} class="year">
+			<NumberedSection data-count={year.slice(2)} class="year">
 				{posts.map((post) => (
 					<BlogPostPreview
 						post={post}
@@ -59,10 +59,6 @@ const groups = groupPostsByYear(posts);
 		@media print {
 			gap: var(--rhythm-md);
 		}
-	}
-
-	.year.year::after {
-		content: attr(data-year);
 	}
 
 	.preview {
