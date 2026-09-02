@@ -1,5 +1,7 @@
 @media print {
+	html,
 	body {
+		min-height: 0;
 		background-color: white;
 		color: black;
 		font-size: 1rem;

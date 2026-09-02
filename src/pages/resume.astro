@@ -1,7 +1,9 @@
 ---
 import { getEntry } from "astro:content";
 
+import NumberedSection from "#components/numbered-section.astro";
 import PageHeading from "#components/page-heading.astro";
+import SectionHeading from "#components/section-heading.astro";
 import Logo from "#icons/logo.svg";
 import GlobalLayout from "#layouts/global.astro";
 
@@ -82,8 +84,8 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 
 		{
 			resume.work?.length && (
-				<section class="experience">
-					<h2>Experience</h2>
+				<NumberedSection as="section" class="experience">
+					<SectionHeading>Experience</SectionHeading>
 
 					<div class="experiences">
 						{resume.work.map((job) => (
@@ -110,14 +112,14 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 							</div>
 						))}
 					</div>
-				</section>
+				</NumberedSection>
 			)
 		}
 
 		{
 			resume.education?.length && (
-				<section class="education">
-					<h2>Education</h2>
+				<NumberedSection as="section" class="education">
+					<SectionHeading>Education</SectionHeading>
 
 					<div class="schools">
 						{resume.education.map((school) => (
@@ -138,21 +140,21 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 							</div>
 						))}
 					</div>
-				</section>
+				</NumberedSection>
 			)
 		}
 
 		{
 			resume.skills?.length && (
-				<section class="proficiencies">
-					<h2>Proficiencies</h2>
+				<NumberedSection as="section" class="proficiencies">
+					<SectionHeading>Proficiencies</SectionHeading>
 
 					<ul class="proficiency-list">
 						{resume.skills.map((skill) => (
 							<li>{skill.name}</li>
 						))}
 					</ul>
-				</section>
+				</NumberedSection>
 			)
 		}
 	</article>
@@ -168,8 +170,7 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		display: grid;
 		align-items: baseline;
 		column-gap: var(--space-lg);
-		row-gap: var(--rhythm-lg);
-		justify-content: center;
+		row-gap: var(--rhythm-xxl);
 	}
 
 	.logo {
@@ -195,18 +196,12 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	h2:not(.name) {
 		margin-block-start: 0;
 		margin-block-end: var(--rhythm-sm);
-		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-sm);
-		text-transform: uppercase;
-		letter-spacing: var(--letter-spacing-wide);
-		color: var(--color-text-secondary);
 	}
 
 	h3 {
 		margin-block-start: 0;
 		margin-block-end: var(--rhythm-xs);
-		font-size: var(--font-size-lg);
-		font-weight: 500;
+		font-size: var(--font-size-xl);
 	}
 
 	.col-layout {
@@ -214,9 +209,12 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		align-items: baseline;
 		gap: var(--rhythm-md);
 
-		@media print, (min-width: 48em) {
-			grid-template-columns: calc(var(--space-xl) + var(--space-xxl)) 1fr;
-			gap: var(--space-xl);
+		@media (min-width: 48em) {
+			grid-template-columns: calc(var(--space-xxl) + var(--space-xxl)) 1fr;
+		}
+
+		@media print {
+			grid-template-columns: calc(var(--space-xxl) + var(--space-lg)) 1fr;
 		}
 	}
 
@@ -224,10 +222,11 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
+		line-height: var(--line-height-body);
 	}
 
 	.summary {
-		max-width: 45ch;
+		max-width: 50ch;
 		text-wrap: pretty;
 	}
 
@@ -280,7 +279,7 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 
 		.resume {
 			grid-template-columns: min-content 1fr;
-			row-gap: var(--rhythm-md);
+			row-gap: var(--rhythm-lg);
 		}
 
 		.experiences {
@@ -295,6 +294,10 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		.intro,
 		.logo {
 			display: block;
+		}
+
+		h3 {
+			font-size: var(--font-size-lg);
 		}
 	}
 </style>

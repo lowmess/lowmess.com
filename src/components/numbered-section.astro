@@ -1,17 +1,17 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLTag, Polymorphic } from "astro/types";
 
-type Props = HTMLAttributes<"div">;
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 
-const { class: className, ...props } = Astro.props;
+const { as: Tag = "div", class: className, ...props } = Astro.props;
 ---
 
-<div class:list={["numbered-section", className]} {...props}><slot /></div>
+<Tag class:list={["numbered-section", className]} {...props}><slot /></Tag>
 
 <style>
 	.numbered-section {
 		--counter-size: var(--font-size-sm);
-		--size: calc(var(--counter-size) + (var(--space-sm) * 2) + 1px);
+		--size: calc(var(--counter-size) + (var(--space-sm) * 2) + 2px);
 		position: relative;
 		counter-increment: numbered-section 1;
 
@@ -29,10 +29,6 @@ const { class: className, ...props } = Astro.props;
 			);
 			width: var(--size);
 			height: var(--size);
-
-			@media print {
-				display: none;
-			}
 		}
 
 		&::before {
@@ -41,18 +37,30 @@ const { class: className, ...props } = Astro.props;
 			border-radius: 100%;
 			background-color: var(--color-background);
 			transition: border-color 0.3s ease;
+
+			@media print {
+				display: none;
+			}
 		}
 
 		&::after {
 			content: counter(numbered-section);
-			translate: -1px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			font-size: var(--counter-size);
 			color: var(--outline-color);
-			text-align: center;
-			font-weight: 500;
-			letter-spacing: -2px;
+			font-weight: 700;
+			letter-spacing: -1px;
 			transition: color 0.3s ease;
-			line-height: var(--size);
+
+			@media print {
+				display: none;
+			}
+
+			@media (min-width: 30em) {
+				translate: -1px;
+			}
 		}
 
 		&:hover::after {
