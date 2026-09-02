@@ -5,6 +5,10 @@ html {
 	@media (prefers-reduced-motion: reduce) {
 		scroll-behavior: auto;
 	}
+
+	@media print {
+		background-color: unset;
+	}
 }
 
 body {
