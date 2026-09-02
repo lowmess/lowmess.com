@@ -81,16 +81,55 @@ import Logo from "#icons/logo.svg";
 	ul {
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
+		gap: 0;
 		margin: 0;
-	}
 
-	li {
-		position: relative;
-		padding-inline: var(--space-sm);
+		&::after {
+			content: "";
+			position: absolute;
+			position-anchor: --nav-item;
+			top: anchor(bottom);
+			right: anchor(right);
+			bottom: anchor(bottom);
+			left: anchor(left);
+			background-color: var(--color-primary);
+			opacity: 0;
+			transition:
+				opacity 300ms ease,
+				inset 650ms
+					linear(
+						0,
+						0.031 0.9%,
+						0.12 1.9%,
+						0.879 8%,
+						1.018 10.2%,
+						1.058 11.4%,
+						1.078 12.6%,
+						1.081 14.8%,
+						1.012 21.5%,
+						0.994 26.3%,
+						1.001 39.9%,
+						1
+					);
+		}
+
+		&:has(a:hover, a[data-current="true"])::after {
+			opacity: 1;
+			bottom: calc(anchor(bottom) - 2px);
+		}
+
+		&:not(:has(a:hover)) li a[data-current="true"] {
+			anchor-name: --nav-item;
+		}
+
+		li a:hover {
+			anchor-name: --nav-item;
+		}
 	}
 
 	li a {
+		padding-block-end: var(--space-xs);
+		padding-inline: calc(var(--space-sm) + var(--space-xs));
 		font-family: var(--font-family-body);
 		color: var(--color-text-secondary);
 		text-decoration: none;
@@ -101,28 +140,6 @@ import Logo from "#icons/logo.svg";
 		&[data-current="true"] {
 			color: var(--color-text);
 		}
-
-		&::after {
-			content: "";
-			position: absolute;
-			right: 0;
-			bottom: -0.5em;
-			left: 0;
-			height: 2px;
-			background-color: var(--outline-color-muted);
-			transform: scaleX(0);
-			transform-origin: center;
-			transition: transform 0.3s ease;
-		}
-
-		&[data-current="true"]::after {
-			background-color: var(--color-primary);
-		}
-
-		&:hover::after,
-		&[data-current="true"]::after {
-			transform: scaleX(1);
-		}
 	}
 
 	.theme-toggle {
@@ -132,7 +149,9 @@ import Logo from "#icons/logo.svg";
 
 	.skip-link {
 		position: absolute;
-		inset: 0;
+		top: var(--container-padding-block);
+		right: 0;
+		left: 0;
 		z-index: 1;
 		display: flex;
 		align-items: center;
@@ -180,7 +199,7 @@ import Logo from "#icons/logo.svg";
 		&::before {
 			content: "";
 			position: absolute;
-			top: -1em;
+			top: -2em;
 			right: calc(100% - var(--outline-width) * 3);
 			bottom: calc(100% - 1px);
 			left: calc(var(--outline-width) * -1);
@@ -188,11 +207,22 @@ import Logo from "#icons/logo.svg";
 			display: block;
 			background-color: var(--color-background);
 			pointer-events: none;
-			transition: bottom 0.2s ease;
+			transition: bottom 0.5s
+				linear(
+					0,
+					1 44.7%,
+					0.898 51.8%,
+					0.874 55.1%,
+					0.866 58.4%,
+					0.888 64.3%,
+					1 77.4%,
+					0.98 84.5%,
+					1
+				);
 		}
 
 		&:hover::before {
-			bottom: calc(var(--outline-width) * -2);
+			bottom: calc(var(--outline-width) * -4);
 		}
 
 		@media print {
