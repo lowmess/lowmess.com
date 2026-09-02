@@ -1,6 +1,7 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
 
+import NumberedSection from "#components/numbered-section.astro";
 import WarningIcon from "#icons/warning.svg";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
@@ -10,7 +11,7 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 }>;
 
 const {
-	as: Tag = "div",
+	as = "div",
 	archived,
 	archiveReason,
 	class: className,
@@ -22,7 +23,12 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 });
 ---
 
-<Tag class:list={["archive-reason", className]} {...props}>
+<NumberedSection
+	as={as}
+	class:list={["archive-reason", className]}
+	data-count="!"
+	{...props}
+>
 	<div>
 		<p class="date">
 			<WarningIcon />
@@ -37,19 +43,12 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 
 		<p class="reason" set:html={archiveReason} />
 	</div>
-</Tag>
+</NumberedSection>
 
 <style>
 	.archive-reason {
 		margin-block-end: var(--rhythm-xxl);
-	}
-
-	.icon {
-		position: absolute;
-		right: calc(100% + var(--space-md));
-		top: 2px;
-		width: var(--font-size-lg);
-		color: var(--color-primary);
+		counter-reset: numbered-section -1;
 	}
 
 	p {
@@ -66,10 +65,15 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 		text-wrap: pretty;
 
 		svg {
+			display: none;
 			position: relative;
 			top: 2px;
 			flex-shrink: 0;
 			width: 1em;
+
+			@media print {
+				display: block;
+			}
 		}
 	}
 

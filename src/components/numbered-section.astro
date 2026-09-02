@@ -66,5 +66,9 @@ const { as: Tag = "div", class: className, ...props } = Astro.props;
 		&:hover::after {
 			color: var(--color-text);
 		}
+
+		&[data-count]::after {
+			content: attr(data-count);
+		}
 	}
 </style>
