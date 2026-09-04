@@ -38,7 +38,7 @@
     "@shikijs/transformers": "^4.4.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^7.2.5",
+    "astro": "^7.2.9",
     "markdown-it": "^15.0.0",
     "postcss-preset-env": "^11.4.0",
     "react": "^19.2.8",
