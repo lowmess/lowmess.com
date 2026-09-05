@@ -11,6 +11,10 @@ const framboisier = fs.readFileSync("./src/assets/fonts/framboisier-bold.woff");
 const framboisierItalic = fs.readFileSync(
 	"./src/assets/fonts/framboisier-bolditalic.woff",
 );
+const hankenFetch = await fetch(
+	"https://cdn.jsdelivr.net/fontsource/fonts/hanken-grotesk@5.3.0/latin-500-normal.woff",
+);
+const hanken = await hankenFetch.arrayBuffer();
 
 export async function generateOgImage(template: ReactNode) {
 	const svg = await satori(template, {
@@ -28,6 +32,12 @@ export async function generateOgImage(template: ReactNode) {
 				data: framboisierItalic,
 				weight: 700,
 				style: "italic",
+			},
+			{
+				name: "Hanken Grotesk",
+				data: hanken,
+				weight: 500,
+				style: "normal",
 			},
 		],
 	});
@@ -48,65 +58,45 @@ function OgImageLayout({ style, children }: OgImageLayoutProps) {
 				flexDirection: "column",
 				width: "100%",
 				height: "100%",
+				paddingTop: "32px",
+				paddingRight: "32px",
+				paddingLeft: "32px",
 				color: "hsl(35 10% 95%)",
+				backgroundColor: "hsl(35 12% 15%)",
 			}}
 		>
 			<div
 				style={{
 					flex: 1,
+					position: "relative",
 					display: "flex",
 					flexDirection: "column",
-					padding: "32px",
-					backgroundColor: "hsl(35 10% 18%)",
+					paddingTop: "128px",
+					paddingLeft: "40px",
+					paddingBottom: "32px",
+					borderLeft: "8px solid hsl(35 90% 50%)",
+					...style,
 				}}
 			>
-				<div
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 281 241"
+					width="56"
+					height="48"
+					preserveAspectRatio="xMinYMid"
 					style={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-						justifyContent: "center",
-						position: "relative",
-						width: "100%",
-						height: "100%",
-						border: "16px solid hsl(35 20% 35%)",
-						borderRadius: "16px",
-						padding: "32px",
-						backgroundColor: "hsl(35 10% 18%)",
-						...style,
+						position: "absolute",
+						top: "0",
+						left: "-8px",
 					}}
 				>
-					<div
-						style={{
-							position: "absolute",
-							top: "-16px",
-							left: "-16px",
-							width: "96px",
-							height: "112px",
-							backgroundColor: "hsl(35 10% 18%)",
-						}}
-					></div>
+					<path
+						fill="hsl(35 90% 50%)"
+						d="M280 120v120c-46.795 0-93.59.148-140.385-.001-24.624-.235-48.379-16.914-56.455-40.76-2.093-6.18-3.139-12.726-3.16-19.207V40H40v200H0V0h120c0 60.088-.568 120.178.002 180.263.164 10.317 9.135 19.703 20.03 19.737H240v-40h-80V0h40v120h80z"
+					></path>
+				</svg>
 
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 281 241"
-						width="112"
-						height="96"
-						preserveAspectRatio="xMinYMid"
-						style={{
-							position: "absolute",
-							top: "-16px",
-							left: "-16px",
-						}}
-					>
-						<path
-							fill="hsl(35 90% 50%)"
-							d="M280 120v120c-46.795 0-93.59.148-140.385-.001-24.624-.235-48.379-16.914-56.455-40.76-2.093-6.18-3.139-12.726-3.16-19.207V40H40v200H0V0h120c0 60.088-.568 120.178.002 180.263.164 10.317 9.135 19.703 20.03 19.737H240v-40h-80V0h40v120h80z"
-						></path>
-					</svg>
-
-					{children}
-				</div>
+				{children}
 			</div>
 		</div>
 	);
@@ -124,34 +114,30 @@ export function OgBlogPostImage({
 	});
 
 	return (
-		<OgImageLayout style={{ paddingTop: "16px" }}>
+		<OgImageLayout style={{ paddingTop: "32px", justifyContent: "center" }}>
 			<span
 				style={{
-					fontFamily: "Izoard",
-					fontSize: "32px",
-					textTransform: "uppercase",
-					letterSpacing: "4px",
+					fontFamily: "Framboisier",
+					fontSize: "96px",
+					fontWeight: 700,
 					lineHeight: 1,
-					textAlign: "center",
-					color: "hsl(35 20% 50%)",
+					fontStyle: "italic",
+					textWrap: "balance",
 				}}
 			>
-				{formatter.format(date)}
+				{title}
 			</span>
 
 			<span
 				style={{
-					marginTop: "16px",
-					fontFamily: "Strawford",
-					fontSize: "96px",
-					fontWeight: 700,
-					lineHeight: 1,
-					textAlign: "center",
-					textWrap: "balance",
-					textTransform: "lowercase",
+					marginTop: "56px",
+					fontFamily: "Hanken Grotesk",
+					fontSize: "32px",
+					fontWeight: 500,
+					color: "hsl(35 25% 65%)",
 				}}
 			>
-				{title}
+				{formatter.format(date)}
 			</span>
 		</OgImageLayout>
 	);
@@ -162,28 +148,38 @@ export function OgSiteImage(): React.ReactNode {
 		<OgImageLayout>
 			<span
 				style={{
-					fontFamily: "Strawford",
+					fontFamily: "Framboisier",
 					fontSize: "96px",
 					fontWeight: 700,
 					lineHeight: 1,
-					textAlign: "center",
-					textTransform: "lowercase",
+					fontStyle: "italic",
 				}}
 			>
-				my name is alec lomas<span style={{ color: "hsl(35 90% 50%)" }}>,</span>
+				My name is Alec Lomas,
 			</span>
 
 			<span
 				style={{
-					fontFamily: "Strawford",
+					fontFamily: "Framboisier",
 					fontSize: "96px",
 					fontWeight: 700,
 					lineHeight: 1,
-					textAlign: "center",
-					textTransform: "lowercase",
+					fontStyle: "italic",
 				}}
 			>
-				and i make websites<span style={{ color: "hsl(35 90% 50%)" }}>.</span>
+				and I make websites.
+			</span>
+
+			<span
+				style={{
+					marginTop: "56px",
+					fontFamily: "Hanken Grotesk",
+					fontSize: "32px",
+					fontWeight: 500,
+					color: "hsl(35 25% 65%)",
+				}}
+			>
+				lowmess.com
 			</span>
 		</OgImageLayout>
 	);
