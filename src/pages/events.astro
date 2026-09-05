@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+
+import Event from "#components/event.astro";
+import NumberedSection from "#components/numbered-section.astro";
+import PageHeading from "#components/page-heading.astro";
+import SectionHeading from "#components/section-heading.astro";
+import GlobalLayout from "#layouts/global.astro";
+import { categorizeEvents, groupEventsByMonth } from "#utils/events.ts";
+
+const concerts = await getCollection("concerts");
+const screenings = await getCollection("screenings");
+const sportingEvents = await getCollection("sportingEvents");
+
+const events = categorizeEvents([
+	...concerts.map((concert) => concert.data),
+	...screenings.map((screening) => screening.data),
+	...sportingEvents.map((sportingEvent) => sportingEvent.data),
+]);
+const groupedEvents = groupEventsByMonth(events);
+---
+
+<GlobalLayout title="Events">
+	<PageHeading data-event-heading>What I&apos;ve been up to lately</PageHeading>
+
+	<div class="years">
+		{
+			groupedEvents.map((year) => (
+				<div class="year">
+					<SectionHeading>{year.year}</SectionHeading>
+
+					{year.months.map((month) => (
+						<NumberedSection data-count={month.label.slice(0, 1)} class="month">
+							{month.events.map((event) => (
+								<Event event={event} />
+							))}
+						</NumberedSection>
+					))}
+				</div>
+			))
+		}
+	</div>
+</GlobalLayout>
+
+<style>
+	.years {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-xl);
+	}
+
+	.year {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-md);
+
+		h2 {
+			margin-block-start: 0;
+		}
+	}
+
+	.month {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-md);
+
+		:first-child {
+			margin-block-start: calc(var(--rhythm-xs) * -1);
+		}
+	}
+</style>

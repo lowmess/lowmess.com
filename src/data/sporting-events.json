@@ -1,0 +1,11 @@
+[
+	{
+		"id": 1,
+		"date": "2026-06-30",
+		"title": "France vs. Sweden",
+		"tournament": "FIFA World Cup",
+		"sport": "soccer",
+		"venue": "New York/New Jersey Stadium",
+		"with": ["Kayla", "Dad", "Yvette"]
+	}
+]

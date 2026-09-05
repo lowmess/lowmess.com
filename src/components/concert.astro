@@ -1,0 +1,88 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import Piano from "#icons/piano.svg";
+import { EVENT_TYPES } from "#schemas/event.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	concert: CollectionEntry<"concerts">["data"];
+}>;
+
+const { as: Tag = "div", class: className, concert, ...props } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+const listFormatter = new Intl.ListFormat("en-us", {
+	style: "long",
+	type: "conjunction",
+});
+
+const date = dateFormatter.format(concert.date);
+const openers = listFormatter.format(concert.openers);
+const attendees = listFormatter.format(concert.with);
+---
+
+<Tag
+	class:list={["concert", className]}
+	data-event-type={EVENT_TYPES.Concert}
+	{...props}
+>
+	<Piano />
+
+	<div>
+		<h3>
+			{concert.headliner}
+		</h3>
+
+		{openers && <p class="openers">{openers}</p>}
+
+		<p>{date} at {concert.venue}{attendees && <> with {attendees}</>}</p>
+	</div>
+</Tag>
+
+<style>
+	.concert {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-md);
+	}
+
+	svg {
+		position: relative;
+		top: 2px;
+		width: var(--font-size-lg);
+		color: var(--color-text-secondary);
+	}
+
+	h3 {
+		margin: 0;
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xl);
+		font-weight: 500;
+	}
+
+	.openers {
+		font-size: var(--font-size-md);
+		color: var(--text);
+	}
+
+	p {
+		margin-block: 0;
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+</style>
