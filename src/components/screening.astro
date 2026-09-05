@@ -2,6 +2,7 @@
 import type { HTMLTag, Polymorphic } from "astro/types";
 import { type CollectionEntry } from "astro:content";
 
+import EventPreview from "#components/event-preview.astro";
 import Movie from "#icons/movie.svg";
 import { EVENT_TYPES } from "#schemas/event.ts";
 import { SCREENING_FORMATS } from "#schemas/screening.ts";
@@ -11,7 +12,7 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 	screening: CollectionEntry<"screenings">["data"];
 }>;
 
-const { as: Tag = "div", class: className, screening, ...props } = Astro.props;
+const { screening, ...props } = Astro.props;
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
 	dateStyle: "long",
@@ -51,60 +52,14 @@ switch (screening.format) {
 }
 ---
 
-<Tag
-	class:list={["screening", className]}
-	data-event-type={EVENT_TYPES.Screening}
-	{...props}
->
-	<Movie />
+<EventPreview data-event-type={EVENT_TYPES.Screening} {...props}>
+	<Movie slot="icon" />
 
-	<div>
-		<h3>
-			<a href={screening.link}>
-				{screening.title}{formatString}
-			</a>
-		</h3>
+	<a href={screening.link}>
+		{screening.title}{formatString}
+	</a>
 
-		<p>{date} at {screening.venue}{attendees && <> with {attendees}</>}</p>
-	</div>
-</Tag>
-
-<style>
-	.screening {
-		display: flex;
-		align-items: baseline;
-		gap: var(--space-md);
-	}
-
-	svg {
-		flex-shrink: 0;
-		position: relative;
-		top: 2px;
-		width: var(--font-size-lg);
-		color: var(--color-text-secondary);
-	}
-
-	h3 {
-		margin-block: 0;
-		font-family: var(--font-family-body);
-		font-size: var(--font-size-xl);
-		font-weight: 500;
-	}
-
-	p {
-		margin-block-start: var(--rhythm-xs);
-		margin-block-end: 0;
-		font-size: var(--font-size-sm);
-		color: var(--color-text-secondary);
-		text-wrap: balance;
-	}
-
-	a {
-		color: var(--color-text);
-		text-decoration: none;
-
-		&:hover {
-			color: var(--color-primary);
-		}
-	}
-</style>
+	<Fragment slot="metadata"
+		>{date} at {screening.venue}{attendees && <> with {attendees}</>}</Fragment
+	>
+</EventPreview>
