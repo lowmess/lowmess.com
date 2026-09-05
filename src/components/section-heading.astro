@@ -7,10 +7,10 @@ type Props<Tag extends "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> =
 const { as: Tag = "h2", class: className, ...props } = Astro.props;
 ---
 
-<Tag class:list={["break-heading", className]} {...props}><slot /></Tag>
+<Tag class:list={["section-heading", className]} {...props}><slot /></Tag>
 
 <style>
-	.break-heading {
+	.section-heading {
 		margin-block-start: var(--rhythm-xl);
 		font-family: var(--font-family-body);
 		font-size: var(--font-size-md);
