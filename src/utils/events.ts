@@ -1,7 +1,7 @@
-import { CategorizedEvent, EVENT_TYPES } from "#schemas/event";
-import { Concert, isConcert } from "#schemas/concert";
-import { Screening, isScreening } from "#schemas/screening";
-import { SportingEvent, isSportingEvent } from "#schemas/sporting-event";
+import { type CategorizedEvent, EVENT_TYPES } from "#schemas/event";
+import { type Concert, isConcert } from "#schemas/concert";
+import { type Screening, isScreening } from "#schemas/screening";
+import { type SportingEvent, isSportingEvent } from "#schemas/sporting-event";
 
 export function categorizeEvents(
 	events: Array<Concert | Screening | SportingEvent>,
