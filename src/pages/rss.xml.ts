@@ -1,26 +1,32 @@
+import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
 import rss, { type RSSFeedItem } from "@astrojs/rss";
 import { type APIContext } from "astro";
-import { getCollection } from "astro:content";
-import markdownit from "markdown-it";
+import { getCollection, render } from "astro:content";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { loadRenderers } from "astro:container";
 import { transform, walk } from "ultrahtml";
 import sanitize from "ultrahtml/transformers/sanitize";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "#consts";
-import { sortBlogPosts } from "#utils/blog.ts";
+import { sortBlogPosts } from "#utils/blog";
 
 export async function GET({ site }: APIContext) {
 	const baseUrl = site?.origin ?? "https://lowmess.com";
+
+	const renderers = await loadRenderers([getMDXRenderer()]);
+
+	const container = await AstroContainer.create({ renderers });
 
 	const posts = (
 		await getCollection("blog", ({ data }) => !data.archived && !data.draft)
 	).sort(sortBlogPosts);
 
-	const md = markdownit();
-
 	const feedItems: Array<RSSFeedItem> = [];
 
 	for (const post of posts) {
-		const rawContent = md.render(post.body ?? "");
+		const { Content } = await render(post);
+
+		const rawContent = await container.renderToString(Content);
 
 		const content = await transform(rawContent, [
 			async (node) => {
