@@ -20,7 +20,7 @@ body {
 	padding-inline-end: var(--container-padding-inline-end);
 	background-color: var(--color-background);
 	font-size: var(--font-size-md);
-	font-family: var(--font-family-body);
+	font-family: var(--font-family-hanken-grotesk);
 	line-height: var(--line-height-body);
 	color: var(--color-text);
 	counter-reset: numbered-section 0;
@@ -37,7 +37,7 @@ body > main {
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-	font-family: var(--font-family-heading);
+	font-family: var(--font-family-framboisier);
 	text-wrap: balance;
 	line-height: var(--line-height-heading);
 }
@@ -51,7 +51,7 @@ body > main {
 }
 
 :is(code, pre) {
-	font-family: var(--font-family-mono);
+	font-family: var(--font-family-fira-code);
 	color: currentColor;
 }
 

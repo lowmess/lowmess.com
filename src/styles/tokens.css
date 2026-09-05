@@ -39,11 +39,6 @@
 	--line-height-body: 1.5;
 	--line-height-prose: 1.75;
 
-	--font-family-heading: var(--typeface-framboisier);
-	--font-family-subheading: var(--typeface-hanken-grotesk);
-	--font-family-body: var(--typeface-hanken-grotesk);
-	--font-family-mono: var(--typeface-fira-code);
-
 	/* spacing */
 	--space-none: 0;
 	--space-xxs: 2px;

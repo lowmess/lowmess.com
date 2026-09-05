@@ -36,7 +36,7 @@ export default defineConfig({
 	fonts: [
 		{
 			name: "Framboisier",
-			cssVariable: "--typeface-framboisier",
+			cssVariable: "--font-family-framboisier",
 			provider: fontProviders.local(),
 			options: {
 				variants: [
@@ -56,7 +56,7 @@ export default defineConfig({
 		},
 		{
 			name: "Hanken Grotesk",
-			cssVariable: "--typeface-hanken-grotesk",
+			cssVariable: "--font-family-hanken-grotesk",
 			provider: fontProviders.fontsource(),
 			styles: ["normal", "italic"],
 			weights: ["400 700"],
@@ -65,7 +65,7 @@ export default defineConfig({
 		},
 		{
 			name: "Fira Code",
-			cssVariable: "--typeface-fira-code",
+			cssVariable: "--font-family-fira-code",
 			provider: fontProviders.fontsource(),
 			styles: ["normal"],
 			weights: ["400 700"],
