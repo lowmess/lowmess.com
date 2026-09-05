@@ -4,7 +4,6 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import ArchiveReason from "#components/archive-reason.astro";
 import BlockQuote from "#components/mdx/block-quote.astro";
 import CodeBlock from "#components/mdx/code-block.astro";
-import GlobalLayout from "#layouts/global.astro";
 import HeadingOne from "#components/mdx/heading-one.astro";
 import HeadingTwo from "#components/mdx/heading-two.astro";
 import HeadingThree from "#components/mdx/heading-three.astro";
@@ -16,8 +15,7 @@ import OrderedList from "#components/mdx/ordered-list.astro";
 import PageHeading from "#components/page-heading.astro";
 import Paragraph from "#components/mdx/paragraph.astro";
 import UnorderedList from "#components/mdx/unordered-list.astro";
-
-// import "#styles/blog.css";
+import GlobalLayout from "#layouts/global.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", ({ data }) =>
@@ -38,6 +36,7 @@ const { title, description, date, archived, archiveReason } = post.data;
 
 const formatter = new Intl.DateTimeFormat("en-US", {
 	dateStyle: "long",
+	timeZone: "UTC",
 });
 ---
 

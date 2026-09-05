@@ -1,0 +1,33 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+import Concert from "#components/concert.astro";
+import Screening from "#components/screening.astro";
+import SportingEvent from "#components/sporting-event.astro";
+import { EVENT_TYPES, type CategorizedEvent } from "#schemas/event.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	event: CategorizedEvent;
+}>;
+
+const { event, ...props } = Astro.props;
+---
+
+{
+	event.type === EVENT_TYPES.Concert && (
+		<Concert concert={event.data} {...props} />
+	)
+}
+
+{
+	event.type === EVENT_TYPES.Screening && (
+		<Screening screening={event.data} {...props} />
+	)
+}
+
+{
+	event.type === EVENT_TYPES.SportingEvent && (
+		<SportingEvent sportingEvent={event.data} {...props} />
+	)
+}

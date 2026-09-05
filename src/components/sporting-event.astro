@@ -1,0 +1,126 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import Baseball from "#icons/baseball.svg";
+import Basketball from "#icons/basketball.svg";
+import CheckeredFlag from "#icons/checkered-flag.svg";
+import Football from "#icons/football.svg";
+import Soccer from "#icons/soccer.svg";
+import Trophy from "#icons/trophy.svg";
+import { EVENT_TYPES } from "#schemas/event.ts";
+import { SPORTING_EVENT_TYPES } from "#schemas/sporting-event.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	sportingEvent: CollectionEntry<"sportingEvents">["data"];
+}>;
+
+const {
+	as: Tag = "div",
+	class: className,
+	sportingEvent,
+	...props
+} = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+const listFormatter = new Intl.ListFormat("en-us", {
+	style: "long",
+	type: "conjunction",
+});
+
+const date = dateFormatter.format(sportingEvent.date);
+const attendees = listFormatter.format(sportingEvent.with);
+
+let Icon = Trophy;
+
+switch (sportingEvent.sport) {
+	case SPORTING_EVENT_TYPES.Baseball:
+		Icon = Baseball;
+		break;
+
+	case SPORTING_EVENT_TYPES.Basketball:
+		Icon = Basketball;
+		break;
+
+	case SPORTING_EVENT_TYPES.Football:
+		Icon = Football;
+		break;
+
+	case SPORTING_EVENT_TYPES.Motorsport:
+		Icon = CheckeredFlag;
+		break;
+
+	case SPORTING_EVENT_TYPES.Soccer:
+		Icon = Soccer;
+		break;
+}
+---
+
+<Tag
+	class:list={["sporting-event", className]}
+	data-event-type={EVENT_TYPES.SportingEvent}
+	{...props}
+>
+	<Icon />
+
+	<div>
+		<h3>
+			{sportingEvent.title}
+		</h3>
+
+		{
+			sportingEvent.tournament && (
+				<p class="tournament">{sportingEvent.tournament}</p>
+			)
+		}
+
+		<p>{date} at {sportingEvent.venue}{attendees && <> with {attendees}</>}</p>
+	</div>
+</Tag>
+
+<style>
+	.sporting-event {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-md);
+	}
+
+	svg {
+		position: relative;
+		top: 2px;
+		width: var(--font-size-lg);
+		color: var(--color-text-secondary);
+	}
+
+	h3 {
+		margin: 0;
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xl);
+		font-weight: 500;
+	}
+
+	.tournament {
+		font-size: var(--font-size-md);
+		color: var(--text);
+	}
+
+	p {
+		margin-block: 0;
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+</style>

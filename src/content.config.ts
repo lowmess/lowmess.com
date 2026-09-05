@@ -2,10 +2,11 @@ import { file, glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 
-import { blogPostSchema } from "#schemas/blog-post.ts";
-import { concertSchema } from "#schemas/concert.ts";
-import { resumeSchema } from "#schemas/resume.ts";
-import { screeningSchema } from "#schemas/screening.ts";
+import { blogPostSchema } from "#schemas/blog-post";
+import { concertSchema } from "#schemas/concert";
+import { resumeSchema } from "#schemas/resume";
+import { screeningSchema } from "#schemas/screening";
+import { sportingEventSchema } from "#schemas/sporting-event";
 
 const blog = defineCollection({
 	loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
@@ -41,4 +42,16 @@ const screenings = defineCollection({
 	schema: screeningSchema,
 });
 
-export const collections = { blog, projects, resume, concerts, screenings };
+const sportingEvents = defineCollection({
+	loader: file("./src/data/sporting-events.json"),
+	schema: sportingEventSchema,
+});
+
+export const collections = {
+	blog,
+	projects,
+	resume,
+	concerts,
+	screenings,
+	sportingEvents,
+};

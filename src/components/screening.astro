@@ -1,0 +1,107 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import Movie from "#icons/movie.svg";
+import { EVENT_TYPES } from "#schemas/event.ts";
+import { SCREENING_FORMATS } from "#schemas/screening.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	screening: CollectionEntry<"screenings">["data"];
+}>;
+
+const { as: Tag = "div", class: className, screening, ...props } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+const listFormatter = new Intl.ListFormat("en-us", {
+	style: "long",
+	type: "conjunction",
+});
+
+const date = dateFormatter.format(screening.date);
+const attendees = listFormatter.format(screening.with);
+
+let formatString = "";
+
+switch (screening.format) {
+	case SCREENING_FORMATS.ThirtyFive:
+		formatString = " on 35mm";
+		break;
+
+	case SCREENING_FORMATS.Seventy:
+		formatString = " on 70mm";
+		break;
+
+	case SCREENING_FORMATS.IMAX:
+		formatString = " in IMAX";
+		break;
+
+	case SCREENING_FORMATS.IMAX3D:
+		formatString = " in IMAX 3D";
+		break;
+
+	case SCREENING_FORMATS.ThreeD:
+		formatString = " in 3D";
+		break;
+}
+---
+
+<Tag
+	class:list={["screening", className]}
+	data-event-type={EVENT_TYPES.Screening}
+	{...props}
+>
+	<Movie />
+
+	<div>
+		<h3>
+			<a href={screening.link}>
+				{screening.title}{formatString}
+			</a>
+		</h3>
+
+		<p>{date} at {screening.venue}{attendees && <> with {attendees}</>}</p>
+	</div>
+</Tag>
+
+<style>
+	.screening {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-md);
+	}
+
+	svg {
+		position: relative;
+		top: 2px;
+		width: var(--font-size-lg);
+		color: var(--color-text-secondary);
+	}
+
+	h3 {
+		margin: 0;
+		font-family: var(--font-family-body);
+		font-size: var(--font-size-xl);
+		font-weight: 500;
+	}
+
+	p {
+		margin-block: 0;
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+</style>
