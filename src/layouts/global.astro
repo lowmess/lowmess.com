@@ -1,6 +1,4 @@
 ---
-import Analytics from "@vercel/analytics/astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
 import type { HTMLAttributes } from "astro/types";
 
 import Content from "#components/content.astro";
@@ -116,8 +114,5 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<Content as="main" id="main-content" {...props}><slot /></Content>
 
 		<Footer />
-
-		<Analytics />
-		<SpeedInsights />
 	</body>
 </html>
