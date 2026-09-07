@@ -1,203 +1,86 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
+import NumberedSection from "#components/numbered-section.astro";
+import SectionHeading from "#components/section-heading.astro";
 import GlobalLayout from "#layouts/global.astro";
-import { sortProjects } from "#utils/work.ts";
+import { sortBlogPosts } from "#utils/blog";
 
-const resumePayload = await getEntry("resume", "1");
+const latestPost = (
+	await getCollection("blog", ({ data }) => {
+		if (data.archived) return false;
 
-if (!resumePayload) {
-	console.error("No resume found");
-	throw new Error("No resume found");
-}
-
-const { data: resume } = resumePayload;
-
-if (!resume.work?.length) {
-	console.error("No jobs found");
-	throw new Error("No jobs found");
-}
-
-const currentJobs = resume.work.filter((job) => !job.endDate);
-const previousJobs = resume.work.filter((job) => job.endDate);
-
-const projects = (await getCollection("projects"))
-	.sort(sortProjects)
-	.slice(0, resume.work.length);
+		return import.meta.env.PROD ? !data.draft : true;
+	})
+)
+	.sort(sortBlogPosts)
+	.shift();
 ---
 
 <GlobalLayout>
-	<div class="content">
-		<h1>
-			My name is Alec&nbsp;Lomas<span class="orange">,</span> and I make websites<span
-				class="orange">.</span
-			>
-		</h1>
+	<h1>My name is Alec&nbsp;Lomas, and I make websites.</h1>
 
-		<div class="split">
-			<div class="projects">
-				<h2>Things I&apos;ve worked on</h2>
+	<NumberedSection
+		><SectionHeading>Introduction</SectionHeading>
 
-				<ul>
-					{
-						projects.map((project) => (
-							<li>
-								{project.data.website || project.data.repo ? (
-									<a href={project.data.website || project.data.repo}>
-										{project.data.title}
-									</a>
-								) : (
-									project.data.title
-								)}
-							</li>
-						))
-					}
-				</ul>
-			</div>
+		<p>
+			For over a decade, I have been building marketing &amp; eCommerce
+			websites, complex web applications, and the design systems to power both.
+			Currently I am hard at work building the future of construction management
+			software at <a href="https://www.ressiosoftware.com/">Ressio</a>.
+		</p>
 
-			<div class="work">
-				<h2>Places I&apos;ve worked</h2>
+		<p>
+			Outside of work you can usually find me at a <a href="/events"
+				>concert or film screening</a
+			> or riding my bicycle around beautiful Portland, Oregon.
+		</p>
+	</NumberedSection>
 
-				<h3 class="visually-hidden">Currently working at:</h3>
+	{
+		latestPost && (
+			<NumberedSection>
+				<SectionHeading>Latest blog post</SectionHeading>
 
-				<ul>
-					{
-						currentJobs.map((job) => (
-							<li>
-								{job.website ? <a href={job.website}>{job.name}</a> : job.name}
-							</li>
-						))
-					}
-				</ul>
+				<p>
+					&ldquo;
+					<a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+					&rdquo;: <span set:html={latestPost.data.description} />
+				</p>
+			</NumberedSection>
+		)
+	}
 
-				<h3 class="visually-hidden">Previously worked at:</h3>
+	<style>
+		h1 {
+			margin-block-start: 0;
+			margin-block-end: var(--rhythm-xl);
+			font-family: var(--font-family-framboisier);
+			font-style: italic;
+			font-size: var(--font-size-title);
+			line-height: var(--line-height-solid);
+			text-wrap: balance;
+		}
 
-				<ul class="previous">
-					{
-						previousJobs.map((job) => (
-							<li>
-								{job.website ? <a href={job.website}>{job.name}</a> : job.name}
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</div>
-	</div>
-</GlobalLayout>
+		p {
+			max-width: 55ch;
+			margin: 0;
+			font-size: var(--font-size-lg);
+			text-wrap: pretty;
+		}
 
-<style>
-	.split {
-		display: grid;
-		gap: var(--space-lg);
-		justify-content: center;
-		margin-block-start: var(--rhythm-lg);
-		margin-block-end: var(--rhythm-md);
+		p + p {
+			margin-block-start: var(--rhythm-md);
+		}
 
-		@media (min-width: 51em) {
-			grid-template-columns: 3fr 2fr;
-			margin-block-start: var(--rhythm-xxl);
-			margin-block-end: var(--rhythm-lg);
+		a {
+			color: inherit;
+			text-decoration-color: var(--color-primary);
+			text-decoration-thickness: 2px;
 
-			& > * {
-				padding-block: var(--rhythm-md);
-				padding-inline: var(--space-lg);
+			&:hover {
+				color: var(--color-primary);
 			}
 		}
-	}
-
-	@media (min-width: 51em) {
-		.work.work {
-			border-inline-start: var(--outline-width) solid var(--outline-color);
-			padding-inline-start: var(--space-lg);
-		}
-	}
-
-	@media (min-width: 58em) {
-		.work.work {
-			padding-inline-start: var(--space-xl);
-		}
-	}
-
-	h1 {
-		margin-block: 0;
-		margin-block-end: var(--rhythm-lg);
-		font-size: var(--font-size-title);
-		line-height: var(--line-height-solid);
-		text-transform: lowercase;
-		text-align: center;
-	}
-
-	h2 {
-		margin-block-start: 0;
-		margin-block-end: var(--rhythm-sm);
-		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-xs);
-		text-transform: uppercase;
-		letter-spacing: var(--letter-spacing-wide);
-		color: var(--color-text-secondary);
-	}
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		font-family: var(--font-family-heading);
-		font-size: var(--font-size-lg);
-		font-weight: 500;
-		list-style-type: none;
-		color: var(--color-text);
-	}
-
-	.previous li {
-		width: max-content;
-		position: relative;
-		color: var(--color-text-secondary);
-
-		&::after {
-			content: "";
-			position: absolute;
-			top: calc(50% - (var(--outline-width) / 2));
-			right: calc(var(--outline-width) * -1);
-			left: calc(var(--outline-width) * -1);
-			height: 4px;
-			background-color: var(--color-primary);
-			pointer-events: none;
-			transform-origin: center left;
-			transition: transform 0.3s ease;
-		}
-
-		&:hover::after {
-			transform: scaleX(0);
-		}
-	}
-
-	a {
-		text-decoration: none;
-		color: inherit;
-		transition: color 0.2s ease;
-
-		&:hover {
-			color: var(--color-primary);
-		}
-
-		.previous &:hover {
-			color: var(--color-text);
-		}
-	}
-
-	p {
-		margin: 0;
-		text-wrap: pretty;
-	}
-
-	p + p {
-		margin-block-start: var(--rhythm-md);
-	}
-
-	.orange {
-		color: var(--color-primary);
-	}
-</style>
+	</style>
+</GlobalLayout>

@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const props = Astro.props;
+---
+
+<a {...props}><slot /></a>
+
+<style>
+	a {
+		color: inherit;
+		text-decoration-color: var(--color-primary);
+		text-decoration-thickness: var(--space-xxs);
+
+		&:hover {
+			color: var(--color-primary);
+		}
+
+		@media print {
+			&[href^="http"]::after {
+				content: " (" attr(href) ")";
+			}
+
+			&[href^="/"]::after {
+				content: " (https://lowmess.com" attr(href) ")";
+			}
+		}
+	}
+</style>

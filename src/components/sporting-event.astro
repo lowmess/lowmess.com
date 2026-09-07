@@ -1,0 +1,76 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import EventPreview from "#components/event-preview.astro";
+import Baseball from "#icons/baseball.svg";
+import Basketball from "#icons/basketball.svg";
+import CheckeredFlag from "#icons/checkered-flag.svg";
+import Football from "#icons/football.svg";
+import Soccer from "#icons/soccer.svg";
+import Trophy from "#icons/trophy.svg";
+import { EVENT_TYPES } from "#schemas/event.ts";
+import { SPORTING_EVENT_TYPES } from "#schemas/sporting-event.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	sportingEvent: CollectionEntry<"sportingEvents">["data"];
+}>;
+
+const { sportingEvent, ...props } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+const listFormatter = new Intl.ListFormat("en-us", {
+	style: "long",
+	type: "conjunction",
+});
+
+const date = dateFormatter.format(sportingEvent.date);
+const attendees = listFormatter.format(sportingEvent.with);
+
+let Icon = Trophy;
+
+switch (sportingEvent.sport) {
+	case SPORTING_EVENT_TYPES.Baseball:
+		Icon = Baseball;
+		break;
+
+	case SPORTING_EVENT_TYPES.Basketball:
+		Icon = Basketball;
+		break;
+
+	case SPORTING_EVENT_TYPES.Football:
+		Icon = Football;
+		break;
+
+	case SPORTING_EVENT_TYPES.Motorsport:
+		Icon = CheckeredFlag;
+		break;
+
+	case SPORTING_EVENT_TYPES.Soccer:
+		Icon = Soccer;
+		break;
+}
+---
+
+<EventPreview data-event-type={EVENT_TYPES.SportingEvent} {...props}>
+	<Icon slot="icon" />
+
+	{sportingEvent.title}
+
+	{
+		sportingEvent.tournament && (
+			<Fragment slot="subtext">{sportingEvent.tournament}</Fragment>
+		)
+	}
+
+	<Fragment slot="metadata"
+		>{date} at {sportingEvent.venue}{
+			attendees && <> with {attendees}</>
+		}</Fragment
+	>
+</EventPreview>

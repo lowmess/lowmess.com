@@ -1,9 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import BlogPostPreview from "#components/blog-post-preview.astro";
 import Content from "#components/content.astro";
-import Logo from "#components/logo.astro";
 import { sortBlogPosts } from "#utils/blog";
 
 const latestPost = (
@@ -19,23 +17,44 @@ const latestPost = (
 
 <footer>
 	<Content class="content">
-		<div>
-			<h2>Site</h2>
+		<div class="section">
+			<h2 data-np-heading>Just listened</h2>
+			<p data-np-track>&mdash;</p>
+		</div>
+
+		<div class="section">
+			{
+				latestPost && (
+					<>
+						<h2>Recent writing</h2>
+
+						<p>
+							<a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+						</p>
+					</>
+				)
+			}
+		</div>
+
+		<div class="section">
+			<h2>On this site</h2>
 
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/work">Work</a></li>
 				<li><a href="/blog">Blog</a></li>
 				<!-- secret posts: <li><a href="/blog/archive">Graveyard</a></li> -->
-				<li><a href="/colophon">Colophon</a></li>
-				<li><a href="/uses">Uses</a></li>
+				<li><a href="/events">Events</a></li>
 				<li><a href="/archive">Archive</a></li>
+				<li><a href="/uses">Uses</a></li>
+				<li><a href="/colophon">Colophon</a></li>
+				<li><a href="/resume">Resum&eacute;</a></li>
 				<li><a href="/rss.xml">RSS</a></li>
 			</ul>
 		</div>
 
-		<div>
-			<h2>Links</h2>
+		<div class="section">
+			<h2>Around town</h2>
 
 			<ul>
 				<li>
@@ -44,44 +63,78 @@ const latestPost = (
 				<li>
 					<a href="https://letterboxd.com/lowmess/" rel="me">Letterboxd</a>
 				</li>
-				<li><a href="https://www.last.fm/user/lowmess" rel="me">Last.fm</a></li>
+				<li>
+					<a href="https://www.last.fm/user/lowmess" rel="me">Last.fm</a>
+				</li>
 				<li><a href="https://github.com/lowmess" rel="me">GitHub</a></li>
 				<li><a href="https://codepen.io/lowmess" rel="me">CodePen</a></li>
-				<li><a href="https://linkedin.com/in/lowmess" rel="me">LinkedIn</a></li>
-				<li><a href="/resume">Resume</a></li>
+				<li>
+					<a href="https://linkedin.com/in/lowmess" rel="me">LinkedIn</a>
+				</li>
 			</ul>
 		</div>
-
-		{
-			latestPost && (
-				<div class="latest-post">
-					<h2>Latest blog post</h2>
-
-					<BlogPostPreview post={latestPost} headingLevel="span" />
-				</div>
-			)
-		}
-
-		<a href="/" class="logo">
-			<Logo title="Go to homepage" />
-		</a>
 	</Content>
 </footer>
 
+<script>
+	import { LASTFM_API_KEY, LASTFM_USER_NAME } from "astro:env/client";
+
+	const $npHeading = document.querySelector("[data-np-heading]");
+	const $npTrack = document.querySelector("[data-np-track]");
+
+	async function getRecentTrack() {
+		if (!$npHeading || !$npTrack) {
+			return;
+		}
+
+		const uri = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&limit=1&user=${
+			LASTFM_USER_NAME
+		}&api_key=${LASTFM_API_KEY}&format=json`;
+
+		const res = await fetch(uri);
+		const json = await res.json();
+
+		if (json.error) {
+			return;
+		}
+
+		const track = json.recenttracks.track[0];
+
+		const isNowPlaying = track["@attr"]?.nowplaying === "true";
+		const album = track.album["#text"];
+		const artist = track.artist["#text"];
+
+		$npHeading.innerHTML = isNowPlaying ? "Now playing" : "Just listened";
+		$npTrack.innerHTML = `&#8220;${album}&#8221; by ${artist}`;
+	}
+
+	try {
+		await getRecentTrack();
+	} catch {
+		console.log("Failed to fetch/parse latest track from Last.fm");
+	}
+</script>
+
 <style>
 	footer {
-		--color-text: hsl(from var(--color-gray) h s 95%);
-
 		width: 100vw;
 		position: relative;
-		left: var(--container-padding);
-		margin-inline: calc(var(--container-padding) * -2);
-		padding-block-end: var(--container-padding);
-		padding-inline: var(--container-padding);
+		margin-inline-start: calc(var(--container-padding-inline-start) * -1);
+		margin-inline-end: calc(var(--container-padding-inline-end) * -1);
+		padding-block-end: max(
+			var(--container-padding-block),
+			env(safe-area-inset-bottom)
+		);
+		padding-inline-start: var(--container-padding-inline-start);
+		padding-inline-end: var(--container-padding-inline-end);
 		background-color: var(--footer-background-color);
+		color: var(--footer-text);
 
 		@media (min-width: 64em) {
-			padding-block-end: calc(var(--container-padding) * 3);
+			padding-block-end: max(
+				var(--container-padding-block),
+				env(safe-area-inset-bottom)
+			);
 		}
 
 		@media print {
@@ -91,156 +144,66 @@ const latestPost = (
 
 	.content {
 		position: relative;
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--space-xl);
-		border-block-end: var(--outline-width) solid var(--outline-color);
-		border-end-start-radius: var(--outline-width);
-		padding-block: var(--content-padding);
-		background-color: var(--footer-background-color);
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--rhythm-sm);
+		border-inline-start: var(--outline-width) solid var(--outline-color);
+		padding-block-start: var(--content-padding-block);
+		padding-block-end: var(--container-padding-block);
+	}
+
+	.section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-xs);
 
 		@media (min-width: 40em) {
-			grid-template-columns: repeat(2, minmax(max-content, var(--space-xxl)));
-			gap: var(--space-xl);
-			justify-content: center;
-		}
-
-		@media (min-width: 64em) {
-			grid-template-columns: 1fr 1fr 3fr;
-		}
-
-		&::before {
-			content: "";
-			position: absolute;
-			right: calc(var(--outline-width) * -1);
-			bottom: calc(var(--outline-width) * -1);
-			z-index: 0;
-			width: calc(var(--outline-width) * 5 - 2px);
-			height: calc(var(--outline-width) * 4);
-			transform: scale(1);
-			transform-origin: bottom right;
-			background-color: var(--footer-background-color);
-		}
-
-		&:has(.logo:hover)::before {
-			transform: scale(0);
-		}
-
-		&::after {
-			content: "";
-			position: absolute;
-			right: calc(var(--outline-width) * -1);
-			bottom: calc(var(--outline-width) * -1);
-			width: calc(var(--outline-width) * 8);
-			height: calc(var(--outline-width) * 4);
-			pointer-events: none;
-			background-color: var(--footer-background-color);
-			transform: scale(0);
-			transform-origin: bottom right;
-			transition: transform 0.2s ease;
-		}
-
-		&:has(.logo:hover)::after {
-			transform: scale(1);
-		}
-	}
-
-	.latest-post {
-		display: none;
-
-		@media (min-width: 64em) {
-			display: block;
-		}
-
-		a {
-			font-family: var(--font-family-heading);
-			font-size: var(--font-size-lg);
-			font-weight: 600;
-			color: var(--color-text);
-			text-decoration: none;
-
-			&:hover {
-				color: var(--color-primary);
-			}
-		}
-
-		p {
-			margin-block-start: var(--space-sm);
-			margin-block-end: 0;
-			font-size: var(--font-size-sm);
-			text-wrap: pretty;
-		}
-	}
-
-	.logo {
-		position: absolute;
-		z-index: 1;
-		right: calc(var(--outline-width) * -1);
-		bottom: calc(var(--outline-width) * -1);
-		display: block;
-		width: var(--logo-width);
-		aspect-ratio: var(--logo-aspect-ratio);
-		color: var(--outline-color);
-		line-height: 0;
-		transform: rotateZ(-180deg);
-		transition:
-			color 0.5s ease,
-			transform 0.3s ease;
-
-		&:hover {
-			color: var(--color-primary);
-			transform: rotateZ(0deg);
-		}
-
-		svg {
-			position: relative;
-			z-index: 2;
-			width: 100%;
-			height: 100%;
-		}
-
-		/* increase touch area to prevent jitters */
-		&:hover::after {
-			content: "";
-			position: absolute;
-			top: -33%;
-			left: -33%;
-			width: 150%;
-			aspect-ratio: 1;
-			border-radius: 100%;
+			flex-direction: row;
+			gap: var(--space-md);
 		}
 	}
 
 	h2 {
-		margin-block-start: 0;
-		margin-block-end: var(--rhythm-sm);
-		font-family: var(--font-family-subheading);
-		font-size: var(--font-size-xs);
-		letter-spacing: var(--letter-spacing-wide);
-		color: var(--color-text-secondary);
-		text-transform: uppercase;
+		margin-block: 0;
+		font-family: var(--font-family-hanken-grotesk);
+		font-size: var(--font-size-sm);
+		font-weight: 500;
+	}
+
+	p {
+		margin-block: 0;
+		font-family: var(--font-family-hanken-grotesk);
+		font-size: var(--font-size-sm);
+		font-weight: 500;
+		color: var(--footer-text-secondary);
+		text-wrap: pretty;
 	}
 
 	ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rhythm-xs);
 		margin: 0;
 		padding: 0;
+
+		@media (min-width: 32em) {
+			flex-direction: row;
+			gap: var(--space-md);
+		}
 	}
 
 	li {
-		font-family: var(--font-family-heading);
+		font-family: var(--font-family-hanken-grotesk);
+		font-size: var(--font-size-sm);
 		list-style-type: none;
+	}
 
-		a {
-			color: var(--color-text);
-			text-decoration: none;
+	a {
+		color: var(--footer-text-secondary);
+		text-decoration: none;
 
-			&:hover {
-				color: var(--color-primary);
-			}
-		}
-
-		& + & {
-			margin-block-start: var(--rhythm-xs);
+		&:hover {
+			color: var(--footer-text);
 		}
 	}
 </style>

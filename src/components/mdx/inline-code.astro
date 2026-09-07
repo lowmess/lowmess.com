@@ -1,0 +1,14 @@
+<code><slot /></code>
+
+<style>
+	code {
+		font-size: var(--font-size-sm);
+	}
+
+	:global(p code) {
+		padding-block: var(--space-xxs);
+		padding-inline: var(--space-xs);
+		border-radius: var(--space-xs);
+		border: 1px solid hsl(from var(--color-text) h s l / 0.1);
+	}
+</style>

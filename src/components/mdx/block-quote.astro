@@ -1,0 +1,62 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"blockquote">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<blockquote class:list={["block-quote", className]} {...props}>
+	<slot />
+</blockquote>
+
+<style>
+	blockquote {
+		position: relative;
+		top: -0.25lh;
+		margin: 0;
+		padding-inline-start: var(--space-sm);
+		font-family: var(--font-family-framboisier);
+		font-size: var(--font-size-xl);
+		font-style: italic;
+		font-weight: 700;
+		line-height: var(--line-height-heading);
+
+		:global(p:first-child::before) {
+			content: open-quote;
+			position: absolute;
+			top: 0.05lh;
+			right: 100%;
+			color: var(--color-primary);
+			transition: color 0.3s ease;
+
+			@media (min-width: 40em) {
+				right: calc(100% + var(--outline-width));
+			}
+		}
+
+		:global(p) {
+			max-width: 100%;
+			margin: 0;
+			text-wrap: pretty;
+		}
+
+		:global(em) {
+			font-style: normal;
+		}
+
+		:global(.attribution) {
+			font-family: var(--font-family-hanken-grotesk);
+			font-size: var(--font-size-md);
+			color: var(--color-text-secondary);
+			font-style: normal;
+			font-weight: 400;
+			line-height: var(--line-height-solid);
+
+			&::before {
+				content: "\2014";
+				margin-inline-end: 1ch;
+			}
+		}
+	}
+</style>
