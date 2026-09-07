@@ -1,5 +1,13 @@
 [
 	{
+		"id": 26,
+		"date": "2026-09-05",
+		"headliner": "Ditz",
+		"openers": ["Buddy Wynkoop", "combobox"],
+		"venue": "Swan Dive",
+		"with": ["Tim"]
+	},
+	{
 		"id": 25,
 		"date": "2026-08-29",
 		"headliner": "twisted teens",

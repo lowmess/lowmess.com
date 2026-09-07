@@ -76,6 +76,7 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f2930d" />
 
 		<!-- Open Graph / Facebook -->
+		<meta property="og:site_name" content="lowmess.com" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
@@ -83,7 +84,7 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<meta property="og:image" content={ogImageUrl} />
 
 		<!-- Twitter -->
-		<meta property="twitter:card" content="summary" />
+		<meta property="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@lowmess" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
