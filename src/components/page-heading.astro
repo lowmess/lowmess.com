@@ -1,55 +1,25 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { Polymorphic } from "astro/types";
 
-import Eyebrow from "#components/eyebrow.astro";
+type Props<Tag extends "h1" | "h2"> = Polymorphic<{ as: Tag }>;
 
-type Props = HTMLAttributes<"h1"> & {
-	eyebrowText?: string;
-	eyebrowProps?: HTMLAttributes<"span">;
-
-	slotIsHeading?: boolean;
-};
-
-const {
-	eyebrowText,
-	eyebrowProps,
-	slotIsHeading = false,
-	...props
-} = Astro.props;
-
-const Headline = slotIsHeading ? "h1" : "span";
+const { as: Tag = "h1", class: className, ...props } = Astro.props;
 ---
 
-{
-	eyebrowText && (
-		<Eyebrow
-			as={slotIsHeading ? "span" : "h1"}
-			class="eyebrow"
-			set:html={eyebrowText}
-			{...eyebrowProps}
-		/>
-	)
-}
-
-<Headline class="headline" {...props}><slot /></Headline>
+<Tag class:list={["headline", className]} {...props}><slot /></Tag>
 
 <style>
-	.eyebrow {
-		display: block;
-		margin-block-end: var(--rhythm-xs);
-		text-align: center;
-	}
-
 	.headline {
-		display: block;
 		margin-block-start: 0;
 		margin-block-end: var(--rhythm-xxl);
-		font-size: var(--font-size-heading);
+		font-size: var(--font-size-title);
 		line-height: var(--line-height-solid);
-		font-family: var(--font-family-heading);
-		text-transform: lowercase;
-		text-align: center;
+		font-family: var(--font-family-framboisier);
 		text-wrap: balance;
 		font-weight: 700;
+
+		@media print {
+			margin-block-end: var(--rhythm-md);
+		}
 	}
 </style>

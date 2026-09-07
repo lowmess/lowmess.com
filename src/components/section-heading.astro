@@ -1,0 +1,20 @@
+---
+import type { Polymorphic } from "astro/types";
+
+type Props<Tag extends "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> =
+	Polymorphic<{ as: Tag }>;
+
+const { as: Tag = "h2", class: className, ...props } = Astro.props;
+---
+
+<Tag class:list={["section-heading", className]} {...props}><slot /></Tag>
+
+<style>
+	.section-heading {
+		margin-block-start: var(--rhythm-xl);
+		font-family: var(--font-family-hanken-grotesk);
+		font-size: var(--font-size-md);
+		font-weight: 400;
+		color: var(--color-text-secondary);
+	}
+</style>

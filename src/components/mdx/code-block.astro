@@ -1,0 +1,149 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import Content from "#components/content.astro";
+
+type Props = HTMLAttributes<"pre">;
+
+const { "data-language": lang, style, ...props } = Astro.props;
+
+let languageLabel;
+
+switch (lang) {
+	case "astro":
+		languageLabel = "Astro";
+		break;
+
+	case "ts":
+	case "tsx":
+		languageLabel = "TypeScript";
+		break;
+
+	case "js":
+	case "jsx":
+		languageLabel = "JavaScript";
+		break;
+
+	case "html":
+		languageLabel = "HTML";
+		break;
+
+	case "css":
+		languageLabel = "CSS";
+		break;
+
+	case "bash":
+	case "sh":
+		languageLabel = "Shell";
+		break;
+
+	case "json":
+		languageLabel = "JSON";
+		break;
+}
+---
+
+<div class="code-container" style={style}>
+	<Content class="code-content">
+		{
+			languageLabel && (
+				<span class="language-label" style={style} aria-hidden>
+					{languageLabel}
+				</span>
+			)
+		}
+
+		<pre style={style} data-language={lang} {...props}><slot /></pre>
+	</Content>
+</div>
+
+<style>
+	.language-label {
+		display: inline-block;
+		margin-block: 0;
+		font-family: var(--font-family-fira-code);
+		font-size: var(--font-size-xs);
+		color: hsl(from currentColor h s l / 0.625);
+	}
+
+	.code-container {
+		width: 100vw;
+		position: relative;
+		margin-block: var(--rhythm-lg);
+		/*
+		 * i genuinely have no idea why the normal `50% - 50vw` method isn't working
+		 * on its own, or why i have to re-calculate at the different viewport sizes.
+		 */
+		margin-inline-start: calc(
+			50% - 50vw - var(--container-padding-inline-start)
+		);
+		padding-inline-start: var(--container-padding-inline-start);
+		padding-inline-end: var(--container-padding-inline-end);
+		background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+		color: light-dark(var(--shiki-light), var(--shiki-dark));
+		overflow-y: visible;
+		overflow-x: hidden;
+
+		@media (min-width: 40em) {
+			margin-inline-start: calc(
+				50% - 50vw -
+					((var(--container-padding-inline-start) + var(--outline-width)) * 0.5)
+			);
+		}
+
+		@media (min-width: 64em) {
+			margin-inline-start: calc(
+				50% - 50vw -
+					((var(--outline-width) + var(--content-padding-inline-start)) * 0.5)
+			);
+		}
+
+		@media print {
+			background-color: white;
+			color: black;
+			break-inside: avoid;
+		}
+	}
+
+	div.code-content {
+		padding-block: calc(var(--content-padding-block) * 0.5);
+	}
+
+	pre {
+		width: calc(100% + var(--content-padding-inline-start));
+		margin-block: 0;
+		margin-inline-start: calc(var(--content-padding-inline-start) * -1);
+		padding-inline-start: var(--content-padding-inline-start);
+		font-size: var(--font-size-sm);
+		tab-size: 2;
+	}
+
+	:global(.diff) {
+		position: relative;
+	}
+
+	:global(.diff::before) {
+		position: absolute;
+		left: calc(var(--content-padding-inline-start) * -0.5);
+	}
+
+	:global(.diff.add, .diff.add span) {
+		color: light-dark(#448c27, #98c379);
+	}
+
+	:global(.diff.add::before) {
+		content: "+";
+	}
+
+	:global(.diff.remove, .diff.remove span) {
+		color: light-dark(#aa3731, #e06c75);
+
+		&::before {
+			content: "-";
+		}
+	}
+
+	:global(.diff.remove::before) {
+		content: "-";
+	}
+</style>

@@ -1,0 +1,73 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+import Ticket from "#icons/ticket.svg";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
+
+const { as: Tag = "div", class: className, ...props } = Astro.props;
+---
+
+<Tag class:list={["event-preview", className]} {...props}>
+	<slot name="icon"><Ticket /></slot>
+
+	<div>
+		<h3>
+			<slot />
+		</h3>
+
+		<p class="subtext"><slot name="subtext" /></p>
+
+		<p><slot name="metadata" /></p>
+	</div>
+</Tag>
+
+<style>
+	.event-preview {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-md);
+
+		:global(svg) {
+			flex-shrink: 0;
+			position: relative;
+			top: 2px;
+			width: var(--font-size-lg);
+			color: var(--color-text-secondary);
+		}
+
+		:global(a) {
+			color: var(--color-text);
+			text-decoration: none;
+
+			&:hover {
+				color: var(--color-primary);
+			}
+		}
+	}
+
+	h3 {
+		margin-block: 0;
+		font-family: var(--font-family-hanken-grotesk);
+		font-size: var(--font-size-xl);
+		font-weight: 500;
+	}
+
+	.subtext {
+		font-size: var(--font-size-md);
+		color: var(--text);
+		line-height: var(--line-height-heading);
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	p {
+		margin-block-start: var(--rhythm-xs);
+		margin-block-end: 0;
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+		text-wrap: balance;
+	}
+</style>

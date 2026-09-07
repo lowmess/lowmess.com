@@ -1,5 +1,7 @@
 @media print {
+	html,
 	body {
+		min-height: 0;
 		background-color: white;
 		color: black;
 		font-size: 1rem;
@@ -36,5 +38,12 @@
 		padding: 0;
 		background-color: inherit;
 		line-height: inherit;
+	}
+
+	.astro-code,
+	.astro-code span {
+		background-color: white;
+		color: black;
+		break-inside: avoid;
 	}
 }

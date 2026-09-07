@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import NumberedSection from "#components/numbered-section.astro";
+
+type Props = HTMLAttributes<"h2">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<NumberedSection
+	><h2 class:list={["heading-two", className]} {...props}>
+		<slot />
+	</h2></NumberedSection
+>
+
+<style>
+	h2.heading-two {
+		position: relative;
+		top: -0.2lh;
+		margin-block-start: calc(var(--rhythm-xl) * 2);
+		margin-block-end: var(--rhythm-md);
+		font-family: var(--font-family-framboisier);
+		font-size: var(--font-size-xxl);
+		color: var(--color-text);
+		line-height: var(--line-height-heading);
+		text-wrap: balance;
+	}
+
+	:global(h2.heading-two code) {
+		font-family: var(--font-family-fira-code);
+		font-size: var(--font-size-xl);
+		color: inherit;
+	}
+</style>

@@ -1,0 +1,65 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import EventPreview from "#components/event-preview.astro";
+import Movie from "#icons/movie.svg";
+import { EVENT_TYPES } from "#schemas/event.ts";
+import { SCREENING_FORMATS } from "#schemas/screening.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	screening: CollectionEntry<"screenings">["data"];
+}>;
+
+const { screening, ...props } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+const listFormatter = new Intl.ListFormat("en-us", {
+	style: "long",
+	type: "conjunction",
+});
+
+const date = dateFormatter.format(screening.date);
+const attendees = listFormatter.format(screening.with);
+
+let formatString = "";
+
+switch (screening.format) {
+	case SCREENING_FORMATS.ThirtyFive:
+		formatString = " on 35mm";
+		break;
+
+	case SCREENING_FORMATS.Seventy:
+		formatString = " on 70mm";
+		break;
+
+	case SCREENING_FORMATS.IMAX:
+		formatString = " in IMAX";
+		break;
+
+	case SCREENING_FORMATS.IMAX3D:
+		formatString = " in IMAX 3D";
+		break;
+
+	case SCREENING_FORMATS.ThreeD:
+		formatString = " in 3D";
+		break;
+}
+---
+
+<EventPreview data-event-type={EVENT_TYPES.Screening} {...props}>
+	<Movie slot="icon" />
+
+	<a href={screening.link}>
+		{screening.title}{formatString}
+	</a>
+
+	<Fragment slot="metadata"
+		>{date} at {screening.venue}{attendees && <> with {attendees}</>}</Fragment
+	>
+</EventPreview>

@@ -1,13 +1,14 @@
 ---
 import ColorThemeToggle from "#components/color-theme-toggle.astro";
-import Logo from "#components/logo.astro";
+import Logo from "#icons/logo.svg";
 ---
 
 <nav>
 	<div class="skip-link"><a href="#main-content">Skip to main content</a></div>
 
-	<a href="/" class="logo">
-		<Logo title="Go to homepage" />
+	<a href="/" class="logo" id="navigation-logo">
+		<span class="visually-hidden">Go to homepage</span>
+		<Logo aria-hidden />
 	</a>
 
 	<div class="nav-items">
@@ -29,31 +30,40 @@ import Logo from "#components/logo.astro";
 			</li>
 		</ul>
 
-		<ColorThemeToggle />
+		<ColorThemeToggle class="theme-toggle" />
 	</div>
 </nav>
 
 <style>
 	nav {
-		position: relative;
 		display: flex;
 		width: 100%;
 		align-items: center;
 		justify-content: space-between;
 		max-width: var(--content-width);
+		margin-block-start: max(
+			calc(var(--container-padding-block) * -1),
+			env(safe-area-inset-top)
+		);
 		margin-inline: auto;
-		border: var(--outline-width) solid var(--outline-color);
-		border-block-end: 0;
-		border-start-end-radius: var(--outline-width);
-		padding-inline-end: calc(var(--content-padding) / 2);
-		background-color: var(--color-background);
+		border-inline-start: var(--outline-width) solid var(--outline-color);
 		line-height: var(--line-height-solid);
+		transition: border-color 0.3s ease;
 
 		@media (min-width: 64em) {
-			margin-block-start: calc(var(--container-padding) * 2);
+			margin-block-start: max(0, env(safe-area-inset-top));
+		}
+
+		@media (min-width: 80em) {
+			margin-block-start: max(
+				var(--container-padding-block),
+				env(safe-area-inset-top)
+			);
 		}
 
 		@media print {
+			margin-block-start: 0;
+			margin-block-end: var(--space-lg);
 			border: 0;
 		}
 	}
@@ -71,50 +81,77 @@ import Logo from "#components/logo.astro";
 	ul {
 		display: flex;
 		align-items: center;
-		gap: var(--space-md);
+		gap: 0;
 		margin: 0;
-	}
 
-	li {
-		padding: 0;
+		&::after {
+			content: "";
+			position: absolute;
+			position-anchor: --nav-item;
+			top: anchor(bottom);
+			right: anchor(right);
+			bottom: anchor(bottom);
+			left: anchor(left);
+			background-color: var(--color-primary);
+			opacity: 0;
+			transition:
+				opacity 300ms ease,
+				inset 650ms
+					linear(
+						0,
+						0.031 0.9%,
+						0.12 1.9%,
+						0.879 8%,
+						1.018 10.2%,
+						1.058 11.4%,
+						1.078 12.6%,
+						1.081 14.8%,
+						1.012 21.5%,
+						0.994 26.3%,
+						1.001 39.9%,
+						1
+					);
+		}
+
+		&:has(a:hover, a[data-current="true"])::after {
+			opacity: 1;
+			bottom: calc(anchor(bottom) - 2px);
+		}
+
+		&:not(:has(a:hover)) li a[data-current="true"] {
+			anchor-name: --nav-item;
+		}
+
+		li a:hover {
+			anchor-name: --nav-item;
+		}
 	}
 
 	li a {
-		position: relative;
-		font-family: var(--font-family-subheading);
-		text-transform: uppercase;
+		padding-block-end: var(--space-xs);
+		padding-inline: calc(var(--space-sm) + var(--space-xs));
+		font-family: var(--font-family-hanken-grotesk);
 		color: var(--color-text-secondary);
 		text-decoration: none;
 		font-size: var(--font-size-sm);
-		letter-spacing: var(--letter-spacing-wide);
+		transition: color 0.3s ease;
 
 		&:hover,
 		&[data-current="true"] {
 			color: var(--color-text);
 		}
+	}
 
-		&::after {
-			content: "";
-			position: absolute;
-			right: 3px;
-			bottom: -2px;
-			left: 0;
-			height: 2px;
-			background-color: var(--color-primary);
-			transform: scaleX(0);
-			transform-origin: center left;
-			transition: transform 0.3s ease;
-		}
-
-		&:hover::after,
-		&[data-current="true"]::after {
-			transform: scaleX(1);
-		}
+	.theme-toggle {
+		position: relative;
+		top: 1px;
 	}
 
 	.skip-link {
 		position: absolute;
-		inset: 0;
+		top: var(--container-padding-block);
+		right: 0;
+		left: 0;
 		z-index: 1;
 		display: flex;
 		align-items: center;
@@ -140,7 +177,6 @@ import Logo from "#components/logo.astro";
 
 	.logo {
 		position: relative;
-		top: calc(var(--outline-width) * -1);
 		left: calc(var(--outline-width) * -1);
 		display: block;
 		width: var(--logo-width);
@@ -163,26 +199,38 @@ import Logo from "#components/logo.astro";
 		&::before {
 			content: "";
 			position: absolute;
-			top: 0;
-			right: calc(var(--outline-width) * 3);
-			bottom: calc(100% - var(--outline-width));
-			left: 0;
+			top: -2em;
+			right: calc(100% - var(--outline-width) * 3);
+			bottom: calc(100% - 1px);
+			left: calc(var(--outline-width) * -1);
 			z-index: 1;
 			display: block;
 			background-color: var(--color-background);
 			pointer-events: none;
-			transition:
-				right 0.2s ease,
-				bottom 0.2s ease;
+			transition: bottom 0.5s
+				linear(
+					0,
+					1 44.7%,
+					0.898 51.8%,
+					0.874 55.1%,
+					0.866 58.4%,
+					0.888 64.3%,
+					1 77.4%,
+					0.98 84.5%,
+					1
+				);
 		}
 
 		&:hover::before {
-			right: calc(var(--outline-width) * 1);
-			bottom: calc(var(--outline-width) * -1);
+			bottom: calc(var(--outline-width) * -4);
 		}
 
 		@media print {
 			color: var(--color-primary);
 		}
+	}
+
+	:global(body:has(#navigation-logo:hover)) {
+		--outline-color: var(--outline-color-muted);
 	}
 </style>

@@ -1,0 +1,41 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { type CollectionEntry } from "astro:content";
+
+import EventPreview from "#components/event-preview.astro";
+import Piano from "#icons/piano.svg";
+import { EVENT_TYPES } from "#schemas/event.ts";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	concert: CollectionEntry<"concerts">["data"];
+}>;
+
+const { concert, ...props } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+const listFormatter = new Intl.ListFormat("en-us", {
+	style: "long",
+	type: "conjunction",
+});
+
+const date = dateFormatter.format(concert.date);
+const openers = listFormatter.format(concert.openers);
+const attendees = listFormatter.format(concert.with);
+---
+
+<EventPreview data-event-type={EVENT_TYPES.Concert} {...props}>
+	<Piano slot="icon" />
+
+	{concert.headliner}
+
+	{openers && <Fragment slot="subtext">{openers}</Fragment>}
+
+	<Fragment slot="metadata"
+		>{date} at {concert.venue}{attendees && <> with {attendees}</>}</Fragment
+	>
+</EventPreview>

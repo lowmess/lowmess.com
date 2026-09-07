@@ -12,3 +12,7 @@ export const concertSchema = z.object({
 });
 
 export type Concert = z.output<typeof concertSchema>;
+
+export function isConcert(event: unknown): event is Concert {
+	return (event as Concert).headliner !== undefined;
+}

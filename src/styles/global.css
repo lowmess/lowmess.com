@@ -5,25 +5,31 @@ html {
 	@media (prefers-reduced-motion: reduce) {
 		scroll-behavior: auto;
 	}
+
+	@media print {
+		background-color: unset;
+	}
 }
 
 body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	padding-block-start: var(--container-padding);
-	padding-inline: var(--container-padding);
+	padding-block-start: var(--container-padding-block);
+	padding-inline-start: var(--container-padding-inline-start);
+	padding-inline-end: var(--container-padding-inline-end);
 	background-color: var(--color-background);
 	font-size: var(--font-size-md);
-	font-family: var(--font-family-body);
+	font-family: var(--font-family-hanken-grotesk);
 	line-height: var(--line-height-body);
 	color: var(--color-text);
+	counter-reset: numbered-section 0;
 }
 
 body > main {
 	flex: 1;
 	width: 100%;
-	padding-block: calc(var(--content-padding) * 2);
+	padding-block: calc(var(--content-padding-block) * 2);
 }
 
 ::selection {
@@ -31,30 +37,22 @@ body > main {
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-	font-family: var(--font-family-heading);
+	font-family: var(--font-family-framboisier);
 	text-wrap: balance;
-	line-height: var(--font-family-heading);
+	line-height: var(--line-height-heading);
 }
 
-:where(code, pre) {
-	font-family: var(--font-family-mono);
+:where(h1) {
+	font-style: italic;
+
+	& > :where(em, code) {
+		font-style: normal;
+	}
+}
+
+:is(code, pre) {
+	font-family: var(--font-family-fira-code);
 	color: currentColor;
-}
-
-:where(p, a) > code {
-	display: inline-block;
-	margin-inline: 0.1em;
-	border: 1px solid hsl(from var(--color-primary) h s l / 0.125);
-	border-radius: 2px;
-	padding-block: 2px;
-	padding-inline: 4px;
-	background-color: var(--color-code-background);
-	color: var(--color-code-text);
-	line-height: var(--line-height-solid);
-}
-
-:where(p, li, code, pre) {
-	color: var(--color-text-body);
 }
 
 .visually-hidden {
@@ -76,40 +74,4 @@ body > main {
 .astro-code span {
 	background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
 	color: light-dark(var(--shiki-light), var(--shiki-dark));
-}
-
-.astro-code .diff {
-	position: relative;
-
-	&.add,
-	&.add span {
-		color: light-dark(#448c27, #98c379);
-	}
-
-	&.remove,
-	&.remove span {
-		color: light-dark(#aa3731, #e06c75);
-	}
-
-	&::before {
-		position: absolute;
-		top: -0.15lh;
-		left: calc(var(--space-sm) * -1);
-
-		@media (min-width: 48em) {
-			left: calc(var(--space-md) * -1);
-		}
-
-		@media (min-width: 64em) {
-			left: calc(var(--space-md) * -2);
-		}
-	}
-
-	&.add::before {
-		content: "+";
-	}
-
-	&.remove::before {
-		content: "-";
-	}
 }
