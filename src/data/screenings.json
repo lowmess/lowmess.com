@@ -1,5 +1,14 @@
 [
 	{
+		"id": 43,
+		"date": "2026-09-06",
+		"title": "Akira",
+		"format": "Digital",
+		"venue": "Hollywood Theatre",
+		"with": ["Connor"],
+		"link": "https://boxd.it/gdUgvL"
+	},
+	{
 		"id": 42,
 		"date": "2026-09-03",
 		"title": "Akira",
