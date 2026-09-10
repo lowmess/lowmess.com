@@ -18,7 +18,7 @@ export function groupPostsByYear(
 	const recordedPosts: Record<string, Array<CollectionEntry<"blog">>> = {};
 
 	posts.forEach((post) => {
-		const year = post.data.date.getFullYear().toString();
+		const year = post.data.date.getUTCFullYear().toString();
 
 		if (!recordedPosts[year]) {
 			recordedPosts[year] = [];

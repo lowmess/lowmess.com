@@ -18,13 +18,21 @@ const { class: className, ...props } = Astro.props;
 	h2.heading-two {
 		position: relative;
 		top: -0.2lh;
-		margin-block-start: calc(var(--rhythm-xl) * 2);
+		margin-block-start: var(--rhythm-xl);
 		margin-block-end: var(--rhythm-md);
 		font-family: var(--font-family-framboisier);
 		font-size: var(--font-size-xxl);
 		color: var(--color-text);
 		line-height: var(--line-height-heading);
 		text-wrap: balance;
+
+		@media (min-width: 30em) {
+			margin-block-start: var(--rhythm-xxl);
+		}
+
+		@media (min-width: 64em) {
+			margin-block-start: calc(var(--rhythm-xl) * 2);
+		}
 	}
 
 	:global(h2.heading-two code) {

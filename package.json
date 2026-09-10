@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "check": "astro check --minimumFailingSeverity warning",
     "astro": "astro",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "imports": {
     "#*": "./src/*"
