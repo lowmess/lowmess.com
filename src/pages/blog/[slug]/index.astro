@@ -85,9 +85,13 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 <style>
 	.publish-date {
 		margin-block-start: calc(var(--rhythm-xl) * -1);
-		margin-block-end: var(--rhythm-xxl);
+		margin-block-end: var(--rhythm-xl);
 		font-size: var(--font-size-lg);
 		color: var(--color-text-secondary);
+
+		@media (min-width: 30em) {
+			margin-block-end: var(--rhythm-xxl);
+		}
 
 		@media print {
 			margin-block-start: calc(var(--rhythm-xs) * -1);

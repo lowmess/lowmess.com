@@ -10,12 +10,16 @@ const { class: className, ...props } = Astro.props;
 
 <style>
 	.heading-three {
-		margin-block-start: var(--rhythm-xl);
+		margin-block-start: var(--rhythm-lg);
 		margin-block-end: var(--rhythm-md);
 		font-family: var(--font-family-hanken-grotesk);
 		font-size: var(--font-size-xl);
 		font-weight: 600;
 		text-wrap: balance;
+
+		@media (min-width: 30em) {
+			margin-block-start: var(--rhythm-xl);
+		}
 	}
 
 	:global(h3.heading-three code) {
