@@ -32,13 +32,13 @@
   "homepage": "https://lowmess.com",
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/mdx": "^8.0.0",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/ts-plugin": "^1.10.11",
     "@shikijs/transformers": "^4.4.3",
-    "astro": "^7.2.9",
-    "postcss-preset-env": "^11.5.0",
+    "astro": "^7.3.1",
+    "postcss-preset-env": "^11.5.1",
     "react": "^19.2.8",
     "sanitize.css": "^13.0.0",
     "satori": "^0.33.4",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.4.0",
+    "@types/node": "^22.20.1",
     "@types/react": "^19.2.18",
     "eslint": "^10.9.1",
     "eslint-plugin-astro": "^3.1.0",
@@ -56,7 +56,7 @@
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.68.0"
+    "typescript-eslint": "^8.69.0"
   },
   "lint-staged": {
     "!(*.d.ts)*.{js,cjs,mjs,jsx,ts,tsx,astro}": [
