@@ -61,7 +61,7 @@ export default defineConfig({
 			styles: ["normal", "italic"],
 			weights: ["400 700"],
 			subsets: ["latin"],
-			fallbacks: ["ui-sans-serif", "system-ui", "sans-serif"],
+			fallbacks: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
 		},
 		{
 			name: "Fira Code",
