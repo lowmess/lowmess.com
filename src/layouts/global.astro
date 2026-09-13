@@ -43,6 +43,20 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 
+		<!-- Primary Meta Tags -->
+		<title>{pageTitle}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={pageDescription} />
+
+		<!-- Identity -->
+		<meta name="author" content="Alec Lomas" />
+		<link rel="me" href="https://sifa.id/p/lowmess.com" />
+
+		<!-- Fonts -->
+		<Font cssVariable="--font-family-framboisier" preload />
+		<Font cssVariable="--font-family-hanken-grotesk" preload />
+		<Font cssVariable="--font-family-fira-code" />
+
 		<!-- Canonical URL -->
 		<link rel="canonical" href={canonicalURL} />
 
@@ -57,23 +71,27 @@ const pageDescription = description || SITE_DESCRIPTION;
 			href={`${Astro.site}rss.xml`}
 		/>
 
-		<!-- Primary Meta Tags -->
-		<title>{pageTitle}</title>
-		<meta name="title" content={title} />
-		<meta name="description" content={pageDescription} />
-
-		<!-- Theming -->
-		<meta name="color-scheme" content="light dark" />
-		<meta name="theme-color" content="#e8e6e3" />
-		<meta name="apple-mobile-web-app-title" content={title} />
-		<meta name="application-name" content={title} />
-		<meta name="msapplication-TileColor" content="#f2930d" />
-
 		<!-- Favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f2930d" />
+
+		<!-- Theming -->
+		<meta name="color-scheme" content="light dark" />
+		<meta
+			name="theme-color"
+			content="#e8e6e3"
+			media="(prefers-color-scheme: light)"
+		/>
+		<meta
+			name="theme-color"
+			content="#2b2722"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<meta name="apple-mobile-web-app-title" content={title} />
+		<meta name="application-name" content={title} />
+		<meta name="msapplication-TileColor" content="#f2930d" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:site_name" content="lowmess.com" />
@@ -82,6 +100,9 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -90,14 +111,6 @@ const pageDescription = description || SITE_DESCRIPTION;
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={ogImageUrl} />
-
-		<!-- Identity -->
-		<link rel="me" href="https://sifa.id/p/lowmess.com" />
-
-		<!-- Fonts -->
-		<Font cssVariable="--font-family-framboisier" preload />
-		<Font cssVariable="--font-family-hanken-grotesk" />
-		<Font cssVariable="--font-family-fira-code" />
 
 		<!-- Set initial color scheme -->
 		<script>
