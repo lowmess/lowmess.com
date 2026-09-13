@@ -1,6 +1,7 @@
 html {
 	background-color: var(--color-background);
 	scroll-behavior: smooth;
+	scrollbar-gutter: stable;
 
 	@media (prefers-reduced-motion: reduce) {
 		scroll-behavior: auto;
@@ -24,6 +25,8 @@ body {
 	line-height: var(--line-height-body);
 	color: var(--color-text);
 	counter-reset: numbered-section 0;
+	/* can be removed once scrollbar-aware vw units are broadly supported: */
+	overflow-x: hidden;
 }
 
 body > main {
