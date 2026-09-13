@@ -41,9 +41,9 @@ export async function generateOgImage(template: ReactNode) {
 			},
 		],
 	});
-	const png = await sharp(Buffer.from(svg)).png().toBuffer();
+	const webp = await sharp(Buffer.from(svg)).webp().toBuffer();
 
-	return png;
+	return webp;
 }
 
 type OgImageLayoutProps = PropsWithChildren<{
