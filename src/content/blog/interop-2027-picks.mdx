@@ -1,68 +1,62 @@
 ---
 title: My Interop 2027 Picks
-description: Each year, the teams that run the Interop project ask developers which features to focus on. Here are my picks for the coming year.
+description: Each year, the The Interop Project asks developers which features to focus on. Here are my picks for the coming year.
 date: 2026-09-12
-draft: true
+draft: false
 ---
 
-Each year, the teams behind the major browsers pick a few features to focus on. The goal is to create a stable, targetable platform that developers can be confident in regardless of user browser choice. For the last few years, the team has asked the broader community to weigh in on which features would make the most impact for them. Inspired by [Stuart Robson's](https://www.alwaystwisted.com/articles/and-thats-my-rank-2027-edition) blog post doing the same, I'm sharing the 10-ish features I picked for next year in [the developer survey](https://developer-signals.rviscomi.workers.dev/).
+Each year, [The Interop Project](https://github.com/web-platform-tests/interop) chooses web features and APIs to focus on delivering complete implementations of over the coming year. The goal is to create a stable, targetable platform that developers can be confident in regardless of user browser choice. For the last few years, the team has asked the broader community to weigh in on which features would make the most impact for them. Inspired by [Stuart Robson's](https://www.alwaystwisted.com/articles/and-thats-my-rank-2027-edition) blog post doing the same, I'm sharing the features I picked for next year in [the developer survey](https://developer-signals.rviscomi.workers.dev/).
 
 ## `Temporal`
 
-`Date` sucks. It's a giant pain to work with, and causes untold headaches when you can't be certain where it will be created, manipulated, or formatted for display. Thankfully, `Temporal` fixes all that _while_ adding additional functionality. Unfortunately, it is not currently supported in Safari -- though it is already in the Technical Preview build. Might have been a "wasted" vote given that, but I need this to land as soon as possible for mental health reasons.
+`Date` sucks. We all know it. It's a giant pain to work with, and causes untold headaches when you can't be certain where it will be created, manipulated, or formatted for display. Thankfully, `Temporal` fixes all that [while adding functionality typically provided by expensive third-party libraries](https://tc39.es/proposal-temporal/docs/cookbook.html). Unfortunately, it is not currently supported in Safari -- though it is already in the Technical Preview build. This might have been a "wasted" vote given that, but I need this to land as soon as possible for mental health reasons.
 
-Recommended reading: ["Date is out, Temporal is in" by Mat Marquis](https://piccalil.li/blog/date-is-out-and-temporal-is-in/).
+Recommended reading: ["Date is out, Temporal is in" by Mat Marquis](https://piccalil.li/blog/date-is-out-and-temporal-is-in/)
 
 ## Customizable `<select>`
 
-TK
+There is probably no individual HTML element I have argued about more than `<select>`. I'm of the opinion that the thousands and thousands of hours that have been poured into creating JavaScript-based `<select>`-like elements just to have a slightly more visually cohesive dropdown (often at the expense of usability) were a waste, to say the least. So fully stylable `<select>`s were already going to be a win, even before they tacked on even more incredible functionality. Bring that same love to `<datalist>` and we could eliminate entire UI libraries.
 
-Recommended reading: 
+Recommended reading: ["Abusing Customizable Selects" by Patrick Brosset](https://css-tricks.com/abusing-customizable-selects/)
 
 ## `attr()`
 
-TK
+`attr()` has long been a handy way to pass content from HTML to CSS psuedo-elements. But there's a whole new slate of functionality coming soon: it can be used in all properties (not just `content`), typed for its use, and have fallback values. This opens up all sorts of possibilities, but for me this is primarily an avenue towards removing tons of inline styles used only to set custom properties to achieve this same purpose.
 
-Recommended reading:
-
-## `text-box`
-
-TK
-
-Recommended reading:
+Recommended reading: ["New capabilities for `attr()`" by Una Kravets](https://una.im/advanced-attr)
 
 ## `interpolate-size` & `calc-size()`
 
-TK
+My favorite part of delivering any feature is the last 5% of polish to make it really feel satisfying to use. A lot of times, that comes down to subtle animations for state changes. [`@starting-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@starting-style) and [`sibling-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/sibling-index) have already gone a long way to removing some of the plumbing, but I am very excited to never again write JavaScript to calculate an element's expanded size before animating it in.
 
-Recommended reading:
+Recommended reading: ["Animate to `height: auto;` (and other intrinsic sizing keywords) in CSS" by Bramus Van Damme](https://developer.chrome.com/docs/css-ui/animate-to-height-auto)
 
-## `@function` & `@if`
+## `@function`
 
-TK
+Mentally I am including a bevy of new built-in support functions here: [`if()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if), `style()`, and `color-scheme()` to name a few. Combining these with custom functions, I think the way we write CSS is going to dramatically change in the next few years. I am looking forward to never writing `calc(<value> * -1);` more than once per project ever again.
 
-Recommended reading:
+Recommended reading: ["A custom `--light-dark()` function in CSS that works with any type of value _(not just colors!)_ in just 3 LOC" by Bramus Van Damme](https://www.bram.us/2025/09/30/css-custom-light-dark/)
 
 ## Interest Invokers
 
-TK
+I'm always excited to ship less JavaScript, especially without a degredation of functionality or customizability. Interest invokers allow us to create popovers (tooltips, those sweet preview cards on Wikipedia you get when you hover over a link, those sorts of things) and display them to the user with no JavaScript involved whatsoever. Even more they allow us to delay the entry and exit of those popovers for graceful recovery.
 
-Recommended reading:
+Recommended reading: ["A First Look at the Interest Invoker API (for Hover-Triggered Popovers)" by Daniel Schwarz](https://css-tricks.com/a-first-look-at-the-interest-invoker-api-for-hover-triggered-popovers/)
 
-## Container Scroll-state Queries
+## Container `scroll-state()` Queries
 
-TK
+I have had the unfortunate experience of creating several monstrous CSS classes that hack together a "hey this container has scrollable content" affordance. They work, but are never very adaptable and are always extremely hard to reason about. `@container scroll-state(scrollable: block-end)` is much clearer. The number of times I've wished for `scroll-state(stuck)` is also immeasurable.
 
-Recommended reading:
+Recommended reading: ["Is it scrolled? Is it not? Let's find out with CSS `@container scroll-state()` queries" by Brecht De Ruyte](https://utilitybend.com/blog/is-it-scrolled-is-it-not-lets-find-out-with-css-container-scroll-state-queries)
 
 ## `gap` Decorations
 
-TK
+While there are lots of applications for `gap` decorations, I'm most excited for them to share one specific bugbear: ghost separators for wrapped `flex` children. Right now, there is no way to tell if an item is the first or last child of a row when it has wrapped, so if you are rendering an HTML element (psuedo- or no) to separate items, it will always show. Once we're able to style the space between _rows_ rather than the space between _elements_, this problem disappears entirely.
 
-Recommended reading:
+Recommended reading: ["Minding the gaps: A new way to draw separators in CSS" by Kevin Babbitt & Patrick Brosset](https://blogs.windows.com/msedgedev/2025/03/19/minding-the-gaps-a-new-way-to-draw-separators-in-css/)
 
 ## Anchor Positioning
 
 Gotta be honest: this one is purely selfish. The little underline in the header navigation on this site is a single anchor-positioned element where the anchor scope changes based on `:hover`/active state. And it technically works in all major browser engines...but Chromium is the only one that will animate it. Other than that I have not found a single issue with anchor positioning between browsers. But my animation!
 
-Recommended reading: [this Bluesky post from Kevin Powell that I ~~stole the technique from~~ used as reference](https://bsky.app/profile/kevinpowell.co/post/3mu5l7cav4s2a).
+Recommended reading: [this Bluesky post from Kevin Powell that I ~~stole the technique from~~ used as reference](https://bsky.app/profile/kevinpowell.co/post/3mu5l7cav4s2a)
