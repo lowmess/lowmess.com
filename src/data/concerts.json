@@ -1,5 +1,13 @@
 [
 	{
+		"id": 27,
+		"date": "2026-09-15",
+		"headliner": "Manchester Orchestra",
+		"openers": ["Brother Bird"],
+		"venue": "Aladdin Theater",
+		"with": ["Connor"]
+	},
+	{
 		"id": 26,
 		"date": "2026-09-05",
 		"headliner": "Ditz",
