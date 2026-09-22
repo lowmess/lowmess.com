@@ -1,5 +1,13 @@
 [
 	{
+		"id": 28,
+		"date": "2026-09-20",
+		"headliner": "Cola",
+		"openers": ["Artificial Go"],
+		"venue": "Show Bar",
+		"with": ["Aaron", "Tommy", "Tina"]
+	},
+	{
 		"id": 27,
 		"date": "2026-09-15",
 		"headliner": "Manchester Orchestra",
