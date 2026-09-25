@@ -39,7 +39,7 @@
     "@shikijs/transformers": "^4.4.3",
     "astro": "^7.3.2",
     "postcss-preset-env": "^11.5.2",
-    "react": "^19.2.8",
+    "react": "^19.3.0",
     "sanitize.css": "^13.0.0",
     "satori": "^0.33.4",
     "sharp": "^0.35.4",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^22.20.1",
-    "@types/react": "^19.2.18",
+    "@types/react": "^19.3.0",
     "eslint": "^10.10.0",
     "eslint-plugin-astro": "^3.1.0",
     "husky": "^9.1.7",
