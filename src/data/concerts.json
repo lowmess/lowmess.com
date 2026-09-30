@@ -1,5 +1,12 @@
 [
 	{
+		"id": 29,
+		"date": "2026-09-26",
+		"headliner": "Brian Fallon",
+		"venue": "The Get Down",
+		"with": ["Aaron"]
+	},
+	{
 		"id": 28,
 		"date": "2026-09-20",
 		"headliner": "Cola",
