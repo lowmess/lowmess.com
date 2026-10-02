@@ -23,11 +23,11 @@ export async function GET({ params }: APIContext) {
 	}
 
 	const { title, date } = post.data;
-	const png = await generateOgImage(OgBlogPostImage({ title, date }));
+	const webp = await generateOgImage(OgBlogPostImage({ title, date }));
 
-	return new Response(png as Uint8Array<ArrayBuffer>, {
+	return new Response(webp as Uint8Array<ArrayBuffer>, {
 		headers: {
-			"Content-Type": "image/png",
+			"Content-Type": "image/webp",
 		},
 	});
 }
