@@ -25,7 +25,7 @@ type Props = HTMLAttributes<"main"> & {
 const {
 	title,
 	description,
-	ogImageUrl = `${Astro.url.origin}/og-image.png`,
+	ogImageUrl = `${Astro.url.origin}/og-image.webp`,
 	...props
 } = Astro.props;
 
@@ -124,7 +124,9 @@ const pageDescription = description || SITE_DESCRIPTION;
 	<body>
 		<Navigation />
 
-		<Content as="main" id="main-content" {...props}><slot /></Content>
+		<Content as="main" id="main-content" {...props}>
+			<slot />
+		</Content>
 
 		<Footer />
 	</body>

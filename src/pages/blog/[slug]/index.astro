@@ -43,22 +43,20 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 <GlobalLayout
 	title={title}
 	description={description}
-	ogImageUrl={`${Astro.url}og-image.png`}
+	ogImageUrl={`${Astro.url}og-image.webp`}
 	itemscope
 	itemtype="https://schema.org/BlogPosting"
 >
-	{
-		archived && archiveReason && (
-			<ArchiveReason archived={archived} archiveReason={archiveReason} />
-		)
-	}
+	{archived && archiveReason && (
+		<ArchiveReason archived={archived} archiveReason={archiveReason} />
+	)}
 
 	<PageHeading itemprop="headline">{title}</PageHeading>
 
 	<p class="publish-date">
-		<time datetime={date.toISOString()} itemprop="datePublished"
-			>{formatter.format(date)}</time
-		>
+		<time datetime={date.toISOString()} itemprop="datePublished">
+			{formatter.format(date)}
+		</time>
 	</p>
 
 	<div class="article-content" itemprop="articleBody">
