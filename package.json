@@ -41,7 +41,7 @@
     "postcss-preset-env": "^11.5.2",
     "react": "^19.3.0",
     "sanitize.css": "^13.0.0",
-    "satori": "^0.33.4",
+    "satori": "^0.33.5",
     "sharp": "^0.35.4",
     "ultrahtml": "^1.7.0"
   },
