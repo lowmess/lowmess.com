@@ -36,7 +36,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/ts-plugin": "^1.10.12",
-    "@shikijs/transformers": "^4.4.3",
+    "@shikijs/transformers": "^4.5.0",
     "astro": "^7.3.5",
     "postcss-preset-env": "^11.5.2",
     "react": "^19.3.0",
