@@ -1,5 +1,13 @@
 [
 	{
+		"id": 30,
+		"date": "2026-10-09",
+		"headliner": "The Format",
+		"openers": ["The Get Up Kids", "Phantom Planet"],
+		"venue": "Radio City Music Hall",
+		"with": ["Kayla", "Tara"]
+	},
+	{
 		"id": 29,
 		"date": "2026-09-26",
 		"headliner": "Brian Fallon",
