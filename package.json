@@ -36,13 +36,13 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/ts-plugin": "^1.10.12",
-    "@shikijs/transformers": "^4.4.3",
+    "@shikijs/transformers": "^4.5.0",
     "astro": "^7.3.5",
     "postcss-preset-env": "^11.5.2",
     "react": "^19.3.0",
     "sanitize.css": "^13.0.0",
     "satori": "^0.33.5",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "ultrahtml": "^1.7.0"
   },
   "devDependencies": {
@@ -52,11 +52,11 @@
     "eslint": "^10.11.0",
     "eslint-plugin-astro": "^3.2.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.5.1",
+    "lint-staged": "^17.6.0",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.70.1"
+    "typescript-eslint": "^8.71.0"
   },
   "lint-staged": {
     "!(*.d.ts)*.{js,cjs,mjs,jsx,ts,tsx,astro}": [
