@@ -38,7 +38,7 @@
     "@astrojs/ts-plugin": "^1.10.12",
     "@shikijs/transformers": "^4.5.0",
     "astro": "^7.3.5",
-    "postcss-preset-env": "^11.5.2",
+    "postcss-preset-env": "^11.6.1",
     "react": "^19.3.0",
     "sanitize.css": "^13.0.0",
     "satori": "^0.33.5",
