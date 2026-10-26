@@ -25,7 +25,7 @@ const listFormatter = new Intl.ListFormat("en-us", {
 });
 
 const date = dateFormatter.format(screening.date);
-const attendees = listFormatter.format(screening.with);
+const attendees = screening.with && listFormatter.format(screening.with);
 
 let formatString = "";
 
@@ -56,10 +56,12 @@ switch (screening.format) {
 	<Movie slot="icon" />
 
 	<a href={screening.link}>
-		{screening.title}{formatString}
+		{screening.title}
+		{formatString}
 	</a>
 
-	<Fragment slot="metadata"
-		>{date} at {screening.venue}{attendees && <> with {attendees}</>}</Fragment
-	>
+	<Fragment slot="metadata">
+		{date} at {screening.venue}
+		{attendees && <> with {attendees}</>}
+	</Fragment>
 </EventPreview>

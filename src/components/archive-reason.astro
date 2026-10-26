@@ -21,6 +21,10 @@ const {
 const formatter = new Intl.DateTimeFormat("en-US", {
 	dateStyle: "long",
 });
+
+const date = typeof archived === "string" ? new Date(archived) : archived;
+const datetime =
+	typeof archived === "string" ? archived : archived.toISOString();
 ---
 
 <NumberedSection
@@ -34,11 +38,11 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 			<WarningIcon />
 
 			<span>
-				This post was archived on <time
-					datetime={archived}
-					itemprop="dateModified">{formatter.format(archived)}</time
-				></span
-			>
+				This post was archived on{" "}
+				<time datetime={datetime} itemprop="dateModified">
+					{formatter.format(date)}
+				</time>
+			</span>
 		</p>
 
 		<p class="reason" set:html={archiveReason} />
