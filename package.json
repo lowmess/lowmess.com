@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^22.20.1",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "eslint": "^10.13.0",
     "eslint-plugin-astro": "^3.2.1",
@@ -55,7 +55,7 @@
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.1",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "typescript-eslint": "^8.71.2"
   },
   "lint-staged": {
