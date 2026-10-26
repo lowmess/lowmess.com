@@ -56,7 +56,7 @@
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.2"
+    "typescript-eslint": "^8.72.0"
   },
   "lint-staged": {
     "!(*.d.ts)*.{js,cjs,mjs,jsx,ts,tsx,astro}": [
