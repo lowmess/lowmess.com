@@ -24,8 +24,8 @@ const listFormatter = new Intl.ListFormat("en-us", {
 });
 
 const date = dateFormatter.format(concert.date);
-const openers = listFormatter.format(concert.openers);
-const attendees = listFormatter.format(concert.with);
+const openers = concert.openers && listFormatter.format(concert.openers);
+const attendees = concert.with && listFormatter.format(concert.with);
 ---
 
 <EventPreview data-event-type={EVENT_TYPES.Concert} {...props}>
@@ -35,7 +35,8 @@ const attendees = listFormatter.format(concert.with);
 
 	{openers && <Fragment slot="subtext">{openers}</Fragment>}
 
-	<Fragment slot="metadata"
-		>{date} at {concert.venue}{attendees && <> with {attendees}</>}</Fragment
-	>
+	<Fragment slot="metadata">
+		{date} at {concert.venue}
+		{attendees && <> with {attendees}</>}
+	</Fragment>
 </EventPreview>

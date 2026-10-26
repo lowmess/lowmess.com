@@ -1,5 +1,13 @@
 [
 	{
+		"id": 31,
+		"date": "2026-10-26",
+		"headliner": "Julia Jacklin",
+		"openers": ["Jordan Patterson"],
+		"venue": "Crystal Ballroom",
+		"with": ["Aaron"]
+	},
+	{
 		"id": 30,
 		"date": "2026-10-09",
 		"headliner": "The Format",
