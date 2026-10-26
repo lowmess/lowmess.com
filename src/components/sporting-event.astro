@@ -30,7 +30,8 @@ const listFormatter = new Intl.ListFormat("en-us", {
 });
 
 const date = dateFormatter.format(sportingEvent.date);
-const attendees = listFormatter.format(sportingEvent.with);
+const attendees =
+	sportingEvent.with && listFormatter.format(sportingEvent.with);
 
 let Icon = Trophy;
 
@@ -62,15 +63,12 @@ switch (sportingEvent.sport) {
 
 	{sportingEvent.title}
 
-	{
-		sportingEvent.tournament && (
-			<Fragment slot="subtext">{sportingEvent.tournament}</Fragment>
-		)
-	}
+	{sportingEvent.tournament && (
+		<Fragment slot="subtext">{sportingEvent.tournament}</Fragment>
+	)}
 
-	<Fragment slot="metadata"
-		>{date} at {sportingEvent.venue}{
-			attendees && <> with {attendees}</>
-		}</Fragment
-	>
+	<Fragment slot="metadata">
+		{date} at {sportingEvent.venue}
+		{attendees && <> with {attendees}</>}
+	</Fragment>
 </EventPreview>
