@@ -1,5 +1,13 @@
 [
 	{
+		"id": 32,
+		"date": "2026-10-30",
+		"headliner": "Gilla Band",
+		"openers": ["PISS"],
+		"venue": "Mississippi Studios",
+		"with": ["Tim"]
+	},
+	{
 		"id": 31,
 		"date": "2026-10-26",
 		"headliner": "Julia Jacklin",
