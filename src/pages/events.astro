@@ -16,7 +16,7 @@ const events = categorizeEvents([
 	...concerts.map((concert) => concert.data),
 	...screenings.map((screening) => screening.data),
 	...sportingEvents.map((sportingEvent) => sportingEvent.data),
-]);
+]).filter((event) => event.data.date.getTime() < new Date().getTime());
 const groupedEvents = groupEventsByMonth(events);
 ---
 
@@ -24,21 +24,19 @@ const groupedEvents = groupEventsByMonth(events);
 	<PageHeading data-event-heading>What I&apos;ve been up to lately</PageHeading>
 
 	<div class="years">
-		{
-			groupedEvents.map((year) => (
-				<div class="year">
-					<SectionHeading>{year.year}</SectionHeading>
+		{groupedEvents.map((year) => (
+			<div class="year">
+				<SectionHeading>{year.year}</SectionHeading>
 
-					{year.months.map((month) => (
-						<NumberedSection data-count={month.label.slice(0, 1)} class="month">
-							{month.events.map((event) => (
-								<Event event={event} />
-							))}
-						</NumberedSection>
-					))}
-				</div>
-			))
-		}
+				{year.months.map((month) => (
+					<NumberedSection data-count={month.label.slice(0, 1)} class="month">
+						{month.events.map((event) => (
+							<Event event={event} />
+						))}
+					</NumberedSection>
+				))}
+			</div>
+		))}
 	</div>
 </GlobalLayout>
 
