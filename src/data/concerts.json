@@ -1,5 +1,12 @@
 [
 	{
+		"id": 34,
+		"date": "2026-11-12",
+		"headliner": "Portugal. The Man with the Oregon Symphony",
+		"venue": "Arlene Schnitzer Concert Hall",
+		"with": ["Aaron"]
+	},
+	{
 		"id": 33,
 		"date": "2026-11-03",
 		"headliner": "Greg Freeman",
