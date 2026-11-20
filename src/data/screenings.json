@@ -1,5 +1,13 @@
 [
 	{
+		"id": 51,
+		"date": "2026-11-18",
+		"title": "Wild Horse Nine",
+		"format": "Digital",
+		"venue": "Living Room Theaters",
+		"link": "https://boxd.it/hoaLUR"
+	},
+	{
 		"id": 50,
 		"date": "2026-11-17",
 		"title": "Paper Tiger",
@@ -86,7 +94,7 @@
 		"date": "2026-08-27",
 		"title": "The End of Oak Street",
 		"format": "Digital",
-		"venue": "Living Room Portland",
+		"venue": "Living Room Theaters",
 		"link": "https://boxd.it/g3PQxt"
 	},
 	{
