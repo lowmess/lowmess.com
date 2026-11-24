@@ -1,5 +1,22 @@
 [
 	{
+		"id": 53,
+		"date": "2026-11-23",
+		"title": "It's a Mad, Mad, Mad, Mad World",
+		"format": "70mm",
+		"venue": "Hollywood Theatre",
+		"with": ["Tina"],
+		"link": "https://boxd.it/htick1"
+	},
+	{
+		"id": 52,
+		"date": "2026-11-22",
+		"title": "JFK",
+		"format": "35mm",
+		"venue": "Hollywood Theatre",
+		"link": "https://boxd.it/hslMHH"
+	},
+	{
 		"id": 51,
 		"date": "2026-11-18",
 		"title": "Wild Horse Nine",
